@@ -1,0 +1,168 @@
+name: PR Validation
+
+on:
+  pull_request:
+    branches:
+      - main
+      - partial
+      - full
+    types: [opened, synchronize, reopened, edited]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  validate-pr-title:
+    name: Validate PR Title (JIRA Ticket)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check PR title for JIRA ticket
+        run: |
+          PR_TITLE="${{ github.event.pull_request.title }}"
+          echo "PR Title: $PR_TITLE"
+          
+          # Check if PR title contains JIRA ticket pattern (MIS-XXXX)
+          if [[ ! "$PR_TITLE" =~ ^MIS-[0-9]+ ]] && [[ ! "$PR_TITLE" =~ MIS-[0-9]+ ]]; then
+            echo "::error::PR title must include a JIRA ticket number (e.g., 'MIS-8567: Add new feature')"
+            echo ""
+            echo "Valid examples:"
+            echo "  - MIS-8567: Add new Account field"
+            echo "  - MIS-8567 - Fix validation rule"
+            echo "  - [MIS-8567] Update page layout"
+            exit 1
+          fi
+          
+          # Extract ticket number for reference
+          TICKET=$(echo "$PR_TITLE" | grep -oE 'MIS-[0-9]+' | head -1)
+          echo "✓ Found JIRA ticket: $TICKET"
+          echo "JIRA_TICKET=$TICKET" >> $GITHUB_ENV
+
+  code-quality:
+    name: Code Quality Checks
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Check formatting (Prettier)
+        run: npm run prettier:verify
+
+      - name: Run ESLint
+        run: npm run lint
+        continue-on-error: true
+
+  lwc-tests:
+    name: LWC Unit Tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run LWC Jest tests
+        run: npm run test:unit -- --passWithNoTests
+
+  apex-validation:
+    name: Apex Validation
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Salesforce CLI
+        uses: salesforce/salesforce-cli-action@v1
+        with:
+          version: "2.x"
+
+      - name: Authenticate with target org
+        run: |
+          # Determine target org based on base branch
+          BASE_BRANCH="${{ github.event.pull_request.base.ref }}"
+          
+          if [[ "$BASE_BRANCH" == "partial" ]]; then
+            echo "Validating against Partial (QA) sandbox"
+            echo "${{ secrets.SFDX_AUTH_URL_PARTIAL }}" > sfdx_auth_url.txt
+          elif [[ "$BASE_BRANCH" == "full" ]]; then
+            echo "Validating against Full (UAT) sandbox"
+            echo "${{ secrets.SFDX_AUTH_URL_FULL }}" > sfdx_auth_url.txt
+          else
+            echo "Validating against Production"
+            echo "${{ secrets.SFDX_AUTH_URL_PRODUCTION }}" > sfdx_auth_url.txt
+          fi
+          
+          sf org login sfdx-url --sfdx-url-file sfdx_auth_url.txt --alias target-org --set-default
+          rm sfdx_auth_url.txt
+
+      - name: Validate deployment (check-only)
+        run: |
+          sf project deploy start \
+            --manifest manifest/package.xml \
+            --target-org target-org \
+            --dry-run \
+            --test-level RunLocalTests \
+            --wait 60
+
+      - name: Logout from org
+        if: always()
+        run: sf org logout --target-org target-org --no-prompt || true
+
+  pr-summary:
+    name: PR Summary
+    needs: [validate-pr-title, code-quality, lwc-tests, apex-validation]
+    runs-on: ubuntu-latest
+    if: always()
+    steps:
+      - name: Check job results
+        run: |
+          echo "## PR Validation Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          
+          if [[ "${{ needs.validate-pr-title.result }}" == "success" ]]; then
+            echo "✅ JIRA Ticket Validation: Passed" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "❌ JIRA Ticket Validation: Failed" >> $GITHUB_STEP_SUMMARY
+          fi
+          
+          if [[ "${{ needs.code-quality.result }}" == "success" ]]; then
+            echo "✅ Code Quality: Passed" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "❌ Code Quality: Failed" >> $GITHUB_STEP_SUMMARY
+          fi
+          
+          if [[ "${{ needs.lwc-tests.result }}" == "success" ]]; then
+            echo "✅ LWC Tests: Passed" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "❌ LWC Tests: Failed" >> $GITHUB_STEP_SUMMARY
+          fi
+          
+          if [[ "${{ needs.apex-validation.result }}" == "success" ]]; then
+            echo "✅ Apex Validation: Passed" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "❌ Apex Validation: Failed" >> $GITHUB_STEP_SUMMARY
+          fi
+
+      - name: Fail if any check failed
+        if: |
+          needs.validate-pr-title.result == 'failure' ||
+          needs.code-quality.result == 'failure' ||
+          needs.lwc-tests.result == 'failure' ||
+          needs.apex-validation.result == 'failure'
+        run: exit 1
