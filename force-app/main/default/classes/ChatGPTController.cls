@@ -178,8 +178,6 @@ public with sharing class ChatGPTController {
         );
         String responseText = (String) message.get('content');
 
-        // Add line breaks to the response text
-        //responseText = addLineBreaks(responseText);
         system.debug('response: ' + responseText);
         record.put('ChatGPT_Summary__c', responseText);
         record.put('Chat_Gpt_Last_Call_Datetime__c', Datetime.now());
