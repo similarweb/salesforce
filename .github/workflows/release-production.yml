@@ -108,8 +108,10 @@ jobs:
         with:
           node-version: "20"
 
-      - name: Setup Salesforce CLI
-        run: npm install -g @salesforce/cli
+      - name: Setup Salesforce CLI and Delta Plugin
+        run: |
+          npm install -g @salesforce/cli
+          echo 'y' | sf plugins install sfdx-git-delta
 
       - name: Authenticate with Production
         run: |
@@ -117,6 +119,22 @@ jobs:
           sf org login sfdx-url --sfdx-url-file sfdx_auth_url.txt --alias ${{ env.SALESFORCE_ORG_ALIAS }} --set-default
           rm sfdx_auth_url.txt
           echo "✓ Authenticated with Production"
+
+      - name: Generate Delta Package
+        id: delta
+        run: |
+          echo "Generating delta between main and HEAD"
+          mkdir -p delta
+          sf sgd source delta --from origin/main --to HEAD --output delta --source force-app
+          
+          if [ -f "delta/package/package.xml" ]; then
+            echo "## Delta Package Contents" >> $GITHUB_STEP_SUMMARY
+            cat delta/package/package.xml >> $GITHUB_STEP_SUMMARY
+            echo "use_delta=true" >> $GITHUB_OUTPUT
+          else
+            echo "No changes detected - using source directory"
+            echo "use_delta=false" >> $GITHUB_OUTPUT
+          fi
 
       - name: Validate deployment
         id: validate
@@ -127,9 +145,17 @@ jobs:
           echo "**JIRA Tickets:** ${{ needs.extract-info.outputs.jira_tickets }}" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           
+          USE_DELTA="${{ steps.delta.outputs.use_delta }}"
+          
+          if [ "$USE_DELTA" = "true" ] && [ -f "delta/package/package.xml" ]; then
+            MANIFEST="delta/package/package.xml"
+          else
+            MANIFEST="manifest/package.xml"
+          fi
+          
           # Run validation with all tests
           RESULT=$(sf project deploy start \
-            --manifest manifest/package.xml \
+            --manifest "$MANIFEST" \
             --target-org ${{ env.SALESFORCE_ORG_ALIAS }} \
             --dry-run \
             --test-level RunLocalTests \

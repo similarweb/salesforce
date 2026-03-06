@@ -35,8 +35,10 @@ jobs:
         with:
           node-version: "20"
 
-      - name: Setup Salesforce CLI
-        run: npm install -g @salesforce/cli
+      - name: Setup Salesforce CLI and Delta Plugin
+        run: |
+          npm install -g @salesforce/cli
+          echo 'y' | sf plugins install sfdx-git-delta
 
       - name: Authenticate with Partial Sandbox
         run: |
@@ -58,14 +60,52 @@ jobs:
             fi
           done
 
+      - name: Generate Delta Package
+        id: delta
+        run: |
+          # Get the commit before the push
+          FROM_REF="${{ github.event.before }}"
+          TO_REF="${{ github.sha }}"
+          
+          # Handle initial push or missing before ref
+          if [ -z "$FROM_REF" ] || [ "$FROM_REF" = "0000000000000000000000000000000000000000" ]; then
+            echo "Initial deployment or manual trigger - deploying source directory"
+            echo "use_delta=false" >> $GITHUB_OUTPUT
+          else
+            echo "Generating delta between $FROM_REF and $TO_REF"
+            mkdir -p delta
+            sf sgd source delta --from "$FROM_REF" --to "$TO_REF" --output delta --source force-app
+            
+            if [ -f "delta/package/package.xml" ]; then
+              echo "## Delta Package Contents" >> $GITHUB_STEP_SUMMARY
+              cat delta/package/package.xml >> $GITHUB_STEP_SUMMARY
+              echo "use_delta=true" >> $GITHUB_OUTPUT
+            else
+              echo "No changes detected in force-app"
+              echo "use_delta=false" >> $GITHUB_OUTPUT
+            fi
+          fi
+
       - name: Deploy to Partial Sandbox
         id: deploy
         run: |
-          DEPLOY_CMD="sf project deploy start \
-            --manifest manifest/package.xml \
-            --target-org ${{ env.SALESFORCE_ORG_ALIAS }} \
-            --test-level RunLocalTests \
-            --wait 60"
+          USE_DELTA="${{ steps.delta.outputs.use_delta }}"
+          
+          if [ "$USE_DELTA" = "true" ] && [ -f "delta/package/package.xml" ]; then
+            echo "Deploying delta changes only"
+            DEPLOY_CMD="sf project deploy start \
+              --manifest delta/package/package.xml \
+              --target-org ${{ env.SALESFORCE_ORG_ALIAS }} \
+              --test-level RunLocalTests \
+              --wait 60"
+          else
+            echo "Deploying from source directory"
+            DEPLOY_CMD="sf project deploy start \
+              --source-dir force-app \
+              --target-org ${{ env.SALESFORCE_ORG_ALIAS }} \
+              --test-level RunLocalTests \
+              --wait 60"
+          fi
           
           if [[ "${{ inputs.dry_run }}" == "true" ]]; then
             echo "Running validation only (dry run)"
