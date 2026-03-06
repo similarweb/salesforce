@@ -1,3 +1,4 @@
+<img width="50" height="50" alt="Screenshot 2026-03-06 at 13 47 32" src="https://github.com/user-attachments/assets/23fae142-9a09-4893-8294-7bc004c785ec" />
 Salesforce DX project containing the core Salesforce customizations for similarweb.
 
 ## Environments
