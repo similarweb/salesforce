@@ -1,0 +1,147 @@
+name: Deploy to Full (UAT)
+
+on:
+  push:
+    branches:
+      - full
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Validate only (no deployment)"
+        required: false
+        default: false
+        type: boolean
+
+concurrency:
+  group: deploy-full
+  cancel-in-progress: false
+
+env:
+  SALESFORCE_ORG_ALIAS: full-uat
+
+jobs:
+  deploy:
+    name: Deploy to Full Sandbox
+    runs-on: ubuntu-latest
+    environment: full
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Setup Salesforce CLI and Delta Plugin
+        run: |
+          npm install -g @salesforce/cli
+          echo 'y' | sf plugins install sfdx-git-delta
+
+      - name: Authenticate with Full Sandbox
+        run: |
+          echo "${{ secrets.SFDX_AUTH_URL_FULL }}" > sfdx_auth_url.txt
+          sf org login sfdx-url --sfdx-url-file sfdx_auth_url.txt --alias ${{ env.SALESFORCE_ORG_ALIAS }} --set-default
+          rm sfdx_auth_url.txt
+          echo "✓ Authenticated with Full (UAT) Sandbox"
+
+      - name: Extract JIRA tickets from commits
+        id: jira
+        run: |
+          # Get commits since last deployment tag or last 20 commits
+          TICKETS=$(git log --oneline -20 | grep -oE 'MIS-[0-9]+' | sort -u | tr '\n' ',' | sed 's/,$//')
+          echo "tickets=$TICKETS" >> $GITHUB_OUTPUT
+          echo "## JIRA Tickets in this deployment" >> $GITHUB_STEP_SUMMARY
+          echo "$TICKETS" | tr ',' '\n' | while read ticket; do
+            if [ -n "$ticket" ]; then
+              echo "- $ticket" >> $GITHUB_STEP_SUMMARY
+            fi
+          done
+
+      - name: Generate Delta Package
+        id: delta
+        run: |
+          FROM_REF="${{ github.event.before }}"
+          TO_REF="${{ github.sha }}"
+          
+          if [ -z "$FROM_REF" ] || [ "$FROM_REF" = "0000000000000000000000000000000000000000" ]; then
+            echo "Initial deployment or manual trigger - deploying source directory"
+            echo "use_delta=false" >> $GITHUB_OUTPUT
+          else
+            echo "Generating delta between $FROM_REF and $TO_REF"
+            mkdir -p delta
+            sf sgd source delta --from "$FROM_REF" --to "$TO_REF" --output delta --source force-app
+            
+            if [ -f "delta/package/package.xml" ]; then
+              echo "## Delta Package Contents" >> $GITHUB_STEP_SUMMARY
+              cat delta/package/package.xml >> $GITHUB_STEP_SUMMARY
+              echo "use_delta=true" >> $GITHUB_OUTPUT
+            else
+              echo "No changes detected in force-app"
+              echo "use_delta=false" >> $GITHUB_OUTPUT
+            fi
+          fi
+
+      - name: Deploy to Full Sandbox
+        id: deploy
+        run: |
+          USE_DELTA="${{ steps.delta.outputs.use_delta }}"
+          
+          if [ "$USE_DELTA" = "true" ] && [ -f "delta/package/package.xml" ]; then
+            echo "Deploying delta changes only"
+            DEPLOY_CMD="sf project deploy start \
+              --manifest delta/package/package.xml \
+              --target-org ${{ env.SALESFORCE_ORG_ALIAS }} \
+              --test-level RunLocalTests \
+              --wait 60"
+          else
+            echo "Deploying from source directory"
+            DEPLOY_CMD="sf project deploy start \
+              --source-dir force-app \
+              --target-org ${{ env.SALESFORCE_ORG_ALIAS }} \
+              --test-level RunLocalTests \
+              --wait 60"
+          fi
+          
+          if [[ "${{ inputs.dry_run }}" == "true" ]]; then
+            echo "Running validation only (dry run)"
+            DEPLOY_CMD="$DEPLOY_CMD --dry-run"
+          fi
+          
+          $DEPLOY_CMD
+
+      - name: Deployment Summary
+        if: success()
+        run: |
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "## Deployment Status" >> $GITHUB_STEP_SUMMARY
+          echo "✅ Successfully deployed to **Full (UAT) Sandbox**" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Commit:** ${{ github.sha }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Branch:** ${{ github.ref_name }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Triggered by:** ${{ github.actor }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Timestamp:** $(date -u +'%Y-%m-%d %H:%M:%S UTC')" >> $GITHUB_STEP_SUMMARY
+
+      - name: Logout from org
+        if: always()
+        run: sf org logout --target-org ${{ env.SALESFORCE_ORG_ALIAS }} --no-prompt || true
+
+  notify-failure:
+    name: Notify on Failure
+    needs: deploy
+    runs-on: ubuntu-latest
+    if: failure()
+    steps:
+      - name: Create failure summary
+        run: |
+          echo "## ❌ Deployment Failed" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Deployment to **Full (UAT) Sandbox** failed." >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Commit:** ${{ github.sha }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Branch:** ${{ github.ref_name }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Triggered by:** ${{ github.actor }}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Please check the workflow logs for details." >> $GITHUB_STEP_SUMMARY

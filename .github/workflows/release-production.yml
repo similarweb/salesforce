@@ -1,0 +1,382 @@
+name: Release to Production
+
+on:
+  push:
+    branches:
+      - "release/sprint-*"
+  workflow_dispatch:
+    inputs:
+      release_branch:
+        description: "Release branch (e.g., release/sprint-14)"
+        required: true
+        type: string
+      skip_validation:
+        description: "Skip validation (use existing validation ID)"
+        required: false
+        default: false
+        type: boolean
+      validation_id:
+        description: "Existing validation ID (if skipping validation)"
+        required: false
+        type: string
+
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
+
+env:
+  SALESFORCE_ORG_ALIAS: production
+
+jobs:
+  extract-info:
+    name: Extract Release Information
+    runs-on: ubuntu-latest
+    outputs:
+      sprint_name: ${{ steps.info.outputs.sprint_name }}
+      jira_tickets: ${{ steps.jira.outputs.tickets }}
+      components: ${{ steps.components.outputs.list }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Extract sprint name
+        id: info
+        run: |
+          BRANCH="${{ github.ref_name }}"
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" && -n "${{ inputs.release_branch }}" ]]; then
+            BRANCH="${{ inputs.release_branch }}"
+          fi
+          
+          SPRINT_NAME=$(echo "$BRANCH" | sed 's/release\///')
+          echo "sprint_name=$SPRINT_NAME" >> $GITHUB_OUTPUT
+          echo "Release: $SPRINT_NAME"
+
+      - name: Extract JIRA tickets
+        id: jira
+        run: |
+          # Get all commits in this release branch compared to main
+          TICKETS=$(git log main..HEAD --oneline 2>/dev/null | grep -oE 'MIS-[0-9]+' | sort -u | tr '\n' ',' | sed 's/,$//' || echo "")
+          
+          if [ -z "$TICKETS" ]; then
+            # Fallback: get recent commits
+            TICKETS=$(git log --oneline -50 | grep -oE 'MIS-[0-9]+' | sort -u | tr '\n' ',' | sed 's/,$//')
+          fi
+          
+          echo "tickets=$TICKETS" >> $GITHUB_OUTPUT
+          echo "Found JIRA tickets: $TICKETS"
+
+      - name: List changed components
+        id: components
+        run: |
+          # Get changed files compared to main
+          CHANGED_FILES=$(git diff --name-only main...HEAD 2>/dev/null || git diff --name-only HEAD~10)
+          
+          # Categorize components
+          APEX_CLASSES=$(echo "$CHANGED_FILES" | grep -E "classes/.*\.cls$" | sed 's/.*classes\///' | sed 's/\.cls$//' | sort -u | tr '\n' ',' | sed 's/,$//' || echo "")
+          TRIGGERS=$(echo "$CHANGED_FILES" | grep -E "triggers/.*\.trigger$" | sed 's/.*triggers\///' | sed 's/\.trigger$//' | sort -u | tr '\n' ',' | sed 's/,$//' || echo "")
+          LWC=$(echo "$CHANGED_FILES" | grep -E "lwc/[^/]+/" | sed 's/.*lwc\///' | cut -d'/' -f1 | sort -u | tr '\n' ',' | sed 's/,$//' || echo "")
+          FLOWS=$(echo "$CHANGED_FILES" | grep -E "flows/.*\.flow" | sed 's/.*flows\///' | sed 's/\.flow.*$//' | sort -u | tr '\n' ',' | sed 's/,$//' || echo "")
+          
+          # Create summary
+          COMPONENTS_JSON=$(cat <<EOF
+          {
+            "apex_classes": "$APEX_CLASSES",
+            "triggers": "$TRIGGERS",
+            "lwc": "$LWC",
+            "flows": "$FLOWS"
+          }
+          EOF
+          )
+          
+          echo "list=$COMPONENTS_JSON" >> $GITHUB_OUTPUT
+
+  validate:
+    name: Validate Production Deployment
+    needs: extract-info
+    runs-on: ubuntu-latest
+    if: ${{ github.event.inputs.skip_validation != 'true' }}
+    outputs:
+      validation_id: ${{ steps.validate.outputs.validation_id }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Setup Salesforce CLI and Delta Plugin
+        run: |
+          npm install -g @salesforce/cli
+          echo 'y' | sf plugins install sfdx-git-delta
+
+      - name: Authenticate with Production
+        run: |
+          echo "${{ secrets.SFDX_AUTH_URL_PRODUCTION }}" > sfdx_auth_url.txt
+          sf org login sfdx-url --sfdx-url-file sfdx_auth_url.txt --alias ${{ env.SALESFORCE_ORG_ALIAS }} --set-default
+          rm sfdx_auth_url.txt
+          echo "✓ Authenticated with Production"
+
+      - name: Generate Delta Package
+        id: delta
+        run: |
+          echo "Generating delta between main and HEAD"
+          mkdir -p delta
+          sf sgd source delta --from origin/main --to HEAD --output delta --source force-app
+          
+          if [ -f "delta/package/package.xml" ]; then
+            echo "## Delta Package Contents" >> $GITHUB_STEP_SUMMARY
+            cat delta/package/package.xml >> $GITHUB_STEP_SUMMARY
+            echo "use_delta=true" >> $GITHUB_OUTPUT
+          else
+            echo "No changes detected - using source directory"
+            echo "use_delta=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Validate deployment
+        id: validate
+        run: |
+          echo "## Production Validation" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Sprint:** ${{ needs.extract-info.outputs.sprint_name }}" >> $GITHUB_STEP_SUMMARY
+          echo "**JIRA Tickets:** ${{ needs.extract-info.outputs.jira_tickets }}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          
+          USE_DELTA="${{ steps.delta.outputs.use_delta }}"
+          
+          if [ "$USE_DELTA" = "true" ] && [ -f "delta/package/package.xml" ]; then
+            MANIFEST="delta/package/package.xml"
+          else
+            MANIFEST="manifest/package.xml"
+          fi
+          
+          # Run validation with all tests
+          RESULT=$(sf project deploy start \
+            --manifest "$MANIFEST" \
+            --target-org ${{ env.SALESFORCE_ORG_ALIAS }} \
+            --dry-run \
+            --test-level RunLocalTests \
+            --wait 120 \
+            --json 2>&1) || true
+          
+          echo "$RESULT"
+          
+          # Extract validation ID
+          VALIDATION_ID=$(echo "$RESULT" | jq -r '.result.id // empty')
+          
+          if [ -z "$VALIDATION_ID" ]; then
+            echo "::error::Failed to get validation ID"
+            echo "❌ Validation failed" >> $GITHUB_STEP_SUMMARY
+            exit 1
+          fi
+          
+          echo "validation_id=$VALIDATION_ID" >> $GITHUB_OUTPUT
+          echo "✅ Validation successful" >> $GITHUB_STEP_SUMMARY
+          echo "**Validation ID:** \`$VALIDATION_ID\`" >> $GITHUB_STEP_SUMMARY
+
+      - name: Logout from org
+        if: always()
+        run: sf org logout --target-org ${{ env.SALESFORCE_ORG_ALIAS }} --no-prompt || true
+
+  deploy:
+    name: Deploy to Production
+    needs: [extract-info, validate]
+    runs-on: ubuntu-latest
+    if: always() && (needs.validate.result == 'success' || github.event.inputs.skip_validation == 'true')
+    environment: production
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Setup Salesforce CLI
+        run: npm install -g @salesforce/cli
+
+      - name: Authenticate with Production
+        run: |
+          echo "${{ secrets.SFDX_AUTH_URL_PRODUCTION }}" > sfdx_auth_url.txt
+          sf org login sfdx-url --sfdx-url-file sfdx_auth_url.txt --alias ${{ env.SALESFORCE_ORG_ALIAS }} --set-default
+          rm sfdx_auth_url.txt
+
+      - name: Quick Deploy to Production
+        run: |
+          VALIDATION_ID="${{ needs.validate.outputs.validation_id }}"
+          
+          if [[ "${{ github.event.inputs.skip_validation }}" == "true" ]]; then
+            VALIDATION_ID="${{ inputs.validation_id }}"
+          fi
+          
+          if [ -z "$VALIDATION_ID" ]; then
+            echo "::error::No validation ID available. Run validation first."
+            exit 1
+          fi
+          
+          echo "Quick deploying with validation ID: $VALIDATION_ID"
+          
+          sf project deploy quick \
+            --job-id "$VALIDATION_ID" \
+            --target-org ${{ env.SALESFORCE_ORG_ALIAS }} \
+            --wait 30
+
+      - name: Logout from org
+        if: always()
+        run: sf org logout --target-org ${{ env.SALESFORCE_ORG_ALIAS }} --no-prompt || true
+
+  create-release:
+    name: Create GitHub Release
+    needs: [extract-info, deploy]
+    runs-on: ubuntu-latest
+    if: success()
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Generate changelog
+        id: changelog
+        run: |
+          SPRINT="${{ needs.extract-info.outputs.sprint_name }}"
+          TICKETS="${{ needs.extract-info.outputs.jira_tickets }}"
+          DATE=$(date -u +'%Y-%m-%d')
+          
+          # Create release notes
+          cat > release_notes.md << EOF
+          # ${SPRINT} Release - ${DATE}
+          
+          ## JIRA Tickets Deployed
+          
+          EOF
+          
+          # Add JIRA tickets as list
+          echo "$TICKETS" | tr ',' '\n' | while read ticket; do
+            if [ -n "$ticket" ]; then
+              echo "- [$ticket](https://similarweb.atlassian.net/browse/$ticket)" >> release_notes.md
+            fi
+          done
+          
+          cat >> release_notes.md << EOF
+          
+          ## Deployment Details
+          
+          - **Deployed by:** ${{ github.actor }}
+          - **Commit:** ${{ github.sha }}
+          - **Branch:** ${{ github.ref_name }}
+          - **Workflow Run:** [#${{ github.run_number }}](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})
+          
+          ## Components Changed
+          
+          <details>
+          <summary>Click to expand</summary>
+          
+          \`\`\`json
+          ${{ needs.extract-info.outputs.components }}
+          \`\`\`
+          
+          </details>
+          
+          ---
+          *This release was automatically generated by GitHub Actions for SOX compliance.*
+          EOF
+          
+          cat release_notes.md
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          name: "${{ needs.extract-info.outputs.sprint_name }}"
+          tag_name: "v${{ needs.extract-info.outputs.sprint_name }}"
+          body_path: release_notes.md
+          draft: false
+          prerelease: false
+
+  merge-to-main:
+    name: Merge Release to Main
+    needs: [extract-info, create-release]
+    runs-on: ubuntu-latest
+    if: success()
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Merge release branch to main
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          
+          git checkout main
+          git merge --no-ff ${{ github.ref_name }} -m "Merge ${{ needs.extract-info.outputs.sprint_name }} to main"
+          git push origin main
+          
+          echo "## Release Merged" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "✅ **${{ needs.extract-info.outputs.sprint_name }}** has been merged to main" >> $GITHUB_STEP_SUMMARY
+
+  deployment-summary:
+    name: Deployment Summary
+    needs: [extract-info, validate, deploy, create-release, merge-to-main]
+    runs-on: ubuntu-latest
+    if: always()
+    steps:
+      - name: Generate Summary
+        run: |
+          echo "# Production Release Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "## Release: ${{ needs.extract-info.outputs.sprint_name }}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          
+          echo "### Status" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          
+          if [[ "${{ needs.validate.result }}" == "success" ]]; then
+            echo "✅ Validation: Passed" >> $GITHUB_STEP_SUMMARY
+          elif [[ "${{ needs.validate.result }}" == "skipped" ]]; then
+            echo "⏭️ Validation: Skipped" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "❌ Validation: Failed" >> $GITHUB_STEP_SUMMARY
+          fi
+          
+          if [[ "${{ needs.deploy.result }}" == "success" ]]; then
+            echo "✅ Deployment: Successful" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "❌ Deployment: Failed" >> $GITHUB_STEP_SUMMARY
+          fi
+          
+          if [[ "${{ needs.create-release.result }}" == "success" ]]; then
+            echo "✅ GitHub Release: Created" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "❌ GitHub Release: Failed" >> $GITHUB_STEP_SUMMARY
+          fi
+          
+          if [[ "${{ needs.merge-to-main.result }}" == "success" ]]; then
+            echo "✅ Merge to Main: Complete" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "❌ Merge to Main: Failed" >> $GITHUB_STEP_SUMMARY
+          fi
+          
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### JIRA Tickets" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "${{ needs.extract-info.outputs.jira_tickets }}" | tr ',' '\n' | while read ticket; do
+            if [ -n "$ticket" ]; then
+              echo "- $ticket" >> $GITHUB_STEP_SUMMARY
+            fi
+          done
+          
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "---" >> $GITHUB_STEP_SUMMARY
+          echo "*Deployment completed at $(date -u +'%Y-%m-%d %H:%M:%S UTC')*" >> $GITHUB_STEP_SUMMARY

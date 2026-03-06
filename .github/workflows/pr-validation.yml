@@ -1,0 +1,145 @@
+name: PR Validation
+
+on:
+  pull_request:
+    branches:
+      - main
+      - partial
+      - full
+    types: [opened, synchronize, reopened, edited]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  validate-pr-title:
+    name: Validate PR Title (JIRA Ticket)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check PR title for JIRA ticket
+        run: |
+          PR_TITLE="${{ github.event.pull_request.title }}"
+          echo "PR Title: $PR_TITLE"
+          
+          # Check if PR title contains JIRA ticket pattern (MIS-XXXX)
+          if [[ ! "$PR_TITLE" =~ ^MIS-[0-9]+ ]] && [[ ! "$PR_TITLE" =~ MIS-[0-9]+ ]]; then
+            echo "::error::PR title must include a JIRA ticket number (e.g., 'MIS-8567: Add new feature')"
+            echo ""
+            echo "Valid examples:"
+            echo "  - MIS-8567: Add new Account field"
+            echo "  - MIS-8567 - Fix validation rule"
+            echo "  - [MIS-8567] Update page layout"
+            exit 1
+          fi
+          
+          # Extract ticket number for reference
+          TICKET=$(echo "$PR_TITLE" | grep -oE 'MIS-[0-9]+' | head -1)
+          echo "✓ Found JIRA ticket: $TICKET"
+          echo "JIRA_TICKET=$TICKET" >> $GITHUB_ENV
+
+  apex-validation:
+    name: Apex Validation
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Setup Salesforce CLI and Delta Plugin
+        run: |
+          npm install -g @salesforce/cli
+          echo 'y' | sf plugins install sfdx-git-delta
+
+      - name: Authenticate with target org
+        run: |
+          BASE_BRANCH="${{ github.event.pull_request.base.ref }}"
+          
+          if [[ "$BASE_BRANCH" == "partial" ]]; then
+            echo "Validating against Partial (QA) sandbox"
+            echo "${{ secrets.SFDX_AUTH_URL_PARTIAL }}" > sfdx_auth_url.txt
+          elif [[ "$BASE_BRANCH" == "full" ]]; then
+            echo "Validating against Full (UAT) sandbox"
+            echo "${{ secrets.SFDX_AUTH_URL_FULL }}" > sfdx_auth_url.txt
+          else
+            echo "Validating against Production"
+            echo "${{ secrets.SFDX_AUTH_URL_PRODUCTION }}" > sfdx_auth_url.txt
+          fi
+          
+          sf org login sfdx-url --sfdx-url-file sfdx_auth_url.txt --alias target-org --set-default
+          rm sfdx_auth_url.txt
+
+      - name: Generate Delta Package
+        id: delta
+        run: |
+          BASE_BRANCH="${{ github.event.pull_request.base.ref }}"
+          echo "Generating delta between origin/$BASE_BRANCH and HEAD"
+          
+          mkdir -p delta
+          sf sgd source delta --from "origin/$BASE_BRANCH" --to HEAD --output delta --source force-app
+          
+          if [ -f "delta/package/package.xml" ]; then
+            echo "## Delta Package Contents" >> $GITHUB_STEP_SUMMARY
+            cat delta/package/package.xml >> $GITHUB_STEP_SUMMARY
+            echo "use_delta=true" >> $GITHUB_OUTPUT
+          else
+            echo "No Salesforce metadata changes detected"
+            echo "use_delta=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Validate deployment (check-only)
+        run: |
+          USE_DELTA="${{ steps.delta.outputs.use_delta }}"
+          
+          if [ "$USE_DELTA" = "true" ] && [ -f "delta/package/package.xml" ]; then
+            echo "Validating delta changes"
+            # Use NoTestRun for PR validation - actual deployment will run tests
+            sf project deploy start \
+              --manifest delta/package/package.xml \
+              --target-org target-org \
+              --dry-run \
+              --test-level NoTestRun \
+              --wait 60
+          else
+            echo "No Salesforce metadata changes to validate"
+            echo "✅ Skipping validation - no metadata changes" >> $GITHUB_STEP_SUMMARY
+          fi
+
+      - name: Logout from org
+        if: always()
+        run: sf org logout --target-org target-org --no-prompt || true
+
+  pr-summary:
+    name: PR Summary
+    needs: [validate-pr-title, apex-validation]
+    runs-on: ubuntu-latest
+    if: always()
+    steps:
+      - name: Check job results
+        run: |
+          echo "## PR Validation Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          
+          if [[ "${{ needs.validate-pr-title.result }}" == "success" ]]; then
+            echo "✅ JIRA Ticket Validation: Passed" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "❌ JIRA Ticket Validation: Failed" >> $GITHUB_STEP_SUMMARY
+          fi
+          
+          if [[ "${{ needs.apex-validation.result }}" == "success" ]]; then
+            echo "✅ Apex Validation: Passed" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "❌ Apex Validation: Failed" >> $GITHUB_STEP_SUMMARY
+          fi
+
+      - name: Fail if any check failed
+        if: |
+          needs.validate-pr-title.result == 'failure' ||
+          needs.apex-validation.result == 'failure'
+        run: exit 1

@@ -1,0 +1,92 @@
+name: "SFDX Deploy"
+description: "Reusable action for Salesforce deployments"
+
+inputs:
+  auth_url:
+    description: "SFDX Auth URL for the target org"
+    required: true
+  org_alias:
+    description: "Alias for the Salesforce org"
+    required: true
+    default: "target-org"
+  manifest_path:
+    description: "Path to the package.xml manifest file"
+    required: false
+    default: "manifest/package.xml"
+  test_level:
+    description: "Test level for deployment (NoTestRun, RunLocalTests, RunAllTestsInOrg)"
+    required: false
+    default: "RunLocalTests"
+  dry_run:
+    description: "Validate only without deploying"
+    required: false
+    default: "false"
+  wait_minutes:
+    description: "Minutes to wait for deployment to complete"
+    required: false
+    default: "60"
+
+outputs:
+  deployment_id:
+    description: "The Salesforce deployment ID"
+    value: ${{ steps.deploy.outputs.deployment_id }}
+  status:
+    description: "Deployment status (success/failure)"
+    value: ${{ steps.deploy.outputs.status }}
+
+runs:
+  using: "composite"
+  steps:
+    - name: Setup Salesforce CLI
+      shell: bash
+      run: npm install -g @salesforce/cli
+
+    - name: Authenticate with Salesforce
+      shell: bash
+      run: |
+        echo "${{ inputs.auth_url }}" > /tmp/sfdx_auth_url.txt
+        sf org login sfdx-url --sfdx-url-file /tmp/sfdx_auth_url.txt --alias ${{ inputs.org_alias }} --set-default
+        rm /tmp/sfdx_auth_url.txt
+        echo "✓ Authenticated with Salesforce org: ${{ inputs.org_alias }}"
+
+    - name: Deploy to Salesforce
+      id: deploy
+      shell: bash
+      run: |
+        DEPLOY_CMD="sf project deploy start \
+          --manifest ${{ inputs.manifest_path }} \
+          --target-org ${{ inputs.org_alias }} \
+          --test-level ${{ inputs.test_level }} \
+          --wait ${{ inputs.wait_minutes }}"
+        
+        if [[ "${{ inputs.dry_run }}" == "true" ]]; then
+          echo "Running validation only (dry run)"
+          DEPLOY_CMD="$DEPLOY_CMD --dry-run"
+        fi
+        
+        # Run deployment and capture output
+        set +e
+        RESULT=$($DEPLOY_CMD --json 2>&1)
+        EXIT_CODE=$?
+        set -e
+        
+        echo "$RESULT"
+        
+        # Extract deployment ID
+        DEPLOYMENT_ID=$(echo "$RESULT" | jq -r '.result.id // empty')
+        echo "deployment_id=$DEPLOYMENT_ID" >> $GITHUB_OUTPUT
+        
+        if [ $EXIT_CODE -eq 0 ]; then
+          echo "status=success" >> $GITHUB_OUTPUT
+          echo "✅ Deployment successful"
+        else
+          echo "status=failure" >> $GITHUB_OUTPUT
+          echo "❌ Deployment failed"
+          exit $EXIT_CODE
+        fi
+
+    - name: Logout from Salesforce
+      if: always()
+      shell: bash
+      run: |
+        sf org logout --target-org ${{ inputs.org_alias }} --no-prompt || true
