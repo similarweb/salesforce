@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Billing_Accounts_Report_Link__c</fullName>
+    <description>MIS-5869</description>
+    <externalId>false</externalId>
+    <formula>BR()+HYPERLINK(LEFT($Api.Partner_Server_URL_610, FIND( &apos;/services&apos;, $Api.Partner_Server_URL_610))&amp;&apos;lightning/r/Report/00OQB000002C9j72AC/view&apos;,
+										IMAGE(&quot;https://similarweb--c.vf.force.com/resource/1726747817000/Banner_Request_Billing_Accounts_Report?&quot;, &quot;Alt_Text&quot;), &quot;Hyperlink Tooltip&quot;)</formula>
+    <label>Billing Accounts Report Link</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

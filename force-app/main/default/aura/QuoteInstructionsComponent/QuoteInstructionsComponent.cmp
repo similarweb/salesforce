@@ -1,0 +1,48 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,force:hasSObjectName,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" controller="QuoteInstructionsComponentController">
+    <aura:attribute name="quoteStatus" type="String"/>
+    <aura:attribute name="quoteType" type="String"/>
+    <aura:attribute name="paymentMethod" type="String"/>
+    <aura:attribute name="paymentType" type="String"/>
+    <aura:attribute name="businessType" type="String"/>
+    <aura:attribute name="renewalConf" type="String"/>
+    <aura:attribute name="instructionsArray" type="Object[]"/>  
+    <aura:attribute name="record" type="Object"/>
+    <aura:attribute name="error" type="String"/>  
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+    <force:recordData aura:id="recordLoader" 
+                      recordId="{!v.recordId}" 
+					  targetRecord="{!v.record}"
+					  fields="zqu_Quote_Status__c,zqu__SubscriptionType__c,document_format__c,payment_frequency1__c,zqu__PaymentTerm__c,Irregular_Frequency__c,Payment_Type__c,zqu__PaymentMethod__c,zqu__QuoteBusinessType__c,Renewal_by_client_confirmation__c"
+                      targetFields="zqu_Quote_Status__c,zqu__SubscriptionType__c,document_format__c,payment_frequency1__c,zqu__PaymentTerm__c,Irregular_Frequency__c,Payment_Type__c,zqu__PaymentMethod__c,zqu__QuoteBusinessType__c,Renewal_by_client_confirmation__c"
+                      targetError="{!v.error}"
+                      recordUpdated="{!c.recordUpdated}"/>
+    <div class="quoteRecord slds-p-left_large">
+        <!-- <div class="slds-text-body_small">
+            Quote status: {!v.quoteStatus}
+        </div> -->
+        <div class="slds-text-heading_medium slds-text-title_bold slds-p-top_small slds-p-bottom_xx-small" style="font-size: 1rem;">
+            Instructions
+        </div>
+        <div>
+            <aura:iteration items="{!v.instructionsArray}" var="instruction">
+                <aura:if isTrue="{!equals(v.paymentMethod, 'Other')}">
+
+                    <aura:if isTrue="{!and(and(equals(instruction.Quote_Type__c,v.quoteType),equals(instruction.Quote_Status__c,v.quoteStatus)),and(equals(instruction.Payment_Method__c,v.paymentMethod),equals(instruction.Payment_Type__c,v.paymentType)))&amp;&amp;equals(instruction.Renewal_by_client_confirmation__c,v.renewalConf)&amp;&amp;or(notequals(instruction.Quote_Type__c,'Amend Subscription'),equals(v.businessType,instruction.QuoteBusinessType__c))}">
+                        <div class="slds-text-body_small defTextUp">
+                            <aura:unescapedHtml value="{!instruction.Instructions__c}"/>
+                        </div>
+                    </aura:if>
+                    <aura:set attribute="else">
+                        <aura:if isTrue="{!and(and(equals(instruction.Quote_Type__c,v.quoteType),equals(instruction.Quote_Status__c,v.quoteStatus)),equals(instruction.Payment_Method__c,v.paymentMethod))&amp;&amp;or(notequals(instruction.Quote_Type__c,'Amend Subscription'),equals(v.businessType,instruction.QuoteBusinessType__c))}">
+                            <div class="slds-text-body_small defTextUp">
+                                <aura:unescapedHtml value="{!instruction.Instructions__c}"/>
+                            </div>
+                        </aura:if>
+                    </aura:set>
+                </aura:if>
+            </aura:iteration>
+        </div>
+        <br/>
+    </div>
+</aura:component>

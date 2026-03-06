@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Your_Closed_Won_Opp_is_Incomplete</name>
+        <label>Your Closed Won Opp is Incomplete</label>
+        <locationX>313</locationX>
+        <locationY>403</locationY>
+        <actionName>Opportunity.YourClosedWonOppisIncomplete</actionName>
+        <actionType>emailAlert</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>Opportunity.YourClosedWonOppisIncomplete</nameSegment>
+    </actionCalls>
+    <apiVersion>56.0</apiVersion>
+    <description>MIS-6980
+Migrated from WFR - Email alert for quote not submitted	
+MIS - 777</description>
+    <environments>Default</environments>
+    <interviewLabel>Opportunity - Record Triggered Flow - Before Save {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Opportunity - Time-based - Email alert for quote not submitted</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>410</locationX>
+        <locationY>48</locationY>
+        <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+        <filterFormula>AND(
+NOT(ISBLANK({!$Record.Quote_Not_Submitted_Timestamp__c} )),
+ISPICKVAL({!$Record.Opp_Reviewed__c},&apos;Pending Rep&apos;))</filterFormula>
+        <object>Opportunity</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <scheduledPaths>
+            <name>Email_alert_for_quote_not_submitted</name>
+            <connector>
+                <targetReference>Your_Closed_Won_Opp_is_Incomplete</targetReference>
+            </connector>
+            <label>Email alert for quote not submitted</label>
+            <offsetNumber>1</offsetNumber>
+            <offsetUnit>Hours</offsetUnit>
+            <recordField>Quote_Not_Submitted_Timestamp__c</recordField>
+            <timeSource>RecordField</timeSource>
+        </scheduledPaths>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

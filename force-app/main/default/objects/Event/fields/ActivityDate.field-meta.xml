@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ActivityDate</fullName>
+    <description>Discovey where is used:
+https://docs.google.com/spreadsheets/d/1QQ-dy28DFsgyDfjZGk0h_wOAtOm3yc1kro6MBRh4gpQ/edit?gid=0#gid=0</description>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+</CustomField>

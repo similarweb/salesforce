@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>accounts31</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>ACCOUNT.CREATED_DATE</columns>
+    <columns>Wolves_Account__c</columns>
+    <columns>Last_month_average_DAU_account_total__c</columns>
+    <columns>Wolves_Last_Month_Payments__c</columns>
+    <columns>fr_Next_Renewal_Date__c</columns>
+    <columns>Wolves_Status__c</columns>
+    <columns>CORE.USERS.LAST_NAME</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>ACCOUNT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Account.Wolves</value>
+    </filters>
+    <filters>
+        <field>Wolves_Status__c</field>
+        <operation>equals</operation>
+        <value>Active</value>
+    </filters>
+    <label>Active Accounts - Partners</label>
+</ListView>

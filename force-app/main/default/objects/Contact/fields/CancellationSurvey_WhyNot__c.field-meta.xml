@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CancellationSurvey_WhyNot__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(FIND( &quot;Why not?&quot;, Survey_reason_for_cancelling__c )=0, 
+&quot;&quot;, 
+IF(FIND(&apos;&quot;,&quot;&apos;,Survey_reason_for_cancelling__c,FIND( &quot;Why not?&quot;, Survey_reason_for_cancelling__c )+5 )=0, 
+RIGHT(LEFT(Survey_reason_for_cancelling__c, LEN(Survey_reason_for_cancelling__c)-2), 
+LEN(Survey_reason_for_cancelling__c)- FIND(&quot;Why not?&quot;,Survey_reason_for_cancelling__c)-12) 
+, 
+RIGHT(LEFT(Survey_reason_for_cancelling__c , FIND(&apos;&quot;,&quot;&apos;,Survey_reason_for_cancelling__c,FIND( &quot;Why not?&quot;, Survey_reason_for_cancelling__c )+8 )-2), 
+FIND(&apos;&quot;,&quot;&apos;,Survey_reason_for_cancelling__c,FIND( &quot;Why not?&quot;, Survey_reason_for_cancelling__c )+8 )-FIND( &quot;Why not?&quot;, Survey_reason_for_cancelling__c )-12) 
+))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>CancellationSurvey WhyNot</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

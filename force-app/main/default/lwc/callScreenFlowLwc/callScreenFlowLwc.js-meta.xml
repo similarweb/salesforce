@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>63.0</apiVersion>
+    <isExposed>true</isExposed>
+
+    <targets>
+        <target>lightning__AppPage</target>
+        <target>lightning__RecordPage</target>
+        <target>lightning__HomePage</target>
+        <target>lightning__FlowScreen</target>
+    </targets>
+
+    <targetConfigs>
+
+        <!-- Config for Record/App/Home Pages -->
+        <targetConfig targets="lightning__RecordPage, lightning__AppPage, lightning__HomePage">
+            <property name="flowApiName" type="String" label="Flow API Name" required="true"/>
+            <property name="label" type="String" label="Button Label"/>
+            <property name="launchMode" type="String" label="Launch Mode (modal or inline)" default="inline"/>
+            <property name="buttonClass" type="String" label="CSS Class (optional)" description="Choose between brand, action, or subtle style" default="brand"/>
+            <property name="autoLaunch" type="Boolean" label="Auto Launch Flow?" description="Automatically launch the flow on load" default="false"/>
+            <property name="iconName" type="String" label="Icon (optional)" description="Enter a standard SFDC icon name (e.g. utility:forward)"/>
+            <property name="iconPosition" type="String" label="Icon Position" description="left or right"/>
+            <property name="variant" type="String" label="Variant" description="e.g. brand, neutral"/>
+        </targetConfig>
+
+        <!-- Config for Flow Screen Usage -->
+        <targetConfig targets="lightning__FlowScreen">
+            <property name="recordId" type="String" label="Record Id" role="inputOnly"/>
+            <property name="flowApiName" type="String" label="Flow API Name" required="true" role="inputOnly"/>
+            <property name="label" type="String" label="Button Label" role="inputOnly"/>
+            <property name="launchMode" type="String" label="Launch Mode (modal or inline)" default="inline" role="inputOnly"/>
+            <property name="buttonStyle" type="String" label="CSS Class For button  (optional)" role="inputOnly" description="Choose between brand, action, or subtle style" default="brand"/>
+            <property name="buttonClass" type="String" label="CSS Class For button  (optional)" role="inputOnly" description="Choose between brand, action, or subtle style" default="brand"/>
+            <property name="autoLaunch" type="Boolean" label="Auto Launch Flow?" description="Automatically launch the flow on load" default="false" role="inputOnly"/>
+            <property name="iconName" type="String" label="Icon (optional)" description="Enter a standard SFDC icon name (e.g. utility:forward)" role="inputOnly"/>
+            <property name="iconPosition" type="String" label="Icon Position" description="left or right" role="inputOnly"/>
+            <property name="alignment" type="String" label="Button Alignment" description="Align the button: left, center, or right" default="left" role="inputOnly"/>
+            <property name="modalSize" type="String" label="Modal Size" description="Size of the modal: small, medium, or large" default="medium"/>
+            <property name="modalName" type="String" label="modal's header" description="name of the modal" role="inputOnly"/>
+            <property name="buttonSize" type="String" label="Button Size" description="Choose button size: small, medium, or big" default="medium" role="inputOnly"/>
+            <property name="Input_Text_Var" type="String" label="Input_Text_Var" description="Fill to transfer the value to a variable with the same name in the subflow" role="inputOnly"/>
+            <property name="Input_Bool_Var" type="String" label="Input_Bool_Var" description="Fill to transfer the value to a variable with the same name in the subflow" role="inputOnly"/>
+            <property name="nameInput" type="String" label="name" description="Fill to transfer the value to a variable with the same name in the subflow" role="inputOnly"/>
+<!--            <property name="variant" type="String" label="Variant" description="e.g. brand, neutral" role="inputOnly"/>-->
+<!--            <property name="modalWidth" type="String" label="Modal Width (optional)" description="Custom width for the modal popup (e.g., 800px, 90%, 60rem). If left blank, default SLDS width is used." role="inputOnly" />-->
+            <property name="successResult" type="Boolean" label="Success Result" role="outputOnly"/>
+            <property name="outputBool1" type="Boolean" label="outputBool1" role="outputOnly"/>
+            <property name="outputBool2" type="Boolean" label="outputBool2" role="outputOnly"/>
+            <property name="outputString1" type="String" label="outputString1" role="outputOnly"/>
+            <property name="outputString2" type="String" label="outputString2" role="outputOnly"/>
+        </targetConfig>
+
+    </targetConfigs>
+</LightningComponentBundle>

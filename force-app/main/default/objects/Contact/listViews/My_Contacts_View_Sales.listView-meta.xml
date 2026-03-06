@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>My_Contacts_View_Sales</fullName>
+    <columns>Status__c</columns>
+    <columns>FULL_NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>Department__c</columns>
+    <columns>CONTACT.TITLE</columns>
+    <columns>CONTACT.ADDRESS2_COUNTRY</columns>
+    <columns>Most_Recent_Cadence_Cadence_Name__c</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.LAST_ACTIVITY</columns>
+    <columns>SW_Industry__c</columns>
+    <columns>CONTACT.EMAIL_OPT_OUT</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>MQL__c</columns>
+    <columns>CONTACT.CREATED_DATE</columns>
+    <columns>CONTACT.ADDRESS2_STATE</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+        <field>CONTACT.TITLE</field>
+        <operation>contains</operation>
+        <value>sales</value>
+    </filters>
+    <filters>
+        <field>Most_Recent_Cadence_Cadence_Name__c</field>
+        <operation>notContain</operation>
+        <value>Coronavirus</value>
+    </filters>
+    <filters>
+        <field>ACCOUNT.NAME</field>
+        <operation>notContain</operation>
+        <value>prnewswire</value>
+    </filters>
+    <filters>
+        <field>ACCOUNT.NAME</field>
+        <operation>notContain</operation>
+        <value>cision</value>
+    </filters>
+    <label>My Contacts View (Sales)</label>
+</ListView>

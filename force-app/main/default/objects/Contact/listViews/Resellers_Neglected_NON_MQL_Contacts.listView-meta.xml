@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Resellers_Neglected_NON_MQL_Contacts</fullName>
+    <columns>CONTACT.CREATED_DATE</columns>
+    <columns>CORE.USERS.FIRST_NAME</columns>
+    <columns>CORE.USERS.LAST_NAME</columns>
+    <columns>FULL_NAME</columns>
+    <columns>CONTACT.TITLE</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>Website__c</columns>
+    <columns>CONTACT.ADDRESS2_COUNTRY</columns>
+    <columns>Status__c</columns>
+    <columns>SW_Industry__c</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>Business_Unit__c</columns>
+    <columns>Last_Pro_Visit_Date__c</columns>
+    <columns>MQL__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Owner_Division__c</field>
+        <operation>contains</operation>
+        <value>Reseller,Partner User</value>
+    </filters>
+    <filters>
+        <field>Status__c</field>
+        <operation>notEqual</operation>
+        <value>Unqualified</value>
+    </filters>
+    <filters>
+        <field>CORE.USERS.LAST_NAME</field>
+        <operation>notContain</operation>
+        <value>Finger,Fraga,Jacobsen,Sandri,bacovic,glat</value>
+    </filters>
+    <filters>
+        <field>Owner_Division__c</field>
+        <operation>notContain</operation>
+        <value>Japan,Gaprise</value>
+    </filters>
+    <filters>
+        <field>Account_Status__c</field>
+        <operation>notEqual</operation>
+        <value>Active,Cancelled,Part Of Another Subscription</value>
+    </filters>
+    <filters>
+        <field>CONTACT.LAST_ACTIVITY</field>
+        <operation>equals</operation>
+    </filters>
+    <filters>
+        <field>MQL__c</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <label>Resellers - Neglected NON-MQL Contacts</label>
+</ListView>

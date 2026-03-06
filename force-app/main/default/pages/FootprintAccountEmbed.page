@@ -1,0 +1,6 @@
+<apex:page standardController="Account">
+<p>For feedback or questions please email yonat.burlin@similarweb.com or asaf.sepkuty@similarweb.com</p>
+<apex:iframe src="https://biportal.similarweb.io/FootprintProject/Account/:embed=yes&sf_account_id={!Account.Id}&:toolbar=top/{!$User.Email}/tableau_in_sf" 
+height="900" scrolling="true" />
+    
+</apex:page>

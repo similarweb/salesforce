@@ -1,0 +1,620 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <processMetadataValues>
+            <name>emailAlertSelection</name>
+            <value>
+                <stringValue>New_Meeting_Assigned_notify_owner</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>myRule_1_A1</name>
+        <label>Email Alert</label>
+        <locationX>100</locationX>
+        <locationY>200</locationY>
+        <actionName>Meeting__c.New_Meeting_Assigned_notify_owner</actionName>
+        <actionType>emailAlert</actionType>
+        <connector>
+            <targetReference>myDecision2</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>myVariable_current.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>Meeting__c.New_Meeting_Assigned_notify_owner</nameSegment>
+    </actionCalls>
+    <actionCalls>
+        <processMetadataValues>
+            <name>emailAlertSelection</name>
+            <value>
+                <stringValue>MIR_Handover_Created</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>myRule_3_A1</name>
+        <label>Email Alert</label>
+        <locationX>300</locationX>
+        <locationY>200</locationY>
+        <actionName>Meeting__c.MIR_Handover_Created</actionName>
+        <actionType>emailAlert</actionType>
+        <connector>
+            <targetReference>myDecision4</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>myVariable_current.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>Meeting__c.MIR_Handover_Created</nameSegment>
+    </actionCalls>
+    <actionCalls>
+        <processMetadataValues>
+            <name>emailAlertSelection</name>
+            <value>
+                <stringValue>Meeting_status_is_changed</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>myRule_5_A1</name>
+        <label>Email Alert</label>
+        <locationX>500</locationX>
+        <locationY>200</locationY>
+        <actionName>Meeting__c.Meeting_status_is_changed</actionName>
+        <actionType>emailAlert</actionType>
+        <connector>
+            <targetReference>myDecision6</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>myVariable_current.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>Meeting__c.Meeting_status_is_changed</nameSegment>
+    </actionCalls>
+    <actionCalls>
+        <processMetadataValues>
+            <name>emailAlertSelection</name>
+            <value>
+                <stringValue>Meeting_Pending_or_Rescheduling_1_day_week_overdue</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>myRule_7_A1</name>
+        <label>Email Alert</label>
+        <locationX>700</locationX>
+        <locationY>200</locationY>
+        <actionName>Meeting__c.Meeting_Pending_or_Rescheduling_1_day_week_overdue</actionName>
+        <actionType>emailAlert</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>myVariable_current.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>Meeting__c.Meeting_Pending_or_Rescheduling_1_day_week_overdue</nameSegment>
+    </actionCalls>
+    <apiVersion>49.0</apiVersion>
+    <decisions>
+        <processMetadataValues>
+            <name>index</name>
+            <value>
+                <numberValue>0.0</numberValue>
+            </value>
+        </processMetadataValues>
+        <name>myDecision</name>
+        <label>myDecision</label>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>myDecision2</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>default</defaultConnectorLabel>
+        <rules>
+            <name>myRule_1</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>formula_myRule_1</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>myRule_1_pmetdec</targetReference>
+            </connector>
+            <label>Owner change</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <processMetadataValues>
+            <name>index</name>
+            <value>
+                <numberValue>1.0</numberValue>
+            </value>
+        </processMetadataValues>
+        <name>myDecision2</name>
+        <label>myDecision2</label>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>myDecision4</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>default</defaultConnectorLabel>
+        <rules>
+            <name>myRule_3</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>formula_myRule_3</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>myRule_3_pmetdec</targetReference>
+            </connector>
+            <label>MIR Created</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <processMetadataValues>
+            <name>index</name>
+            <value>
+                <numberValue>2.0</numberValue>
+            </value>
+        </processMetadataValues>
+        <name>myDecision4</name>
+        <label>myDecision4</label>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>myDecision6</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>default</defaultConnectorLabel>
+        <rules>
+            <name>myRule_5</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>formula_myRule_5</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>myRule_5_pmetdec</targetReference>
+            </connector>
+            <label>SDR/MIR meeting is closed</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <processMetadataValues>
+            <name>index</name>
+            <value>
+                <numberValue>3.0</numberValue>
+            </value>
+        </processMetadataValues>
+        <name>myDecision6</name>
+        <label>myDecision6</label>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <defaultConnectorLabel>default</defaultConnectorLabel>
+        <rules>
+            <name>myRule_7</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>formula_myRule_7</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>myRule_7_pmetdec</targetReference>
+            </connector>
+            <label>Pending/Rescheduling  - Past date</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>myRule_1_pmetdec</name>
+        <label>Previously Met Decision</label>
+        <locationX>100</locationX>
+        <locationY>100</locationY>
+        <defaultConnector>
+            <targetReference>myRule_1_A1</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Not Previously Met</defaultConnectorLabel>
+        <rules>
+            <name>myRule_1_pmetnullrule</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>myVariable_old</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>myRule_1_A1</targetReference>
+            </connector>
+            <label>Previously Met - Null</label>
+        </rules>
+        <rules>
+            <name>myRule_1_pmetrule</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>formula_myRule_1_pmetrule</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>myDecision2</targetReference>
+            </connector>
+            <label>Previously Met - Prev</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>myRule_3_pmetdec</name>
+        <label>Previously Met Decision</label>
+        <locationX>300</locationX>
+        <locationY>100</locationY>
+        <defaultConnector>
+            <targetReference>myRule_3_A1</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Not Previously Met</defaultConnectorLabel>
+        <rules>
+            <name>myRule_3_pmetnullrule</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>myVariable_old</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>myRule_3_A1</targetReference>
+            </connector>
+            <label>Previously Met - Null</label>
+        </rules>
+        <rules>
+            <name>myRule_3_pmetrule</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>formula_myRule_3_pmetrule</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>myDecision4</targetReference>
+            </connector>
+            <label>Previously Met - Prev</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>myRule_5_pmetdec</name>
+        <label>Previously Met Decision</label>
+        <locationX>500</locationX>
+        <locationY>100</locationY>
+        <defaultConnector>
+            <targetReference>myRule_5_A1</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Not Previously Met</defaultConnectorLabel>
+        <rules>
+            <name>myRule_5_pmetnullrule</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>myVariable_old</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>myRule_5_A1</targetReference>
+            </connector>
+            <label>Previously Met - Null</label>
+        </rules>
+        <rules>
+            <name>myRule_5_pmetrule</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>formula_myRule_5_pmetrule</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>myDecision6</targetReference>
+            </connector>
+            <label>Previously Met - Prev</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>myRule_7_pmetdec</name>
+        <label>Previously Met Decision</label>
+        <locationX>700</locationX>
+        <locationY>100</locationY>
+        <defaultConnector>
+            <targetReference>myRule_7_A1</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Not Previously Met</defaultConnectorLabel>
+        <rules>
+            <name>myRule_7_pmetnullrule</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>myVariable_old</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>myRule_7_A1</targetReference>
+            </connector>
+            <label>Previously Met - Null</label>
+        </rules>
+        <rules>
+            <name>myRule_7_pmetrule</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>formula_myRule_7_pmetrule</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <label>Previously Met - Prev</label>
+        </rules>
+    </decisions>
+    <formulas>
+        <processMetadataValues>
+            <name>originalFormula</name>
+            <value>
+                <stringValue>ISCHANGED([Meeting__c].OwnerId)</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>formula_myRule_1</name>
+        <dataType>Boolean</dataType>
+        <expression>ISCHANGED({!myVariable_current.OwnerId})</expression>
+    </formulas>
+    <formulas>
+        <processMetadataValues>
+            <name>originalFormula</name>
+            <value>
+                <stringValue>ISCHANGED([Meeting__c].OwnerId)</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>formula_myRule_1_pmetrule</name>
+        <dataType>Boolean</dataType>
+        <expression>ISCHANGED({!myVariable_old.OwnerId})</expression>
+    </formulas>
+    <formulas>
+        <processMetadataValues>
+            <name>originalFormula</name>
+            <value>
+                <stringValue>AND(
+         ISNEW(),
+         NOT(ISBLANK([Meeting__c].RecordTypeId)),
+         NOT(ISBLANK([Meeting__c].Owner:User.UserRoleId)),
+         [Meeting__c].RecordType.DeveloperName = &quot;MIR_Handover&quot;,
+         NOT( CONTAINS( [Meeting__c].CreatedBy.FirstName  , &apos;Integration&apos;)), 
+         NOT( CONTAINS( [Meeting__c].CreatedBy.LastName  , &apos;Integration&apos;)), 
+         NOT( CONTAINS( [Meeting__c].CreatedBy.Profile.Name   , &apos;Administrator&apos;))
+         )</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>formula_myRule_3</name>
+        <dataType>Boolean</dataType>
+        <expression>AND(
+         ISNEW(),
+         NOT(ISBLANK({!myVariable_current.RecordTypeId})),
+         NOT(ISBLANK({!myVariable_current.Owner:User.UserRoleId})),
+         {!myVariable_current.RecordType.DeveloperName} = &quot;MIR_Handover&quot;,
+         NOT( CONTAINS( {!myVariable_current.CreatedBy.FirstName}  , &apos;Integration&apos;)), 
+         NOT( CONTAINS( {!myVariable_current.CreatedBy.LastName}  , &apos;Integration&apos;)), 
+         NOT( CONTAINS( {!myVariable_current.CreatedBy.Profile.Name}   , &apos;Administrator&apos;))
+         )</expression>
+    </formulas>
+    <formulas>
+        <processMetadataValues>
+            <name>originalFormula</name>
+            <value>
+                <stringValue>AND(
+         ISNEW(),
+         NOT(ISBLANK([Meeting__c].RecordTypeId)),
+         NOT(ISBLANK([Meeting__c].Owner:User.UserRoleId)),
+         [Meeting__c].RecordType.DeveloperName = &quot;MIR_Handover&quot;,
+         NOT( CONTAINS( [Meeting__c].CreatedBy.FirstName  , &apos;Integration&apos;)), 
+         NOT( CONTAINS( [Meeting__c].CreatedBy.LastName  , &apos;Integration&apos;)), 
+         NOT( CONTAINS( [Meeting__c].CreatedBy.Profile.Name   , &apos;Administrator&apos;))
+         )</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>formula_myRule_3_pmetrule</name>
+        <dataType>Boolean</dataType>
+        <expression>AND(
+         ISNEW(),
+         NOT(ISBLANK({!myVariable_old.RecordTypeId})),
+         NOT(ISBLANK({!myVariable_old.Owner:User.UserRoleId})),
+         {!myVariable_old.RecordType.DeveloperName} = &quot;MIR_Handover&quot;,
+         NOT( CONTAINS( {!myVariable_old.CreatedBy.FirstName}  , &apos;Integration&apos;)), 
+         NOT( CONTAINS( {!myVariable_old.CreatedBy.LastName}  , &apos;Integration&apos;)), 
+         NOT( CONTAINS( {!myVariable_old.CreatedBy.Profile.Name}   , &apos;Administrator&apos;))
+         )</expression>
+    </formulas>
+    <formulas>
+        <processMetadataValues>
+            <name>originalFormula</name>
+            <value>
+                <stringValue>AND(
+         NOT(ISBLANK([Meeting__c].RecordTypeId)),
+         OR(
+               [Meeting__c].RecordType.DeveloperName = &apos;SDR&apos;,
+               [Meeting__c].RecordType.DeveloperName = &apos;MIR_Handover&apos;
+               ),
+         OR(
+               ISPICKVAL([Meeting__c].Status__c , &apos;Cancelled&apos;),
+               ISPICKVAL([Meeting__c].Status__c , &apos;Unqualified&apos;)
+               )
+)</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>formula_myRule_5</name>
+        <dataType>Boolean</dataType>
+        <expression>AND(
+         NOT(ISBLANK({!myVariable_current.RecordTypeId})),
+         OR(
+               {!myVariable_current.RecordType.DeveloperName} = &apos;SDR&apos;,
+               {!myVariable_current.RecordType.DeveloperName} = &apos;MIR_Handover&apos;
+               ),
+         OR(
+               ISPICKVAL({!myVariable_current.Status__c} , &apos;Cancelled&apos;),
+               ISPICKVAL({!myVariable_current.Status__c} , &apos;Unqualified&apos;)
+               )
+)</expression>
+    </formulas>
+    <formulas>
+        <processMetadataValues>
+            <name>originalFormula</name>
+            <value>
+                <stringValue>AND(
+         NOT(ISBLANK([Meeting__c].RecordTypeId)),
+         OR(
+               [Meeting__c].RecordType.DeveloperName = &apos;SDR&apos;,
+               [Meeting__c].RecordType.DeveloperName = &apos;MIR_Handover&apos;
+               ),
+         OR(
+               ISPICKVAL([Meeting__c].Status__c , &apos;Cancelled&apos;),
+               ISPICKVAL([Meeting__c].Status__c , &apos;Unqualified&apos;)
+               )
+)</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>formula_myRule_5_pmetrule</name>
+        <dataType>Boolean</dataType>
+        <expression>AND(
+         NOT(ISBLANK({!myVariable_old.RecordTypeId})),
+         OR(
+               {!myVariable_old.RecordType.DeveloperName} = &apos;SDR&apos;,
+               {!myVariable_old.RecordType.DeveloperName} = &apos;MIR_Handover&apos;
+               ),
+         OR(
+               ISPICKVAL({!myVariable_old.Status__c} , &apos;Cancelled&apos;),
+               ISPICKVAL({!myVariable_old.Status__c} , &apos;Unqualified&apos;)
+               )
+)</expression>
+    </formulas>
+    <formulas>
+        <processMetadataValues>
+            <name>originalFormula</name>
+            <value>
+                <stringValue>AND(
+ISNEW(),
+
+[Meeting__c].Date__c &lt; TODAY() ,
+
+OR(
+ISPICKVAL([Meeting__c].Status__c , &apos;Pending&apos;) ,
+ISPICKVAL([Meeting__c].Status__c , &apos;Rescheduling&apos;) 
+)
+)</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>formula_myRule_7</name>
+        <dataType>Boolean</dataType>
+        <expression>AND(
+ISNEW(),
+
+{!myVariable_current.Date__c} &lt; TODAY() ,
+
+OR(
+ISPICKVAL({!myVariable_current.Status__c} , &apos;Pending&apos;) ,
+ISPICKVAL({!myVariable_current.Status__c} , &apos;Rescheduling&apos;) 
+)
+)</expression>
+    </formulas>
+    <formulas>
+        <processMetadataValues>
+            <name>originalFormula</name>
+            <value>
+                <stringValue>AND(
+ISNEW(),
+
+[Meeting__c].Date__c &lt; TODAY() ,
+
+OR(
+ISPICKVAL([Meeting__c].Status__c , &apos;Pending&apos;) ,
+ISPICKVAL([Meeting__c].Status__c , &apos;Rescheduling&apos;) 
+)
+)</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>formula_myRule_7_pmetrule</name>
+        <dataType>Boolean</dataType>
+        <expression>AND(
+ISNEW(),
+
+{!myVariable_old.Date__c} &lt; TODAY() ,
+
+OR(
+ISPICKVAL({!myVariable_old.Status__c} , &apos;Pending&apos;) ,
+ISPICKVAL({!myVariable_old.Status__c} , &apos;Rescheduling&apos;) 
+)
+)</expression>
+    </formulas>
+    <interviewLabel>Meeting_all_alerts-20_InterviewLabel</interviewLabel>
+    <label>Meeting - all alerts</label>
+    <processMetadataValues>
+        <name>ObjectType</name>
+        <value>
+            <stringValue>Meeting__c</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>ObjectVariable</name>
+        <value>
+            <elementReference>myVariable_current</elementReference>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OldObjectVariable</name>
+        <value>
+            <elementReference>myVariable_old</elementReference>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>TriggerType</name>
+        <value>
+            <stringValue>onAllChanges</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>Workflow</processType>
+    <startElementReference>myDecision</startElementReference>
+    <status>Obsolete</status>
+    <variables>
+        <name>myVariable_current</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <objectType>Meeting__c</objectType>
+    </variables>
+    <variables>
+        <name>myVariable_old</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Meeting__c</objectType>
+    </variables>
+</Flow>

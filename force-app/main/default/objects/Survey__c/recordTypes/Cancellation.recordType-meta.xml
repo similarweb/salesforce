@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cancellation</fullName>
+    <active>true</active>
+    <compactLayoutAssignment>Compact_For_Lightning_Page</compactLayoutAssignment>
+    <label>Cancellation</label>
+    <picklistValues>
+        <picklist>Agency_Category__c</picklist>
+        <values>
+            <fullName>AdTech or MarTech</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Advertising</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CRM %26 Direct Response</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Consultancy %26 Strategy</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Design %26 Innovation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Digital %26 Social Media</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Market Research %26 Analytics</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Media planning and buying</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PR</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Promotions %26 Experiential</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sponsorship</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>eCommerce</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Agency_Role__c</picklist>
+        <values>
+            <fullName>Ad Operations %2F Programmatic</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Analytics</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Client Service %28Account Management%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Data %26 eCommerce Planning</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Digital %26 Performance %28Search%2C Display%2C Affiliates%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Finance %26 Procurement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Legal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Market Research %26 Audience Insight</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Media Planning %26 Buying</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New Business</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Social Media</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Strategy %26 Account Planning</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Agency_Sub_Category__c</picklist>
+        <values>
+            <fullName>AdTech or MarTech</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Advertising</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CRM %26 Direct Response</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Consultancy %26 Strategy</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Design %26 Innovation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Digital %26 Social Media</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Market Research %26 Analytics</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Media planning and buying</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PR</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Promotions %26 Experiential</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sponsorship</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>eCommerce</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Industry_Sectors_Agency_Survey__c</picklist>
+        <values>
+            <fullName>Ad Tech or MarTech</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Airlines</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Alcohol</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Arts %28theatre%2C galleries%2C events%2C concerts%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Automotive</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Beauty %26 Personal Care</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Charities %26 Non-Government Organisations</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Consumer Packaged Goods %2F FMCG</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DIY %26 Home Furnishings</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Data Analytics</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Dating Services</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Eating %26 Drinking %28Food Delivery%2C Restaurants%2C Bars%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Education</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Electrical Appliances%2C including Audio %26 TV</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Energy Supply %26 Utilities</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Entertainment %28Books%2C Hobbies%2C Movies%2C Music%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fashion %28Clothing%2C Footwear%2C Accessories%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Financial Services</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fitness Attire %28Clothing%2C Footwear%2C Equipment%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Gambling</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Government %2F Public Sector</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Health %26 Wellbeing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Home Care %26 Cleaning</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Hotels %2F Hospitality</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Luxury Goods</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pharmaceuticals</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Publishing %26 Media</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Retail %28Other%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Shipping %26 Logistics</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Soft Drinks</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sport</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SuperMarket %2F Food</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Technology %2F Software %2F SaaS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Telco%2C Mobile%2C Broadband</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tobacco</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Travel %26 Tourism</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Video Gaming - Consoles%2F PC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>eCommerce</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Survey_Type__c</picklist>
+        <values>
+            <fullName>Cancellation</fullName>
+            <default>true</default>
+        </values>
+    </picklistValues>
+</RecordType>

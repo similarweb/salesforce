@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Contact_Relationship__c</fullName>
+    <externalId>false</externalId>
+    <label>Contact Relationship</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Strong - Could call / text and the contact would respond</fullName>
+                <default>false</default>
+                <label>Strong - Could call / text and the contact would respond</label>
+            </value>
+            <value>
+                <fullName>Medium - Would join a call if I put something on the calendar</fullName>
+                <default>false</default>
+                <label>Medium - Would join a call if I put something on the calendar</label>
+            </value>
+            <value>
+                <fullName>Weak - No relationship / Bad Relationship</fullName>
+                <default>false</default>
+                <label>Weak - No relationship / Bad Relationship</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

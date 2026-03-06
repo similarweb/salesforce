@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>55.0</apiVersion>
+    <decisions>
+        <description>MIS-4562</description>
+        <name>Check_Campaign_Type_and_Status</name>
+        <label>Check Campaign Type and Status</label>
+        <locationX>314</locationX>
+        <locationY>287</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Webinar</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Campaign.Type</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Webinar</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Flow.CurrentDate</leftValueReference>
+                <operator>GreaterThan</operator>
+                <rightValue>
+                    <elementReference>$Record.Campaign.EndDate</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Campaign.Webinar_Id__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_Status_to_Watched_On_demand</targetReference>
+            </connector>
+            <label>Webinar</label>
+        </rules>
+        <rules>
+            <name>Set_up_Download_status</name>
+            <conditionLogic>(1 OR 2 OR 3 OR 4) and 5</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Campaign.Type</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Report</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Campaign.Type</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Blog Post - CTA</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Campaign.Type</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>White Paper</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Campaign.Type</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Case Study</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue></stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_Status_to_Downloaded</targetReference>
+            </connector>
+            <label>Set up Download status</label>
+        </rules>
+    </decisions>
+    <description>MIS-4562 - add webiner status
+MIS-2870 CampaignMember - for campaigns with type &apos;Report&apos;, set the CampaignMember Status to  &apos;Downloaded&apos;
+MIS-3656 Fix Campaign Member Status Automation from Web Forms</description>
+    <environments>Default</environments>
+    <interviewLabel>CampaignMember_Before_Save_Set_Status_to_Downloaded {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>CampaignMember_Before_Save_Set_Status_to_Downloaded</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <description>Set the CampingMember status to &quot;Downloaded&quot;</description>
+        <name>Set_Status_to_Downloaded</name>
+        <label>Set Status to Downloaded</label>
+        <locationX>314</locationX>
+        <locationY>395</locationY>
+        <inputAssignments>
+            <field>Status</field>
+            <value>
+                <stringValue>Downloaded</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>MIS-4562
+Set the CampingMember status to &quot;Watched On demand&quot;</description>
+        <name>Set_Status_to_Watched_On_demand</name>
+        <label>Set Status to Watched On demand</label>
+        <locationX>50</locationX>
+        <locationY>395</locationY>
+        <inputAssignments>
+            <field>Status</field>
+            <value>
+                <stringValue>Watched on Demand</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>188</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Check_Campaign_Type_and_Status</targetReference>
+        </connector>
+        <filterLogic>(((1 OR 3 OR 4 OR 5) AND 2) OR 6) and 7</filterLogic>
+        <filters>
+            <field>Campaign_Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Report</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Status</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue></stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Campaign_Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>White Paper</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Campaign_Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Blog Post - CTA</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Campaign_Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Case Study</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Campaign_Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Webinar</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Skip_Automation__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <object>CampaignMember</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

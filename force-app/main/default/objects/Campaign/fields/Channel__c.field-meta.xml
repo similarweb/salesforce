@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Channel__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>The channel for promoting your campaign.</inlineHelpText>
+    <label>Channel</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Adwords</fullName>
+                <default>false</default>
+                <label>Adwords</label>
+            </value>
+            <value>
+                <fullName>Banner</fullName>
+                <default>false</default>
+                <label>Banner</label>
+            </value>
+            <value>
+                <fullName>Blog</fullName>
+                <default>false</default>
+                <label>Blog</label>
+            </value>
+            <value>
+                <fullName>Brand Events</fullName>
+                <default>false</default>
+                <label>Brand Events</label>
+            </value>
+            <value>
+                <fullName>Chili Piper</fullName>
+                <default>false</default>
+                <label>Chili Piper</label>
+            </value>
+            <value>
+                <fullName>Cohort Plus</fullName>
+                <default>false</default>
+                <label>Cohort Plus</label>
+            </value>
+            <value>
+                <fullName>Discord</fullName>
+                <default>false</default>
+                <label>Discord</label>
+            </value>
+            <value>
+                <fullName>Email campaign Pardot</fullName>
+                <default>false</default>
+                <label>Email campaign Pardot</label>
+            </value>
+            <value>
+                <fullName>Email SalesLoft</fullName>
+                <default>false</default>
+                <label>Email SalesLoft</label>
+            </value>
+            <value>
+                <fullName>Email SFMC</fullName>
+                <default>false</default>
+                <label>Email SFMC</label>
+            </value>
+            <value>
+                <fullName>Employment Advocacy Program</fullName>
+                <default>false</default>
+                <label>Employment Advocacy Program</label>
+            </value>
+            <value>
+                <fullName>Event - external</fullName>
+                <default>false</default>
+                <label>Event - external</label>
+            </value>
+            <value>
+                <fullName>Event - internal</fullName>
+                <default>false</default>
+                <label>Event - internal</label>
+            </value>
+            <value>
+                <fullName>Exit Pop Up</fullName>
+                <default>false</default>
+                <label>Exit Pop Up</label>
+            </value>
+            <value>
+                <fullName>External providers</fullName>
+                <default>false</default>
+                <label>External providers</label>
+            </value>
+            <value>
+                <fullName>Facebook organic</fullName>
+                <default>false</default>
+                <label>Facebook organic</label>
+            </value>
+            <value>
+                <fullName>Facebook paid</fullName>
+                <default>false</default>
+                <label>Facebook paid</label>
+            </value>
+            <value>
+                <fullName>GDN</fullName>
+                <default>false</default>
+                <label>GDN</label>
+            </value>
+            <value>
+                <fullName>Growth Hackers</fullName>
+                <default>false</default>
+                <label>Growth Hackers</label>
+            </value>
+            <value>
+                <fullName>Indie Hackers</fullName>
+                <default>false</default>
+                <label>Indie Hackers</label>
+            </value>
+            <value>
+                <fullName>Intercom</fullName>
+                <default>false</default>
+                <label>Intercom</label>
+            </value>
+            <value>
+                <fullName>LinkedIn Corona Group</fullName>
+                <default>false</default>
+                <label>LinkedIn Corona Group</label>
+            </value>
+            <value>
+                <fullName>LinkedIn organic</fullName>
+                <default>false</default>
+                <label>LinkedIn organic</label>
+            </value>
+            <value>
+                <fullName>LinkedIn Paid</fullName>
+                <default>false</default>
+                <label>LinkedIn Paid</label>
+            </value>
+            <value>
+                <fullName>Medium</fullName>
+                <default>false</default>
+                <label>Medium</label>
+            </value>
+            <value>
+                <fullName>Organic</fullName>
+                <default>false</default>
+                <label>Organic</label>
+            </value>
+            <value>
+                <fullName>Outbound</fullName>
+                <default>false</default>
+                <label>Outbound</label>
+            </value>
+            <value>
+                <fullName>Owned Events</fullName>
+                <default>false</default>
+                <label>Owned Events</label>
+            </value>
+            <value>
+                <fullName>Pardot Auto Education</fullName>
+                <default>false</default>
+                <label>Pardot Auto Education</label>
+            </value>
+            <value>
+                <fullName>Pardot Auto Prospect</fullName>
+                <default>false</default>
+                <label>Pardot Auto Prospect</label>
+            </value>
+            <value>
+                <fullName>Pardot Auto Re-engage</fullName>
+                <default>false</default>
+                <label>Pardot Auto Re-engage</label>
+            </value>
+            <value>
+                <fullName>Partnership</fullName>
+                <default>false</default>
+                <label>Partnership</label>
+            </value>
+            <value>
+                <fullName>PPC display</fullName>
+                <default>false</default>
+                <label>PPC display</label>
+            </value>
+            <value>
+                <fullName>PPC Search</fullName>
+                <default>false</default>
+                <label>PPC Search</label>
+            </value>
+            <value>
+                <fullName>PR</fullName>
+                <default>false</default>
+                <label>PR</label>
+            </value>
+            <value>
+                <fullName>Quora</fullName>
+                <default>false</default>
+                <label>Quora</label>
+            </value>
+            <value>
+                <fullName>Reddit</fullName>
+                <default>false</default>
+                <label>Reddit</label>
+            </value>
+            <value>
+                <fullName>Signature</fullName>
+                <default>false</default>
+                <label>Signature</label>
+            </value>
+            <value>
+                <fullName>Slack</fullName>
+                <default>false</default>
+                <label>Slack</label>
+            </value>
+            <value>
+                <fullName>TechHype</fullName>
+                <default>false</default>
+                <label>TechHype</label>
+            </value>
+            <value>
+                <fullName>Tumblr</fullName>
+                <default>false</default>
+                <label>Tumblr</label>
+            </value>
+            <value>
+                <fullName>Twitter Investors Account</fullName>
+                <default>false</default>
+                <label>Twitter Investors Account</label>
+            </value>
+            <value>
+                <fullName>Twitter organic</fullName>
+                <default>false</default>
+                <label>Twitter organic</label>
+            </value>
+            <value>
+                <fullName>webpush</fullName>
+                <default>false</default>
+                <label>webpush</label>
+            </value>
+            <value>
+                <fullName>Youtube Organic</fullName>
+                <default>false</default>
+                <label>Youtube Organic</label>
+            </value>
+            <value>
+                <fullName>Youtube Paid</fullName>
+                <default>false</default>
+                <label>Youtube Paid</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Qualified Chat</fullName>
+                <default>false</default>
+                <label>Qualified Chat</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

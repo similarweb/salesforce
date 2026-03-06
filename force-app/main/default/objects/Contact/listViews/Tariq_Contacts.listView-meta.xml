@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Tariq_Contacts</fullName>
+    <columns>CONTACT.TITLE</columns>
+    <columns>FULL_NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>CONTACT.LAST_ACTIVITY</columns>
+    <columns>fr_Pro_User_Type__c</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+        <field>CONTACT.PHONE1</field>
+        <operation>notEqual</operation>
+    </filters>
+    <filters>
+        <field>fr_Pro_User_Type__c</field>
+        <operation>notEqual</operation>
+        <value>Demo</value>
+    </filters>
+    <filters>
+        <field>CONTACT.ADDRESS2_COUNTRY_CODE</field>
+        <operation>equals</operation>
+        <value>GB</value>
+    </filters>
+    <label>Tariq Contacts</label>
+</ListView>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Create_Users_Open_Requests</fullName>
+    <columns>NAME</columns>
+    <columns>Action__c</columns>
+    <columns>Status__c</columns>
+    <columns>Approved__c</columns>
+    <columns>First_Name__c</columns>
+    <columns>Last_Name__c</columns>
+    <columns>User__c</columns>
+    <columns>Source_User_to_Duplicate__c</columns>
+    <columns>Profile_Name__c</columns>
+    <columns>Role_Name__c</columns>
+    <columns>CREATEDBY_USER</columns>
+    <columns>CREATED_DATE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Status__c</field>
+        <operation>notEqual</operation>
+        <value>Completed,Canceled</value>
+    </filters>
+    <filters>
+        <field>Action__c</field>
+        <operation>equals</operation>
+        <value>Create,Update,Role Update</value>
+    </filters>
+    <label>Create/Update Users - Open Requests</label>
+</ListView>

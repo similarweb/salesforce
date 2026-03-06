@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Copy_First_MQL_Date_once</fullName>
+    <active>false</active>
+    <errorConditionFormula>(ISNULL(First_MQL_Date__c)||
+NOT(ISBLANK(PRIORVALUE(First_MQL_Date__c)))) &amp;&amp;
+ISCHANGED(First_MQL_Date__c) &amp;&amp; 
+NOT($Profile.Id=&apos;00eb0000000oBvcAAE&apos;)</errorConditionFormula>
+    <errorDisplayField>First_MQL_Date__c</errorDisplayField>
+    <errorMessage>First MQL Date can&apos;t be updated once it&apos;s populated</errorMessage>
+</ValidationRule>

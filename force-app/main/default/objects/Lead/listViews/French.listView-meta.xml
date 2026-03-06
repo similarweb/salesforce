@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>French</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>LEAD.EMAIL</columns>
+    <columns>LEAD.COMPANY</columns>
+    <columns>LEAD.STATUS</columns>
+    <columns>LEAD.CREATED_DATE</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>SW_Industry__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Business_Unit__c</field>
+        <operation>equals</operation>
+        <value>Inside Sales</value>
+    </filters>
+    <filters>
+        <field>SYS_Owner_Role__c</field>
+        <operation>contains</operation>
+        <value>MIR</value>
+    </filters>
+    <filters>
+        <field>LEAD.COUNTRY</field>
+        <operation>equals</operation>
+        <value>France</value>
+    </filters>
+    <filters>
+        <field>LEAD.STATUS</field>
+        <operation>contains</operation>
+        <value>Open</value>
+    </filters>
+    <filters>
+        <field>LEAD.COMPANY</field>
+        <operation>notContain</operation>
+        <value>Unknown</value>
+    </filters>
+    <filters>
+        <field>LEAD.CREATED_DATE</field>
+        <operation>greaterOrEqual</operation>
+        <value>LAST_N_QUARTERS:2</value>
+    </filters>
+    <filters>
+        <field>SW_Industry__c</field>
+        <operation>contains</operation>
+        <value>&quot;CPG, Food &amp; Beverages&quot;,Agency,Travel &amp; Hospitality,Consulting &amp; Market Research,Retail / eCommerce</value>
+    </filters>
+    <label>French</label>
+</ListView>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CR_INV_Importer</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>LEAD.EMAIL</columns>
+    <columns>LEAD.COMPANY</columns>
+    <columns>SW_Industry__c</columns>
+    <columns>LEAD.STATUS</columns>
+    <columns>LEAD.CREATED_DATE</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>Current_Registration_Type__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>LEAD.CREATED_DATE</field>
+        <operation>greaterThan</operation>
+        <value>12/25/2021 12:00 AM</value>
+    </filters>
+    <filters>
+        <field>LEAD.EMAIL</field>
+        <operation>notContain</operation>
+        <value>.edu</value>
+    </filters>
+    <filters>
+        <field>LEAD.CONVERTED</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>LEAD.COUNTRY</field>
+        <operation>contains</operation>
+        <value>united states,canada</value>
+    </filters>
+    <filters>
+        <field>ROE_Division__c</field>
+        <operation>notContain</operation>
+        <value>NA Enterprise,NA SMB</value>
+    </filters>
+    <filters>
+        <field>LEAD.STATUS</field>
+        <operation>notEqual</operation>
+        <value>Qualified,Unqualified,Dormant</value>
+    </filters>
+    <filters>
+        <field>CORE.USERS.FIRST_NAME</field>
+        <operation>equals</operation>
+        <value>jackie,jacqueline</value>
+    </filters>
+    <label>CR INV Importer</label>
+</ListView>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>User_Usage_Link__c</fullName>
+    <defaultValue>&quot;http://salesforce.stackexchange.com/questions/144973/how-to-add-hyperlink-in-visualforce-page&quot;</defaultValue>
+    <description>&quot;https://tableau.similarweb.io/#/views/NewAccountScorecard_0/UsersUsageTable&quot;</description>
+    <externalId>false</externalId>
+    <inlineHelpText>http://salesforce.stackexchange.com/questions/144973/how-to-add-hyperlink-in-visualforce-page</inlineHelpText>
+    <label>User Usage Link</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>TextArea</type>
+</CustomField>

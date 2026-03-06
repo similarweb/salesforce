@@ -1,0 +1,86 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes" controller="LegalRequestModalController">
+    
+    <!-- Redirect to create Request layout -->
+    <aura:attribute name="pageReference" type="Object"/>
+    <lightning:navigation aura:id="navService"/>
+    <lightning:pageReferenceUtils aura:id="pageRefUtils"/>
+    <aura:attribute name="url" type="String"/>
+    <aura:attribute name="legalRequestRecordType" type="String"/>
+    <aura:attribute name="recordId" type="String" />
+    <aura:attribute name="accountId" type="String" />
+    <aura:attribute name="opportunityId" type="String" />
+
+    <aura:registerEvent name="gcEvent" type="c:GenerateContractEvent"/>
+
+    <aura:attribute name="isModalOpen" type="boolean" default="false"/>
+    <aura:attribute name="isGenerateContractDecision" type="boolean" default="false"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
+
+    <div>
+        <aura:if isTrue="{!v.isModalOpen}">
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                    <header class="slds-modal__header">
+                        <lightning:buttonIcon iconName="utility:close"
+                                              onclick="{! c.closeModal }"
+                                              alternativeText="close"
+                                              variant="bare-inverse"
+                                              class="slds-modal__close"/>
+                        <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Request</h2>
+                    </header>
+                    <div class="slds-modal__content slds-p-around_medium slds-text-heading_small " id="modal-content-id-1">
+                        <p>Is a legal request needed?</p>
+                        
+                    </div>
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-2">
+                        <div class="slds-text-title"><p>If you will select no you can still open a legal request from the  'Support - Legal ' tab</p></div>
+                    </div>
+                    <footer class="slds-modal__footer">
+                        <lightning:button variant="brand"
+                                          label="No"
+                                          title="No"
+                                          onclick="{!c.clickGenerateContract}"/>
+                        <lightning:button variant="brand"
+                                          label="Yes"
+                                          title="Yes"
+                                          onclick="{!c.redirectToCreateRequest}"/>
+                    </footer>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </aura:if>
+        <aura:if isTrue="{!v.isGenerateContractDecision}">
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                    <header class="slds-modal__header">
+                        <lightning:buttonIcon iconName="utility:close"
+                                              onclick="{! c.closeGenerateContractDecisionModal }"
+                                              alternativeText="close"
+                                              variant="bare-inverse"
+                                              class="slds-modal__close"/>
+                        <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Generate Contract Decision</h2>
+                    </header>
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                        <p>Please choose if you would want to send the document straight to DocuSign or just generate the contract</p>
+                    </div>
+                    <footer class="slds-modal__footer">
+                        <lightning:button variant="neutral"
+                                          label="Cancel"
+                                          title="Cancel"
+                                          onclick="{! c.closeGenerateContractDecisionModal }"/>
+                        <lightning:button variant="brand"
+                                          label="Generate Contract"
+                                          title="Generate Contract"
+                                          onclick="{!c.clickGenerateContract}"/>
+                        <lightning:button variant="brand"
+                                          label="Generate Contract And Send To DocuSign"
+                                          title="Generate Contract And Send To DocuSign"
+                                          onclick="{!c.clickGenerateContractAndSendToDocusign}"/>
+                    </footer>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </aura:if>
+    </div>
+</aura:component>

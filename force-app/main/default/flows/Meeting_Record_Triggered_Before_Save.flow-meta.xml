@@ -1,0 +1,1098 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>54.0</apiVersion>
+    <assignments>
+        <name>Meeting_Division_Opportunity_Division</name>
+        <label>Meeting Division = Opportunity Division</label>
+        <locationX>458</locationX>
+        <locationY>3203</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Meeting_Division__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Related_Opportunity__r.Opportunity_Division__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Owner_Sub_motion</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Meeting_Division_Owner_Division</name>
+        <label>Meeting Division = Owner Division</label>
+        <locationX>194</locationX>
+        <locationY>3203</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Meeting_Division__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Owner:User.Division</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Owner_Sub_motion</targetReference>
+        </connector>
+    </assignments>
+    <customErrors>
+        <name>Fault_get_owner_sub_motion</name>
+        <label>Fault: get owner sub motion</label>
+        <locationX>458</locationX>
+        <locationY>3611</locationY>
+        <customErrorMessages>
+            <errorMessage>There was a problem getting the owner&apos;s Sub Motion value
+Error: {!$Flow.FaultMessage}</errorMessage>
+            <isFieldError>false</isFieldError>
+        </customErrorMessages>
+    </customErrors>
+    <decisions>
+        <description>MIS-5826</description>
+        <name>Contact_is_Populated</name>
+        <label>Contact is Populated?</label>
+        <locationX>182</locationX>
+        <locationY>1511</locationY>
+        <defaultConnector>
+            <targetReference>Rule_NSMO_Named_Sales_Manager_as_Meeting_Owner</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Populated</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Contact_Related_To__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_MQL_Status_from_Contact</targetReference>
+            </connector>
+            <label>Yes - Populated</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-4071:
+Meeting Created - Update Meeting Division = Owner Division.
+If opp is not blank - Meeting Division = Opp division
+If opp is blank - Meeting Division = Owner Division</description>
+        <name>Need_to_update_Meeting_Division</name>
+        <label>Need to update Meeting Division?</label>
+        <locationX>458</locationX>
+        <locationY>3095</locationY>
+        <defaultConnector>
+            <targetReference>Update_Owner_Sub_motion</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>New_Meeting_or_No_Opportunity_related</name>
+            <conditionLogic>(1 OR (2 AND 3)) AND 4</conditionLogic>
+            <conditions>
+                <leftValueReference>fr_ISNEW</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Related_Opportunity__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Related_Opportunity__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Meeting_Division_Updated_Manually__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Meeting_Division_Owner_Division</targetReference>
+            </connector>
+            <label>New Meeting or No Opportunity related</label>
+        </rules>
+        <rules>
+            <name>Opportunity_Populated</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Related_Opportunity__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Related_Opportunity__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Meeting_Division_Updated_Manually__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Meeting_Division_Opportunity_Division</targetReference>
+            </connector>
+            <label>Opportunity Populated</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>If the meeting is new or the status is changed and the record type is SDR_for_Upsell and Account is not blank and the meeting status is Pending - execute Account Owner as Meeting Owner outcome</description>
+        <name>Rule_AOMO_Account_Owner_as_Meeting_Owner</name>
+        <label>*Rule (AOMO)* - Account Owner as Meeting Owner</label>
+        <locationX>458</locationX>
+        <locationY>2195</locationY>
+        <defaultConnector>
+            <targetReference>Rule_CC_Chat_Conversation</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Account_Owner_as_Meeting_Owner</name>
+            <conditionLogic>(1 OR 2) AND 3 AND 4 AND 5</conditionLogic>
+            <conditions>
+                <leftValueReference>fr_ISNEW</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>SDR_for_Upsell</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Account__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Pending</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>AOMO_Update_Owner</targetReference>
+            </connector>
+            <label>Account Owner as Meeting Owner</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>If Chat Transcript changed and is not blank - execute Chat Transcript not null</description>
+        <name>Rule_CC_Chat_Conversation</name>
+        <label>*Rule (CC)* - Chat Conversation</label>
+        <locationX>458</locationX>
+        <locationY>2495</locationY>
+        <defaultConnector>
+            <targetReference>Rule_MC_Meeting_Completed</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Chat_Transcript_not_null</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Chat_Transcript__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>CC_Chat_Conversation</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>Chat Transcript not null</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>If it&apos;s a new Meeting - execute Add creator manager/owner email outcome</description>
+        <name>Rule_CME_Add_creator_manager_owner_email</name>
+        <label>*Rule (CME)* - Add creator manager/owner email</label>
+        <locationX>458</locationX>
+        <locationY>287</locationY>
+        <defaultConnector>
+            <targetReference>Rule_OC_Owner_is_changed</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Add_creator_manager_owner_email</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>fr_ISNEW</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>CME_Get_Current_User_Manager_Email</targetReference>
+            </connector>
+            <label>Add creator manager/owner email</label>
+        </rules>
+        <rules>
+            <name>Created_email_manager_out_of_sync</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Creator_Manager_Email__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record.CreatedBy.Manager.Email</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Managers_Email__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record.Owner:User.Manager.Email</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_creator_manager_email_0</targetReference>
+            </connector>
+            <label>Created email manager out of sync</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-5826
+If the meeting is new and the account is not blank - execute New outcome</description>
+        <name>Rule_IS_Isnew</name>
+        <label>*Rule (IS)* - Isnew?</label>
+        <locationX>458</locationX>
+        <locationY>995</locationY>
+        <defaultConnector>
+            <targetReference>Rule_NSMO_Named_Sales_Manager_as_Meeting_Owner</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>New_with_Account</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>fr_ISNEW</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Account__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>IS_Update_Stage_Country</targetReference>
+            </connector>
+            <label>New with Account</label>
+        </rules>
+        <rules>
+            <name>New_with_Contact_and_no_Account</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>fr_ISNEW</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Contact_Related_To__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <isGoTo>true</isGoTo>
+                <targetReference>Update_MQL_Status_from_Contact</targetReference>
+            </connector>
+            <label>New with Contact and no Account</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Rule_MC_Meeting_Completed</name>
+        <label>*Rule (MC)* - Meeting Completed</label>
+        <locationX>458</locationX>
+        <locationY>2795</locationY>
+        <defaultConnector>
+            <targetReference>Need_to_update_Meeting_Division</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Status_Completed</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Completed</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Completed_Timestamp</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>Status = Completed</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-6615</description>
+        <name>Rule_NMM_New_MIR_Meeting</name>
+        <label>*Rule (NMM)* - New MIR Meeting?</label>
+        <locationX>458</locationX>
+        <locationY>4235</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>NMM_Yes</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>fr_ISNEW</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>MIR_Handover</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Contact_Related_To__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_CP_fields_from_Contact</targetReference>
+            </connector>
+            <label>NMM - Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>If the Meeting record type is SMB_AM and it&apos;s new with a populated account - execute Named Sales Manager as Meeting Owner outcome</description>
+        <name>Rule_NSMO_Named_Sales_Manager_as_Meeting_Owner</name>
+        <label>*Rule (NSMO)* - Named Sales Manager as Meeting Owner</label>
+        <locationX>458</locationX>
+        <locationY>1895</locationY>
+        <defaultConnector>
+            <targetReference>Rule_AOMO_Account_Owner_as_Meeting_Owner</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Named_Sales_Manager_as_Meeting_Owner</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>fr_ISNEW</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>SMB_AM</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Account__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>NSMO_Update_Owner_Id</targetReference>
+            </connector>
+            <label>Named Sales Manager as Meeting Owner</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>If the owner is changed and not blank - execute Add owner manager email outcome</description>
+        <name>Rule_OC_Owner_is_changed</name>
+        <label>*Rule (OC)* - Owner is changed</label>
+        <locationX>458</locationX>
+        <locationY>695</locationY>
+        <defaultConnector>
+            <targetReference>Rule_IS_Isnew</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Add_owner_manager_email</name>
+            <conditionLogic>(1 AND 2) OR 3</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.OwnerId</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.OwnerId</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Managers_Email__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record.Owner:User.Manager.Email</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>OC_Update_owner_manager_email</targetReference>
+            </connector>
+            <label>Add owner manager email</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-5566
+MIS-5382</description>
+        <name>Rule_PANT_Parent_Account_is_NT</name>
+        <label>*Rule (PANT)* - Parent Account is NT?</label>
+        <locationX>182</locationX>
+        <locationY>1211</locationY>
+        <defaultConnector>
+            <targetReference>Contact_is_Populated</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Account_is_NT</name>
+            <conditionLogic>1 AND 2 AND (3 OR 4 OR 5) AND 6</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Account__r.No_Touch_Account__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.NT_Meeting__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>MIR_Handover</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Inside_Sales</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>SDR</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Account__r.Number_of_Payments__c</leftValueReference>
+                <operator>GreaterThan</operator>
+                <rightValue>
+                    <numberValue>0.0</numberValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_NT_Meeting</targetReference>
+            </connector>
+            <label>Account is NT</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-7442 - T2T tag on Meetings- check if the account is NT2t at the completion of the meeting and update the NT2T field</description>
+        <name>Update_NT2T</name>
+        <label>Update NT2T</label>
+        <locationX>458</locationX>
+        <locationY>3935</locationY>
+        <defaultConnector>
+            <targetReference>Rule_NMM_New_MIR_Meeting</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>NT2T</name>
+            <conditionLogic>(1 AND 2 AND 3) Or (4 and 2)</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Completed</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Account__r.NT2T_eligible__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.NT2T_Meeting__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record__Prior.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_NT2T_field</targetReference>
+            </connector>
+            <label>NT2T To true</label>
+        </rules>
+        <rules>
+            <name>NT2T_Completed_false</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Completed</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Account__r.NT2T_eligible__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.NT2T_Meeting__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_NT2T_field_to_false</targetReference>
+            </connector>
+            <label>NT2T Completed false</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-8255 &gt;new Sub Motion field
+MIS-7359 - update the sub motion of the owner either when the record is created or the meeting is compleated</description>
+        <name>Update_Owner_Sub_motion</name>
+        <label>Update Owner Sub motion</label>
+        <locationX>458</locationX>
+        <locationY>3395</locationY>
+        <defaultConnector>
+            <targetReference>Update_NT2T</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Update_Sub_Motion</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record__Prior.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Completed</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Owners_Sub_Motion</targetReference>
+            </connector>
+            <label>Update Sub Motion</label>
+        </rules>
+    </decisions>
+    <description>MIS-8255 &gt;new Sub Motion field
+MIS-7743 add recipient to Meeting email alert : created by managers&apos; manager email
+MIS-7555 - Changed owner for new AM meetings
+MIS-7536
+MIS-7442 - T2T tag on Meetings
+MIS-7359 - Update create sub motion field
+MIS-6615
+MIS-5826 &amp; MIS-5875 - Added MQL Status Snapshot &amp; removed unnecessary GET
+MIS-5566 - Added number of payments &gt; 0 for NT Accounts
+MIS-5382 - Update NT Meeting
+MIS-3458  Update Meeting Completed Timestamp</description>
+    <environments>Default</environments>
+    <formulas>
+        <description>MIS-5826</description>
+        <name>Contact_MQL_Status</name>
+        <dataType>String</dataType>
+        <expression>IF(
+    OR(
+        AND(
+            TEXT({!$Record.Contact_Related_To__r.SW_Fit_Score__c}) = &apos;A&apos;, {!$Record.Contact_Related_To__r.BI_Data__r.Intent_Score__c} &gt;= 4),
+        AND(
+            TEXT({!$Record.Contact_Related_To__r.SW_Fit_Score__c}) = &apos;B&apos;, {!$Record.Contact_Related_To__r.BI_Data__r.Intent_Score__c} &gt;= 7),
+        AND(
+            TEXT({!$Record.Contact_Related_To__r.SW_Fit_Score__c}) = &apos;C&apos;, {!$Record.Contact_Related_To__r.BI_Data__r.Intent_Score__c} &gt;= 7)
+    ), 
+    &apos;Hard MQL&apos;,
+    
+    IF(
+        OR(
+            TEXT({!$Record.Contact_Related_To__r.SW_Fit_Score__c}) = &apos;A&apos;,
+            AND(
+                  TEXT({!$Record.Contact_Related_To__r.SW_Fit_Score__c}) = &apos;B&apos;, {!$Record.Contact_Related_To__r.BI_Data__r.Intent_Score__c} &gt;= 4),
+            AND(
+                  TEXT({!$Record.Contact_Related_To__r.SW_Fit_Score__c}) = &apos;D&apos;, {!$Record.Contact_Related_To__r.BI_Data__r.Intent_Score__c} &gt;= 7)
+        ), 
+        &apos;Soft MQL&apos;,
+        
+        IF(
+            OR(
+                TEXT({!$Record.Contact_Related_To__r.SW_Fit_Score__c}) = &apos;B&apos;,
+                TEXT({!$Record.Contact_Related_To__r.SW_Fit_Score__c}) = &apos;C&apos;
+            ), 
+            &apos;Reserve&apos;,
+            
+            IF(
+                AND(
+                       TEXT({!$Record.Contact_Related_To__r.SW_Fit_Score__c}) = &apos;E&apos;, {!$Record.Contact_Related_To__r.BI_Data__r.Intent_Score__c} &gt;= 7), 
+                &apos;Unverified MQL&apos;,
+                &apos;Nurture&apos;
+            )
+        )
+    )
+)</expression>
+    </formulas>
+    <formulas>
+        <name>fr_ISNEW</name>
+        <dataType>Boolean</dataType>
+        <expression>ISNEW()</expression>
+    </formulas>
+    <formulas>
+        <name>fr_ManagerEmail</name>
+        <dataType>String</dataType>
+        <expression>IF(
+ISBLANK({!$Record.CreatedById}), 
+{!$User.Email}, 
+{!$Record.CreatedBy.Email}
+)</expression>
+    </formulas>
+    <formulas>
+        <name>fr_OwnerIdForSMB_AM</name>
+        <dataType>String</dataType>
+        <expression>IF(
+AND(
+NOT(ISBLANK({!$Record.Account__r.Named_Sales_Manager__c})),
+{!$Record.Account__r.Named_Sales_Manager__r.IsActive} = TRUE
+),
+ {!$Record.Account__r.Named_Sales_Manager__c},
+{!$User.Id}
+)</expression>
+    </formulas>
+    <interviewLabel>Meeting - Record-Triggered - Before Save {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Meeting - Record-Triggered - Before Save</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <description>Get the user manager&apos;s email address</description>
+        <name>CME_Get_Current_User_Manager_Email</name>
+        <label>CME - Get Current User Manager Email</label>
+        <locationX>194</locationX>
+        <locationY>395</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Update_creator_manager_email</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$User.ManagerId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>User</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <description>MIS-8255 &gt;new Sub Motion field</description>
+        <name>Get_Owners_Sub_Motion</name>
+        <label>Get Owners Sub Motion</label>
+        <locationX>194</locationX>
+        <locationY>3503</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Update_Sub_Motion_on_field</targetReference>
+        </connector>
+        <faultConnector>
+            <targetReference>Fault_get_owner_sub_motion</targetReference>
+        </faultConnector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.OwnerId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>User</object>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>Sub_Motion__c</queriedFields>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <description>Update Owner</description>
+        <name>AOMO_Update_Owner</name>
+        <label>AOMO - Update Owner</label>
+        <locationX>326</locationX>
+        <locationY>2303</locationY>
+        <connector>
+            <targetReference>Rule_CC_Chat_Conversation</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>OwnerId</field>
+            <value>
+                <elementReference>$Record.Account__r.OwnerId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>Update Chat Conversation</description>
+        <name>CC_Chat_Conversation</name>
+        <label>CC - Chat Conversation</label>
+        <locationX>326</locationX>
+        <locationY>2603</locationY>
+        <connector>
+            <targetReference>Rule_MC_Meeting_Completed</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Chat_Conversation__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>MIS-5875 - update from the record without extra GET
+Update Country__c and State_Name__c</description>
+        <name>IS_Update_Stage_Country</name>
+        <label>IS - Update Stage/Country</label>
+        <locationX>182</locationX>
+        <locationY>1103</locationY>
+        <connector>
+            <targetReference>Rule_PANT_Parent_Account_is_NT</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Country__c</field>
+            <value>
+                <elementReference>$Record.Account__r.BillingCountry</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>State_Name__c</field>
+            <value>
+                <elementReference>$Record.Account__r.BillingState</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>Update Owner Id</description>
+        <name>NSMO_Update_Owner_Id</name>
+        <label>NSMO - Update Owner Id</label>
+        <locationX>326</locationX>
+        <locationY>2003</locationY>
+        <connector>
+            <targetReference>Rule_AOMO_Account_Owner_as_Meeting_Owner</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>OwnerId</field>
+            <value>
+                <elementReference>$User.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>Update owner manager email</description>
+        <name>OC_Update_owner_manager_email</name>
+        <label>OC - Update owner manager email</label>
+        <locationX>326</locationX>
+        <locationY>803</locationY>
+        <connector>
+            <targetReference>Rule_IS_Isnew</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Managers_Email__c</field>
+            <value>
+                <elementReference>$Record.Owner:User.Manager.Email</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Completed_Timestamp</name>
+        <label>Update Completed Timestamp</label>
+        <locationX>326</locationX>
+        <locationY>2903</locationY>
+        <connector>
+            <targetReference>Need_to_update_Meeting_Division</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Status_Completed_Timestamp__c</field>
+            <value>
+                <elementReference>$Flow.CurrentDateTime</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>MIS-6615</description>
+        <name>Update_CP_fields_from_Contact</name>
+        <label>Update CP fields from Contact</label>
+        <locationX>326</locationX>
+        <locationY>4343</locationY>
+        <inputAssignments>
+            <field>Support_Agent_CP_Link_Sent_Date__c</field>
+            <value>
+                <elementReference>$Record.Contact_Related_To__r.Support_Agent_CP_Link_Sent_Date__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Support_Agent_CP_Link_Sent__c</field>
+            <value>
+                <elementReference>$Record.Contact_Related_To__r.Support_Agent_CP_Link_Sent__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Zendesk_Ticket_ID__c</field>
+            <value>
+                <elementReference>$Record.Contact_Related_To__r.Zendesk_Ticket_ID__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>Update Creator_Manager_Email__c and Managers_Email__c fields.
+Value = user manager&apos;s email.</description>
+        <name>Update_creator_manager_email</name>
+        <label>Update creator manager email</label>
+        <locationX>194</locationX>
+        <locationY>503</locationY>
+        <connector>
+            <targetReference>Rule_OC_Owner_is_changed</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Creator_Manager_Email__c</field>
+            <value>
+                <elementReference>CME_Get_Current_User_Manager_Email.Email</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Creator_Manager_s_Manager__c</field>
+            <value>
+                <elementReference>CME_Get_Current_User_Manager_Email.Manager.Email</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Managers_Email__c</field>
+            <value>
+                <elementReference>$Record.Owner:User.Manager.Email</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>Update Creator_Manager_Email__c and Managers_Email__c fields.
+Value = user manager&apos;s email.</description>
+        <name>Update_creator_manager_email_0</name>
+        <label>Update creator manager email</label>
+        <locationX>458</locationX>
+        <locationY>395</locationY>
+        <connector>
+            <targetReference>Rule_OC_Owner_is_changed</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Creator_Manager_Email__c</field>
+            <value>
+                <elementReference>$Record.CreatedBy.Manager.Email</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Creator_Manager_s_Manager__c</field>
+            <value>
+                <elementReference>$Record.CreatedBy.Manager.Manager.Email</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Managers_Email__c</field>
+            <value>
+                <elementReference>$Record.Owner:User.Manager.Email</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>MIS-5826</description>
+        <name>Update_MQL_Status_from_Contact</name>
+        <label>Update MQL Status from Contact</label>
+        <locationX>50</locationX>
+        <locationY>1619</locationY>
+        <connector>
+            <targetReference>Rule_NSMO_Named_Sales_Manager_as_Meeting_Owner</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>MQL_Status_at_Meeting_Creation__c</field>
+            <value>
+                <elementReference>Contact_MQL_Status</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_NT2T_field</name>
+        <label>Update NT2T field</label>
+        <locationX>194</locationX>
+        <locationY>4043</locationY>
+        <connector>
+            <targetReference>Rule_NMM_New_MIR_Meeting</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>NT2T_Meeting__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_NT2T_field_to_false</name>
+        <label>Update NT2T field to false</label>
+        <locationX>458</locationX>
+        <locationY>4043</locationY>
+        <connector>
+            <targetReference>Rule_NMM_New_MIR_Meeting</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>NT2T_Meeting__c</field>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>MIS-5382</description>
+        <name>Update_NT_Meeting</name>
+        <label>Update NT Meeting</label>
+        <locationX>50</locationX>
+        <locationY>1319</locationY>
+        <connector>
+            <targetReference>Contact_is_Populated</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>NT_Meeting__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>MIS-8255 &gt;new Sub Motion field</description>
+        <name>Update_Sub_Motion_on_field</name>
+        <label>Update Sub Motion on field</label>
+        <locationX>194</locationX>
+        <locationY>3611</locationY>
+        <connector>
+            <targetReference>Update_NT2T</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Created_By_Sub_Motion__c</field>
+            <value>
+                <elementReference>Get_Owners_Sub_Motion.Sub_Motion__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>332</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Rule_CME_Add_creator_manager_owner_email</targetReference>
+        </connector>
+        <object>Meeting__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>varCurrUserManagerEmail</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

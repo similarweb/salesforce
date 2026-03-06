@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Renewal_Cycle_Price_Validation</fullName>
+    <active>true</active>
+    <description>#1091634</description>
+    <errorConditionFormula>AND(
+$Profile.Name != &quot;System Administrator&quot;,
+$Profile.Name != &quot;Integration User&quot; ,
+$Profile.Name != &quot;SW Billing Extended&quot; ,
+$Profile.Name != &quot;SW Billing&quot; ,
+$Profile.Name != &quot;Integration User - API Only&quot; ,
+$Profile.Name != &quot;Integration User&quot; ,
+$Profile.Name != &quot;SW SalesOps&quot; ,
+$Profile.Name != &quot;SW SalesOps Extended&quot; ,
+ISPICKVAL(Type , &quot;Renewal&quot;),
+ISCHANGED(  StageName ),
+OR(
+AND(
+ISPICKVAL( Cycle__c ,&quot;Annually&quot;),
+ Cycle_Price__c   &gt; Original_Renewal_Amount__c),
+AND(
+ISPICKVAL( Cycle__c ,&quot;2 Years&quot;),
+Cycle_Price__c / 2  &gt; Original_Renewal_Amount__c),
+AND(
+ISPICKVAL( Cycle__c ,&quot;3 Years&quot;),
+Cycle_Price__c/3  &gt; Original_Renewal_Amount__c)
+),
+Delta_ARR__c != 1, 
+Delta_ARR__c != -1
+)</errorConditionFormula>
+    <errorDisplayField>Cycle_Price__c</errorDisplayField>
+    <errorMessage>The ARR cannot be higher than the original renewal amount. Please create an upsell opportunity to reflect an increase in ARR</errorMessage>
+</ValidationRule>

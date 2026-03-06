@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Legal_Applicable_Quote</fullName>
+    <active>true</active>
+    <errorConditionFormula>OR(
+   AND(
+   ISNEW(),
+   ISBLANK(TEXT( Applicable_Quote__c)),
+   RecordType.Name    = &quot;Legal Services&quot;),
+
+   AND($User.Id = Requester__r.Id,
+   ISBLANK(TEXT( Applicable_Quote__c)),
+   RecordType.Name    = &quot;Legal Services&quot;)
+ )</errorConditionFormula>
+    <errorDisplayField>Applicable_Quote__c</errorDisplayField>
+    <errorMessage>Please populate the &apos;Applicable Quote&apos; field with &apos;Yes&apos; or &apos;No&apos;.</errorMessage>
+</ValidationRule>

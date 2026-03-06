@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Manager_Forecasting_View_Upsells</fullName>
+    <columns>CORE.USERS.FULL_NAME</columns>
+    <columns>OPPORTUNITY.NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>OPPORTUNITY.STAGE_NAME</columns>
+    <columns>ARR__c</columns>
+    <columns>OPPORTUNITY.CLOSE_DATE</columns>
+    <columns>Cycle_Price__c</columns>
+    <columns>Cycle__c</columns>
+    <columns>OPPORTUNITY.FORECAST_CATEGORY</columns>
+    <columns>Similarweb_Forecasting_status__c</columns>
+    <columns>Product_Sold__c</columns>
+    <columns>Plan_Details__c</columns>
+    <columns>OPPORTUNITY.LAST_ACTIVITY</columns>
+    <filterScope>Team</filterScope>
+    <filters>
+        <field>OPPORTUNITY.TYPE</field>
+        <operation>equals</operation>
+        <value>Upsell</value>
+    </filters>
+    <filters>
+        <field>OPPORTUNITY.STAGE_NAME</field>
+        <operation>notEqual</operation>
+        <value>Closed Won,Closed Lost,Feature Update</value>
+    </filters>
+    <filters>
+        <field>OPPORTUNITY.CLOSE_DATE</field>
+        <operation>equals</operation>
+        <value>THIS_QUARTER</value>
+    </filters>
+    <filters>
+        <field>OPPORTUNITY.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Opportunity.Enterprise</value>
+    </filters>
+    <label>Manager Forecasting View - Upsells</label>
+</ListView>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Code_Red_Reason__c</fullName>
+    <externalId>false</externalId>
+    <label>Code Red Reason</label>
+    <required>true</required>
+    <trackFeedHistory>true</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Overall Health</fullName>
+                <default>false</default>
+                <label>Poor Health</label>
+            </value>
+            <value>
+                <fullName>Poor Product Utilization %</fullName>
+                <default>false</default>
+                <label>Poor Seats Utilization</label>
+            </value>
+            <value>
+                <fullName>Non-responsive client</fullName>
+                <default>false</default>
+                <label>Unresponsive</label>
+            </value>
+            <value>
+                <fullName>General (incoming)</fullName>
+                <default>false</default>
+                <label>General (incoming)</label>
+            </value>
+            <value>
+                <fullName>Data issues</fullName>
+                <default>false</default>
+                <label>Data issues</label>
+            </value>
+            <value>
+                <fullName>Downward Usage Trend</fullName>
+                <default>false</default>
+                <label>Downward Usage Trend</label>
+            </value>
+            <value>
+                <fullName>0-2 Active Users, High ARR</fullName>
+                <default>false</default>
+                <label>0-2 Active Users, High ARR</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

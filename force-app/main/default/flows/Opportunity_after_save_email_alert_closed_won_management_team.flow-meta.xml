@@ -1,0 +1,835 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Closed_Lost_Renewal_Alert_to_Managers</name>
+        <label>Closed Lost Renewal - Alert to Managers</label>
+        <locationX>578</locationX>
+        <locationY>1379</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <connector>
+            <targetReference>Get_AS_Requests</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <stringValue>management-sf-alerts@similarweb.com, maayan.krush@similarweb.com</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailAddressesArray</name>
+            <value>
+                <elementReference>CSMcollection</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <stringValue>{!RoundedOriginalRenewalAmount} ARR - Churn - {!$Record.Name}</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>Closed_Lost_Managers</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>sendRichBody</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+    </actionCalls>
+    <actionCalls>
+        <description>MIS-3334</description>
+        <name>New_sale_to_Or_and_management_team</name>
+        <label>New sale to Or and management team</label>
+        <locationX>182</locationX>
+        <locationY>1355</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <connector>
+            <targetReference>Get_AS_Requests</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <stringValue>management-sf-alerts@similarweb.com</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <stringValue>New sale-  {!$Record.Name} closed won</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>closed_won_managers_and_or</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>sendRichBody</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+    </actionCalls>
+    <actionCalls>
+        <description>MIS-5204
+MIS-4733</description>
+        <name>Send_Alert_to_AS_Team_Leaders</name>
+        <label>Send Alert to AS Team Leaders</label>
+        <locationX>512</locationX>
+        <locationY>2279</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <stringValue>as-sf-alerts@similarweb.com</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <elementReference>Opp_AS_Request_Subject</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>AS_Team_Close_Won_Template</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>sendRichBody</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+    </actionCalls>
+    <apiVersion>59.0</apiVersion>
+    <assignments>
+        <name>Add_product_to_product_tracking_section</name>
+        <label>Add product to product tracking section</label>
+        <locationX>138</locationX>
+        <locationY>971</locationY>
+        <assignmentItems>
+            <assignToReference>ProductTrackingTextBody</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>CurrentProduct</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Through_products</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>MIS-4733</description>
+        <name>Add_Template_to_Main</name>
+        <label>Add Template to Main</label>
+        <locationX>600</locationX>
+        <locationY>2087</locationY>
+        <assignmentItems>
+            <assignToReference>Request_Template_Concatenated</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>Request_Details_Template</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Loop_Through_Requests</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Add_to_Collection</name>
+        <label>Add to Collection</label>
+        <locationX>666</locationX>
+        <locationY>971</locationY>
+        <assignmentItems>
+            <assignToReference>LastSubscriptions</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>VARLastSub</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Loop_Last_Subscriptions</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>MIS-4733</description>
+        <name>Assign_AS_Request_Header</name>
+        <label>Assign AS Request Header</label>
+        <locationX>292</locationX>
+        <locationY>1787</locationY>
+        <assignmentItems>
+            <assignToReference>AS_Request_Header</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>AS Request Details:</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Found_AS_Requests</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Loop_Through_Requests</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_CSMs_to_collection</name>
+        <label>Assign CSMs to collection</label>
+        <locationX>578</locationX>
+        <locationY>1271</locationY>
+        <assignmentItems>
+            <assignToReference>CSMcollection</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>Get_Assigned_CSM_and_Manager.Email</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>CSMcollection</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>Get_Assigned_CSM_and_Manager.Manager.Email</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Closed_Lost_Renewal_Alert_to_Managers</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Last_Subscription</name>
+        <label>Assign Last Subscription</label>
+        <locationX>666</locationX>
+        <locationY>863</locationY>
+        <assignmentItems>
+            <assignToReference>VARLastSub</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Loop_Last_Subscriptions.Name</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Add_to_Collection</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Close_product_tracking_section</name>
+        <label>Close product tracking section</label>
+        <locationX>50</locationX>
+        <locationY>1163</locationY>
+        <assignmentItems>
+            <assignToReference>ProductTrackingTextBody</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <stringValue>&lt;/ul&gt;</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>New_sale_to_Or_and_management_team</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Open_product_tracking_section</name>
+        <label>Open product tracking section</label>
+        <locationX>50</locationX>
+        <locationY>755</locationY>
+        <assignmentItems>
+            <assignToReference>ProductTrackingTextBody</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <stringValue>&lt;ul&gt;</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Through_products</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <description>MIS-4733</description>
+        <name>FASRSA_Found_AS_Requests_or_Strat_Account</name>
+        <label>*(FASRSA)* - Found AS Requests or Strat Account?</label>
+        <locationX>512</locationX>
+        <locationY>1679</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Found_Requests</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_AS_Requests</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_AS_Request_Header</targetReference>
+            </connector>
+            <label>Found Requests</label>
+        </rules>
+        <rules>
+            <name>Strat_Account</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Account.Business_Unit__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Strategic</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Loop_Through_Requests</targetReference>
+            </connector>
+            <label>Strat Account</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Has_tracking_products</name>
+        <label>Has tracking products?</label>
+        <locationX>182</locationX>
+        <locationY>647</locationY>
+        <defaultConnector>
+            <targetReference>New_sale_to_Or_and_management_team</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes_has_tracking_products</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_tracking_products</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Open_product_tracking_section</targetReference>
+            </connector>
+            <label>Yes, has tracking products</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Won_or_Lost</name>
+        <label>Won or Lost</label>
+        <locationX>512</locationX>
+        <locationY>323</locationY>
+        <defaultConnector>
+            <targetReference>Get_AS_Requests</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Closed_Won</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Type</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>New Sale</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.StageName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Closed Won</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Original_Lead</targetReference>
+            </connector>
+            <label>New Sell + Closed Won</label>
+        </rules>
+        <rules>
+            <name>Renewal_Closed_Lost</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Type</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Renewal</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.StageName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Closed Lost</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_NPS_data</targetReference>
+            </connector>
+            <label>Renewal + Closed Lost</label>
+        </rules>
+    </decisions>
+    <description>MIS-5646 - Split to 2 Flows for Closed Won and AS Alert
+MIS-5530
+MIS-5340
+MIS-5281
+MIS-5204
+MIS-5120
+MIS-4979
+MIS-4982
+MIS-4867
+MIS-4904
+MIS-4860 - removed requests with pod = Managed Services
+MIS-4765 - added fields to closed lost alert
+MIS-4733 - Messages for Opps with Advisory Services Requests
+MIS-4669 - Removed Popular Pages from Won Alert
+MIS-4607 - Added SW Forecasting Status - First Value
+MIS-4510 - Added Multi-thread fields
+MIS-4283 - Adding First Touch Pro Purchase Date
+MIS-4161 - Rounded Renewal amount and ARR
+MIS-4065 - change email recipient to management-sf-alerts@similarweb.com, maayan.krush@similarweb.com, carrie.lazorchak@similarweb.com
+MIS-3936
+MIS-3334
+MIS-6946 - Product Tracking</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>CurrentProduct</name>
+        <dataType>String</dataType>
+        <expression>&apos;&lt;li&gt;&apos; + {!Through_products.Product2.Name} + &apos;&lt;/li&gt;&apos;</expression>
+    </formulas>
+    <formulas>
+        <description>MIS-5646</description>
+        <name>fr_AS_Recipients</name>
+        <dataType>String</dataType>
+        <expression>IF(
+  ISPICKVAL({!$Record.StageName}, &apos;Closed Won&apos;),
+  &apos;as-sf-alerts@similarweb.com,gilles.haumont@similarweb.com&apos;,
+  &apos;as-sf-alerts@similarweb.com&apos;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>fr_LeadORContactCreatedDate</name>
+        <dataType>DateTime</dataType>
+        <expression>IF(
+  {!Get_Original_Lead.CreatedDate} &lt; {!$Record.Primary_Contact__r.CreatedDate},
+  {!Get_Original_Lead.CreatedDate},
+  {!$Record.Primary_Contact__r.CreatedDate}
+)</expression>
+    </formulas>
+    <formulas>
+        <description>MIS-5530</description>
+        <name>Meeting_Created_Date</name>
+        <dataType>Date</dataType>
+        <expression>DATEVALUE({!$Record.Related_Meeting__r.CreatedDate})</expression>
+    </formulas>
+    <formulas>
+        <name>NAL_Strategicpod_Formula</name>
+        <dataType>String</dataType>
+        <expression>IF(
+  CONTAINS(UPPER(TEXT({!$Record.Account.Strategic_Pod__c})), &quot;NAL&quot;),
+  TEXT({!$Record.Account.Strategic_Pod__c}),
+  NULL
+)</expression>
+    </formulas>
+    <formulas>
+        <name>opp_record_link</name>
+        <dataType>String</dataType>
+        <expression>LEFT( {!$Api.Partner_Server_URL_520}, FIND( &apos;/services&apos;, {!$Api.Partner_Server_URL_520} ))&amp;{!$Record.Id}</expression>
+    </formulas>
+    <formulas>
+        <description>MIS-4733</description>
+        <name>Request_Details_Template</name>
+        <dataType>String</dataType>
+        <expression>&apos;&lt;strong&gt;Request Name: &lt;/strong&gt;&apos;&amp;{!Loop_Through_Requests.Name}&amp;&apos;&lt;br&gt;&apos;&amp;
+&apos;&lt;strong&gt;Link to Request: &lt;/strong&gt;&apos;&amp;{!Request_Link}&amp;&apos;&lt;br&gt;&apos;&amp;
+&apos;&lt;strong&gt;List Price: &lt;/strong&gt;&apos;&amp;TEXT({!Loop_Through_Requests.List_price__c})&amp;&apos;&lt;br&gt;&apos;&amp;
+&apos;&lt;strong&gt;Pod: &lt;/strong&gt;&apos;&amp;TEXT({!Loop_Through_Requests.Pod__c})&amp;&apos;&lt;br&gt;&apos;&amp;
+&apos;&lt;strong&gt;SOW: &lt;/strong&gt;&apos;&amp;{!Loop_Through_Requests.Link_to_Proposal__c}&amp;&apos;&lt;br&gt;&lt;br&gt;&apos;</expression>
+    </formulas>
+    <formulas>
+        <description>MIS-4733</description>
+        <name>Request_Link</name>
+        <dataType>String</dataType>
+        <expression>LEFT( {!$Api.Partner_Server_URL_520}, FIND( &apos;/services&apos;, {!$Api.Partner_Server_URL_520} ))&amp;{!Loop_Through_Requests.Id}</expression>
+    </formulas>
+    <formulas>
+        <name>RoundedARR</name>
+        <dataType>Number</dataType>
+        <expression>ROUND({!$Record.ARR__c},0)</expression>
+        <scale>0</scale>
+    </formulas>
+    <formulas>
+        <name>RoundedOriginalRenewalAmount</name>
+        <dataType>Number</dataType>
+        <expression>ROUND({!$Record.Original_Renewal_Amount__c},0)</expression>
+        <scale>0</scale>
+    </formulas>
+    <formulas>
+        <description>MIS-4733</description>
+        <name>Strat_or_AS_Topic</name>
+        <dataType>String</dataType>
+        <expression>IF(AND({!Found_AS_Requests}=TRUE, ISPICKVAL({!$Record.Account.Business_Unit__c},&quot;Strategic&quot;)), &quot;Strat Account with AS Request&quot;,
+     IF({!Found_AS_Requests}=TRUE, &quot;Account with AS Request&quot;,
+         IF(ISPICKVAL({!$Record.Account.Business_Unit__c},&quot;Strategic&quot;), &quot;Strat Account&quot;, &quot;&quot;
+)))</expression>
+    </formulas>
+    <interviewLabel>Opportunity after save -email alert closed won management team {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Opportunity after save -email alert closed won / lost management team</label>
+    <loops>
+        <name>Loop_Last_Subscriptions</name>
+        <label>Loop Last Subscriptions</label>
+        <locationX>578</locationX>
+        <locationY>755</locationY>
+        <collectionReference>Get_Subscriptions_and_Products</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Assign_Last_Subscription</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>Get_Assigned_CSM_and_Manager</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <loops>
+        <description>MIS-4733</description>
+        <name>Loop_Through_Requests</name>
+        <label>Loop Through Requests</label>
+        <locationX>512</locationX>
+        <locationY>1979</locationY>
+        <collectionReference>Get_AS_Requests</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Add_Template_to_Main</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>Send_Alert_to_AS_Team_Leaders</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <loops>
+        <name>Through_products</name>
+        <label>Through products</label>
+        <locationX>50</locationX>
+        <locationY>863</locationY>
+        <collectionReference>Get_tracking_products</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Add_product_to_product_tracking_section</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>Close_product_tracking_section</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <description>MIS-4860
+MIS-4733</description>
+        <name>Get_AS_Requests</name>
+        <label>Get AS Requests</label>
+        <locationX>512</locationX>
+        <locationY>1571</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>FASRSA_Found_AS_Requests_or_Strat_Account</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Opportunity__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>RecordTypeId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>0120X0000005lrhQAA</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Pod__c</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>Managed Services</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>Request__c</object>
+        <sortField>CreatedDate</sortField>
+        <sortOrder>Desc</sortOrder>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Assigned_CSM_and_Manager</name>
+        <label>Get Assigned CSM and Manager</label>
+        <locationX>578</locationX>
+        <locationY>1163</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Assign_CSMs_to_collection</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Account.Assigned_CSA_Name__c</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>User</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Last_Subscription</name>
+        <label>Get Last Subscription</label>
+        <locationX>578</locationX>
+        <locationY>539</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Get_Subscriptions_and_Products</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Zuora__Account__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.AccountId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Zuora__Subscription__c</object>
+        <sortField>Zuora__SubscriptionEndDate__c</sortField>
+        <sortOrder>Desc</sortOrder>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_NPS_data</name>
+        <label>Get NPS data</label>
+        <locationX>578</locationX>
+        <locationY>431</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Get_Last_Subscription</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Account__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.AccountId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Survey__c</object>
+        <sortField>CreatedDate</sortField>
+        <sortOrder>Desc</sortOrder>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Original_Lead</name>
+        <label>Get Original Lead</label>
+        <locationX>182</locationX>
+        <locationY>431</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Get_tracking_products</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>ConvertedContactId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Primary_Contact__r.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Lead</object>
+        <sortField>CreatedDate</sortField>
+        <sortOrder>Desc</sortOrder>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Subscriptions_and_Products</name>
+        <label>Get Subscriptions and Products</label>
+        <locationX>578</locationX>
+        <locationY>647</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Loop_Last_Subscriptions</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Zuora__Subscription__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Get_Last_Subscription.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>Zuora__SubscriptionProductCharge__c</object>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>Name</queriedFields>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_tracking_products</name>
+        <label>Get tracking products</label>
+        <locationX>182</locationX>
+        <locationY>539</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Has_tracking_products</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>OpportunityId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Display_On_Opportunity__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>OpportunityLineItem</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <start>
+        <locationX>386</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Won_or_Lost</targetReference>
+        </connector>
+        <filterFormula>ISCHANGED({!$Record.StageName}) &amp;&amp;
+(
+ISPICKVAL({!$Record.StageName}, &quot;Closed Won&quot;) ||
+ISPICKVAL({!$Record.StageName}, &quot;Closed Lost&quot;)
+)</filterFormula>
+        <object>Opportunity</object>
+        <recordTriggerType>Update</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Obsolete</status>
+    <textTemplates>
+        <description>MIS-4733</description>
+        <name>AS_Team_Close_Won_Template</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>&lt;strong&gt;&lt;u&gt;{!Strat_or_AS_Topic}&lt;/strong&gt;&lt;/u&gt;&lt;br&gt;&lt;br&gt;
+&lt;strong&gt;Opportunity {!$Record.Name} has been flagged as {!$Record.StageName}&lt;/strong&gt;&lt;br&gt;&lt;br&gt;
+&lt;strong&gt;Account Name:&lt;/strong&gt; {!$Record.Account.Name}&lt;br&gt;
+&lt;strong&gt;ARR:&lt;/strong&gt; {!$Record.ARR__c}&lt;br&gt;
+&lt;strong&gt;Max ARR:&lt;/strong&gt; {!$Record.Max_ARR__c}&lt;br&gt;
+&lt;strong&gt;Link to SFDC Opportunity:&lt;/strong&gt; {!opp_record_link}&lt;br&gt;&lt;br&gt;
+&lt;strong&gt;&lt;u&gt;{!AS_Request_Header}&lt;/u&gt;&lt;/strong&gt;&lt;br&gt;&lt;br&gt;
+{!Request_Template_Concatenated}</text>
+    </textTemplates>
+    <textTemplates>
+        <name>Closed_Lost_Managers</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>&lt;p&gt;&lt;strong style=&quot;color: rgb(68, 68, 68); background-color: rgb(255, 255, 255);&quot;&gt;Account CS:&lt;/strong&gt;&lt;span style=&quot;color: rgb(68, 68, 68); background-color: rgb(255, 255, 255);&quot;&gt; {!$Record.Assigned_CSM_Name__r.FirstName} {!$Record.Assigned_CSM_Name__r.LastName}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;u&gt;The Client: &lt;/u&gt;&lt;/p&gt;&lt;p&gt;{!$Record.Account.Name}&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Original Renewal Amount:&lt;/strong&gt; {!RoundedOriginalRenewalAmount}&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Website&lt;/strong&gt;: &lt;span style=&quot;background-color: rgb(255, 255, 255); color: rgb(68, 68, 68);&quot;&gt;{!$Record.Account.Website_Domain__c}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Country: &lt;/strong&gt;{!$Record.Account.BillingCountry}&lt;/p&gt;&lt;p&gt;&lt;strong&gt;SW Industry: &lt;/strong&gt;{!$Record.Account.SW_Industry__c}&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Number of Employees&lt;/strong&gt;: {!$Record.Account.Employees_Min__c} - {!$Record.Account.Employees_Max__c}&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Business Unit: &lt;/strong&gt;{!$Record.Account.Business_Unit__c}&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;color: rgb(68, 68, 68); background-color: rgb(255, 255, 255);&quot;&gt;First Touch Pro Date: &lt;/strong&gt;&lt;span style=&quot;color: rgb(68, 68, 68); background-color: rgb(255, 255, 255);&quot;&gt;{!$Record.Account.First_touch_pro_purchase_date__c}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;background-color: rgb(255, 255, 255); color: rgb(68, 68, 68);&quot;&gt;Subscription End Date: &lt;/strong&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); color: rgb(68, 68, 68);&quot;&gt;{!Get_Last_Subscription.Zuora__SubscriptionEndDate__c}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;u&gt;Product and use case&lt;/u&gt;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Base Product: &lt;/strong&gt;{!$Record.Account.Base_Product__c}&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Subscription Products and Charges:&lt;/strong&gt; {!LastSubscriptions}&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Primary Use Case: &lt;/strong&gt;{!$Record.Primary_Use_Case__c}&lt;/p&gt;&lt;p&gt;&lt;strong&gt;First Close Lost reason: &lt;/strong&gt;{!$Record.First_Closed_Lost_Reason__c}&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Closed Lost Reason-More Details: &lt;/strong&gt;{!$Record.Closed_Lost_Reason_More_details__c}&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Multi-Thread Efforts Done Before Churn: &lt;/strong&gt;{!$Record.Multi_thread_Efforts_Done_Before_Churn__c}&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Please Elaborate on Multi-Thread Efforts: &lt;/strong&gt;{!$Record.Please_Elaborate_on_Multi_thread_Efforts__c}&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;background-color: var(--slds-g-color-neutral-base-100, var(--lwc-colorBackgroundInput,rgb(255, 255, 255))); color: var(--slds-g-color-neutral-base-30, var(--lwc-colorTextWeak,rgb(68, 68, 68))); font-size: var(--lwc-fontSize3,0.8125rem); font-family: var(--lwc-fontFamily,-apple-system, BlinkMacSystemFont, &apos;Segoe UI&apos;, Roboto, Helvetica, Arial, sans-serif, &apos;Apple Color Emoji&apos;, &apos;Segoe UI Emoji&apos;, &apos;Segoe UI Symbol&apos;);&quot;&gt;Will the Opp be Relevant Again: &lt;/strong&gt;&lt;span style=&quot;background-color: var(--slds-g-color-neutral-base-100, var(--lwc-colorBackgroundInput,rgb(255, 255, 255))); color: var(--slds-g-color-neutral-base-30, var(--lwc-colorTextWeak,rgb(68, 68, 68))); font-size: var(--lwc-fontSize3,0.8125rem); font-family: var(--lwc-fontFamily,-apple-system, BlinkMacSystemFont, &apos;Segoe UI&apos;, Roboto, Helvetica, Arial, sans-serif, &apos;Apple Color Emoji&apos;, &apos;Segoe UI Emoji&apos;, &apos;Segoe UI Symbol&apos;);&quot;&gt;{!$Record.Opp_will_be_relevant__c}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Using a Competitor: &lt;/strong&gt;{!$Record.Using_a_Competitor__c}&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Competitive Product: &lt;/strong&gt;{!$Record.Competitor_Product__c}&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Missing Data or Feature: &lt;/strong&gt;{!$Record.Missing_Data_or_Feature__c}&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Missing Coverage: &lt;/strong&gt;{!$Record.Missing_coverage_or_feature__c}&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;u&gt;Engagement and NPS&lt;/u&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;Health Score:&lt;/strong&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt; {!$Record.Account.fr_SYS_Health_Score__c}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;﻿NPS Score: &lt;/strong&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;{!Get_NPS_data.How_you_Recommend_SW__c}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;NPS Feedback: &lt;/strong&gt;{!Get_NPS_data.How_to_Improve__c}&lt;/p&gt;&lt;p&gt;&lt;strong&gt;NPS Created Date: &lt;/strong&gt;{!Get_NPS_data.CreatedDate}&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;u&gt;Sales and Account Management&lt;/u&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;background-color: var(--slds-g-color-neutral-base-100, var(--lwc-colorBackgroundInput,rgb(255, 255, 255))); color: var(--slds-g-color-neutral-base-30, var(--lwc-colorTextWeak,rgb(68, 68, 68))); font-size: var(--lwc-fontSize3,0.8125rem); font-family: var(--lwc-fontFamily,-apple-system, BlinkMacSystemFont, &apos;Segoe UI&apos;, Roboto, Helvetica, Arial, sans-serif, &apos;Apple Color Emoji&apos;, &apos;Segoe UI Emoji&apos;, &apos;Segoe UI Symbol&apos;);&quot;&gt;Opportunity Owner:&lt;/strong&gt;&lt;span style=&quot;background-color: var(--slds-g-color-neutral-base-100, var(--lwc-colorBackgroundInput,rgb(255, 255, 255))); color: var(--slds-g-color-neutral-base-30, var(--lwc-colorTextWeak,rgb(68, 68, 68))); font-size: var(--lwc-fontSize3,0.8125rem); font-family: var(--lwc-fontFamily,-apple-system, BlinkMacSystemFont, &apos;Segoe UI&apos;, Roboto, Helvetica, Arial, sans-serif, &apos;Apple Color Emoji&apos;, &apos;Segoe UI Emoji&apos;, &apos;Segoe UI Symbol&apos;);&quot;&gt; {!$Record.Owner.FirstName} {!$Record.Owner.LastName}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Opportunity Owner Division: &lt;/strong&gt;{!$Record.Owner.Division}&lt;/p&gt;&lt;p&gt;&lt;strong&gt;SW Forecasting Status - First Value: &lt;/strong&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;{!$Record.First_Forecasting_Value_For_This_Quarter__c}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Strategic Pod: &lt;/strong&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;{!NAL_Strategicpod_Formula}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Link to Opportunity: &lt;/strong&gt;{!opp_record_link}&lt;/p&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <name>closed_won_managers_and_or</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>&lt;p&gt;&lt;u&gt;The Client:&lt;/u&gt;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Account Name:&lt;/strong&gt; {!$Record.Account.Name}&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;ARR:&lt;/strong&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt; {!RoundedARR}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;Cycle Price: &lt;/strong&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;{!$Record.Cycle_Price__c}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;ARR - Rank Ranger: &lt;/strong&gt;{!$Record.ARR_Rank_Ranger__c}&lt;/p&gt;&lt;p&gt;&lt;strong&gt;MRR: &lt;/strong&gt;{!$Record.MRR__c}&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Contact Name&lt;/strong&gt;: &lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;{!$Record.Primary_Contact__r.FirstName} {!$Record.Primary_Contact__r.LastName}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Linkedin Profile:&lt;/strong&gt; {!$Record.Primary_Contact__r.LinkedIn_Profile__c}&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Contact Department:&lt;/strong&gt; {!$Record.Primary_Contact__r.Department__c}&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Website&lt;/strong&gt;: &lt;span style=&quot;background-color: rgb(255, 255, 255); color: rgb(68, 68, 68);&quot;&gt;{!$Record.Account.Website_Domain__c}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Country: &lt;/strong&gt;{!$Record.Account.BillingCountry}&lt;/p&gt;&lt;p&gt;&lt;strong&gt;SW Industry: &lt;/strong&gt;{!$Record.Account.SW_Industry__c}&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Number of Employees&lt;/strong&gt;: {!$Record.Account.Employees_Min__c} - &lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;{!$Record.Account.Employees_Max__c}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Business Unit: &lt;/strong&gt;{!$Record.Account.Business_Unit__c}&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Opportunity Created Date:&lt;/strong&gt; {!$Record.CreatedDateOnly__c}&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Opportunity Close Date: &lt;/strong&gt;{!$Record.CloseDate}&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;u&gt;Product and Use Case&lt;/u&gt;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Product Sold: &lt;/strong&gt; {!$Record.Product_Sold__c}&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Cycle:&lt;/strong&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt; {!$Record.Cycle__c}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Plan Details: &lt;/strong&gt; {!$Record.Plan_Details__c}&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Primary Use Case: &lt;/strong&gt; {!$Record.Primary_Use_Case__c}&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Secondary Use Case: &lt;/strong&gt;{!$Record.Secondary_Use_Case__c}&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Closed Won Reason: &lt;/strong&gt;{!$Record.Closed_Won_Reason__c}&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Closed Won Reason-More Details: &lt;/strong&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;{!$Record.Closed_Won_Reason_More_Details__c}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;u&gt;Product Tracking&lt;/u&gt;&lt;/p&gt;&lt;p&gt;{!ProductTrackingTextBody}&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;u&gt;Sales and Marketing&lt;/u&gt;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Opportunity Owner: &lt;/strong&gt;{!$Record.Owner.FirstName} {!$Record.Owner.LastName}&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Opportunity Owner Division:&lt;/strong&gt; {!$Record.Opportunity_Division__c}&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Opportunity Generator: &lt;/strong&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt; {!$Record.Opportunity_generator__c}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;Strategic Region:&lt;/strong&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt; {!$Record.Account.Strategic_Region__c}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Meeting Creator:&lt;/strong&gt; {!$Record.Related_Meeting__r.CreatedBy.FirstName} &lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt; {!$Record.Related_Meeting__r.CreatedBy.LastName}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;NT Meeting:&lt;/strong&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt; {!$Record.Related_Meeting__r.NT_Meeting__c} &lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;Meeting Source: &lt;/strong&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;{!$Record.Related_Meeting__r.Meeting_Source__c}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Meeting Created Date: {!Meeting_Created_Date}&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Campaign Name: &lt;/strong&gt;{!$Record.Primary_Contact__r.Campaign_Name__c}&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Age:&lt;/strong&gt; {!$Record.Age__c}&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Lead / Contact Created Date: &lt;/strong&gt;{!fr_LeadORContactCreatedDate}&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Form Location URL: &lt;/strong&gt;{!$Record.Primary_Contact__r.Form_Location_URL__c}&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Link to Opportunity: &lt;/strong&gt;{!opp_record_link}&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;color: rgb(68, 68, 68); background-color: rgb(255, 255, 255);&quot;&gt;{!NAL_Strategicpod_Formula}&lt;/strong&gt;&lt;/p&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <description>MIS-4733</description>
+        <name>Opp_AS_Request_Subject</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>Opportunity {!$Record.StageName}</text>
+    </textTemplates>
+    <triggerOrder>1700</triggerOrder>
+    <variables>
+        <description>MIS-4733</description>
+        <name>AS_Request_Header</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>CSMcollection</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>email_collection_to_simalerweb_management</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>MIS-4733</description>
+        <name>Found_AS_Requests</name>
+        <dataType>Boolean</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>LastSubscriptions</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>ProductTrackingTextBody</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>MIS-4733</description>
+        <name>Request_Template_Concatenated</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>VARLastSub</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

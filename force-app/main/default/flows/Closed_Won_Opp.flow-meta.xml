@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <description>MIS-4615</description>
+        <name>Closed_won_and_Opp_Generator_MIR</name>
+        <label>Closed won and Opp Generator = MIR</label>
+        <locationX>341</locationX>
+        <locationY>876</locationY>
+        <actionName>l11_cust_spl__SendChannel11Splash</actionName>
+        <actionType>apex</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>message</name>
+            <value>
+                <elementReference>MIR_Message</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>slug</name>
+            <value>
+                <stringValue>newclosedwondealmirgenerator</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>subject</name>
+            <value>
+                <stringValue>New Deal Shout Out!</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>userId</name>
+            <value>
+                <elementReference>$Record.Owner.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>l11_cust_spl__SendChannel11Splash</nameSegment>
+    </actionCalls>
+    <actionCalls>
+        <name>New_Closed_won</name>
+        <label>New Closed won</label>
+        <locationX>407</locationX>
+        <locationY>492</locationY>
+        <actionName>l11_cust_spl__SendChannel11Splash</actionName>
+        <actionType>apex</actionType>
+        <connector>
+            <targetReference>Opp_Generator_is_MIR</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>message</name>
+            <value>
+                <stringValue>{!$Record.Account.Name} {!$Record.ARR__c}</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>slug</name>
+            <value>
+                <stringValue>newclosedwondeal</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>subject</name>
+            <value>
+                <stringValue>{!$Record.Owner.FirstName} {!$Record.Owner.LastName} Just Closed A Deal!</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>userId</name>
+            <value>
+                <elementReference>$Record.Owner.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>l11_cust_spl__SendChannel11Splash</nameSegment>
+    </actionCalls>
+    <actionCalls>
+        <name>New_Closed_won_Big_Deal</name>
+        <label>New Closed won Big Deal</label>
+        <locationX>143</locationX>
+        <locationY>492</locationY>
+        <actionName>l11_cust_spl__SendChannel11Splash</actionName>
+        <actionType>apex</actionType>
+        <connector>
+            <targetReference>Opp_Generator_is_MIR</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>message</name>
+            <value>
+                <stringValue>{!$Record.Account.Name} {!$Record.ARR__c}</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>slug</name>
+            <value>
+                <stringValue>big_deal_closed_won</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>subject</name>
+            <value>
+                <stringValue>{!$Record.Owner.FirstName} {!$Record.Owner.LastName} WHALE DEAL ALERT!</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>userId</name>
+            <value>
+                <elementReference>$Record.Owner.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>l11_cust_spl__SendChannel11Splash</nameSegment>
+    </actionCalls>
+    <apiVersion>56.0</apiVersion>
+    <decisions>
+        <name>Deal_Size_Splash</name>
+        <label>Deal Size Splash</label>
+        <locationX>275</locationX>
+        <locationY>384</locationY>
+        <defaultConnector>
+            <targetReference>New_Closed_won</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Under $250K</defaultConnectorLabel>
+        <rules>
+            <name>Big_Deal_250K</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.ARR__c</leftValueReference>
+                <operator>GreaterThanOrEqualTo</operator>
+                <rightValue>
+                    <numberValue>250000.0</numberValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>New_Closed_won_Big_Deal</targetReference>
+            </connector>
+            <label>Big Deal $250K+</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-4615</description>
+        <name>Opp_Generator_is_MIR</name>
+        <label>Opp Generator is MIR?</label>
+        <locationX>473</locationX>
+        <locationY>768</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Opp_Generator_MIR</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Opportunity_generator__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>MIR</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Type</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>New Sale</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.ARR__c</leftValueReference>
+                <operator>GreaterThan</operator>
+                <rightValue>
+                    <numberValue>0.0</numberValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Closed_won_and_Opp_Generator_MIR</targetReference>
+            </connector>
+            <label>Opp Generator MIR</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-4615</description>
+        <name>Type_is_New_Sale_Upsell</name>
+        <label>Type is New Sale/Upsell?</label>
+        <locationX>473</locationX>
+        <locationY>276</locationY>
+        <defaultConnector>
+            <targetReference>Opp_Generator_is_MIR</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>New_Sale_Upsell</name>
+            <conditionLogic>(1 OR 2) AND 3</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Type</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>New Sale</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Type</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Upsell</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.ARR__c</leftValueReference>
+                <operator>GreaterThan</operator>
+                <rightValue>
+                    <numberValue>0.0</numberValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Deal_Size_Splash</targetReference>
+            </connector>
+            <label>New Sale/Upsell</label>
+        </rules>
+    </decisions>
+    <description>MIS-5928
+MIS-4851
+MIS-4615
+Channel11 Custom Splash for closed won deal + User Id + Fix to username</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>messageFormula</name>
+        <dataType>String</dataType>
+        <expression>{!$Record.Account.Name}+&apos;-&apos;+&apos;{!$Record.ARR__c}&apos;</expression>
+    </formulas>
+    <formulas>
+        <name>subjectFormula</name>
+        <dataType>String</dataType>
+        <expression>{!$Record.Owner.FirstName}+&apos; &apos;+{!$Record.Owner.LastName}+&apos; &apos;+&apos;Just Closed A Deal!&apos;</expression>
+    </formulas>
+    <interviewLabel>CH11 Closed Won Opp {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>CH11 - Closed Won Opp</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>StageName</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Closed Won</stringValue>
+            </value>
+        </filters>
+        <object>Opportunity</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <scheduledPaths>
+            <connector>
+                <targetReference>Type_is_New_Sale_Upsell</targetReference>
+            </connector>
+            <pathType>AsyncAfterCommit</pathType>
+        </scheduledPaths>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <textTemplates>
+        <description>MIS-4851</description>
+        <name>MIR_Message</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>&lt;p&gt;{!$Record.Related_Meeting__r.CreatedBy.FirstName} {!$Record.Related_Meeting__r.CreatedBy.LastName}&apos;s Opp for {!$Record.Account.Name} has been Closed Won&lt;/p&gt;&lt;p&gt;&lt;strong&gt;SM Name:&lt;/strong&gt; {!$Record.Owner.FirstName} {!$Record.Owner.LastName}&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Owner Division:&lt;/strong&gt; {!$Record.Owner.Division}&lt;/p&gt;&lt;p&gt;&lt;strong&gt;ARR:&lt;/strong&gt; {!$Record.ARR__c}&lt;/p&gt;</text>
+    </textTemplates>
+    <triggerOrder>1500</triggerOrder>
+</Flow>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Only_specific_profiles_can_edit_fields</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND( 
+OR( 
+ISCHANGED(Primary_Use_Case__c), 
+ISCHANGED(Secondary_Use_Case__c) 
+), 
+OR(
+ISPICKVAL(Status__c , &apos;Active&apos;),
+ISPICKVAL(Status__c , &apos;Cancelled&apos;),
+ISPICKVAL(Status__c , &apos;Part Of Another Subscription&apos;)
+),
+$UserRole.DeveloperName &lt;&gt; &apos;Product_Marketing_Strategy&apos;,
+$Profile.Name &lt;&gt; &apos;SW SalesOps&apos;,
+$Profile.Name &lt;&gt; &apos;SW SalesOps Extended&apos;
+)</errorConditionFormula>
+    <errorDisplayField>Primary_Solution__c</errorDisplayField>
+    <errorMessage>You do not have permissions to edit Solution fields.</errorMessage>
+</ValidationRule>

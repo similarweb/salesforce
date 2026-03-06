@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Proposal_uploaded</fullName>
+    <active>false</active>
+    <description>MIS-6168 - Deactivated
+MIS-3019</description>
+    <errorConditionFormula>and (Proposal_Uploaded__c = 0, Probability &gt;= 0.6, 
+ ISCHANGED( StageName ),
+   RecordType18ID__c   =&apos;012b0000000M3zQAAS&apos;, ISPICKVAL(Type, &apos;Upsell&apos;),
+Not( ISPICKVAL( Product_Sold__c , &apos;Annual Price Increase&apos;)),
+NOT(CONTAINS($Profile.Name, &apos;Integration&apos;)),
+$Profile.Name &lt;&gt; &apos;SW SalesOps Extended&apos;,
+$Profile.Name &lt;&gt; &apos;SW SalesOps&apos;,
+$Profile.Name &lt;&gt; &apos;System Administrator&apos;,
+$Profile.Name &lt;&gt; &apos;Channel Sales - BDR&apos;
+)</errorConditionFormula>
+    <errorMessage>Either add the proposal document that was sent to the client to the &apos;Notes and Attachments&apos; of the PROPOSAL section (Not Opportunity N&amp;A) or generate a new one from the Opp. KC Link https://sites.google.com/similarweb.com/sops-kc/proposal?authuser=0</errorMessage>
+</ValidationRule>

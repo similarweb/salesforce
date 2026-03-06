@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Subsidiary_Address__c</fullName>
+    <externalId>false</externalId>
+    <formula>CASE( Subsidiary__c,
+&quot;Parent Company : SimilarWeb Inc&quot;,&quot;16 East 34th Street, 15th Floor New York, NY 10016 United States&quot;,
+&quot;Parent Company : SimilarWeb UK : Similarweb FR&quot; ,&quot;C/O Mazars France, 1 rue des Arquebusiers, 67000 Strasbourg, France &quot;,
+&quot;Parent Company : SimilarWeb IL&quot;,&quot;33 Yizhak Rabin Road, Givatayim, 5348303, Israel&quot;,
+&quot;Parent Company : SimilarWeb AU&quot;, &quot;Suite 2204, 520 Oxford St. Bondi Junction, NSW, Australia&quot;,
+
+&quot;Parent Company : SimilarWeb UK : Similarweb FR&quot;,&quot; C/O Mazars France  1 rue des Arquebusiers   67000 Strasbourg   France&quot;,
+
+&quot;Parent Company : SimilarWeb JP&quot;,&quot;# 465, 4th floor, Otemachi Building 6-1, Otemachi 1-chome, Chiyoda-ku, Tokyo 100-0004 Japan&quot;,
+
+&quot;Parent Company : SimilarWeb UK&quot;,&quot;Addleshaw Goddard - Milton Gate, 7th Floor, 60 Chiswell St, London EC1Y 4AG United Kingdom&quot;,
+&quot;Parent Company : SimilarWeb DE&quot;,&quot;SimilarWeb Germany GmbH c/o Unicorn Workspaces, Kaufingerstraße 24, München, Germany, 80331&quot;,
+&quot;Parent Company : SimilarWeb SGD&quot;,&quot;135 Cecil Street #10-01, 069536, Singapore&quot;,
+null
+)</formula>
+    <label>Subsidiary Address</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,19 @@
+/**
+ * Created by Alon.Shalev on 1/15/2025.
+ */
+
+.THIS .flow-container {
+    width: 80%; /* Adjust percentage or use fixed pixels */
+    max-width: 600px; /* Maximum width for the flow container */
+    height: 400px; /* Set the desired height */
+    margin: 0 auto; /* Center the container horizontally */
+    overflow: hidden; /* Prevent overflow issues */
+    padding: 10px; /* Optional: Add padding for aesthetics */
+    border: 1px solid #ddd; /* Optional: Add a border for visibility */
+    border-radius: 8px; /* Optional: Rounded corners */
+    background-color: #f9f9f9; /* Optional: Background for better visibility */
+}
+.THIS lightning:flow {
+    width: 100%; /* Ensure the flow stays within the container's width */
+    height: 100%; /* Ensure the flow stays within the container's height */
+}

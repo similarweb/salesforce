@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Website_Cant_be_Blank</fullName>
+    <active>true</active>
+    <errorConditionFormula>(ISNEW() || ISCHANGED(Website))
+&amp;&amp;
+NOT(ISCHANGED(Stage__c))
+&amp;&amp;
+ISBLANK( Website )
+&amp;&amp;
+$Profile.Name &lt;&gt; &quot;BI Dev&quot;
+&amp;&amp;
+$Profile.Name &lt;&gt; &quot;Infer API&quot;
+&amp;&amp;
+$Profile.Name &lt;&gt; &quot;Integration User&quot;
+&amp;&amp;
+$Profile.Name &lt;&gt; &quot;Integration User No DF&quot;
+&amp;&amp;
+$Profile.Name &lt;&gt; &quot;System Administrator&quot;
+&amp;&amp;
+$Profile.Name &lt;&gt; &quot;SW SalesOps Extended&quot;
+&amp;&amp;
+$Profile.Name &lt;&gt; &quot;SW SalesOps&quot;
+&amp;&amp;
+$Profile.Name &lt;&gt; &quot;SW Wolves&quot;</errorConditionFormula>
+    <errorMessage>You must fill the Website field</errorMessage>
+</ValidationRule>

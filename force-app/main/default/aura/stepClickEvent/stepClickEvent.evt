@@ -1,0 +1,5 @@
+<aura:event type="APPLICATION" description="Event template" access="global">
+    <aura:attribute name="stepName" type="String" />
+    <aura:attribute name="journeyName" type="String" />
+    <aura:attribute name="isReport" type="Boolean" />
+</aura:event>

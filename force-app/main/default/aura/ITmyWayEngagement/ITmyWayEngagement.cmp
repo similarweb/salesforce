@@ -1,0 +1,123 @@
+<aura:component controller="ITmyWayEngagementController" implements="flexipage:availableForAllPageTypes,force:hasRecordId,force:hasSObjectName" access="global" >
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+    <aura:attribute name="recordId" type="String"/>
+    <aura:attribute name="sObjectName" type="String" />
+    <aura:attribute name="pardotid" type="String" />
+    <aura:attribute name="params" type="String" />
+    <aura:attribute name="visitorsummary" access="PUBLIC" type="list" default="Object[]" />
+    <aura:attribute name="result" access="PUBLIC" type="Map" default="" />
+    <aura:attribute name="showedvisitoractivities" access="PUBLIC" type="list" default="Object[]" />
+    <aura:attribute name="emaildata" access="PUBLIC" type="Map" default="" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <lightning:card>
+        <aura:set attribute="title">
+            <span class="tp"><lightning:icon iconName="standard:data_integration_hub" size="medium"/></span>&nbsp;&nbsp;
+            <b>Engagement History ({!v.result.total_results})</b>
+        </aura:set>
+        <aura:set attribute="actions">
+            <lightning:button label="Summary" onclick="{!c.Summary}"/>
+        </aura:set>
+        <aura:set attribute="footer">
+            <lightning:button aura:id="myLoadMore" label="Load More" onclick="{!c.loadMore}"/>
+        </aura:set>
+        <div id="container" class="container-fluid">
+            
+            <div class="spinst">
+                <lightning:spinner aura:id="mySpinner" variant="brand" size="medium"/>
+            </div>
+            <div class="row">
+                <div class="col-auto">
+                    <div class="vl"></div>
+                </div>
+                <div class="col">
+                    <div class="slds-hide" aura:id="mySummary">
+                        <div class="row">
+                            <div class="col-auto pr-3" align="center">
+                                &nbsp;&nbsp;&nbsp;
+                            </div>
+                            <div class="col">
+                                <table>
+                                    <tr>
+                                        <th>
+                                            Activity Type
+                                        </th>
+                                        <th>
+                                            SUM
+                                        </th>
+                                    </tr>
+                                    <aura:iteration items="{!v.visitorsummary}" var="sum">
+                                        <tr>
+                                            <td>
+                                                {!sum.name}
+                                            </td>
+                                            <td class="cent">
+                                                {!sum.val}
+                                            </td>
+                                        </tr>
+                                    </aura:iteration>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <aura:iteration items="{!v.showedvisitoractivities}" var="item">
+                        <hr/>
+                        <div class="row">
+                            <div class="col-auto pr-3" align="center">
+                                <lightning:icon iconName="{!item.icon}" size="small"/>
+                            </div>
+                            <div class="col">
+                                <b>{!item.header}</b>
+                                <br/>
+                                <aura:unescapedHtml value="{!item.details}"/>
+                            </div>
+                            <div class="col-auto" align="center">
+                                <lightning:formattedDateTime value="{!item.created_at_new}" year="numeric" month="numeric" day="numeric" hour="2-digit" minute="2-digit"/>
+                                <aura:renderif isTrue="{!item.showmore}">
+                                    <br/>
+                                    <div onclick="{!c.moreinfo}" data-value="{!item.id+';'+item.email_id}">
+                                        <lightning:button class="btnsm" label="More Info"/>
+                                    </div>
+                                </aura:renderif>
+                            </div>
+                        </div>
+                        <div class="slds-hide addtinfo" id="{!item.id}">
+                            <div class="row">
+                                <div class="col-auto pr-3 blank" align="center">
+                                    &nbsp;&nbsp;&nbsp;
+                                </div>
+                                <div class="col">
+                                    <aura:renderif isTrue="{!item.visit_id!=null}">
+                                        <table>
+                                            <tr>
+                                                <th>
+                                                    PAGE
+                                                </th>
+                                                <th>
+                                                    TIME
+                                                </th>
+                                            </tr>
+                                            <aura:iteration items="{!item.visits}" var="visit">
+                                                <tr>
+                                                    <td>
+                                                        <a href="{!visit.url}" target="_blank">{!visit.title}</a>
+                                                    </td>
+                                                    <td>
+                                                        <lightning:formattedDateTime value="{!visit.created_at_new}" year="numeric" month="numeric" day="numeric" hour="2-digit" minute="2-digit"/>
+                                                    </td>
+                                                </tr>  
+                                            </aura:iteration>
+                                        </table>
+                                    </aura:renderif>
+                                    <aura:renderif isTrue="{!item.email_id!=null}">
+                                        <div id="{!item.id+';'+item.email_id}">
+                                        </div>
+                                    </aura:renderif>
+                                </div>
+                            </div>
+                        </div>
+                    </aura:iteration>
+                </div>
+            </div>
+        </div>
+    </lightning:card>
+</aura:component>

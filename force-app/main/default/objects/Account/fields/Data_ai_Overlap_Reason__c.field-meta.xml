@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Data_ai_Overlap_Reason__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(
+ Data_Ai_Overlap__c=true, 
+  IF(Data_ai_Client_placeholder__c=true,&apos;Data.ai Client&apos;,
+  TEXT(SW_Industry__c)),&quot;&quot;
+  )</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>App Intelligence Overlap Reason (Depreca</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

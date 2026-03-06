@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Other_Product_Tracking_Validation</fullName>
+    <active>true</active>
+    <description>Only in Upsell Opps you can check the &quot;Other Product&quot; checkbox in &quot;Product Tracking&quot; section. MIS - 2365</description>
+    <errorConditionFormula>ISCHANGED(Other_Product__c) &amp;&amp;
+Other_Product__c=true &amp;&amp;
+NOT(ISPICKVAL(Type,&apos;Upsell&apos;)) &amp;&amp;
+$Profile.Name != &quot;System Administrator&quot; &amp;&amp;
+$Profile.Name !=&quot;SW SalesOps Extended&quot; &amp;&amp;
+$Profile.Name !=&quot;SW Billing&quot; &amp;&amp;
+$Profile.Name !=&quot;SW Billing Extended&quot; &amp;&amp;
+$Profile.Name != &quot;SW SalesOps&quot;&amp;&amp;
+RecordType.DeveloperName&lt;&gt;&quot;Wolves&quot; &amp;&amp;
+RecordType.DeveloperName&lt;&gt;&quot;Acquired_Company&quot;</errorConditionFormula>
+    <errorDisplayField>Other_Product__c</errorDisplayField>
+    <errorMessage>You can choose &quot;Other Product&quot; only in Upsell Opportunities! Please choose other Product.</errorMessage>
+</ValidationRule>

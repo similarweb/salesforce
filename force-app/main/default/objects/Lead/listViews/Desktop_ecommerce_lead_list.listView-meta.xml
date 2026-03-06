@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Desktop_ecommerce_lead_list</fullName>
+    <columns>LEAD.STATUS</columns>
+    <columns>Wolves_App_Name__c</columns>
+    <columns>Wolves_Link_to_App__c</columns>
+    <columns>LEAD.COMPANY</columns>
+    <columns>Wolves_Link_to_Website__c</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>Wolves_Potential__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Wolves_Platform__c</field>
+        <operation>equals</operation>
+        <value>Desktop</value>
+    </filters>
+    <filters>
+        <field>Wolves_App_Name__c</field>
+        <operation>contains</operation>
+        <value>shop,shopping,coupon,code,codes,compare,comparison,deal,deals,sale,price,coupons,save,savings,frugal,voucher,vouchers,cash</value>
+    </filters>
+    <filters>
+        <field>LEAD.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Lead.Wolves</value>
+    </filters>
+    <label>Desktop ecommerce lead list</label>
+</ListView>

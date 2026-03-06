@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Closed_Won_Reason_Options__c</fullName>
+    <externalId>false</externalId>
+    <label>Closed Won Reason - Options</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Closed_Won_Reason__c</controllingField>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>UI/UX</fullName>
+                <default>false</default>
+                <label>UI/UX</label>
+            </value>
+            <value>
+                <fullName>API / Excel</fullName>
+                <default>false</default>
+                <label>API / Excel</label>
+            </value>
+            <value>
+                <fullName>Customer experience / service</fullName>
+                <default>false</default>
+                <label>Customer experience / service</label>
+            </value>
+            <value>
+                <fullName>Multiple use cases (one-stop-shop)</fullName>
+                <default>false</default>
+                <label>Multiple use cases (one-stop-shop)</label>
+            </value>
+            <value>
+                <fullName>Incentive (discount, users, packages, features)</fullName>
+                <default>false</default>
+                <label>Incentive (discount, users, packages, features)</label>
+            </value>
+            <value>
+                <fullName>Feature / data / granularity</fullName>
+                <default>false</default>
+                <label>Feature / data / granularity</label>
+            </value>
+            <value>
+                <fullName>Accuracy</fullName>
+                <default>false</default>
+                <label>Accuracy</label>
+            </value>
+            <value>
+                <fullName>Price</fullName>
+                <default>false</default>
+                <label>Price</label>
+            </value>
+            <value>
+                <fullName>Migrated to Solutions</fullName>
+                <default>false</default>
+                <label>Migrated to Solutions</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MIR_Investor_Contacts</fullName>
+    <booleanFilter>1 AND 2 AND 3 AND 4 AND 5 AND 6 AND 7 AND 8</booleanFilter>
+    <columns>Most_Recent_Cadence_Cadence_ID__c</columns>
+    <columns>CONTACT.CREATED_DATE</columns>
+    <columns>FULL_NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>SW_Industry__c</columns>
+    <columns>CONTACT.ADDRESS2_COUNTRY</columns>
+    <columns>CONTACT.TITLE</columns>
+    <columns>CONTACT.EMAIL_OPT_OUT</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>Business_Unit__c</columns>
+    <columns>SW_Fit_Score__c</columns>
+    <columns>CONTACT.LAST_ACTIVITY</columns>
+    <columns>Status__c</columns>
+    <columns>Pro_User_Type__c</columns>
+    <columns>Department__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Status__c</field>
+        <operation>notEqual</operation>
+        <value>Unqualified,Nurture,MIR Prospecting,Replied,Test</value>
+    </filters>
+    <filters>
+        <field>MQL__c</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>SYS_Owner_Role__c</field>
+        <operation>contains</operation>
+        <value>MIR</value>
+    </filters>
+    <filters>
+        <field>CONTACT.LEAD_SOURCE</field>
+        <operation>notContain</operation>
+        <value>ContactForm,InvitationRegisterRequest,ProAdd,tradeshow,webinar,Linkedin,Facebook</value>
+    </filters>
+    <filters>
+        <field>CONTACT.CREATED_DATE</field>
+        <operation>greaterOrEqual</operation>
+        <value>LAST_N_MONTHS:6</value>
+    </filters>
+    <filters>
+        <field>Pro_User_Type__c</field>
+        <operation>notEqual</operation>
+        <value>User,Admin</value>
+    </filters>
+    <filters>
+        <field>SW_Industry__c</field>
+        <operation>contains</operation>
+        <value>VS and Private Equity,Hedge Funds and Asset Management,Investment Banking</value>
+    </filters>
+    <filters>
+        <field>Nurtured_by_Marketing__c</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <label>MIR - Investor Contacts</label>
+</ListView>

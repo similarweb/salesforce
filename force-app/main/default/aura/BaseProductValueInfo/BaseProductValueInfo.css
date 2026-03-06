@@ -1,0 +1,43 @@
+.THIS .rounded-borders{
+    border-radius: 15px 15px 15px 15px;
+}
+.THIS .rounded-borders_no-bottom{
+    border-radius: 15px 15px 0px 0px;
+}
+
+.THIS .refresh-button{
+    margin-top: 1.35rem;
+}
+
+.THIS .hover-color-change:hover{
+    background-color: rgb(247,247,247);
+    cursor: pointer;
+}
+.THIS .row-checkbox{
+    width: 5%;
+    display: inline-block
+}
+
+.THIS .row-other-part{
+    width: 95%;
+    display: inline-block
+}
+
+.THIS .slds-m-right_small.slds-button_icon-bare {
+    /*color: MediumSeaGreen;*/
+    fill: green;
+}
+.THIS .slds-button_icon-bare {
+    /*color: Crimson;*/
+}
+.THIS {
+    margin-top: 1rem;
+}
+.THIS .buttonItem{
+    text-align: right;
+    padding-right: 1rem;
+}
+
+.THIS.buttonL{
+    align-items: center;
+}

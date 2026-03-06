@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SDR_Authorized_Priority_Open_Status8</fullName>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>Status__c</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>FULL_NAME</columns>
+    <columns>CONTACT.TITLE</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>CONTACT.ADDRESS2_COUNTRY</columns>
+    <columns>CONTACT.LAST_ACTIVITY</columns>
+    <columns>CONTACT.CREATED_DATE</columns>
+    <columns>CONTACT.LEAD_SOURCE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>Open,Priority</value>
+    </filters>
+    <filters>
+        <field>CONTACT.EMAIL</field>
+        <operation>notContain</operation>
+        <value>@similarweb</value>
+    </filters>
+    <filters>
+        <field>CORE.USERS.ALIAS</field>
+        <operation>equals</operation>
+        <value>rleig</value>
+    </filters>
+    <label>SDR Authorized: Priority &amp; Open Status</label>
+</ListView>

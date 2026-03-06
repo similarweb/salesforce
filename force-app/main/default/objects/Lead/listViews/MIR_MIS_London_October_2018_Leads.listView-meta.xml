@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MIR_MIS_London_October_2018_Leads</fullName>
+    <columns>CORE.USERS.FIRST_NAME</columns>
+    <columns>CORE.USERS.LAST_NAME</columns>
+    <columns>Business_Unit__c</columns>
+    <columns>FULL_NAME</columns>
+    <columns>LEAD.COMPANY</columns>
+    <columns>LEAD.EMAIL</columns>
+    <columns>LEAD.PHONE</columns>
+    <columns>LEAD.COUNTRY</columns>
+    <columns>LEAD.STATUS</columns>
+    <columns>LEAD.CREATED_DATE</columns>
+    <columns>LEAD.LAST_ACTIVITY</columns>
+    <columns>CAMPAIGN_MEMBER.STATUS</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>SYS_Owner_Role__c</field>
+        <operation>contains</operation>
+        <value>MIR</value>
+    </filters>
+    <filters>
+        <field>LEAD.STATUS</field>
+        <operation>equals</operation>
+        <value>Open</value>
+    </filters>
+    <label>MIR - MIS - London October 2018 Leads</label>
+</ListView>

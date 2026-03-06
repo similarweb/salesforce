@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Closed_Won_Reason_More_Details_is_req2</fullName>
+    <active>false</active>
+    <description>&amp;&amp; 
+$Profile.Name !=&quot;System Administrator&quot;</description>
+    <errorConditionFormula>(ISPICKVAL( Closed_Won_Reason_2__c ,&quot;Other&quot;) 
+|| 
+ISPICKVAL( Closed_Won_Reason_2__c ,&quot;Price&quot;) 
+|| 
+ISPICKVAL(  Closed_Won_Reason_Options_2__c ,&quot;Countries&quot;) 
+|| 
+ISPICKVAL( Closed_Won_Reason_Options_2__c ,&quot;Other&quot;)) 
+&amp;&amp;ISBLANK( Closed_Won_Reason_More_Details_2__c )
+&amp;&amp; 
+$Profile.Name !=&quot;System Administrator&quot; 
+&amp;&amp; 
+$Profile.Name !=&quot;SW SalesOps&quot; 
+&amp;&amp; NOT( ISCHANGED( Open_Activity_Count__c ) )
+&amp;&amp; RecordType.DeveloperName&lt;&gt;&quot;Wolves&quot;</errorConditionFormula>
+    <errorDisplayField>Closed_Won_Reason_More_Details_2__c</errorDisplayField>
+    <errorMessage>Closed Won Reason - More details are required.</errorMessage>
+</ValidationRule>

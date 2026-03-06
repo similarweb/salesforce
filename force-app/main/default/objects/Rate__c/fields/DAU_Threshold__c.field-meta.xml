@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DAU_Threshold__c</fullName>
+    <description>The DAU extra threshold number that will increase the payment to the Partner. For example if the number is 50K, for every 50K DAU above the fix payment we will need to pay X $ (the X is hold in another field - &quot;Payment Threshold&quot;)</description>
+    <externalId>false</externalId>
+    <inlineHelpText>What is the DAU threshold above the fix payment?</inlineHelpText>
+    <label>DAU Threshold</label>
+    <precision>10</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SolutionType__c</fullName>
+    <externalId>false</externalId>
+    <label>Solution Type</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Sales</fullName>
+                <default>false</default>
+                <label>Sales</label>
+            </value>
+            <value>
+                <fullName>Marketing</fullName>
+                <default>false</default>
+                <label>Marketing</label>
+            </value>
+            <value>
+                <fullName>Research</fullName>
+                <default>false</default>
+                <label>Research</label>
+            </value>
+            <value>
+                <fullName>Investors</fullName>
+                <default>false</default>
+                <label>Investors</label>
+            </value>
+            <value>
+                <fullName>Research AI</fullName>
+                <default>false</default>
+                <label>Research AI</label>
+            </value>
+            <value>
+                <fullName>Digital Suite</fullName>
+                <default>false</default>
+                <label>Digital Suite</label>
+            </value>
+            <value>
+                <fullName>Acquire MI</fullName>
+                <default>false</default>
+                <label>Acquire MI</label>
+            </value>
+            <value>
+                <fullName>Grow MI</fullName>
+                <default>false</default>
+                <label>Grow MI</label>
+            </value>
+            <value>
+                <fullName>AS Standalone</fullName>
+                <default>false</default>
+                <label>AS Standalone</label>
+            </value>
+            <value>
+                <fullName>Prosus</fullName>
+                <default>false</default>
+                <label>Prosus</label>
+            </value>
+            <value>
+                <fullName>Sales Intelligence</fullName>
+                <default>false</default>
+                <label>Sales Intelligence</label>
+            </value>
+            <value>
+                <fullName>Shopper Intelligence</fullName>
+                <default>false</default>
+                <label>Shopper Intelligence</label>
+            </value>
+            <value>
+                <fullName>Technology Partner</fullName>
+                <default>false</default>
+                <label>Technology Partner</label>
+            </value>
+            <value>
+                <fullName>Intelligence Suite</fullName>
+                <default>false</default>
+                <label>Intelligence Suite</label>
+            </value>
+            <value>
+                <fullName>Stock Intelligence Platform</fullName>
+                <default>false</default>
+                <label>Stock Intelligence Platform</label>
+            </value>
+            <value>
+                <fullName>RankRanger</fullName>
+                <default>false</default>
+                <label>RankRanger</label>
+            </value>
+            <value>
+                <fullName>DAAS</fullName>
+                <default>false</default>
+                <label>DAAS</label>
+            </value>
+            <value>
+                <fullName>DF Standalone</fullName>
+                <default>false</default>
+                <label>DF Standalone</label>
+            </value>
+            <value>
+                <fullName>Competitive Intelligence</fullName>
+                <default>false</default>
+                <label>Competitive Intelligence</label>
+            </value>
+            <value>
+                <fullName>Partner Acquisition</fullName>
+                <default>false</default>
+                <label>Partner Acquisition</label>
+            </value>
+            <value>
+                <fullName>Admetricks</fullName>
+                <default>false</default>
+                <label>Admetricks</label>
+            </value>
+            <value>
+                <fullName>42matters</fullName>
+                <default>false</default>
+                <label>42matters</label>
+            </value>
+            <value>
+                <fullName>App Intelligence</fullName>
+                <default>false</default>
+                <label>App Intelligence</label>
+            </value>
+            <value>
+                <fullName>4.0</fullName>
+                <default>false</default>
+                <label>4.0</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

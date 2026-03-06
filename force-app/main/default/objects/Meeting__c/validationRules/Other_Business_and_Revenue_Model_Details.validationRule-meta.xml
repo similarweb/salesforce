@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Other_Business_and_Revenue_Model_Details</fullName>
+    <active>true</active>
+    <description>&amp;&amp; $Profile.Name !=&quot;System Administrator&quot;</description>
+    <errorConditionFormula>AND( 
+( INCLUDES(Customer_s_Main_Business_Revenue_Model__c, &quot;Other&quot;)), 
+(ISBLANK(Business_and_Revenue_Model_Other_Details__c))) &amp;&amp; 
+NOT($Profile.Id=&apos;00eb0000000oBvcAAE&apos;)</errorConditionFormula>
+    <errorDisplayField>Business_and_Revenue_Model_Other_Details__c</errorDisplayField>
+    <errorMessage>Business and Revenue Model other Details are required when the Customer&apos;s Main Business &amp; Revenue Model is &quot;Other&quot;.</errorMessage>
+</ValidationRule>

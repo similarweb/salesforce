@@ -1,0 +1,24 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,forceCommunity:availableForAllPageTypes" access="global">
+    <div class="loadingio-spinner-wedges-e8vy5ilau9h" style="z-index: 9001;position: fixed;">
+        <div class="ldio-gxt8b4qdkyd">
+            <div>
+                <div>
+                    <div>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</aura:component>

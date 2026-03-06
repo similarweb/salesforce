@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Nevin_Contacts_Call_list</fullName>
+    <booleanFilter>1 AND (2 OR 3) AND 4 AND 5 AND 6</booleanFilter>
+    <columns>FULL_NAME</columns>
+    <columns>CONTACT.TITLE</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.PHONE3</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>CONTACT.LAST_ACTIVITY</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Account_Owner__c</field>
+        <operation>equals</operation>
+        <value>Nevin John,Michael Hagan,Diane Bucciero,Simran Ahluwalia,Peter Conroy</value>
+    </filters>
+    <filters>
+        <field>CONTACT.PHONE1</field>
+        <operation>notEqual</operation>
+    </filters>
+    <filters>
+        <field>CONTACT.PHONE3</field>
+        <operation>notEqual</operation>
+    </filters>
+    <filters>
+        <field>CONTACT.TITLE</field>
+        <operation>contains</operation>
+        <value>analyst</value>
+    </filters>
+    <filters>
+        <field>CONTACT.LAST_ACTIVITY</field>
+        <operation>notEqual</operation>
+        <value>TODAY</value>
+    </filters>
+    <filters>
+        <field>CONTACT.ADDRESS2_COUNTRY</field>
+        <operation>equals</operation>
+        <value>India,Australia,Japan,Singapore,Iran,Iraq,Israel,Kuwait</value>
+    </filters>
+    <label>Nevin Contacts - Call list</label>
+</ListView>

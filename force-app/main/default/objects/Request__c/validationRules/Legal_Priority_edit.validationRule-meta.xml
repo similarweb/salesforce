@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Legal_Priority_edit</fullName>
+    <active>true</active>
+    <description>MIS-2019 - Legal requests prioritization</description>
+    <errorConditionFormula>AND(
+NOT(ISNEW()),
+RecordType.DeveloperName = &apos;Legal_Services&apos;,
+ISCHANGED(Priority__c),
+$Profile.Name &lt;&gt; &apos;SW Read Only (View all GTM Data)&apos;,
+$Profile.Name &lt;&gt; &apos;System Administrator&apos;,
+$Profile.Name &lt;&gt; &apos;SW SalesOps&apos;,
+$Profile.Name &lt;&gt; &apos;SW SalesOps Extended&apos;
+)</errorConditionFormula>
+    <errorDisplayField>Priority__c</errorDisplayField>
+    <errorMessage>Hey, only Management has permission to change the Priority of this request</errorMessage>
+</ValidationRule>

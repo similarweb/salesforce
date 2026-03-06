@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Payment_Cap__c</fullName>
+    <description>Data Partners (Wolves) - Indicates if there is a payment cap in the Contract. Used in the &quot;Data Partner&quot; Account. In case the total monthly payment is greater than the &quot;Payment Cap&quot; the last should override and we pay the Partner the Cap.</description>
+    <externalId>false</externalId>
+    <label>Payment Cap</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <type>Currency</type>
+</CustomField>

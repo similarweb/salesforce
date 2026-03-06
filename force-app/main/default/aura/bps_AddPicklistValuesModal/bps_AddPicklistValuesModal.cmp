@@ -1,0 +1,85 @@
+<aura:component controller="BaseProductSettingController">
+    <aura:attribute name="controllingFieldValue" type="String"/>
+    <aura:attribute name="valuesListRaw" type="String"/>
+    <aura:attribute name="mode" type="String" required="true"/>
+    <aura:attribute name="isShown" type="Boolean" required="true"/>
+    <aura:attribute name="isLoading" type="Boolean" default="false"/>
+    <aura:attribute name="showPostfixHelpText" type="Boolean" default="false"/>
+    <aura:attribute name="parent" type="Aura.Component" required="true"/>
+    <aura:attribute name="defaultPicklistValues" type="list"/>
+    <aura:attribute name="myPicklistValues" type="object"/>
+    <aura:attribute name="leadEnrichmentPicklistValues" type="list"/>
+
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}" />
+
+    <aura:registerEvent name="BaseProductValueSelectedEvent" type="c:bps_BaseProductValueSelected"/>
+
+    <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+        <div class="slds-modal__container">
+            <header class="slds-modal__header">
+                <lightning:button class="slds-modal__close" onclick="{!c.onCancelClick}" variant="bare">
+                    <lightning:icon iconName="utility:close" alternativeText="Close" size="small" />
+                </lightning:button>
+                <h2 id="modal-heading-01" class="slds-modal__title slds-hyphenate">Add values</h2>
+            </header>
+            <div class="slds-modal__content slds-p-around_medium slds-is-relative" id="modal-content-id-1">
+                <aura:if isTrue="{!v.isLoading}">
+                    <lightning:spinner alternativeText="" size="large" />
+                </aura:if>
+                <aura:if isTrue="{!v.showPostfixHelpText}">
+                    You can add only the following base products:<br/>-->
+                    <aura:iteration items="{!v.defaultPicklistValues}" var="picklitVal">
+                        <lightning:layoutItem size="12" class="{!join(' '
+                                                                , 'slds-p-bottom_small'
+                                                                , 'hover-color-change') }">
+                            <div class="slds-p-top--xx-small slds-p-left--xx-small">
+                                <div class="slds-p-left_small row-other-part"
+                                     data-value="{!'- ' +picklitVal}"
+                                     data-index="{!_index}">
+                                    {!'- ' +picklitVal}
+                                </div>
+                            </div>
+                        </lightning:layoutItem>
+                    </aura:iteration>
+                    <aura:if isTrue="{!v.controllingFieldValue == 'Sales Solution - Lead Enrichment (Global)' || v.controllingFieldValue == 'Sales - Lead Enrichment'}">-->
+                        <aura:iteration items="{!v.leadEnrichmentPicklistValues}" var="picklitVal">
+                            <lightning:layoutItem size="12" class="{!join(' '
+                                                                , 'slds-p-bottom_small'
+                                                                , 'hover-color-change') }">
+                                <div class="slds-p-top--xx-small slds-p-left--xx-small">
+                                    <div class="slds-p-left_small row-other-part"
+                                         data-value="{!'- ' +picklitVal}"
+                                         data-index="{!_index}">
+                                        {!'- ' +picklitVal}
+                                    </div>
+                                </div>
+                            </lightning:layoutItem>
+                        </aura:iteration>
+
+                        <!--                        - Last X Months of Historical Data on API<br/>-->
+                        <!--                        - PRO Permissions: Worldwide view only and Last X Months of Historical Data only<br/>-->
+                        <!--                        - ALL available CF's including WW on API<br/>-->
+                        <!--                    </aura:if>-->
+
+<!--                    You can add only the following base products:<br/>-->
+<!--                    - Last X Months of Historical Data<br/>-->
+<!--                    <aura:if isTrue="{!v.controllingFieldValue == 'Sales Solution - Lead Enrichment (Global)' || v.controllingFieldValue == 'Sales - Lead Enrichment'}">-->
+
+<!--                        - Last X Months of Historical Data on API<br/>-->
+<!--                        - PRO Permissions: Worldwide view only and Last X Months of Historical Data only<br/>-->
+<!--                        - ALL available CF's including WW on API<br/>-->
+<!--                    </aura:if>-->
+<!--                    - X Website Table Results<br/>-->
+<!--                    <br/>-->
+                    </aura:if>
+                </aura:if>
+                <lightning:textarea value="{!v.valuesListRaw}" name="input" label="Picklist values" placeholder="Enter values, with each value separated by a new line..."/>
+            </div>
+            <footer class="slds-modal__footer">
+                <button onclick="{!c.onCancelClick}" disabled="{!v.isLoading}" class="slds-button slds-button_neutral">Cancel</button>
+                <button onclick="{!c.onSaveClick}" disabled="{!v.isLoading}" class="slds-button slds-button_brand">Save</button>
+            </footer>
+        </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open"></div>
+</aura:component>

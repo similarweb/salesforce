@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Quote_Requests</fullName>
+    <columns>NAME</columns>
+    <columns>Account__c</columns>
+    <columns>Quote_Business_Type__c</columns>
+    <columns>Contract_Effective_Date__c</columns>
+    <columns>OWNER.FIRST_NAME</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Request__c.Advisory_Services_Request</value>
+    </filters>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>Completed</value>
+    </filters>
+    <filters>
+        <field>Approved_by_Finance__c</field>
+        <operation>notEqual</operation>
+    </filters>
+    <label>Quote Requests</label>
+</ListView>

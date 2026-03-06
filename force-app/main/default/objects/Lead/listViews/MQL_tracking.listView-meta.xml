@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MQL_tracking</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>LEAD.EMAIL</columns>
+    <columns>SW_Fit_Score__c</columns>
+    <columns>Intent_Score__c</columns>
+    <columns>mql_status__c</columns>
+    <columns>Email_address_domain_type__c</columns>
+    <columns>Website_Domain__c</columns>
+    <columns>Business_Unit__c</columns>
+    <columns>MIR_Status__c</columns>
+    <columns>MQL_Status_Reason__c</columns>
+    <columns>Last_Owner_Assigned_Date__c</columns>
+    <columns>First_MQL_Date__c</columns>
+    <columns>SLA_Start_Timestamp__c</columns>
+    <columns>Lead_Owner_formula__c</columns>
+    <columns>SW_Fit_Score_Timestamp__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>mql_status__c</field>
+        <operation>contains</operation>
+        <value>soft,hard</value>
+    </filters>
+    <filters>
+        <field>LEAD.CONVERTED</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>First_MQL_Date__c</field>
+        <operation>equals</operation>
+        <value>YESTERDAY</value>
+    </filters>
+    <filters>
+        <field>LEAD.COUNTRY_CODE</field>
+        <operation>equals</operation>
+        <value>US</value>
+    </filters>
+    <label>MQL tracking</label>
+</ListView>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Amir_Contact_Us_Leads_Contacts</fullName>
+    <columns>DUE_DATE</columns>
+    <columns>STATUS</columns>
+    <columns>Fit_Score__c</columns>
+    <columns>SUBJECT</columns>
+    <columns>WHO_NAME</columns>
+    <columns>LAST_UPDATE</columns>
+    <columns>CORE.USERS.FULL_NAME</columns>
+    <columns>Related_to_Object__c</columns>
+    <columns>CU_Type_formula__c</columns>
+    <filterScope>Team</filterScope>
+    <filters>
+        <field>OWNER_ROLE</field>
+        <operation>equals</operation>
+        <value>MIR,integration</value>
+    </filters>
+    <filters>
+        <field>TYPE</field>
+        <operation>equals</operation>
+        <value>Contact Us</value>
+    </filters>
+    <filters>
+        <field>CREATED_DATE</field>
+        <operation>equals</operation>
+        <value>LAST_N_DAYS:14</value>
+    </filters>
+    <filters>
+        <field>STATUS</field>
+        <operation>equals</operation>
+        <value>Not Started,In Progress,Waiting on someone else</value>
+    </filters>
+    <filters>
+        <field>Fit_Score__c</field>
+        <operation>equals</operation>
+        <value>A,B,C</value>
+    </filters>
+    <filters>
+        <field>SUBJECT</field>
+        <operation>notContain</operation>
+        <value>Subject line :no cu</value>
+    </filters>
+    <filters>
+        <field>CU_Type_formula__c</field>
+        <operation>equals</operation>
+        <value>Contact Form</value>
+    </filters>
+    <label>Amir Contact Us (Leads+Contacts)</label>
+</ListView>

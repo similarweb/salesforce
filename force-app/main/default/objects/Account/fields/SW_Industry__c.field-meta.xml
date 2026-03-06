@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SW_Industry__c</fullName>
+    <externalId>false</externalId>
+    <label>SW Industry</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>AdTech and AdNetwork</fullName>
+                <default>false</default>
+                <label>AdTech and AdNetwork</label>
+            </value>
+            <value>
+                <fullName>Agency</fullName>
+                <default>false</default>
+                <label>Agency</label>
+            </value>
+            <value>
+                <fullName>Automotive and Transportation</fullName>
+                <default>false</default>
+                <label>Automotive</label>
+            </value>
+            <value>
+                <fullName>B2B Software</fullName>
+                <default>false</default>
+                <label>B2B Software</label>
+            </value>
+            <value>
+                <fullName>B2C Internet Services</fullName>
+                <default>false</default>
+                <label>B2C Internet Services</label>
+            </value>
+            <value>
+                <fullName>Big Tech</fullName>
+                <default>false</default>
+                <label>Big Tech</label>
+            </value>
+            <value>
+                <fullName>Classifieds</fullName>
+                <default>false</default>
+                <label>Classifieds</label>
+            </value>
+            <value>
+                <fullName>Consulting and Market Research</fullName>
+                <default>false</default>
+                <label>Consulting and Market Research</label>
+            </value>
+            <value>
+                <fullName>CPG, Food &amp; Beverages</fullName>
+                <default>false</default>
+                <label>CPG</label>
+            </value>
+            <value>
+                <fullName>Education</fullName>
+                <default>false</default>
+                <label>Education</label>
+            </value>
+            <value>
+                <fullName>Equity Research</fullName>
+                <default>false</default>
+                <label>Equity Research</label>
+            </value>
+            <value>
+                <fullName>Financial services</fullName>
+                <default>false</default>
+                <label>Financial services</label>
+            </value>
+            <value>
+                <fullName>Gambling / Gaming</fullName>
+                <default>false</default>
+                <label>Gambling and Gaming</label>
+            </value>
+            <value>
+                <fullName>Hedge Funds and Asset Management</fullName>
+                <default>false</default>
+                <label>Hedge Funds and Asset Management</label>
+            </value>
+            <value>
+                <fullName>Investment Banking</fullName>
+                <default>false</default>
+                <label>Investment Banking</label>
+            </value>
+            <value>
+                <fullName>Investors</fullName>
+                <default>false</default>
+                <label>Investors</label>
+            </value>
+            <value>
+                <fullName>Logistics and Shipping</fullName>
+                <default>false</default>
+                <label>Logistics and Shipping</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Payments</fullName>
+                <default>false</default>
+                <label>Payments</label>
+            </value>
+            <value>
+                <fullName>Pharma and Healthcare</fullName>
+                <default>false</default>
+                <label>Pharma and Healthcare</label>
+            </value>
+            <value>
+                <fullName>Private Equity and Venture Capital</fullName>
+                <default>false</default>
+                <label>Private Equity and Venture Capital</label>
+            </value>
+            <value>
+                <fullName>Government Public Sector &amp; Non Profit</fullName>
+                <default>false</default>
+                <label>Public Sector, Non Profit, Fraud and Compliance</label>
+            </value>
+            <value>
+                <fullName>Media and Entertainment</fullName>
+                <default>false</default>
+                <label>Publishers and Media</label>
+            </value>
+            <value>
+                <fullName>Retail / eCommerce</fullName>
+                <default>false</default>
+                <label>Retail and eCommerce</label>
+            </value>
+            <value>
+                <fullName>Telecom and Hardware</fullName>
+                <default>false</default>
+                <label>Telecom</label>
+            </value>
+            <value>
+                <fullName>Travel and Hospitality</fullName>
+                <default>false</default>
+                <label>Travel</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Survey_Why__c</fullName>
+    <description>Q1: Other</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Why?</inlineHelpText>
+    <label>Survey - Why?</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>This cancellation is part of an account change or billing adjustment</fullName>
+                <default>false</default>
+                <label>This cancellation is part of an account change or billing adjustment</label>
+            </value>
+            <value>
+                <fullName>Tell us why</fullName>
+                <default>false</default>
+                <label>Tell us why</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

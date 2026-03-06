@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Daniel_Ginsberg_Contacts</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CONTACT.TITLE</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>MQL_date__c</columns>
+    <columns>CONTACT.LAST_ACTIVITY</columns>
+    <columns>CONTACT.CREATED_DATE</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+        <field>CONTACT.ADDRESS2_COUNTRY</field>
+        <operation>equals</operation>
+        <value>United Kingdom</value>
+    </filters>
+    <filters>
+        <field>Status__c</field>
+        <operation>notEqual</operation>
+        <value>Unqualified</value>
+    </filters>
+    <filters>
+        <field>CONTACT.EMAIL_OPT_OUT</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>CONTACT.LAST_ACTIVITY</field>
+        <operation>lessThan</operation>
+        <value>7/1/2018</value>
+    </filters>
+    <label>Daniel Ginsberg Contacts</label>
+</ListView>

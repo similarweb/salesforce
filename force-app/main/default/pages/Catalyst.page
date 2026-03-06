@@ -1,0 +1,6 @@
+<apex:page standardController="Account">
+   <apex:variable value="{!Account}" var="account" />
+   <apex:variable value="https://app.catalyst.io/embedded/" var="embedUrl" />
+   <apex:variable value="{!embedUrl + account.Id}" var="url" />
+   <apex:iframe src="{!url}" scrolling="true" html-style="position:absolute; top:0px; left:0px; width:100%; height:100%; z-index:999"/>
+</apex:page>

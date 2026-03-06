@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Can_t_Update_Stage_New_Sale</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+				RecordType18ID__c = &apos;012b0000000M3zQAAS&apos;,
+				
+				$Profile.Name &lt;&gt; &apos;SW SalesOps Extended&apos;,
+    $Profile.Name &lt;&gt; &apos;SW SalesOps&apos;,
+    $Profile.Name &lt;&gt; &apos;System Administrator&apos;, 
+				
+				ISCHANGED(StageName),
+				!UpdatedByNextStageFlow__c
+)</errorConditionFormula>
+    <errorMessage>Please update the stage for New Sale/Upsell opps using the MEDDPICC flow</errorMessage>
+</ValidationRule>

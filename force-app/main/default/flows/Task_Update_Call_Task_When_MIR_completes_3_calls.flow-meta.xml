@@ -1,0 +1,511 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>55.0</apiVersion>
+    <assignments>
+        <name>Assign_Completed_to_Main_Call_Task</name>
+        <label>Assign Completed to Main Call Task</label>
+        <locationX>50</locationX>
+        <locationY>1175</locationY>
+        <assignmentItems>
+            <assignToReference>Get_Main_Call_Task.Status</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Completed</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Main_Call_Task</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_In_Progress_Due_Date_to_Main_Call_Task</name>
+        <label>Assign In Progress &amp; Due Date to Main Call Task</label>
+        <locationX>446</locationX>
+        <locationY>1175</locationY>
+        <assignmentItems>
+            <assignToReference>Get_Main_Call_Task.Status</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>In Progress</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Get_Main_Call_Task.ActivityDate</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Today_Plus_2_Days_Formula</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Counter_Exists_in_Task_subject</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_New_Subject_with_counter</name>
+        <label>Assign New Subject with counter</label>
+        <locationX>314</locationX>
+        <locationY>1415</locationY>
+        <assignmentItems>
+            <assignToReference>Get_Main_Call_Task.Subject</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>New_Subject_Formula</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Main_Call_Task</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Count_Unanswered_Calls</name>
+        <label>Count Unanswered Calls</label>
+        <locationX>402</locationX>
+        <locationY>935</locationY>
+        <assignmentItems>
+            <assignToReference>Number_of_Calls_Unanswered</assignToReference>
+            <operator>AssignCount</operator>
+            <value>
+                <elementReference>Get_Calls_Unanswered_in_the_last_24_hours</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Number_of_Calls_Main_Task_Created_Date</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <description>Verify if the Task subject needs to be updated, as the Old Main Call Task lacks a counter in the subject.</description>
+        <name>Counter_Exists_in_Task_subject</name>
+        <label>Counter Exists in Task subject?</label>
+        <locationX>446</locationX>
+        <locationY>1295</locationY>
+        <defaultConnector>
+            <targetReference>Update_Main_Call_Task</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>Yes</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Counter_For_Main_Call_Task_Formula</leftValueReference>
+                <operator>NotEqualTo</operator>
+            </conditions>
+            <connector>
+                <targetReference>Assign_New_Subject_with_counter</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Does_the_Call_completed</name>
+        <label>Does the Call completed?</label>
+        <locationX>94</locationX>
+        <locationY>695</locationY>
+        <defaultConnector>
+            <targetReference>Get_Calls_Unanswered_in_the_last_24_hours</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>Call_is_Completed</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Completed_Call_Conditions_Formula</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <isGoTo>true</isGoTo>
+                <targetReference>Assign_Completed_to_Main_Call_Task</targetReference>
+            </connector>
+            <label>Call is Completed</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Found_Main_Call_Task</name>
+        <label>Found Main Call Task?</label>
+        <locationX>556</locationX>
+        <locationY>575</locationY>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>Found</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Main_Call_Task</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Does_the_Call_completed</targetReference>
+            </connector>
+            <label>Found</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Number_of_Calls_Main_Task_Created_Date</name>
+        <label>Number of Calls &amp; Main Task Created Date</label>
+        <locationX>402</locationX>
+        <locationY>1055</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Call_Unanswered_Old</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Number_of_Calls_Unanswered</leftValueReference>
+                <operator>GreaterThanOrEqualTo</operator>
+                <rightValue>
+                    <numberValue>1.0</numberValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_Main_Call_Task.CreatedDate</leftValueReference>
+                <operator>LessThanOrEqualTo</operator>
+                <rightValue>
+                    <elementReference>Today_Minus_14_Days</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Completed_to_Main_Call_Task</targetReference>
+            </connector>
+            <label>Call Unanswered &amp; Old</label>
+        </rules>
+        <rules>
+            <name>Call_Unanswered_New</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Number_of_Calls_Unanswered</leftValueReference>
+                <operator>GreaterThanOrEqualTo</operator>
+                <rightValue>
+                    <numberValue>1.0</numberValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_Main_Call_Task.CreatedDate</leftValueReference>
+                <operator>GreaterThan</operator>
+                <rightValue>
+                    <elementReference>Today_Minus_14_Days</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_In_Progress_Due_Date_to_Main_Call_Task</targetReference>
+            </connector>
+            <label>Call Unanswered &amp; New</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Task_is_Completed_Unanswered_Call</name>
+        <label>Task is Completed/Unanswered Call?</label>
+        <locationX>875</locationX>
+        <locationY>335</locationY>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>Call</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>Completed_Call_Conditions_Formula</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Unanswered_Call_Conditions_Formula</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Main_Call_Task</targetReference>
+            </connector>
+            <label>Call</label>
+        </rules>
+    </decisions>
+    <description>MIS-2826</description>
+    <environments>Default</environments>
+    <formulas>
+        <description>Subject CONTAINS “Outbound call (completed)” 
+AND 
+Call Tags CONTAINS
+“Not Interested” || “Wrong/Bad Number” || “Unqualified” || “Hung up/Ask to stop calling” || “HO” 
+|| “Don’t Speak English” || “Meeting Reminder”</description>
+        <name>Completed_Call_Conditions_Formula</name>
+        <dataType>Boolean</dataType>
+        <expression>CONTAINS({!$Record.Subject}, &apos;Outbound call (completed)&apos;)
+&amp;&amp;
+(
+CONTAINS({!$Record.cloudtalk__CallTags__c}, &apos;Not Interested&apos;) || 
+CONTAINS({!$Record.cloudtalk__CallTags__c}, &apos;Wrong/Bad Number&apos;) || 
+CONTAINS({!$Record.cloudtalk__CallTags__c}, &apos;Unqualified&apos;) ||
+CONTAINS({!$Record.cloudtalk__CallTags__c}, &apos;Hung up/Ask to stop calling&apos;) ||
+CONTAINS({!$Record.cloudtalk__CallTags__c}, &apos;HO&apos;) ||
+CONTAINS({!$Record.cloudtalk__CallTags__c}, &apos;Don’t Speak English&apos;) ||
+CONTAINS({!$Record.cloudtalk__CallTags__c}, &apos;Meeting Reminder&apos;) 
+)</expression>
+    </formulas>
+    <formulas>
+        <name>Counter_For_Main_Call_Task_Formula</name>
+        <dataType>Number</dataType>
+        <expression>VALUE(RIGHT({!Get_Main_Call_Task.Subject}, 1)) + 1</expression>
+        <scale>0</scale>
+    </formulas>
+    <formulas>
+        <name>Last_24_Hours</name>
+        <dataType>DateTime</dataType>
+        <expression>{!$Flow.CurrentDateTime} - 1</expression>
+    </formulas>
+    <formulas>
+        <name>New_Subject_Formula</name>
+        <dataType>String</dataType>
+        <expression>&quot;New Inbound Lead Call - Today: &quot; + TEXT({!Counter_For_Main_Call_Task_Formula})</expression>
+    </formulas>
+    <formulas>
+        <name>Today_Minus_14_Days</name>
+        <dataType>Date</dataType>
+        <expression>TODAY() - 14</expression>
+    </formulas>
+    <formulas>
+        <description>Today + 2 Days without Saturday and Sunday</description>
+        <name>Today_Plus_2_Days_Formula</name>
+        <dataType>Date</dataType>
+        <expression>CASE (
+WEEKDAY(TODAY()),
+5,TODAY() + 4,
+6,TODAY() + 4, 
+TODAY() + 2
+)</expression>
+    </formulas>
+    <formulas>
+        <description>Subject CONTAINS:  “No Conversation” / “Left Message” / “Call: No Answer” / “Outbound call (unanswered)” / “Call - Attempt” / “Call: Busy” / “Call: Left Voicemail” / “Call: Rejected”
+OR
+( 
+Subject CONTAINS “Outbound call (completed)” 
+AND  
+Call Tags CONTAINS “No Answer” / “Follow Up” / “Go Straight to Voicemail” / “Reschedule”
+)</description>
+        <name>Unanswered_Call_Conditions_Formula</name>
+        <dataType>Boolean</dataType>
+        <expression>(
+CONTAINS({!$Record.Subject}, &apos;No Conversation&apos;) || CONTAINS({!$Record.Subject}, &apos;Left Message&apos;) || CONTAINS({!$Record.Subject}, &apos;Call: No Answer&apos;) || CONTAINS({!$Record.Subject}, &apos;Outbound call (unanswered)&apos;) || CONTAINS({!$Record.Subject}, &apos;Call - Attempt&apos;) || CONTAINS({!$Record.Subject}, &apos;Call: Busy&apos;) || CONTAINS({!$Record.Subject}, &apos;Call: Left Voicemail&apos;) || CONTAINS({!$Record.Subject}, &apos;Call: Rejected&apos;)
+)
+||
+(
+CONTAINS({!$Record.Subject}, &apos;Outbound call (completed)&apos;)
+&amp;&amp;
+(
+CONTAINS({!$Record.cloudtalk__CallTags__c}, &apos;No Answer&apos;) || 
+CONTAINS({!$Record.cloudtalk__CallTags__c}, &apos;Follow Up&apos;) || 
+CONTAINS({!$Record.cloudtalk__CallTags__c}, &apos;Go Straight to Voicemail&apos;) ||
+CONTAINS({!$Record.cloudtalk__CallTags__c}, &apos;Reschedule&apos;)
+)
+)</expression>
+    </formulas>
+    <interviewLabel>Task - Update Call Task When MIR completes 3 calls {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Task - Update Main Call Task When MIR completes call</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Get_Calls_Unanswered_in_the_last_24_hours</name>
+        <label>Get Calls Unanswered in the last 24 hours</label>
+        <locationX>402</locationX>
+        <locationY>815</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Count_Unanswered_Calls</targetReference>
+        </connector>
+        <filterLogic>1 AND 2 AND (3 OR 4 OR 5 OR 6 OR 7 OR 8 OR 9 OR 10 OR (11 AND (12 OR 13 OR 14 OR 15)))</filterLogic>
+        <filters>
+            <field>WhoId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.WhoId</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>CreatedDate</field>
+            <operator>GreaterThanOrEqualTo</operator>
+            <value>
+                <elementReference>Last_24_Hours</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Subject</field>
+            <operator>Contains</operator>
+            <value>
+                <stringValue>Outbound call (unanswered)</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Subject</field>
+            <operator>Contains</operator>
+            <value>
+                <stringValue>Call: No Answer</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Subject</field>
+            <operator>Contains</operator>
+            <value>
+                <stringValue>No Conversation</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Subject</field>
+            <operator>Contains</operator>
+            <value>
+                <stringValue>Left Message</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Subject</field>
+            <operator>Contains</operator>
+            <value>
+                <stringValue>Call – Attempt</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Subject</field>
+            <operator>Contains</operator>
+            <value>
+                <stringValue>Call: Busy</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Subject</field>
+            <operator>Contains</operator>
+            <value>
+                <stringValue>Call: Left Voicemail</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Subject</field>
+            <operator>Contains</operator>
+            <value>
+                <stringValue>Call: Rejected</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Subject</field>
+            <operator>Contains</operator>
+            <value>
+                <stringValue>Outbound call (completed)</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>cloudtalk__CallTags__c</field>
+            <operator>Contains</operator>
+            <value>
+                <stringValue>No Answer</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>cloudtalk__CallTags__c</field>
+            <operator>Contains</operator>
+            <value>
+                <stringValue>Follow Up</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>cloudtalk__CallTags__c</field>
+            <operator>Contains</operator>
+            <value>
+                <stringValue>Go Straight to Voicemail</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>cloudtalk__CallTags__c</field>
+            <operator>Contains</operator>
+            <value>
+                <stringValue>Reschedule</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>Task</object>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>WhoId</queriedFields>
+        <queriedFields>Subject</queriedFields>
+        <queriedFields>CreatedDate</queriedFields>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Main_Call_Task</name>
+        <label>Get Main Call Task</label>
+        <locationX>556</locationX>
+        <locationY>455</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Found_Main_Call_Task</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>WhoId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.WhoId</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Subject</field>
+            <operator>Contains</operator>
+            <value>
+                <stringValue>New Inbound Lead Call - Today</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Task</object>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>CreatedDate</queriedFields>
+        <queriedFields>Subject</queriedFields>
+        <queriedFields>WhoId</queriedFields>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <name>Update_Main_Call_Task</name>
+        <label>Update Main Call Task</label>
+        <locationX>402</locationX>
+        <locationY>1727</locationY>
+        <inputReference>Get_Main_Call_Task</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>749</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Task_is_Completed_Unanswered_Call</targetReference>
+        </connector>
+        <filterFormula>{!$Record.Owner:User.Profile.Name} = &apos;SW MIR&apos;</filterFormula>
+        <object>Task</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Obsolete</status>
+    <variables>
+        <name>Number_of_Calls_Unanswered</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>0</scale>
+        <value>
+            <numberValue>0.0</numberValue>
+        </value>
+    </variables>
+</Flow>

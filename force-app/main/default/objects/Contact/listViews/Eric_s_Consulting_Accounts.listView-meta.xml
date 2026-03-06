@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Eric_s_Consulting_Accounts</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CONTACT.TITLE</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>Original_Lead_Source__c</columns>
+    <columns>CONTACT.CREATED_DATE</columns>
+    <columns>CONTACT.LAST_ACTIVITY</columns>
+    <columns>Status__c</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>Pro_User_Type__c</columns>
+    <columns>CONTACT.EMAIL_OPT_OUT</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>ACCOUNT.ACCOUNT_ID</field>
+        <operation>equals</operation>
+        <value>001b000003exNBp,0010O00001tqTAy,001b000003LZwnR,001b000002hZTxd,001b000003KScVe,001b000000tUtL9,001b000003sKwrl,001b000003IHZyI,001b000003NepsV</value>
+    </filters>
+    <filters>
+        <field>Status__c</field>
+        <operation>notEqual</operation>
+        <value>Unqualified</value>
+    </filters>
+    <filters>
+        <field>Pro_User_Type__c</field>
+        <operation>notEqual</operation>
+        <value>User,Admin</value>
+    </filters>
+    <label>Eric&apos;s Consulting Accounts</label>
+</ListView>

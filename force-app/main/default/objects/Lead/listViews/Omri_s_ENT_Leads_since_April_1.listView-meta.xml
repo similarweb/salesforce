@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Omri_s_ENT_Leads_since_April_1</fullName>
+    <columns>LEAD.STATUS</columns>
+    <columns>LEAD.COUNTRY</columns>
+    <columns>FULL_NAME</columns>
+    <columns>LEAD.COMPANY</columns>
+    <columns>LEAD.EMAIL</columns>
+    <columns>LEAD.PHONE</columns>
+    <columns>LEAD.LEAD_SOURCE</columns>
+    <columns>LEAD.LAST_ACTIVITY</columns>
+    <columns>LEAD.CREATED_DATE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CORE.USERS.ALIAS</field>
+        <operation>equals</operation>
+        <value>okena</value>
+    </filters>
+    <filters>
+        <field>Business_Unit__c</field>
+        <operation>equals</operation>
+        <value>Enterprise</value>
+    </filters>
+    <filters>
+        <field>LEAD.COUNTRY</field>
+        <operation>notEqual</operation>
+    </filters>
+    <filters>
+        <field>LEAD.STATUS</field>
+        <operation>notEqual</operation>
+        <value>Qualified,Nurture,Unqualified,SDR Prospecting</value>
+    </filters>
+    <filters>
+        <field>LEAD.CREATED_DATE</field>
+        <operation>greaterThan</operation>
+        <value>9/1/2017 12:00 AM</value>
+    </filters>
+    <label>Omri&apos;s ENT Leads since Sept17</label>
+</ListView>

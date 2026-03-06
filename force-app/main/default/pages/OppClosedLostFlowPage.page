@@ -1,0 +1,24 @@
+<apex:page standardController="Opportunity" standardStylesheets="false" applyBodyTag="false" sidebar="false">
+    <apex:includeLightning /> 
+    <style>
+        html, body {
+        margin: 0;
+        padding: 0;
+        }
+        #lightningComponent {width: 100%;}
+    </style>
+    <div id="content">
+        <div id="lightningComponent" />
+    </div>
+    
+    <script> 
+    $Lightning.use("c:OppClosedLostFlowApp", function() {
+        $Lightning.createComponent("c:OppClosedLostFlowComponent",
+                                   {
+                                       recordId: "{!Opportunity.Id}",
+                                   },
+                                   "lightningComponent",
+                                   function(cmp) {});
+        });
+    </script>
+</apex:page>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Monthly_Partner_Payment__c</fullName>
+    <description>The total payment of the Partner. Calculated from the all the related total payment of the related &quot;Monthly Source Request&quot; records.</description>
+    <externalId>false</externalId>
+    <label>Calculated Monthly Partner Payment</label>
+    <summarizedField>Monthly_Source_Request__c.Monthly_Source_Payment__c</summarizedField>
+    <summaryForeignKey>Monthly_Source_Request__c.Monthly_Partner_Request__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

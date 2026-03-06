@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Web_Form_Formula_Name__c</fullName>
+    <externalId>false</externalId>
+    <formula>CASE(  Web_Form_Name__c,
+&quot;669yd8&quot;, &quot;Webinar Zoom Registered&quot;,
+&quot;669ydb&quot;, &quot;Webinar Zoom Attended&quot;,
+&quot;64k8mj&quot;, &quot;Webinar Upcoming&quot;,
+&quot;64k8ml&quot;, &quot;Webinar Recorded&quot;,
+&quot;64k8mn&quot;, &quot;Report&quot;,
+&quot;64dgkj&quot;, &quot;Registration&quot;,
+&quot;68hxw1&quot;, &quot;Fro Hooks Support&quot;,
+&quot;68hxvy&quot;, &quot;Fro Hooks Sales&quot;,
+&quot;68hxw3&quot;, &quot;Fro Hooks Other&quot;,
+&quot;64k8mg&quot;, &quot;Fro Hooks&quot;,
+&quot;64dgkn&quot;, &quot;Contact Support&quot;,
+&quot;64k8md&quot;, &quot;Contact Sales&quot;,
+&quot;64k8mb&quot;, &quot;Contact Pricing&quot;,
+&quot;64k8m8&quot;, &quot;Contact API&quot;,
+&quot;&quot;)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Web Form Name</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,39 @@
+<aura:component implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes" access="global">
+	<aura:attribute name="done" type="Boolean"/>
+    <aura:attribute name="stepName" type="String"/>
+    <aura:attribute name="journeyName" type="String"/>
+    <aura:attribute name="leadCount" type="Integer"/>
+    <aura:attribute name="SLA" type="String"/>
+    <aura:attribute name="averageProcessTime" type="String"/>
+    <aura:attribute name="isInfoVisible" type="Boolean" default="true"/>
+    <aura:registerEvent name="onStepClickEvent" type="c:stepClickEvent"/>
+    
+    
+    <div class="{!v.done == true ? 'step done' : 'step'}">
+        
+        <h2>{!v.stepName}</h2>
+        
+        <div class="decoration">   
+            <aura:if isTrue="{!v.isInfoVisible}">                
+                 <a onclick="{!c.onStepClick}" >  
+                    <div class="circle"><p>{!v.leadCount}</p></div>
+                </a>
+                
+                <!--<div class="circle"><p>{!v.leadCount}</p></div>-->
+                <aura:set attribute="else">                    
+                    <div class="circle"><p>{!v.leadCount}</p></div>                
+                </aura:set>
+            </aura:if> 
+            <div class="line"></div>   
+        </div>   
+        
+        <aura:if isTrue="{!v.isInfoVisible}">
+            <div class="description">
+                <p>SLA: {!v.SLA}</p>
+                <p>APT: {!v.averageProcessTime}</p>
+            </div>
+        </aura:if>
+        
+     </div>
+    
+</aura:component>

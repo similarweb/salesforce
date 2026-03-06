@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Wolves_Next_Steps_Action_Items__c</fullName>
+    <description>Being used by GTM, not wolves</description>
+    <externalId>false</externalId>
+    <label>Next Steps &amp; Action Items</label>
+    <length>12000</length>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>LongTextArea</type>
+    <visibleLines>3</visibleLines>
+</CustomField>

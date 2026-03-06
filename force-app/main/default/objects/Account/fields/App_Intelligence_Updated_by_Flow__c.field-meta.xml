@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>App_Intelligence_Updated_by_Flow__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Temp help Checkbox to monitor if the &quot;App Intelligence Overlap&quot; was flagged by the Before Save Flow. This is due to cases where Accounts were flagged with the wrong SW Industry (like &quot;Agency&quot;)</description>
+    <externalId>false</externalId>
+    <label>App Intelligence Updated by Flow</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

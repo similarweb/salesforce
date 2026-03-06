@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Type__c</fullName>
+    <externalId>false</externalId>
+    <label>Type</label>
+    <required>false</required>
+    <trackFeedHistory>true</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Demo</fullName>
+                <default>false</default>
+                <label>Demo</label>
+            </value>
+            <value>
+                <fullName>Conference Meeting</fullName>
+                <default>false</default>
+                <label>Conference Meeting</label>
+            </value>
+            <value>
+                <fullName>Phone Call</fullName>
+                <default>false</default>
+                <label>Phone Call</label>
+            </value>
+            <value>
+                <fullName>Company Event</fullName>
+                <default>false</default>
+                <label>Company Event</label>
+            </value>
+            <value>
+                <fullName>Chat Handover</fullName>
+                <default>false</default>
+                <label>Chat Handover</label>
+            </value>
+            <value>
+                <fullName>Onboarding</fullName>
+                <default>false</default>
+                <label>Onboarding</label>
+            </value>
+            <value>
+                <fullName>Quarterly Business Review</fullName>
+                <default>false</default>
+                <label>Quarterly Business Review</label>
+            </value>
+            <value>
+                <fullName>Partner Event</fullName>
+                <default>false</default>
+                <label>Partner Event</label>
+            </value>
+            <value>
+                <fullName>Discovery Call</fullName>
+                <default>false</default>
+                <label>Discovery Call</label>
+            </value>
+            <value>
+                <fullName>Qualification / Discovery Call</fullName>
+                <default>false</default>
+                <label>Qualification / Discovery Call</label>
+            </value>
+            <value>
+                <fullName>Remote</fullName>
+                <default>false</default>
+                <label>Remote</label>
+            </value>
+            <value>
+                <fullName>In-Person</fullName>
+                <default>false</default>
+                <label>In-Person</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

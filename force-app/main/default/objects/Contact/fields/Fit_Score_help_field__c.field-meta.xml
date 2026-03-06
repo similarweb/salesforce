@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Fit_Score_help_field__c</fullName>
+    <externalId>false</externalId>
+    <formula>If((Fit_Score_Test__c=text(SW_Fit_Score__c)),true,false)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Fit Score help field</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

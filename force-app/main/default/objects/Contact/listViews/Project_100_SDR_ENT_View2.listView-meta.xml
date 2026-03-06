@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Project_100_SDR_ENT_View2</fullName>
+    <booleanFilter>(1 OR 3) AND 2 and 4 and 5</booleanFilter>
+    <columns>Enrichment_Source__c</columns>
+    <columns>Email_address_domain_type__c</columns>
+    <columns>MQL_date__c</columns>
+    <columns>FULL_NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CONTACT.TITLE</columns>
+    <columns>CONTACT.LEAD_SOURCE</columns>
+    <columns>CONTACT.ADDRESS2_COUNTRY</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>Website__c</columns>
+    <columns>Persona__c</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+        <field>MQL_date__c</field>
+        <operation>equals</operation>
+        <value>LAST_N_DAYS:30</value>
+    </filters>
+    <filters>
+        <field>CONTACT.LAST_ACTIVITY</field>
+        <operation>equals</operation>
+    </filters>
+    <filters>
+        <field>Lead_Creation_Date__c</field>
+        <operation>equals</operation>
+        <value>LAST_N_DAYS:30</value>
+    </filters>
+    <filters>
+        <field>CONTACT.LEAD_SOURCE</field>
+        <operation>notEqual</operation>
+        <value>SDR Outbound</value>
+    </filters>
+    <filters>
+        <field>Status__c</field>
+        <operation>notEqual</operation>
+        <value>Unqualified,Nurture</value>
+    </filters>
+    <label>Project 100: SDR ENT View</label>
+</ListView>

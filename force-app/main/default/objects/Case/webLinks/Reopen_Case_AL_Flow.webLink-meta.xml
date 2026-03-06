@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Reopen_Case_AL_Flow</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <linkType>url</linkType>
+    <masterLabel>Reopen Case</masterLabel>
+    <openType>replace</openType>
+    <protected>false</protected>
+    <url>/flow/Case_AL_Reopen_Case_Button?recordId={!Case.Id}&amp;retURL=/{!Case.Id}</url>
+</WebLink>

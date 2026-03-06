@@ -1,0 +1,36 @@
+<aura:component>
+    <aura:attribute name="quoteStatus" type="String" required="true"/>
+    <aura:attribute name="subscriptionType" type="String" required="true"/>
+    <aura:attribute name="quoteRecordId" type="String" required="true"/>
+    <aura:attribute name="isDeltaZero" type="Boolean" required="true"/>
+    <aura:attribute name="isMsaSentToZuoraEnabled" type="Boolean" required="true"/>
+    <aura:attribute name="recordTypeId" type="String" required="true"/>
+    <aura:attribute name="isBalanceZero" type="Boolean"/>
+    <aura:attribute name="stepList" type="List"/>
+
+    <lightning:layout class="slds-p-vertical_small">
+        <aura:if isTrue="{!or(!v.isDeltaZero,!v.isBalanceZero)}">
+            <lightning:layoutItem class="slds-p-horizontal_small">
+                <c:ReadyForBillingButton recordId="{!v.quoteRecordId}"
+                                        isDisabled="{!and(notequals(v.quoteStatus,'New'),notequals(v.quoteStatus,'Deal Size Approved'))}"
+                                        isPassed="{!equals(v.quoteStatus,'Ready for Billing') || equals(v.quoteStatus,'Processed Directly in Zuora') || equals(v.quoteStatus,'Sent To Zuora')}"
+                                        isCancel="{!true}"
+                                        />
+            </lightning:layoutItem>
+        </aura:if>
+        <aura:if isTrue="{!or(and(v.isDeltaZero,v.isBalanceZero),v.isMsaSentToZuoraEnabled)}">
+            <aura:if isTrue="{!or(!v.isDeltaZero,!v.isBalanceZero)}">
+                <lightning:layoutItem class="slds-p-right_small">
+                    <lightning:icon variant="inverse" iconName="utility:macros"/>
+                </lightning:layoutItem>
+            </aura:if>
+            <lightning:layoutItem class="{!if(v.isDeltaZero || v.isBalanceZero,'slds-p-horizontal_small','slds-p-right_small')}">
+                <c:SubmitToZuoraButton  recordId="{!v.quoteRecordId}"
+                                        isDisabled="{!if(or(!v.isDeltaZero,!v.isBalanceZero),notequals(v.quoteStatus, 'Ready for Billing',and(notequals(v.quoteStatus,'New'),notequals(v.quoteStatus,'Deal Size Approved')))) || equals(v.recordTypeId,v.quoteRecordTypeReadOnlyId)}"
+                                        isPassed="{!equals(v.quoteStatus,'Processed Directly in Zuora') || equals(v.recordTypeId,v.quoteRecordTypeReadOnlyId) || equals(v.quoteStatus,'Sent To Zuora')}"
+                                        submitMode="Submit manually"
+                                        />
+            </lightning:layoutItem>
+        </aura:if>
+    </lightning:layout>
+</aura:component>

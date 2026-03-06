@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MyContacts_Webinar_Retail_Trends6_18_all</fullName>
+    <columns>CORE.USERS.FIRST_NAME</columns>
+    <columns>CORE.USERS.LAST_NAME</columns>
+    <columns>FULL_NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>Business_Unit__c</columns>
+    <columns>CONTACT.TITLE</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.ADDRESS2_COUNTRY</columns>
+    <columns>Status__c</columns>
+    <columns>CONTACT.LAST_ACTIVITY</columns>
+    <columns>CAMPAIGN_MEMBER.STATUS</columns>
+    <columns>CONTACT.CREATED_DATE</columns>
+    <filterScope>Mine</filterScope>
+    <label>MyContacts Webinar:Retail Trends6/18 all</label>
+</ListView>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Ed_s_requests</fullName>
+    <columns>NAME</columns>
+    <columns>Account__c</columns>
+    <columns>Requester__c</columns>
+    <columns>Deliverable_Type__c</columns>
+    <columns>Priority__c</columns>
+    <columns>Due_Date__c</columns>
+    <columns>Desired_Outcome__c</columns>
+    <columns>Details_of_Deliverable__c</columns>
+    <columns>Status__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Recipient__c</field>
+        <operation>contains</operation>
+        <value>Ed Lavery</value>
+    </filters>
+    <label>Ed&apos;s requests</label>
+</ListView>

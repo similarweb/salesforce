@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Re_Evaluate_Territory_only_on_Default_RT</fullName>
+    <active>false</active>
+    <description>MIS-3405</description>
+    <errorConditionFormula>ISCHANGED( Re_Evaluate_Territory__c ) 
+&amp;&amp;
+Re_Evaluate_Territory__c
+&amp;&amp;
+(
+RecordType.Name &lt;&gt; &apos;Default&apos;
+||
+(
+CONTAINS(Owner_Division__c, &apos;Reseller&apos;) 
+||
+Owner_Division__c = &apos;Channel Sales&apos;
+||
+Owner_Division__c = &apos;Marketing&apos;
+||
+Owner_Division__c = &apos;OEM - CSM&apos;
+||
+Owner_Division__c = &apos;OEM - Sales&apos;
+||
+Owner_Division__c = &apos;OEM - SDR&apos;
+||
+Owner_Division__c = &apos;Self Serve - Growth&apos;
+))</errorConditionFormula>
+    <errorDisplayField>Re_Evaluate_Territory__c</errorDisplayField>
+    <errorMessage>The flag Re_Evaluate_Territory cannot be updated when the Account Record Type is not set to Default or when the Account Owner Role is not included in the Territory Management.</errorMessage>
+</ValidationRule>

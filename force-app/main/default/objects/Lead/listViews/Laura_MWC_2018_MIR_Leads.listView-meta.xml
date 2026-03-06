@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Laura_MWC_2018_MIR_Leads</fullName>
+    <columns>CORE.USERS.FIRST_NAME</columns>
+    <columns>CORE.USERS.LAST_NAME</columns>
+    <columns>FULL_NAME</columns>
+    <columns>LEAD.COMPANY</columns>
+    <columns>CAMPAIGN_MEMBER.STATUS</columns>
+    <columns>LEAD.EMAIL</columns>
+    <columns>LEAD.COUNTRY</columns>
+    <columns>LEAD.STATUS</columns>
+    <columns>Business_Unit__c</columns>
+    <columns>LEAD.INDUSTRY</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>SYS_Owner_Role__c</field>
+        <operation>contains</operation>
+        <value>MIR</value>
+    </filters>
+    <filters>
+        <field>LEAD.STATUS</field>
+        <operation>equals</operation>
+        <value>Open,Nurture</value>
+    </filters>
+    <filters>
+        <field>LEAD.STATUS</field>
+        <operation>notEqual</operation>
+        <value>Unqualified,SDR Prospecting,Sales Prospecting,MIR Prospecting</value>
+    </filters>
+    <label>Laura - MWC 2018 MIR Leads - Apr16</label>
+</ListView>

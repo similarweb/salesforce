@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sync_to_Catalyst__c</fullName>
+    <externalId>false</externalId>
+    <formula>OR(
+    ISPICKVAL(Status__c , &quot;Active&quot;),
+    ISPICKVAL(Status__c, &quot;Part of Another Subscription&quot;),
+    ISPICKVAL(Status__c, &quot;Cancelled&quot;),
+    Date_Last_Expired__c  &gt;= TODAY() - 90)</formula>
+    <label>Sync to Catalyst</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

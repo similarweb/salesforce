@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Account_ownership_changing</fullName>
+    <active>false</active>
+    <description>SW SDR not allowed to change Account owner of records they do not own.</description>
+    <errorConditionFormula>AND(
+$Profile.Name  = &apos;SW SDR&apos;,
+PRIORVALUE(OwnerId  ) &lt;&gt;  $User.Id,
+ISCHANGED(OwnerId)
+)</errorConditionFormula>
+    <errorMessage>You are not able to transfer records you do not own</errorMessage>
+</ValidationRule>

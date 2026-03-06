@@ -1,0 +1,385 @@
+<apex:page sidebar="false" standardController="zqu__Quote__c" title="Quote details" extensions="QuotePackageFirstDetailController">
+    <apex:form > 
+        <zqu:QuoteDetail theQuoteId="{!zqu__Quote__c.Id}"/> 
+        <apex:outputField value="{!zqu__Quote__c.zqu__SubscriptionType__c}" rendered="false"/>
+        <apex:outputField value="{!zqu__Quote__c.QuoteRegion__c}" rendered="false"/>
+    </apex:form>
+    <style>
+        #zqu-quoteDetailPanel .helpOrb{
+            right: auto;
+        }
+    </style>
+
+    <apex:includeScript value="{!$Resource.cometd}"/>
+    <apex:includeScript value="{!URLFOR($Resource.zqu__ImagesAndJavascriptZip, '/js/jquery-3.5.1.min-compressed.js')}" /> <!--Changed jqeury library due to deprecation/-->
+    <apex:includeScript value="{!$Resource.jquery_cometd}"/>
+    <script>
+
+        (function($){
+            $(document).ready(function() {
+                debugger;
+                $.cometd.configure({
+                    url: window.location.protocol+'//'+window.location.hostname+ (null != window.location.port ? (':'+window.location.port) : '') +'/cometd/40.0/',
+                    //url: 'https://similarweb--full.sandbox.lightning.force.com/cometd/40.0/',
+                    requestHeaders: { Authorization: 'OAuth {!$Api.Session_ID}'},
+                    appendMessageTypeToURL : false
+                });
+                $.cometd.websocketEnabled = false;
+                $.cometd.handshake((shake) => {
+                    if(shake.successful){
+                        console.log('$$$ Successful: ', shake);
+                    }else{
+                        console.log('$$$ Unsuccessful: ', shake);
+                    }
+                });
+                $.cometd.addListener('/meta/handshake', function(message) {
+                    $.cometd.subscribe('/event/Calculation_in_progress__e', function(message) {
+                        debugger;
+                        if(message.data){
+                            if(message.data.payload.QuoteId__c == "{!zqu__Quote__c.Id}"){
+                                if(message.data.payload.Message__c == 'Start'){
+                                    runCalculationSpinner('true');
+                                } else if(message.data.payload.Message__c == 'Finish'){
+                                    removeCalculationSpinner();
+                                }
+                            }
+                        }
+                    });
+                })
+            });
+        })(jQuery)
+
+
+        defaultZuoraPageLogic();
+        var sectionToShow = '';
+        var subscriptionType = "{!zqu__Quote__c.zqu__SubscriptionType__c}";
+        if (subscriptionType == 'New Subscription') {
+            sectionToShow = 'Quote_Metrics';
+        } else if(subscriptionType == 'Amend Subscription'){
+            sectionToShow = 'Amendment_Metrics';
+        } else if(subscriptionType == 'Cancel Subscription'){
+            sectionToShow = 'Amend_Quote_Detail_Metrics';
+        }
+        showSpecificSectionAndHideOther(sectionToShow);
+        removeBuffers();
+        runCalculationSpinner("{!calculationInProgress}");
+        // setSectionAsFirst(sectionToShow);
+        // removeStandardPaddingFromBody();
+        // setTimeout(() => {
+        //     removeStandardPaddingFromTd();    
+        // }, 1000);
+        // correctDynamicFieldsStyling();
+        // removeHorizontalMarginFromBrandSecondary();
+        // alignTextLeftInTh();
+        // presentTaxCalcFieldByCountry();
+        
+        function defaultZuoraPageLogic(){
+            if(!document.getElementsByClassName){
+                document.getElementsByClassName = function(className, element){
+                    var children = (element || document).getElementsByTagName('*');
+                    var elements = new Array();
+                    for (var i=0; i<children.length; i++){
+                        var child = children[i];
+                        if((' ' + child.className + ' ').indexOf(' ' + className + ' ') > -1){
+                        elements.push(child);
+                        }
+                    } 
+                    return elements;
+                };
+            }
+            function init() {
+            var headerElements = document.getElementsByClassName('pbHeader');
+                for ( var i=0; i<headerElements.length; i++ ) {
+                    headerElements[i].style.display = 'none';
+                }
+            }
+                
+            var previousOnload = window.onload;
+                window.onload = function () {
+                if (previousOnload) {
+                    previousOnload();
+                }
+                init();
+            };   
+        }
+
+        function removeStandardPaddingFromBody() {
+            var elArr = document.getElementsByTagName('body');
+            if (!elArr || elArr.length < 1) {
+                return;
+            }
+            var bodyEl = elArr[0];
+            bodyEl.style.padding = "0px 0px 0px 0px";
+        }
+
+        function removeStandardPaddingFromTd() {
+            var elArr = document.getElementsByTagName('td');
+            for (const td_i of elArr) {
+                td_i.style.paddingLeft = "0px";
+            }
+        }
+
+        function removeHorizontalMarginFromBrandSecondary(){
+            var elArr = document.getElementsByClassName('brandSecondaryBrd')
+            if (!elArr || elArr.length < 1) {
+                return;
+            }
+            var brandSecondaryBrdDivEl = elArr[0];
+            brandSecondaryBrdDivEl.style.setProperty( 'margin-left', '0px', 'important' );
+            brandSecondaryBrdDivEl.style.setProperty( 'margin-right', '0px', 'important' );
+        }
+
+        function alignTextLeftInTh(){
+            for (const thEl_i of document.getElementsByTagName('th')) {
+                thEl_i.style.textAlign = 'left';
+            }
+        }
+
+        function correctDynamicFieldsStyling(){
+            var parentSpanArr = document.querySelectorAll('[data-id=customRenderedSubTotal],[data-id=customRenderedTax],[data-id=customRenderedTotal]')
+            for (const parentSpan_i of parentSpanArr) {
+                var spantToCorrectArr = parentSpan_i.getElementsByClassName('labelCol');
+                for (const spantToCorrect_i of spantToCorrectArr) {
+                    spantToCorrect_i.style.textAlign='left';
+                }
+                var imgToCorrectArr = parentSpan_i.getElementsByTagName('img');
+                for (const img_i of imgToCorrectArr) {
+                    if (img_i.classList.contains('zhelpOrb')) {
+                        img_i.classList.remove('zhelpOrb');
+                        img_i.classList.add('helpOrb');
+                    }
+                }
+            }
+        }
+        
+        function showSpecificSectionAndHideOther(sectionNameToShow){
+            var sectionArr = document.querySelectorAll('[data-section-name]');
+            for (const sectionArr_i of sectionArr) {
+                if (sectionArr_i.dataset.sectionName != sectionNameToShow) {
+                    sectionArr_i.style.display = 'none';
+                }
+            }
+        }
+
+        function removeBuffers(){
+            var bufferArr = document.getElementsByClassName('buffer');
+            for (const buffer_i of bufferArr) {
+                var bufferParent = buffer_i.parentNode;
+                bufferParent.removeChild(buffer_i);
+            }
+        }
+
+        function setSectionAsFirst(sectionName){
+            var sectionEl = document.querySelector('[data-section-name=' + sectionName + ']');
+            if (!sectionEl) {
+                return;
+            }
+            var subheaderArr = sectionEl.getElementsByClassName('pbSubheader');
+            for (const subheader of subheaderArr) {
+                if (!subheader.classList.contains('first')) {
+                    subheader.classList.add('first');
+                }
+            }
+        }
+
+        function presentTaxCalcFieldByCountry(){
+            var quoteRegion = "{!zqu__Quote__c.QuoteRegion__c}";
+            if (quoteRegion == 'United States') {
+                changeDisplayOfFieldNew('VAT__c',false);
+                changeDisplayOfFieldNew('VAT_Total__c',false);
+            } else if(quoteRegion == 'ROW'){
+                // changeDisplayOfFieldNew('customRenderedTax',false,false,false,'data-id');
+                // changeDisplayOfFieldNew('customRenderedTotal',false,false,false,'data-id');
+                var fieldDataArrList = [];
+                var vatFieldDataArr = getQuoteFieldData('VAT__c');
+                fieldDataArrList.push(vatFieldDataArr);
+                var vatTotalFieldDataArr = getQuoteFieldData('VAT_Total__c');
+                fieldDataArrList.push(vatTotalFieldDataArr);
+                removeClassFromFieldDataArrList(fieldDataArrList,'last');
+                var taxSpan = document.querySelector('[data-id=customRenderedTax]');
+                var totalSpan = document.querySelector('[data-id=customRenderedTotal]');
+                if (taxSpan) {
+                    let parent = taxSpan.parentNode.parentNode;
+                    if (vatFieldDataArr) {
+                        parent.replaceChild(vatFieldDataArr[0],taxSpan.parentNode); 
+                        vatFieldDataArr[0].after(vatFieldDataArr[1]);
+                    }
+                }
+                if (totalSpan) {
+                    let parent = totalSpan.parentNode.parentNode;
+                    if(vatTotalFieldDataArr){
+                        parent.replaceChild(vatTotalFieldDataArr[0],totalSpan.parentNode); 
+                        vatTotalFieldDataArr[0].after(vatTotalFieldDataArr[1]);
+                    }
+                }
+            }
+        }
+
+        function getQuoteFieldData(fieldName){
+            var spanList = document.querySelectorAll('[data-field-name=' + fieldName + ']');
+            if(spanList != undefined &&  spanList.length > 0){
+                var tdNode = spanList[0].parentNode;
+                var thNode;
+                var indexOfTdNode = Array.from(tdNode.parentNode.childNodes).indexOf(tdNode);
+                if (indexOfTdNode > 0) {
+                    var indexOfThNode = indexOfTdNode - 1;
+                    thNode = tdNode.parentNode.childNodes[indexOfThNode];
+                }
+                if (tdNode) {
+                    var quoteFieldData = [];
+                    if (thNode) {
+                        quoteFieldData.push(thNode);
+                    }
+                    quoteFieldData.push(tdNode);
+                    return quoteFieldData;
+                } else {
+                    return;
+                }
+            }
+        }
+
+        function changeDisplayOfFieldNew(dataFieldNameString , isDisplayed, saveValue,hidePartially,selector){
+            if(!selector){
+                selector = 'data-field-name';
+            }
+            var spanList = document.querySelectorAll('[' + selector + '='+ dataFieldNameString + ']');
+            if(spanList != undefined &&  spanList.length > 0){
+                var selectedSpan = spanList[0];
+                var parent = selectedSpan.parentNode;
+                var inputField;
+                if (parent.getElementsByTagName('select').length > 0) {
+                    inputField = parent.getElementsByTagName('select')[0];
+                } else if(parent.getElementsByTagName('input').length > 0) {
+                    inputField = parent.getElementsByTagName('input')[0];
+                } else if(parent.querySelectorAll('span:not([id=""])').length > 0) {
+                    inputField = parent.querySelectorAll('span:not([id=""])')[0];
+                }
+                if(!inputField){
+                    return;
+                }
+                if(isDisplayed){
+                    if (!inputField.multiple) {
+                        inputField.style.display='inline-block';
+                    }
+                    var tdNode = selectedSpan;
+                    do {
+                        tdNode = tdNode.parentNode;
+                    } while (tdNode.tagName.toLowerCase() != 'td');
+                    var trNode = tdNode.parentNode;
+                    var indexOfTdNode = Array.from(trNode.childNodes).indexOf(tdNode);
+                    if (indexOfTdNode > 0) {
+                        var indexOfThNode = indexOfTdNode - 1;
+                        if (!hidePartially) {
+                            trNode.childNodes[indexOfTdNode].style.display='';
+                            trNode.childNodes[indexOfThNode].style.display='';    
+                        } else {
+                            trNode.childNodes[indexOfThNode].childNodes[0].style.display='';
+                        }
+                    }
+                }
+                else {
+                    if (!saveValue) {
+                        if (inputField.tagName.toLowerCase() == 'span' && inputField.classList.contains('dateOnlyInput')) {
+                            inputField.childNodes[0].value = '';   
+                        } else if (inputField.tagName.toLowerCase() == 'input' && inputField.type == 'checkbox') {
+                            inputField.removeAttribute('checked');
+                        } else  {
+                            inputField.value='';
+                        }
+                    }
+                    inputField.style.display='none';
+                    //selectedSpan.parentNode.parentNode.childNodes[Array.from(selectedSpan.parentNode.parentNode.childNodes).indexOf(selectedSpan.parentNode) - 1].childNodes[0].style.display='none';
+                    var tdNode = selectedSpan;
+                    do {
+                        tdNode = tdNode.parentNode;
+                    } while (tdNode.tagName.toLowerCase() != 'td');
+                    var trNode = tdNode.parentNode;
+                    var indexOfTdNode = Array.from(trNode.childNodes).indexOf(tdNode);
+                    if (indexOfTdNode > 0) {
+                        var indexOfThNode = indexOfTdNode - 1;
+                        if (!hidePartially) {
+                            trNode.childNodes[indexOfTdNode].style.display='none';
+                            trNode.childNodes[indexOfThNode].style.display='none';   
+                        } else {
+                            trNode.childNodes[indexOfThNode].childNodes[0].style.display='none';
+                        }
+                    }
+                }
+            }
+        }
+        
+        function removeClassFromFieldDataArrList(fieldDataArrList, className){
+            for (const fieldDataArr_i of fieldDataArrList) {
+                if (fieldDataArr_i) {
+                    for (const fieldData_i of fieldDataArr_i) {
+                        if (fieldData_i) {
+                            if (fieldData_i.classList.contains(className)) {
+                                fieldData_i.classList.remove(className); 
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        function runCalculationSpinner(calculationInProgress){
+            if(calculationInProgress == 'true'){
+                let currentSpinner = document.getElementById("spinnerId");
+                if(currentSpinner != undefined){
+                    return;
+                }
+
+                let spinnerEl = '<img id=\"spinnerId\" src=\"/resource/1454670581000/zqu__loading\" height=\"11px\" onclick=\"recalculate();\" style=\"margin-bottom: -1px; cursor: pointer;\" title=\"The value shown is an estimate. Click the refresh icon to calculate the exact value. This may take a few moments.\" class=\"loadingIcon\">';
+                const spinnerNode = createElementFromHTML(spinnerEl);
+                let spinnerEl2 = '<img id=\"spinner2Id\" src=\"/resource/1454670581000/zqu__loading\" height=\"11px\" onclick=\"recalculate();\" style=\"margin-bottom: -1px; cursor: pointer;\" title=\"The value shown is an estimate. Click the refresh icon to calculate the exact value. This may take a few moments.\" class=\"loadingIcon\">';
+                const spinnerNode2 = createElementFromHTML(spinnerEl2);
+                let spinnerEl3 = '<img id=\"spinner3Id\" src=\"/resource/1454670581000/zqu__loading\" height=\"11px\" onclick=\"recalculate();\" style=\"margin-bottom: -1px; cursor: pointer;\" title=\"The value shown is an estimate. Click the refresh icon to calculate the exact value. This may take a few moments.\" class=\"loadingIcon\">';
+                const spinnerNode3 = createElementFromHTML(spinnerEl3);
+
+                let subtotalContainer = document.getElementById("subTotalValue");
+                if(subtotalContainer != undefined && subtotalContainer.parentNode != undefined){
+                    let parentEl = subtotalContainer.parentNode;
+                    subtotalContainer.insertBefore(spinnerNode,null);
+                }
+                
+                let customRenderedDeltaMrrContainer = document.getElementById("deltaMrrValue");
+                if(customRenderedDeltaMrrContainer != undefined && customRenderedDeltaMrrContainer.parentNode != undefined){
+                    let customRenderedDeltaMrrParentEl = customRenderedDeltaMrrContainer.parentNode;
+                    customRenderedDeltaMrrContainer.insertBefore(spinnerNode2,null);
+                }
+                
+                let customRenderedTotalContainer = document.getElementById("totalValue");
+                if(customRenderedTotalContainer != undefined && customRenderedTotalContainer.parentNode != undefined){
+                    let customRenderedTotalParentEl = customRenderedTotalContainer.parentNode;
+                    customRenderedTotalContainer.insertBefore(spinnerNode3,null);
+                }
+
+                function createElementFromHTML(htmlString){
+                    let div = document.createElement('div');
+                    div.innerHTML = htmlString.trim();
+                    return div.firstChild;
+                }
+            } 
+        }
+
+        function removeCalculationSpinner(){
+            let currentSpinner1 = document.getElementById("spinnerId");
+            if(currentSpinner1 != undefined){
+                let parentNode1 = currentSpinner1.parentNode;
+                parentNode1.removeChild(currentSpinner1);
+            }
+
+            let currentSpinner2 = document.getElementById("spinner2Id");
+            if(currentSpinner2 != undefined){
+                let parentNode2 = currentSpinner2.parentNode;
+                parentNode2.removeChild(currentSpinner2);
+            }
+
+            let currentSpinner3 = document.getElementById("spinner3Id");
+            if(currentSpinner3 != undefined){
+                let parentNode3 = currentSpinner3.parentNode;
+                parentNode3.removeChild(currentSpinner3);
+            }
+        }
+    </script>    
+</apex:page>

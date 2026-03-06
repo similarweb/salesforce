@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Meeting_Division_Updated_Manually__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>MIS-4071: True when the field &apos;Meeting Division&apos; is updated manually via UI.
+When True, Meeting Division will not be updated anymore by any automation.</description>
+    <externalId>false</externalId>
+    <label>Meeting Division Updated Manually</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

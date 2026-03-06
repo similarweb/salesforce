@@ -1,0 +1,8 @@
+.THIS.quoteRecord{
+    border-radius: 15px 15px 15px 15px;
+    background: white;
+}
+
+.THIS .defTextUp{
+    font-size: var(--lwc-fontSize4,0.75rem);
+}

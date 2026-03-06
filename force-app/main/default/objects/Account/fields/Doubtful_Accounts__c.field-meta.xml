@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Doubtful_Accounts__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Populated by Zuora. #1102200</description>
+    <externalId>false</externalId>
+    <label>Doubtful Account</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

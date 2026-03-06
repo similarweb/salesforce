@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Jenna_US_Agency_Ownership</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>LEAD.EMAIL</columns>
+    <columns>LEAD.COMPANY</columns>
+    <columns>LEAD.STATE</columns>
+    <columns>LEAD.STATUS</columns>
+    <columns>LEAD.UNREAD</columns>
+    <columns>LEAD.CREATED_DATE</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>ROE_Division__c</field>
+        <operation>contains</operation>
+        <value>Global Sales - Agencies</value>
+    </filters>
+    <filters>
+        <field>LEAD.CREATED_DATE</field>
+        <operation>greaterThan</operation>
+        <value>2/28/2021 12:00 AM</value>
+    </filters>
+    <filters>
+        <field>LEAD.CREATED_DATE</field>
+        <operation>lessThan</operation>
+        <value>7/1/2021 12:00 AM</value>
+    </filters>
+    <filters>
+        <field>LEAD.COUNTRY</field>
+        <operation>contains</operation>
+        <value>united states,canada</value>
+    </filters>
+    <filters>
+        <field>LEAD.STATUS</field>
+        <operation>notEqual</operation>
+        <value>Qualified,Nurture,Unqualified,Dormant</value>
+    </filters>
+    <filters>
+        <field>LEAD.LEAD_SOURCE</field>
+        <operation>notEqual</operation>
+        <value>LinkedIn - Paid</value>
+    </filters>
+    <filters>
+        <field>LEAD.CONVERTED</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>MQL_Prediction__c</field>
+        <operation>contains</operation>
+        <value>A0,A1,A2,A3,A4,A5,B0,B1,B2,B3,B4,B5,C0,C1,C2</value>
+    </filters>
+    <filters>
+        <field>LEAD.EMAIL</field>
+        <operation>notContain</operation>
+        <value>.edu</value>
+    </filters>
+    <label>Jenna US Agency Ownership</label>
+</ListView>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Link_to_QBR_Template__c</fullName>
+    <externalId>false</externalId>
+    <formula>HYPERLINK(&quot;https://docs.google.com/presentation/d/1oywc8y9ygkuckxXicAQY6qgImLF7ygxqNzVaFdMkrkc/edit?usp=sharing&quot;, &quot;Click here for QBR template&quot;)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Link to QBR Template</label>
+    <required>false</required>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>marketing_outbound_for_soft_launch18</fullName>
+    <booleanFilter>1 AND 2 AND 3 AND 4 AND 5 AND 6</booleanFilter>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>ACCOUNT.ADDRESS1_STATE</columns>
+    <columns>ACCOUNT.PHONE1</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>SW_Industry__c</columns>
+    <columns>ACCOUNT.EMPLOYEES</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Business_Unit__c</field>
+        <operation>equals</operation>
+        <value>Inside Sales</value>
+    </filters>
+    <filters>
+        <field>SW_Industry__c</field>
+        <operation>contains</operation>
+        <value>Retail and eCommerce</value>
+    </filters>
+    <filters>
+        <field>ACCOUNT.ADDRESS1_COUNTRY</field>
+        <operation>equals</operation>
+        <value>united states,canada</value>
+    </filters>
+    <filters>
+        <field>Status__c</field>
+        <operation>notEqual</operation>
+        <value>Active</value>
+    </filters>
+    <filters>
+        <field>ACCOUNT.LAST_ACTIVITY</field>
+        <operation>notEqual</operation>
+        <value>LAST_N_DAYS:30</value>
+    </filters>
+    <filters>
+        <field>ACCOUNT.NAME</field>
+        <operation>notEqual</operation>
+        <value>&lt;unknown&gt;</value>
+    </filters>
+    <label>marketing outbound for soft launch</label>
+</ListView>

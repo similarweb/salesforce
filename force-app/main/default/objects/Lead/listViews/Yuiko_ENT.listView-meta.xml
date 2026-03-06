@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Yuiko_ENT</fullName>
+    <columns>LEAD.CREATED_DATE</columns>
+    <columns>ROE_Sub_Division__c</columns>
+    <columns>SW_Industry__c</columns>
+    <columns>FULL_NAME</columns>
+    <columns>LEAD.EMAIL</columns>
+    <columns>LEAD.COMPANY</columns>
+    <columns>LEAD.STATUS</columns>
+    <columns>LEAD.UNREAD</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>LEAD.COUNTRY</columns>
+    <columns>LEAD.LAST_ACTIVITY</columns>
+    <columns>LEAD.LEAD_SOURCE</columns>
+    <columns>Employees_Min__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CORE.USERS.FIRST_NAME</field>
+        <operation>contains</operation>
+        <value>yuiko</value>
+    </filters>
+    <filters>
+        <field>Employees_Min__c</field>
+        <operation>greaterOrEqual</operation>
+        <value>51</value>
+    </filters>
+    <filters>
+        <field>LEAD.CREATED_DATE</field>
+        <operation>greaterOrEqual</operation>
+        <value>5/1/2022 12:00 AM</value>
+    </filters>
+    <filters>
+        <field>LEAD.CONVERTED</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>ROE_Division__c</field>
+        <operation>contains</operation>
+        <value>Japan</value>
+    </filters>
+    <filters>
+        <field>LEAD.STATUS</field>
+        <operation>notContain</operation>
+        <value>Replied,Unqualified</value>
+    </filters>
+    <filters>
+        <field>ROE_Sub_Division__c</field>
+        <operation>contains</operation>
+        <value>Japan SMB</value>
+    </filters>
+    <filters>
+        <field>SW_Industry__c</field>
+        <operation>equals</operation>
+        <value>Agency</value>
+    </filters>
+    <filters>
+        <field>LEAD.LEAD_SOURCE</field>
+        <operation>equals</operation>
+        <value>ContactForm,Facebook,Facebook - Paid,Inbound,Investors - Paid,LinkedIn - Paid,LinkedIn - Paid - Convo Ads,MIR,MIR Chat,Other,Outbound,Pro,Sales intelligence</value>
+    </filters>
+    <label>Yuiko Japan SMB</label>
+</ListView>

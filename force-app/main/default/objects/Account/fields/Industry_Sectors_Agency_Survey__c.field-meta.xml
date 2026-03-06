@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Industry_Sectors_Agency_Survey__c</fullName>
+    <externalId>false</externalId>
+    <label>Industry Sectors - Agency Survey</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Ad Tech or MarTech</fullName>
+                <default>false</default>
+                <label>Ad Tech or MarTech</label>
+            </value>
+            <value>
+                <fullName>Airlines</fullName>
+                <default>false</default>
+                <label>Airlines</label>
+            </value>
+            <value>
+                <fullName>Alcohol</fullName>
+                <default>false</default>
+                <label>Alcohol</label>
+            </value>
+            <value>
+                <fullName>Arts (theatre, galleries, events, concerts)</fullName>
+                <default>false</default>
+                <label>Arts (theatre, galleries, events, concerts)</label>
+            </value>
+            <value>
+                <fullName>Automotive</fullName>
+                <default>false</default>
+                <label>Automotive</label>
+            </value>
+            <value>
+                <fullName>Beauty &amp; Personal Care</fullName>
+                <default>false</default>
+                <label>Beauty &amp; Personal Care</label>
+            </value>
+            <value>
+                <fullName>Charities &amp; Non-Government Organisations</fullName>
+                <default>false</default>
+                <label>Charities &amp; Non-Government Organisations</label>
+            </value>
+            <value>
+                <fullName>Consumer Packaged Goods / FMCG</fullName>
+                <default>false</default>
+                <label>Consumer Packaged Goods / FMCG</label>
+            </value>
+            <value>
+                <fullName>Data Analytics</fullName>
+                <default>false</default>
+                <label>Data Analytics</label>
+            </value>
+            <value>
+                <fullName>Dating Services</fullName>
+                <default>false</default>
+                <label>Dating Services</label>
+            </value>
+            <value>
+                <fullName>DIY &amp; Home Furnishings</fullName>
+                <default>false</default>
+                <label>DIY &amp; Home Furnishings</label>
+            </value>
+            <value>
+                <fullName>Eating &amp; Drinking (Food Delivery, Restaurants, Bars)</fullName>
+                <default>false</default>
+                <label>Eating &amp; Drinking (Food Delivery, Restaurants, Bars)</label>
+            </value>
+            <value>
+                <fullName>eCommerce</fullName>
+                <default>false</default>
+                <label>eCommerce</label>
+            </value>
+            <value>
+                <fullName>Education</fullName>
+                <default>false</default>
+                <label>Education</label>
+            </value>
+            <value>
+                <fullName>Electrical Appliances, including Audio &amp; TV</fullName>
+                <default>false</default>
+                <label>Electrical Appliances, including Audio &amp; TV</label>
+            </value>
+            <value>
+                <fullName>Energy Supply &amp; Utilities</fullName>
+                <default>false</default>
+                <label>Energy Supply &amp; Utilities</label>
+            </value>
+            <value>
+                <fullName>Entertainment (Books, Hobbies, Movies, Music)</fullName>
+                <default>false</default>
+                <label>Entertainment (Books, Hobbies, Movies, Music)</label>
+            </value>
+            <value>
+                <fullName>Fashion (Clothing, Footwear, Accessories)</fullName>
+                <default>false</default>
+                <label>Fashion (Clothing, Footwear, Accessories)</label>
+            </value>
+            <value>
+                <fullName>Financial Services</fullName>
+                <default>false</default>
+                <label>Financial Services</label>
+            </value>
+            <value>
+                <fullName>Fitness Attire (Clothing, Footwear, Equipment)</fullName>
+                <default>false</default>
+                <label>Fitness Attire (Clothing, Footwear, Equipment)</label>
+            </value>
+            <value>
+                <fullName>Gambling</fullName>
+                <default>false</default>
+                <label>Gambling</label>
+            </value>
+            <value>
+                <fullName>Government / Public Sector</fullName>
+                <default>false</default>
+                <label>Government / Public Sector</label>
+            </value>
+            <value>
+                <fullName>Health &amp; Wellbeing</fullName>
+                <default>false</default>
+                <label>Health &amp; Wellbeing</label>
+            </value>
+            <value>
+                <fullName>Home Care &amp; Cleaning</fullName>
+                <default>false</default>
+                <label>Home Care &amp; Cleaning</label>
+            </value>
+            <value>
+                <fullName>Hotels / Hospitality</fullName>
+                <default>false</default>
+                <label>Hotels / Hospitality</label>
+            </value>
+            <value>
+                <fullName>Luxury Goods</fullName>
+                <default>false</default>
+                <label>Luxury Goods</label>
+            </value>
+            <value>
+                <fullName>Pharmaceuticals</fullName>
+                <default>false</default>
+                <label>Pharmaceuticals</label>
+            </value>
+            <value>
+                <fullName>Publishing &amp; Media</fullName>
+                <default>false</default>
+                <label>Publishing &amp; Media</label>
+            </value>
+            <value>
+                <fullName>Retail (Other)</fullName>
+                <default>false</default>
+                <label>Retail (Other)</label>
+            </value>
+            <value>
+                <fullName>Shipping &amp; Logistics</fullName>
+                <default>false</default>
+                <label>Shipping &amp; Logistics</label>
+            </value>
+            <value>
+                <fullName>Sport</fullName>
+                <default>false</default>
+                <label>Sport</label>
+            </value>
+            <value>
+                <fullName>Soft Drinks</fullName>
+                <default>false</default>
+                <label>Soft Drinks</label>
+            </value>
+            <value>
+                <fullName>SuperMarket / Food</fullName>
+                <default>false</default>
+                <label>SuperMarket / Food</label>
+            </value>
+            <value>
+                <fullName>Technology / Software / SaaS</fullName>
+                <default>false</default>
+                <label>Technology / Software / SaaS</label>
+            </value>
+            <value>
+                <fullName>Telco, Mobile, Broadband</fullName>
+                <default>false</default>
+                <label>Telco, Mobile, Broadband</label>
+            </value>
+            <value>
+                <fullName>Tobacco</fullName>
+                <default>false</default>
+                <label>Tobacco</label>
+            </value>
+            <value>
+                <fullName>Travel &amp; Tourism</fullName>
+                <default>false</default>
+                <label>Travel &amp; Tourism</label>
+            </value>
+            <value>
+                <fullName>Video Gaming - Consoles/ PC</fullName>
+                <default>false</default>
+                <label>Video Gaming - Consoles/ PC</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>5</visibleLines>
+</CustomField>

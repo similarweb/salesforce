@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Send_Invoice_Email_0_0</name>
+        <label>Send Invoice Email</label>
+        <locationX>314</locationX>
+        <locationY>647</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <connector>
+            <targetReference>Rule_Status_changed_to_Paid_Paid</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>Send_Email_Body</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailAddressesArray</name>
+            <value>
+                <elementReference>Billing_Contact_Collection</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>sendRichBody</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderAddress</name>
+            <value>
+                <stringValue>billingpartners@similarweb.com</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderType</name>
+            <value>
+                <stringValue>OrgWideEmailAddress</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <elementReference>Send_Email_Subject</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+    </actionCalls>
+    <actionCalls>
+        <name>Send_Invoice_Email_Paid_Cap</name>
+        <label>Send Invoice Email (Paid Cap!)</label>
+        <locationX>50</locationX>
+        <locationY>647</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <connector>
+            <targetReference>Rule_Status_changed_to_Paid_Paid</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>Send_Email_Body</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailAddressesArray</name>
+            <value>
+                <elementReference>Billing_Contact_Collection</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>sendRichBody</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderAddress</name>
+            <value>
+                <stringValue>billingpartners@similarweb.com</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderType</name>
+            <value>
+                <stringValue>OrgWideEmailAddress</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <elementReference>Send_Email_Subject</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+    </actionCalls>
+    <apiVersion>54.0</apiVersion>
+    <assignments>
+        <name>Get_Email_Addresses</name>
+        <label>Get Email Addresses</label>
+        <locationX>182</locationX>
+        <locationY>431</locationY>
+        <assignmentItems>
+            <assignToReference>Billing_Contact_Collection</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>$Record.Billing_Contact__r.Email</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Billing_Contact_Collection</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>$Record.Billing_Contact__r.Owner.Email</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Payment_Cap</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <name>Next_Rule_here</name>
+        <label>Next Rule here</label>
+        <locationX>380</locationX>
+        <locationY>1223</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Next_criteria</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>For_NOW</leftValueReference>
+                <operator>EqualTo</operator>
+            </conditions>
+            <label>Next criteria</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Payment_Cap</name>
+        <label>Payment Cap?</label>
+        <locationX>182</locationX>
+        <locationY>539</locationY>
+        <defaultConnector>
+            <targetReference>Send_Invoice_Email_0_0</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Monthly Payment</defaultConnectorLabel>
+        <rules>
+            <name>True_Payment_Cap</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Paid_Cap__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Payment_Cap_Override__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Send_Invoice_Email_Paid_Cap</targetReference>
+            </connector>
+            <label>True - Payment Cap</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Rule_Status_changed_to_Paid_Paid</name>
+        <label>Rule - Status changed to Paid (Paid)</label>
+        <locationX>380</locationX>
+        <locationY>923</locationY>
+        <defaultConnector>
+            <targetReference>Next_Rule_here</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Status_Paid</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Paid</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_related_MSR</targetReference>
+            </connector>
+            <label>Status = Paid</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Send_Monthly_Invoice_Email</name>
+        <label>Send Monthly Invoice Email</label>
+        <locationX>380</locationX>
+        <locationY>323</locationY>
+        <defaultConnector>
+            <targetReference>Rule_Status_changed_to_Paid_Paid</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No Email</defaultConnectorLabel>
+        <rules>
+            <name>True_Send_Invoice_Email</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Send_Invoice_Email__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Send_Invoice_Email__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Billing_Contact__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Email_Addresses</targetReference>
+            </connector>
+            <label>True - Send Invoice Email</label>
+        </rules>
+    </decisions>
+    <environments>Default</environments>
+    <formulas>
+        <name>For_2_Next_Month</name>
+        <dataType>String</dataType>
+        <expression>CASE(MONTH(DATEVALUE({!$Record.CreatedDate})),
+1,&apos;March&apos;,
+2,&apos;April&apos;,
+3,&apos;May&apos;,
+4,&apos;June&apos;,
+5,&apos;July&apos;,
+6,&apos;August&apos;,
+7,&apos;September&apos;,
+8,&apos;October&apos;,
+9,&apos;November&apos;,
+10,&apos;December&apos;,
+11,&apos;January&apos;,&apos;Febuary&apos;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>For_NOW</name>
+        <dataType>DateTime</dataType>
+        <expression>NOW()</expression>
+    </formulas>
+    <formulas>
+        <name>For_This_Month</name>
+        <dataType>String</dataType>
+        <expression>CASE(MONTH(DATEVALUE({!$Record.CreatedDate})),
+2,&apos;February&apos;,
+3,&apos;March&apos;,
+4,&apos;April&apos;,
+5,&apos;May&apos;,
+6,&apos;June&apos;,
+7,&apos;July&apos;,
+8,&apos;August&apos;,
+9,&apos;September&apos;,
+10,&apos;October&apos;,
+11,&apos;November&apos;,
+12,&apos;December&apos;,&apos;January&apos;
+)</expression>
+    </formulas>
+    <interviewLabel>Data Partner - Monthly Partner Data After Flow {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Data Partner - Monthly Partner Data After Flow</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Update_related_MSR</name>
+        <label>Update related MSR</label>
+        <locationX>248</locationX>
+        <locationY>1031</locationY>
+        <connector>
+            <targetReference>Next_Rule_here</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Monthly_Partner_Request__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Status__c</field>
+            <value>
+                <stringValue>Paid</stringValue>
+            </value>
+        </inputAssignments>
+        <object>Monthly_Source_Request__c</object>
+    </recordUpdates>
+    <start>
+        <locationX>254</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Send_Monthly_Invoice_Email</targetReference>
+        </connector>
+        <object>Monthly_Partner_Request__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <textTemplates>
+        <name>Send_Email_Body</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>&lt;p&gt;Hi {!$Record.Billing_Contact__r.FirstName},&lt;/p&gt;&lt;p&gt;I hope this email finds you well.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Please issue an invoice for {!For_This_Month} in the amount of {!$Record.Monthly_Partner_Payment_Final__c}$.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;In order to avoid payment delays, kindly issue the invoice by the 20th and send it to PI@similarweb.com.&lt;/p&gt;&lt;p&gt;Please note that the invoice will be paid in accordance with your contract&apos;s payment terms.&lt;/p&gt;&lt;p&gt;In the case of any update with your company details or bank account, please return a message to this email with the updated information.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Best regards,&amp;nbsp;&lt;/p&gt;&lt;p&gt;{!$Record.Billing_Contact__r.Owner.FirstName}&lt;/p&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <name>Send_Email_Subject</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>{!$Record.Billing_Contact__r.Account.Name}: Request for {!For_This_Month} invoice (Similarweb LTD)</text>
+    </textTemplates>
+    <variables>
+        <name>Billing_Contact_Collection</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

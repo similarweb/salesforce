@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>61.0</apiVersion>
+    <assignments>
+        <name>Assign_Completing_User_As_Case_Closer</name>
+        <label>Assign Completing User As Case Closer</label>
+        <locationX>50</locationX>
+        <locationY>1403</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.OwnerId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$User.Id</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <name>Populate_Original_Requester_For_Child_Cases</name>
+        <label>Populate Original Requester For Child Cases</label>
+        <locationX>380</locationX>
+        <locationY>587</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Original_Requester__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Parent.Requester__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Ownership_Taken_From_Queue</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Update_Status_In_Progress</name>
+        <label>Update Status = In Progress</label>
+        <locationX>380</locationX>
+        <locationY>887</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Status</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>In Progress</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Status_Change</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <name>Child_Case_Created</name>
+        <label>Child Case Created</label>
+        <locationX>512</locationX>
+        <locationY>479</locationY>
+        <defaultConnector>
+            <targetReference>Ownership_Taken_From_Queue</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Populate_Original_Requester</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>IsNew</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.ParentId</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>SalesOps</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Populate_Original_Requester_For_Child_Cases</targetReference>
+            </connector>
+            <label>Populate Original Requester</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Owner_is_queue</name>
+        <label>Owner is queue?</label>
+        <locationX>182</locationX>
+        <locationY>1295</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>queue</name>
+            <conditionLogic>(1 AND ( 2 or 4) AND 3) OR (1 AND NOT 3)</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Owner:Group.Type</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Queue</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_Case_Management_CMTD.Auto_Close_Parent__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.ParentId</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_Case_Management_CMTD.Auto_Close_Parent__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Completing_User_As_Case_Closer</targetReference>
+            </connector>
+            <label>queue</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Ownership_Taken_From_Queue</name>
+        <label>Ownership Taken From Queue</label>
+        <locationX>512</locationX>
+        <locationY>779</locationY>
+        <defaultConnector>
+            <targetReference>Status_Change</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Owner_Changed_To_User</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.OwnerId</leftValueReference>
+                <operator>StartsWith</operator>
+                <rightValue>
+                    <stringValue>005</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>New</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record__Prior.Owner:Group.Type</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Queue</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Status_In_Progress</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>Owner Changed To User</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Salesops_Case_Created</name>
+        <label>Salesops Case Created</label>
+        <locationX>512</locationX>
+        <locationY>287</locationY>
+        <defaultConnector>
+            <targetReference>Child_Case_Created</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Salesops_Origin_Email</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>IsNew</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Origin</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Email</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.RecordType.Name</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>SalesOps</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Child_Case_Created</targetReference>
+            </connector>
+            <label>Salesops: Origin - Email</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Status_Change</name>
+        <label>Status Change</label>
+        <locationX>512</locationX>
+        <locationY>1079</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Completed</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Status</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Completed</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Case_Management_CMTD</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>Completed</label>
+        </rules>
+        <rules>
+            <name>Pending_Requester</name>
+            <conditionLogic>((1 AND 2 AND NOT 3) OR (2 AND 3)  )AND (4 OR 5)</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record__Prior.Status</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Pending Requester</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Pending Requester</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.RecordType.Name</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Deal Desk</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.RecordType.Name</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>SalesOps</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Pending_Requester_Count</targetReference>
+            </connector>
+            <label>Pending Requester</label>
+        </rules>
+    </decisions>
+    <description>MIS-6987 Complete &quot;Pending Requester&quot; Status Exceeding x Days for salesops and deal desk CASE record type
+MIS-6790  - remove salesops email 2 case</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>IsNew</name>
+        <dataType>Boolean</dataType>
+        <expression>ISNEW()</expression>
+    </formulas>
+    <formulas>
+        <description>MIS-6987 Complete &quot;Pending Requester&quot; Status Exceeding x Days for salesops and deal desk CASE record type</description>
+        <name>Pending_Requester_Count_fr</name>
+        <dataType>Date</dataType>
+        <expression>IF(
+TEXT({!$Record.Status})=&apos;Pending Requester&apos;, 
+  IF( {!$Record.RecordType.Name}=&apos;Deal Desk&apos;, TODAY()+10, TODAY()+3), null
+
+)</expression>
+    </formulas>
+    <formulas>
+        <name>Subject_Contains_HR</name>
+        <dataType>Boolean</dataType>
+        <expression>OR(
+    CONTAINS(LOWER({!$Record.Subject}), LOWER(&quot;End of Employment&quot;)),
+    CONTAINS(LOWER({!$Record.Subject}), LOWER(&quot;New Employee&quot;)),
+    CONTAINS(LOWER({!$Record.Subject}), LOWER(&quot;Change in Role&quot;)),
+    CONTAINS(LOWER({!$Record.Subject}), LOWER(&quot;Change in Reporting Line&quot;)),
+    CONTAINS(LOWER({!$Record.Subject}), LOWER(&quot;Return from Maternity Leave&quot;)),
+    CONTAINS(LOWER({!$Record.Subject}), LOWER(&quot;Relocation&quot;)),
+    CONTAINS(LOWER({!$Record.Subject}), LOWER(&quot;Baby boy&quot;)),
+    CONTAINS(LOWER({!$Record.Subject}), LOWER(&quot;baby girl&quot;))
+)</expression>
+    </formulas>
+    <interviewLabel>Case - RT - Before Save {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Case - RT - Before Save</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <description>Need to see what closes the parent auto, and keep the queue as owner</description>
+        <name>Get_Case_Management_CMTD</name>
+        <label>Get Case Management CMTD</label>
+        <locationX>182</locationX>
+        <locationY>1187</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Owner_is_queue</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Case_Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Type</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Case_Managment__mdt</object>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>Auto_Close_Parent__c</queriedFields>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <name>Update_Pending_Requester_Count</name>
+        <label>Update Pending Requester Count</label>
+        <locationX>578</locationX>
+        <locationY>1187</locationY>
+        <inputAssignments>
+            <field>Pending_Requester_Count__c</field>
+            <value>
+                <elementReference>Pending_Requester_Count_fr</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>386</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Salesops_Case_Created</targetReference>
+        </connector>
+        <object>Case</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

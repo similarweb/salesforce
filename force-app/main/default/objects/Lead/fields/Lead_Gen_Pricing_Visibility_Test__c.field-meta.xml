@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lead_Gen_Pricing_Visibility_Test__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>user property from website forms [&apos;true&apos; if got var 1/&apos;false&apos; if got the control])</description>
+    <externalId>false</externalId>
+    <label>Pricing Visibility Test</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

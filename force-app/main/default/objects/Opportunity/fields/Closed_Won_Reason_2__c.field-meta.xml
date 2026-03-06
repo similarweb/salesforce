@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Closed_Won_Reason_2__c</fullName>
+    <externalId>false</externalId>
+    <label>Closed Won Reason #2</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Closed_Won_Reason__c</controllingField>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Unknown</fullName>
+                <default>false</default>
+                <label>Unknown</label>
+            </value>
+            <value>
+                <fullName>Value: Customer experience / service</fullName>
+                <default>false</default>
+                <label>Value: Customer experience / service</label>
+            </value>
+            <value>
+                <fullName>Value: Multiple use cases (one-stop-shop)</fullName>
+                <default>false</default>
+                <label>Value: Multiple use cases (one-stop-shop)</label>
+            </value>
+            <value>
+                <fullName>Value: Incentive (discount, users, packages, features)</fullName>
+                <default>false</default>
+                <label>Value: Incentive (discount, users, packages, features)</label>
+            </value>
+            <value>
+                <fullName>Value: Migrated to Solutions</fullName>
+                <default>false</default>
+                <label>Value: Migrated to Solutions</label>
+            </value>
+            <value>
+                <fullName>Product: Feature / data / granularity</fullName>
+                <default>false</default>
+                <label>Product: Feature / data / granularity</label>
+            </value>
+            <value>
+                <fullName>Product: Accuracy</fullName>
+                <default>false</default>
+                <label>Product: Accuracy</label>
+            </value>
+            <value>
+                <fullName>Product: UI/UX</fullName>
+                <default>false</default>
+                <label>Product: UI/UX</label>
+            </value>
+            <value>
+                <fullName>Product: API / Excel</fullName>
+                <default>false</default>
+                <label>Product: API / Excel</label>
+            </value>
+            <value>
+                <fullName>Competition: Price</fullName>
+                <default>false</default>
+                <label>Competition: Price</label>
+            </value>
+            <value>
+                <fullName>Competition: Feature / data / granularity</fullName>
+                <default>false</default>
+                <label>Competition: Feature / data / granularity</label>
+            </value>
+            <value>
+                <fullName>Competition: Accuracy</fullName>
+                <default>false</default>
+                <label>Competition: Accuracy</label>
+            </value>
+            <value>
+                <fullName>Competition: Customer experience / service</fullName>
+                <default>false</default>
+                <label>Competition: Customer experience / service</label>
+            </value>
+            <value>
+                <fullName>Competition: UI/UX</fullName>
+                <default>false</default>
+                <label>Competition: UI/UX</label>
+            </value>
+            <value>
+                <fullName>Competition: Multiple use cases (one-stop-shop)</fullName>
+                <default>false</default>
+                <label>Competition: Multiple use cases (one-stop-shop)</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Other</controllingFieldValue>
+            <valueName>Unknown</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

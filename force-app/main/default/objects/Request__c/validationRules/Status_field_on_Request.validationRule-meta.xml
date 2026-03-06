@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Status_field_on_Request</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+ISCHANGED( Status__c ) ,
+OR(
+AND(
+NOT( ISPICKVAL(Status__c, &apos;Resubmitted&apos;) ),
+NOT( ISPICKVAL(Status__c, &apos;Pending Client&apos;) ),
+NOT( ISPICKVAL(Status__c, &apos;Cancelled&apos;) ),
+NOT( ISPICKVAL(Request_Type__c, &apos;NDA&apos;)),
+RecordType.DeveloperName = &apos;Legal_Services&apos; ,
+$Profile.Name &lt;&gt; &apos;SW Billing&apos;,
+$Profile.Name &lt;&gt; &apos;SW Billing Extended&apos;,
+$Profile.Name &lt;&gt; &apos;System Administrator&apos;,
+$Profile.Name &lt;&gt; &apos;SW SalesOps&apos;,
+$Profile.Name &lt;&gt; &apos;SW SalesOps Extended&apos;,
+$Profile.Name &lt;&gt; &apos;SW Legal&apos;,
+$User.Id &lt;&gt; &apos;005b0000000lqbnAAA&apos; /*Automated Process*/,
+$User.Id &lt;&gt; &apos;005b0000000lqbn&apos; /*Automated Process*/
+),
+
+AND(
+NOT( ISPICKVAL(Status__c, &apos;Resubmitted&apos;) ),
+NOT( ISPICKVAL(Status__c, &apos;Pending Client&apos;) ),
+NOT( ISPICKVAL(Status__c, &apos;Cancelled&apos;) ),
+NOT( ISPICKVAL(Status__c, &apos;Completed&apos;)),
+ISPICKVAL(Request_Type__c, &apos;NDA&apos;),
+RecordType.DeveloperName = &apos;Legal_Services&apos; ,
+OR(
+$Profile.Name = &apos;SW CSM Internal&apos;,
+$Profile.Name = &apos;SW Sales Internal&apos;,
+$Profile.Name = &apos;SW Sales Internal - STRAT&apos;,
+$Profile.Name = &apos;SW Sales External&apos;,
+$Profile.Name = &apos;SW Management&apos;
+),
+$Profile.Name &lt;&gt; &apos;SW Billing&apos;,
+$Profile.Name &lt;&gt; &apos;SW Billing Extended&apos;,
+$Profile.Name &lt;&gt; &apos;System Administrator&apos;,
+$Profile.Name &lt;&gt; &apos;SW SalesOps&apos;,
+$Profile.Name &lt;&gt; &apos;SW SalesOps Extended&apos;,
+$Profile.Name &lt;&gt; &apos;SW Legal&apos;,
+$User.Id &lt;&gt; &apos;005b0000000lqbnAAA&apos; /*Automated Process*/,
+$User.Id &lt;&gt; &apos;005b0000000lqbn&apos; /*Automated Process*/
+)
+
+)
+)</errorConditionFormula>
+    <errorDisplayField>Status__c</errorDisplayField>
+    <errorMessage>Please note that you can only update the status to &apos;Resubmitted&apos;, &apos;Pending Client&apos;, and &apos;Cancelled&apos;. For any other status updates, please inform Legal on the request chatter.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Fix_Payment__c</fullName>
+    <description>Data Partners (Wolves) - According to the Contract T&amp;C there are cases where we pay the Partner a fix price per Quarter.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Fix Price we pay the Partner every Month/Quarter</inlineHelpText>
+    <label>Fix Payment</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <type>Currency</type>
+</CustomField>

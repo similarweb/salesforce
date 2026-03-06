@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Generate_utilization_summary_w_template__c</fullName>
+    <externalId>false</externalId>
+    <formula>HYPERLINK(&quot;https://goo.gl/DWFBcu&quot;, &quot;Click here for Usage Analysis Template&quot;)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Generate utilization summary w/template</label>
+    <required>false</required>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

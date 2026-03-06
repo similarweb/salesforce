@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All_tools_to_optimize_engagement_in_link__c</fullName>
+    <externalId>false</externalId>
+    <formula>HYPERLINK(&quot;https://docs.google.com/presentation/d/1lDbtKJ_7HkBVxXWCHTlZ3aLYhaXuNc1Klc1fPa9_sEA/edit#slide=id.g2400e1fb31_0_147&quot;,&quot;Click here for AM Tool Repository&quot;)+BR()+HYPERLINK(&quot;https://goo.gl/MYvAoY&quot;,&quot;Click here for Customer Segmentation deck&quot;)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>All tools to optimize engagement in link</label>
+    <required>false</required>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

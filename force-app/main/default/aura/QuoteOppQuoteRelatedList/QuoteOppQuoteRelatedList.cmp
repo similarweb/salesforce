@@ -1,0 +1,186 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId"
+                access="global" 
+                controller="QuoteOppQuoteRelatedListController">
+
+    <aura:attribute name="relatedOpportunityId" type="String"/>
+    <aura:attribute name="relatedOppList" type="Object[]"/>
+    <aura:attribute name="isMoreItems" type="Boolean" default="false"/>
+    <aura:attribute name="showModal" type="Boolean" default="false"/>
+    <aura:attribute name="signatureDateMode" type="Boolean"/>
+
+
+    <lightning:navigation aura:id="navService"/>
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
+    <aura:handler event="c:ApplicationRefresgEvent" action="{!c.handleApplicationRefreshFired}"/>
+
+    <div>
+        <article class="slds-card slds-card_boundary headerBottomBorder forceRelatedListCardDesktop">
+            <div class="slds-card__header slds-grid">
+                <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                    <div class="slds-media__figure">
+                        <span class="slds-icon_container slds-icon-standard-contact" title="contact">
+                            <lightning:icon iconName="standard:file"/>
+                        </span>
+                    </div>
+                    <div class="slds-media__body">
+                        <h2 class="slds-card__header-title">
+                            <a href="javascript:void(0);" class="slds-card__header-link slds-truncate" title="Files">
+                                <span>Quote({!if(v.isMoreItems, v.relatedOppList.length + '+', v.relatedOppList.length) })</span>
+                            </a>
+                        </h2>
+                    </div>
+                    <!-- <div class="slds-no-flex">
+                        <button class="slds-button slds-button_neutral" onclick="{!c.uploadButton}">Upload documents</button>
+                        <button class="slds-button slds-button_neutral" onclick="{!c.sendToDocuSign}">Send to DocuSign</button>
+                    </div> -->
+                </header>
+            </div>
+            <div class="slds-card__body">
+                <table class="slds-table slds-table_cell-buffer slds-no-row-hover slds-table_bordered slds-table_fixed-layout" role="grid">
+                    <thead>
+                        <tr class="slds-line-height_reset">
+                            <th class="nameFix" scope="col">
+                                <div class="slds-truncate wrappedText" title="Name">Name</div>
+                            </th>
+                            <th class="" scope="col">
+                                <div class="slds-truncate wrappedText" title="Owner">Owner</div>
+                            </th>
+                            <th class="" scope="col">
+                                <div class="slds-truncate wrappedText" title="Quote Status">Quote Status</div>
+                            </th>
+                            <th class="crDate" scope="col">
+                                <div class="slds-truncate wrappedText" title="Created Date" >Created Date</div>
+                            </th>
+                            <th class="" scope="col">
+                                <div class="slds-truncate wrappedText" title="Bill to">Bill to</div>
+                            </th>
+                            <th class="" scope="col">
+                                <div class="slds-truncate wrappedText" title="Base product">Base product</div>
+                            </th>
+                            <th class="dealPrFix" scope="col">
+                                <div class="slds-truncate wrappedText" title="Base product">Deal Products</div>
+                            </th>
+                            <th class="" scope="col">
+                                <div class="slds-truncate wrappedText" title="Total price">Subtotal</div>
+                            </th>
+                            <th class="" scope="col">
+                                <div class="slds-truncate wrappedText" title="Payment method">Payment method</div>
+                            </th>
+                            <th class="" scope="col">
+                                <div class="slds-truncate wrappedText" title="Payment term">Payment term</div>
+                            </th>
+                            <th class="" scope="col">
+                                <div class="slds-truncate wrappedText" title="Payment term">Start date</div>
+                            </th>
+                            <th class="" scope="col">
+                                <div class="slds-truncate wrappedText" title="Payment term">Quote business type</div>
+                            </th>
+                            <th class="" scope="col">
+                                <div class="slds-truncate wrappedText" title="Payment term">Is duplicate</div>
+                            </th>
+                            <!-- <th class="" scope="col">
+                                <div class="slds-truncate" title=""></div>
+                            </th> -->
+                        </tr>
+                    </thead>
+                    <tbody >
+                        <aura:iteration items="{!v.relatedOppList}" var="oppAtt_i">
+                            <tr class="slds-hint-parent" >
+                                <th scope="row">
+                                    <div class="slds-truncate wrappedText" title="{!oppAtt_i.title}">
+                                        <a href="javascript:void(0);" onclick="{!c.onFileItemClick}" tabindex="-1" data-index="{!_index}">
+                                            {!oppAtt_i.name}
+                                        </a>
+                                    </div>
+                                </th>
+                                <td role="gridcell">
+                                    <div class="slds-truncate wrappedText" title="{!oppAtt_i.ownerName}" >
+                                        <a href="{!'/' + oppAtt_i.ownerId}" tabindex="-1">
+                                            {!oppAtt_i.ownerName}
+                                        </a>  
+                                    </div>
+                                </td>
+                                <td role="gridcell">
+                                    <div class="slds-truncate wrappedText" title="lmd">
+                                        {!oppAtt_i.quoteStatus}
+                                    </div>
+                                </td>
+                                <td role="gridcell" class="crDate">
+                                    <div class="slds-truncate wrappedText" title="lmd">
+                                        <lightning:formattedDateTime value="{!oppAtt_i.createdDate}" year="numeric" month="numeric" day="numeric"/>
+                                    </div>
+                                </td>
+                                <td role="gridcell">
+                                    <div class="slds-truncate wrappedText" title="{!oppAtt_i.billToContactName}">
+                                        <a href="{!'/' + oppAtt_i.billToContactId}" tabindex="-1">
+                                            {!oppAtt_i.billToContactName}
+                                        </a>  
+                                    </div>
+                                </td>
+                                <td role="gridcell">
+                                    <div class="slds-truncate wrappedText" title="{!oppAtt_i.baseProduct}" style="hyphens: auto;">
+                                        {!oppAtt_i.baseProduct}
+                                    </div>
+                                </td>
+                                <td role="gridcell">
+                                    <aura:if isTrue="{!!empty(oppAtt_i.dealProducts)}">
+                                        <aura:iteration items="{!oppAtt_i.dealProducts}" var="dealProduct_i">
+                                            <div class="slds-truncate wrappedText" title="dealProduct">
+                                                - {!dealProduct_i}
+                                            </div>
+                                        </aura:iteration>
+                                    </aura:if>
+                                </td>
+                                <td role="gridcell">
+                                    <div class="slds-truncate wrappedText" title="{!oppAtt_i.subtotal}">
+                                        <aura:if isTrue="{!and((!empty(oppAtt_i.subtotal)),(!equals(0,oppAtt_i.subtotal)))}">
+                                            {!oppAtt_i.currencySymbol} <lightning:formattedNumber value="{!oppAtt_i.subtotal}"/>
+                                        </aura:if>
+                                    </div>
+                                </td>
+                                <td role="gridcell">
+                                    <div class="slds-truncate wrappedText" title="{!oppAtt_i.paymentMethod}">
+                                        {!oppAtt_i.paymentMethod}
+                                    </div>
+                                </td>
+                                <td role="gridcell">
+                                    <div class="slds-truncate wrappedText" title="{!oppAtt_i.paymentTerm}">
+                                        {!oppAtt_i.paymentTerm}
+                                    </div>
+                                </td>
+                                <td role="gridcell" class="crDate">
+                                    <div class="slds-truncate wrappedText" title="lmd">
+                                        <lightning:formattedDateTime value="{!oppAtt_i.startDate}" year="numeric" month="numeric" day="numeric"/>
+                                    </div>
+                                </td>
+                                <td role="gridcell">
+                                    <div class="slds-truncate wrappedText" title="{!oppAtt_i.quoteBusinessType}">
+                                        {!oppAtt_i.quoteBusinessType}
+                                    </div>
+                                </td>
+                                <td role="gridcell">
+                                        <ui:outputCheckbox aura:id="checkbox" value="{!oppAtt_i.isDuplicate}"/>
+                                </td>
+                                <!-- <td role="gridcell">
+                                    <div class="slds-clearfix">
+                                        <div class="slds-float_right" data-index="{!_index}">
+                                            <lightning:buttonMenu accesskey="{!_index}" aura:id="menu" alternativeText="Show menu" menuAlignment="right" onselect="{! c.onMenuItemSelect }">
+                                                <lightning:menuItem value="{!'delete_' + _index}" label="Delete" accesskey="{!_index}"/>
+                                            </lightning:buttonMenu>
+                                        </div>
+                                    </div>
+                                </td> -->
+                            </tr>
+                        </aura:iteration>
+                    </tbody>
+                </table>
+            </div>
+            
+            <footer class="slds-card__footer">
+                <a class="slds-card__footer-action" onclick="{!c.onViewAllClick}" href="javascript:void(0);">View All
+                    <span class="slds-assistive-text">Quotes</span>
+                </a>
+            </footer>
+        </article>
+    </div>
+</aura:component>

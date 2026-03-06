@@ -1,0 +1,124 @@
+<aura:component>
+    <aura:attribute name="quoteStatus" type="String" required="true"/>
+    <aura:attribute name="subscriptionType" type="String" required="true"/>
+    <aura:attribute name="zuoraVisualforceUrl" type="String" required="true"/>
+    <aura:attribute name="documentType" type="String" required="true"/>
+    <aura:attribute name="quoteRecordId" type="String" required="true"/>
+    <aura:attribute name="paymentMethod" type="String" required="true"/>
+    <aura:attribute name="paymentFrequency" type="String" required="true"/>
+    <aura:attribute name="isDiscountApprove" type="Boolean" required="true"/>
+    <aura:attribute name="paymentLink" type="String" required="true"/>
+    <aura:attribute name="recordTypeId" type="String" required="true"/>
+    <aura:attribute name="flowMode" type="String" required="true"/>
+    <aura:attribute name="amendRenewalMode" type="Boolean" required="true"/>
+    <aura:attribute name="isMsaSentToZuoraEnabled" type="Boolean"/>
+    <aura:attribute name="isContractSignedManually" type="Boolean"/>
+    <aura:attribute name="quoteBusinessType" type="String"/>
+    <aura:attribute name="stepList" type="List"/>
+   
+    <lightning:layout class="slds-p-vertical_small">
+
+        <aura:if isTrue="{!or(notequals(v.paymentMethod,'Credit Card'),equals(v.quoteBusinessType,'Feature Update'))}"> <!-- or(equals(v.quoteBusinessType,'Feature Update'),equals(v.quoteBusinessType,'Renewal (with/without upsell)')) -->
+            <lightning:layoutItem class="slds-p-horizontal_small"> <!-- {!if(v.amendRenewalMode,'slds-p-right_small','slds-p-horizontal_small')} -->
+                <c:GenerateContractComponentIconButton recordId="{!v.quoteRecordId}"
+                                                        buttonLabel="{!if(equals(v.quoteBusinessType,'Feature Update'),'Generate Notice',if(equals(v.paymentMethod,'Wire Transfer'),'Proforma Invoice','Generate contract'))}"
+                                                        isPassed="{!equals(v.quoteStatus,'Contract Signed Manually') || equals(v.quoteStatus,'Contract Signed') || equals(v.quoteStatus,'Sent To Zuora') || equals(v.quoteStatus,'Ready for Billing')|| equals(v.quoteStatus,'Proforma Invoice sent') || equals(v.quoteStatus,'Quote Pending Renewal Date')}"
+                                                        finalizeQuote="true"/> 
+            </lightning:layoutItem>
+        </aura:if>
+
+        <aura:if isTrue="{!(and(equals(v.paymentMethod,'Wire Transfer'),!equals(v.quoteBusinessType,'Co-Term Upsell')&amp;&amp;!equals(v.quoteBusinessType,'Feature Update') ))||v.isContractSignedManually}">
+            <lightning:layoutItem class="slds-p-right_small">
+                <lightning:icon variant="inverse" iconName="utility:macros"/>
+            </lightning:layoutItem>
+            <lightning:layoutItem class="slds-p-right_small">
+                <c:ReadyForBillingButton recordId="{!v.quoteRecordId}"
+                                        isDisabled="{!notequals(v.quoteStatus,'Proforma Invoice sent')&amp;&amp;notequals(v.quoteStatus,'Contract Signed Manually')}"
+                                        isPassed="{!equals(v.quoteStatus,'Ready for Billing') || equals(v.quoteStatus,'Processed Directly in Zuora') || equals(v.quoteStatus,'Sent to Zuora') || equals(v.quoteStatus,'Quote Pending Renewal Date')}"/>
+            </lightning:layoutItem>
+        </aura:if>
+        <aura:if isTrue="{!notequals(v.quoteBusinessType,'Renewal (with/without upsell)')||equals(v.quoteStatus,'Contract Signed Manually')}">
+            <aura:if isTrue="{!or(notequals(v.paymentMethod,'Wire Transfer'), (v.isMsaSentToZuoraEnabled || equals(v.quoteBusinessType,'Feature Update') || equals(v.quoteBusinessType,'Co-Term Upsell') ) )}">
+                <aura:if isTrue="{!or( notequals(v.paymentMethod,'Credit Card') , equals(v.quoteBusinessType,'Feature Update') ) &amp;&amp; or( ( not( equals(v.paymentMethod,'Wire Transfer') &amp;&amp; or( notequals(v.quoteBusinessType,'Co-Term Upsell') , notequals(v.quoteBusinessType,'Feature Update') ) ) ) , ( equals(v.paymentMethod,'Wire Transfer') &amp;&amp; ( and(equals(v.quoteBusinessType,'Co-Term Upsell'),!v.isContractSignedManually) || equals(v.quoteBusinessType,'Feature Update') || v.isMsaSentToZuoraEnabled ) ) )&amp;&amp;not((and(equals(v.paymentMethod,'Wire Transfer'),!equals(v.quoteBusinessType,'Co-Term Upsell')&amp;&amp;!equals(v.quoteBusinessType,'Feature Update') ))||v.isContractSignedManually)}">
+                    <lightning:layoutItem class="slds-p-right_small">
+                        <lightning:icon variant="inverse" iconName="utility:macros"/>
+                    </lightning:layoutItem>
+                </aura:if>
+                <aura:if isTrue="{!notequals(v.quoteStatus,'Contract Signed Manually')}">
+                    <aura:if isTrue="{!or( (not ( equals(v.paymentMethod,'Wire Transfer') &amp;&amp; or( notequals(v.quoteBusinessType,'Co-Term Upsell') , notequals(v.quoteBusinessType,'Feature Update') ) ) ) , ( equals(v.paymentMethod,'Wire Transfer') &amp;&amp; ( and(equals(v.quoteBusinessType,'Co-Term Upsell'),!v.isContractSignedManually) || equals(v.quoteBusinessType,'Feature Update') || v.isMsaSentToZuoraEnabled ) ))}"> <!-- &amp;&amp; v.isMsaSentToZuoraEnabled -->
+                        <lightning:layoutItem class="{!if(equals(v.paymentMethod,'Credit Card')&amp;&amp;notequals(v.quoteBusinessType,'Feature Update')&amp;&amp;notequals(v.quoteBusinessType,'Renewal (with/without upsell)'),'slds-p-horizontal_small','slds-p-right_small')}">
+                            <c:SubmitToZuoraButton  recordId="{!v.quoteRecordId}"
+                                                    isDisabled="{!(and(notequals(v.quoteStatus,'Contract Signed'),notequals(v.paymentMethod,'Credit Card'))&amp;&amp;notequals(v.quoteStatus,'Proforma Invoice sent')&amp;&amp;!v.isMsaSentToZuoraEnabled)||equals(v.quoteStatus,'Sent To Zuora') || if(equals(v.paymentMethod,'Wire Transfer')&amp;&amp;equals(v.quoteBusinessType,'Co-Term Upsell'),notequals(v.quoteStatus,'Ready for Billing')&amp;&amp;and(notequals(v.quoteStatus,'Contract Signed'),notequals(v.quoteStatus,'Contract Signed Manually')),false)}"
+                                                    isPassed="{!equals(v.quoteStatus,'Processed Directly in Zuora') || equals(v.quoteStatus,'Sent To Zuora') || equals(v.quoteStatus,'Sent to Z-Billing') || equals(v.quoteStatus,'Quote Pending Renewal Date')}"
+                                                    emailCofirmationValidation="{!equals(v.paymentMethod,'Credit Card')}"
+                                                    submitMode="Submit manually"/>
+                        </lightning:layoutItem>
+                    </aura:if>
+                    <aura:set attribute="else">
+                        <aura:if isTrue="{!not(notequals(v.quoteBusinessType,'Renewal (with/without upsell)')||equals(v.quoteStatus,'Contract Signed Manually'))}">
+                            <lightning:layoutItem class="{!if(equals(v.paymentMethod,'Credit Card'),'slds-p-horizontal_small','slds-p-right_small')}">
+                                <c:ReadyForBillingButton recordId="{!v.quoteRecordId}"
+                                                        isDisabled="{!and(notequals(v.quoteStatus,'Contract Signed Manually'),notequals(v.paymentMethod,'Credit Card'))&amp;&amp;notequals(v.quoteStatus,'Proforma Invoice sent')}"
+                                                        isPassed="{!equals(v.quoteStatus,'Ready for Billing') || equals(v.quoteStatus,'Processed Directly in Zuora') || equals(v.quoteStatus,'Sent to Zuora') || equals(v.quoteStatus,'Quote Pending Renewal Date')}"/>
+                            </lightning:layoutItem>
+                        </aura:if>
+                        <aura:if isTrue="{!v.isMsaSentToZuoraEnabled || equals(v.quoteBusinessType,'Feature Update' || equals(v.quoteBusinessType,'Co-Term Upsell') )}">
+                            <lightning:layoutItem class="slds-p-right_small">
+                                <lightning:icon variant="inverse" iconName="utility:macros"/>
+                            </lightning:layoutItem>
+                            <lightning:layoutItem class="slds-p-right_small">
+                                <c:SubmitToZuoraButton  recordId="{!v.quoteRecordId}"
+                                                        isDisabled="{!(notequals(v.quoteStatus,'Ready for Billing')&amp;&amp;!v.isMsaSentToZuoraEnabled)||equals(v.quoteStatus,'Sent To Zuora')}"
+                                                        isPassed="{!equals(v.quoteStatus,'Processed Directly in Zuora') || equals(v.quoteStatus,'Sent To Zuora') || equals(v.quoteStatus,'Sent to Z-Billing') || equals(v.quoteStatus,'Quote Pending Renewal Date')}"
+                                                        emailCofirmationValidation="false"
+                                                        submitMode="Submit manually"/>
+                            </lightning:layoutItem>
+                        </aura:if>
+                    </aura:set>
+                </aura:if>
+            </aura:if>
+            <aura:set attribute="else">
+                <aura:if isTrue="{!not(and(equals(v.quoteBusinessType,'Renewal (with/without upsell)'),equals(v.paymentMethod,'Wire Transfer')))}">
+                    <aura:if isTrue="{!notequals(v.paymentMethod,'Credit Card')}">
+                        <lightning:layoutItem class="slds-p-right_small">
+                            <lightning:icon variant="inverse" iconName="utility:macros"/>
+                        </lightning:layoutItem>
+                    </aura:if>
+                    <lightning:layoutItem class="{!if(notequals(v.paymentMethod,'Credit Card'),'slds-p-right_small','slds-p-horizontal_small')}">
+                        <c:ReadyForSubmitButton recordId="{!v.quoteRecordId}"
+                                                isDisabled="{!if(notequals(v.paymentMethod,'Credit Card'),true,notequals(v.quoteStatus,'New Amendment'))&amp;&amp;notequals(v.quoteStatus,'Contract Signed')&amp;&amp;notequals(v.quoteStatus,'Contract Signed Manually')&amp;&amp;notequals(v.quoteStatus,'Proforma Invoice sent')}"
+                                                isPassed="{!equals(v.quoteStatus,'Quote Pending Renewal Date')}"/>
+                    </lightning:layoutItem>
+                </aura:if>
+                <aura:if isTrue="{!v.isMsaSentToZuoraEnabled || equals(v.quoteBusinessType,'Feature Update' || equals(v.quoteBusinessType,'Co-Term Upsell') )}">
+                    <lightning:layoutItem class="slds-p-right_small">
+                        <lightning:icon variant="inverse" iconName="utility:macros"/>
+                    </lightning:layoutItem>
+                    <lightning:layoutItem class="slds-p-right_small">
+                        <c:SubmitToZuoraButton  recordId="{!v.quoteRecordId}"
+                                                isDisabled="{!notequals(v.quoteStatus,'Ready for Billing')&amp;&amp;(notequals(v.quoteStatus,'Quote Pending Renewal Date')&amp;&amp;!v.isMsaSentToZuoraEnabled)||equals(v.quoteStatus,'Sent To Zuora')}"
+                                                isPassed="{!equals(v.quoteStatus,'Processed Directly in Zuora') || equals(v.quoteStatus,'Sent To Zuora') || equals(v.quoteStatus,'Sent to Z-Billing')}"
+                                                emailCofirmationValidation="false"
+                                                submitMode="Submit manually"/>
+                    </lightning:layoutItem>
+                </aura:if>
+            </aura:set>
+        </aura:if>
+        
+        <aura:if isTrue="{!and(and(notequals(v.quoteStatus,v.stepList[0]),notequals(v.quoteStatus,'Sent To Zuora')),or(equals(v.quoteBusinessType,'Feature Update'),equals(v.quoteBusinessType,'Feature Update + Renewal (with/without upsell)'))) }">
+            <lightning:layoutItem class="slds-p-right_small" alignmentBump="left">
+                <c:ZuoraRecallButtonComponent   recordId="{!v.quoteRecordId}"
+                                                isDisabled="false"
+                />
+            </lightning:layoutItem>
+        </aura:if>
+        <aura:if isTrue="{!notequals(v.quoteStatus,'Sent To Zuora')&amp;&amp;notequals(v.quoteStatus,'Ready for Billing')}"> 
+            <lightning:layoutItem class="slds-p-right_small" alignmentBump="{!if(and(notequals(v.quoteStatus,v.stepList[0]),or(equals(v.quoteBusinessType,'Feature Update'),equals(v.quoteBusinessType,'Feature Update + Renewal (with/without upsell)'))), '','left')}">
+                <c:ZuoraCancelQuoteButton recordId="{!v.quoteRecordId}"/>
+            </lightning:layoutItem>
+        </aura:if>
+        <lightning:layoutItem class="slds-p-right_small" alignmentBump="{!if(equals(v.quoteStatus,'Sent To Zuora') || equals(v.quoteStatus,'Ready for Billing'),'left','')}">
+            <c:ZuoraCloneQuoteIconButton zuoraVisualforceUrl="{!v.zuoraVisualforceUrl}" recordId="{!v.quoteRecordId}"/>
+        </lightning:layoutItem>
+    </lightning:layout>
+</aura:component>

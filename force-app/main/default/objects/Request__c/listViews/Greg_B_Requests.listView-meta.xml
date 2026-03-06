@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Greg_B_Requests</fullName>
+    <columns>Requester__c</columns>
+    <columns>Account__c</columns>
+    <columns>NAME</columns>
+    <columns>Due_Date__c</columns>
+    <columns>Status__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Recipient__c</field>
+        <operation>contains</operation>
+        <value>Greg Brocklehurst</value>
+    </filters>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>Submitted,In Process,Completed,Cancelled,Sent to customer</value>
+    </filters>
+    <label>Greg B Requests</label>
+</ListView>

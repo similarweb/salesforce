@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SW_Pro_Section__c</fullName>
+    <externalId>false</externalId>
+    <label>SW Pro Section</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Account</fullName>
+                <default>false</default>
+                <label>Account</label>
+            </value>
+            <value>
+                <fullName>App Analysis</fullName>
+                <default>false</default>
+                <label>App Analysis</label>
+            </value>
+            <value>
+                <fullName>Dashboard</fullName>
+                <default>false</default>
+                <label>Dashboard</label>
+            </value>
+            <value>
+                <fullName>Google Play Keywords</fullName>
+                <default>false</default>
+                <label>Google Play Keywords</label>
+            </value>
+            <value>
+                <fullName>Industry Analysis</fullName>
+                <default>false</default>
+                <label>Industry Analysis</label>
+            </value>
+            <value>
+                <fullName>Keyword Analysis</fullName>
+                <default>false</default>
+                <label>Keyword Analysis</label>
+            </value>
+            <value>
+                <fullName>Top Apps</fullName>
+                <default>false</default>
+                <label>Top Apps</label>
+            </value>
+            <value>
+                <fullName>Website Analysis</fullName>
+                <default>false</default>
+                <label>Website Analysis</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

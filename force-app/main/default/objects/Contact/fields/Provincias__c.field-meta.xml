@@ -1,0 +1,521 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Provincias__c</fullName>
+    <externalId>false</externalId>
+    <label>Provincias</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Regiones__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Antofagasta</fullName>
+                <default>false</default>
+                <label>Antofagasta</label>
+            </value>
+            <value>
+                <fullName>Antártica Chilena</fullName>
+                <default>false</default>
+                <label>Antártica Chilena</label>
+            </value>
+            <value>
+                <fullName>Arauco</fullName>
+                <default>false</default>
+                <label>Arauco</label>
+            </value>
+            <value>
+                <fullName>Arica</fullName>
+                <default>false</default>
+                <label>Arica</label>
+            </value>
+            <value>
+                <fullName>Aysén</fullName>
+                <default>false</default>
+                <label>Aysén</label>
+            </value>
+            <value>
+                <fullName>Biobío</fullName>
+                <default>false</default>
+                <label>Biobío</label>
+            </value>
+            <value>
+                <fullName>Cachapoal</fullName>
+                <default>false</default>
+                <label>Cachapoal</label>
+            </value>
+            <value>
+                <fullName>Capitán Prat</fullName>
+                <default>false</default>
+                <label>Capitán Prat</label>
+            </value>
+            <value>
+                <fullName>Cardenal Caro</fullName>
+                <default>false</default>
+                <label>Cardenal Caro</label>
+            </value>
+            <value>
+                <fullName>Cauquenes</fullName>
+                <default>false</default>
+                <label>Cauquenes</label>
+            </value>
+            <value>
+                <fullName>Cautín</fullName>
+                <default>false</default>
+                <label>Cautín</label>
+            </value>
+            <value>
+                <fullName>Chacabuco</fullName>
+                <default>false</default>
+                <label>Chacabuco</label>
+            </value>
+            <value>
+                <fullName>Chañaral</fullName>
+                <default>false</default>
+                <label>Chañaral</label>
+            </value>
+            <value>
+                <fullName>Chiloé</fullName>
+                <default>false</default>
+                <label>Chiloé</label>
+            </value>
+            <value>
+                <fullName>Choapa</fullName>
+                <default>false</default>
+                <label>Choapa</label>
+            </value>
+            <value>
+                <fullName>Colchagua</fullName>
+                <default>false</default>
+                <label>Colchagua</label>
+            </value>
+            <value>
+                <fullName>Concepción</fullName>
+                <default>false</default>
+                <label>Concepción</label>
+            </value>
+            <value>
+                <fullName>Copiapó</fullName>
+                <default>false</default>
+                <label>Copiapó</label>
+            </value>
+            <value>
+                <fullName>Cordillera</fullName>
+                <default>false</default>
+                <label>Cordillera</label>
+            </value>
+            <value>
+                <fullName>Coyhaique</fullName>
+                <default>false</default>
+                <label>Coyhaique</label>
+            </value>
+            <value>
+                <fullName>Curicó</fullName>
+                <default>false</default>
+                <label>Curicó</label>
+            </value>
+            <value>
+                <fullName>Diguillín</fullName>
+                <default>false</default>
+                <label>Diguillín</label>
+            </value>
+            <value>
+                <fullName>El Loa</fullName>
+                <default>false</default>
+                <label>El Loa</label>
+            </value>
+            <value>
+                <fullName>Elqui</fullName>
+                <default>false</default>
+                <label>Elqui</label>
+            </value>
+            <value>
+                <fullName>General Carrera</fullName>
+                <default>false</default>
+                <label>General Carrera</label>
+            </value>
+            <value>
+                <fullName>Huasco</fullName>
+                <default>false</default>
+                <label>Huasco</label>
+            </value>
+            <value>
+                <fullName>Iquique</fullName>
+                <default>false</default>
+                <label>Iquique</label>
+            </value>
+            <value>
+                <fullName>Isla de Pascua</fullName>
+                <default>false</default>
+                <label>Isla de Pascua</label>
+            </value>
+            <value>
+                <fullName>Itata</fullName>
+                <default>false</default>
+                <label>Itata</label>
+            </value>
+            <value>
+                <fullName>Limarí</fullName>
+                <default>false</default>
+                <label>Limarí</label>
+            </value>
+            <value>
+                <fullName>Linares</fullName>
+                <default>false</default>
+                <label>Linares</label>
+            </value>
+            <value>
+                <fullName>Llanquihue</fullName>
+                <default>false</default>
+                <label>Llanquihue</label>
+            </value>
+            <value>
+                <fullName>Los Andes</fullName>
+                <default>false</default>
+                <label>Los Andes</label>
+            </value>
+            <value>
+                <fullName>Magallanes</fullName>
+                <default>false</default>
+                <label>Magallanes</label>
+            </value>
+            <value>
+                <fullName>Maipo</fullName>
+                <default>false</default>
+                <label>Maipo</label>
+            </value>
+            <value>
+                <fullName>Malleco</fullName>
+                <default>false</default>
+                <label>Malleco</label>
+            </value>
+            <value>
+                <fullName>Marga Marga</fullName>
+                <default>false</default>
+                <label>Marga Marga</label>
+            </value>
+            <value>
+                <fullName>Melipilla</fullName>
+                <default>false</default>
+                <label>Melipilla</label>
+            </value>
+            <value>
+                <fullName>Osorno</fullName>
+                <default>false</default>
+                <label>Osorno</label>
+            </value>
+            <value>
+                <fullName>Palena</fullName>
+                <default>false</default>
+                <label>Palena</label>
+            </value>
+            <value>
+                <fullName>Parinacota</fullName>
+                <default>false</default>
+                <label>Parinacota</label>
+            </value>
+            <value>
+                <fullName>Petorca</fullName>
+                <default>false</default>
+                <label>Petorca</label>
+            </value>
+            <value>
+                <fullName>Punilla</fullName>
+                <default>false</default>
+                <label>Punilla</label>
+            </value>
+            <value>
+                <fullName>Quillota</fullName>
+                <default>false</default>
+                <label>Quillota</label>
+            </value>
+            <value>
+                <fullName>Ranco</fullName>
+                <default>false</default>
+                <label>Ranco</label>
+            </value>
+            <value>
+                <fullName>San Antonio</fullName>
+                <default>false</default>
+                <label>San Antonio</label>
+            </value>
+            <value>
+                <fullName>San Felipe de Aconcagua</fullName>
+                <default>false</default>
+                <label>San Felipe de Aconcagua</label>
+            </value>
+            <value>
+                <fullName>Santiago</fullName>
+                <default>false</default>
+                <label>Santiago</label>
+            </value>
+            <value>
+                <fullName>Talagante</fullName>
+                <default>false</default>
+                <label>Talagante</label>
+            </value>
+            <value>
+                <fullName>Talca</fullName>
+                <default>false</default>
+                <label>Talca</label>
+            </value>
+            <value>
+                <fullName>Tamarugal</fullName>
+                <default>false</default>
+                <label>Tamarugal</label>
+            </value>
+            <value>
+                <fullName>Tierra del Fuego</fullName>
+                <default>false</default>
+                <label>Tierra del Fuego</label>
+            </value>
+            <value>
+                <fullName>Tocopilla</fullName>
+                <default>false</default>
+                <label>Tocopilla</label>
+            </value>
+            <value>
+                <fullName>Valdivia</fullName>
+                <default>false</default>
+                <label>Valdivia</label>
+            </value>
+            <value>
+                <fullName>Valparaí­so</fullName>
+                <default>false</default>
+                <label>Valparaí­so</label>
+            </value>
+            <value>
+                <fullName>Última Esperanza</fullName>
+                <default>false</default>
+                <label>Última Esperanza</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>X-Los Lagos</controllingFieldValue>
+            <valueName>Chiloé</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>X-Los Lagos</controllingFieldValue>
+            <valueName>Llanquihue</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>X-Los Lagos</controllingFieldValue>
+            <valueName>Osorno</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>X-Los Lagos</controllingFieldValue>
+            <valueName>Palena</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>XI-Aysén</controllingFieldValue>
+            <valueName>Aysén</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>XI-Aysén</controllingFieldValue>
+            <valueName>Capitán Prat</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>XI-Aysén</controllingFieldValue>
+            <valueName>Coyhaique</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>XI-Aysén</controllingFieldValue>
+            <valueName>General Carrera</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>XII-Magallanes</controllingFieldValue>
+            <valueName>Antártica Chilena</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>XII-Magallanes</controllingFieldValue>
+            <valueName>Magallanes</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>XII-Magallanes</controllingFieldValue>
+            <valueName>Tierra del Fuego</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>XII-Magallanes</controllingFieldValue>
+            <valueName>Última Esperanza</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>XIV-Los Ríos</controllingFieldValue>
+            <valueName>Ranco</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>XIV-Los Ríos</controllingFieldValue>
+            <valueName>Valdivia</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>XV-Arica Parinacota</controllingFieldValue>
+            <valueName>Arica</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>XV-Arica Parinacota</controllingFieldValue>
+            <valueName>Parinacota</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>XVI-Ñuble</controllingFieldValue>
+            <valueName>Diguillín</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>XVI-Ñuble</controllingFieldValue>
+            <valueName>Itata</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>XVI-Ñuble</controllingFieldValue>
+            <valueName>Punilla</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>I-Tarapacá</controllingFieldValue>
+            <valueName>Iquique</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>I-Tarapacá</controllingFieldValue>
+            <valueName>Tamarugal</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>II-Antofagasta</controllingFieldValue>
+            <valueName>Antofagasta</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>II-Antofagasta</controllingFieldValue>
+            <valueName>El Loa</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>II-Antofagasta</controllingFieldValue>
+            <valueName>Tocopilla</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>III-Atacama</controllingFieldValue>
+            <valueName>Chañaral</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>III-Atacama</controllingFieldValue>
+            <valueName>Copiapó</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>III-Atacama</controllingFieldValue>
+            <valueName>Huasco</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>IV-Coquimbo</controllingFieldValue>
+            <valueName>Choapa</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>IV-Coquimbo</controllingFieldValue>
+            <valueName>Elqui</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>IV-Coquimbo</controllingFieldValue>
+            <valueName>Limarí</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>IX-La Araucanía</controllingFieldValue>
+            <valueName>Cautín</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>IX-La Araucanía</controllingFieldValue>
+            <valueName>Malleco</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Región Metropolitana</controllingFieldValue>
+            <valueName>Chacabuco</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Región Metropolitana</controllingFieldValue>
+            <valueName>Cordillera</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Región Metropolitana</controllingFieldValue>
+            <valueName>Maipo</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Región Metropolitana</controllingFieldValue>
+            <valueName>Melipilla</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Región Metropolitana</controllingFieldValue>
+            <valueName>Santiago</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Región Metropolitana</controllingFieldValue>
+            <valueName>Talagante</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>V-Valparaíso</controllingFieldValue>
+            <valueName>Isla de Pascua</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>V-Valparaíso</controllingFieldValue>
+            <valueName>Los Andes</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>V-Valparaíso</controllingFieldValue>
+            <valueName>Marga Marga</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>V-Valparaíso</controllingFieldValue>
+            <valueName>Petorca</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>V-Valparaíso</controllingFieldValue>
+            <valueName>Quillota</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>V-Valparaíso</controllingFieldValue>
+            <valueName>San Antonio</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>V-Valparaíso</controllingFieldValue>
+            <valueName>San Felipe de Aconcagua</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>V-Valparaíso</controllingFieldValue>
+            <valueName>Valparaí­so</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>VI-O&apos;Higgins</controllingFieldValue>
+            <valueName>Cachapoal</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>VI-O&apos;Higgins</controllingFieldValue>
+            <valueName>Cardenal Caro</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>VI-O&apos;Higgins</controllingFieldValue>
+            <valueName>Colchagua</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>VII-Biobio</controllingFieldValue>
+            <valueName>Arauco</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>VII-Biobio</controllingFieldValue>
+            <valueName>Biobío</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>VII-Biobio</controllingFieldValue>
+            <valueName>Concepción</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>VII-Maule</controllingFieldValue>
+            <valueName>Cauquenes</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>VII-Maule</controllingFieldValue>
+            <valueName>Curicó</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>VII-Maule</controllingFieldValue>
+            <valueName>Linares</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>VII-Maule</controllingFieldValue>
+            <valueName>Talca</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

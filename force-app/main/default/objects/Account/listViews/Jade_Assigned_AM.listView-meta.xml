@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Jade_Assigned_AM</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>fr_ARR__c</columns>
+    <columns>fr_Next_Renewal_Date__c</columns>
+    <columns>Health_Score__c</columns>
+    <columns>fr_Relationship_Score__c</columns>
+    <columns>Y1_Y2_Account__c</columns>
+    <columns>Account_Owner_formula__c</columns>
+    <columns>Base_Product__c</columns>
+    <columns>ACCOUNT.LAST_ACTIVITY</columns>
+    <columns>Business_Unit__c</columns>
+    <columns>SW_Industry__c</columns>
+    <columns>Number_of_Contacts__c</columns>
+    <columns>ACCOUNT.ADDRESS1_COUNTRY_CODE</columns>
+    <columns>ACCOUNT.URL</columns>
+    <columns>Assigned_CSA_Name__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>fr_ARR__c</field>
+        <operation>greaterThan</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>Account_AM__c</field>
+        <operation>equals</operation>
+        <value>Jade Dietrich</value>
+    </filters>
+    <label>Jade Assigned AM</label>
+</ListView>

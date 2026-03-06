@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Old_Inbound</fullName>
+    <booleanFilter>(1 OR 2)</booleanFilter>
+    <columns>FULL_NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CONTACT.TITLE</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>CONTACT.LEAD_SOURCE</columns>
+    <columns>CONTACT.LAST_ACTIVITY</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+        <field>Original_Lead_Source__c</field>
+        <operation>equals</operation>
+        <value>API,ContactForm,Pro,White Paper,Webinar</value>
+    </filters>
+    <filters>
+        <field>CONTACT.LEAD_SOURCE</field>
+        <operation>equals</operation>
+        <value>API,ContactForm,Pro,White Paper,Webinar</value>
+    </filters>
+    <label>Old Inbound - Moshe A</label>
+</ListView>

@@ -1,0 +1,62 @@
+<aura:component>
+    <aura:attribute name="quoteStatus" type="String" required="true"/>
+    <aura:attribute name="subscriptionType" type="String" required="true"/>
+    <aura:attribute name="zuoraVisualforceUrl" type="String" required="true"/>
+    <aura:attribute name="documentType" type="String" required="true"/>
+    <aura:attribute name="quoteRecordId" type="String" required="true"/>
+    <aura:attribute name="paymentMethod" type="String" required="true"/>
+    <aura:attribute name="paymentFrequency" type="String" required="true"/>
+    <aura:attribute name="isDiscountApprove" type="Boolean" required="true"/>
+    <aura:attribute name="paymentLink" type="String" required="true"/>
+    <aura:attribute name="quoteRecordTypeReadOnlyId" default="012b0000000QNKCAA4" type="String"/>
+    <aura:attribute name="recordTypeId" type="String" required="true"/>
+    <aura:attribute name="flowMode" type="String" required="true"/>
+    <aura:attribute name="isQuoteApprovalEnabled" type="Boolean"/>
+    <aura:attribute name="isMsaSentToZuoraEnabled" type="Boolean"/>
+    <aura:attribute name="isHitwiseAccount" type="Boolean"/>
+    <aura:attribute name="isNewSubFromExistingAcc" type="Boolean"/>
+    <aura:attribute name="isContractSignedManually" type="Boolean"/>
+    <aura:attribute name="stepList" type="List"/>
+    <aura:attribute name="hitwiseLink" type="String"/>
+    <lightning:layout class="slds-p-vertical_small">
+        <!-- <aura:if isTrue="{!v.isNewSubFromExistingAcc}"> -->
+                <lightning:layoutItem class="slds-p-horizontal_small">
+                    <c:SubmitForApprovalIconButton  recordId="{!v.quoteRecordId}"
+                                                    label="Trial Approval"
+                                                    isDisabled="{!notequals(v.quoteStatus,'New Trial')&amp;&amp;notequals(v.quoteStatus,'Trial Rejected')}"
+                                                    isPending="{!equals(v.quoteStatus,'Trial Pending')}"
+                                                    isRejected="{!equals(v.quoteStatus,'Trial Rejected')}"
+                                                    isPassed="{!equals(v.quoteStatus,'Trial Approved')}"
+                    />
+                </lightning:layoutItem>
+                <lightning:layoutItem class="slds-p-right_small">
+                    <lightning:icon variant="inverse" iconName="utility:macros"/>
+                </lightning:layoutItem>
+                <lightning:layoutItem class="slds-p-right_small">
+                    <c:PaymentLinkButton  recordId="{!v.quoteRecordId}"
+                                        isDisabled="{!notequals(v.quoteStatus,'Trial Approved')}"
+                                        label="Trial link"
+                                        isPassed="{!equals(v.quoteStatus,'Sent To Zuora')}"
+                                        paymentLink="{!v.hitwiseLink}"
+                                        />
+                </lightning:layoutItem>
+                
+                <div style="display: flex; margin-left: auto;">
+                    <aura:if isTrue="{!notequals(v.quoteStatus,'Sent To Zuora') || v.isMsaSentToZuoraEnabled || v.isSalesOps }"> 
+                        <aura:if isTrue="{!notequals(v.quoteStatus,'New Trial')}">
+                            <lightning:layoutItem class="slds-p-right_small"> 
+                                <c:ZuoraRecallButtonComponent   recordId="{!v.quoteRecordId}"
+                                                                isDisabled="false"
+                                />
+                                <!-- {!notequals(v.quoteStatus,'Finalized')&amp;&amp;notequals(v.quoteStatus,'Deal Size Pending')&amp;&amp;notequals(v.quoteStatus,'Deal Size Approved')&amp;&amp;notequals(v.quoteStatus,'Terms Rejected')&amp;&amp;notequals(v.quoteStatus,'Terms Pending')&amp;&amp;notequals(v.quoteStatus,'Terms Approved')}-->
+                            </lightning:layoutItem>
+                        </aura:if>
+                    <!-- &amp;&amp;or(v.isMsaSentToZuoraEnabled,notequals(v.quoteStatus,'Ready for Billing') )  -->
+                        <lightning:layoutItem class="slds-p-right_small"  >
+                            <c:ZuoraCancelQuoteButton recordId="{!v.quoteRecordId}"/>
+                        </lightning:layoutItem>
+                    </aura:if>
+                </div>
+        <!-- </aura:if> -->
+    </lightning:layout>
+</aura:component>

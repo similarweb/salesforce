@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SDR_US_My_Finance_Accounts</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>ACCOUNT.PHONE1</columns>
+    <columns>ACCOUNT.URL</columns>
+    <columns>ACCOUNT.LAST_ACTIVITY</columns>
+    <columns>ACCOUNT.ADDRESS1_STATE</columns>
+    <columns>State_Region__c</columns>
+    <columns>SW_Industry__c</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+        <field>SW_Industry__c</field>
+        <operation>equals</operation>
+        <value>Financial services,Banking &amp; insurance,Investors</value>
+    </filters>
+    <label>SDR US - My Finance Accounts</label>
+    <sharedTo>
+        <group>SDR_Members</group>
+    </sharedTo>
+</ListView>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cant_be_100_per_for_Android_if_blank</fullName>
+    <active>true</active>
+    <errorConditionFormula>RecordType.DeveloperName = &quot;Wolves&quot; &amp;&amp;  
+ISPICKVAL(StageName , &quot;Live&quot;) &amp;&amp; 
+OR (ISBLANK(Bintray_Password__c),ISBLANK(Bintray_ID__c), ISBLANK( Bintray_Entitlement__c ))&amp;&amp;
+NOT(ISPICKVAL(Type,&quot;Strategic Partnership&quot; ))&amp;&amp;   ISPICKVAL(Wolves_Platform__c ,&quot;Android&quot;) &amp;&amp; 
+NOT($Profile.Id=&apos;00eb0000000oBvcAAE&apos;)</errorConditionFormula>
+    <errorMessage>Please check that none of those fields are blank:
+-Bintray Password
+-Bintray ID
+-Bintray Entitlement</errorMessage>
+</ValidationRule>

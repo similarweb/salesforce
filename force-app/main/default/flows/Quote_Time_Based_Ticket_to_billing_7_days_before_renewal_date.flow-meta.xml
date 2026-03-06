@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <description>Calls the apex method to create the Zendesk quote request</description>
+        <name>Create_zendesk_quote_request</name>
+        <label>Create zendesk quote request</label>
+        <locationX>704</locationX>
+        <locationY>644</locationY>
+        <actionName>ZendeskIntegrationService</actionName>
+        <actionType>apex</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>quoteList</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>ZendeskIntegrationService</nameSegment>
+    </actionCalls>
+    <apiVersion>54.0</apiVersion>
+    <decisions>
+        <name>Current_Profile_is_NOT_billing</name>
+        <label>Current Profile is NOT billing</label>
+        <locationX>695</locationX>
+        <locationY>401</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Not_Billing</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Profile.Name</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>SW Billing</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Create_zendesk_quote_request</targetReference>
+            </connector>
+            <label>Not Billing</label>
+        </rules>
+    </decisions>
+    <description>MIS-3947 - Added apex action to send the ticket to Zendesk</description>
+    <environments>Default</environments>
+    <interviewLabel>Quote - Time-Based - Ticket to billing 7 days before renewal date {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Quote - Time-Based - Ticket to billing 7 days before renewal date</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>586</locationX>
+        <locationY>48</locationY>
+        <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>zqu__QuoteBusinessType__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Renewal (with/without upsell)</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>zqu__SubscriptionTermStartDate__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>zqu_Quote_Status__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Sent To Zuora</stringValue>
+            </value>
+        </filters>
+        <object>zqu__Quote__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <scheduledPaths>
+            <name>X7_days_before_Subscription_Term_Start_Date</name>
+            <connector>
+                <targetReference>Current_Profile_is_NOT_billing</targetReference>
+            </connector>
+            <label>7 days before Subscription Term Start Date</label>
+            <offsetNumber>-7</offsetNumber>
+            <offsetUnit>Days</offsetUnit>
+            <recordField>zqu__SubscriptionTermStartDate__c</recordField>
+            <timeSource>RecordField</timeSource>
+        </scheduledPaths>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

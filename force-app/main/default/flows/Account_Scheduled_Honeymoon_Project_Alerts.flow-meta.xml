@@ -1,0 +1,656 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <description>MIS-4902</description>
+        <name>Send_Email_to_Channel_Manager_and_his_Manager</name>
+        <label>Send Email to Channel Manager and his Manager</label>
+        <locationX>50</locationX>
+        <locationY>1632</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailAddressesArray</name>
+            <value>
+                <elementReference>Recipients_List_3</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderType</name>
+            <value>
+                <stringValue>OrgWideEmailAddress</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderAddress</name>
+            <value>
+                <stringValue>field.growth@similarweb.com</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <elementReference>Honeymoon_Alert_Subject</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>Honeymoon_Alerts_Template</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>sendRichBody</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>relatedRecordId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+    </actionCalls>
+    <actionCalls>
+        <description>MIS-4674</description>
+        <name>Send_Email_to_Churn_Forum</name>
+        <label>Send Email to Churn Forum</label>
+        <locationX>182</locationX>
+        <locationY>900</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <connector>
+            <targetReference>Rule_OMMP_Owner_Manager_s_Manager_Populated</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailAddressesArray</name>
+            <value>
+                <elementReference>Recipients_List_1</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderType</name>
+            <value>
+                <stringValue>OrgWideEmailAddress</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderAddress</name>
+            <value>
+                <stringValue>field.growth@similarweb.com</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <elementReference>Honeymoon_Alert_Subject</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>Honeymoon_Alerts_Template</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>sendRichBody</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>relatedRecordId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+    </actionCalls>
+    <actionCalls>
+        <description>MIS-4989</description>
+        <name>Send_Email_to_Owner_Manager_s_Manager</name>
+        <label>Send Email to Owner Manager&apos;s Manager</label>
+        <locationX>50</locationX>
+        <locationY>1224</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <connector>
+            <targetReference>Rule_AOR_Account_Owner_is_Reseller</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailAddressesArray</name>
+            <value>
+                <elementReference>Recipients_List_2</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderType</name>
+            <value>
+                <stringValue>OrgWideEmailAddress</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderAddress</name>
+            <value>
+                <stringValue>field.growth@similarweb.com</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <elementReference>Honeymoon_Alert_Subject</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>Honeymoon_Alerts_Template</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>sendRichBody</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>relatedRecordId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+    </actionCalls>
+    <apiVersion>59.0</apiVersion>
+    <assignments>
+        <description>MIS-4795</description>
+        <name>Assign_Email_Recipients</name>
+        <label>Assign Email Recipients</label>
+        <locationX>182</locationX>
+        <locationY>792</locationY>
+        <assignmentItems>
+            <assignToReference>Recipients_List_1</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <stringValue>honeymoonflow@similarweb.com</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Recipients_List_1</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>$Record.Owner.Email</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Recipients_List_1</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>$Record.Owner.Manager.Email</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Recipients_List_1</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>$Record.Assigned_CSA_Name__r.Email</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Recipients_List_1</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>$Record.Assigned_CSA_Name__r.Manager.Email</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Recipients_List_1</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>$Record.Client_Partner__r.Email</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Recipients_List_1</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>$Record.Account_AM__r.Email</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Send_Email_to_Churn_Forum</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>MIS-4989</description>
+        <name>Assign_Email_Recipients_2</name>
+        <label>Assign Email Recipients 2</label>
+        <locationX>50</locationX>
+        <locationY>1116</locationY>
+        <assignmentItems>
+            <assignToReference>Recipients_List_2</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>$Record.Owner.Manager.Manager.Email</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Send_Email_to_Owner_Manager_s_Manager</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>MIS-4902</description>
+        <name>Assign_Email_Recipients_3</name>
+        <label>Assign Email Recipients 3</label>
+        <locationX>50</locationX>
+        <locationY>1524</locationY>
+        <assignmentItems>
+            <assignToReference>Recipients_List_3</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>$Record.Owner.Channel_Manager__r.Email</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Recipients_List_3</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>$Record.Owner.Channel_Manager__r.Manager.Email</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Send_Email_to_Channel_Manager_and_his_Manager</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <description>MIS-4674</description>
+        <name>DAF_90_Days_After_First_Pro_Purchase_Date</name>
+        <label>*(DAF)* - 90 Days After First Pro Purchase Date?</label>
+        <locationX>611</locationX>
+        <locationY>252</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>X90_Days_Passed</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Calculate_Days_After_New_Sale</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <numberValue>90.0</numberValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Latest_Active_Subscription</targetReference>
+            </connector>
+            <label>90 Days Passed</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-6836</description>
+        <name>Found_Active_Subscription</name>
+        <label>Found Active Subscription?</label>
+        <locationX>380</locationX>
+        <locationY>468</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Found</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Latest_Active_Subscription</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Request</targetReference>
+            </connector>
+            <label>Found</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-4902</description>
+        <name>Rule_AOR_Account_Owner_is_Reseller</name>
+        <label>*Rule (AOR)* - Account Owner is Reseller?</label>
+        <locationX>182</locationX>
+        <locationY>1416</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>AOR_is_Reseller</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Owner.UserRole.Name</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <stringValue>Reseller</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Email_Recipients_3</targetReference>
+            </connector>
+            <label>AOR - is Reseller</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-4989</description>
+        <name>Rule_OMMP_Owner_Manager_s_Manager_Populated</name>
+        <label>*Rule (OMMP)* - Owner Manager&apos;s Manager Populated?</label>
+        <locationX>182</locationX>
+        <locationY>1008</locationY>
+        <defaultConnector>
+            <targetReference>Rule_AOR_Account_Owner_is_Reseller</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>OMMP_Yes</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Owner.Manager.ManagerId</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Email_Recipients_2</targetReference>
+            </connector>
+            <label>OMMP - Yes</label>
+        </rules>
+    </decisions>
+    <description>MIS-8109 - Added Account AM to alert
+MIS-8012 Add &quot;Client Partner&quot; to Alert
+MIS-6958 - Don&apos;t send for 42matters/Admetricks
+MIS-6836 - Logic Update: ARR and active subscription
+MIS-5124 - Changed field type
+MIS-4989
+MIS-4902
+MIS-4795
+MIS-4674</description>
+    <environments>Default</environments>
+    <formulas>
+        <description>MIS-4674</description>
+        <name>Calculate_Days_After_New_Sale</name>
+        <dataType>Number</dataType>
+        <expression>TODAY()-{!$Record.BI_Data__r.First_touch_pro_purchase_date__c}</expression>
+        <scale>0</scale>
+    </formulas>
+    <formulas>
+        <description>MIS-4674</description>
+        <name>Churn_Forum_Addresses</name>
+        <dataType>String</dataType>
+        <expression>{!$Record.Owner.Email}+&quot;,&quot;+{!$Record.Owner.Manager.Email}+&quot;,&quot;+{!$Record.Assigned_CSA_Name__r.Email}+&quot;,&quot;+{!$Record.Owner.Manager.Manager.Email}</expression>
+    </formulas>
+    <formulas>
+        <description>MIS-4674</description>
+        <name>Handover_Link</name>
+        <dataType>String</dataType>
+        <expression>LEFT( {!$Api.Partner_Server_URL_520}, FIND( &apos;/services&apos;, {!$Api.Partner_Server_URL_520} ))+{!Get_Handover.Id}</expression>
+    </formulas>
+    <interviewLabel>Account - Scheduled - Honeymoon {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Account - Scheduled - Honeymoon Project Alerts</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <description>MIS-4674</description>
+        <name>Get_Handover</name>
+        <label>Get Handover</label>
+        <locationX>182</locationX>
+        <locationY>684</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Assign_Email_Recipients</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Account__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Product_Implementation__c</object>
+        <sortField>CreatedDate</sortField>
+        <sortOrder>Desc</sortOrder>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <description>MIS-6836</description>
+        <name>Get_Latest_Active_Subscription</name>
+        <label>Get Latest Active Subscription</label>
+        <locationX>380</locationX>
+        <locationY>360</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Found_Active_Subscription</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Zuora__Account__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Zuora__Status__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Active</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Zuora__TermSettingType__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>TERMED</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Zuora__Subscription__c</object>
+        <sortField>CreatedDate</sortField>
+        <sortOrder>Desc</sortOrder>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <description>MIS-4674</description>
+        <name>Get_Request</name>
+        <label>Get Request</label>
+        <locationX>182</locationX>
+        <locationY>576</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Get_Handover</targetReference>
+        </connector>
+        <filterLogic>1 AND 2 AND (3 OR 4)</filterLogic>
+        <filters>
+            <field>Account__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Status__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Completed</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Request_Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Standard</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Request_Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Onboarding</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Request__c</object>
+        <sortField>CreatedDate</sortField>
+        <sortOrder>Desc</sortOrder>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <start>
+        <locationX>485</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>DAF_90_Days_After_First_Pro_Purchase_Date</targetReference>
+        </connector>
+        <filterLogic>1 AND 2 AND 3 AND NOT(4) AND NOT(5)</filterLogic>
+        <filters>
+            <field>Health_Score__c</field>
+            <operator>Contains</operator>
+            <value>
+                <stringValue>Critical Engagement</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Status__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Active</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>fr_ARR__c</field>
+            <operator>GreaterThan</operator>
+            <value>
+                <numberValue>0.0</numberValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Base_Product__c</field>
+            <operator>Contains</operator>
+            <value>
+                <stringValue>42matters</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Base_Product__c</field>
+            <operator>Contains</operator>
+            <value>
+                <stringValue>Admetricks</stringValue>
+            </value>
+        </filters>
+        <object>Account</object>
+        <schedule>
+            <frequency>Daily</frequency>
+            <startDate>2023-12-13</startDate>
+            <startTime>09:00:00.000Z</startTime>
+        </schedule>
+        <triggerType>Scheduled</triggerType>
+    </start>
+    <status>Active</status>
+    <textTemplates>
+        <description>MIS-4674</description>
+        <name>Honeymoon_Alert_Subject</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>Honeymoon Alert - {!$Record.Name} - ${!$Record.fr_ARR__c}</text>
+    </textTemplates>
+    <textTemplates>
+        <description>MIS-4674</description>
+        <name>Honeymoon_Alerts_Template</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>Hello,&lt;br&gt;
+The Honeymoon alert goes out for any account 3 months into their subscription that is in poor health.&lt;br&gt;
+Action should be taken to re-engage with the customer or multi-thread.&lt;br&gt;&lt;br&gt;
+
+&lt;strong&gt;Account details:&lt;/strong&gt;&lt;br&gt;
+Account: {!$Record.Name}&lt;br&gt;
+ARR: ${!$Record.fr_ARR__c}&lt;br&gt;
+Health Score: {!$Record.fr_SYS_Health_Score__c}&lt;br&gt;
+Relationship Score: {!$Record.Relationship_Score_Text__c}&lt;br&gt;
+Website: {!$Record.Website_Domain__c}&lt;br&gt;
+Country: {!$Record.BillingCountry}&lt;br&gt;
+SW Industry: {!$Record.SW_Industry__c}&lt;br&gt;
+Business Unit: {!$Record.Business_Unit__c}&lt;br&gt;
+Sub Division: {!$Record.Sub_Division__c}&lt;br&gt;
+Base Product: {!$Record.Base_Product__c}&lt;br&gt;
+Number of Employees: {!$Record.Employees_Min__c} - {!$Record.Employees_Max__c}&lt;br&gt;&lt;br&gt;
+
+&lt;strong&gt;Account Team:&lt;/strong&gt;&lt;br&gt;
+Account Owner: {!$Record.Account_Owner_formula__c}&lt;br&gt;
+Assigned CSM: {!$Record.Assigned_CSA_Name__r.FirstName} {!$Record.Assigned_CSA_Name__r.LastName}&lt;br&gt;
+Account AM: {!$Record.Account_AM__r.FirstName} {!$Record.Account_AM__r.LastName}&lt;br&gt;
+Named Sales Manager: {!$Record.Named_Sales_Manager__r.FirstName} {!$Record.Named_Sales_Manager__r.LastName}&lt;br&gt;
+Terrritory: {!$Record.Territory__r.Name}&lt;br&gt;&lt;br&gt;
+
+&lt;strong&gt;Usage information:&lt;/strong&gt;&lt;br&gt;
+Purchase Date: {!$Record.First_touch_pro_purchase_date__c}&lt;br&gt;
+Last Pro Visit Date: {!$Record.BI_Data__r.Last_Pro_Visit_Date__c}&lt;br&gt;
+Number of seats available: {!$Record.No_of_Users__c}&lt;br&gt;
+Number of allocated seats: {!$Record.fr_Number_Of_Allocated_Seats__c}&lt;br&gt;&lt;br&gt;
+
+&lt;strong&gt;Onboarding information:&lt;/strong&gt;&lt;br&gt;
+Onboarding Start Date: {!Get_Request.Onboarding_Start_Date__c}&lt;br&gt;
+Onboarding End Date: {!Get_Request.Onboarding_Completed_Date__c}&lt;br&gt;
+Onboarding Type: {!Get_Request.Request_Type__c}&lt;br&gt;&lt;br&gt;
+
+&lt;strong&gt;SM Handover information:&lt;/strong&gt;&lt;br&gt;
+Org Comments: {!Get_Handover.Org_Comments__c}&lt;br&gt;
+Company Business Model: {!Get_Handover.Company_Business_Model__c}&lt;br&gt;
+Where did the budget come from: {!Get_Handover.Where_did_the_budget_come_from__c}&lt;br&gt;&lt;br&gt;
+
+&lt;strong&gt;BI Annual Account Assessment:&lt;/strong&gt;&lt;br&gt;
+BI Annual review date: {!$Record.Biannual_Assessment__c}&lt;br&gt;
+Company Responsiveness: {!$Record.Company_Responsiveness__c}&lt;br&gt;
+Client has data issues: {!$Record.Client_has_data_issues__c}&lt;br&gt;
+Number of Champions: {!$Record.Number_of_Champions__c}&lt;br&gt;
+Risks: {!$Record.Risks__c}&lt;br&gt;
+Action items: {!$Record.Action_Items__c}&lt;br&gt;&lt;br&gt;
+
+Link to the Account: {!$Record.Link_to_Account__c}&lt;br&gt;
+Link to Handover: {!Handover_Link}</text>
+    </textTemplates>
+    <variables>
+        <name>Recipients_List_1</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>MIS-4989</description>
+        <name>Recipients_List_2</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>MIS-4902</description>
+        <name>Recipients_List_3</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Mobile_Web_Webinar_US_MIR_Contacts</fullName>
+    <columns>CORE.USERS.FIRST_NAME</columns>
+    <columns>CORE.USERS.LAST_NAME</columns>
+    <columns>FULL_NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CONTACT.TITLE</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>Country_registration__c</columns>
+    <columns>CAMPAIGN_MEMBER.STATUS</columns>
+    <columns>CONTACT.CREATED_DATE</columns>
+    <columns>Business_Unit__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>SYS_Owner_Role__c</field>
+        <operation>contains</operation>
+        <value>MIR</value>
+    </filters>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>Open</value>
+    </filters>
+    <label>Mobile Web Webinar US MIR Contacts</label>
+</ListView>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Omri_View_MIR_As_Bs_US</fullName>
+    <booleanFilter>1 AND 2 AND 3 AND 4 AND 5</booleanFilter>
+    <columns>CONTACT.FIRST_NAME</columns>
+    <columns>CONTACT.LAST_NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CONTACT.TITLE</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>CORE.USERS.FIRST_NAME</columns>
+    <columns>CONTACT.ADDRESS2_COUNTRY</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CONTACT.CREATED_DATE</field>
+        <operation>equals</operation>
+        <value>LAST_N_DAYS:30</value>
+    </filters>
+    <filters>
+        <field>Nurtured_by_Marketing__c</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>Status__c</field>
+        <operation>notEqual</operation>
+        <value>,Nurture,Unqualified,SDR Prospecting,MIR Prospecting,Replied</value>
+    </filters>
+    <filters>
+        <field>CORE.USERS.FIRST_NAME</field>
+        <operation>equals</operation>
+        <value>Omri</value>
+    </filters>
+    <label>Omri View - MIR As &amp; Bs</label>
+</ListView>

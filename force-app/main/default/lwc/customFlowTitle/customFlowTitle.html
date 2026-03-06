@@ -1,0 +1,17 @@
+<template>
+    <div class="section-container">
+        <template if:true={showTitle}>
+            <div class="section-header">
+                <span class="border-accent"></span>
+                <h2 class="section-title">{title}</h2>
+            </div>
+        </template>
+        <template if:true={helpText}>
+            <div class={helpBoxClass}>
+                <p class="help-content">
+                    {helpText}
+                </p>
+            </div>
+        </template>
+    </div>
+</template>

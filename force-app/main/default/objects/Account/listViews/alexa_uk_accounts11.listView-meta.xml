@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>alexa_uk_accounts11</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>ACCOUNT.ADDRESS1_STATE</columns>
+    <columns>ACCOUNT.PHONE1</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>ACCOUNT.ADDRESS1_COUNTRY</field>
+        <operation>equals</operation>
+        <value>china,hong kong,Taiwan,Singapore</value>
+    </filters>
+    <filters>
+        <field>Business_Unit__c</field>
+        <operation>equals</operation>
+        <value>Enterprise,Strategic</value>
+    </filters>
+    <filters>
+        <field>ACCOUNT.NAME</field>
+        <operation>notEqual</operation>
+        <value>,&lt;unknown&gt;</value>
+    </filters>
+    <label>alexa uk accounts</label>
+</ListView>

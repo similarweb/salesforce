@@ -1,0 +1,161 @@
+<template>
+    <div class="container">
+        <template if:true={load}>
+            <div if:true={showSubType} class="slds-m-bottom--small">
+                <div class="section-heading">Opportunity Sub-Type</div>
+                <lightning-combobox
+                        options={subTypeOptions}
+                        value={subType}
+                        onchange={handleSubTypeChange}
+                        disabled={subTypeDisabled}
+                        variant="label-hidden"
+                ></lightning-combobox>
+            </div>
+        </template>
+
+        <div if:true={load}>
+            <div class="section-heading">Select a Solution/Delivery, along with the applicable base package and add-ons</div>
+
+            <template for:each={solutions} for:item="s" for:index="index">
+                <div key={s.id} class="item">
+                    <label style="font-weight: bold; color: #2F3A4C;">
+                        <lightning-input
+                                type="checkbox"
+                                variant="label-hidden"
+                                onchange={handleToggle}
+                                checked={s.open}
+                                data-index={index}
+                        ></lightning-input>
+                        {s.name}
+                    </label>
+                    <table if:true={s.open} class="child-table slds-is-open">
+                        <thead>
+                        <tr>
+                            <th></th>
+                            <th width="32%">Product Name</th>
+                            <th width="32%">
+                                <div class="tooltip">Purchase Motion
+                                    <span class="tooltiptext">Purchase Motion shows if the customer is buying this SKU for the first time (New Product) or increasing what they already have (Expansion).</span>
+                                </div>
+                            </th>
+                            <th width="32%">Product Family</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <template for:each={s.skus} for:item="sku" for:index="pIndex">
+                            <tr key={sku.id}>
+                                <td>
+                                    <lightning-input
+                                            type="checkbox"
+                                            variant="label-hidden"
+                                            data-id={index}
+                                            data-index={pIndex}
+                                            checked={sku.selected}
+                                            disabled={sku.disabled}
+                                            onchange={handleProductSelect}
+                                    ></lightning-input>
+                                </td>
+                                <td width="32%">{sku.name}</td>
+                                <td style="overflow: visible !important;" width="32%">
+                                    <lightning-combobox
+                                            options={sku.purchaseMotionOptions}
+                                            value={sku.purchaseMotion}
+                                            onchange={handlePurchaseMotionChange}
+                                            disabled={sku.purchaseMotionDisabled}
+                                            variant="label-hidden"
+                                            data-id={index}
+                                            data-index={pIndex}
+                                    ></lightning-combobox>
+                                </td>
+                                <td width="32%">{sku.family}</td>
+                            </tr>
+                        </template>
+                        </tbody>
+                    </table>
+                </div>
+            </template>
+        </div>
+
+        <div class="save-btn-container">
+            <button class="save-btn" onclick={handleSave}>Save</button>
+        </div>
+
+        <template if:false={load}>
+            <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+        </template>
+    </div>
+</template>
+
+<!--<template>-->
+<!--    <div if:true={showSubType} class="slds-m-bottom&#45;&#45;small">-->
+<!--        <lightning-combobox-->
+<!--                options={subTypeOptions}-->
+<!--                value={subType}-->
+<!--                onchange={handleSubTypeChange}-->
+<!--                disabled={subTypeDisabled}-->
+<!--        ></lightning-combobox>-->
+<!--    </div>-->
+
+<!--    <div if:true={load} class="slds-accordion">-->
+<!--        <template for:each={solutions} for:item="s" for:index="index">-->
+<!--            <section key={s.id} class="slds-accordion__section slds-is-open slds-border_top">-->
+<!--                <div class="slds-accordion__summary" role="button">-->
+<!--                    <h3 class="slds-accordion__summary-heading" style="display: flex; align-items: center;">-->
+<!--                        <lightning-input-->
+<!--                                type="checkbox"-->
+<!--                                variant="label-hidden"-->
+<!--                                class="slds-m-right&#45;&#45;x-small"-->
+<!--                                onchange={handleToggle}-->
+<!--                                checked={s.open}-->
+<!--                                data-index={index}-->
+<!--                        ></lightning-input>-->
+<!--                        <span>{s.name}</span>-->
+<!--                    </h3>-->
+<!--                </div>-->
+
+<!--                <div if:true={s.open} class="slds-accordion__content">-->
+<!--                    <table class="slds-table slds-table_bordered slds-table_fixed-layout custom-table">-->
+<!--                        <thead>-->
+<!--                        <tr>-->
+<!--                            <th width="4%"></th>-->
+<!--                            <th width="48%">Product Name</th>-->
+<!--                            <th width="48%">Product Family</th>-->
+<!--                        </tr>-->
+<!--                        </thead>-->
+<!--                        <tbody>-->
+<!--                        <template for:each={s.skus} for:item="sku" for:index="pIndex">-->
+<!--                            <tr key={sku.id}>-->
+<!--                                <td width="4%">-->
+<!--                                    <lightning-input-->
+<!--                                            type="checkbox"-->
+<!--                                            variant="label-hidden"-->
+<!--                                            data-id={index}-->
+<!--                                            data-index={pIndex}-->
+<!--                                            checked={sku.selected}-->
+<!--                                            disabled={sku.disabled}-->
+<!--                                            onchange={handleProductSelect}-->
+<!--                                    ></lightning-input>-->
+<!--                                </td>-->
+<!--                                <td width="48%">-->
+<!--                                    {sku.name}-->
+<!--                                </td>-->
+<!--                                <td width="48%">-->
+<!--                                    {sku.family}-->
+<!--                                </td>-->
+<!--                            </tr>-->
+<!--                        </template>-->
+<!--                        </tbody>-->
+<!--                    </table>-->
+<!--                </div>-->
+<!--            </section>-->
+<!--        </template>-->
+
+<!--        <div class="slds-text-align&#45;&#45;right">-->
+<!--            <lightning-button variant="brand" onclick={handleSave} label="Save"></lightning-button>-->
+<!--        </div>-->
+<!--    </div>-->
+
+<!--    <template if:false={load}>-->
+<!--        <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>-->
+<!--    </template>-->
+<!--</template>-->

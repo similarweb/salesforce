@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>D_E_MIR_Leads_MQL</fullName>
+    <columns>Lead_Owner_formula__c</columns>
+    <columns>MIR_Status__c</columns>
+    <columns>ROE_Sub_Division__c</columns>
+    <columns>LEAD.COUNTRY_CODE</columns>
+    <columns>FULL_NAME</columns>
+    <columns>LEAD.PHONE</columns>
+    <columns>LEAD.EMAIL</columns>
+    <columns>Secondary_email__c</columns>
+    <columns>LEAD.COMPANY</columns>
+    <columns>Last_Activity_Date_by_MIR__c</columns>
+    <columns>LEAD.CREATED_DATE</columns>
+    <columns>SW_Fit_Score__c</columns>
+    <columns>LEAD.LEAD_SOURCE</columns>
+    <columns>mql_status__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>LEAD.CONVERTED</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>LEAD.EMAIL_OPT_OUT</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>SW_Fit_Score__c</field>
+        <operation>contains</operation>
+        <value>A,B,C,D</value>
+    </filters>
+    <filters>
+        <field>Lead_Owner_formula__c</field>
+        <operation>contains</operation>
+        <value>emily</value>
+    </filters>
+    <label>D&amp;E MIR Leads MQL</label>
+</ListView>

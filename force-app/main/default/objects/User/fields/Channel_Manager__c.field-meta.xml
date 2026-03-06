@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Channel_Manager__c</fullName>
+    <description>Used for Resellers hierarchy.</description>
+    <externalId>false</externalId>
+    <label>Channel Manager</label>
+    <relationshipName>Channel_Manager</relationshipName>
+    <restrictedAdminField>false</restrictedAdminField>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Hierarchy</type>
+</CustomField>

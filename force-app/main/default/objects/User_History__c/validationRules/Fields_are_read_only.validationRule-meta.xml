@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Fields_are_read_only</fullName>
+    <active>true</active>
+    <errorConditionFormula>!ISNEW() &amp;&amp; (
+				ISCHANGED(Date__c) ||
+				ISCHANGED(Field__c) || 
+				ISCHANGED(Old_Value__c) ||
+				ISCHANGED(New_Value__c) ||
+				ISCHANGED(User__c)
+)</errorConditionFormula>
+    <errorMessage>History fields are read-only and can&apos;t be updated</errorMessage>
+</ValidationRule>

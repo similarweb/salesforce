@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Developing_Strategies_Priority_LeadsEU</fullName>
+    <columns>CORE.USERS.FIRST_NAME</columns>
+    <columns>CORE.USERS.LAST_NAME</columns>
+    <columns>LEAD.LAST_NAME</columns>
+    <columns>LEAD.FIRST_NAME</columns>
+    <columns>LEAD.COMPANY</columns>
+    <columns>LEAD.TITLE</columns>
+    <columns>LEAD.COUNTRY</columns>
+    <columns>LEAD.EMAIL</columns>
+    <columns>CAMPAIGN_MEMBER.STATUS</columns>
+    <columns>LEAD.STATUS</columns>
+    <columns>LEAD.CREATED_DATE</columns>
+    <columns>LEAD.LAST_ACTIVITY</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>LEAD.CONVERTED</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>LEAD.LAST_ACTIVITY</field>
+        <operation>lessOrEqual</operation>
+        <value>1/21/2018</value>
+    </filters>
+    <filters>
+        <field>SYS_Owner_Role__c</field>
+        <operation>contains</operation>
+        <value>MIR</value>
+    </filters>
+    <filters>
+        <field>LEAD.STATUS</field>
+        <operation>equals</operation>
+        <value>Open</value>
+    </filters>
+    <label>Developing Strategies EU_Priority Leads</label>
+</ListView>

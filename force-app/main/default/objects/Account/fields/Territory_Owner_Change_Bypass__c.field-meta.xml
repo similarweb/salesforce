@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Territory_Owner_Change_Bypass__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>this is another field that decides if the owner will change in territory process it can bypass all other conditions</description>
+    <externalId>false</externalId>
+    <inlineHelpText>this is another field that decides if the owner will change in territory process it can bypass all other conditions</inlineHelpText>
+    <label>Territory Owner Change Bypass</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

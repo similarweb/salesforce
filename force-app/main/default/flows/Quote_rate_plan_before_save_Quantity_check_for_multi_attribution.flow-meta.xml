@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>63.0</apiVersion>
+    <customErrors>
+        <name>Copy_2_of_Conversions_error</name>
+        <label>Country error</label>
+        <locationX>314</locationX>
+        <locationY>611</locationY>
+        <customErrorMessages>
+            <errorMessage>Please update all Multi-Attribution Products where the quantity was changed</errorMessage>
+            <isFieldError>false</isFieldError>
+        </customErrorMessages>
+    </customErrors>
+    <decisions>
+        <description>Check if the charge is updated charge the quantity is updated</description>
+        <name>Is_quantity</name>
+        <label>Is quantity from original</label>
+        <locationX>50</locationX>
+        <locationY>503</locationY>
+        <defaultConnector>
+            <targetReference>Copy_2_of_Conversions_error</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Null_outcome</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <label>Null outcome</label>
+        </rules>
+        <rules>
+            <name>The_updated_quantity_is_equal_to_original</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.zqu__Quantity__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>Get.Updated_quantity__c</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_success_value</targetReference>
+            </connector>
+            <label>The updated quantity is equal to original</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Quantity_check_for_multi_attribution</name>
+        <label>Quantity check for multi attribution</label>
+        <locationX>314</locationX>
+        <locationY>287</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>change_to_sucsess</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.zqu__ProductRatePlanCharge__r.zqu__ProductRatePlan__r.zqu__Product__r.AddOnType__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>CountryTier</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.zqu__ProductRatePlanCharge__r.zqu__ProductRatePlan__r.zqu__Product__r.AddOnType__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>AppsCF</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.zqu__ProductRatePlanCharge__r.zqu__ProductRatePlan__r.zqu__Product__r.AddOnType__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>AppInCFTier</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.zqu__ProductRatePlanCharge__r.zqu__ProductRatePlan__r.zqu__Product__r.AddOnType__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Conversions</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.zqu__ProductRatePlanCharge__r.zqu__ProductRatePlan__r.zqu__Product__r.AddOnType__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Datasets</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.zqu__ProductRatePlanCharge__r.zqu__ProductRatePlan__r.zqu__Product__r.AddOnType__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>ManagedServices</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.zqu__ProductRatePlanCharge__r.zqu__ProductRatePlan__r.zqu__Product__r.AddOnType__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>AggregatedGeo</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get</targetReference>
+            </connector>
+            <label>change to success</label>
+        </rules>
+    </decisions>
+    <environments>Default</environments>
+    <formulas>
+        <name>count</name>
+        <dataType>Number</dataType>
+        <expression>PICKLISTCOUNT({!$Record.Country_Filter__c})</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <name>Quantity_check_country</name>
+        <dataType>String</dataType>
+        <expression>IF(
+  
+       AND(  CONTAINS(TEXT({!$Record.zqu__QuoteRatePlan__r.zqu__Product__r.AddOnType__c}), &quot;CountryTier&quot;)
+
+, ISBLANK(        {!$Record.Country_Filter__c}   ) )
+
+,
+       
+    &quot;error&quot;,
+    &quot;success&quot;
+)</expression>
+    </formulas>
+    <interviewLabel>Quote rate plan before save - {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Quote rate plan before save - Quantity check for multi attribution</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Get</name>
+        <label>Get Original</label>
+        <locationX>50</locationX>
+        <locationY>395</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Is_quantity</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>zqu__ChargeNumber__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.zqu__ChargeNumber__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Amendment_type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Original</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>zqu__IsLastSegment__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Quote__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.zqu__QuoteRatePlan__r.zqu__Quote__r.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>zqu__QuoteRatePlanCharge__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <name>Update_success_value</name>
+        <label>Update success value</label>
+        <locationX>50</locationX>
+        <locationY>611</locationY>
+        <inputAssignments>
+            <field>Updated_quantity__c</field>
+            <value>
+                <elementReference>Get.Updated_quantity__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>188</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Quantity_check_for_multi_attribution</targetReference>
+        </connector>
+        <filterFormula>text({!$Record.zqu__QuoteRatePlan__r.zqu__AmendmentType__c}) = &apos;UpdateProduct&apos;</filterFormula>
+        <object>zqu__QuoteRatePlanCharge__c</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Obsolete</status>
+</Flow>

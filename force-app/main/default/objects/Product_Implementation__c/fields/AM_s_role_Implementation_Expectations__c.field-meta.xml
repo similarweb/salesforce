@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AM_s_role_Implementation_Expectations__c</fullName>
+    <description>MIS-474</description>
+    <externalId>false</externalId>
+    <label>AM&apos;s Role &amp; Implementation Expectations</label>
+    <length>1000</length>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>3</visibleLines>
+</CustomField>

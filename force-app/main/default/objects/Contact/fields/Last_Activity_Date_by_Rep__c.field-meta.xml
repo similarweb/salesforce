@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Last_Activity_Date_by_Rep__c</fullName>
+    <description>MIS-6356</description>
+    <externalId>false</externalId>
+    <formula>IF(
+				AND(ISBLANK(Last_Activity_Date_by_MIR__c),ISBLANK(Last_Activity_Date_by_GTM__c)), NULL,
+				IF(
+								OR(
+												Last_Activity_Date_by_MIR__c &gt;= Last_Activity_Date_by_GTM__c,
+								    AND(
+												    NOT(ISBLANK(Last_Activity_Date_by_MIR__c)),
+												    ISBLANK(Last_Activity_Date_by_GTM__c)
+												    )
+								    ), 
+								Last_Activity_Date_by_MIR__c, Last_Activity_Date_by_GTM__c
+								)
+				)</formula>
+    <label>Last Activity Date by Rep</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Date</type>
+</CustomField>

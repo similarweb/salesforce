@@ -1,0 +1,8 @@
+<aura:component extends="c:GenericQuoteButton" controller="ZuoraCancelQuoteButtonController">
+    <aura:attribute name="recordId" type="String" /> 
+    <button class="slds-button slds-button_brand ff enabledButton"
+        onclick="{!c.onButtonClick}"
+        title="Cancelling the current Quote">
+        Cancel
+    </button>
+</aura:component>

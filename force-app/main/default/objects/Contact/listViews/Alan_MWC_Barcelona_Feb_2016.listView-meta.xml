@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Alan_MWC_Barcelona_Feb_2016</fullName>
+    <columns>CORE.USERS.FIRST_NAME</columns>
+    <columns>CORE.USERS.LAST_NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CONTACT.FIRST_NAME</columns>
+    <columns>CONTACT.LAST_NAME</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>CAMPAIGN_MEMBER.STATUS</columns>
+    <columns>CONTACT.ADDRESS2_COUNTRY</columns>
+    <columns>CONTACT.TITLE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CONTACT.ADDRESS2_COUNTRY</field>
+        <operation>equals</operation>
+        <value>China</value>
+    </filters>
+    <label>Alan - MWC - Barcelona - Feb 2016</label>
+</ListView>

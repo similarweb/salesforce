@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Churn_Protection_Protocol__c</fullName>
+    <description>MIS-7445</description>
+    <externalId>false</externalId>
+    <formula>HYPERLINK(&quot;https://docs.google.com/presentation/d/1Bi7MZ37s0MqRjkS1Q6ci-8rMoamPY1Imyw7BXmhDeLs/edit?slide=id.g361ed0f3ca7_0_968#slide=id.g361ed0f3ca7_0_968&quot;, &quot;Churn Protection for GTM&quot;)</formula>
+    <label>Churn Protection Protocol</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

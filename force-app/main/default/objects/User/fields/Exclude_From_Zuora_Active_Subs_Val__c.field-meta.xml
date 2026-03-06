@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Exclude_From_Zuora_Active_Subs_Val__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Excludes from Zuora Active Subscription Validation</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Excludes from Zuora Active Subscription Validation</inlineHelpText>
+    <label>Exclude From Zuora Active Subs. Val.</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

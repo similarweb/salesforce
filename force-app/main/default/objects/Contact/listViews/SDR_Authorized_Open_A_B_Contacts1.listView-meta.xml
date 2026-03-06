@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SDR_Authorized_Open_A_B_Contacts1</fullName>
+    <booleanFilter>1 AND 2 AND 3 AND 4 AND 5</booleanFilter>
+    <columns>FULL_NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>Status__c</columns>
+    <columns>CONTACT.CREATED_DATE</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.ADDRESS2_COUNTRY</columns>
+    <columns>CONTACT.LEAD_SOURCE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>Open</value>
+    </filters>
+    <filters>
+        <field>Business_Unit__c</field>
+        <operation>notEqual</operation>
+        <value>Inside Sales</value>
+    </filters>
+    <filters>
+        <field>Nurtured_by_Marketing__c</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>CORE.USERS.ALIAS</field>
+        <operation>equals</operation>
+        <value>dgins</value>
+    </filters>
+    <label>SDR Authorized: Open A&amp;B Contacts</label>
+</ListView>

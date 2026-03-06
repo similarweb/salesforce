@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Amanda_Webinar_Leads</fullName>
+    <booleanFilter>1 AND 2 AND 3 AND 4 AND 5 AND 6 AND 7 AND 8 AND 9 AND 10</booleanFilter>
+    <columns>FULL_NAME</columns>
+    <columns>LEAD.EMAIL</columns>
+    <columns>LEAD.COMPANY</columns>
+    <columns>LEAD.STATE</columns>
+    <columns>LEAD.STATUS</columns>
+    <columns>LEAD.UNREAD</columns>
+    <columns>LEAD.CREATED_DATE</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>LEAD.STATUS</field>
+        <operation>notEqual</operation>
+        <value>Qualified,Nurture,Unqualified,Dormant</value>
+    </filters>
+    <filters>
+        <field>LEAD.EMAIL</field>
+        <operation>notContain</operation>
+        <value>.edu,gmail.com,10minutemail.com</value>
+    </filters>
+    <filters>
+        <field>LEAD.CONVERTED</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>ROE_Division__c</field>
+        <operation>equals</operation>
+        <value>SMB Sales - US</value>
+    </filters>
+    <filters>
+        <field>LEAD.CREATED_DATE</field>
+        <operation>greaterThan</operation>
+        <value>3/25/2021 12:00 AM</value>
+    </filters>
+    <filters>
+        <field>LEAD.LEAD_SOURCE</field>
+        <operation>notEqual</operation>
+        <value>Webinar</value>
+    </filters>
+    <filters>
+        <field>LEAD.COMPANY</field>
+        <operation>notContain</operation>
+        <value>luxus,10minutemail</value>
+    </filters>
+    <filters>
+        <field>MQL_Prediction__c</field>
+        <operation>notEqual</operation>
+        <value>C3,C4,C5,D1,D2,D3,D4</value>
+    </filters>
+    <filters>
+        <field>SW_Industry__c</field>
+        <operation>notContain</operation>
+        <value>AdTech and AdNetwork,B2B Software,Logistics and Shipping,Payments</value>
+    </filters>
+    <filters>
+        <field>LEAD.CREATED_DATE</field>
+        <operation>lessThan</operation>
+        <value>5/29/2021 12:00 AM</value>
+    </filters>
+    <label>Weekly Webinar Send</label>
+</ListView>

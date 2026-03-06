@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Health_Score__c</fullName>
+    <description>MIS-6311 - changed the name to Product Engagement Score
+MIS-4723</description>
+    <externalId>false</externalId>
+    <formula>IF( fr_SYS_Health_Score__c = &quot;Advisory Services or Data Feed&quot;,
+IMAGE(&quot;/servlet/servlet.FileDownload?file=0156700000A9EmJ&quot;, &quot;Grey&quot; , 16, 50)&amp;&quot;Advisory Service or Data Feed &quot;,
+
+IF(fr_SYS_Health_Score__c = &quot;Critical Engagement&quot;,
+IMAGE(&quot;/servlet/servlet.FileDownload?file=0150O000004xFpH&quot;, &quot;red&quot; , 16, 50)&amp;&quot;Critical Engagement &quot;,
+
+IF( fr_SYS_Health_Score__c = &quot;More Users Required&quot;,
+IMAGE(&quot;/servlet/servlet.FileDownload?file=0150O000004xWeC&quot;, &quot;yellow&quot;, 16, 50 )&amp;&quot;More Users Required &quot; ,
+
+IF( fr_SYS_Health_Score__c= &quot;Good Health&quot;,
+IMAGE(&quot;/servlet/servlet.FileDownload?file=0150O000004xFo5&quot;, &quot;green&quot;, 16, 50 )&amp;&quot;Good Health &quot;,
+
+IF( fr_SYS_Health_Score__c = &quot;More Depth Required&quot;,
+IMAGE(&quot;/servlet/servlet.FileDownload?file=0150O000004xFp7&quot;, &quot;Blue&quot;, 16, 50 )&amp;&quot;More Depth Required &quot;,
+
+&quot;&quot;)))))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Product Engagement Score</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

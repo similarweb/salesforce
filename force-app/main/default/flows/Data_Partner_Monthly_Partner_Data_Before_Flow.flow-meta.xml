@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>54.0</apiVersion>
+    <assignments>
+        <description>Update the payment according to the Cap in the parent Contract and update the CB.</description>
+        <name>Override_with_Cap_Payment</name>
+        <label>Override with Cap Payment</label>
+        <locationX>50</locationX>
+        <locationY>803</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Payment_Cap_Override__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Contracts__r.Payment_Cap__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Paid_Cap__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Data_Partner_Status_Calculated</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Update_Data_Partner_Status_Calculated</name>
+        <label>Update Data Partner Status - Calculated</label>
+        <locationX>182</locationX>
+        <locationY>995</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Status__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Calculated</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Start_Next_Rule_here</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Update_Record_to_Open</name>
+        <label>Update Record to Open</label>
+        <locationX>490</locationX>
+        <locationY>803</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Status__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Open</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Start_Next_Rule_here</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <name>Billing_Contact_populated</name>
+        <label>Billing Contact populated?</label>
+        <locationX>402</locationX>
+        <locationY>287</locationY>
+        <defaultConnector>
+            <targetReference>Rule_MSR_All_Monthly_Source_Request_Calculated</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Already populated</defaultConnectorLabel>
+        <rules>
+            <name>Populate_Billing_Contact_from_Contract</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Billing_Contact__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Billing_Contact</targetReference>
+            </connector>
+            <label>Populate Billing Contact from Contract</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Rule_MSR_All_Monthly_Source_Request_Calculated</name>
+        <label>Rule - (MSR) - All Monthly Source Request Calculated</label>
+        <locationX>402</locationX>
+        <locationY>587</locationY>
+        <defaultConnector>
+            <targetReference>Update_Status_to_Open</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Not Calculated</defaultConnectorLabel>
+        <rules>
+            <name>MSR_Calculated</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Count_Calculated_Source_Request__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Count_Source_Request__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <numberValue>0.0</numberValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Count_Calculated_Source_Request__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record.Count_Source_Request__c</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Rule_PC_Contract_with_Cap</targetReference>
+            </connector>
+            <label>MSR Calculated</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Check if the parent Contract have a &quot;Payment Cap&quot; populated. If yes. We should check if the calculated Monthly payment is greater than the Cap.</description>
+        <name>Rule_PC_Contract_with_Cap</name>
+        <label>Rule (PC) Contract with Cap?</label>
+        <locationX>182</locationX>
+        <locationY>695</locationY>
+        <defaultConnector>
+            <targetReference>Update_Data_Partner_Status_Calculated</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Monthly Payment</defaultConnectorLabel>
+        <rules>
+            <name>Payment_Cap_Override</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Contracts__r.Payment_Cap__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Contracts__r.Payment_Cap__c</leftValueReference>
+                <operator>LessThan</operator>
+                <rightValue>
+                    <elementReference>$Record.Monthly_Partner_Payment__c</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Override_with_Cap_Payment</targetReference>
+            </connector>
+            <label>Payment Cap Override</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Start_Next_Rule_here</name>
+        <label>Start Next Rule here</label>
+        <locationX>402</locationX>
+        <locationY>1187</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>New_Rule</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>For_NOW</leftValueReference>
+                <operator>EqualTo</operator>
+            </conditions>
+            <label>New Rule</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Update_Status_to_Open</name>
+        <label>Update Status to Open?</label>
+        <locationX>622</locationX>
+        <locationY>695</locationY>
+        <defaultConnector>
+            <targetReference>Start_Next_Rule_here</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No Change</defaultConnectorLabel>
+        <rules>
+            <name>Change_to_Open</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Count_Source_Request__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record.Count_Calculated_Source_Request__c</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Open</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Contracts__r.Payment_Method__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Monthly - Fix Price</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Record_to_Open</targetReference>
+            </connector>
+            <label>Change to Open</label>
+        </rules>
+    </decisions>
+    <description>&quot;Monthly Partner Data&quot; Before Flow.</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>For_NOW</name>
+        <dataType>DateTime</dataType>
+        <expression>NOW()</expression>
+    </formulas>
+    <interviewLabel>Monthly P {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Data Partner - Monthly Partner Data Before Flow</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Update_Billing_Contact</name>
+        <label>Update Billing Contact</label>
+        <locationX>270</locationX>
+        <locationY>395</locationY>
+        <connector>
+            <targetReference>Rule_MSR_All_Monthly_Source_Request_Calculated</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Billing_Contact__c</field>
+            <value>
+                <elementReference>$Record.Contracts__r.Billing_Contact__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>276</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Billing_Contact_populated</targetReference>
+        </connector>
+        <object>Monthly_Partner_Request__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

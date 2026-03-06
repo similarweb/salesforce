@@ -1,0 +1,23 @@
+.THIS .back-btn{
+	margin: 0px 0px 1rem 1rem;
+}
+
+.THIS .slds-tabs_default__content{
+    padding-bottom: 0rem !important;
+}
+
+.THIS .tt{
+	width: 2.5rem;
+    background-color: rgb(300, 300, 300);
+}
+
+
+
+.THIS .ff{
+    font-family: Roboto; 
+}
+
+@font-face {
+   font-family: Roboto;
+   src: url(/resource/Roboto/Roboto-Black.ttf);
+}

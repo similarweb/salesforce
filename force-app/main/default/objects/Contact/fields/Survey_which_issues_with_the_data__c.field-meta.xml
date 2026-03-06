@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Survey_which_issues_with_the_data__c</fullName>
+    <externalId>false</externalId>
+    <label>Survey - which issues with the data</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>The lack of accuracy</fullName>
+                <default>false</default>
+                <label>The lack of accuracy</label>
+            </value>
+            <value>
+                <fullName>I was missing a specific feature</fullName>
+                <default>false</default>
+                <label>I was missing a specific feature</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

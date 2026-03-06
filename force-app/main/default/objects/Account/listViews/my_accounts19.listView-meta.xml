@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>my_accounts19</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>Base_Product__c</columns>
+    <columns>ACCOUNT.ADDRESS1_COUNTRY</columns>
+    <columns>fr_First_Pro_Purchase_Date__c</columns>
+    <columns>Health_Score__c</columns>
+    <columns>Number_of_Contacts__c</columns>
+    <columns>fr_Next_Renewal_Date__c</columns>
+    <columns>fr_Number_Of_Allocated_Seats__c</columns>
+    <columns>fr_Number_Of_Available_Seats__c</columns>
+    <columns>fr_Relationship_Score__c</columns>
+    <columns>ACCOUNT.URL</columns>
+    <columns>Website_Domain__c</columns>
+    <columns>Polygarph_Website__c</columns>
+    <columns>sw_connector_Website_Category__c</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>Active</value>
+    </filters>
+    <filters>
+        <field>Follow_Up_Date__c</field>
+        <operation>equals</operation>
+    </filters>
+    <label>my accounts</label>
+    <sharedTo>
+        <role>GM_APAC_and_Agencies</role>
+        <role>Manager_EMEA_Inside_Sales</role>
+    </sharedTo>
+</ListView>

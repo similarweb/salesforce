@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Predicted_payment_change_from_last_month__c</fullName>
+    <externalId>false</externalId>
+    <formula>(Estimated_Next_Month_Payment__c-(Last_month_payment_for_ROW_countries__c+Last_month_payment_for_Tier1_countr__c))/
+(Last_month_payment_for_ROW_countries__c+Last_month_payment_for_Tier1_countr__c)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Predicted payment change from last month</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>1</scale>
+    <trackHistory>false</trackHistory>
+    <type>Percent</type>
+</CustomField>

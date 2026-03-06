@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Package__c</fullName>
+    <externalId>false</externalId>
+    <label>Package</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Market Intelligence</fullName>
+                <default>false</default>
+                <label>Market Intelligence</label>
+            </value>
+            <value>
+                <fullName>Benchmarking</fullName>
+                <default>false</default>
+                <label>Benchmarking</label>
+            </value>
+            <value>
+                <fullName>Essentials</fullName>
+                <default>false</default>
+                <label>Essentials</label>
+            </value>
+            <value>
+                <fullName>Custom Reports</fullName>
+                <default>false</default>
+                <label>Custom Reports</label>
+            </value>
+            <value>
+                <fullName>Ultimate</fullName>
+                <default>false</default>
+                <label>Ultimate</label>
+            </value>
+            <value>
+                <fullName>Advanced</fullName>
+                <default>false</default>
+                <label>Advanced</label>
+            </value>
+            <value>
+                <fullName>Basic</fullName>
+                <default>false</default>
+                <label>Basic</label>
+            </value>
+            <value>
+                <fullName>App Engagement</fullName>
+                <default>false</default>
+                <label>App Engagement</label>
+            </value>
+            <value>
+                <fullName>API</fullName>
+                <default>false</default>
+                <label>API</label>
+            </value>
+            <value>
+                <fullName>Raw Data</fullName>
+                <default>false</default>
+                <label>Raw Data</label>
+            </value>
+            <value>
+                <fullName>Trackers</fullName>
+                <default>false</default>
+                <label>Trackers</label>
+            </value>
+            <value>
+                <fullName>Enterprise Trial</fullName>
+                <default>false</default>
+                <label>Enterprise Trial</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

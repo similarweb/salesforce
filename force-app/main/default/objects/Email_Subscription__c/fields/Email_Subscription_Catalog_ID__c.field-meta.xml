@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Email_Subscription_Catalog_ID__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <label>Email Subscription Catalog ID</label>
+    <referenceTo>Email_Subscription_Catalog__c</referenceTo>
+    <relationshipLabel>Email Suscriptions</relationshipLabel>
+    <relationshipName>Email_Suscriptions</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

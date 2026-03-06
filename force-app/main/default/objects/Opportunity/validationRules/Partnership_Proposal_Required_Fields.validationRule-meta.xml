@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Partnership_Proposal_Required_Fields</fullName>
+    <active>true</active>
+    <errorConditionFormula>$Profile.Name &lt;&gt; &quot;SW SalesOps Extended&quot;&amp;&amp;
+$Profile.Name &lt;&gt; &quot;SW SalesOps&quot;&amp;&amp;
+$Profile.Name &lt;&gt; &quot;System Administrator&quot;&amp;&amp;
+RecordType.Name =&quot;Partnership&quot;&amp;&amp;
+
+(ISCHANGED(StageName) &amp;&amp;
+ISPICKVAL(StageName,&quot;Proposal&quot;)||
+ISPICKVAL(StageName,&quot;Proposal&quot;))
+&amp;&amp;
+ISBLANK( Target_ARR__c )
+&amp;&amp;
+NOT(ISCHANGED( Owner_s_Manager__c ))&amp;&amp;
+NOT(ISNEW())&amp;&amp;
+NOT(ISCHANGED(Account_owner_changed__c))&amp;&amp;
+NOT (Account_owner_changed__c) = FALSE &amp;&amp;
+NOT(ISCHANGED(Opportunity_Division__c))&amp;&amp;
+NOT(ISPICKVAL(Opportunity_Division__c,&quot;&quot;))</errorConditionFormula>
+    <errorMessage>Mandatory field at Proposal stage: Target ARR</errorMessage>
+</ValidationRule>

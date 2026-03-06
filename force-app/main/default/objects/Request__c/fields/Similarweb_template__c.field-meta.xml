@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Similarweb_template__c</fullName>
+    <description>MIS-5932
+MIS-5557
+MIS-1563
+MIS-2818 - updated new soc report</description>
+    <externalId>false</externalId>
+    <formula>HYPERLINK(&apos;https://www.panoraysapp.com/security_kit/RVVVOVlGZCtlemMydGp1SEd4aVp5bFdnRVhYTHRya2dXQUtwUDBiUWJrcjFMMnR4OU92czhjeWplOTVmQkZMQmxaSW1RM0hmY2ZXMWhIVnQwZkN2Smc9PQ/view&apos;, &apos;Similarweb Security Passport link&apos;)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Make sure you saved a copy of the document before editing it</inlineHelpText>
+    <label>Similarweb template</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

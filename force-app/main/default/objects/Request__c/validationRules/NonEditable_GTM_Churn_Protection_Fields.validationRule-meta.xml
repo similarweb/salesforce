@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NonEditable_GTM_Churn_Protection_Fields</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+
+NOT(ISNEW()),
+				ISCHANGED(Status__c),
+RecordType.DeveloperName = &apos;Churn_Protection&apos;,
+ NOT(CONTAINS($Profile.Name,&apos;SalesOps&apos;)),
+				NOT($Profile.Name=&apos;System Administrator&apos;)
+
+)</errorConditionFormula>
+    <errorMessage>The status field is not editable for GTM&apos;s</errorMessage>
+</ValidationRule>

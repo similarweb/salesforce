@@ -1,0 +1,8 @@
+<!--
+ - Created by Alon.Shalev on 8/18/2024.
+ -->
+
+<aura:component description="FlowLauncher2" implements="force:lightningQuickActionWithoutHeader,force:hasRecordId" access="global">
+     <lightning:flow aura:id="flowData" onstatuschange="{!c.handleFlowStatusChange}" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+</aura:component>

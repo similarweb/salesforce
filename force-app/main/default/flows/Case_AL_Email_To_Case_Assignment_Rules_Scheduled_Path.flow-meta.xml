@@ -1,0 +1,664 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>62.0</apiVersion>
+    <assignments>
+        <name>Assign_BI_Ticket</name>
+        <label>Assign BI Ticket</label>
+        <locationX>578</locationX>
+        <locationY>1166</locationY>
+        <assignmentItems>
+            <assignToReference>record_Case.Type</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>BI Ticket</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>record_Case.Case_Sub_Type__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>BI Ticket</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Populate_Group_Field_Value</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Direct_Email</name>
+        <label>Assign Direct Email</label>
+        <locationX>50</locationX>
+        <locationY>1166</locationY>
+        <assignmentItems>
+            <assignToReference>record_Case.Type</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Direct Email</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Populate_Group_Field_Value</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Email_Alerts_Fields</name>
+        <label>Assign Email Alerts Fields</label>
+        <locationX>2162</locationX>
+        <locationY>1058</locationY>
+        <assignmentItems>
+            <assignToReference>record_Case.Type</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Salesops Ticket Form</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>record_Case.Case_Sub_Type__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Email Alerts</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Case_Fields</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_HR_Fields</name>
+        <label>Assign HR Fields</label>
+        <locationX>1898</locationX>
+        <locationY>1058</locationY>
+        <assignmentItems>
+            <assignToReference>record_Case.Type</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>User Management</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>record_Case.Case_Sub_Type__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>User &amp; Tool Management</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Case_Fields</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Invoicing_Portals</name>
+        <label>Assign Invoicing Portals</label>
+        <locationX>842</locationX>
+        <locationY>1166</locationY>
+        <assignmentItems>
+            <assignToReference>record_Case.Type</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Invoicing Portals</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Populate_Group_Field_Value</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_NT_Cancelation</name>
+        <label>Assign NT Cancelation</label>
+        <locationX>314</locationX>
+        <locationY>1166</locationY>
+        <assignmentItems>
+            <assignToReference>record_Case.Type</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>NT Cancellation</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>record_Case.Case_Sub_Type__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>NT Cancellation</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Populate_Group_Field_Value</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Payment_Processor</name>
+        <label>Assign Payment Processor</label>
+        <locationX>1106</locationX>
+        <locationY>1166</locationY>
+        <assignmentItems>
+            <assignToReference>record_Case.Type</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Payment Processor</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Populate_Group_Field_Value</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Populate_Case_Contact_Requester</name>
+        <label>Populate Case Contact Requester</label>
+        <locationX>1458</locationX>
+        <locationY>566</locationY>
+        <assignmentItems>
+            <assignToReference>record_Case.ContactId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Contact_Requester_From_Web_Email.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Case_Record_Type</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Populate_Case_User_Requester</name>
+        <label>Populate Case User Requester</label>
+        <locationX>1722</locationX>
+        <locationY>458</locationY>
+        <assignmentItems>
+            <assignToReference>record_Case.Requester__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Requester_From_Web_Email.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Case_Record_Type</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Populate_Group_Field_Value</name>
+        <label>Populate Group Field Value</label>
+        <locationX>710</locationX>
+        <locationY>1358</locationY>
+        <assignmentItems>
+            <assignToReference>record_Case.Group__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Billing_Group_From_ToAddress_Formula</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Case_Fields</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <name>Billing_Case_Type_Decision</name>
+        <label>Billing Case Type Decision</label>
+        <locationX>710</locationX>
+        <locationY>1058</locationY>
+        <defaultConnector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Assign_Direct_Email</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Direct Email</defaultConnectorLabel>
+        <rules>
+            <name>Pro_User</name>
+            <conditionLogic>1 AND ( 2 OR 3)</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Related_Email_Message.ToAddress</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>billing@similarweb.com</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_Contact_Requester_From_Web_Email.fr_Pro_User_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Admin</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_Contact_Requester_From_Web_Email.fr_Pro_User_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>User</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Direct_Email</targetReference>
+            </connector>
+            <label>Pro User</label>
+        </rules>
+        <rules>
+            <name>NT_cancellation</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>record_Case.Subject</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>NT cancellation - Automated</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_NT_Cancelation</targetReference>
+            </connector>
+            <label>NT cancellation</label>
+        </rules>
+        <rules>
+            <name>BI_Ticket</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>record_Case.SuppliedEmail</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>limor.tzach@similarweb.com</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>record_Case.SuppliedEmail</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>opsdataeng@similarweb.com</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>record_Case.SuppliedEmail</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>bidev@similarweb.com</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_BI_Ticket</targetReference>
+            </connector>
+            <label>BI Ticket</label>
+        </rules>
+        <rules>
+            <name>Invoicing_Portals</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Case_Type_Invoicing_Portals_Formula</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Invoicing_Portals</targetReference>
+            </connector>
+            <label>Invoicing Portals</label>
+        </rules>
+        <rules>
+            <name>Payment_Processor</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Case_Type_Payment_Processor_Formula</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Payment_Processor</targetReference>
+            </connector>
+            <label>Payment Processor</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Case_Record_Type</name>
+        <label>Case Record Type</label>
+        <locationX>1788</locationX>
+        <locationY>842</locationY>
+        <defaultConnector>
+            <targetReference>Update_Case_Fields</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Billing_RT</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>record_Case.RecordType.Name</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Billing</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Related_Email_Message</targetReference>
+            </connector>
+            <label>Billing RT</label>
+        </rules>
+        <rules>
+            <name>SalesOps_RT</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>record_Case.RecordType.Name</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>SalesOps</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>SalesOps_Case_Type_Decision</targetReference>
+            </connector>
+            <label>SalesOps RT</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Check_if_Web_Email_with_No_Requester</name>
+        <label>Check if Web Email with No Requester</label>
+        <locationX>1788</locationX>
+        <locationY>134</locationY>
+        <defaultConnector>
+            <targetReference>Case_Record_Type</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>No_Requester</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>record_Case.Requester__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Requester_From_Web_Email</targetReference>
+            </connector>
+            <label>No Requester</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Found_Requester_User</name>
+        <label>Found Requester User?</label>
+        <locationX>1590</locationX>
+        <locationY>350</locationY>
+        <defaultConnector>
+            <targetReference>Populate_Case_User_Requester</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Found Requester User = yes</defaultConnectorLabel>
+        <rules>
+            <name>No_Requester_User</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Requester_From_Web_Email</leftValueReference>
+                <operator>IsBlank</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Contact_Requester_From_Web_Email</targetReference>
+            </connector>
+            <label>No Requester User</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>SalesOps_Case_Type_Decision</name>
+        <label>SalesOps Case Type Decision</label>
+        <locationX>2294</locationX>
+        <locationY>950</locationY>
+        <defaultConnector>
+            <targetReference>Update_Case_Fields</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>HR</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Subject_Contains_HR</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_HR_Fields</targetReference>
+            </connector>
+            <label>HR</label>
+        </rules>
+        <rules>
+            <name>BI</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>record_Case.SuppliedEmail</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>opsdataeng@similarweb.com</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>record_Case.SuppliedEmail</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>bidev@similarweb.com</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Email_Alerts_Fields</targetReference>
+            </connector>
+            <label>BI</label>
+        </rules>
+        <rules>
+            <name>Email_Alerts</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>record_Case.Subject</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Alert - Logo Rights set failed</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>record_Case.Subject</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Alert - Logo rights were set for an Opt Out Account</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <isGoTo>true</isGoTo>
+                <targetReference>Assign_Email_Alerts_Fields</targetReference>
+            </connector>
+            <label>Email Alerts</label>
+        </rules>
+    </decisions>
+    <description>Triggered from Case - RT - After Save
+MIS-6790 - add salesops
+MIS-6209</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>Billing_Group_From_ToAddress_Formula</name>
+        <dataType>String</dataType>
+        <expression>IF(
+   {!record_Case.Source:EmailMessage.ToAddress} = &quot;billing@similarweb.com&quot;,
+    &quot;Billing&quot;,
+
+    IF(
+       {!record_Case.Source:EmailMessage.ToAddress}= &quot;billing-us@similarweb.com&quot;,
+        &quot;Billing US&quot;,
+
+        IF(
+ {!record_Case.Source:EmailMessage.ToAddress} = &quot;billing-int@similarweb.com&quot;,
+            &quot;Billing INT&quot;,
+
+            IF(
+                {!record_Case.Source:EmailMessage.ToAddress} = &quot;billing-apac@similarweb.com&quot;,
+                &quot;Billing APAC&quot;,
+
+                /* Default Value if None Match */
+                TEXT({!record_Case.Group__c})
+            )
+        )
+    )
+)</expression>
+    </formulas>
+    <formulas>
+        <name>Case_Type_Invoicing_Portals_Formula</name>
+        <dataType>Boolean</dataType>
+        <expression>OR(
+    CONTAINS(LOWER({!record_Case.Subject}), &quot;ariba&quot;),
+    CONTAINS(LOWER({!record_Case.Subject}), &quot;coupa&quot;),
+    CONTAINS(LOWER({!record_Case.Subject}), &quot;monto&quot;),
+    CONTAINS(LOWER({!record_Case.Subject}), &quot;sap&quot;),
+    CONTAINS(LOWER({!record_Case.Subject}), &quot;bill.com&quot;),
+    CONTAINS(LOWER({!record_Case.Description}), &quot;ariba&quot;),
+    CONTAINS(LOWER({!record_Case.Description}), &quot;coupa&quot;),
+    CONTAINS(LOWER({!record_Case.Description}), &quot;monto&quot;),
+    CONTAINS(LOWER({!record_Case.Description}), &quot;sap&quot;),
+    CONTAINS(LOWER({!record_Case.Description}), &quot;bill.com&quot;)
+)</expression>
+    </formulas>
+    <formulas>
+        <name>Case_Type_Payment_Processor_Formula</name>
+        <dataType>Boolean</dataType>
+        <expression>OR(
+    CONTAINS(LOWER({!record_Case.SuppliedEmail}), &quot;bluesnap&quot;),
+    CONTAINS(LOWER({!record_Case.SuppliedEmail}), &quot;stripe&quot;),
+    CONTAINS(LOWER({!record_Case.SuppliedEmail}), &quot;vantiv&quot;),
+    CONTAINS(LOWER({!record_Case.SuppliedEmail}), &quot;worldpay&quot;),
+    CONTAINS(LOWER({!record_Case.SuppliedEmail}), &quot;amex&quot;),
+    CONTAINS(LOWER({!record_Case.SuppliedEmail}), &quot;chargeback&quot;),
+    CONTAINS(LOWER({!record_Case.SuppliedEmail}), &quot;dispute&quot;),
+    CONTAINS(LOWER({!record_Case.SuppliedEmail}), &quot;dlocal&quot;),
+    CONTAINS(LOWER({!record_Case.Subject}), &quot;bluesnap&quot;),
+    CONTAINS(LOWER({!record_Case.Subject}), &quot;stripe&quot;),
+    CONTAINS(LOWER({!record_Case.Subject}), &quot;vantiv&quot;),
+    CONTAINS(LOWER({!record_Case.Subject}), &quot;worldpay&quot;),
+    CONTAINS(LOWER({!record_Case.Subject}), &quot;amex&quot;),
+    CONTAINS(LOWER({!record_Case.Subject}), &quot;chargeback&quot;),
+    CONTAINS(LOWER({!record_Case.Subject}), &quot;dispute&quot;),
+    CONTAINS(LOWER({!record_Case.Subject}), &quot;dlocal&quot;)
+
+)</expression>
+    </formulas>
+    <formulas>
+        <name>Subject_Contains_HR</name>
+        <dataType>Boolean</dataType>
+        <expression>OR(
+    CONTAINS(LOWER({!record_Case.Subject}), LOWER(&quot;End of Employment&quot;)),
+    CONTAINS(LOWER({!record_Case.Subject}), LOWER(&quot;New Employee&quot;)),
+    CONTAINS(LOWER({!record_Case.Subject}), LOWER(&quot;Change in Role&quot;)),
+    CONTAINS(LOWER({!record_Case.Subject}), LOWER(&quot;Change in Reporting Line&quot;)),
+    CONTAINS(LOWER({!record_Case.Subject}), LOWER(&quot;Return from Maternity Leave&quot;)),
+    CONTAINS(LOWER({!record_Case.Subject}), LOWER(&quot;Relocation&quot;)),
+    CONTAINS(LOWER({!record_Case.Subject}), LOWER(&quot;Baby boy&quot;)),
+    CONTAINS(LOWER({!record_Case.Subject}), LOWER(&quot;baby girl&quot;))
+)</expression>
+    </formulas>
+    <interviewLabel>Case - AL - Email To Case Assignment Rules - Scheduled Path {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Case - AL - Email To Case Assignment Rules - Scheduled Path</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <description>MIS-6209</description>
+        <name>Get_Contact_Requester_From_Web_Email</name>
+        <label>Get Contact -  Requester From Web Email</label>
+        <locationX>1458</locationX>
+        <locationY>458</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Populate_Case_Contact_Requester</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Email</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>record_Case.SuppliedEmail</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Contact</object>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>fr_Pro_User_Type__c</queriedFields>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Related_Email_Message</name>
+        <label>Get Related Email Message</label>
+        <locationX>710</locationX>
+        <locationY>950</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Billing_Case_Type_Decision</targetReference>
+        </connector>
+        <faultConnector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Billing_Case_Type_Decision</targetReference>
+        </faultConnector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>RelatedToId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>record_Case.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>EmailMessage</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Requester_From_Web_Email</name>
+        <label>Get User - Requester From Web Email</label>
+        <locationX>1590</locationX>
+        <locationY>242</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Found_Requester_User</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Email</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>record_Case.SuppliedEmail</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>User</object>
+        <queriedFields>Id</queriedFields>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <name>Update_Case_Fields</name>
+        <label>Update Case Fields</label>
+        <locationX>1788</locationX>
+        <locationY>1550</locationY>
+        <inputReference>record_Case</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>1662</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Check_if_Web_Email_with_No_Requester</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>record_Case</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Case</objectType>
+    </variables>
+</Flow>

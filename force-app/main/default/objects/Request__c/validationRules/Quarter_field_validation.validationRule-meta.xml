@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Quarter_field_validation</fullName>
+    <active>false</active>
+    <description>&apos;Quarter&apos; field is required for CSA Record Type and SLG Request type.</description>
+    <errorConditionFormula>AND(
+RecordType.DeveloperName =&apos;Solution_Implementation&apos;,
+ISBLANK( TEXT(Quarter__c )),
+ISBLANK( TEXT( Year__c )),
+ISPICKVAL(Request_Type__c ,&apos;SLG&apos;),
+OR(
+NOT(ISBLANK( Kick_Off_Call__c )),
+NOT(ISBLANK( Group_Training_Sessions__c )),
+NOT(ISBLANK( Group_Steering_Sessions__c )),
+NOT(ISBLANK( Usage_Analysis_Optimization__c )),
+NOT(ISBLANK( On_Site_Workshop__c )),
+NOT(ISBLANK( API_Google_Sheets_Training__c )),
+NOT(ISBLANK( Client_Meeting__c )),
+NOT(ISBLANK( Training_Summary__c )),
+NOT(ISBLANK( Email_Support__c )),
+NOT(ISBLANK( Product_Customization__c )),
+NOT(ISBLANK( Dedicated_Training_Sessions__c )),
+NOT(ISBLANK( QBR__c )),
+NOT(ISBLANK( Mini_Deck__c )),
+NOT(ISBLANK( Insight_Email__c )),
+NOT(ISBLANK( Deck__c ))
+)
+)</errorConditionFormula>
+    <errorDisplayField>Quarter__c</errorDisplayField>
+    <errorMessage>Please fill in the &apos;Quarter&apos; field.</errorMessage>
+</ValidationRule>

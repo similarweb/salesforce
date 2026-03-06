@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Rank_Ranger_Status__c</fullName>
+    <description>MIS-2615</description>
+    <externalId>false</externalId>
+    <label>Rank Ranger Status</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>In the funnel</fullName>
+                <default>false</default>
+                <label>In the funnel</label>
+            </value>
+            <value>
+                <fullName>Not in the funnel</fullName>
+                <default>false</default>
+                <label>Not in the funnel</label>
+            </value>
+            <value>
+                <fullName>Relevant</fullName>
+                <default>false</default>
+                <label>Relevant</label>
+            </value>
+            <value>
+                <fullName>Free trail</fullName>
+                <default>false</default>
+                <label>Free trail</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

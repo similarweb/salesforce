@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Eric_s_Clothing_Accounts</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CONTACT.TITLE</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>Original_Lead_Source__c</columns>
+    <columns>CONTACT.CREATED_DATE</columns>
+    <columns>CONTACT.LAST_ACTIVITY</columns>
+    <columns>Status__c</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>Pro_User_Type__c</columns>
+    <columns>CONTACT.EMAIL_OPT_OUT</columns>
+    <columns>Last_Pro_Visit_Date__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>ACCOUNT.ACCOUNT_ID</field>
+        <operation>equals</operation>
+        <value>0010O00001vJKIJ,001b000003gPtWE,001b000000l29MO,0010O00001tQ7o5,001b000003dyjpM,001b000000tTlzn,001b000000zWZxH,001b0000037NT8L,001b0000037NT8a,001b00000144ivS,001b0000037NT6y,001b000000lXsyS,001b0000024hRQx,001b000002hZT2c,001b000003SZRzD</value>
+    </filters>
+    <filters>
+        <field>Status__c</field>
+        <operation>notEqual</operation>
+        <value>Unqualified</value>
+    </filters>
+    <filters>
+        <field>Pro_User_Type__c</field>
+        <operation>notEqual</operation>
+        <value>User,Admin</value>
+    </filters>
+    <label>Eric&apos;s Clothing Accounts</label>
+</ListView>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Move_Unqualified_from_MIR_to_VGR</fullName>
+    <columns>LEAD.COUNTRY_CODE</columns>
+    <columns>SW_Fit_Score__c</columns>
+    <columns>SW_Fit_Score_Reason__c</columns>
+    <columns>LinkedIn_Profile__c</columns>
+    <columns>Lead_Owner_formula__c</columns>
+    <columns>SW_Industry__c</columns>
+    <columns>LEAD.CREATED_DATE</columns>
+    <columns>MIR_Status__c</columns>
+    <columns>LEAD.COMPANY</columns>
+    <columns>LEAD.EMAIL</columns>
+    <columns>Department__c</columns>
+    <columns>Country_Region__c</columns>
+    <columns>fr_Last_Pro_Visit_Date__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>LEAD.CONVERTED</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>MIR_Status_Timestamp__c</field>
+        <operation>equals</operation>
+        <value>LAST_N_DAYS:50</value>
+    </filters>
+    <filters>
+        <field>LEAD.EMAIL_OPT_OUT</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>LEAD.COUNTRY_CODE</field>
+        <operation>notEqual</operation>
+        <value>DE,AT,FR,BE</value>
+    </filters>
+    <filters>
+        <field>MIR_Status__c</field>
+        <operation>equals</operation>
+        <value>Free Tools Sufficient / One-Time Use,Low Traffic,No Budget,Not a Good Fit: Use Case / Persona / Industry,Unreachable / No Reply,Other,Unverified: No Website / No LinkedIn</value>
+    </filters>
+    <filters>
+        <field>Country_Region__c</field>
+        <operation>notContain</operation>
+        <value>APJ,LATAM</value>
+    </filters>
+    <filters>
+        <field>Owner_Role__c</field>
+        <operation>equals</operation>
+        <value>MIR</value>
+    </filters>
+    <filters>
+        <field>fr_Last_Pro_Visit_Date__c</field>
+        <operation>greaterOrEqual</operation>
+        <value>7/1/2025 12:00 AM</value>
+    </filters>
+    <label>Move Unqualified from MIR to VGR</label>
+</ListView>

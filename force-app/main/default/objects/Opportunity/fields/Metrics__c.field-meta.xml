@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Metrics__c</fullName>
+    <description>MIS-2043</description>
+    <externalId>false</externalId>
+    <inlineHelpText>What are the metrics that will prove the value of our solution?</inlineHelpText>
+    <label>Metrics</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>TextArea</type>
+</CustomField>

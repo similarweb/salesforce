@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Priority_Score__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF((Due_Date__c +1 ) - TODAY()&lt;=0,10, 
+
+(1/( (Due_Date__c +1 ) - TODAY())) 
+* IF( CONTAINS(TEXT(Priority__c) , &quot;P0&quot;),9,IF(CONTAINS(TEXT(Priority__c) , &quot;P1&quot;),8,IF(CONTAINS(TEXT(Priority__c) , &quot;P2&quot;),7,6))))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Returns a number describing the urgency of the request. The higher the number the more urgent is the request. 
+Range 0-10. Normal score is between 0 and 5. 
+10 = on/past due date. 
+This score is dynamic and will update every day as Due Date draws close</inlineHelpText>
+    <label>Priority Score</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>4</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

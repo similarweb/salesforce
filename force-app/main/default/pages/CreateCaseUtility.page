@@ -1,0 +1,40 @@
+<apex:page standardController="Case" showHeader="false" sidebar="false">
+    <script>
+        window.onload = function() {
+            // Retrieve the current user's profile ID using the $Profile global variable
+            const userProfileId = "{!$Profile.Id}";
+
+            // Define authorized profile IDs
+            const authorizedProfiles = [
+                "00e0O000001BCymQAG", // SW SalesOps Extended
+                "00e67000000iJBMAA2", // SW Marketing Ops
+                "00eb0000000dZwsAAE", // SW SalesOps
+                "00e67000001AOG3AAO", // SW Marketing Analytics
+                "00eb0000000oBvcAAE",  // System Administrator
+                "00eb0000000dZk3AAE" // SW Billing
+                
+            ];
+
+            // Check if the user's profile ID is in the list of authorized profiles
+            if (authorizedProfiles.includes(userProfileId)) {
+                // Record Type ID for the new Case record
+                const recordTypeId = '012QB000003eJF7YAM'; 
+
+                // Check if sforce.one is available (indicating Lightning Experience or Salesforce1)
+                if (typeof sforce !== 'undefined' && sforce.one) {
+                    // Trigger the Quick Action modal to create a new Case record
+                    sforce.one.createRecord("Case", recordTypeId);
+                } else {
+                    // Fallback for environments where sforce.one is not available
+                    // Redirect to the standard Case creation page with the specified Record Type
+                    window.location.href = '/500/e?RecordType=' + recordTypeId;
+                }
+            } else {
+                // Display an unauthorized access message
+                alert("Access Denied: Please contact SalesOps to assist if you have any issue.");
+
+            }
+        };
+    </script>
+    <div>Loading...</div>
+</apex:page>

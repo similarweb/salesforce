@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Please_fill_in_all_applicable_Products</fullName>
+    <active>true</active>
+    <description>MIS-6306
+MIS-4011
+MIS-2073</description>
+    <errorConditionFormula>AND(
+  OR(
+    ISCHANGED(StageName),
+    ISNEW()
+  ),
+  Probability &gt;= 0.25,
+  RecordType.DeveloperName &lt;&gt; &apos;Partnership&apos;,
+  NOT(ISPICKVAL(Type, &apos;Upsell&apos;)),
+  NOT(ISPICKVAL(Type, &apos;Feature Update&apos;)),
+  NOT(ISPICKVAL(Type, &apos;Monthly Cancellation&apos;)),
+!(Count_Tracking_Products__c &gt;0 ),
+$Profile.Name != &quot;Integration User No DF&quot;,
+$Profile.Name != &quot;SW SalesOps Extended&quot;,
+$Profile.Name != &quot;SW SalesOps&quot;,
+$Profile.Name != &quot;System Administrator1&quot;,
+RecordType.DeveloperName &lt;&gt; &quot;Wolves&quot;,
+RecordType.DeveloperName &lt;&gt; &quot;Rank_Ranger&quot;
+)</errorConditionFormula>
+    <errorMessage>You must add at least one product to the opportunity. To do that, click on the &apos;Product Tracking&apos; button on the top left.</errorMessage>
+</ValidationRule>

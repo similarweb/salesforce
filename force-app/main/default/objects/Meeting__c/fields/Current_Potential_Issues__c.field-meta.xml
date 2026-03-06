@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Current_Potential_Issues__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Please describe any current or potential issues this customer is having with Similarweb products.</inlineHelpText>
+    <label>Current/Potential Issues</label>
+    <length>2000</length>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>3</visibleLines>
+</CustomField>

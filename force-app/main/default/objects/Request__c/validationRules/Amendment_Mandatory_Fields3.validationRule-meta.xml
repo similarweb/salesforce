@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Amendment_Mandatory_Fields3</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+ISNEW(),
+ISPICKVAL(Effect_Date_of_New_Features__c, &apos;Other&apos;),
+ISBLANK(Other_Effect_Date_of_New_Features__c )
+)</errorConditionFormula>
+    <errorDisplayField>Other_Effect_Date_of_New_Features__c</errorDisplayField>
+    <errorMessage>Please populate this field</errorMessage>
+</ValidationRule>

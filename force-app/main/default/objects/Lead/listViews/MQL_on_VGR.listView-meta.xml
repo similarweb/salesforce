@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MQL_on_VGR</fullName>
+    <booleanFilter>1 AND 2 AND 3 AND 4 AND 5 AND 6 AND 7 AND (8 OR 9)</booleanFilter>
+    <columns>Previous_Owner__c</columns>
+    <columns>Lead_Owner_formula__c</columns>
+    <columns>Last_Owner_Assigned_Date__c</columns>
+    <columns>mql_status__c</columns>
+    <columns>SW_Fit_Score__c</columns>
+    <columns>Last_Activity_Date_by_MIR__c</columns>
+    <columns>Last_Activity_Date_by_Rep__c</columns>
+    <columns>LEAD.COUNTRY_CODE</columns>
+    <columns>MIR_Status__c</columns>
+    <columns>LEAD.FIRST_NAME</columns>
+    <columns>LinkedIn_Profile__c</columns>
+    <columns>LEAD.EMAIL</columns>
+    <columns>LEAD.COMPANY</columns>
+    <columns>LEAD.CREATED_DATE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>MIR_Status__c</field>
+        <operation>equals</operation>
+        <value>,In Progress / Touched,New,Prioritized</value>
+    </filters>
+    <filters>
+        <field>LEAD.CONVERTED</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>LEAD.EMAIL_OPT_OUT</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>First_MQL_Date__c</field>
+        <operation>equals</operation>
+        <value>THIS_MONTH</value>
+    </filters>
+    <filters>
+        <field>SW_Fit_Score__c</field>
+        <operation>equals</operation>
+        <value>A,B,C,D,E</value>
+    </filters>
+    <filters>
+        <field>Owner_Role__c</field>
+        <operation>equals</operation>
+        <value>VGR</value>
+    </filters>
+    <filters>
+        <field>mql_status__c</field>
+        <operation>contains</operation>
+        <value>Hard,Soft</value>
+    </filters>
+    <filters>
+        <field>Email_address_domain_type__c</field>
+        <operation>equals</operation>
+        <value>Company,Company - Secondary</value>
+    </filters>
+    <filters>
+        <field>LinkedIn_Profile__c</field>
+        <operation>notEqual</operation>
+    </filters>
+    <label>MQL on VGR</label>
+</ListView>

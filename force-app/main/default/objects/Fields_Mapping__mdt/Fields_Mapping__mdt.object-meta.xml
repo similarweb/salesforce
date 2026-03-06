@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>This CMT is used to map fields between objects or between systems so in case we&apos;ll need to add or remove mapping of fields in processes, we&apos;ll be able to do it from the CMT and we won&apos;t need to change anything in the code.</description>
+    <label>Fields Mapping</label>
+    <pluralLabel>Fields Mappings</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>List</customSettingsType>
+    <description>Maps between quote record type name to the template we need to use for it (&apos;Quote Template&apos;s &apos;Quote_Type&apos;)</description>
+    <enableFeeds>false</enableFeeds>
+    <label>Quote Record Type Template Map</label>
+    <visibility>Protected</visibility>
+</CustomObject>

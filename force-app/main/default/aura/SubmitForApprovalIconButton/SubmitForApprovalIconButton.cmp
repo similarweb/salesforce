@@ -1,0 +1,71 @@
+<aura:component controller="SubmitForAppovalComponentController">
+    <aura:attribute name="recordId" type="String" /> 
+    <aura:attribute name="isLoading" type="Boolean" default="false"/>
+    <aura:attribute name="label" type="String" default="Submit for Approval"/>
+    <aura:attribute name="isModalOpen" type="Boolean" default="false"/>
+    <aura:attribute name="isASModal" type="Boolean" default="false"/>
+    <aura:attribute name="isApprovalFlow" type="Boolean" default="true"/>
+    <aura:attribute name="modalWindowData" type="Object"/>
+    <aura:attribute name="isDisabled" type="Boolean" default="false"/>
+    <aura:attribute name="isPending" type="Boolean" default="false"/>
+    <aura:attribute name="isPassed" type="Boolean" default="false"/>
+    <aura:attribute name="isRejected" type="Boolean" default="false"/>
+    <aura:attribute name="approvalRequestComment" type="String"/>
+    <aura:attribute name="targetTotal" type="String" />
+    <aura:attribute name="renewalFee" type="String" />
+
+    <aura:handler name="asEvent" event="c:ASProductEvent" action="{!c.handleASProductEvent}"/>
+
+    <button disabled="{!v.isDisabled}" 
+            class="{! 'slds-button slds-button_brand ff ' + if(and(v.isDisabled,v.isPending),'pendingButton',if(and(v.isDisabled,v.isPassed),'passedButton',if(v.isDisabled,'disabledButton',if(v.isRejected,'rejectedButton','enabledButton'))))}"
+            onclick="{!c.onButtonClick}">
+        {!v.label}
+    </button>
+    
+    <aura:if isTrue="{!v.isModalOpen}">
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <header class="slds-modal__header">
+                    <lightning:button class="slds-modal__close" onclick="{!c.onCancelClick}" variant="bare">
+                        <lightning:icon variant="inverse" iconName="utility:close" alternativeText="Close" size="small" />
+                    </lightning:button>
+                    <h2 id="modal-heading-01" class="slds-modal__title slds-hyphenate">{!v.modalWindowData.title}</h2>            
+                </header>
+                <div class="slds-modal__content slds-p-around_medium slds-is-relative" id="modal-content-id-1">
+                    
+                    <aura:if isTrue="{!v.isLoading}">  
+                        <div style="height: 100px;"> 
+                            <lightning:spinner variant="brand" alternativeText="Loading" size="large" />
+                        </div>
+                        <aura:set attribute="else">
+                            <aura:if isTrue="{!v.modalWindowData.isComment}">
+                                <lightning:textarea value="{!v.approvalRequestComment}" name="input" label="Approval request comment" placeholder="Enter comment for approval request..."/>
+                                <aura:set attribute="else">
+                                    <aura:unescapedHtml value="{!v.modalWindowData.message}"/>
+                                </aura:set>
+                            </aura:if>
+                        </aura:set>
+                    </aura:if>
+                </div>
+                <footer class="slds-modal__footer">
+                    <aura:if isTrue="{!and(v.modalWindowData.isComment,not(v.isLoading))}">
+                        <button onclick="{!c.onCancelClick}" disabled="{!v.isLoading}" class="slds-button slds-button_neutral">Cancel</button>
+                        <button onclick="{!c.onSaveClick}" disabled="{!v.isLoading}" class="slds-button slds-button_brand">Save</button>
+                        <aura:set attribute="else">
+                            <button onclick="{!c.onCancelClick}" disabled="{!v.isLoading}" class="slds-button slds-button_brand">Close</button>
+                        </aura:set>
+                    </aura:if>
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </aura:if>
+
+    <c:ASProductModal
+        isOpenModal="{!v.isASModal}"
+        recordId="{!v.recordId}"
+        isApprovalFlow="{!v.isApprovalFlow}"
+        targetPriceValue="{!v.targetTotal}"
+        renewalFeeValue="{!v.renewalFee}"
+    />
+</aura:component>

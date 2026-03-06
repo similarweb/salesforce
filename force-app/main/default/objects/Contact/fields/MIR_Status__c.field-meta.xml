@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MIR_Status__c</fullName>
+    <description>#1100018 Updated by MIR</description>
+    <externalId>false</externalId>
+    <label>MIR Status:</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Fake Data</fullName>
+                <default>false</default>
+                <label>Fake Data</label>
+            </value>
+            <value>
+                <fullName>Free Tools Sufficient / One-Time Use</fullName>
+                <default>false</default>
+                <label>Free Tools Sufficient / One-Time Use</label>
+            </value>
+            <value>
+                <fullName>In Progress / Touched</fullName>
+                <default>false</default>
+                <label>In Progress / Touched</label>
+            </value>
+            <value>
+                <fullName>Low Traffic</fullName>
+                <default>false</default>
+                <label>Low Traffic</label>
+            </value>
+            <value>
+                <fullName>New</fullName>
+                <default>true</default>
+                <label>New</label>
+            </value>
+            <value>
+                <fullName>No Budget</fullName>
+                <default>false</default>
+                <label>No Budget</label>
+            </value>
+            <value>
+                <fullName>Not a Good Fit: Use Case / Persona / Industry</fullName>
+                <default>false</default>
+                <label>Not a Good Fit: Use Case / Persona / Industry</label>
+            </value>
+            <value>
+                <fullName>Not Ready / Bad Timing / No Interest</fullName>
+                <default>false</default>
+                <label>Not Ready / Bad Timing / No Interest</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Prioritized</fullName>
+                <default>false</default>
+                <label>Prioritized</label>
+            </value>
+            <value>
+                <fullName>Unreachable / No Reply</fullName>
+                <default>false</default>
+                <label>Unreachable / No Reply</label>
+            </value>
+            <value>
+                <fullName>Unsubscribed</fullName>
+                <default>false</default>
+                <label>Unsubscribed</label>
+            </value>
+            <value>
+                <fullName>Unverified: No Website / No LinkedIn</fullName>
+                <default>false</default>
+                <label>Unverified: No Website / No LinkedIn</label>
+            </value>
+            <value>
+                <fullName>Unsupported language speakers</fullName>
+                <default>false</default>
+                <label>Unsupported language speakers</label>
+            </value>
+            <value>
+                <fullName>Not for No Touch</fullName>
+                <default>false</default>
+                <label>Not for No Touch</label>
+            </value>
+            <value>
+                <fullName>Agent Replied - Follow Up</fullName>
+                <default>false</default>
+                <label>Agent Replied - Follow Up</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

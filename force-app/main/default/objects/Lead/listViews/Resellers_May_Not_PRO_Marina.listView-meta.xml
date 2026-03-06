@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Resellers_May_Not_PRO_Marina</fullName>
+    <columns>LEAD.COUNTRY</columns>
+    <columns>SW_Industry__c</columns>
+    <columns>LEAD.LEAD_SOURCE</columns>
+    <columns>FULL_NAME</columns>
+    <columns>LEAD.EMAIL</columns>
+    <columns>LEAD.COMPANY</columns>
+    <columns>LEAD.STATUS</columns>
+    <columns>LEAD.UNREAD</columns>
+    <columns>LEAD.CREATED_DATE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Owner_Division__c</field>
+        <operation>contains</operation>
+        <value>MIR</value>
+    </filters>
+    <filters>
+        <field>LEAD.COUNTRY</field>
+        <operation>equals</operation>
+        <value>India,Italy,Australia,New Zealand</value>
+    </filters>
+    <filters>
+        <field>LEAD.CREATED_DATE</field>
+        <operation>greaterOrEqual</operation>
+        <value>5/1/2022 12:00 AM</value>
+    </filters>
+    <filters>
+        <field>LEAD.CREATED_DATE</field>
+        <operation>lessOrEqual</operation>
+        <value>5/16/2022 12:00 AM</value>
+    </filters>
+    <filters>
+        <field>Employees_Min__c</field>
+        <operation>greaterOrEqual</operation>
+        <value>10</value>
+    </filters>
+    <filters>
+        <field>CORE.USERS.ALIAS</field>
+        <operation>equals</operation>
+        <value>mremi</value>
+    </filters>
+    <filters>
+        <field>LEAD.STATUS</field>
+        <operation>notEqual</operation>
+        <value>Replied,Unqualified,Sales Contacted</value>
+    </filters>
+    <filters>
+        <field>SW_Industry__c</field>
+        <operation>notEqual</operation>
+        <value>AdTech and AdNetwork,Ad Tech / Ad Network,B2B Software,Financial services,Logistics and Shipping,Payments,Government Public Sector &amp; Non Profit,&quot;Public Sector, Non Profit, Fraud and Compliance&quot;</value>
+    </filters>
+    <filters>
+        <field>LEAD.LEAD_SOURCE</field>
+        <operation>notEqual</operation>
+        <value>Pro</value>
+    </filters>
+    <label>Resellers May Not PRO Marina</label>
+</ListView>

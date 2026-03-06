@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Proposal_Uploaded__c</fullName>
+    <description>MIS-3019 - rollup to see if a proposal was added to the record under the opp</description>
+    <externalId>false</externalId>
+    <label>Proposal Uploaded</label>
+    <summaryFilterItems>
+        <field>Proposal__c.Proposal_added__c</field>
+        <operation>equals</operation>
+        <value>True</value>
+    </summaryFilterItems>
+    <summaryForeignKey>Proposal__c.Opportunity__c</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <type>Summary</type>
+</CustomField>

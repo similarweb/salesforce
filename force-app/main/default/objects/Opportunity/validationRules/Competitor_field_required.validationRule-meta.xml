@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Competitor_field_required</fullName>
+    <active>true</active>
+    <errorConditionFormula>ISPICKVAL (StageName , &quot;Closed Won&quot;)
+&amp;&amp; TEXT(Type) != &quot;Upsell&quot; 
+&amp;&amp;IsPickVal( Competition__c ,&quot;&quot;)
+&amp;&amp; $Profile.Name !=&quot;System Administrator&quot;
+&amp;&amp; $Profile.Name != &quot;Integration User - API Only&quot;
+&amp;&amp; $Profile.Name != &quot;Integration User&quot; &amp;&amp;
+$Profile.Name !=&quot;SW Billing&quot; &amp;&amp;
+$Profile.Name !=&quot;SW Billing Extended&quot; 
+&amp;&amp; !$User.Financial_Invoice_Management__c
+&amp;&amp; $Profile.Name != &quot;SW SalesOps&quot;
+&amp;&amp; $Profile.Name != &quot;SW SalesOps Extended&quot; 
+&amp;&amp; NOT(ISCHANGED( Open_Activity_Count__c ) )
+&amp;&amp; RecordType.DeveloperName&lt;&gt;&quot;Wolves&quot;
+&amp;&amp; RecordType.DeveloperName&lt;&gt;&quot;Rank_Ranger&quot;
+&amp;&amp; RecordType.DeveloperName&lt;&gt;&quot;Acquired_Company&quot;
+&amp;&amp;		 MEDPIC_Next_Stage__c = false
+
+
+&amp;&amp; Not ( ISCHANGED( Quote_Status__c ))
+&amp;&amp; Not ( ISCHANGED(  Base_product__c  ))
+&amp;&amp; Not ( ISCHANGED(  Payment_Frequency__c  ))</errorConditionFormula>
+    <errorDisplayField>Competition__c</errorDisplayField>
+    <errorMessage>Please provide information about competitors.</errorMessage>
+</ValidationRule>

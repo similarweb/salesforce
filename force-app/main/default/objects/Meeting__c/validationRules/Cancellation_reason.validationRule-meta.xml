@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cancellation_reason</fullName>
+    <active>true</active>
+    <errorConditionFormula>(IsPickVal (Status__c,&quot;Cancelled&quot;) 
+|| IsPickVal (Status__c,&quot;Unqualified&quot;)) 
+  &amp;&amp; LEN (TEXT( Unqualified_Reason__c ))&lt;3 &amp;&amp; 
+NOT($Profile.Id=&apos;00eb0000000oBvcAAE&apos;)</errorConditionFormula>
+    <errorDisplayField>Unqualified_Reason__c</errorDisplayField>
+    <errorMessage>Please provide cancellation or unqualified reason.</errorMessage>
+</ValidationRule>

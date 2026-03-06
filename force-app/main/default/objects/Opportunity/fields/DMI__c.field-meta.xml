@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DMI__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Digital Marketing Intelligence - MIS - 2073</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Digital Marketing Intelligence</inlineHelpText>
+    <label>DMI</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

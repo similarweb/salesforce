@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Jared_Accounts_with_subs</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>ACCOUNT.URL</columns>
+    <columns>ACCOUNT.INDUSTRY</columns>
+    <columns>ACCOUNT.CREATED_DATE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CORE.USERS.ALIAS</field>
+        <operation>equals</operation>
+        <value>jfrie</value>
+    </filters>
+    <label>Jared Accounts with subs</label>
+</ListView>

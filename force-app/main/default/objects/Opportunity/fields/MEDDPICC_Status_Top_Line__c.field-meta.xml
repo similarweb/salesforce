@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MEDDPICC_Status_Top_Line__c</fullName>
+    <externalId>false</externalId>
+    <formula>/* Closed Won and Closed Lost override */
+IF(
+    TEXT(StageName) = &quot;Closed Won&quot;,
+    &quot;⚫ Date ⚫ Stage | 🟢 Closed Won - No Need To Qualify&quot;,
+IF(
+    TEXT(StageName) = &quot;Closed Lost&quot;,
+    &quot;⚫ Date ⚫ Stage | 🔴 Closed Lost - No Need To Qualify&quot;,
+
+/* Normal Case */
+
+/* ALL stations are WHITE → force white Date &amp; Stage */
+IF(
+    AND(
+        MEDDPICC_Champion_Status__c = &quot;⚪️&quot;,
+        MEDDPICC_Pain_Status__c = &quot;⚪️&quot;,
+        MEDDPICC_Decision_Criteria_Status__c = &quot;⚪️&quot;,
+        MEDDPICC_Decision_Process_Status__c = &quot;⚪️&quot;,
+        MEDDPICC_Economic_Buyer_Status__c = &quot;⚪️&quot;,
+        MEDDPICC_Metrics_Status__c = &quot;⚪️&quot;,
+        MEDDPICC_Paper_Process_Status__c = &quot;⚪️&quot;
+    ),
+    &quot;⚪️ Date ⚪️ Stage&quot;,
+
+/* Otherwise → existing logic */
+IF(
+    CONTAINS(medpic_Recommended_Close_Date__c, &quot;🟩&quot;),
+    &quot;🟢 Date &quot;,
+    &quot;🔴 Date &quot;
+) &amp;
+IF(
+    TEXT(medpic_Recommended_Stage__c) = TEXT(StageName),
+    &quot;🟢 Stage&quot;,
+    &quot;🔴 Stage&quot;
+)
+
+)))</formula>
+    <label>MEDDPICC Status Top Line</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

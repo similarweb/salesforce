@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Post_to_Territory_Chatter</name>
+        <label>Post to Territory Chatter</label>
+        <locationX>176</locationX>
+        <locationY>431</locationY>
+        <actionName>chatterPost</actionName>
+        <actionType>chatterPost</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>text</name>
+            <value>
+                <elementReference>Territory_Member_Deleted_Text</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>subjectNameOrId</name>
+            <value>
+                <elementReference>$Record.Territory__c</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>chatterPost</nameSegment>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </actionCalls>
+    <apiVersion>55.0</apiVersion>
+    <description>Mark Territory parent Re-evaluate checkbox to the re-evaluation batch after Deletion</description>
+    <environments>Default</environments>
+    <interviewLabel>Territory Member - Re-Evaluate (Delete) {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Territory Member - Re-Evaluate (Delete)</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Territory_Re_Evaluate_True</name>
+        <label>Territory Re-Evaluate = True</label>
+        <locationX>176</locationX>
+        <locationY>311</locationY>
+        <connector>
+            <targetReference>Post_to_Territory_Chatter</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Territory__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Re_evaluate__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Re_evaluate__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <object>Territory__c</object>
+    </recordUpdates>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Territory_Re_Evaluate_True</targetReference>
+        </connector>
+        <object>Territory_Member__c</object>
+        <recordTriggerType>Delete</recordTriggerType>
+        <triggerType>RecordBeforeDelete</triggerType>
+    </start>
+    <status>Active</status>
+    <textTemplates>
+        <name>Territory_Member_Deleted_Text</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>Territory Member: @[{!$Record.Name__c}] was removed.
+Role: {!$Record.Territory_Member_Role__c}
+
+CC: @[{!$Record.Territory__r.OwnerId}]</text>
+    </textTemplates>
+</Flow>

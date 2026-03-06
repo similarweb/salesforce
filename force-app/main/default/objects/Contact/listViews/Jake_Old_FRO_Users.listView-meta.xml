@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Jake_Old_FRO_Users</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>FULL_NAME</columns>
+    <columns>Account_Status__c</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>CONTACT.TITLE</columns>
+    <columns>Account_Owner__c</columns>
+    <columns>fr_Last_Pro_Visit_Date__c</columns>
+    <columns>Account.fr_Number_Of_Allocated_Seats__c</columns>
+    <columns>Trial_Start_Date__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>fr_Pro_User_Type__c</field>
+        <operation>notEqual</operation>
+        <value>Admin,User</value>
+    </filters>
+    <filters>
+        <field>Account.Parent_Company_Domain__c</field>
+        <operation>equals</operation>
+        <value>barclays.com,hsbc.com,santander.com,telefonica.com,vodafone.com,www.virginmediao2.co.uk,o2.co.uk,dyson.com,electroluxgroup.com,henkel.com,logitech.com,maxingvest.de,nestle.com,reckitt.com,bosch.com,unilever.com,bancosantander.com</value>
+    </filters>
+    <filters>
+        <field>fr_Last_Pro_Visit_Date__c</field>
+        <operation>lessThan</operation>
+        <value>LAST_N_DAYS:60</value>
+    </filters>
+    <filters>
+        <field>Account.Status__c</field>
+        <operation>notEqual</operation>
+        <value>Active,Part Of Another Subscription</value>
+    </filters>
+    <label>Jake Old FRO Users</label>
+</ListView>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Rejected_reason__c</fullName>
+    <externalId>false</externalId>
+    <label>Rejected reason</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Requester did not provide contract</fullName>
+                <default>false</default>
+                <label>Requester did not provide contract</label>
+            </value>
+            <value>
+                <fullName>No address on sold to and bill to contacts</fullName>
+                <default>false</default>
+                <label>No address on sold to and bill to contacts</label>
+            </value>
+            <value>
+                <fullName>Insufficient information on pricing, features or terms</fullName>
+                <default>false</default>
+                <label>Insufficient information on pricing, features or terms</label>
+            </value>
+            <value>
+                <fullName>Duplicated Request</fullName>
+                <default>false</default>
+                <label>Duplicated Request</label>
+            </value>
+            <value>
+                <fullName>Not Feasible</fullName>
+                <default>false</default>
+                <label>Not Feasible</label>
+            </value>
+            <value>
+                <fullName>Referred to Industry Consultant</fullName>
+                <default>false</default>
+                <label>Referred to Industry Consultant</label>
+            </value>
+            <value>
+                <fullName>Language not supported: French</fullName>
+                <default>false</default>
+                <label>Language not supported: French</label>
+            </value>
+            <value>
+                <fullName>Language not supported: German</fullName>
+                <default>false</default>
+                <label>Language not supported: German</label>
+            </value>
+            <value>
+                <fullName>Team bandwidth</fullName>
+                <default>false</default>
+                <label>Team bandwidth</label>
+            </value>
+            <value>
+                <fullName>Not supported by onboarding team</fullName>
+                <default>false</default>
+                <label>Not supported by onboarding team</label>
+            </value>
+            <value>
+                <fullName>Team ramp up</fullName>
+                <default>false</default>
+                <label>Team ramp up</label>
+            </value>
+            <value>
+                <fullName>Invalid request</fullName>
+                <default>false</default>
+                <label>Invalid request</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

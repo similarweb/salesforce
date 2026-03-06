@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ERIC_S_conference_contacts</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>CONTACT.TITLE</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>CONTACT.CREATED_DATE</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+        <field>Original_Lead_Source__c</field>
+        <operation>equals</operation>
+        <value>Tradeshow</value>
+    </filters>
+    <filters>
+        <field>Business_Unit__c</field>
+        <operation>equals</operation>
+        <value>Strategic</value>
+    </filters>
+    <label>ERIC&apos;S conference contacts</label>
+</ListView>

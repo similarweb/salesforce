@@ -1,0 +1,716 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Request_Type__c</fullName>
+    <externalId>false</externalId>
+    <label>Request Type</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>true</sorted>
+            <value>
+                <fullName>&quot;Bill to&quot;/&quot;Sold to&quot; Information</fullName>
+                <default>false</default>
+                <label>&quot;Bill to&quot;/&quot;Sold to&quot; Information</label>
+            </value>
+            <value>
+                <fullName>Account Configuration</fullName>
+                <default>false</default>
+                <label>Account Configuration</label>
+            </value>
+            <value>
+                <fullName>Account Maintenance/Value</fullName>
+                <default>false</default>
+                <label>Account Maintenance/Value</label>
+            </value>
+            <value>
+                <fullName>Add SOW (for Advisory Services/Managed Services/DaaS)</fullName>
+                <default>false</default>
+                <label>Add SOW (for Advisory Services/Managed Services/DaaS)</label>
+            </value>
+            <value>
+                <fullName>Ad Hoc Training</fullName>
+                <default>false</default>
+                <label>Ad Hoc Training</label>
+            </value>
+            <value>
+                <fullName>Amendment</fullName>
+                <default>false</default>
+                <label>Amendment</label>
+            </value>
+            <value>
+                <fullName>API</fullName>
+                <default>false</default>
+                <label>API</label>
+            </value>
+            <value>
+                <fullName>API Dashboard</fullName>
+                <default>false</default>
+                <label>API Dashboard</label>
+            </value>
+            <value>
+                <fullName>API Integration</fullName>
+                <default>false</default>
+                <label>API Integration</label>
+            </value>
+            <value>
+                <fullName>Apps Android - Accuracy</fullName>
+                <default>false</default>
+                <label>Apps Android - Accuracy</label>
+            </value>
+            <value>
+                <fullName>Apps Android - Coverage</fullName>
+                <default>false</default>
+                <label>Apps Android - Coverage</label>
+            </value>
+            <value>
+                <fullName>Apps IOS - Accuracy</fullName>
+                <default>false</default>
+                <label>Apps IOS - Accuracy</label>
+            </value>
+            <value>
+                <fullName>Apps IOS - Coverage</fullName>
+                <default>false</default>
+                <label>Apps IOS - Coverage</label>
+            </value>
+            <value>
+                <fullName>Growth</fullName>
+                <default>false</default>
+                <label>Basic Onboarding Package</label>
+            </value>
+            <value>
+                <fullName>Best Practice Webinar</fullName>
+                <default>false</default>
+                <label>Best Practice Webinar</label>
+            </value>
+            <value>
+                <fullName>Account Update request</fullName>
+                <default>false</default>
+                <label>Billing Account Update Request</label>
+            </value>
+            <value>
+                <fullName>Campaign Feature Upsell</fullName>
+                <default>false</default>
+                <label>Campaign Feature Upsell</label>
+            </value>
+            <value>
+                <fullName>Campaign Trial</fullName>
+                <default>false</default>
+                <label>Campaign Trial</label>
+            </value>
+            <value>
+                <fullName>Change Start/End Date</fullName>
+                <default>false</default>
+                <label>Change Start/End Date</label>
+            </value>
+            <value>
+                <fullName>Churn Prevention</fullName>
+                <default>false</default>
+                <label>Churn Prevention</label>
+            </value>
+            <value>
+                <fullName>Client Breach</fullName>
+                <default>false</default>
+                <label>Client Breach</label>
+            </value>
+            <value>
+                <fullName>Client Call (Not specific to a project)</fullName>
+                <default>false</default>
+                <label>Client Call (Not specific to a project)</label>
+            </value>
+            <value>
+                <fullName>Client Red Lines</fullName>
+                <default>false</default>
+                <label>Client Red Lines</label>
+            </value>
+            <value>
+                <fullName>Code of Conduct</fullName>
+                <default>false</default>
+                <label>Code of Conduct</label>
+            </value>
+            <value>
+                <fullName>Conditional Trial</fullName>
+                <default>false</default>
+                <label>Conditional Trial</label>
+            </value>
+            <value>
+                <fullName>Configuration</fullName>
+                <default>false</default>
+                <label>Configuration</label>
+            </value>
+            <value>
+                <fullName>Consulting</fullName>
+                <default>false</default>
+                <label>Consulting</label>
+            </value>
+            <value>
+                <fullName>Contact Data</fullName>
+                <default>false</default>
+                <label>Contact Data</label>
+            </value>
+            <value>
+                <fullName>Contract Review request</fullName>
+                <default>false</default>
+                <label>Contract Review Request</label>
+            </value>
+            <value>
+                <fullName>Customer Success Plan</fullName>
+                <default>false</default>
+                <label>Customer Success Plan</label>
+            </value>
+            <value>
+                <fullName>Custom Excel/API</fullName>
+                <default>false</default>
+                <label>Custom Excel/API</label>
+            </value>
+            <value>
+                <fullName>Data Delivery Package</fullName>
+                <default>false</default>
+                <label>Data Delivery Package</label>
+            </value>
+            <value>
+                <fullName>Data feed</fullName>
+                <default>false</default>
+                <label>Data feed</label>
+            </value>
+            <value>
+                <fullName>Data Privacy/Compliance</fullName>
+                <default>false</default>
+                <label>Data Privacy/Compliance</label>
+            </value>
+            <value>
+                <fullName>Data Privacy/Compliance  &amp; Information Security</fullName>
+                <default>false</default>
+                <label>Data Privacy/Compliance  &amp; Information Security</label>
+            </value>
+            <value>
+                <fullName>Datasets</fullName>
+                <default>false</default>
+                <label>Datasets</label>
+            </value>
+            <value>
+                <fullName>Data Trials (investors)</fullName>
+                <default>false</default>
+                <label>Data Trials (investors)</label>
+            </value>
+            <value>
+                <fullName>End User Undertaking</fullName>
+                <default>false</default>
+                <label>End User Undertaking</label>
+            </value>
+            <value>
+                <fullName>Enrichment</fullName>
+                <default>false</default>
+                <label>Enrichment</label>
+            </value>
+            <value>
+                <fullName>Exporter</fullName>
+                <default>false</default>
+                <label>Exporter</label>
+            </value>
+            <value>
+                <fullName>Extension Language</fullName>
+                <default>false</default>
+                <label>Extension Language</label>
+            </value>
+            <value>
+                <fullName>Extensions request</fullName>
+                <default>false</default>
+                <label>Extensions Request</label>
+            </value>
+            <value>
+                <fullName>General Question(s)</fullName>
+                <default>false</default>
+                <label>General Question(s)</label>
+            </value>
+            <value>
+                <fullName>Gold Service Package</fullName>
+                <default>false</default>
+                <label>Gold Service Package</label>
+            </value>
+            <value>
+                <fullName>Information Security</fullName>
+                <default>false</default>
+                <label>Information Security</label>
+            </value>
+            <value>
+                <fullName>Integration</fullName>
+                <default>false</default>
+                <label>Integration</label>
+            </value>
+            <value>
+                <fullName>Integrations Package</fullName>
+                <default>false</default>
+                <label>Integrations Package</label>
+            </value>
+            <value>
+                <fullName>Legal Claim/Dispute</fullName>
+                <default>false</default>
+                <label>Legal Claim/Dispute</label>
+            </value>
+            <value>
+                <fullName>Legal Services</fullName>
+                <default>false</default>
+                <label>Legal Services</label>
+            </value>
+            <value>
+                <fullName>SLG</fullName>
+                <default>false</default>
+                <label>Lifecycle Engagement</label>
+            </value>
+            <value>
+                <fullName>Marketing Channels - Direct</fullName>
+                <default>false</default>
+                <label>Marketing Channels - Direct</label>
+            </value>
+            <value>
+                <fullName>Marketing Channels - Display</fullName>
+                <default>false</default>
+                <label>Marketing Channels - Display</label>
+            </value>
+            <value>
+                <fullName>Marketing Channels - Email</fullName>
+                <default>false</default>
+                <label>Marketing Channels - Email</label>
+            </value>
+            <value>
+                <fullName>Marketing Channels - Organic</fullName>
+                <default>false</default>
+                <label>Marketing Channels - Organic</label>
+            </value>
+            <value>
+                <fullName>Marketing Channels - Paid Search</fullName>
+                <default>false</default>
+                <label>Marketing Channels - Paid Search</label>
+            </value>
+            <value>
+                <fullName>Marketing Channels - Rank tracker</fullName>
+                <default>false</default>
+                <label>Marketing Channels - Rank tracker</label>
+            </value>
+            <value>
+                <fullName>Marketing Channels - Referrals</fullName>
+                <default>false</default>
+                <label>Marketing Channels - Referrals</label>
+            </value>
+            <value>
+                <fullName>MCP</fullName>
+                <default>false</default>
+                <label>MCP</label>
+            </value>
+            <value>
+                <fullName>Missing App</fullName>
+                <default>false</default>
+                <label>Missing App</label>
+            </value>
+            <value>
+                <fullName>MSA</fullName>
+                <default>false</default>
+                <label>MSA</label>
+            </value>
+            <value>
+                <fullName>Multi Subscription</fullName>
+                <default>false</default>
+                <label>Multi Subscription</label>
+            </value>
+            <value>
+                <fullName>Name Change/Assignment/Payor</fullName>
+                <default>false</default>
+                <label>Name Change/Assignment/Payor</label>
+            </value>
+            <value>
+                <fullName>NB campaign trial</fullName>
+                <default>false</default>
+                <label>NB campaign trial</label>
+            </value>
+            <value>
+                <fullName>NB trial</fullName>
+                <default>false</default>
+                <label>NB trial</label>
+            </value>
+            <value>
+                <fullName>NDA</fullName>
+                <default>false</default>
+                <label>NDA</label>
+            </value>
+            <value>
+                <fullName>Not relevant</fullName>
+                <default>false</default>
+                <label>Not relevant</label>
+            </value>
+            <value>
+                <fullName>NT Data Credits</fullName>
+                <default>false</default>
+                <label>NT Data Credits</label>
+            </value>
+            <value>
+                <fullName>Onboarding</fullName>
+                <default>false</default>
+                <label>Onboarding</label>
+            </value>
+            <value>
+                <fullName>One-Time Fee</fullName>
+                <default>false</default>
+                <label>One-Time Fee</label>
+            </value>
+            <value>
+                <fullName>Order Form/License Agreement</fullName>
+                <default>false</default>
+                <label>Order Form/License Agreement</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Other Billing Request</fullName>
+                <default>false</default>
+                <label>Other Billing Request</label>
+            </value>
+            <value>
+                <fullName>Payment Terms</fullName>
+                <default>false</default>
+                <label>Payment Terms</label>
+            </value>
+            <value>
+                <fullName>Platform</fullName>
+                <default>false</default>
+                <label>Platform</label>
+            </value>
+            <value>
+                <fullName>Platinum Service Package</fullName>
+                <default>false</default>
+                <label>Platinum Service Package</label>
+            </value>
+            <value>
+                <fullName>Premier Onboarding</fullName>
+                <default>false</default>
+                <label>Premier Onboarding</label>
+            </value>
+            <value>
+                <fullName>Premier Plus Onboarding</fullName>
+                <default>false</default>
+                <label>Premier Plus Onboarding</label>
+            </value>
+            <value>
+                <fullName>Premium</fullName>
+                <default>false</default>
+                <label>Premium Onboarding Package</label>
+            </value>
+            <value>
+                <fullName>Premium Trial</fullName>
+                <default>false</default>
+                <label>Premium Trial</label>
+            </value>
+            <value>
+                <fullName>Product Consultant</fullName>
+                <default>false</default>
+                <label>Pre Sale</label>
+            </value>
+            <value>
+                <fullName>Product Functionality Issues request</fullName>
+                <default>false</default>
+                <label>Product Functionality Issues Request</label>
+            </value>
+            <value>
+                <fullName>Renewal</fullName>
+                <default>false</default>
+                <label>Renewal</label>
+            </value>
+            <value>
+                <fullName>Report Delivery</fullName>
+                <default>false</default>
+                <label>Report Delivery</label>
+            </value>
+            <value>
+                <fullName>Research Reports</fullName>
+                <default>false</default>
+                <label>Research Reports</label>
+            </value>
+            <value>
+                <fullName>Invoice request</fullName>
+                <default>false</default>
+                <label>Resend Invoice Request</label>
+            </value>
+            <value>
+                <fullName>RFP</fullName>
+                <default>false</default>
+                <label>RFP</label>
+            </value>
+            <value>
+                <fullName>SDK - Add New</fullName>
+                <default>false</default>
+                <label>SDK - Add New</label>
+            </value>
+            <value>
+                <fullName>SDK - Update Existing SDK</fullName>
+                <default>false</default>
+                <label>SDK - Update Existing SDK</label>
+            </value>
+            <value>
+                <fullName>Search Intelligence API</fullName>
+                <default>false</default>
+                <label>Search Intelligence API</label>
+            </value>
+            <value>
+                <fullName>Search Intelligence Demo</fullName>
+                <default>false</default>
+                <label>Search Intelligence Demo</label>
+            </value>
+            <value>
+                <fullName>Search Intelligence General Consulting</fullName>
+                <default>false</default>
+                <label>Search Intelligence General Consulting</label>
+            </value>
+            <value>
+                <fullName>Search Intelligence Onboarding</fullName>
+                <default>false</default>
+                <label>Search Intelligence Onboarding</label>
+            </value>
+            <value>
+                <fullName>Search Intelligence RFP/ RFI/ Pricing</fullName>
+                <default>false</default>
+                <label>Search Intelligence RFP/ RFI/ Pricing</label>
+            </value>
+            <value>
+                <fullName>Search Intelligence Training</fullName>
+                <default>false</default>
+                <label>Search Intelligence Training</label>
+            </value>
+            <value>
+                <fullName>Search Intelligence Trial</fullName>
+                <default>false</default>
+                <label>Search Intelligence Trial</label>
+            </value>
+            <value>
+                <fullName>Segments - Accuracy</fullName>
+                <default>false</default>
+                <label>Segments - Accuracy</label>
+            </value>
+            <value>
+                <fullName>SEO/GEO Services</fullName>
+                <default>false</default>
+                <label>SEO/GEO Services</label>
+            </value>
+            <value>
+                <fullName>SHI / Amazon General Consulting</fullName>
+                <default>false</default>
+                <label>SHI / Amazon General Consulting</label>
+            </value>
+            <value>
+                <fullName>SHI API</fullName>
+                <default>false</default>
+                <label>SHI API</label>
+            </value>
+            <value>
+                <fullName>SHI Bespoke Analytics</fullName>
+                <default>false</default>
+                <label>SHI Bespoke Analytics</label>
+            </value>
+            <value>
+                <fullName>SHI Demo</fullName>
+                <default>false</default>
+                <label>SHI Demo</label>
+            </value>
+            <value>
+                <fullName>SHI MBA</fullName>
+                <default>false</default>
+                <label>SHI MBA</label>
+            </value>
+            <value>
+                <fullName>SHI Onboarding</fullName>
+                <default>false</default>
+                <label>SHI Onboarding</label>
+            </value>
+            <value>
+                <fullName>SHI Renewal</fullName>
+                <default>false</default>
+                <label>SHI Renewal</label>
+            </value>
+            <value>
+                <fullName>SHI RFP / RFI / Pricing</fullName>
+                <default>false</default>
+                <label>SHI RFP / RFI / Pricing</label>
+            </value>
+            <value>
+                <fullName>SHI Training</fullName>
+                <default>false</default>
+                <label>SHI Training</label>
+            </value>
+            <value>
+                <fullName>SHi Trial</fullName>
+                <default>false</default>
+                <label>SHi Trial</label>
+            </value>
+            <value>
+                <fullName>SI - Contacts</fullName>
+                <default>false</default>
+                <label>SI - Contacts</label>
+            </value>
+            <value>
+                <fullName>SI Customer Usage Data (WEBI)</fullName>
+                <default>false</default>
+                <label>SI Customer Usage Data (WEBI)</label>
+            </value>
+            <value>
+                <fullName>SI Demo</fullName>
+                <default>false</default>
+                <label>SI Demo</label>
+            </value>
+            <value>
+                <fullName>SI - Firmographics</fullName>
+                <default>false</default>
+                <label>SI - Firmographics</label>
+            </value>
+            <value>
+                <fullName>SI General Consulting</fullName>
+                <default>false</default>
+                <label>SI General Consulting</label>
+            </value>
+            <value>
+                <fullName>Signature Onboarding</fullName>
+                <default>false</default>
+                <label>Signature Onboarding</label>
+            </value>
+            <value>
+                <fullName>SI Integrations / API</fullName>
+                <default>false</default>
+                <label>SI Integrations / API</label>
+            </value>
+            <value>
+                <fullName>SI Onboarding</fullName>
+                <default>false</default>
+                <label>SI Onboarding</label>
+            </value>
+            <value>
+                <fullName>SI - Other Data</fullName>
+                <default>false</default>
+                <label>SI - Other Data</label>
+            </value>
+            <value>
+                <fullName>SI Product expert</fullName>
+                <default>false</default>
+                <label>SI Product expert</label>
+            </value>
+            <value>
+                <fullName>SI RFI/RFP</fullName>
+                <default>false</default>
+                <label>SI RFI/RFP</label>
+            </value>
+            <value>
+                <fullName>SI Support</fullName>
+                <default>false</default>
+                <label>SIS</label>
+            </value>
+            <value>
+                <fullName>SI - Technographics</fullName>
+                <default>false</default>
+                <label>SI - Technographics</label>
+            </value>
+            <value>
+                <fullName>SI Training</fullName>
+                <default>false</default>
+                <label>SI Training</label>
+            </value>
+            <value>
+                <fullName>SI Trial</fullName>
+                <default>false</default>
+                <label>SI Trial</label>
+            </value>
+            <value>
+                <fullName>SOW</fullName>
+                <default>false</default>
+                <label>SOW</label>
+            </value>
+            <value>
+                <fullName>Standard</fullName>
+                <default>false</default>
+                <label>Standard Onboarding Package</label>
+            </value>
+            <value>
+                <fullName>Stock Feeds</fullName>
+                <default>false</default>
+                <label>Stock Feeds</label>
+            </value>
+            <value>
+                <fullName>Stock Intelligence</fullName>
+                <default>false</default>
+                <label>Stock Intelligence</label>
+            </value>
+            <value>
+                <fullName>Strategic Consultant</fullName>
+                <default>false</default>
+                <label>Strategic Consultant</label>
+            </value>
+            <value>
+                <fullName>Target Feature Upsell</fullName>
+                <default>false</default>
+                <label>Target Feature Upsell</label>
+            </value>
+            <value>
+                <fullName>API question</fullName>
+                <default>false</default>
+                <label>Technical Question</label>
+            </value>
+            <value>
+                <fullName>Ticker Mapping</fullName>
+                <default>false</default>
+                <label>Ticker Mapping</label>
+            </value>
+            <value>
+                <fullName>Top Up</fullName>
+                <default>false</default>
+                <label>Top Up</label>
+            </value>
+            <value>
+                <fullName>Traffic &amp; Engagement - Accuracy</fullName>
+                <default>false</default>
+                <label>Traffic &amp; Engagement - Accuracy</label>
+            </value>
+            <value>
+                <fullName>Traffic &amp; Engagement - Coverage</fullName>
+                <default>false</default>
+                <label>Traffic &amp; Engagement - Coverage</label>
+            </value>
+            <value>
+                <fullName>Train-the-Trainer</fullName>
+                <default>false</default>
+                <label>Train-the-Trainer</label>
+            </value>
+            <value>
+                <fullName>Trial</fullName>
+                <default>false</default>
+                <label>Trial</label>
+            </value>
+            <value>
+                <fullName>Custom Dashboard Package</fullName>
+                <default>false</default>
+                <label>TSA custom dashboard</label>
+            </value>
+            <value>
+                <fullName>Up-sell</fullName>
+                <default>false</default>
+                <label>Up-sell</label>
+            </value>
+            <value>
+                <fullName>Upsell campaign trial</fullName>
+                <default>false</default>
+                <label>Upsell campaign trial</label>
+            </value>
+            <value>
+                <fullName>Upsell trial</fullName>
+                <default>false</default>
+                <label>Upsell trial</label>
+            </value>
+            <value>
+                <fullName>Vendor Form request</fullName>
+                <default>false</default>
+                <label>Vendor Form Request</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

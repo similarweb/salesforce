@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Partner_Account__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>MIS-988</description>
+    <externalId>false</externalId>
+    <label>Partner Account</label>
+    <lookupFilter>
+        <active>true</active>
+        <booleanFilter>1 OR ((2 OR 3) AND 4)</booleanFilter>
+        <filterItems>
+            <field>Account.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Partnership</value>
+        </filterItems>
+        <filterItems>
+            <field>$User.Username</field>
+            <operation>equals</operation>
+            <value>bidev@similarweb.com</value>
+        </filterItems>
+        <filterItems>
+            <field>$User.Username</field>
+            <operation>equals</operation>
+            <value>bi_dev@similarweb.com</value>
+        </filterItems>
+        <filterItems>
+            <field>Account.RecordTypeId</field>
+            <operation>notEqual</operation>
+            <value>Partnership</value>
+        </filterItems>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>Account</referenceTo>
+    <relationshipLabel>Leads (Partner Account)</relationshipLabel>
+    <relationshipName>PartnerLeads</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Lookup</type>
+</CustomField>

@@ -1,0 +1,25 @@
+<aura:component >
+    <aura:attribute name="currentLocation" type="String"/>
+    <aura:attribute name="mode" type="String" access="public"/>
+    <aura:attribute name="recordId" type="String" access="public"/>
+    <aura:attribute name="clcStage" type="String" access="public"/>
+    
+    <aura:registerEvent name="recordChange" type="c:CLCRecordChangeEvent"/>
+    <aura:handler name="stageCreateHandler" event="force:createRecord" action="{!c.handleComponentEvent}"/>
+
+    <div class="slds-clearfix">
+      <div class="slds-clearfix">
+        <div class="slds-float_left">
+          <img class="logo_img" src="{!$Resource.CLCConsoleApp + '/SW_Primary_Logo_Full-Color-07.png'}" /> 
+        </div>
+        <div class="slds-float_right">
+            <!-- LOC {!v.currentLocation} -->
+            <aura:if isTrue="{!v.currentLocation != 'home'}">
+                <!--<ui:button label="Edit CLC Stage" press="{!c.editCLCStage}" /> 
+                <ui:button label="Add CLC Stage" press="{!c.addStage}" /> -->
+                <ui:button label="Add task" class="header-button" press="{!c.addTask}" /> 
+            </aura:if>
+        </div>
+      </div>
+    </div>
+</aura:component>

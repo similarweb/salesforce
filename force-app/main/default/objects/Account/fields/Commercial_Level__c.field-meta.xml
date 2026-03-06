@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Commercial_Level__c</fullName>
+    <description>MIS-4810</description>
+    <externalId>false</externalId>
+    <label>Commercial Level</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>4 - Inside Sales AM</fullName>
+                <default>false</default>
+                <label>4 - Inside Sales AM</label>
+            </value>
+            <value>
+                <fullName>3 - Senior Inside Sales AM</fullName>
+                <default>false</default>
+                <label>3 - Senior Inside Sales AM</label>
+            </value>
+            <value>
+                <fullName>2 - Enterprise AM</fullName>
+                <default>false</default>
+                <label>2 - Enterprise AM</label>
+            </value>
+            <value>
+                <fullName>1 - Senior Enterprise AM</fullName>
+                <default>false</default>
+                <label>1 - Senior Enterprise AM</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

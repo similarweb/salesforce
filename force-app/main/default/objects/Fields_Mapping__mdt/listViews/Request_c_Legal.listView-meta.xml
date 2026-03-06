@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Request_c_Legal</fullName>
+    <columns>MasterLabel</columns>
+    <columns>DeveloperName</columns>
+    <columns>NamespacePrefix</columns>
+    <columns>IsProtected</columns>
+    <columns>Cast_To__c</columns>
+    <columns>Concatenate_Order__c</columns>
+    <columns>Description__c</columns>
+    <columns>Destination_Field__c</columns>
+    <columns>Fixed_Value__c</columns>
+    <columns>Process__c</columns>
+    <columns>Source_Field__c</columns>
+    <columns>Text_After_Field__c</columns>
+    <columns>Text_Before_Field__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Process__c</field>
+        <operation>equals</operation>
+        <value>Request__c Legal_Services</value>
+    </filters>
+    <label>Request__c Legal</label>
+</ListView>

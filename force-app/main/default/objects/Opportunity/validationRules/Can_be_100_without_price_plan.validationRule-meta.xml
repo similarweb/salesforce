@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Can_be_100_without_price_plan</fullName>
+    <active>true</active>
+    <errorConditionFormula>RecordType.DeveloperName= &quot;Wolves&quot; &amp;&amp; ISPICKVAL(StageName,&quot;Live&quot;) &amp;&amp;  Price_Plan_Counter__c &lt;1 &amp;&amp; 
+NOT($Profile.Id=&apos;00eb0000000oBvcAAE&apos;)</errorConditionFormula>
+    <errorMessage>Please add Price Plan</errorMessage>
+</ValidationRule>

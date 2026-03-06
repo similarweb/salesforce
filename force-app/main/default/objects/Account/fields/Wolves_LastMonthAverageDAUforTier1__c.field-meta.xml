@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Wolves_LastMonthAverageDAUforTier1__c</fullName>
+    <description>&apos;Last month average DAU for Tier1&apos; Roll up Summary for field &apos;Last month average DAU (account total)&apos;</description>
+    <externalId>false</externalId>
+    <label>Cal_LastMonthAverageDAUforTier1</label>
+    <summarizedField>Opportunity.Last_month_aver_DAU_for_TOP15_countries__c</summarizedField>
+    <summaryForeignKey>Opportunity.AccountId</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <type>Summary</type>
+</CustomField>

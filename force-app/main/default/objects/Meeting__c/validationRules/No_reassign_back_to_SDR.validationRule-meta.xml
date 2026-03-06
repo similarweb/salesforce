@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>No_reassign_back_to_SDR</fullName>
+    <active>true</active>
+    <errorConditionFormula>ISCHANGED( OwnerId )&amp;&amp;
+CONTAINS(Owner:User.UserRole.Name ,&quot;SDR&quot;)&amp;&amp;
+$Profile.Name !=&quot;System Administrator&quot; &amp;&amp;
+$Profile.Name !=&quot;SW SalesOps&quot; &amp;&amp;
+$Profile.Name !=&quot;SW SalesOps Extended&quot; &amp;&amp;
+NOT(CONTAINS($UserRole.Name, &apos;MIR&apos; ))</errorConditionFormula>
+    <errorMessage>Meeting cannot be reassigned back to SDR.</errorMessage>
+</ValidationRule>

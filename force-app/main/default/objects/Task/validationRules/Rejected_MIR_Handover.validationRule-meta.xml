@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Rejected_MIR_Handover</fullName>
+    <active>false</active>
+    <errorConditionFormula>ISPICKVAL( Status, &quot;Rejected&quot; )&amp;&amp; 
+LEN ( TEXT(MIR_Handover_Rejection_Reason__c ))&lt;3 &amp;&amp;
+NOT($Profile.Id=&apos;00eb0000000oBvcAAE&apos;)</errorConditionFormula>
+    <errorDisplayField>MIR_Handover_Rejection_Reason__c</errorDisplayField>
+    <errorMessage>MIR Handover Rejection Reason is required.</errorMessage>
+</ValidationRule>

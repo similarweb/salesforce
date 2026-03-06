@@ -1,0 +1,66 @@
+<template>
+    <div if:true={load} class="slds-card">
+        <header class="slds-card__header slds-grid">
+            <div class="slds-media slds-media_center slds-has-flexi-truncate">
+                <div class="slds-media__body">
+                    <h2 class="slds-card__header-title slds-text-heading_small">Agent-generated email</h2>
+                </div>
+            </div>
+        </header>
+
+        <div class="slds-card__body slds-card__body_inner">
+            <div class="slds-p-around_small">
+                <div class="slds-box slds-theme_shade emailContent slds-m-bottom_small" role="article" aria-label="Generated email">
+                    <template if:true={htmlTemplate}>
+                        <div class="slds-text-body_regular">{htmlTemplate}</div>
+                    </template>
+                    <template if:false={htmlTemplate}>
+                        <div class="slds-text-color_weak">No email available.</div>
+                    </template>
+                </div>
+
+                <div class="slds-form-element">
+                    <label class="slds-form-element__label" for="feedback">Your feedback</label>
+                    <div class="slds-form-element__control">
+                        <textarea id="feedback"
+                                  class="slds-textarea"
+                                  placeholder="Write feedback here..."
+                                  oninput={handleReviewerNotesInput}
+                                  maxlength="255"
+                        >{reviewerNotes}</textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer if:true={htmlTemplate} class="slds-card__footer">
+            <div class="slds-grid slds-grid_align-end slds-p-around_small">
+                <template if:false={approvalStatus}>
+                    <button class="slds-button slds-button_brand slds-m-right_small" onclick={handleApprove}>
+                        Approve
+                    </button>
+                    <button class="slds-button slds-button_destructive" onclick={handleDecline}>
+                        Decline
+                    </button>
+                </template>
+                <template if:true={approvalStatus}>
+                    <div style="display: flex; align-items: center;">
+                        <span if:true={isApproved} data-status="APPROVED" class="slds-m-right_small">
+                        <span class="slds-text-heading_small slds-text-color_success"><strong>Approved</strong></span>
+                    </span>
+                        <span if:false={isApproved} data-status="DECLINED" class="slds-m-right_small">
+                        <span class="slds-text-heading_small slds-text-color_error"><strong>Declined</strong></span>
+                    </span>
+                        <button class="slds-button slds-button_brand" onclick={updateFeedback}>
+                            Update Feedback
+                        </button>
+                    </div>
+                </template>
+            </div>
+        </footer>
+    </div>
+
+    <div if:false={load}>
+        <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+    </div>
+</template>

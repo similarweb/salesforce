@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Threshold_DDQ_50K_Legal_30K</fullName>
+    <active>true</active>
+    <description>Can&apos;t create/update Requests under threshold - DDQ under 50K OR Legal under 30K
+MIS-5847 - Updated logic
+MIS-5317 - Updated logic
+MIS-4963 - Created</description>
+    <errorConditionFormula>OR(
+  AND(
+    ISBLANK(Quote__c),
+    NOT(ISPICKVAL(Account__r.Stage__c, &apos;Paying Account&apos;)),
+    LEN(Low_ARR_Deal_Reason_for_Exception__c) &lt; 4,
+    OR(
+      AND(
+        RecordType.DeveloperName = &apos;Supplier_Questionnaires&apos;, /* DDQ */
+        ISPICKVAL(Did_we_try_to_send_the_SW_template__c, &apos;Yes, the client pushed back&apos;),
+        Opportunity__r.ARR__c &lt; 50000
+      ),
+      AND(
+        RecordType.DeveloperName = &apos;Legal_Services&apos;, /* Legal */
+        NOT(ISPICKVAL(Type_of_Paper__c, &apos;Customer Template&apos;)),
+        Opportunity__r.ARR__c &lt; 30000
+      )
+    )
+  ),
+  AND(
+    ISBLANK(Quote__c),
+    ISPICKVAL(Account__r.Stage__c, &apos;Paying Account&apos;),
+    LEN(Low_ARR_Deal_Reason_for_Exception__c) &lt; 4,
+    OR(
+      AND(
+        RecordType.DeveloperName = &apos;Supplier_Questionnaires&apos;, /* DDQ */
+        ISPICKVAL(Did_we_try_to_send_the_SW_template__c, &apos;Yes, the client pushed back&apos;),
+        IF(Account_ARR__c &gt;= Opportunity__r.ARR__c, Account_ARR__c, Opportunity__r.ARR__c) &lt; 50000
+      ),
+      AND(
+        RecordType.DeveloperName = &apos;Legal_Services&apos;, /* Legal */
+        OR(
+          AND(
+            NOT(ISPICKVAL(Type_of_Paper__c, &apos;Customer Template&apos;)),
+            IF(Account_ARR__c &gt;= Opportunity__r.ARR__c, Account_ARR__c, Opportunity__r.ARR__c) &lt; 30000
+          ),
+          AND(
+            ISPICKVAL(Type_of_Paper__c, &apos;Customer Template&apos;),
+            IF(Account_ARR__c &gt;= Opportunity__r.ARR__c, Account_ARR__c, Opportunity__r.ARR__c) &lt; 50000
+          )
+        )
+      )
+    )
+  ),
+  AND(
+    NOT(ISBLANK(Quote__c)),
+    LEN(Low_ARR_Deal_Reason_for_Exception__c) &lt; 4,
+    RecordType.DeveloperName = &apos;Legal_Services&apos;, /* Legal */
+    OR(
+      AND(
+        NOT(ISPICKVAL(Type_of_Paper__c, &apos;Customer Template&apos;)),
+        IF(Quote__r.Contract_Current_Annual_Amount__c &gt;= Opportunity__r.ARR__c, Quote__r.Contract_Current_Annual_Amount__c, Opportunity__r.ARR__c) &lt; 30000
+      ),
+      AND(
+        ISPICKVAL(Type_of_Paper__c, &apos;Customer Template&apos;),
+        IF(Quote__r.Contract_Current_Annual_Amount__c &gt;= Opportunity__r.ARR__c, Quote__r.Contract_Current_Annual_Amount__c, Opportunity__r.ARR__c) &lt; 50000
+      )
+    )
+  )
+)</errorConditionFormula>
+    <errorDisplayField>Low_ARR_Deal_Reason_for_Exception__c</errorDisplayField>
+    <errorMessage>A request for legal services must meet the threshold of 30K for Legal / 50K for DDQ.
+If you think this should be an exception, please describe the reason in the field above and it will be reviewed by the business to approve.</errorMessage>
+</ValidationRule>

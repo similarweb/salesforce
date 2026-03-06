@@ -1,0 +1,19 @@
+<aura:component extends="c:GenericQuoteButton" controller="PaymentLinkButtonController" >
+    <aura:attribute name="quoteRecordId" type="String" required="true"/>
+    <aura:attribute name="paymentLink" type="String"/>
+    <aura:attribute name="renewalLink" type="String"/>
+    <aura:attribute name="additionalRecipientAddress" type="String"/>
+    <aura:attribute name="isDisabled" type="Boolean" default="false"/>
+    <aura:attribute name="isPassed" type="Boolean" default="false"/>
+    
+    <aura:handler name="sendEmailEvent" event="c:SendEmailEvent" action="{!c.handleSendEmail}"/>
+    <aura:handler name="addRecipientEvent" event="c:AddRecipientEvent" action="{!c.handleAddRecipient}"/>
+    <aura:handler name="removeRecipientEvent" event="c:RemoveRecipientEvent" action="{!c.handleRemoveRecipient}"/>
+
+    <div aura:id="renderBox" style="display: none;"></div>
+    <button disabled="{!v.isDisabled}" 
+        class="{! 'slds-button slds-button_brand ff ' + if(and(v.isDisabled,v.isPending),'pendingButton',if(and(v.isDisabled,v.isPassed),'passedButton',if(v.isDisabled,'disabledButton',if(v.isRejected,'rejectedButton','enabledButton'))))}"
+        onclick="{!c.onButtonClick}">
+        {!v.label}
+    </button>
+</aura:component>

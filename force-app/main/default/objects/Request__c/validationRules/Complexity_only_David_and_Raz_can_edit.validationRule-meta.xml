@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Complexity_only_David_and_Raz_can_edit</fullName>
+    <active>true</active>
+    <description>Complexity - only David and Raz can edit this field</description>
+    <errorConditionFormula>AND(
+$Profile.Name &lt;&gt; &apos;System Administrator&apos; ,
+NOT(CONTAINS($User.Username, &apos;david.kaplansky@similarweb.com&apos;)),
+NOT(CONTAINS($User.Username, &apos;raz.karmi@similarweb.com&apos;)),
+ISCHANGED( Complexity__c )
+)</errorConditionFormula>
+    <errorDisplayField>Complexity__c</errorDisplayField>
+    <errorMessage>Only Raz Karmi or David Kaplansky can edit this feild.</errorMessage>
+</ValidationRule>

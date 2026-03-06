@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Potential_Segment__c</fullName>
+    <description>MIS-4810
+to chnage api name to &apos;account tier&apos; once BI do it in their side</description>
+    <externalId>false</externalId>
+    <label>Account tier</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>1. Very High</fullName>
+                <default>false</default>
+                <label>1. Very High</label>
+            </value>
+            <value>
+                <fullName>2. High</fullName>
+                <default>false</default>
+                <label>2. High</label>
+            </value>
+            <value>
+                <fullName>3. Medium</fullName>
+                <default>false</default>
+                <label>3. Medium</label>
+            </value>
+            <value>
+                <fullName>4. Low</fullName>
+                <default>false</default>
+                <label>4. Low</label>
+            </value>
+            <value>
+                <fullName>5. NT annual</fullName>
+                <default>false</default>
+                <label>5. NT annual</label>
+            </value>
+            <value>
+                <fullName>6. NT monthly</fullName>
+                <default>false</default>
+                <label>6. NT monthly</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

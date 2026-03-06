@@ -1,0 +1,32 @@
+<aura:component >
+	<aura:attribute name="isOpen" type="Boolean" default="false"/>
+	<aura:attribute name="paymentMethod" type="String" default=""/>
+	<aura:registerEvent name="newQuoteEvent" type="c:newQuoteEvent"/>
+	<aura:if isTrue="{!v.isOpen}">
+        <!-- MODAL BOX Start From Here --> 
+        <div role="dialog" tabindex="-1" aria-labelledby="header99" class="slds-modal slds-fade-in-open ">
+            <div class="slds-modal__container">
+                <!--  MODAL BOX HEADER Part Start From Here ######-->
+                <div class="slds-modal__header">
+                    <button class="slds-button slds-modal__close slds-button--icon-inverse" title="Close" onclick="{!c.closeModel}">
+                        X
+                        <span class="slds-assistive-text">Cancel</span>
+                    </button>
+                    <h2 id="header99" class="slds-text-heading--medium"></h2>
+                </div>
+                <!-- MODAL BOX BODY Part Start From Here ######-->
+                <div class="slds-modal__content slds-p-around--medium">
+                    <div class="container">
+                        <p>Payment method {!v.paymentMethod} cannot be changed after creating a quote.<br/> 
+        				Press Yes if you wish to continue or contact billing if the payment method should be changed</p>
+                    </div>
+                    <div class="slds-modal__footer">
+                        <lightning:button variant="brand" label="Yes" class="slds-button slds-button--brand" onclick="{!c.Save}"/>
+                        <lightning:button variant="brand" label="No" class="slds-button slds-button--neutral" onclick="{!c.closeModel}" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slds-backdrop slds-backdrop--open"></div>
+    </aura:if>
+</aura:component>

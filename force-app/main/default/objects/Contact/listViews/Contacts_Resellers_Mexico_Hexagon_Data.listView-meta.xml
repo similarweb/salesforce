@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Contacts_Resellers_Mexico_Hexagon_Data</fullName>
+    <columns>ACCOUNT.OWNER.FIRST_NAME</columns>
+    <columns>ACCOUNT.OWNER.LAST_NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>FULL_NAME</columns>
+    <columns>SW_Industry__c</columns>
+    <columns>Employees_Min__c</columns>
+    <columns>Account.Status__c</columns>
+    <columns>CONTACT.CREATED_DATE</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>CONTACT.TITLE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Owner_Division__c</field>
+        <operation>contains</operation>
+        <value>Hexagon Data</value>
+    </filters>
+    <filters>
+        <field>Account.Status__c</field>
+        <operation>notEqual</operation>
+        <value>Active,Cancelled,Part Of Another Subscription</value>
+    </filters>
+    <label>Contacts Resellers Mexico-Hexagon Data</label>
+</ListView>

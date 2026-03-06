@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Use_Case_Tracking__c</fullName>
+    <description>For Onboarding request</description>
+    <externalId>false</externalId>
+    <label>Use-Case Tracking</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Research Any Market</fullName>
+                <default>false</default>
+                <label>Research Any Market</label>
+            </value>
+            <value>
+                <fullName>Analyze Your Competition: One Sit</fullName>
+                <default>false</default>
+                <label>Analyze Your Competition: One Sit</label>
+            </value>
+            <value>
+                <fullName>Analyze Your Competiton: Comparing Multiple</fullName>
+                <default>false</default>
+                <label>Analyze Your Competiton: Comparing Multiple</label>
+            </value>
+            <value>
+                <fullName>Optimize Your Traffic Acquisition: SEO</fullName>
+                <default>false</default>
+                <label>Optimize Your Traffic Acquisition: SEO</label>
+            </value>
+            <value>
+                <fullName>Optimize Your Traffic Acquisition: PPC</fullName>
+                <default>false</default>
+                <label>Optimize Your Traffic Acquisition: PPC</label>
+            </value>
+            <value>
+                <fullName>Optimize Your Traffic Acquisition: Affiliates</fullName>
+                <default>false</default>
+                <label>Optimize Your Traffic Acquisition: Affiliates</label>
+            </value>
+            <value>
+                <fullName>Optimize Your Traffic Acquisition: Display</fullName>
+                <default>false</default>
+                <label>Optimize Your Traffic Acquisition: Display</label>
+            </value>
+            <value>
+                <fullName>Optimize Your Traffic Acquisition: Social</fullName>
+                <default>false</default>
+                <label>Optimize Your Traffic Acquisition: Social</label>
+            </value>
+            <value>
+                <fullName>Understand Your Audience</fullName>
+                <default>false</default>
+                <label>Understand Your Audience</label>
+            </value>
+            <value>
+                <fullName>Optimize Your Distribution Channel</fullName>
+                <default>false</default>
+                <label>Optimize Your Distribution Channel</label>
+            </value>
+            <value>
+                <fullName>Generate, Convert, and Engage Customers</fullName>
+                <default>false</default>
+                <label>Generate, Convert, and Engage Customers</label>
+            </value>
+            <value>
+                <fullName>Determine Investment Decisions</fullName>
+                <default>false</default>
+                <label>Determine Investment Decisions</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

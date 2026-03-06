@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Header__c</fullName>
+    <description>Key + value, separated by &apos;::&apos; between the key and the value and by &apos;,,&apos; between the key + value pair. 
+For example: key1::value1,,key1::value2,,key2::value3</description>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <inlineHelpText>Key + value, separated by &apos;::&apos; between the key and the value and by &apos;,,&apos; between the key + value pair. 
+For example: key1::value1,,key1::value2,,key2::value3</inlineHelpText>
+    <label>Header</label>
+    <length>255</length>
+    <required>false</required>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

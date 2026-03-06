@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NextSteps_WhyIsNotThisAnOp_is_Required</fullName>
+    <active>false</active>
+    <description>If the meeting status is &quot;Completed&quot;, the user has to fill there fields:
+1. Next_Step
+2. Reason_why_this_isn_t_ready_to_be_an_Opp__c</description>
+    <errorConditionFormula>RecordType.Name=&quot;Inside Sales&quot; &amp;&amp; ISPICKVAL(Status__c ,&quot;Completed&quot;) &amp;&amp; OR(ISBLANK(Next_steps__c) ,ISBLANK(Reason_why_this_isn_t_ready_to_be_an_Opp__c))</errorConditionFormula>
+    <errorMessage>Please fill the following fields: &quot;Next Step&quot; and &quot;Reason why this isn&apos;t ready to be an Opp&quot;</errorMessage>
+</ValidationRule>

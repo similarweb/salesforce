@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Account_Stage__c</fullName>
+    <externalId>false</externalId>
+    <label>Account Stage old</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Researching Account</fullName>
+                <default>false</default>
+                <label>Researching Account</label>
+            </value>
+            <value>
+                <fullName>Prospecting Account</fullName>
+                <default>false</default>
+                <label>Prospecting Account</label>
+            </value>
+            <value>
+                <fullName>Account in Conversation</fullName>
+                <default>false</default>
+                <label>Account in Conversation</label>
+            </value>
+            <value>
+                <fullName>Standby</fullName>
+                <default>false</default>
+                <label>Standby</label>
+            </value>
+            <value>
+                <fullName>Active</fullName>
+                <default>false</default>
+                <label>Active</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

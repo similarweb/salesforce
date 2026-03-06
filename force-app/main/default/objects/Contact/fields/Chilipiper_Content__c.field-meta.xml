@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Chilipiper_Content__c</fullName>
+    <description>Use this field to pass UTMs from chilipiper campaigns to Salesforce.
+MIS-1990</description>
+    <externalId>false</externalId>
+    <label>Chilipiper Content</label>
+    <length>255</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

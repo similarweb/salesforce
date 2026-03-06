@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Other_Product__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>MIS - 2365 - For Upsell Opps, there are scenarios where there is no base product like DMI/DRI/Shopper etc.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Relevant only for Upsell Opps</inlineHelpText>
+    <label>Other Product</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

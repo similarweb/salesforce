@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Renewal_Quote_Link__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <label>Renewal Quote Link</label>
+    <lookupFilter>
+        <active>true</active>
+        <errorMessage>Value does not exist or does not match quote criteria</errorMessage>
+        <filterItems>
+            <field>$Source.Opportunity__c</field>
+            <operation>equals</operation>
+            <valueField>zqu__Quote__c.zqu__Opportunity__c</valueField>
+        </filterItems>
+        <filterItems>
+            <field>zqu__Quote__c.zqu__QuoteBusinessType__c</field>
+            <operation>equals</operation>
+            <value>Renewal (with/without upsell)</value>
+        </filterItems>
+        <filterItems>
+            <field>zqu__Quote__c.zqu_Quote_Status__c</field>
+            <operation>equals</operation>
+            <value>Approved By Billing, New Amendment, Pending Legal Or Billing request, Pending Rep To Adjust Quote, Terms Approved</value>
+        </filterItems>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>zqu__Quote__c</referenceTo>
+    <relationshipLabel>Cases (Renewal Quote Link)</relationshipLabel>
+    <relationshipName>Cases_Renewal_Quote</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

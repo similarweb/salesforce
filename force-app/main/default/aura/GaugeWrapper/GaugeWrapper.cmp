@@ -1,0 +1,8 @@
+<!--
+ - Created by Alon.Shalev on 6/29/2023.
+ -->
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId" access="global"  description="GaugeWrapper">
+    <aura:attribute name="recordId" type="String" description="The Id of the Lead record" />
+
+    <c:gaugeComponent3 recordId ="{!v.recordId}"/>
+</aura:component>

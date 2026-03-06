@@ -1,0 +1,47 @@
+<aura:component controller="JourneyController" implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes" access="global">
+    <aura:attribute name="steps" type="Object[]"/>
+    <aura:attribute name="journeyName" type="String"/>
+    <aura:attribute name="loaded" type="Boolean" default="true"/>
+    <aura:attribute name="pathMode" type="Integer" />
+    <aura:attribute name="recordsInTheJourney" type="Integer"/>
+    <aura:attribute name="averageJourneyTimeLastThreeHours" type="Integer"/>
+    <aura:attribute name="recordBrichingSLA" type="Integer"/>
+    <aura:attribute name="isStepInfoVisible" type="Boolean" default="true"/>    
+    <aura:attribute name="searchParam" type="String" />
+    <aura:attribute name="fieldParam" type="String" />    
+    <aura:attribute name="intervalId" type="Integer"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:handler name="change" value="{!v.journeyName}" action="{!c.journeyNameChange}"/>
+    <!--<aura:handler name="change" value="{!v.searchParam}" action="{!c.searchParamChange}"/>-->
+    <!--<aura:handler name="change" value="{!v.fieldParam}" action="{!c.fieldParamChange}"/>-->
+    <aura:registerEvent name="JourneyInfoEvent" type="c:JourneyInfoEvent"/>
+    <!--<aura:handler event="c:JourneyConsoleTabEvent" action="{!c.handleDestroy}"/>-->
+    <aura:handler name="destroy" value="{!this}" action="{!c.handleDestroy}"/>
+    <aura:handler event="c:stepClickEvent" action="{!c.handleDestroy}" />
+    <aura:handler name="change" value="{!v.pathMode}" action="{!c.handleDestroy}" />
+    <aura:handler event="c:JourneyPathSettingEvent" action="{!c.handleJourneyPathSettingChanged}" />
+    
+    <aura:method name="searchLead" action="{!c.doInit}"> 
+        <aura:attribute name="searchParam" type="String" /> 
+        <aura:attribute name="fieldParam" type="String" /> 
+    </aura:method>
+    
+    
+    
+    <aura:if isTrue="{! v.loaded }">        
+        <aura:if isTrue="{!v.steps.length !=0 }">
+            
+            <div class="progress">        
+                <aura:iteration items="{!v.steps}" var="step">                
+                    <c:StepComponent done="{!step.done}" stepName="{!step.stepName}" journeyName="{!v.journeyName}" leadCount="{!step.leadCount}" SLA="{!step.SLA}" averageProcessTime="{!step.averageProcessTime}" isInfoVisible="{!v.isStepInfoVisible}"/> 
+                </aura:iteration>       
+            </div>
+            <aura:set attribute="else">
+               Not Found
+            </aura:set>
+        </aura:if>
+        <aura:set attribute="else">
+            <lightning:spinner alternativeText="Loading" />
+        </aura:set>
+    </aura:if>
+</aura:component>

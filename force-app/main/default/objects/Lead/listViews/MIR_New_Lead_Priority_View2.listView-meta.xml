@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MIR_New_Lead_Priority_View2</fullName>
+    <booleanFilter>1 AND 2 AND 3 AND 4 AND 5 and 6</booleanFilter>
+    <columns>CORE.USERS.FIRST_NAME</columns>
+    <columns>LEAD.CREATED_DATE</columns>
+    <columns>MQL__c</columns>
+    <columns>LEAD.FIRST_NAME</columns>
+    <columns>LEAD.LAST_NAME</columns>
+    <columns>LEAD.COMPANY</columns>
+    <columns>LEAD.TITLE</columns>
+    <columns>LEAD.PHONE</columns>
+    <columns>LEAD.EMAIL</columns>
+    <columns>LEAD.COUNTRY</columns>
+    <columns>LEAD.STATUS</columns>
+    <columns>Original_Lead_Source__c</columns>
+    <columns>Business_Unit__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>LEAD.STATUS</field>
+        <operation>equals</operation>
+        <value>Open</value>
+    </filters>
+    <filters>
+        <field>LEAD.LAST_ACTIVITY</field>
+        <operation>equals</operation>
+    </filters>
+    <filters>
+        <field>Nurtured_by_Marketing__c</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>CORE.USERS.LAST_NAME</field>
+        <operation>contains</operation>
+        <value>eviston,kenan,keren,spivack,shapiro,novick,didio,sternbach,ungar,koplen</value>
+    </filters>
+    <filters>
+        <field>LEAD.CREATED_DATE</field>
+        <operation>greaterOrEqual</operation>
+        <value>11/12/2017 12:00 AM</value>
+    </filters>
+    <label>MIR New Lead Priority Manager View</label>
+</ListView>

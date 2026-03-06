@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Crunchbase_All_Contacts_MIR_Only</fullName>
+    <columns>SYS_Owner_Role__c</columns>
+    <columns>CORE.USERS.FIRST_NAME</columns>
+    <columns>CORE.USERS.LAST_NAME</columns>
+    <columns>FULL_NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CONTACT.TITLE</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>CONTACT.ADDRESS2_COUNTRY</columns>
+    <columns>CAMPAIGN_MEMBER.STATUS</columns>
+    <columns>CONTACT.CREATED_DATE</columns>
+    <columns>Business_Unit__c</columns>
+    <columns>CONTACT.LAST_ACTIVITY</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CONTACT.LAST_ACTIVITY</field>
+        <operation>notEqual</operation>
+        <value>LAST_N_DAYS:25</value>
+    </filters>
+    <filters>
+        <field>SYS_Owner_Role__c</field>
+        <operation>contains</operation>
+        <value>MIR</value>
+    </filters>
+    <label>Crunchbase - All Contacts - MIR Only</label>
+</ListView>

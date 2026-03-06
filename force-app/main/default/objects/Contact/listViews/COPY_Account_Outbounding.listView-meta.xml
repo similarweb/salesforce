@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>COPY_Account_Outbounding</fullName>
+    <columns>ACCOUNT.LAST_ACTIVITY</columns>
+    <columns>FULL_NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CONTACT.TITLE</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>CORE.USERS.FIRST_NAME</columns>
+    <columns>ACCOUNT.OWNER.LAST_NAME</columns>
+    <columns>Status__c</columns>
+    <columns>Account_Status__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>ACCOUNT.ACCOUNT_ID</field>
+        <operation>equals</operation>
+        <value>0016700005Gyh9y,0010X00004uKL69</value>
+    </filters>
+    <filters>
+        <field>CONTACT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Contact.Default</value>
+    </filters>
+    <label>[COPY] Account Outbounding</label>
+</ListView>

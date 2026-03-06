@@ -1,0 +1,22 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    
+    <aura:attribute name="setMeOnInit" type="String" default="Loading..." />
+
+    <aura:attribute name="currUserId" type="String" default="test" /> 
+    
+    <aura:attribute name="record" type="Object"/>
+    <aura:attribute name="simpleRecord" type="Object"/>
+    <aura:attribute name="recordError" type="String"/>
+    <force:recordData aura:id="recordLoader"
+      recordId="{!v.recordId}"
+      layoutType="FULL"
+      targetRecord="{!v.record}"
+      targetFields="{!v.simpleRecord}"
+      targetError="{!v.recordError}"
+      />
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <p><b>{!v.setMeOnInit}</b></p>    
+    <iframe aura:id="iframe" class="hide" src="{! 'https://datacollection-hermes-production.op-us-east-1.datacollection-grid.int.similarweb.io/activities?id=' + v.recordId + '&amp;userId=' + v.currUserId + '&amp;type=contact'}"  width="100%" height="580px;" frameBorder="0"/>
+   
+</aura:component>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SW_BR_All_accounts</fullName>
+    <columns>ACCOUNT.LAST_ACTIVITY</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CORE.USERS.FIRST_NAME</columns>
+    <columns>Number_of_Open_Opps__c</columns>
+    <columns>Stage__c</columns>
+    <columns>SW_Industry__c</columns>
+    <columns>fr_ARR__c</columns>
+    <columns>Deal_Reg_Status__c</columns>
+    <columns>Deal_Registration__c</columns>
+    <columns>fr_Next_Renewal_Date__c</columns>
+    <columns>Billing_Accounts__c</columns>
+    <columns>Open_Activity_Count__c</columns>
+    <filterScope>Everything</filterScope>
+    <label>SW BR - All accounts</label>
+    <sharedTo>
+        <role>Team_Lead_Resellers_Brazil_Alpha</role>
+        <role>Team_Lead_Resellers_Brazil_Alpha_2</role>
+    </sharedTo>
+</ListView>

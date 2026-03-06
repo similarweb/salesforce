@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Contract_attached_to_the_opportunity__c</fullName>
+    <description>Did you attach a contract to the opportunity?</description>
+    <externalId>false</externalId>
+    <label>Contract attached to the opportunity?</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Yes</fullName>
+                <default>false</default>
+                <label>Yes</label>
+            </value>
+            <value>
+                <fullName>This is a CC or Wire account</fullName>
+                <default>false</default>
+                <label>This is a CC or Wire account</label>
+            </value>
+            <value>
+                <fullName>There is no contract yet</fullName>
+                <default>false</default>
+                <label>There is no contract yet</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

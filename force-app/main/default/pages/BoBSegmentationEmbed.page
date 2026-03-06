@@ -1,0 +1,6 @@
+<apex:page standardController="Account">
+ <p>To override any results, please navigate to the corresponding fields within the Account > Details section</p>
+<apex:iframe src="https://webi.similarweb.io/VisualizationBoBSegmentationforwebi-test/Dashboard1/:embed=yes&:toolbar=no&sf_account_id={!Account.Id}&:size=600,600/tableau_in_sf"
+height="350" scrolling="false" />
+    
+</apex:page>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>New_Request</fullName>
+    <availability>online</availability>
+    <description>Links user to the Create new Request forms.</description>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <linkType>url</linkType>
+    <masterLabel>New Request</masterLabel>
+    <openType>replace</openType>
+    <protected>false</protected>
+    <url>/flow/New_Request_Lightning?VarAccountID={!Opportunity.AccountId}&amp;VarOpportunityID={!Opportunity.Id}&amp;VarUserName={!$User.FirstName}+ +{!$User.LastName}&amp;VarUserEmail={!$User.Email}&amp;VarOppPersona={!Opportunity.Use_Cases__c}&amp;VarUserID={!$User.Id}&amp;VarAccountName={!Opportunity.Account}&amp;VarOppOtherUseCase={!Opportunity.Other_Use_Case__c}&amp;VarUserRoleID={!$UserRole.Id}
+&amp;retURL=/{!Opportunity.Id}</url>
+</WebLink>

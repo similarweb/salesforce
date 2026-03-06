@@ -1,0 +1,4 @@
+<apex:page standardController="Lead">
+<apex:iframe src="https://webi.similarweb.io/MQL-BehavioralScore-lead/Dashboard-Lead/:embed=yes&Lead={!Lead.Id}&:toolbar=no/{!$User.Email}/tableau_in_sf" 
+height="400"  width="100%" scrolling="false"/>
+</apex:page>

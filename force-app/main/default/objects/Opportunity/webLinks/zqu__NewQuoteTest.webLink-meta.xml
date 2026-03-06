@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>zqu__NewQuoteTest</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <height>600</height>
+    <linkType>sControl</linkType>
+    <masterLabel>New Quote (Legacy)</masterLabel>
+    <openType>sidebar</openType>
+    <protected>false</protected>
+    <scontrol>zqu__QuoteNew</scontrol>
+</WebLink>

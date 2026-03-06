@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>My_Opportunities_Closing_This_Quarter</fullName>
+    <columns>OPPORTUNITY.CLOSE_DATE</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>ARR__c</columns>
+    <columns>Base_product__c</columns>
+    <columns>OPPORTUNITY.NAME</columns>
+    <columns>OPPORTUNITY.STAGE_NAME</columns>
+    <columns>OPPORTUNITY.LAST_ACTIVITY</columns>
+    <columns>OPPORTUNITY.PROBABILITY</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+        <field>Opportunity_Stage__c</field>
+        <operation>notEqual</operation>
+        <value>closed</value>
+    </filters>
+    <filters>
+        <field>OPPORTUNITY.STAGE_NAME</field>
+        <operation>notEqual</operation>
+        <value>Closed Won,Closed Lost</value>
+    </filters>
+    <filters>
+        <field>OPPORTUNITY.TYPE</field>
+        <operation>equals</operation>
+        <value>New Sale</value>
+    </filters>
+    <filters>
+        <field>OPPORTUNITY.CLOSE_DATE</field>
+        <operation>equals</operation>
+        <value>THIS_QUARTER</value>
+    </filters>
+    <label>My Opportunities Closing This Quarter</label>
+</ListView>

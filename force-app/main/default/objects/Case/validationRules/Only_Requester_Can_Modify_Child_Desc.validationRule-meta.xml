@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Only_Requester_Can_Modify_Child_Desc</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND (
+ISCHANGED( Child_Case_Description__c ),
+$User.Id &lt;&gt;  Requester__c  )</errorConditionFormula>
+    <errorDisplayField>Child_Case_Description__c</errorDisplayField>
+    <errorMessage>Only the requester can modify the child case description</errorMessage>
+</ValidationRule>

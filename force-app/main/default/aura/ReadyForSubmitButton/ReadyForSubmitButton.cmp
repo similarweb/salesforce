@@ -1,0 +1,15 @@
+<aura:component  extends="c:GenericQuoteButton" controller="ReadyForSubmitButtonController">
+    <aura:attribute name="recordId" type="String" />
+    <aura:attribute name="isDisabled" type="Boolean" default="false"/>
+    <aura:attribute name="isPending" type="Boolean" default="false"/>
+    <aura:attribute name="isPassed" type="Boolean" default="false"/>
+    <aura:attribute name="emailCofirmationValidation" type="Boolean" default="false"/>
+    <aura:registerEvent name="ApplicationRefresgEvent" type="c:ApplicationRefresgEvent"/>
+
+    <!-- <lightning:button variant="brand" disabled="{!v.isDisabled}" label="Ready For Billing" onclick="{!c.onButtonClick}"/> -->
+    <button disabled="{!v.isDisabled}" 
+            class="{! 'slds-button slds-button_brand ff ' + if(and(v.isDisabled,v.isPending),'pendingButton',if(and(v.isDisabled,v.isPassed),'passedButton',if(v.isDisabled,'disabledButton','enabledButton')))}"
+            onclick="{!c.onButtonClick}">
+            Submit Renewal to Zuora
+    </button>
+</aura:component>

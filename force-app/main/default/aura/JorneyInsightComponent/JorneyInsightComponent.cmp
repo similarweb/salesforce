@@ -1,0 +1,106 @@
+<aura:component controller="JourneyController" implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes" access="global">
+    <aura:attribute name="jorneyList" type="Object[]"/>
+    <aura:attribute name="jorneyName" type="String"/>
+    <aura:attribute name="searchValue" type="String"/>
+     <aura:attribute name="fieldValue" type="String"/>
+    <aura:attribute name="recordsInTheJourney" type="Integer"/>
+    <aura:attribute name="completedRecordsInTheJourney" type="Integer"/>
+    <aura:attribute name="pathMode" type="Integer" default="1"/>
+    <aura:attribute name="averageJourneyTimeLastThreeHours" type="Integer"/>
+    <aura:attribute name="recordBrichingSLA" type="Integer"/>
+    <aura:registerEvent name="onStepClickEvent" type="c:stepClickEvent"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:handler name="JourneyInfoEvent" event="c:JourneyInfoEvent" action="{!c.handleJourneyInfoEvent}" />   
+    
+
+    <div class="c-container">
+        
+        <lightning:layout multipleRows="true">
+    
+            <lightning:layoutItem size="12">
+    
+                    <lightning:layout>
+    
+                        <lightning:layoutItem size="2">
+                            <lightning:select label="Jorneys" value="{!v.jorneyName}" disabled="{!v.pathMode == 2}">
+                                <aura:iteration items="{!v.jorneyList}" var="jorney">
+                                    <option value="{!jorney}">{!jorney}</option>
+                                </aura:iteration>
+                            </lightning:select>    
+                        </lightning:layoutItem>
+    
+                        <lightning:layoutItem size="4" padding="horizontal-large">
+                    		<lightning:layout>
+                                
+                                <!--<lightning:layoutItem size="8">
+                                    <lightning:input
+                                        aura:id="enter-search"
+                                        name="enter-search"
+                                        label="&nbsp;"
+                                        type="search"
+                                    />
+                                </lightning:layoutItem>
+                                
+                                <lightning:layoutItem size="4">
+                                    <lightning:select label="&nbsp;" value="{!v.jorneyName}">
+                                        <aura:iteration items="{!v.jorneyList}" var="jorney">
+                                            <option value="{!jorney}">{!jorney}</option>
+                                        </aura:iteration>
+                                    </lightning:select>    	
+                                </lightning:layoutItem>-->
+                                <lightning:layoutItem size="6">
+                                    <lightning:input
+                                                     aura:id="input"
+                                                     name="enter-search"
+                                                     label="&nbsp;"
+                                                     type="search"
+                                                     value="{!v.searchValue}"
+                                                     />
+                                </lightning:layoutItem>
+                                
+                                <lightning:layoutItem size="4" padding="horizontal-large">
+                                    <lightning:select aura:id="select" label="&nbsp;" value="{!v.fieldValue}">
+                                        <option value="Id">Lead/Contact ID</option>
+                                        <option value="Name">Name</option>
+                                        <option value="Email">Email</option>
+                                    </lightning:select> 	
+                                </lightning:layoutItem>
+                                
+                                <lightning:layoutItem size="2" class="btn">
+                                    <lightning:button variant="brand" label="Search" title="Search" onclick="{! c.handleClick }" />  	
+                                </lightning:layoutItem>
+                                
+                                <aura:if isTrue="{!v.pathMode == 2}">
+                                    <lightning:layoutItem size="2" class="btn">
+                                        <lightning:button class="custom-cancel-button" variant="brand" label="Cancel" title="Cancel" onclick="{! c.handleClickCancel}" />  	
+                                    </lightning:layoutItem>
+                                </aura:if>
+                            </lightning:layout>
+                            
+                        </lightning:layoutItem>
+                        
+                        <aura:if isTrue="{!v.pathMode == 1}">
+                            <lightning:layoutItem size="6" class="info"  padding="around-small">
+                                <p>Journey Name:<span>{!v.jorneyName}</span></p>
+                                <p>Sum of non completed records:<span>{!v.recordsInTheJourney}</span></p>
+                                <a onclick="{!c.onStepClick}" > <p>Completed Journey Leads (Last 3 Hours):<span>{!v.completedRecordsInTheJourney}</span></p> </a>
+                                <p>Average Journey Time Last Three Hours:<span>{!v.averageJourneyTimeLastThreeHours}</span></p> 
+                                <!--<p>Record Briching SLA:<span>{!v.recordBrichingSLA}</span></p>-->
+                            </lightning:layoutItem>
+                        </aura:if>
+    
+                    </lightning:layout>
+    
+            </lightning:layoutItem>
+    
+            <lightning:layoutItem size="12">
+                <aura:if isTrue="{!v.jorneyName!=''}">
+                    <c:PathComponent journeyName="{!v.jorneyName}" pathMode="{!v.pathMode}" searchParam="{!v.searchValue}" fieldParam="{!v.fieldValue}" aura:id="path"/>                    
+                </aura:if>    
+            </lightning:layoutItem>
+    
+        </lightning:layout>
+    
+    </div>
+
+</aura:component>

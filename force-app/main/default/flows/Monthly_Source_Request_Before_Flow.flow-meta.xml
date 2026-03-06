@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>54.0</apiVersion>
+    <assignments>
+        <name>Update_Monthly_Source_Request_Calcualted</name>
+        <label>Update Monthly Source Request - Calcualted</label>
+        <locationX>50</locationX>
+        <locationY>431</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Status__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Calculated</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Next_Rule_here</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Update_Record_to_Open</name>
+        <label>Update Record to Open</label>
+        <locationX>314</locationX>
+        <locationY>551</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Status__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Open</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Next_Rule_here</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <name>Next_Rule_here</name>
+        <label>Next Rule here</label>
+        <locationX>248</locationX>
+        <locationY>863</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Add_the_next_Rule_here</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>For_Now</leftValueReference>
+                <operator>EqualTo</operator>
+            </conditions>
+            <label>Add the next Rule here</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Check according to the help roll up fields if all related &quot;Monthly Data Request&quot; records were populated by BI and calculated the payment.</description>
+        <name>Rule_MDR_All_Monthly_Data_Request_Calculated</name>
+        <label>Rule (MDR) All Monthly Data Request Calculated</label>
+        <locationX>248</locationX>
+        <locationY>311</locationY>
+        <defaultConnector>
+            <targetReference>Status_Open</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Not Calculated</defaultConnectorLabel>
+        <rules>
+            <name>All_MDR_Calculated</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Count_Data_Request__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <numberValue>0.0</numberValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Count_Data_Request__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record.Count_Paid_Data_Request__c</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Count_Paid_Data_Request__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Monthly_Source_Request_Calcualted</targetReference>
+            </connector>
+            <label>All MDR Calculated</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Status_Open</name>
+        <label>Status Open?</label>
+        <locationX>446</locationX>
+        <locationY>431</locationY>
+        <defaultConnector>
+            <targetReference>Next_Rule_here</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No Update</defaultConnectorLabel>
+        <rules>
+            <name>Update_to_Open</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Count_Data_Request__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record.Count_Paid_Data_Request__c</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Open</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Record_to_Open</targetReference>
+            </connector>
+            <label>Update to Open</label>
+        </rules>
+    </decisions>
+    <environments>Default</environments>
+    <formulas>
+        <name>For_Now</name>
+        <dataType>DateTime</dataType>
+        <expression>NOW()</expression>
+    </formulas>
+    <interviewLabel>Monthly Source Request Before Flow {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Monthly Source Request Before Flow</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>122</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Rule_MDR_All_Monthly_Data_Request_Calculated</targetReference>
+        </connector>
+        <object>Monthly_Source_Request__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

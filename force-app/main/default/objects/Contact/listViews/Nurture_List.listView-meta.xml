@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Nurture_List</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CONTACT.TITLE</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>Original_Lead_Source__c</columns>
+    <columns>CONTACT.LEAD_SOURCE</columns>
+    <columns>CONTACT.LAST_ACTIVITY</columns>
+    <columns>Last_Active_Session_PRO_Date__c</columns>
+    <columns>Last_Pro_Visit_Date__c</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+        <field>Business_Unit__c</field>
+        <operation>equals</operation>
+        <value>Strategic</value>
+    </filters>
+    <filters>
+        <field>Status__c</field>
+        <operation>notEqual</operation>
+        <value>Unqualified</value>
+    </filters>
+    <filters>
+        <field>Pro_User_Type__c</field>
+        <operation>notEqual</operation>
+        <value>User,Admin</value>
+    </filters>
+    <filters>
+        <field>CONTACT.LAST_ACTIVITY</field>
+        <operation>lessThan</operation>
+        <value>3/1/2018</value>
+    </filters>
+    <label>Pod 2 Nurture List</label>
+</ListView>

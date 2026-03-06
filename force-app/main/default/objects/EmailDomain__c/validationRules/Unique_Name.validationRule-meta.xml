@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Unique_Name</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+				Name=VLOOKUP( $ObjectType.EmailDomain__c.Fields.Name, $ObjectType.EmailDomain__c.Fields.Name,Name),
+				OR(
+								ischanged(Name),
+								ISNEW()
+								)
+				)</errorConditionFormula>
+    <errorMessage>This Email Domain already exist in the system.</errorMessage>
+</ValidationRule>

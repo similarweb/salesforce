@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MIR_Priority_1_Contacts</fullName>
+    <booleanFilter>1 AND 2 AND 3 AND 4 AND 5 and 6 and 7 and 8 and 9 and 10</booleanFilter>
+    <columns>FULL_NAME</columns>
+    <columns>LEAD.COMPANY</columns>
+    <columns>Department__c</columns>
+    <columns>SW_Industry__c</columns>
+    <columns>LEAD.TITLE</columns>
+    <columns>LEAD.COUNTRY</columns>
+    <columns>LEAD.PHONE</columns>
+    <columns>LEAD.EMAIL_OPT_OUT</columns>
+    <columns>LEAD.EMAIL</columns>
+    <columns>MQL__c</columns>
+    <columns>Employees_Min__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Nurtured_by_Marketing__c</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>LEAD.STATUS</field>
+        <operation>notEqual</operation>
+        <value>Unqualified,Nurture,SDR Prospecting,Sales Prospecting,MIR Prospecting,Replied,Test</value>
+    </filters>
+    <filters>
+        <field>LEAD.LEAD_SOURCE</field>
+        <operation>notEqual</operation>
+        <value>ContactForm,Direct,Facebook,Tradeshow,Webinar,LinkedIn - Paid,Facebook - Paid,Investors - Paid,Deal Registration</value>
+    </filters>
+    <filters>
+        <field>LEAD.CREATED_DATE</field>
+        <operation>greaterOrEqual</operation>
+        <value>LAST_N_MONTHS:4</value>
+    </filters>
+    <filters>
+        <field>Employees_Min__c</field>
+        <operation>greaterOrEqual</operation>
+        <value>10</value>
+    </filters>
+    <filters>
+        <field>SW_Fit_Score__c</field>
+        <operation>equals</operation>
+        <value>A</value>
+    </filters>
+    <filters>
+        <field>MQL__c</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>Most_Recent_Cadence_Cadence_ID__c</field>
+        <operation>equals</operation>
+    </filters>
+    <filters>
+        <field>CORE.USERS.LAST_NAME</field>
+        <operation>contains</operation>
+        <value>Didio,Muller,Koplen,Felsen,Glueckstern,Fox,Eviston,Ashur,Richter</value>
+    </filters>
+    <filters>
+        <field>LEAD.CONVERTED</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <label>MIR Priority 1 Leads</label>
+</ListView>

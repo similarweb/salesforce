@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Prevent_Manual_AM_Updates</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+				ISCHANGED(Account_AM__c),
+				NOT(IsClosed),
+				NOT(UpdatedByNextStageFlow__c) 
+)</errorConditionFormula>
+    <errorMessage>Manual Account AM updates are prohibited</errorMessage>
+</ValidationRule>

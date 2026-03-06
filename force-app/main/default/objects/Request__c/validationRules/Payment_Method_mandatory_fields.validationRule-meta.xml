@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Payment_Method_mandatory_fields</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+    RecordType.DeveloperName = &apos;Quote_Request&apos;,
+OR(
+    ISPICKVAL(Customer_Payment_Method__c, &apos;Credit Card&apos;),
+    ISPICKVAL(Customer_Payment_Method__c, &apos;Wire Transfer&apos;)),
+OR(
+   ISBLANK(Contract_Term_In_Months__c ),
+   ISBLANK(Number_of_Installments__c ),
+   ISBLANK(List_of_features_CC_and_Wire_Transfers__c) 
+))</errorConditionFormula>
+    <errorMessage>Please fill in the Contract Term, Number of installments and List of Features before submitting the request</errorMessage>
+</ValidationRule>

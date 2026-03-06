@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Post_to_Territory_Chatter</name>
+        <label>Post to Territory Chatter</label>
+        <locationX>314</locationX>
+        <locationY>431</locationY>
+        <actionName>chatterPost</actionName>
+        <actionType>chatterPost</actionType>
+        <connector>
+            <targetReference>Get_Territory_Members</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>text</name>
+            <value>
+                <elementReference>Owner_Is_Changed_Chatter_Text</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>subjectNameOrId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>chatterPost</nameSegment>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </actionCalls>
+    <actionCalls>
+        <description>MIS-5335</description>
+        <name>Post_to_Territory_Chatter_without_Mention</name>
+        <label>Post to Territory Chatter without Mention</label>
+        <locationX>50</locationX>
+        <locationY>431</locationY>
+        <actionName>chatterPost</actionName>
+        <actionType>chatterPost</actionType>
+        <connector>
+            <targetReference>Get_Territory_Members</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>text</name>
+            <value>
+                <elementReference>Owner_Is_Changed_Chatter_without_Mention</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>subjectNameOrId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>chatterPost</nameSegment>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </actionCalls>
+    <actionCalls>
+        <name>Post_to_Territory_Member_Chatter</name>
+        <label>Post to Territory Member Chatter</label>
+        <locationX>270</locationX>
+        <locationY>839</locationY>
+        <actionName>chatterPost</actionName>
+        <actionType>chatterPost</actionType>
+        <connector>
+            <targetReference>Loop_Territory_Members</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>text</name>
+            <value>
+                <elementReference>Territory_Member_Chatter_Text</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>subjectNameOrId</name>
+            <value>
+                <elementReference>Loop_Territory_Members.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>chatterPost</nameSegment>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </actionCalls>
+    <apiVersion>56.0</apiVersion>
+    <decisions>
+        <description>MIS-5335</description>
+        <name>Changed_by_Inactive_Users_Management</name>
+        <label>Changed by Inactive Users Management?</label>
+        <locationX>182</locationX>
+        <locationY>323</locationY>
+        <defaultConnector>
+            <targetReference>Post_to_Territory_Chatter</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes</name>
+            <conditionLogic>1 AND (2 OR 3)</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record__Prior.Owner:User.IsActive</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$User.Id</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>0056700000CC7v7AAD</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$User.Id</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>0056700000CC7v7</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Post_to_Territory_Chatter_without_Mention</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <description>MIS-5335 - Remove @ from chatter post for inactive previous owner
+If the TERRITORY OWNER changes, alert all members of the territory team &amp; alert to new territory owner.
+MIS-2982</description>
+    <environments>Default</environments>
+    <interviewLabel>Territory Alert - Post to Chatter {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Territory Alert - Post to Chatter</label>
+    <loops>
+        <name>Loop_Territory_Members</name>
+        <label>Loop Territory Members</label>
+        <locationX>182</locationX>
+        <locationY>731</locationY>
+        <collectionReference>Get_Territory_Members</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Post_to_Territory_Member_Chatter</targetReference>
+        </nextValueConnector>
+    </loops>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Get_Territory_Members</name>
+        <label>Get Territory Members</label>
+        <locationX>182</locationX>
+        <locationY>623</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Loop_Territory_Members</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Territory__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>Territory_Member__c</object>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>Name__c</queriedFields>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <start>
+        <locationX>56</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Changed_by_Inactive_Users_Management</targetReference>
+        </connector>
+        <filterFormula>ISCHANGED({!$Record.OwnerId})</filterFormula>
+        <object>Territory__c</object>
+        <recordTriggerType>Update</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <textTemplates>
+        <name>Owner_Is_Changed_Chatter_Text</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>The Territory Owner was updated.
+New Owner: @[{!$Record.OwnerId}].
+Previous Owner: @[{!$Record__Prior.OwnerId}]</text>
+    </textTemplates>
+    <textTemplates>
+        <description>NIS-5335</description>
+        <name>Owner_Is_Changed_Chatter_without_Mention</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>The Territory Owner was updated.
+New Owner: {!$Record.Owner:User.FirstName} {!$Record.Owner:User.LastName}.
+Previous Owner (Inactive User): {!$Record__Prior.Owner:User.FirstName} {!$Record__Prior.Owner:User.LastName}.</text>
+    </textTemplates>
+    <textTemplates>
+        <name>Territory_Member_Chatter_Text</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>@[{!Loop_Territory_Members.Name__c}] Please notice that the Territory Owner was changed.
+New Owner: {!$Record.Owner:User.FirstName} {!$Record.Owner:User.LastName}</text>
+    </textTemplates>
+</Flow>

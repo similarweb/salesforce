@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Assist_For_PB__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This field in used as an assisting field in &apos;Opportunity end of Subscription Alerts&apos; PB.
+Created to update Opps so that they trigger the PB.</description>
+    <externalId>false</externalId>
+    <label>Assist For PB Subscription Alerts</label>
+    <trackFeedHistory>true</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

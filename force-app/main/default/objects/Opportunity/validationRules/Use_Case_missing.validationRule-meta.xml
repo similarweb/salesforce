@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Use_Case_missing</fullName>
+    <active>false</active>
+    <errorConditionFormula>$User.ProfileId != &quot;00eb0000000dZws&quot; &amp;&amp; 
+$User.ProfileId != &quot;00eb0000000oBvc&quot; &amp;&amp;
+$Profile.Name != &apos;SW SalesOps Extended&apos; &amp;&amp;
+$Profile.Name != &apos;SW Wolves&apos; &amp;&amp;
+$Profile.Name != &apos;BI Dev&apos; &amp;&amp;
+Probability &gt;= 0.6 &amp;&amp; 
+ISNULL(Use_Cases__c) &amp;&amp; 
+ISBLANK( Account.Use_Cases__c) 
+&amp;&amp;NOT(ISCHANGED(SYS_CloseFlow__c))&amp;&amp;
+NOT(ISPICKVAL(Type,&apos;Feature Update&apos;))&amp;&amp;
+RecordType.DeveloperName &lt;&gt; &apos;Wolves&apos;</errorConditionFormula>
+    <errorDisplayField>Other_Use_Case__c</errorDisplayField>
+    <errorMessage>Use Case is blank in the account please update it either on the Opportunity or the Account level.</errorMessage>
+</ValidationRule>

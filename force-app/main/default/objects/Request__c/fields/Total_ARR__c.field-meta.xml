@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Total_ARR__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>For new sales - ARR. For co-term upsells - Increase in ARR. For Renewals (with or without upsells) - The new ARR</inlineHelpText>
+    <label>Total ARR</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

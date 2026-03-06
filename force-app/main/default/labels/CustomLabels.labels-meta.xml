@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>BU_Batch_Run_for_Last_N_days</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BU Batch Run for Last N days</shortDescription>
+        <value>3</value>
+    </labels>
+    <labels>
+        <fullName>Cancelled_ready_for_billing_popup_message</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Cancelled ready for billing popup message</shortDescription>
+        <value>Since the cancellation quote balance is not equal to $0, the quote has been submitted to Billing for further process.</value>
+    </labels>
+    <labels>
+        <fullName>Closed_Opp_relevant_Task_Subject</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Closed Opp relevant Task Subject</shortDescription>
+        <value>Previously lost opp is relevant again!</value>
+    </labels>
+    <labels>
+        <fullName>Community_User_Profile_Name</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Community User Profile Name</shortDescription>
+        <value>Panel Acquisition Community</value>
+    </labels>
+    <labels>
+        <fullName>Contact_has_special_chars</fullName>
+        <categories>Quote Errors</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Contact has special chars</shortDescription>
+        <value>Looks like the contact has special characters in their name. Please update the contact&apos;s name with English letters and numbers only.</value>
+    </labels>
+    <labels>
+        <fullName>Dedupe_IgnoreRecType</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Dedupe_IgnoreRecType</shortDescription>
+        <value>012b0000000cfIJAAY;012b0000000UdVPAA0;012b0000000UdVFAA0;012b0000000cfCaAAI;0120X0000001EYVQA2;0120X0000001EYaQAM;01267000000QggnAAC</value>
+    </labels>
+    <labels>
+        <fullName>Divisions_2022_All</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Divisions 2022 - All</shortDescription>
+        <value>NA Strategic - Sales:NA Enterprise - Sales:NA SMB - Sales:EMEA Strategic Sales:EMEA Enterprise - Sales:EMEA Inside Sales - Sales:France - Sales:Agencies Strategic - Sales:Agencies Independent - Sales:Investors APAC &amp; EMEA - Sales:Investors America - Sales:Investors Strategic - Sales:Japan - Sales:APAC Strategic - Sales:APAC EM - Sales:APAC Inside Sales - CSM:APAC Inside Sales - Sales:LATAM Inside Sales - CSM:LATAM Inside Sales - Sales:OEM - Sales:Agencies Independent - CSM:Investors America - CSM:Investors Strategic - CSM:APAC Strategic - CSM:APAC EM - CSM:APAC Inside Sales - CSM:LATAM Inside Sales - CSM:OEM - CSM</value>
+    </labels>
+    <labels>
+        <fullName>Divisions_2022_CSM</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>New Divisions_2022_CSM</shortDescription>
+        <value>Agencies Independent - CSM:Investors America - CSM:Investors Strategic - CSM:APAC Strategic - CSM:APAC EM - CSM:APAC Inside Sales - CSM:LATAM Inside Sales - CSM:OEM - CSM</value>
+    </labels>
+    <labels>
+        <fullName>Divisions_2022_General_Email_Excluded</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Divisions_2022 General Email Excluded</shortDescription>
+        <value>or.offer@similarweb.com:carrie.lazorchak@similarweb.com:jasons@similarweb.com</value>
+    </labels>
+    <labels>
+        <fullName>Empty_fields_on_calc_error</fullName>
+        <categories>Quote Errors</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Empty fields on calc error</shortDescription>
+        <value>Please wait for the quote metrics to finish calculating and try again
+
+In case the metrics finished calculating and you still get this error - please contact salesops@similarweb.com</value>
+    </labels>
+    <labels>
+        <fullName>Exclude_Roles_from_Reseller_Alerts</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Exclude Roles from Reseller Alerts</shortDescription>
+        <value>Japan_Direct_Sales:Japan_Direct_SDR:Client_Services_Japan:Manager_Japan_Direct_CSM:Japan_Direct_CSM:ANZ_Direct_CSM:ANZ_Direct_SDR:Director_ANZ_Sales_and_CSM:ANZ_Direct_Sales:Client_Services_Japan</value>
+    </labels>
+    <labels>
+        <fullName>Excluded_Lead_RecordType_For_BU_Batch</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Excluded Lead RecordType For BU Batch</shortDescription>
+        <value>012b0000000UdVFAA0</value>
+    </labels>
+    <labels>
+        <fullName>Generate_Contract_send_contract_is_missing_error</fullName>
+        <categories>Generate Contract Error</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Generate Contract send contract is missing error</shortDescription>
+        <value>Please make sure to fill in the Countersignature Date field with the date on which the contract will be sent to the client</value>
+    </labels>
+    <labels>
+        <fullName>Line_Break</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Line Break</shortDescription>
+        <value>-
+-</value>
+    </labels>
+    <labels>
+        <fullName>Mach_Parent_Accout_Error_Email</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Mach Parent Accout Error Email</shortDescription>
+        <value>IS4U@similarweb.com</value>
+    </labels>
+    <labels>
+        <fullName>NewLine</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>NewLine</shortDescription>
+        <value>-
+-</value>
+    </labels>
+    <labels>
+        <fullName>Opportunity_Division_Reseller</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Opportunity Division Reseller</shortDescription>
+        <value>Reseller - India - Altudo:Reseller - Italy - Nubo:Reseller - SEA-Maestros:Reseller - Turkey-CloudyFlex:Reseller - Mexico - Hexagon Data</value>
+    </labels>
+    <labels>
+        <fullName>Opportunity_Stage_Flow</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Opportunity_Stage_Flow</shortDescription>
+        <value>Opportunity_Stage_Flow</value>
+    </labels>
+    <labels>
+        <fullName>QuoteRenewalEmailFailure</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>QuoteRenewalEmailFailure</shortDescription>
+        <value>The email was not sent to the customer please contact Salesopps.</value>
+    </labels>
+    <labels>
+        <fullName>QuoteRenewalEmailMissingRecipientsMsg</fullName>
+        <categories>Quote Renewal Link</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>QuoteRenewalEmailMissingRecipientsMsg</shortDescription>
+        <value>You must select a contact that will receive the renewal email and link</value>
+    </labels>
+    <labels>
+        <fullName>QuoteRenewalEmailSuccess</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>QuoteRenewalEmailSuccess</shortDescription>
+        <value>The renewal email was successfully sent to the customer</value>
+    </labels>
+    <labels>
+        <fullName>Ready_For_Billing_popup_message</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Ready For Billing popup message</shortDescription>
+        <value>Good Job! The quote will be pending until we get verification from Deal Desk team that the customer successfully transferred us the fee for the subscription.</value>
+    </labels>
+    <labels>
+        <fullName>Ready_for_billing_button</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Ready for billing button</shortDescription>
+        <value>Ready for billing</value>
+    </labels>
+    <labels>
+        <fullName>Record_has_been_modified_by_Zuora_package</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Record has been modified by Zuora package</shortDescription>
+        <value>Record has been modified by Zuora package. Please refresh the page.</value>
+    </labels>
+    <labels>
+        <fullName>SW_Industry_Investors_Values</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>SW Industry Investors Values</shortDescription>
+        <value>Equity Research:Hedge Funds and Asset Management:Investment Banking:Investors:VC and Private:Equity:Venture Capital</value>
+    </labels>
+    <labels>
+        <fullName>SalesforceURL</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>SalesforceURL</shortDescription>
+        <value>https://similarweb.lightning.force.com</value>
+    </labels>
+    <labels>
+        <fullName>SkipButtonHelpText</fullName>
+        <categories>Advisory Services</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Advisory Services Skip button help text</shortDescription>
+        <value>If you select &quot;Skip&quot; at this step, you will not have the option to submit the quote to Zuora, the quote will go to Billing which may delay the subscription activation.</value>
+    </labels>
+    <labels>
+        <fullName>Updated_Ready_For_Billing_popup_message</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Updated ready for billing popup message</shortDescription>
+        <value>Great! The quote was submitted to Deal Desk. Once Deal Desk processes the quote - access will be granted.</value>
+    </labels>
+    <labels>
+        <fullName>autoRedirect</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>autoRedirect</shortDescription>
+        <value>/apex/apex/quoteEnhancement?crmAccountId=[AccId]&amp;oppId=[OppId]&amp;quoteType=Subscription&amp;stepNumber=1</value>
+    </labels>
+    <labels>
+        <fullName>duplicate_id_in_Zuora_Package_Error_msg</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>duplicate id in Zuora Package Error msg</shortDescription>
+        <value>The subscription version has more than one renewal quote. Please delete all renewal quotes that were not Sent to Zuora and create a new quote.</value>
+    </labels>
+    <labels>
+        <fullName>paymentTermIssueGenerateContract</fullName>
+        <categories>Generate Contract Error</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>paymentTermIssueGenerateContract</shortDescription>
+        <value>There is an issue with the payment term that was set in the quote, please review, update and try again. For any additional help - reach out to Salesops@similarweb.com</value>
+    </labels>
+    <labels>
+        <fullName>pleaseSetBusiness</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>pleaseSetBusiness</shortDescription>
+        <value>Please set the Business Unit and Country before re-assigning</value>
+    </labels>
+</CustomLabels>

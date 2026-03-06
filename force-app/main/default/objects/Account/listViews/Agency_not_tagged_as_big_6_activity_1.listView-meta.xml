@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Agency_not_tagged_as_big_6_activity_1</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>ACCOUNT.TYPE</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>Owner_Division__c</columns>
+    <columns>Industry_Subtype__c</columns>
+    <columns>Strategic_Region__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Number_of_Open_Opps__c</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>SW_Industry__c</field>
+        <operation>equals</operation>
+        <value>Agency</value>
+    </filters>
+    <filters>
+        <field>Strategic_Region__c</field>
+        <operation>notEqual</operation>
+        <value>Strategic NA,Strategic INTL,Big 6 Agency,Investors,Japan,ENT TAM 2020,SMB FOCUS 2020</value>
+    </filters>
+    <filters>
+        <field>Clean_Domain__c</field>
+        <operation>notEqual</operation>
+    </filters>
+    <filters>
+        <field>ACCOUNT.LAST_ACTIVITY</field>
+        <operation>equals</operation>
+        <value>LAST_N_DAYS:30</value>
+    </filters>
+    <filters>
+        <field>ACCOUNT.NAME</field>
+        <operation>notContain</operation>
+        <value>unknown</value>
+    </filters>
+    <filters>
+        <field>Owner_Division__c</field>
+        <operation>contains</operation>
+        <value>Agencies,MIR</value>
+    </filters>
+    <label>Agency_not tagged as big 6+activity_1</label>
+</ListView>

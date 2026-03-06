@@ -1,0 +1,22 @@
+<aura:component extends="c:GenericQuoteButton" controller="LegalRequestModalController" >
+    <aura:attribute name="pageReference" type="Object"/>
+    <lightning:navigation aura:id="navService"/>
+    <lightning:pageReferenceUtils aura:id="pageRefUtils"/>
+    <aura:attribute name="url" type="String"/>
+    <aura:attribute name="recordId" type="String" />
+    <aura:attribute name="accountId" type="String" />
+    <aura:attribute name="opportunityId" type="String" />
+    <aura:attribute name="legalRequestRecordType" type="String"/>
+    <aura:attribute name="isDisabled" type="Boolean" default="false"/>
+    <aura:attribute name="isPassed" type="Boolean" default="false"/>
+    
+    <aura:attribute name="isGenerateContractDecision" type="Boolean" default="true"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
+
+    <button disabled="{!v.isDisabled}" 
+            class="{! 'slds-button slds-button_brand ff ' + if(and(not(v.isDisabled),v.isPassed), 'passedGenerateProposalButton',if(and(v.isDisabled,v.isPassed),'passedButton',if(v.isDisabled,'disabledButton','enabledButton')))}"
+            onclick="{!c.onButtonClick}">
+            Create a Legal Request
+    </button>
+</aura:component>

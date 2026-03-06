@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>fr_Next_Renewal_Date_must_be_filled</fullName>
+    <active>true</active>
+    <description>On Billing forms with Extension requests, the field &apos;Next Renewal Date&apos; from the related account must be filled, as this is in use in the billing Zendesk Prioritization tickets.</description>
+    <errorConditionFormula>( 
+(ISBLANK(Account__r.fr_Next_Renewal_Date__c)
+&amp;&amp;
+NOT(ISBLANK( Account__c ))
+||
+(ISBLANK( Opportunity__r.Account.fr_Next_Renewal_Date__c )
+&amp;&amp;
+NOT(ISBLANK(  Opportunity__c  ))))
+)
+
+&amp;&amp;
+ ISPICKVAL( Request_Type__c , &quot;Extensions request&quot;)</errorConditionFormula>
+    <errorMessage>Please validate that the field &apos; Next Renewal Date&apos; on the related account is populated</errorMessage>
+</ValidationRule>

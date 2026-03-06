@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cant_be_100_without_Data_Domain</fullName>
+    <active>true</active>
+    <errorConditionFormula>RecordType.DeveloperName = &quot;Wolves&quot; &amp;&amp;  ISPICKVAL(StageName ,&quot;Live&quot;)  &amp;&amp;  ISBLANK(Wolves_Data_Domain__c) &amp;&amp; 
+NOT($Profile.Id=&apos;00eb0000000oBvcAAE&apos;)</errorConditionFormula>
+    <errorDisplayField>Wolves_Data_Domain__c</errorDisplayField>
+    <errorMessage>Please fill Data Domain field</errorMessage>
+</ValidationRule>

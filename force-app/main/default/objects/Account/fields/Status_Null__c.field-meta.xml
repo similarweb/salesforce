@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Status_Null__c</fullName>
+    <description>MIS-7432
+for tableau visibility on account</description>
+    <externalId>false</externalId>
+    <formula>TEXT(Status__c )=&apos;&apos;</formula>
+    <label>Status=Null</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

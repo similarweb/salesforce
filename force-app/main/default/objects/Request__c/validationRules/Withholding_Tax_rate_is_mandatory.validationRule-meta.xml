@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Withholding_Tax_rate_is_mandatory</fullName>
+    <active>true</active>
+    <description>If withholding tax needed is yes, Withholding Tax rate to apply is mandatory</description>
+    <errorConditionFormula>ISPICKVAL( Withholding_Tax_Needed__c , &quot;Yes&quot;) 
+&amp;&amp;
+ ISBLANK( Withholding_Tax_Rate_To_Apply__c )
+&amp;&amp;
+ ISPICKVAL(Request_Type__c , &quot;Invoice request&quot;)</errorConditionFormula>
+    <errorDisplayField>Withholding_Tax_Rate_To_Apply__c</errorDisplayField>
+    <errorMessage>Please detail the rate to apply if withholding tax needed</errorMessage>
+</ValidationRule>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SC_request_for_Renewal_and_Upsell_only</fullName>
+    <active>true</active>
+    <description>And New Sale</description>
+    <errorConditionFormula>AND( 
+RecordType.DeveloperName = &apos;Strategic_Consultant&apos;, 
+NOT(ISPICKVAL(Opportunity__r.Type, &apos;Renewal&apos;)), 
+NOT(ISPICKVAL(Opportunity__r.Type, &apos;Upsell&apos;)),
+NOT(ISPICKVAL(Opportunity__r.Type, &apos;New Sale&apos;)) 
+)</errorConditionFormula>
+    <errorMessage>Solution Consulting requests can be created for New Sale, Upsell and Renewal opportunities only</errorMessage>
+</ValidationRule>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>X100K_Website_Visits__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Pull from &quot;website_fit_share&quot; field in BI</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Over 100K Website Visits</inlineHelpText>
+    <label>100K+ Website Visits Old field</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

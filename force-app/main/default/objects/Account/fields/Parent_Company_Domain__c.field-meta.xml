@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Parent_Company_Domain__c</fullName>
+    <description>#1101356 Populates by SalesOps
+[OB] - Field type changed to &quot;Text&quot; and checked &quot;External Id&quot; - This is for using the field in &quot;Get Records&quot; in Flow.</description>
+    <externalId>true</externalId>
+    <label>Parent Company Domain</label>
+    <length>255</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

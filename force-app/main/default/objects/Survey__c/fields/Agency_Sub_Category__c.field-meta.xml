@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Agency_Sub_Category__c</fullName>
+    <externalId>false</externalId>
+    <label>Agency Sub Category</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>AdTech or MarTech</fullName>
+                <default>false</default>
+                <label>AdTech or MarTech</label>
+            </value>
+            <value>
+                <fullName>Advertising</fullName>
+                <default>false</default>
+                <label>Advertising</label>
+            </value>
+            <value>
+                <fullName>Consultancy &amp; Strategy</fullName>
+                <default>false</default>
+                <label>Consultancy &amp; Strategy</label>
+            </value>
+            <value>
+                <fullName>CRM &amp; Direct Response</fullName>
+                <default>false</default>
+                <label>CRM &amp; Direct Response</label>
+            </value>
+            <value>
+                <fullName>Design &amp; Innovation</fullName>
+                <default>false</default>
+                <label>Design &amp; Innovation</label>
+            </value>
+            <value>
+                <fullName>Digital &amp; Social Media</fullName>
+                <default>false</default>
+                <label>Digital &amp; Social Media</label>
+            </value>
+            <value>
+                <fullName>eCommerce</fullName>
+                <default>false</default>
+                <label>eCommerce</label>
+            </value>
+            <value>
+                <fullName>Media planning and buying</fullName>
+                <default>false</default>
+                <label>Media planning and buying</label>
+            </value>
+            <value>
+                <fullName>Market Research &amp; Analytics</fullName>
+                <default>false</default>
+                <label>Market Research &amp; Analytics</label>
+            </value>
+            <value>
+                <fullName>PR</fullName>
+                <default>false</default>
+                <label>PR</label>
+            </value>
+            <value>
+                <fullName>Promotions &amp; Experiential</fullName>
+                <default>false</default>
+                <label>Promotions &amp; Experiential</label>
+            </value>
+            <value>
+                <fullName>Sponsorship</fullName>
+                <default>false</default>
+                <label>Sponsorship</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>5</visibleLines>
+</CustomField>

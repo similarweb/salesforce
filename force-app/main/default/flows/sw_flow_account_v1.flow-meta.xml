@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <description>sw_msg_account_v1</description>
+        <name>sw_msg_account_v1</name>
+        <label>sw_msg_account_v1</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <actionName>Account.sw_msg_account_v1</actionName>
+        <actionType>outboundMessage</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <nameSegment>Account.sw_msg_account_v1</nameSegment>
+    </actionCalls>
+    <apiVersion>59.0</apiVersion>
+    <label>sw_flow_account_v1</label>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>sw_msg_account_v1</targetReference>
+        </connector>
+        <object>Account</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

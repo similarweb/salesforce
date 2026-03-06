@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Closed_Lost_Reason_3__c</fullName>
+    <externalId>false</externalId>
+    <label>Closed Lost Reason # 3</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Closed_Lost_Reason_2__c</controllingField>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Missing a feature</fullName>
+                <default>false</default>
+                <label>Missing a feature</label>
+            </value>
+            <value>
+                <fullName>Pricing</fullName>
+                <default>false</default>
+                <label>Pricing</label>
+            </value>
+            <value>
+                <fullName>Data accuracy</fullName>
+                <default>false</default>
+                <label>Data accuracy</label>
+            </value>
+            <value>
+                <fullName>Human resources - no one to use the tool</fullName>
+                <default>false</default>
+                <label>Human resources - no one to use the tool</label>
+            </value>
+            <value>
+                <fullName>One time project</fullName>
+                <default>false</default>
+                <label>One time project</label>
+            </value>
+            <value>
+                <fullName>Already get data from my agency</fullName>
+                <default>false</default>
+                <label>Already get data from my agency</label>
+            </value>
+            <value>
+                <fullName>Unresponsive or lost contact/champion</fullName>
+                <default>false</default>
+                <label>Unresponsive or lost contact/champion</label>
+            </value>
+            <value>
+                <fullName>Internal/Technical</fullName>
+                <default>false</default>
+                <label>Internal/Technical</label>
+            </value>
+            <value>
+                <fullName>Didn&apos;t see value</fullName>
+                <default>false</default>
+                <label>Didn&apos;t see value</label>
+            </value>
+            <value>
+                <fullName>Unknown</fullName>
+                <default>false</default>
+                <label>Unknown</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Competition</controllingFieldValue>
+            <valueName>Unknown</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

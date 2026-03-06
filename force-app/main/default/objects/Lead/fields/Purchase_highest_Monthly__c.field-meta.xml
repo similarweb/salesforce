@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Purchase_highest_Monthly__c</fullName>
+    <description>The highest priced monthly plan the lead checked</description>
+    <externalId>false</externalId>
+    <label>Purchase page - highest priced monthly</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Basic Web Monthly (100145)</fullName>
+                <default>false</default>
+                <label>Basic Web Monthly (100145)</label>
+            </value>
+            <value>
+                <fullName>Basic Mobile Monthly (100161)</fullName>
+                <default>false</default>
+                <label>Basic Mobile Monthly (100161)</label>
+            </value>
+            <value>
+                <fullName>Basic Mobile and Web Monthly (100153)</fullName>
+                <default>false</default>
+                <label>Basic Mobile and Web Monthly (100153)</label>
+            </value>
+            <value>
+                <fullName>Advanced Web Monthly (100103)</fullName>
+                <default>false</default>
+                <label>Advanced Web Monthly (100103)</label>
+            </value>
+            <value>
+                <fullName>Advanced Mobile Monthly (100163)</fullName>
+                <default>false</default>
+                <label>Advanced Mobile Monthly (100163)</label>
+            </value>
+            <value>
+                <fullName>Advanced Mobile and Web Monthly (100157)</fullName>
+                <default>false</default>
+                <label>Advanced Mobile and Web Monthly (100157)</label>
+            </value>
+            <value>
+                <fullName>Ultimate Mobile Monthly (100185)</fullName>
+                <default>false</default>
+                <label>Ultimate Mobile Monthly (100185)</label>
+            </value>
+            <value>
+                <fullName>Ultimate Web Monthly (100189)</fullName>
+                <default>false</default>
+                <label>Ultimate Web Monthly (100189)</label>
+            </value>
+            <value>
+                <fullName>Ultimate Mobile and Web Monthly (100191)</fullName>
+                <default>false</default>
+                <label>Ultimate Mobile and Web Monthly (100191)</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

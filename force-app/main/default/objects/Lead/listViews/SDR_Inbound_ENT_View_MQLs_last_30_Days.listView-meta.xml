@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SDR_Inbound_ENT_View_MQLs_last_30_Days</fullName>
+    <booleanFilter>1 AND 2 AND 3  AND 4 and 5</booleanFilter>
+    <columns>CORE.USERS.FIRST_NAME</columns>
+    <columns>Business_Unit__c</columns>
+    <columns>Maturity_Score__c</columns>
+    <columns>LEAD.COMPANY</columns>
+    <columns>FULL_NAME</columns>
+    <columns>LEAD.TITLE</columns>
+    <columns>LEAD.PHONE</columns>
+    <columns>LEAD.EMAIL</columns>
+    <columns>LEAD.COUNTRY</columns>
+    <columns>LEAD.LAST_ACTIVITY</columns>
+    <columns>MQL_date__c</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+        <field>LEAD.STATUS</field>
+        <operation>notEqual</operation>
+        <value>Qualified,Unqualified</value>
+    </filters>
+    <filters>
+        <field>LEAD.CREATED_DATE</field>
+        <operation>greaterOrEqual</operation>
+        <value>LAST_N_DAYS:14</value>
+    </filters>
+    <filters>
+        <field>Business_Unit__c</field>
+        <operation>equals</operation>
+        <value>Enterprise,Strategic</value>
+    </filters>
+    <filters>
+        <field>LEAD.LAST_ACTIVITY</field>
+        <operation>equals</operation>
+    </filters>
+    <label>SDR Inbound: Relevant Leads last 7 days</label>
+</ListView>

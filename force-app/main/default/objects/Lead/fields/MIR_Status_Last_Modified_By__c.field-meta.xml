@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MIR_Status_Last_Modified_By__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>MIS-6666</description>
+    <externalId>false</externalId>
+    <label>MIR Status Last Modified By</label>
+    <referenceTo>User</referenceTo>
+    <relationshipName>Lead_MIR_Statuses_Changed</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Lookup</type>
+</CustomField>

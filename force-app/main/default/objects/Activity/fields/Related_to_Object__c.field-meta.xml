@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Related_to_Object__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(
+         not(isblank(WhatId)),
+        CASE(LEFT(WhatId, 3) ,
+                  &apos;001&apos;, &apos;Account&apos;,
+                  &apos;006&apos;, &apos;Opportunity&apos;,
+                  &apos;800&apos;, &apos;Contract&apos;,
+                  &apos;0Q0&apos;, &apos;Quote&apos;,
+                  &apos;003&apos;, &apos;Contact&apos;,
+                  &apos;00T&apos;, &apos;Task&apos;,
+                  &apos;00U&apos;, &apos;Event&apos;,
+                  &apos;a0t&apos;, &apos;Meeting&apos;,
+                  LEFT(WhatId, 3)
+                  ),
+        CASE(LEFT(WhoId, 3) ,
+                  &apos;00Q&apos;, &apos;Lead&apos;,
+                  &apos;003&apos;, &apos;Contact&apos;,
+                  LEFT(WhoId, 3)
+                  )
+        )</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Related to Object</label>
+    <required>false</required>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

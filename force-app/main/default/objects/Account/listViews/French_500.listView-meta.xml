@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>French_500</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CORE.USERS.FIRST_NAME</columns>
+    <columns>CORE.USERS.LAST_NAME</columns>
+    <columns>Owner_Division__c</columns>
+    <columns>ACCOUNT.LAST_ACTIVITY</columns>
+    <columns>ACCOUNT.INDUSTRY</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>ACCOUNT.ADDRESS1_COUNTRY</field>
+        <operation>equals</operation>
+        <value>France,Switzerland</value>
+    </filters>
+    <filters>
+        <field>fr_Past_Meeting_Opp__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <filters>
+        <field>Business_Unit__c</field>
+        <operation>equals</operation>
+        <value>Inside Sales</value>
+    </filters>
+    <filters>
+        <field>SW_Industry__c</field>
+        <operation>equals</operation>
+        <value>Automotive and Transportation,Automotive,Gambling / Gaming,Gambling and Gaming,Pharma and Healthcare,Retail / eCommerce,Retail and eCommerce,Telecom and Hardware,Telecom,Travel and Hospitality,Travel</value>
+    </filters>
+    <label>French &lt;500</label>
+</ListView>

@@ -1,0 +1,46 @@
+<apex:page showHeader="true" sidebar="true" standardController="zqu__Quote__c" extensions="CustomCloneQuoteController">
+    <apex:pageMessages ></apex:pageMessages>
+    <div style="font-size: 1.1em;">
+        <apex:pageBlock >
+            <apex:form >    
+                <apex:actionFunction action="{!setNextUrl}" name="onSetNextUrl" reRender=""/>
+                <apex:actionFunction action="{!removeNextUrl}" name="onRemoveNextUrl" reRender=""/>
+            </apex:form>
+            <apex:pageBlockSection title="Instructions" >   
+                <apex:pageBlockSectionItem >
+                    <apex:outputPanel layout="block" style="overflow: auto; height: 80%;">
+                        <apex:outputText style="font-weight: bold;font-size:87%;color: #4A4A56;font-family: 'Helvetica';"
+                                         escape="false" 
+                                         value="{!zqu__Quote__c.Clone_Instructions__c}">
+                        </apex:outputText>
+                    </apex:outputPanel>
+                </apex:PageBlockSectionItem>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </div>
+    <br/>
+    <br/>
+    <zqu:CloneQuote cloneQuoteOptions="{!cloneQuoteOptions}"/>
+    <script>
+        var onNextClickFunction;
+        saveButtonLogic();
+
+        function saveButtonLogic(){
+            var saveButtonEl = document.querySelector('input[type=checkbox]');
+            if (saveButtonEl) {
+                saveButtonEl.addEventListener("click", function(){
+                    let maintainQuoteCheckbox = document.querySelector('input[type=checkbox]');
+                    if(!maintainQuoteCheckbox){
+                        return
+                    }
+                    var isMaintainQuote = maintainQuoteCheckbox.checked;
+                    if (isMaintainQuote) {
+                        onSetNextUrl();
+                    } else{
+                        onRemoveNextUrl();
+                    }
+                });
+            }
+        }
+    </script>
+</apex:page>

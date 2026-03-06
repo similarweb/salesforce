@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NT_Product__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>maintenance and architecture future purposes
+MIS-3462</description>
+    <externalId>false</externalId>
+    <label>NT Product</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

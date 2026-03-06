@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Seniority__c</fullName>
+    <description>MIS-3278. Fields converted to contact on Lead Conversion</description>
+    <externalId>false</externalId>
+    <label>Seniority</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Contractor</fullName>
+                <default>false</default>
+                <label>Contractor</label>
+            </value>
+            <value>
+                <fullName>Individual contributor</fullName>
+                <default>false</default>
+                <label>Individual contributor</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Team lead/manager</fullName>
+                <default>false</default>
+                <label>Team lead/manager</label>
+            </value>
+            <value>
+                <fullName>VP/director</fullName>
+                <default>false</default>
+                <label>VP/director</label>
+            </value>
+            <value>
+                <fullName>C-Suite</fullName>
+                <default>false</default>
+                <label>C-Suite</label>
+            </value>
+            <value>
+                <fullName>Student/Intern</fullName>
+                <default>false</default>
+                <label>Student/Intern</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Not_Bought_Premium_Features__c</fullName>
+    <description>MIS-474
+If new values were added to the Product_Sold__c picklist on the Opportunity, add them to this picklist as well</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Were there any premium features discussed that were not bought?</inlineHelpText>
+    <label>Features Potential for an Upsell</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Advisory Services</fullName>
+                <default>false</default>
+                <label>Advisory Services</label>
+            </value>
+            <value>
+                <fullName>Annual Price Increase</fullName>
+                <default>false</default>
+                <label>Annual Price Increase</label>
+            </value>
+            <value>
+                <fullName>API</fullName>
+                <default>false</default>
+                <label>API</label>
+            </value>
+            <value>
+                <fullName>Country Filters</fullName>
+                <default>false</default>
+                <label>Country Filters</label>
+            </value>
+            <value>
+                <fullName>Custom Reports</fullName>
+                <default>false</default>
+                <label>Custom Reports</label>
+            </value>
+            <value>
+                <fullName>Data Feeds</fullName>
+                <default>false</default>
+                <label>Data Feeds</label>
+            </value>
+            <value>
+                <fullName>Enterprise Trial</fullName>
+                <default>false</default>
+                <label>Enterprise Trial</label>
+            </value>
+            <value>
+                <fullName>Conversion Analysis</fullName>
+                <default>false</default>
+                <label>Conversion Analysis</label>
+            </value>
+            <value>
+                <fullName>Historical data</fullName>
+                <default>false</default>
+                <label>Historical data</label>
+            </value>
+            <value>
+                <fullName>Sales Solution - Intelligence</fullName>
+                <default>false</default>
+                <label>Sales Solution - Intelligence</label>
+            </value>
+            <value>
+                <fullName>Sales Solution - Lead Enrichment</fullName>
+                <default>false</default>
+                <label>Sales Solution - Lead Enrichment</label>
+            </value>
+            <value>
+                <fullName>Technographics</fullName>
+                <default>false</default>
+                <label>Technographics</label>
+            </value>
+            <value>
+                <fullName>User</fullName>
+                <default>false</default>
+                <label>User</label>
+            </value>
+            <value>
+                <fullName>Website Segment Analysis</fullName>
+                <default>false</default>
+                <label>Website Segment Analysis</label>
+            </value>
+            <value>
+                <fullName>Shopper Intelligence (as standalone)</fullName>
+                <default>false</default>
+                <label>Shopper Intelligence (as standalone)</label>
+            </value>
+            <value>
+                <fullName>Shopper Intelligence (as Add-On)</fullName>
+                <default>false</default>
+                <label>Shopper Intelligence (as Add-On)</label>
+            </value>
+            <value>
+                <fullName>Team Pass</fullName>
+                <default>false</default>
+                <label>Team Pass</label>
+            </value>
+            <value>
+                <fullName>Users</fullName>
+                <default>false</default>
+                <label>Users</label>
+            </value>
+            <value>
+                <fullName>Unlimited Users</fullName>
+                <default>false</default>
+                <label>Unlimited Users</label>
+            </value>
+            <value>
+                <fullName>SSO</fullName>
+                <default>false</default>
+                <label>SSO</label>
+            </value>
+            <value>
+                <fullName>Country Filter</fullName>
+                <default>false</default>
+                <label>Country Filter</label>
+            </value>
+            <value>
+                <fullName>API Access</fullName>
+                <default>false</default>
+                <label>API Access</label>
+            </value>
+            <value>
+                <fullName>Conversion</fullName>
+                <default>false</default>
+                <label>Conversion</label>
+            </value>
+            <value>
+                <fullName>Faster API</fullName>
+                <default>false</default>
+                <label>Faster API</label>
+            </value>
+            <value>
+                <fullName>API - Data Credit</fullName>
+                <default>false</default>
+                <label>API - Data Credit</label>
+            </value>
+            <value>
+                <fullName>Rest API</fullName>
+                <default>false</default>
+                <label>Rest API</label>
+            </value>
+            <value>
+                <fullName>Marketing Channels</fullName>
+                <default>false</default>
+                <label>Marketing Channels</label>
+            </value>
+            <value>
+                <fullName>Market Research</fullName>
+                <default>false</default>
+                <label>Market Research</label>
+            </value>
+            <value>
+                <fullName>Custom Segments</fullName>
+                <default>false</default>
+                <label>Custom Segments</label>
+            </value>
+            <value>
+                <fullName>Custom Industries</fullName>
+                <default>false</default>
+                <label>Custom Industries</label>
+            </value>
+            <value>
+                <fullName>Daas</fullName>
+                <default>false</default>
+                <label>Daas</label>
+            </value>
+            <value>
+                <fullName>Exporter</fullName>
+                <default>false</default>
+                <label>Exporter</label>
+            </value>
+            <value>
+                <fullName>Contacts</fullName>
+                <default>false</default>
+                <label>Contacts</label>
+            </value>
+            <value>
+                <fullName>Intent Topics</fullName>
+                <default>false</default>
+                <label>Intent Topics</label>
+            </value>
+            <value>
+                <fullName>Apps Premium Plus</fullName>
+                <default>false</default>
+                <label>Apps Premium Plus</label>
+            </value>
+            <value>
+                <fullName>Stock Base</fullName>
+                <default>false</default>
+                <label>Stock Base</label>
+            </value>
+            <value>
+                <fullName>Stock Premium</fullName>
+                <default>false</default>
+                <label>Stock Premium</label>
+            </value>
+            <value>
+                <fullName>Shopper</fullName>
+                <default>false</default>
+                <label>Shopper</label>
+            </value>
+            <value>
+                <fullName>Sales Intelligence Pro</fullName>
+                <default>false</default>
+                <label>Sales Intelligence Pro</label>
+            </value>
+            <value>
+                <fullName>Competitive Intelligence Team</fullName>
+                <default>false</default>
+                <label>Competitive Intelligence Team</label>
+            </value>
+            <value>
+                <fullName>Competitive Intelligence Business</fullName>
+                <default>false</default>
+                <label>Competitive Intelligence Business</label>
+            </value>
+            <value>
+                <fullName>Competitive Intelligence Enterprise</fullName>
+                <default>false</default>
+                <label>Competitive Intelligence Enterprise</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>3</visibleLines>
+</CustomField>

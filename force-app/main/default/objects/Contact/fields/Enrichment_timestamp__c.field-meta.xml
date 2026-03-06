@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Enrichment_timestamp__c</fullName>
+    <description>This field&apos;s value is coming from Lead conversion.
+On leads, used by LeadTriggerHandler, this field is populated when employees min/max is getting the S _connector values.</description>
+    <externalId>false</externalId>
+    <label>EMP enriched by SW Connector</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>DateTime</type>
+</CustomField>

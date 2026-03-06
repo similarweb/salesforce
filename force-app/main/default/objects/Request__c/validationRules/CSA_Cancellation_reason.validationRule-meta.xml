@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CSA_Cancellation_reason</fullName>
+    <active>true</active>
+    <description>MIS-760</description>
+    <errorConditionFormula>ISPICKVAL( Status__c , &quot;Cancelled&quot;)&amp;&amp;
+ISBLANK(TEXT( Cancellation_Reason_PickList__c )) &amp;&amp;
+$Profile.Name &lt;&gt; &apos;System Administrator&apos; &amp;&amp;
+$Profile.Name &lt;&gt; &apos;SW SalesOps&apos; &amp;&amp;
+$Profile.Name &lt;&gt; &apos;SW SalesOps Extended&apos;  &amp;&amp;
+(
+RecordType.DeveloperName = &apos;Solution_Implementation&apos;  ||
+RecordType.DeveloperName = &apos;Solution_Engineering&apos;  ||
+RecordType.DeveloperName = &apos;Technical_Solutions&apos; ||
+RecordType.DeveloperName =&apos;Trial_Request&apos;
+)</errorConditionFormula>
+    <errorDisplayField>Cancellation_Reason_PickList__c</errorDisplayField>
+    <errorMessage>Disapproval reason is required upon request cancellation.</errorMessage>
+</ValidationRule>

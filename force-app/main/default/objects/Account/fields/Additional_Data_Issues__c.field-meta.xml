@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Additional_Data_Issues__c</fullName>
+    <description>MIS-7368</description>
+    <externalId>false</externalId>
+    <label>Additional Data Issues</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>true</sorted>
+            <value>
+                <fullName>Apps Android - Accuracy</fullName>
+                <default>false</default>
+                <label>Apps Android - Accuracy</label>
+            </value>
+            <value>
+                <fullName>Apps Android - Coverage</fullName>
+                <default>false</default>
+                <label>Apps Android - Coverage</label>
+            </value>
+            <value>
+                <fullName>Apps IOS - Accuracy</fullName>
+                <default>false</default>
+                <label>Apps IOS - Accuracy</label>
+            </value>
+            <value>
+                <fullName>Apps IOS - Coverage</fullName>
+                <default>false</default>
+                <label>Apps IOS - Coverage</label>
+            </value>
+            <value>
+                <fullName>KW</fullName>
+                <default>false</default>
+                <label>KW</label>
+            </value>
+            <value>
+                <fullName>Marketing Channels - Direct</fullName>
+                <default>false</default>
+                <label>Marketing Channels - Direct</label>
+            </value>
+            <value>
+                <fullName>Marketing Channels - Display</fullName>
+                <default>false</default>
+                <label>Marketing Channels - Display</label>
+            </value>
+            <value>
+                <fullName>Marketing Channels - Email</fullName>
+                <default>false</default>
+                <label>Marketing Channels - Email</label>
+            </value>
+            <value>
+                <fullName>Marketing Channels - Organic</fullName>
+                <default>false</default>
+                <label>Marketing Channels - Organic</label>
+            </value>
+            <value>
+                <fullName>Marketing Channels - Paid Search</fullName>
+                <default>false</default>
+                <label>Marketing Channels - Paid Search</label>
+            </value>
+            <value>
+                <fullName>Marketing Channels - Rank tracker</fullName>
+                <default>false</default>
+                <label>Marketing Channels - Rank tracker</label>
+            </value>
+            <value>
+                <fullName>Marketing Channels - Referrals</fullName>
+                <default>false</default>
+                <label>Marketing Channels - Referrals</label>
+            </value>
+            <value>
+                <fullName>Not known data issues</fullName>
+                <default>false</default>
+                <label>Not known data issues</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>PPC Spend</fullName>
+                <default>false</default>
+                <label>PPC Spend</label>
+            </value>
+            <value>
+                <fullName>Rank Tracker</fullName>
+                <default>false</default>
+                <label>Rank Tracker</label>
+            </value>
+            <value>
+                <fullName>Segments - Accuracy</fullName>
+                <default>false</default>
+                <label>Segments - Accuracy</label>
+            </value>
+            <value>
+                <fullName>Shopper</fullName>
+                <default>false</default>
+                <label>Shopper</label>
+            </value>
+            <value>
+                <fullName>SI - Contacts</fullName>
+                <default>false</default>
+                <label>SI - Contacts</label>
+            </value>
+            <value>
+                <fullName>SI - Firmographics</fullName>
+                <default>false</default>
+                <label>SI - Firmographics</label>
+            </value>
+            <value>
+                <fullName>SI - Other Data</fullName>
+                <default>false</default>
+                <label>SI - Other Data</label>
+            </value>
+            <value>
+                <fullName>SI - Technographics</fullName>
+                <default>false</default>
+                <label>SI - Technographics</label>
+            </value>
+            <value>
+                <fullName>Traffic &amp; Engagement - Accuracy</fullName>
+                <default>false</default>
+                <label>Traffic &amp; Engagement - Accuracy</label>
+            </value>
+            <value>
+                <fullName>Traffic &amp; Engagement - Coverage</fullName>
+                <default>false</default>
+                <label>Traffic &amp; Engagement - Coverage</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

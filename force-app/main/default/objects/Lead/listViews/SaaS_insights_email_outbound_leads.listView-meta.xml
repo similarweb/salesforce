@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SaaS_insights_email_outbound_leads</fullName>
+    <columns>Department__c</columns>
+    <columns>MQL_date__c</columns>
+    <columns>Pro_User_Type__c</columns>
+    <columns>FULL_NAME</columns>
+    <columns>LEAD.COMPANY</columns>
+    <columns>SW_Industry__c</columns>
+    <columns>LEAD.COUNTRY</columns>
+    <columns>LEAD.TITLE</columns>
+    <columns>LEAD.STATUS</columns>
+    <columns>LEAD.EMAIL</columns>
+    <columns>LEAD.PHONE</columns>
+    <columns>LEAD.LAST_ACTIVITY</columns>
+    <columns>Business_Unit__c</columns>
+    <columns>SW_Fit_Score__c</columns>
+    <columns>Lead_Owner_formula__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>LEAD.CONVERTED</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <label>SaaS insights email outbound leads</label>
+</ListView>

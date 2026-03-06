@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Last_CU_Status__c</fullName>
+    <description>MIS-5271 - Updated according to the CU Task</description>
+    <externalId>false</externalId>
+    <label>Last CU Status</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>true</sorted>
+            <value>
+                <fullName>Accepted</fullName>
+                <default>false</default>
+                <label>Accepted</label>
+            </value>
+            <value>
+                <fullName>Accepted by CP</fullName>
+                <default>false</default>
+                <label>Accepted by CP</label>
+            </value>
+            <value>
+                <fullName>Cancelled / Irrelevant</fullName>
+                <default>false</default>
+                <label>Cancelled / Irrelevant</label>
+            </value>
+            <value>
+                <fullName>Completed</fullName>
+                <default>false</default>
+                <label>Completed</label>
+            </value>
+            <value>
+                <fullName>Deferred</fullName>
+                <default>false</default>
+                <label>Deferred</label>
+            </value>
+            <value>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+                <label>In Progress</label>
+            </value>
+            <value>
+                <fullName>Neglected</fullName>
+                <default>false</default>
+                <label>Neglected</label>
+            </value>
+            <value>
+                <fullName>Not Started</fullName>
+                <default>false</default>
+                <label>Not Started</label>
+            </value>
+            <value>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+                <label>Rejected</label>
+            </value>
+            <value>
+                <fullName>Submitted</fullName>
+                <default>false</default>
+                <label>Submitted</label>
+            </value>
+            <value>
+                <fullName>Unqualified</fullName>
+                <default>false</default>
+                <label>Unqualified</label>
+            </value>
+            <value>
+                <fullName>Unqualified Upon Creation</fullName>
+                <default>false</default>
+                <label>Unqualified Upon Creation</label>
+            </value>
+            <value>
+                <fullName>Waiting on someone else</fullName>
+                <default>false</default>
+                <label>Waiting on someone else</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

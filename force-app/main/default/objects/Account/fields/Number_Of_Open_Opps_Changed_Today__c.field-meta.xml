@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Number_Of_Open_Opps_Changed_Today__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Will be checked when roll up # of open opps is changed/ will be used for scheduled flow entry creteria</description>
+    <externalId>false</externalId>
+    <label>Number Of Open Opps Changed Today</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

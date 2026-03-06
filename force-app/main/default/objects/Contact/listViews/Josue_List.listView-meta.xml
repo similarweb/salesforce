@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Josue_List</fullName>
+    <columns>Language__c</columns>
+    <columns>Account.Account_Owner_formula__c</columns>
+    <columns>fr_Pro_User_Type__c</columns>
+    <columns>Fro_Type__c</columns>
+    <columns>No_Touch_User__c</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>FULL_NAME</columns>
+    <columns>CONTACT.TITLE</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>Original_Lead_Source__c</columns>
+    <columns>CONTACT.LEAD_SOURCE</columns>
+    <columns>CONTACT.ADDRESS2_STATE_CODE</columns>
+    <columns>fr_Last_Interesting_Date__c</columns>
+    <columns>fr_Last_Interesting_Activity__c</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+        <field>CONTACT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Contact.Default</value>
+    </filters>
+    <filters>
+        <field>Status__c</field>
+        <operation>notEqual</operation>
+        <value>Unqualified</value>
+    </filters>
+    <filters>
+        <field>LID__No_longer_at_Company__c</field>
+        <operation>notEqual</operation>
+        <value>Not at Company</value>
+    </filters>
+    <filters>
+        <field>Language__c</field>
+        <operation>contains</operation>
+        <value>josue</value>
+    </filters>
+    <label>Josue List</label>
+</ListView>

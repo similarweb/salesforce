@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SDR_Template</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>ACCOUNT.LAST_ACTIVITY</columns>
+    <columns>SW_Industry__c</columns>
+    <columns>sw_connector_Total_Monthly_Visits__c</columns>
+    <columns>q_Condition__c</columns>
+    <columns>q_Score__c</columns>
+    <columns>q_Trend__c</columns>
+    <columns>q_Visitor_Count__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>q_Condition__c</field>
+        <operation>equals</operation>
+        <value>on fire,hot</value>
+    </filters>
+    <filters>
+        <field>Country_Region_new__c</field>
+        <operation>equals</operation>
+        <value>northamerica</value>
+    </filters>
+    <filters>
+        <field>Forecasting_Division__c</field>
+        <operation>contains</operation>
+        <value>smb</value>
+    </filters>
+    <label>SDR Template</label>
+</ListView>

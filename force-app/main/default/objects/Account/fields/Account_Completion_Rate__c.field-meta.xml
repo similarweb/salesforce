@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Account_Completion_Rate__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(Account_Completion__c *10000&lt;30 , &quot;Less than 30% completed&quot; &amp; BR() &amp; IMAGE( &quot;/servlet/servlet.FileDownload?file=015b0000004Y4YH&quot;,&quot;Less than 30%&quot;), 
+IF(Account_Completion__c *10000&lt;60 ,&quot;Less than 60% completed&quot; &amp; BR() &amp; IMAGE( &quot;/servlet/servlet.FileDownload?file=015b0000004Y4YM&quot;,&quot;Less than 60%&quot;), 
+IF(Account_Completion__c *10000&lt;80 , &quot;Less than 80% completed&quot; &amp; BR() &amp; IMAGE( &quot;/servlet/servlet.FileDownload?file=015b0000004Y4YR&quot;,&quot;Less than 80%&quot;), 
+IF(Account_Completion__c *10000&lt;99 , &quot;Less than 100% completed&quot; &amp; BR() &amp; IMAGE( &quot;/servlet/servlet.FileDownload?file=015b0000004Y4YW&quot;,&quot;Less than 100%&quot;), 
+&quot;Perfect&quot; &amp; BR() &amp; 
+IMAGE( &quot;/servlet/servlet.FileDownload?file=015b0000004Y4Yb&quot;, &quot;Perfect&quot;)))))</formula>
+    <label>Account Completion Rate</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

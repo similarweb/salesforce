@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Closed_Won_Reason_3__c</fullName>
+    <externalId>false</externalId>
+    <label>Closed Won Reason #3</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Closed_Won_Reason_2__c</controllingField>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Feature</fullName>
+                <default>false</default>
+                <label>Feature</label>
+            </value>
+            <value>
+                <fullName>Price</fullName>
+                <default>false</default>
+                <label>Price</label>
+            </value>
+            <value>
+                <fullName>Data Accuracy</fullName>
+                <default>false</default>
+                <label>Data Accuracy</label>
+            </value>
+            <value>
+                <fullName>Data Granularity</fullName>
+                <default>false</default>
+                <label>Data Granularity</label>
+            </value>
+            <value>
+                <fullName>Customer Service/Experience</fullName>
+                <default>false</default>
+                <label>Customer Service/Experience</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Unknown</fullName>
+                <default>false</default>
+                <label>Unknown</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

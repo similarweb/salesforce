@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Forecasting_Division__c</fullName>
+    <description>MIS-1519 New division fields in SFDC</description>
+    <externalId>false</externalId>
+    <formula>CASE(Owner_Division__c,
+&apos;Reseller - ANZ-Trellian&apos;,&apos;Resellers APAC&apos;,
+&apos;Reseller - SEA-Maestros&apos;,&apos;Resellers APAC&apos;,
+&apos;Reseller - India - Altudo&apos;,&apos;Resellers APAC&apos;,
+&apos;Reseller - Vietnam - AMS JSC&apos;, &apos;Resellers APAC&apos;,
+&apos;Reseller - China - TrueMetrics&apos;, &apos;Resellers APAC&apos;,
+&apos;Reseller - Australia and Pacific Islands - Bring Performance&apos;,&apos;Resellers APAC&apos;,
+
+
+&apos;Reseller - Brazil - 108&apos;,&apos;Resellers Americas&apos;,
+&apos;Reseller - Mexico - Hexagon Data&apos;,&apos;Resellers Americas&apos;,
+&apos;Reseller - Brazil - Alpha&apos;,&apos;Resellers Americas&apos;,
+&apos;Reseller - Colombia - Indices&apos;, &apos;Resellers Americas&apos;,
+
+
+&apos;Reseller - Turkey-CloudyFlex&apos;,&apos;Resellers EMEA&apos;,
+&apos;Reseller - Italy - Nubo&apos;,&apos;Resellers EMEA&apos;,
+&apos;Reseller - Spain - Cartagon&apos;, &apos;Resellers EMEA&apos;,
+
+
+
+&apos;Rank Ranger&apos;, &apos;Rank Ranger&apos;,
+Owner_Division__c
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Owner Reporting Division</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

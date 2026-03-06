@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Services_Start_Date__c</fullName>
+    <description>MIS-6848</description>
+    <externalId>false</externalId>
+    <inlineHelpText>The contract start date;
+Can be customer signature date or a specific start date outlined in the signed contract</inlineHelpText>
+    <label>Services Start Date</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Date</type>
+</CustomField>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Similarweb_Forecasting_status__c</fullName>
+    <externalId>false</externalId>
+    <label>Similarweb Forecasting status</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Pipeline</fullName>
+                <default>false</default>
+                <label>Pipeline</label>
+            </value>
+            <value>
+                <fullName>Best Case</fullName>
+                <default>false</default>
+                <label>Best Case</label>
+            </value>
+            <value>
+                <fullName>Commit</fullName>
+                <default>false</default>
+                <label>Commit</label>
+            </value>
+            <value>
+                <fullName>Closed</fullName>
+                <default>false</default>
+                <label>Closed</label>
+            </value>
+            <value>
+                <fullName>Omitted</fullName>
+                <default>false</default>
+                <label>Omitted</label>
+            </value>
+            <value>
+                <fullName>60% - Projected In</fullName>
+                <default>false</default>
+                <label>60% - Projected In</label>
+            </value>
+            <value>
+                <fullName>80% - Confirmed In</fullName>
+                <default>false</default>
+                <label>80% - Confirmed In</label>
+            </value>
+            <value>
+                <fullName>40% - Projected Out</fullName>
+                <default>false</default>
+                <label>40% - Projected Out</label>
+            </value>
+            <value>
+                <fullName>25% - Confirmed Out</fullName>
+                <default>false</default>
+                <label>25% - Confirmed Out</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

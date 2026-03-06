@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Customer_s_Lead_enrichment_provider__c</fullName>
+    <externalId>false</externalId>
+    <label>Customer&apos;s Lead enrichment provider</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>ZoomInfo</fullName>
+                <default>false</default>
+                <label>ZoomInfo</label>
+            </value>
+            <value>
+                <fullName>BuiltWith</fullName>
+                <default>false</default>
+                <label>BuiltWith</label>
+            </value>
+            <value>
+                <fullName>Etail insights</fullName>
+                <default>false</default>
+                <label>Etail insights</label>
+            </value>
+            <value>
+                <fullName>Red Volcano</fullName>
+                <default>false</default>
+                <label>Red Volcano</label>
+            </value>
+            <value>
+                <fullName>D&amp;B Hoovers</fullName>
+                <default>false</default>
+                <label>D&amp;B Hoovers</label>
+            </value>
+            <value>
+                <fullName>Lusha</fullName>
+                <default>false</default>
+                <label>Lusha</label>
+            </value>
+            <value>
+                <fullName>Cognism</fullName>
+                <default>false</default>
+                <label>Cognism</label>
+            </value>
+            <value>
+                <fullName>Apollo.io</fullName>
+                <default>false</default>
+                <label>Apollo.io</label>
+            </value>
+            <value>
+                <fullName>RocketReach</fullName>
+                <default>false</default>
+                <label>RocketReach</label>
+            </value>
+            <value>
+                <fullName>TAMI</fullName>
+                <default>false</default>
+                <label>TAMI</label>
+            </value>
+            <value>
+                <fullName>PipeCandy</fullName>
+                <default>false</default>
+                <label>PipeCandy</label>
+            </value>
+            <value>
+                <fullName>Crunchbase</fullName>
+                <default>false</default>
+                <label>Crunchbase</label>
+            </value>
+            <value>
+                <fullName>Clearbit</fullName>
+                <default>false</default>
+                <label>Clearbit</label>
+            </value>
+            <value>
+                <fullName>Similarweb</fullName>
+                <default>false</default>
+                <label>Similarweb</label>
+            </value>
+            <value>
+                <fullName>None</fullName>
+                <default>false</default>
+                <label>None</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Demandbase</fullName>
+                <default>false</default>
+                <label>Demandbase</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

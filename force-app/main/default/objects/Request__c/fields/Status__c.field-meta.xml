@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Status__c</fullName>
+    <externalId>false</externalId>
+    <label>Status</label>
+    <required>false</required>
+    <trackFeedHistory>true</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Submitted</fullName>
+                <default>true</default>
+                <label>Submitted</label>
+            </value>
+            <value>
+                <fullName>In Process</fullName>
+                <default>false</default>
+                <label>In Process</label>
+            </value>
+            <value>
+                <fullName>FA with analyst/eng</fullName>
+                <default>false</default>
+                <label>FA with analyst/eng</label>
+            </value>
+            <value>
+                <fullName>Pending Client</fullName>
+                <default>false</default>
+                <label>Pending Client</label>
+            </value>
+            <value>
+                <fullName>Pending GTM</fullName>
+                <default>false</default>
+                <label>Pending GTM</label>
+            </value>
+            <value>
+                <fullName>Pending finance</fullName>
+                <default>false</default>
+                <label>Pending finance</label>
+            </value>
+            <value>
+                <fullName>Pending Dragons</fullName>
+                <default>false</default>
+                <label>Pending Dragons</label>
+            </value>
+            <value>
+                <fullName>In R&amp;D process</fullName>
+                <default>false</default>
+                <label>In R&amp;D process</label>
+            </value>
+            <value>
+                <fullName>DaaS to Deliver - Closed Won</fullName>
+                <default>false</default>
+                <label>DaaS to Deliver - Closed Won</label>
+            </value>
+            <value>
+                <fullName>Closed lost</fullName>
+                <default>false</default>
+                <label>Closed Lost</label>
+            </value>
+            <value>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+                <label>Cancelled</label>
+            </value>
+            <value>
+                <fullName>Completed</fullName>
+                <default>false</default>
+                <label>Completed</label>
+            </value>
+            <value>
+                <fullName>Account Preliminary Interest</fullName>
+                <default>false</default>
+                <label>Account Preliminary Interest</label>
+            </value>
+            <value>
+                <fullName>Actively Working</fullName>
+                <default>false</default>
+                <label>Actively Working</label>
+            </value>
+            <value>
+                <fullName>Approved By Billing</fullName>
+                <default>false</default>
+                <label>Approved By Billing</label>
+            </value>
+            <value>
+                <fullName>Assigned to SE/CSA</fullName>
+                <default>false</default>
+                <label>Assigned to SE/CSA</label>
+            </value>
+            <value>
+                <fullName>Building Presentation</fullName>
+                <default>false</default>
+                <label>Building Presentation</label>
+            </value>
+            <value>
+                <fullName>Feasibility Pending</fullName>
+                <default>false</default>
+                <label>Checking feasibility &amp; estimating effort</label>
+            </value>
+            <value>
+                <fullName>Client Approval received</fullName>
+                <default>false</default>
+                <label>Client Approval</label>
+            </value>
+            <value>
+                <fullName>Client interest confirmed</fullName>
+                <default>false</default>
+                <label>Client interest confirmed</label>
+            </value>
+            <value>
+                <fullName>Closed Won</fullName>
+                <default>false</default>
+                <label>Closed Won</label>
+            </value>
+            <value>
+                <fullName>Completed (sent to billing)</fullName>
+                <default>false</default>
+                <label>Completed (sent to billing)</label>
+            </value>
+            <value>
+                <fullName>Data Set Trial</fullName>
+                <default>false</default>
+                <label>Data Set Trial</label>
+            </value>
+            <value>
+                <fullName>Data Set Trial - Evaluation</fullName>
+                <default>false</default>
+                <label>Data Set Trial - Evaluation</label>
+            </value>
+            <value>
+                <fullName>Effort estimated</fullName>
+                <default>false</default>
+                <label>Effort estimated</label>
+            </value>
+            <value>
+                <fullName>Feasibility assessment (with Analysts / Engineers)</fullName>
+                <default>false</default>
+                <label>Feasibility assessment (with Analysts / Engineers)</label>
+            </value>
+            <value>
+                <fullName>Feasibility Confirmed</fullName>
+                <default>false</default>
+                <label>Feasibility Confirmed</label>
+            </value>
+            <value>
+                <fullName>Full Brief received</fullName>
+                <default>false</default>
+                <label>Full Brief received</label>
+            </value>
+            <value>
+                <fullName>Initiated - Future deliveries remaining</fullName>
+                <default>false</default>
+                <label>Initiated - Future deliveries remaining</label>
+            </value>
+            <value>
+                <fullName>Not Feasible</fullName>
+                <default>false</default>
+                <label>Not Feasible</label>
+            </value>
+            <value>
+                <fullName>On Hold</fullName>
+                <default>false</default>
+                <label>On Hold</label>
+            </value>
+            <value>
+                <fullName>Out for Signature</fullName>
+                <default>false</default>
+                <label>Out for Signature</label>
+            </value>
+            <value>
+                <fullName>Pending Action</fullName>
+                <default>false</default>
+                <label>Pending Action</label>
+            </value>
+            <value>
+                <fullName>Pending Approval</fullName>
+                <default>false</default>
+                <label>Pending Approval</label>
+            </value>
+            <value>
+                <fullName>Pending update from Billing</fullName>
+                <default>false</default>
+                <label>Pending Billing Review</label>
+            </value>
+            <value>
+                <fullName>Pending Clarification</fullName>
+                <default>false</default>
+                <label>Pending Clarification</label>
+            </value>
+            <value>
+                <fullName>Pending Legal</fullName>
+                <default>false</default>
+                <label>Pending Legal</label>
+            </value>
+            <value>
+                <fullName>Pending Rep To Adjust Quote</fullName>
+                <default>false</default>
+                <label>Pending Requester</label>
+            </value>
+            <value>
+                <fullName>Pending Requestor</fullName>
+                <default>false</default>
+                <label>Pending Requestor</label>
+            </value>
+            <value>
+                <fullName>Pending Update from Analyst</fullName>
+                <default>false</default>
+                <label>Pending Update from Analyst</label>
+            </value>
+            <value>
+                <fullName>Pending update from Client</fullName>
+                <default>false</default>
+                <label>Pending update from Client</label>
+            </value>
+            <value>
+                <fullName>Pending update from Legal</fullName>
+                <default>false</default>
+                <label>Pending update from Legal</label>
+            </value>
+            <value>
+                <fullName>Pending update from requester</fullName>
+                <default>false</default>
+                <label>Pending update from Requester</label>
+            </value>
+            <value>
+                <fullName>Proposal approved by Finance</fullName>
+                <default>false</default>
+                <label>Proposal approved by Finance</label>
+            </value>
+            <value>
+                <fullName>Proposal Sent</fullName>
+                <default>false</default>
+                <label>Proposal Sent</label>
+            </value>
+            <value>
+                <fullName>Proposal Sent to Finance</fullName>
+                <default>false</default>
+                <label>Proposal Sent to Finance</label>
+            </value>
+            <value>
+                <fullName>Proposal sent to GTM</fullName>
+                <default>false</default>
+                <label>Proposal sent to GTM</label>
+            </value>
+            <value>
+                <fullName>Qualifying</fullName>
+                <default>false</default>
+                <label>Qualifying</label>
+            </value>
+            <value>
+                <fullName>Recall</fullName>
+                <default>false</default>
+                <label>Recall</label>
+            </value>
+            <value>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+                <label>Rejected</label>
+            </value>
+            <value>
+                <fullName>Research Analyst - Discovery Meeting</fullName>
+                <default>false</default>
+                <label>Research Analyst - Discovery Meeting</label>
+            </value>
+            <value>
+                <fullName>Resubmitted</fullName>
+                <default>false</default>
+                <label>Resubmitted</label>
+            </value>
+            <value>
+                <fullName>Sample sent</fullName>
+                <default>false</default>
+                <label>Sample sent</label>
+            </value>
+            <value>
+                <fullName>Scoping and Pricing (with AS)</fullName>
+                <default>false</default>
+                <label>Scoping and Pricing (with AS)</label>
+            </value>
+            <value>
+                <fullName>Sent to ASDE (DI)</fullName>
+                <default>false</default>
+                <label>Sent to ASDE (DI)</label>
+            </value>
+            <value>
+                <fullName>Sent to customer</fullName>
+                <default>false</default>
+                <label>Sent to customer</label>
+            </value>
+            <value>
+                <fullName>Testing</fullName>
+                <default>false</default>
+                <label>Testing</label>
+            </value>
+            <value>
+                <fullName>Verbally Confirmed</fullName>
+                <default>false</default>
+                <label>Verbally Confirmed</label>
+            </value>
+            <value>
+                <fullName>With Customer</fullName>
+                <default>false</default>
+                <label>With Customer</label>
+            </value>
+            <value>
+                <fullName>Pending Threshold Review</fullName>
+                <default>false</default>
+                <label>Pending Threshold Review</label>
+            </value>
+            <value>
+                <fullName>Active Onboarding</fullName>
+                <default>false</default>
+                <label>Active Onboarding</label>
+            </value>
+            <value>
+                <fullName>Configuration</fullName>
+                <default>false</default>
+                <label>Configuration</label>
+            </value>
+            <value>
+                <fullName>Kickoff</fullName>
+                <default>false</default>
+                <label>Kickoff</label>
+            </value>
+            <value>
+                <fullName>Nearing End of Implementation</fullName>
+                <default>false</default>
+                <label>Nearing End of Implementation</label>
+            </value>
+            <value>
+                <fullName>Training Scheduled</fullName>
+                <default>false</default>
+                <label>Training Scheduled</label>
+            </value>
+            <value>
+                <fullName>Awaiting Scheduling</fullName>
+                <default>false</default>
+                <label>Awaiting Scheduling</label>
+            </value>
+            <value>
+                <fullName>Approved</fullName>
+                <default>false</default>
+                <label>Approved</label>
+            </value>
+            <value>
+                <fullName>Cancelled - Not Relevant</fullName>
+                <default>false</default>
+                <label>Cancelled - Not Relevant</label>
+            </value>
+            <value>
+                <fullName>In progress</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>In progress</label>
+            </value>
+            <value>
+                <fullName>Verbal Confirmation</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Verbal Confirmation</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

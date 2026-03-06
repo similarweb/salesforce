@@ -1,0 +1,53 @@
+.THIS {
+}
+.THIS .reason-group {
+    font-weight: bold;
+}
+.THIS .details-container {
+    display : table;
+    width: 100%;
+    text-align: center;
+}
+.THIS .details .header {
+    text-align: left;
+}
+.THIS .details {
+    display : table-cell;
+    text-align : center;
+}
+.THIS .cell-content {
+    padding : 10px;
+    margin : 20px;
+}
+.THIS .data-block {
+    border : 2px solid #9cd2f8 ;
+}
+.THIS .section-header {
+    font-weight: bold;
+    margin-bottom : 10px;
+}
+.THIS .submit {
+    margin-right: 20px;
+    float : right;
+}
+.THIS .section-details {
+    margin-bottom : 10px;
+}
+.THIS .input-field {
+    margin : 7px 0px;
+}
+.THIS span.slds-checkbox {
+    margin: 5px 0;
+}
+.THIS .details .slds-form-element.input-field { /*.is-required*/
+    display:inline;
+}
+.THIS .details .slds-form-element .slds-form-element__control {
+    display:inline-block;
+}
+.THIS .details lightning-input {
+    display:inline-block;
+}
+.THIS .details lightning-input.slds-has-error .slds-form-element__help{
+    display:none;
+}

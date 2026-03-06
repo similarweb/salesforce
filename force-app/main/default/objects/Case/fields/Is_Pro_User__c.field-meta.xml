@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Is_Pro_User__c</fullName>
+    <externalId>false</externalId>
+    <formula>OR( Contact.fr_Pro_User_Type__c = &apos;Admin&apos; ,
+Contact.fr_Pro_User_Type__c = &apos;User&apos;
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Is Pro User</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

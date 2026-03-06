@@ -1,0 +1,104 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId"
+                access="global"
+                controller="QuoteOppRequestsRelatedListController">
+
+    <aura:attribute name="relatedOpportunityId" type="String"/>
+    <aura:attribute name="opportunityRequests" type="Object[]"/>
+    <aura:attribute name="isMoreRequests" type="Boolean" default="false"/>
+    <aura:attribute name="isModalOpen" type="Boolean" default="false"/>
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
+    <aura:handler event="c:ApplicationRefresgEvent" action="{!c.handleApplicationRefreshFired}"/>
+    <aura:method name="closeModal" action="{!c.closeModal}"/>
+
+    <div>
+        <article class="slds-card slds-card_boundary headerBottomBorder forceRelatedListCardDesktop">
+            <div class="slds-card__header slds-grid">
+                <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                    <div class="slds-media__figure">
+                        <span class="slds-icon_container slds-icon-standard-contact" title="contact">
+                            <lightning:icon iconName="custom:custom84"/>
+                            <!-- <span class="slds-assistive-text">contact</span> -->
+                        </span>
+                    </div>
+                    <div class="slds-media__body">
+                        <h2 class="slds-card__header-title">
+                            <a href="javascript:void(0);" class="slds-card__header-link slds-truncate" title="Files">
+                                <span>Requests({!if(v.isMoreFiles, v.opportunityRequests.length + '+', v.opportunityRequests.length) })</span>
+                            </a>
+                        </h2>
+                    </div>
+                    <div class="slds-no-flex">
+                        <button class="slds-button slds-button_neutral" onclick="{!c.openModal}">New Request</button>
+                    </div>
+                </header>
+            </div>
+            <div class="slds-card__body">
+                <table class="slds-table slds-table_cell-buffer slds-no-row-hover slds-table_bordered slds-table_fixed-layout" role="grid">
+                    <thead>
+                        <tr class="slds-line-height_reset">
+                            <th class="" scope="col">
+                                <div class="slds-truncate" title="Request Number">Request Number</div>
+                            </th>
+                            <th class="" scope="col">
+                                <div class="slds-truncate" title="Record type">Record type</div>
+                            </th>
+                            <th class="" scope="col">
+                                <div class="slds-truncate" title="Requester">Requester</div>
+                            </th>
+                            <th class="" scope="col">
+                                <div class="slds-truncate" title="Recipient">Recipient</div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <aura:iteration items="{!v.opportunityRequests}" var="oppReq_i">
+                            <tr class="slds-hint-parent">
+                                <th scope="row">
+                                    <div class="slds-truncate" title="{!oppReq_i.name}">
+                                        <a href="javascript:void(0);" onclick="{!c.onRequestItemClick}" tabindex="-1" data-index="{!_index}">
+                                            {!oppReq_i.name}
+                                        </a>
+                                    </div>
+                                </th>
+                                <td role="gridcell">
+                                    <div class="slds-truncate" title="{!oppReq_i.recordTypeName}">
+                                        {!oppReq_i.recordTypeName} 
+                                    </div>
+                                </td>
+                                <td role="gridcell">
+                                    <div class="slds-truncate" title="lmd">
+                                        <a href="{!'/' + oppReq_i.requester}" tabindex="-1">
+                                            {!oppReq_i.requester}
+                                        </a>  
+                                    </div>
+                                </td>
+                                <td role="gridcell">
+                                    <div class="slds-truncate" title="{!oppReq_i.recipient}">
+                                        {!oppReq_i.recipient} 
+                                    </div>
+                                </td>
+                            </tr>
+                        </aura:iteration>
+                    </tbody>
+                </table>
+            </div>
+            <footer class="slds-card__footer">
+                <a class="slds-card__footer-action" onclick="{!c.onViewAllClick}" href="javascript:void(0);">View All
+                    <span class="slds-assistive-text">Requests</span>
+                </a>
+            </footer>
+        </article>
+    </div>
+
+    <aura:if isTrue="{!v.isModalOpen}">
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                    <c:NewRequestOverrideButton recordId="{!v.relatedOpportunityId}"
+                                                modalCaller="{!this}"/>
+                </div>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </aura:if>
+</aura:component>

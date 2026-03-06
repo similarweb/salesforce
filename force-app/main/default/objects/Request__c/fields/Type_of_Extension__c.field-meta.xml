@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Type_of_Extension__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Please advise whether you want to extend the access until renewal is resolved or you wish to move the renewal date of this account altogether</inlineHelpText>
+    <label>Type of Extension</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Permanent Renewal date change</fullName>
+                <default>false</default>
+                <label>Permanent Renewal date change</label>
+            </value>
+            <value>
+                <fullName>Temporary Extension</fullName>
+                <default>false</default>
+                <label>Temporary Extension</label>
+            </value>
+            <value>
+                <fullName>Trial Extension</fullName>
+                <default>false</default>
+                <label>Trial Extension</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

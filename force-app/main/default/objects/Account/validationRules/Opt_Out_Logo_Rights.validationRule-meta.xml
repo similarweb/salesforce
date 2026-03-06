@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Opt_Out_Logo_Rights</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND( 
+Logo_Rights_Opt_Out__c = TRUE, 
+ISCHANGED(Logo_Rights__c), 
+NOT(ISPICKVAL(Logo_Rights__c, &quot;No name/logo rights&quot;)), 
+NOT($Profile.Id=&apos;00eb0000000oBvc&apos;), 
+NOT($Profile.Id=&apos;00eb0000000dZws&apos;), 
+NOT($Profile.Id=&apos;00e0O000001BCym&apos;), 
+NOT($Profile.Id=&apos;00e0O0000016TUV&apos;), 
+NOT($Profile.Id=&apos;00e0O0000016Suc&apos;) 
+)</errorConditionFormula>
+    <errorMessage>Logo Rights are Opt Out. If this Account should have Logo Rights please contact SalesOps.</errorMessage>
+</ValidationRule>

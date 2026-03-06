@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>X2021_Pipeline</fullName>
+    <columns>OPPORTUNITY.NAME</columns>
+    <columns>ARR__c</columns>
+    <columns>OPPORTUNITY.CLOSE_DATE</columns>
+    <columns>OPPORTUNITY.STAGE_NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>OPPORTUNITY.TYPE</columns>
+    <columns>Cycle__c</columns>
+    <columns>Cycle_Price__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>OPPORTUNITY.CLOSED</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <filters>
+        <field>OPPORTUNITY.TYPE</field>
+        <operation>equals</operation>
+        <value>Partnership,Strategic Partnership,Partnership - Accessibility</value>
+    </filters>
+    <label>2021 Pipeline</label>
+    <sharedTo>
+        <role>GM_America</role>
+    </sharedTo>
+</ListView>

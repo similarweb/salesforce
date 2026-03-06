@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>New_Inbound_Leads_Alexa</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CONTACT.TITLE</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>CONTACT.CREATED_DATE</columns>
+    <columns>CONTACT.LEAD_SOURCE</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+        <field>CONTACT.CREATED_DATE</field>
+        <operation>greaterThan</operation>
+        <value>N_DAYS_AGO:60</value>
+    </filters>
+    <filters>
+        <field>CONTACT.LAST_ACTIVITY</field>
+        <operation>equals</operation>
+    </filters>
+    <filters>
+        <field>CONTACT.LEAD_SOURCE</field>
+        <operation>notEqual</operation>
+        <value>SDR Outbound</value>
+    </filters>
+    <filters>
+        <field>Status__c</field>
+        <operation>notEqual</operation>
+        <value>Qualified,Nurture,Unqualified,SDR Prospecting</value>
+    </filters>
+    <label>New Inbound Leads Alexa</label>
+</ListView>

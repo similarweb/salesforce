@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PartnerStack_Customer_Key__c</fullName>
+    <description>Store the hashed email that is used as the customer key in Partnerstack.
+
+used to find the customer later when issuing a reward, and make sure we don&apos;t add a customer twice in PartnerStack.</description>
+    <externalId>false</externalId>
+    <label>PartnerStack Customer Key</label>
+    <length>255</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

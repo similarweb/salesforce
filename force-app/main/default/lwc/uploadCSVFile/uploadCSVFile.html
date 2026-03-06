@@ -1,0 +1,44 @@
+<template>
+    <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+        <div class="slds-modal__container">
+            <header class="slds-modal__header">
+                <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={onCloseButtonClick}>
+                    <span class="slds-icon_container slds-icon-utility-close white-close-button" title="Close">
+                        <svg class="slds-icon slds-icon-text-default" aria-hidden="true">
+                          <use xlink:href="/_slds/icons/utility-sprite/svg/symbols.svg?cache=9.37.1#close"></use>
+                        </svg>
+                        <span class="slds-assistive-text">Close</span>
+                      </span> 
+                    <span class="slds-assistive-text">Close</span>
+                </button>
+                <h2 id="modal-heading-01" class="slds-modal__title slds-hyphenate">Upload .csv file</h2>
+            </header>
+            <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1" style="padding: 25px; display: flex; justify-content: center; align-items: center;">
+                <form class="slds-form--inline">
+                    <div class="slds-form-element">
+                        <lightning-input type="file"
+                                        label="Choose File"
+                                        accept=".csv"
+                                        onchange={importcsv}
+                                        multiple>
+                        </lightning-input>
+                    </div>  
+                    
+                    <div class="slds-form-element slds-text-body_small" style="max-width: 75px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title={filename}>{filename}</div>
+                    
+                    <template if:true={isDisabled}>
+                        <div class="slds-form-element">
+                            <lightning-button label="Import" title="Non-primary action" onclick={readFiles} class="slds-m-left_x-small" disabled></lightning-button>
+                        </div>
+                    </template>
+                    <template if:false={isDisabled}>
+                        <div class="slds-form-element">
+                            <lightning-button label="Import" title="Non-primary action" onclick={readFiles} class="slds-m-left_x-small"></lightning-button>
+                        </div>
+                    </template>
+                </form> 
+            </div>
+        </div>
+    </section> 
+    <div class="slds-backdrop slds-backdrop_open"></div>
+</template>

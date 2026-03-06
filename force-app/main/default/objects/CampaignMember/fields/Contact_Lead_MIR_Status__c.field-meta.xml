@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Contact_Lead_MIR_Status__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF
+(
+ISBLANK( ContactId ),
+ TEXT(Lead.MIR_Status__c ) ,
+ TEXT(Contact.MIR_Status__c ) 
+)</formula>
+    <label>Contact/Lead MIR Status</label>
+    <required>false</required>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

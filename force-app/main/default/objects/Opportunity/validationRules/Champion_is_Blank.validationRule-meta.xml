@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Champion_is_Blank</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+  NOT(ISPICKVAL(Type, &apos;Feature Update&apos;)),
+  RecordTypeId &lt;&gt; &apos;012b0000000cfCa&apos;,
+  RecordType.DeveloperName &lt;&gt; &quot;Partnership&quot;,
+  ISCHANGED(Probability),
+  Probability &gt;= 0.25,
+  OR(
+    ISBLANK(Champion__c),
+    isblank(Champion_Title__c)
+  ),
+  RecordType.DeveloperName &lt;&gt; &quot;Rank_Ranger&quot;,
+		RecordType.DeveloperName &lt;&gt; &quot;New Sale/Upsell&quot;,
+		RecordType.DeveloperName &lt;&gt; &quot;Acquired_Company&quot;,
+  NOT(CONTAINS($Profile.Name, &apos;Integration&apos;)),
+  $Profile.Name &lt;&gt; &apos;SW SalesOps Extended&apos;,
+  $Profile.Name &lt;&gt; &apos;SW SalesOps&apos;,
+  $Profile.Name &lt;&gt; &apos;System Administrator&apos;,
+		 MEDPIC_Next_Stage__c = false
+)</errorConditionFormula>
+    <errorDisplayField>Champion__c</errorDisplayField>
+    <errorMessage>Please populate a Champion with a Title</errorMessage>
+</ValidationRule>

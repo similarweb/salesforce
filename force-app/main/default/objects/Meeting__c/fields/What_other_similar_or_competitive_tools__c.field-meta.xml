@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>What_other_similar_or_competitive_tools__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Give detail on how they gather intelligence today and how they use this to inform their decision making 
+Example: Prospect uses SEMRush to track competitor SEO stratgey</inlineHelpText>
+    <label>What other similar or competitive tools</label>
+    <length>255</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

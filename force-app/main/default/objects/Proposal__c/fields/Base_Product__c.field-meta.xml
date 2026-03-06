@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Base_Product__c</fullName>
+    <externalId>false</externalId>
+    <label>Base Product</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Digital Marketing - Ultimate</fullName>
+                <default>false</default>
+                <label>Digital Marketing - Ultimate</label>
+            </value>
+            <value>
+                <fullName>Digital Suite - Advanced</fullName>
+                <default>false</default>
+                <label>Digital Suite - Advanced</label>
+            </value>
+            <value>
+                <fullName>Digital Suite - Essential</fullName>
+                <default>false</default>
+                <label>Digital Suite - Essential</label>
+            </value>
+            <value>
+                <fullName>Digital Suite - Ultimate</fullName>
+                <default>false</default>
+                <label>Digital Suite - Ultimate</label>
+            </value>
+            <value>
+                <fullName>Insurance Package</fullName>
+                <default>false</default>
+                <label>Insurance Package</label>
+            </value>
+            <value>
+                <fullName>Intelligence Suite - Advanced</fullName>
+                <default>false</default>
+                <label>Intelligence Suite - Advanced</label>
+            </value>
+            <value>
+                <fullName>Intelligence Suite - Essential</fullName>
+                <default>false</default>
+                <label>Intelligence Suite - Essential</label>
+            </value>
+            <value>
+                <fullName>Intelligence Suite - Ultimate</fullName>
+                <default>false</default>
+                <label>Intelligence Suite - Ultimate</label>
+            </value>
+            <value>
+                <fullName>Investors</fullName>
+                <default>false</default>
+                <label>Investors</label>
+            </value>
+            <value>
+                <fullName>Investor solution - Digital Research</fullName>
+                <default>false</default>
+                <label>Investor solution - Digital Research</label>
+            </value>
+            <value>
+                <fullName>Investor solution - Diligence</fullName>
+                <default>false</default>
+                <label>Investor solution - Diligence</label>
+            </value>
+            <value>
+                <fullName>Investor solution - Qualification</fullName>
+                <default>false</default>
+                <label>Investor solution - Qualification</label>
+            </value>
+            <value>
+                <fullName>Marketing Solution - Premium</fullName>
+                <default>false</default>
+                <label>Marketing Solution - Premium</label>
+            </value>
+            <value>
+                <fullName>Marketing Solution - Standard</fullName>
+                <default>false</default>
+                <label>Marketing Solution - Standard</label>
+            </value>
+            <value>
+                <fullName>Market Intelligence</fullName>
+                <default>false</default>
+                <label>Market Intelligence</label>
+            </value>
+            <value>
+                <fullName>Research - Advanced</fullName>
+                <default>false</default>
+                <label>Research - Advanced</label>
+            </value>
+            <value>
+                <fullName>Research - Essential</fullName>
+                <default>false</default>
+                <label>Research - Essential</label>
+            </value>
+            <value>
+                <fullName>Research Solution - Premium</fullName>
+                <default>false</default>
+                <label>Research Solution - Premium</label>
+            </value>
+            <value>
+                <fullName>Research Solution - Standard</fullName>
+                <default>false</default>
+                <label>Research Solution - Standard</label>
+            </value>
+            <value>
+                <fullName>Research - Ultimate</fullName>
+                <default>false</default>
+                <label>Research - Ultimate</label>
+            </value>
+            <value>
+                <fullName>Sales Intelligence Pro</fullName>
+                <default>false</default>
+                <label>Sales Intelligence Pro</label>
+            </value>
+            <value>
+                <fullName>Sales Solution - Intelligence</fullName>
+                <default>false</default>
+                <label>Sales Solution - Intelligence</label>
+            </value>
+            <value>
+                <fullName>Sales Solution - Lead Enrichment</fullName>
+                <default>false</default>
+                <label>Sales Solution - Lead Enrichment</label>
+            </value>
+            <value>
+                <fullName>Shopper Intelligence (as Add-On)</fullName>
+                <default>false</default>
+                <label>Shopper Intelligence (as Add-On)</label>
+            </value>
+            <value>
+                <fullName>Shopper Intelligence (as standalone)</fullName>
+                <default>false</default>
+                <label>Shopper Intelligence (as standalone)</label>
+            </value>
+            <value>
+                <fullName>OEM</fullName>
+                <default>false</default>
+                <label>OEM</label>
+            </value>
+            <value>
+                <fullName>Competitive Intelligence - Team</fullName>
+                <default>false</default>
+                <label>Competitive Intelligence - Team</label>
+            </value>
+            <value>
+                <fullName>Competitive Intelligence - Business</fullName>
+                <default>false</default>
+                <label>Competitive Intelligence - Business</label>
+            </value>
+            <value>
+                <fullName>Competitive Intelligence - Business for Investors</fullName>
+                <default>false</default>
+                <label>Competitive Intelligence - Business for Investors</label>
+            </value>
+            <value>
+                <fullName>Competitive Intelligence - Enterprise</fullName>
+                <default>false</default>
+                <label>Competitive Intelligence - Enterprise</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

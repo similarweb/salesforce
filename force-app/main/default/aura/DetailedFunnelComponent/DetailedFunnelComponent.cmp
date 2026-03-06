@@ -1,0 +1,40 @@
+<aura:component controller="JourneyController" implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes" access="global">
+	<aura:attribute name="stepName" type="String"/>
+    <aura:attribute name="sortedDir" type="String" default="asc"/>
+    <aura:attribute name="isReport" type="Boolean"/>
+    <aura:attribute name="journeyName" type="String"/>
+    <aura:attribute name="averageTimeOnStep" type="DateTime"/>
+    <aura:attribute name="queue" type="Integer"/>
+    <aura:attribute name="leadList" type="Object[]"/>
+    <aura:attribute name="columns" type="List"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <!--<aura:handler event="c:stepClickEvent" action="{!c.handleStepClickEvent}" />-->
+    
+    <div class="c-container">
+    
+        <div class="slds-box" style="width: 550px;">
+            <div class="slds-region_narrow" >
+                <dl class="slds-dl_horizontal">
+                    <dt class="slds-dl_horizontal__label">Journey - </dt>
+                    <dd class="slds-dl_horizontal__detail">{!v.journeyName}</dd>
+                    <dt class="slds-dl_horizontal__label">Step - </dt>
+                    <dd class="slds-dl_horizontal__detail">{!v.stepName}</dd>                          
+                    <dt class="slds-dl_horizontal__label">Queue - </dt>
+                    <dd class="slds-dl_horizontal__detail">{!v.queue} Leads</dd>
+                    <!--<dt class="slds-dl_horizontal__label">Average time on step - </dt>
+                    <dd class="slds-dl_horizontal__detail"><lightning:formattedDateTime value="{!v.averageTimeOnStep}" day="numeric" /> minutes</dd>-->
+                </dl>
+            </div>
+        </div>
+        <div style="height:18rem;">
+            <lightning:datatable
+                                 aura:id="datatable"         
+                                 keyField="id"
+                                 data="{! v.leadList }"
+                                 columns="{! v.columns }"
+                                 defaultSortDirection="{!v.sortedDir}" 
+                                 onsort="{!c.updateColumnSorting}"
+                                 />    
+        </div>
+    </div>
+</aura:component>

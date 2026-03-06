@@ -1,0 +1,4 @@
+<aura:event type="APPLICATION" description="Fired when base product value selected">
+    <aura:attribute name="fullName" type="String"/>
+    <aura:attribute name="label" type="String"/>
+</aura:event>

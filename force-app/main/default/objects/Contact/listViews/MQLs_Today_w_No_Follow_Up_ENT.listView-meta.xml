@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MQLs_Today_w_No_Follow_Up_ENT</fullName>
+    <booleanFilter>1 AND 2 AND (3 or 4) AND 5 and 6 and 7 and 8</booleanFilter>
+    <columns>SYS_Owner_Role__c</columns>
+    <columns>MQL_date__c</columns>
+    <columns>CORE.USERS.FIRST_NAME</columns>
+    <columns>CORE.USERS.LAST_NAME</columns>
+    <columns>FULL_NAME</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>CONTACT.TITLE</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CONTACT.LEAD_SOURCE</columns>
+    <columns>CONTACT.ADDRESS2_COUNTRY</columns>
+    <columns>CONTACT.LAST_ACTIVITY</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>MQL__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <filters>
+        <field>MQL_date__c</field>
+        <operation>equals</operation>
+        <value>TODAY,YESTERDAY</value>
+    </filters>
+    <filters>
+        <field>CONTACT.LAST_ACTIVITY</field>
+        <operation>equals</operation>
+    </filters>
+    <filters>
+        <field>CONTACT.LAST_ACTIVITY</field>
+        <operation>notEqual</operation>
+        <value>TODAY,YESTERDAY</value>
+    </filters>
+    <filters>
+        <field>SYS_Owner_Role__c</field>
+        <operation>notContain</operation>
+        <value>Inside Sales,reseller,Gaprise,CSM,Japan</value>
+    </filters>
+    <filters>
+        <field>Business_Unit__c</field>
+        <operation>contains</operation>
+        <value>Enterprise</value>
+    </filters>
+    <filters>
+        <field>Lead_Creation_Date__c</field>
+        <operation>equals</operation>
+        <value>LAST_N_DAYS:14</value>
+    </filters>
+    <filters>
+        <field>Status__c</field>
+        <operation>notEqual</operation>
+        <value>Unqualified</value>
+    </filters>
+    <label>MQLs Today w/ No Follow Up - ENT</label>
+</ListView>

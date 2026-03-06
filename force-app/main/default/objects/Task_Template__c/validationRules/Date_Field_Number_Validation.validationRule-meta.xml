@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Date_Field_Number_Validation</fullName>
+    <active>true</active>
+    <errorConditionFormula>OR( OR(Due_date__c&lt;0, Due_date__c &gt; 1500),
+OR(Generation_date__c&lt;0, Generation_date__c&gt; 1500)) &amp;&amp; 
+NOT($Profile.Id=&apos;00eb0000000oBvcAAE&apos;)</errorConditionFormula>
+    <errorMessage>Date number is invalid. It should be in range from 0 to 1500</errorMessage>
+</ValidationRule>

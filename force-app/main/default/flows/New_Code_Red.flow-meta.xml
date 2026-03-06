@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <apiVersion>49.0</apiVersion>
+    <assignments>
+        <name>Add_MRR</name>
+        <label>Add_MRR</label>
+        <locationX>475</locationX>
+        <locationY>448</locationY>
+        <assignmentItems>
+            <assignToReference>CurrentMRR</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>SOB_Subscription.Zuora__MRR__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Loop_Through_Subs</targetReference>
+        </connector>
+    </assignments>
+    <choices>
+        <name>Data_issues</name>
+        <choiceText>Data issues</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Data issues</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>General_incoming</name>
+        <choiceText>General (incoming)</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>General (incoming)</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>Low_Touchpoints_Responsiveness</name>
+        <choiceText>Low Touchpoints/Responsiveness</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Low Touchpoints/Responsiveness</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>Non_responsive_client</name>
+        <choiceText>Non-responsive client</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Non-responsive client</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>Overall_Health</name>
+        <choiceText>Overall Health</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Overall Health</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>Poor_Product_Utilization</name>
+        <choiceText>Poor Product Utilization</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Poor Product Utilization</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>Top_10_15_paying_accounts</name>
+        <choiceText>Top 10%-15% paying accounts</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Top 10%-15% paying accounts</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>Weekly_Health_Alerts</name>
+        <choiceText>Weekly Health Alerts</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Weekly Health Alerts</stringValue>
+        </value>
+    </choices>
+    <constants>
+        <description>&lt;img src=&apos;https://c.cs17.content.force.com/servlet/servlet.FileDownload?file=015g0000000ePvD&apos;&gt;</description>
+        <name>Logo</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>&lt;img src=&apos;https://similarweb.my.salesforce.com/servlet/servlet.FileDownload?file=015g0000000ePvD&apos;&gt;</stringValue>
+        </value>
+    </constants>
+    <description>Temporary</description>
+    <dynamicChoiceSets>
+        <name>CRReason</name>
+        <dataType>Multipicklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>Code_Red_Reason__c</picklistField>
+        <picklistObject>Code_Red_Account__c</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>Reasons</name>
+        <dataType>Multipicklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>Code_Red_Reason__c</picklistField>
+        <picklistObject>Code_Red_Account__c</picklistObject>
+    </dynamicChoiceSets>
+    <formulas>
+        <name>CSMManagment</name>
+        <dataType>String</dataType>
+        <expression>IF({!$User.Id}=&quot;005b0000004utAUAAY&quot;
+||
+{!$User.Id}=&quot;005b0000002TrXUAA0&quot;,
+&quot;CSM Management&quot;,
+&quot;CSM&quot; )</expression>
+    </formulas>
+    <formulas>
+        <name>Flag</name>
+        <dataType>String</dataType>
+        <expression>IF({!FirstscreenReason}=&quot;Activation stage accounts (0-3 months in)&quot;||
+{!FirstscreenReason}=&quot;Top 10%-15% paying accounts&quot;,
+&quot;Blue&quot;, &quot;Red&quot;)</expression>
+    </formulas>
+    <interviewLabel>New Code Red {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>New Code Red</label>
+    <loops>
+        <name>Loop_Through_Subs</name>
+        <label>Loop Through Subs</label>
+        <locationX>475</locationX>
+        <locationY>319</locationY>
+        <assignNextValueToReference>SOB_Subscription</assignNextValueToReference>
+        <collectionReference>Subscriptions</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Add_MRR</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>Code_Red_Creation</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <processType>Flow</processType>
+    <recordCreates>
+        <name>Code_Red_Creation</name>
+        <label>Code Red Creation</label>
+        <locationX>848</locationX>
+        <locationY>386</locationY>
+        <assignRecordIdToReference>VarNewCodeRed</assignRecordIdToReference>
+        <connector>
+            <targetReference>LastScreen</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Account_CSM__c</field>
+            <value>
+                <elementReference>VarAccountOwner</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Account__c</field>
+            <value>
+                <elementReference>VarAccountID</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Additional_Notes__c</field>
+            <value>
+                <elementReference>FirstscreenAdditionalNotes</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Champion_Details__c</field>
+            <value>
+                <elementReference>Flag</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Code_Red_Reason__c</field>
+            <value>
+                <elementReference>FirstscreenReason</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Code_Red_Source__c</field>
+            <value>
+                <elementReference>CSMManagment</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>MRR__c</field>
+            <value>
+                <elementReference>CurrentMRR</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Recipient__c</field>
+            <value>
+                <stringValue>005b0000004utAUAAY</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Status__c</field>
+            <value>
+                <stringValue>Open</stringValue>
+            </value>
+        </inputAssignments>
+        <object>Code_Red_Account__c</object>
+    </recordCreates>
+    <recordLookups>
+        <name>Calculate_Cmrr</name>
+        <label>Calculate Cmrr</label>
+        <locationX>477</locationX>
+        <locationY>197</locationY>
+        <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Loop_Through_Subs</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Zuora__Account__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>VarAccountID</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Zuora__Status__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Active</stringValue>
+            </value>
+        </filters>
+        <object>Zuora__Subscription__c</object>
+        <outputReference>Subscriptions</outputReference>
+        <queriedFields>Zuora__MRR__c</queriedFields>
+    </recordLookups>
+    <screens>
+        <name>Firstscreen</name>
+        <label>Firstscreen</label>
+        <locationX>647</locationX>
+        <locationY>81</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>Calculate_Cmrr</targetReference>
+        </connector>
+        <fields>
+            <name>Firstscreenlogo</name>
+            <fieldText>&lt;SPAN ALIGN=&quot;CENTER&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:12px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;&lt;/FONT&gt;&lt;/SPAN&gt;&lt;DIV ALIGN=&quot;CENTER&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:12px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;{!Logo}&lt;/FONT&gt;&lt;/DIV&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>Header1</name>
+            <fieldText>&lt;SPAN ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:20px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;1&quot;&gt;&lt;B&gt;&lt;U&gt;Please fill in Code Red details&lt;/U&gt;&lt;/B&gt;&lt;/FONT&gt;&lt;/SPAN&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>Firstscreenspace1</name>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>FirstscreenReason</name>
+            <choiceReferences>CRReason</choiceReferences>
+            <dataType>String</dataType>
+            <fieldText>&lt;SPAN ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:12px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;1&quot;&gt;&lt;/FONT&gt;&lt;/SPAN&gt;&lt;DIV ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:16px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;1&quot;&gt;Reasons:&lt;/FONT&gt;&lt;/DIV&gt;</fieldText>
+            <fieldType>MultiSelectPicklist</fieldType>
+            <isRequired>true</isRequired>
+        </fields>
+        <fields>
+            <name>Firstscreenspace2</name>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>FirstscreenAdditionalNotes</name>
+            <fieldText>&lt;SPAN ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:12px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;1&quot;&gt;&lt;/FONT&gt;&lt;/SPAN&gt;&lt;DIV ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:16px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;1&quot;&gt;Additional notes:&lt;/FONT&gt;&lt;/DIV&gt;</fieldText>
+            <fieldType>LargeTextArea</fieldType>
+            <isRequired>false</isRequired>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <name>LastScreen</name>
+        <label>LastScreen</label>
+        <locationX>846</locationX>
+        <locationY>515</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <fields>
+            <name>LastLogo</name>
+            <fieldText>&lt;SPAN ALIGN=&quot;CENTER&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:12px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;1&quot;&gt;&lt;/FONT&gt;&lt;/SPAN&gt;&lt;DIV ALIGN=&quot;CENTER&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:12px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;1&quot;&gt;{!Logo}&lt;/FONT&gt;&lt;/DIV&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>Text</name>
+            <fieldText>&lt;DIV ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:16px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;1&quot;&gt;Code Red record created successfully.&lt;/FONT&gt;&lt;/DIV&gt;&lt;DIV ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:16px&quot; COLOR=&quot;#0000FF&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;1&quot;&gt;&lt;A HREF=&quot;https://similarweb.my.salesforce.com/{!VarNewCodeRed}&quot; TARGET=&quot;_blank&quot;&gt;&lt;U&gt;Press here to access it.&lt;/U&gt;&lt;/A&gt;&lt;/FONT&gt;&lt;/DIV&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <startElementReference>Firstscreen</startElementReference>
+    <status>Active</status>
+    <variables>
+        <name>CurrentMRR</name>
+        <dataType>Currency</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>0</scale>
+        <value>
+            <numberValue>0.0</numberValue>
+        </value>
+    </variables>
+    <variables>
+        <name>SOB_Subscription</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Zuora__Subscription__c</objectType>
+    </variables>
+    <variables>
+        <name>Subscriptions</name>
+        <dataType>SObject</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Zuora__Subscription__c</objectType>
+    </variables>
+    <variables>
+        <name>VarAccountID</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>VarAccountOwner</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>VarNewCodeRed</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

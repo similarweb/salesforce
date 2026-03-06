@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Action__c</fullName>
+    <externalId>false</externalId>
+    <label>Action</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Create  Sold To</fullName>
+                <default>false</default>
+                <label>Create  Sold To</label>
+            </value>
+            <value>
+                <fullName>Create Bill To</fullName>
+                <default>false</default>
+                <label>Create Bill To</label>
+            </value>
+            <value>
+                <fullName>Update Sold To</fullName>
+                <default>false</default>
+                <label>Update Sold To</label>
+            </value>
+            <value>
+                <fullName>Update Bill To</fullName>
+                <default>false</default>
+                <label>Update Bill To</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

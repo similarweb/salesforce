@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Unqualified_Reason__c</fullName>
+    <externalId>false</externalId>
+    <label>Unqualified Reason</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <controllingField>Status</controllingField>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Country we can&apos;t sell to</fullName>
+                <default>false</default>
+                <label>Country we can&apos;t sell to</label>
+            </value>
+            <value>
+                <fullName>Existence unverifiable</fullName>
+                <default>false</default>
+                <label>Existence unverifiable</label>
+            </value>
+            <value>
+                <fullName>Fake name</fullName>
+                <default>false</default>
+                <label>Fake name</label>
+            </value>
+            <value>
+                <fullName>Fake phone number</fullName>
+                <default>false</default>
+                <label>Fake phone number</label>
+            </value>
+            <value>
+                <fullName>Invalid email</fullName>
+                <default>false</default>
+                <label>Invalid email</label>
+            </value>
+            <value>
+                <fullName>Lead requests removal from database</fullName>
+                <default>false</default>
+                <label>Lead requests removal from database</label>
+            </value>
+            <value>
+                <fullName>No longer with company</fullName>
+                <default>false</default>
+                <label>No longer with company</label>
+            </value>
+            <value>
+                <fullName>Not a business</fullName>
+                <default>false</default>
+                <label>Not a business</label>
+            </value>
+            <value>
+                <fullName>Frenemy</fullName>
+                <default>false</default>
+                <label>Frenemy</label>
+            </value>
+            <value>
+                <fullName>Internal employee</fullName>
+                <default>false</default>
+                <label>Internal employee</label>
+            </value>
+            <value>
+                <fullName>Irrelevant role</fullName>
+                <default>false</default>
+                <label>Irrelevant role</label>
+            </value>
+            <value>
+                <fullName>Student/Intern</fullName>
+                <default>false</default>
+                <label>Student/Intern</label>
+            </value>
+            <value>
+                <fullName>No need we can deliver now and in the future</fullName>
+                <default>false</default>
+                <label>No need we can deliver now and in the future</label>
+            </value>
+            <value>
+                <fullName>Less than 10 employees</fullName>
+                <default>false</default>
+                <label>Less than 10 employees</label>
+            </value>
+            <value>
+                <fullName>Strategic Account</fullName>
+                <default>false</default>
+                <label>Strategic Account</label>
+            </value>
+            <value>
+                <fullName>Big 6 Account</fullName>
+                <default>false</default>
+                <label>Big 6 Account</label>
+            </value>
+            <value>
+                <fullName>Existing Sales Process (Active, open Opp)</fullName>
+                <default>false</default>
+                <label>Existing Sales Process (Active, open Opp)</label>
+            </value>
+            <value>
+                <fullName>Owned by a different Rep (Owned by a different Reseller)</fullName>
+                <default>false</default>
+                <label>Owned by a different Rep (Owned by a different Reseller)</label>
+            </value>
+            <value>
+                <fullName>Insufficient data</fullName>
+                <default>false</default>
+                <label>Insufficient data</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Unqualified</controllingFieldValue>
+            <valueName>Country we can&apos;t sell to</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Unqualified</controllingFieldValue>
+            <valueName>Existence unverifiable</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Unqualified</controllingFieldValue>
+            <valueName>Fake name</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Unqualified</controllingFieldValue>
+            <valueName>Fake phone number</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Unqualified</controllingFieldValue>
+            <valueName>Invalid email</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Unqualified</controllingFieldValue>
+            <valueName>Lead requests removal from database</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Unqualified</controllingFieldValue>
+            <valueName>No longer with company</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Unqualified</controllingFieldValue>
+            <valueName>Not a business</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Unqualified</controllingFieldValue>
+            <valueName>Internal employee</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Unqualified</controllingFieldValue>
+            <valueName>Irrelevant role</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Unqualified</controllingFieldValue>
+            <valueName>Student/Intern</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Unqualified</controllingFieldValue>
+            <valueName>No need we can deliver now and in the future</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Unqualified</controllingFieldValue>
+            <valueName>Less than 10 employees</valueName>
+        </valueSettings>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

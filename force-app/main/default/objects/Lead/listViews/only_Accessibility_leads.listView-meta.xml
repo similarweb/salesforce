@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>only_Accessibility_leads</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>LEAD.COMPANY</columns>
+    <columns>Wolves_Tracking_Method__c</columns>
+    <columns>Wolves_Link_to_App__c</columns>
+    <columns>LEAD.STATUS</columns>
+    <columns>Minimum_Installs__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>LEAD.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Lead.Wolves</value>
+    </filters>
+    <filters>
+        <field>Wolves_Tracking_Method__c</field>
+        <operation>equals</operation>
+        <value>Accessibility</value>
+    </filters>
+    <label>only Accessibility leads</label>
+</ListView>

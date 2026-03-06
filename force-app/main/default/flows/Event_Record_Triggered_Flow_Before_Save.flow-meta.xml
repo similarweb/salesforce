@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>56.0</apiVersion>
+    <decisions>
+        <name>Conversation_OR_Meeting</name>
+        <label>Conversation OR Meeting Booked</label>
+        <locationX>314</locationX>
+        <locationY>311</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Conversation</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Subject</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <stringValue>Conversation via Qualified</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Conversation_Type_and_SubType</targetReference>
+            </connector>
+            <label>Conversation</label>
+        </rules>
+        <rules>
+            <name>Meeting_Booked</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Subject</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <stringValue>Meeting Booked via Qualified</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Meeting_Booked_Type_and_SubType</targetReference>
+            </connector>
+            <label>Meeting Booked</label>
+        </rules>
+    </decisions>
+    <description>MIS-3193 update Type and SubType for Qualified events</description>
+    <environments>Default</environments>
+    <interviewLabel>Event - Record Triggered Flow - Before Save {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Event - Record Triggered Flow - Before Save</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Update_Conversation_Type_and_SubType</name>
+        <label>Update Conversation Type and SubType</label>
+        <locationX>50</locationX>
+        <locationY>431</locationY>
+        <inputAssignments>
+            <field>Sub_type__c</field>
+            <value>
+                <stringValue>Qualified</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Type__c</field>
+            <value>
+                <stringValue>Chat</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Meeting_Booked_Type_and_SubType</name>
+        <label>Update Meeting Booked Type and SubType</label>
+        <locationX>314</locationX>
+        <locationY>431</locationY>
+        <inputAssignments>
+            <field>Sub_type__c</field>
+            <value>
+                <stringValue>Qualified</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Type__c</field>
+            <value>
+                <stringValue>Calendar</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>188</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Conversation_OR_Meeting</targetReference>
+        </connector>
+        <filterLogic>or</filterLogic>
+        <filters>
+            <field>Subject</field>
+            <operator>Contains</operator>
+            <value>
+                <stringValue>Conversation via Qualified</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Subject</field>
+            <operator>Contains</operator>
+            <value>
+                <stringValue>Meeting Booked via Qualified</stringValue>
+            </value>
+        </filters>
+        <object>Event</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

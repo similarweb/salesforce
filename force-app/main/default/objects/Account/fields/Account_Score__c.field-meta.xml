@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Account_Score__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF( BI_Data__r.Account_Scoring_Stars__c  = 0, IMAGE(&apos;/servlet/servlet.FileDownload?file=0150X000008ClzN&apos;,&apos;Zero&apos;),
+IF(BI_Data__r.Account_Scoring_Stars__c =1, IMAGE(&apos;/servlet/servlet.FileDownload?file=0150X000008ClzO&apos;,&apos;One&apos;),
+IF(BI_Data__r.Account_Scoring_Stars__c  =2, IMAGE(&apos;/servlet/servlet.FileDownload?file=0150X000008ClzP&apos;,&apos;Two&apos;),
+IMAGE(&apos;/servlet/servlet.FileDownload?file=0150X000008ClzQ&apos;,&apos;Three&apos;))))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Account Score</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

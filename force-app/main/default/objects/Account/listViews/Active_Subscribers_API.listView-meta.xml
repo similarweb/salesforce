@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Active_Subscribers_API</fullName>
+    <columns>ACCOUNT.CREATED_DATE</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>ACCOUNT.URL</columns>
+    <columns>ACCOUNT.PHONE1</columns>
+    <columns>CORE.USERS.FIRST_NAME</columns>
+    <columns>Reviewed__c</columns>
+    <columns>ACCOUNT.ADDRESS1_COUNTRY</columns>
+    <columns>ACCOUNT.LAST_ACTIVITY</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+        <field>ACCOUNT.CREATED_DATE</field>
+        <operation>greaterOrEqual</operation>
+        <value>11/13/2013 12:00 AM</value>
+    </filters>
+    <label>Active_Subscribers_API</label>
+</ListView>

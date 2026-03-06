@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>No_Actions_taken</fullName>
+    <active>true</active>
+    <description>MIS-2331</description>
+    <errorConditionFormula>AND(
+OR(
+ISNEW(),
+ISCHANGED(Status__c )
+),
+$Profile.Name &lt;&gt; &apos;System Administrator&apos;,
+ISPICKVAL( Status__c, &apos;Completed&apos;),
+OR(
+AND(
+RecordType.DeveloperName = &apos;Solution_Implementation&apos;,
+ISBLANK( Kick_Off_Call__c ),
+ISBLANK( Group_Training_Sessions__c ),
+ISBLANK( API_Google_Sheets_Training__c ),
+ISBLANK( Client_Meeting__c ),
+ISBLANK( Demo__c ),
+ISBLANK( Training_Summary__c ),
+ISBLANK( Product_Configuration__c ),
+ISBLANK( Dedicated_Training_Sessions__c ),
+ISBLANK( Deck__c ),
+ISBLANK( Insight_Email__c ),
+ISBLANK( Trial_Group_Training_Sessions__c ),
+ISBLANK( Trial_1_1_training_session__c ),
+ISBLANK( Trial_API_Google_Sheets_Training__c ),
+ISBLANK( Trial_Insight_Email__c ),
+ISBLANK( Trial_Deck__c ),
+ISBLANK( Trial_Product_Configuration__c ),
+ISBLANK( Trial_Trial_Summary_Presentation__c )
+),
+AND(
+RecordType.DeveloperName = &apos;Solution_Engineering&apos;,
+ISBLANK( Excel_Analysis__c ),
+ISBLANK( Product_Demo__c ),
+ISBLANK( Insight_Email__c ),
+ISBLANK( Discovery_Call__c ),
+ISBLANK( Deck__c ),
+ISBLANK( Client_Meeting__c ),
+ISBLANK( Trial_Group_Training_Sessions__c ),
+ISBLANK( Trial_1_1_training_session__c ),
+ISBLANK( Trial_API_Google_Sheets_Training__c ),
+ISBLANK( Trial_Insight_Email__c ),
+ISBLANK( Trial_Product_Configuration__c ),
+ISBLANK( Trial_Trial_Summary_Presentation__c )
+),
+AND(
+RecordType.DeveloperName = &apos;Client_Success_Strategist&apos;,
+ISBLANK( Kick_Off_Call__c ),
+ISBLANK( Group_Training_Sessions__c ),
+ISBLANK( API_Google_Sheets_Training__c ),
+ISBLANK( Details__c ),
+ISBLANK( Client_Meeting__c ),
+ISBLANK( Demo__c ),
+ISBLANK( Training_Summary__c ),
+ISBLANK( Product_Configuration__c ),
+ISBLANK( Dedicated_Training_Sessions__c ),
+ISBLANK( Deck__c ),
+ISBLANK( Insight_Email__c ),
+ISBLANK( Trial_Group_Training_Sessions__c ),
+ISBLANK( Trial_1_1_training_session__c ),
+ISBLANK( Trial_API_Google_Sheets_Training__c ),
+ISBLANK( Trial_Insight_Email__c ),
+ISBLANK( Trial_Deck__c ),
+ISBLANK( Trial_Product_Configuration__c ),
+ISBLANK( Excel_Analysis__c ),
+ISBLANK( Product_Demo__c ),
+ISBLANK( Discovery_Call__c )
+)
+)
+)</errorConditionFormula>
+    <errorMessage>You can not complete a request without checking the relevant action</errorMessage>
+</ValidationRule>

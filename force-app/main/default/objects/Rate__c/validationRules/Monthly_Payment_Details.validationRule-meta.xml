@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Monthly_Payment_Details</fullName>
+    <active>false</active>
+    <description>In case of Monthly Fix Payment, the User must fill in all the fields in order for the system to calculate the payment.</description>
+    <errorConditionFormula>NOT(ISBLANK(Fixed_Monthly_DAU__c)) &amp;&amp;
+  ISBLANK(Fixed_Monthly_Payment__c) &amp;&amp;
+   ISBLANK(DAU_Threshold__c) &amp;&amp;
+   ISBLANK(Payment_Threshold__c)&amp;&amp;
+   ISBLANK(Second_Rate__c)</errorConditionFormula>
+    <errorMessage>Please make sure to fill all the Monthly Fix Payment details.</errorMessage>
+</ValidationRule>

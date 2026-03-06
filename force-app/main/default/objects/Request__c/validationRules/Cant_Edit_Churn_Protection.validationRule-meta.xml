@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cant_Edit_Churn_Protection</fullName>
+    <active>true</active>
+    <description>MIS-7445</description>
+    <errorConditionFormula>AND(
+				NOT(ISNEW()),
+    RecordType.DeveloperName =&apos;Churn_Protection&apos;,
+    $Profile.Name &lt;&gt; &apos;Integration User&apos;,
+				$Profile.Name &lt;&gt; &apos;Integration User - API Only&apos;,
+				$Profile.Name &lt;&gt; &apos;System Administrator&apos;,
+				$Profile.Name &lt;&gt; &apos;SW SalesOps&apos;,
+				$Profile.Name &lt;&gt; &apos;SW SalesOps Extended&apos;
+				)</errorConditionFormula>
+    <errorMessage>You can’t edit the request after submission. Contact the BA team if you need changes.</errorMessage>
+</ValidationRule>

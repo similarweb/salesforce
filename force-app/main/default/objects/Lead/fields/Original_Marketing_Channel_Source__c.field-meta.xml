@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Original_Marketing_Channel_Source__c</fullName>
+    <description>Populated by Pardot.
+Ticket #1088207 &amp; #1103212</description>
+    <externalId>false</externalId>
+    <label>Original Marketing Channel Source</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Facebook Paid</fullName>
+                <default>false</default>
+                <label>Facebook Paid</label>
+            </value>
+            <value>
+                <fullName>Facebook Organic</fullName>
+                <default>false</default>
+                <label>Facebook Organic</label>
+            </value>
+            <value>
+                <fullName>LinkedIn Paid</fullName>
+                <default>false</default>
+                <label>LinkedIn Paid</label>
+            </value>
+            <value>
+                <fullName>LinkedIn Organic</fullName>
+                <default>false</default>
+                <label>LinkedIn Organic</label>
+            </value>
+            <value>
+                <fullName>Twitter</fullName>
+                <default>false</default>
+                <label>Twitter</label>
+            </value>
+            <value>
+                <fullName>Email Campaign Pardot</fullName>
+                <default>false</default>
+                <label>Email Campaign Pardot</label>
+            </value>
+            <value>
+                <fullName>Email SalesLoft</fullName>
+                <default>false</default>
+                <label>Email SalesLoft</label>
+            </value>
+            <value>
+                <fullName>Outbound</fullName>
+                <default>false</default>
+                <label>Outbound</label>
+            </value>
+            <value>
+                <fullName>Intercom</fullName>
+                <default>false</default>
+                <label>Intercom</label>
+            </value>
+            <value>
+                <fullName>Owned Events</fullName>
+                <default>false</default>
+                <label>Owned Events</label>
+            </value>
+            <value>
+                <fullName>Youtube_Organic</fullName>
+                <default>false</default>
+                <label>Youtube_Organic</label>
+            </value>
+            <value>
+                <fullName>Event - External</fullName>
+                <default>false</default>
+                <label>Event - External</label>
+            </value>
+            <value>
+                <fullName>Event - Internal</fullName>
+                <default>false</default>
+                <label>Event - Internal</label>
+            </value>
+            <value>
+                <fullName>External providers</fullName>
+                <default>false</default>
+                <label>External providers</label>
+            </value>
+            <value>
+                <fullName>Blog</fullName>
+                <default>false</default>
+                <label>Blog</label>
+            </value>
+            <value>
+                <fullName>PPC Display</fullName>
+                <default>false</default>
+                <label>PPC Display</label>
+            </value>
+            <value>
+                <fullName>PPC Search</fullName>
+                <default>false</default>
+                <label>PPC Search</label>
+            </value>
+            <value>
+                <fullName>PR</fullName>
+                <default>false</default>
+                <label>PR</label>
+            </value>
+            <value>
+                <fullName>Partnership</fullName>
+                <default>false</default>
+                <label>Partnership</label>
+            </value>
+            <value>
+                <fullName>Signature</fullName>
+                <default>false</default>
+                <label>Signature</label>
+            </value>
+            <value>
+                <fullName>Quora organic</fullName>
+                <default>false</default>
+                <label>Quora organic</label>
+            </value>
+            <value>
+                <fullName>Reddit organic</fullName>
+                <default>false</default>
+                <label>Reddit organic</label>
+            </value>
+            <value>
+                <fullName>Medium</fullName>
+                <default>false</default>
+                <label>Medium</label>
+            </value>
+            <value>
+                <fullName>Slack</fullName>
+                <default>false</default>
+                <label>Slack</label>
+            </value>
+            <value>
+                <fullName>Growth Hackers</fullName>
+                <default>false</default>
+                <label>Growth Hackers</label>
+            </value>
+            <value>
+                <fullName>TechHype</fullName>
+                <default>false</default>
+                <label>TechHype</label>
+            </value>
+            <value>
+                <fullName>Cohort Plus</fullName>
+                <default>false</default>
+                <label>Cohort Plus</label>
+            </value>
+            <value>
+                <fullName>Indie Hackers</fullName>
+                <default>false</default>
+                <label>Indie Hackers</label>
+            </value>
+            <value>
+                <fullName>Discord</fullName>
+                <default>false</default>
+                <label>Discord</label>
+            </value>
+            <value>
+                <fullName>Tumblr</fullName>
+                <default>false</default>
+                <label>Tumblr</label>
+            </value>
+            <value>
+                <fullName>GTM Social Share</fullName>
+                <default>false</default>
+                <label>GTM Social Share</label>
+            </value>
+            <value>
+                <fullName>Adwords</fullName>
+                <default>false</default>
+                <label>Adwords</label>
+            </value>
+            <value>
+                <fullName>LinkedIn</fullName>
+                <default>false</default>
+                <label>LinkedIn</label>
+            </value>
+            <value>
+                <fullName>Taboola</fullName>
+                <default>false</default>
+                <label>Taboola</label>
+            </value>
+            <value>
+                <fullName>Youtube Paid</fullName>
+                <default>false</default>
+                <label>Youtube Paid</label>
+            </value>
+            <value>
+                <fullName>Organic</fullName>
+                <default>false</default>
+                <label>Organic</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

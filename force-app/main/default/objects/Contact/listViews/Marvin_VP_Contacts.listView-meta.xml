@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Marvin_VP_Contacts</fullName>
+    <columns>CONTACT.CREATED_DATE</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>FULL_NAME</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>CONTACT.TITLE</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>CONTACT.EMAIL_OPT_OUT</columns>
+    <columns>CONTACT.LAST_ACTIVITY</columns>
+    <columns>SW_Industry__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Status__c</field>
+        <operation>contains</operation>
+        <value>Open,Nurture</value>
+    </filters>
+    <filters>
+        <field>Business_Unit__c</field>
+        <operation>equals</operation>
+        <value>Enterprise</value>
+    </filters>
+    <filters>
+        <field>CONTACT.ADDRESS2_COUNTRY</field>
+        <operation>contains</operation>
+        <value>United States,Canada</value>
+    </filters>
+    <filters>
+        <field>ACCOUNT.OWNER.FIRST_NAME</field>
+        <operation>equals</operation>
+        <value>Marvin</value>
+    </filters>
+    <filters>
+        <field>CONTACT.TITLE</field>
+        <operation>contains</operation>
+        <value>VP,Vice President,AVP</value>
+    </filters>
+    <filters>
+        <field>Account.Status__c</field>
+        <operation>notEqual</operation>
+        <value>Active,Part Of Another Subscription</value>
+    </filters>
+    <filters>
+        <field>CONTACT.EMAIL_OPT_OUT</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <label>Marvin VP Contacts</label>
+</ListView>

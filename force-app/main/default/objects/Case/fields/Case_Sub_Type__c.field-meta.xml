@@ -1,0 +1,1397 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Case_Sub_Type__c</fullName>
+    <description>MIS-6324</description>
+    <externalId>false</externalId>
+    <label>Case Sub-Type</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Type</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Contract</fullName>
+                <default>false</default>
+                <label>Contract</label>
+            </value>
+            <value>
+                <fullName>Pricing</fullName>
+                <default>false</default>
+                <label>Pricing</label>
+            </value>
+            <value>
+                <fullName>Approval Process</fullName>
+                <default>false</default>
+                <label>Approval Process</label>
+            </value>
+            <value>
+                <fullName>Quote Metrics</fullName>
+                <default>false</default>
+                <label>Quote Metrics</label>
+            </value>
+            <value>
+                <fullName>Zuora Integration</fullName>
+                <default>false</default>
+                <label>Zuora Integration</label>
+            </value>
+            <value>
+                <fullName>Inquiry</fullName>
+                <default>false</default>
+                <label>Inquiry</label>
+            </value>
+            <value>
+                <fullName>Sync Issues</fullName>
+                <default>false</default>
+                <label>Sync Issues</label>
+            </value>
+            <value>
+                <fullName>Permissions</fullName>
+                <default>false</default>
+                <label>Permissions</label>
+            </value>
+            <value>
+                <fullName>Visibility</fullName>
+                <default>false</default>
+                <label>Visibility</label>
+            </value>
+            <value>
+                <fullName>New Item</fullName>
+                <default>false</default>
+                <label>New Item</label>
+            </value>
+            <value>
+                <fullName>Maintenance</fullName>
+                <default>false</default>
+                <label>Maintenance</label>
+            </value>
+            <value>
+                <fullName>Validation Error</fullName>
+                <default>false</default>
+                <label>Validation Error</label>
+            </value>
+            <value>
+                <fullName>Company Name/Address Change - Open Balance</fullName>
+                <default>false</default>
+                <label>Company Name/Address Change - Open Balance</label>
+            </value>
+            <value>
+                <fullName>Company Address Change - Country</fullName>
+                <default>false</default>
+                <label>Company Address Change - Country</label>
+            </value>
+            <value>
+                <fullName>Subsidiary Change - Outside SWMB Policy</fullName>
+                <default>false</default>
+                <label>Subsidiary Change - Outside SWMB Policy</label>
+            </value>
+            <value>
+                <fullName>Change Payment Method  - Mid Term</fullName>
+                <default>false</default>
+                <label>Change Payment Method  - Mid Term</label>
+            </value>
+            <value>
+                <fullName>Amend License Fees</fullName>
+                <default>false</default>
+                <label>Amend License Fees</label>
+            </value>
+            <value>
+                <fullName>Amend Payment Terms</fullName>
+                <default>false</default>
+                <label>Amend Payment Terms</label>
+            </value>
+            <value>
+                <fullName>Amend Payment Frequency</fullName>
+                <default>false</default>
+                <label>Amend Payment Frequency</label>
+            </value>
+            <value>
+                <fullName>Amend Address</fullName>
+                <default>false</default>
+                <label>Amend Address</label>
+            </value>
+            <value>
+                <fullName>Amend Customer Name</fullName>
+                <default>false</default>
+                <label>Amend Customer Name</label>
+            </value>
+            <value>
+                <fullName>Amend Currency</fullName>
+                <default>false</default>
+                <label>Amend Currency</label>
+            </value>
+            <value>
+                <fullName>Replace Contract (Multiple Contracts Signed)</fullName>
+                <default>false</default>
+                <label>Replace Contract (Multiple Contracts Signed)</label>
+            </value>
+            <value>
+                <fullName>Reassignment</fullName>
+                <default>false</default>
+                <label>Reassignment</label>
+            </value>
+            <value>
+                <fullName>Customer Routing</fullName>
+                <default>false</default>
+                <label>Customer Routing</label>
+            </value>
+            <value>
+                <fullName>Internal Escalation</fullName>
+                <default>false</default>
+                <label>Internal Escalation</label>
+            </value>
+            <value>
+                <fullName>Customer NDA</fullName>
+                <default>false</default>
+                <label>Customer NDA</label>
+            </value>
+            <value>
+                <fullName>Customer MSA</fullName>
+                <default>false</default>
+                <label>Customer MSA</label>
+            </value>
+            <value>
+                <fullName>Customer Service Order</fullName>
+                <default>false</default>
+                <label>Customer Service Order</label>
+            </value>
+            <value>
+                <fullName>Waterfall</fullName>
+                <default>false</default>
+                <label>Waterfall</label>
+            </value>
+            <value>
+                <fullName>Term &gt; 3 Years</fullName>
+                <default>false</default>
+                <label>Term &gt; 3 Years</label>
+            </value>
+            <value>
+                <fullName>Stair-Step (i.e. Ramp Up) Pricing Deal</fullName>
+                <default>false</default>
+                <label>Stair-Step (i.e. Ramp Up) Pricing Deal</label>
+            </value>
+            <value>
+                <fullName>One-Time Product(s)</fullName>
+                <default>false</default>
+                <label>One-Time Product(s)</label>
+            </value>
+            <value>
+                <fullName>Advisory Services (+ SOW)</fullName>
+                <default>false</default>
+                <label>Advisory Services (+ SOW)</label>
+            </value>
+            <value>
+                <fullName>Multi-Year Opt Out</fullName>
+                <default>false</default>
+                <label>Multi-Year Opt Out</label>
+            </value>
+            <value>
+                <fullName>Product Language Customization</fullName>
+                <default>false</default>
+                <label>Product Language Customization</label>
+            </value>
+            <value>
+                <fullName>Unsupported [Q2C] Products</fullName>
+                <default>false</default>
+                <label>Unsupported [Q2C] Products</label>
+            </value>
+            <value>
+                <fullName>Custom T&amp;Cs</fullName>
+                <default>false</default>
+                <label>Custom T&amp;Cs</label>
+            </value>
+            <value>
+                <fullName>Special Commercial Offer (e.g. Publicity Discount)</fullName>
+                <default>false</default>
+                <label>Special Commercial Offer (e.g. Publicity Discount)</label>
+            </value>
+            <value>
+                <fullName>Merge Subscriptions</fullName>
+                <default>false</default>
+                <label>Merge Subscriptions</label>
+            </value>
+            <value>
+                <fullName>Temporary</fullName>
+                <default>false</default>
+                <label>Temporary</label>
+            </value>
+            <value>
+                <fullName>Permanent</fullName>
+                <default>false</default>
+                <label>Permanent</label>
+            </value>
+            <value>
+                <fullName>Trial</fullName>
+                <default>false</default>
+                <label>Trial</label>
+            </value>
+            <value>
+                <fullName>Cycle/Price</fullName>
+                <default>false</default>
+                <label>Cycle/Price</label>
+            </value>
+            <value>
+                <fullName>Update Stage</fullName>
+                <default>false</default>
+                <label>Update Stage</label>
+            </value>
+            <value>
+                <fullName>ORA</fullName>
+                <default>false</default>
+                <label>ORA</label>
+            </value>
+            <value>
+                <fullName>Create Renewal Opp</fullName>
+                <default>false</default>
+                <label>Create Renewal Opp</label>
+            </value>
+            <value>
+                <fullName>Update</fullName>
+                <default>false</default>
+                <label>Update</label>
+            </value>
+            <value>
+                <fullName>Bug</fullName>
+                <default>false</default>
+                <label>Bug</label>
+            </value>
+            <value>
+                <fullName>Clone</fullName>
+                <default>false</default>
+                <label>Clone</label>
+            </value>
+            <value>
+                <fullName>Accounts: Data Quality</fullName>
+                <default>false</default>
+                <label>Accounts: Data Quality</label>
+            </value>
+            <value>
+                <fullName>Accounts: ROE, Territories &amp; Ownership</fullName>
+                <default>false</default>
+                <label>Accounts: ROE, Territories &amp; Ownership</label>
+            </value>
+            <value>
+                <fullName>Contacts</fullName>
+                <default>false</default>
+                <label>Contacts</label>
+            </value>
+            <value>
+                <fullName>Data Enrichment for Lead / Contact / Account</fullName>
+                <default>false</default>
+                <label>Data Enrichment for Lead / Contact / Account</label>
+            </value>
+            <value>
+                <fullName>Leads</fullName>
+                <default>false</default>
+                <label>Leads</label>
+            </value>
+            <value>
+                <fullName>Routing &amp; Round Robin</fullName>
+                <default>false</default>
+                <label>Routing &amp; Round Robin</label>
+            </value>
+            <value>
+                <fullName>Meeting Processes</fullName>
+                <default>false</default>
+                <label>Meeting Processes</label>
+            </value>
+            <value>
+                <fullName>Opportunity Process</fullName>
+                <default>false</default>
+                <label>Opportunity Process</label>
+            </value>
+            <value>
+                <fullName>Q2C</fullName>
+                <default>false</default>
+                <label>Q2C</label>
+            </value>
+            <value>
+                <fullName>Email Alerts</fullName>
+                <default>false</default>
+                <label>Email Alerts</label>
+            </value>
+            <value>
+                <fullName>Reports &amp; Dashboards</fullName>
+                <default>false</default>
+                <label>Reports &amp; Dashboards</label>
+            </value>
+            <value>
+                <fullName>Deal Registration (Resellers Only)</fullName>
+                <default>false</default>
+                <label>Deal Registration (Resellers Only)</label>
+            </value>
+            <value>
+                <fullName>Suggestions and Improvements</fullName>
+                <default>false</default>
+                <label>Suggestions and Improvements</label>
+            </value>
+            <value>
+                <fullName>Support with Billing &amp; Legal</fullName>
+                <default>false</default>
+                <label>Support with Billing &amp; Legal</label>
+            </value>
+            <value>
+                <fullName>User &amp; Tool Management</fullName>
+                <default>false</default>
+                <label>User &amp; Tool Management</label>
+            </value>
+            <value>
+                <fullName>c</fullName>
+                <default>false</default>
+                <label>c</label>
+            </value>
+            <value>
+                <fullName>NT Cancellation</fullName>
+                <default>false</default>
+                <label>NT Cancellation</label>
+            </value>
+            <value>
+                <fullName>Billing Inquiries</fullName>
+                <default>false</default>
+                <label>Billing Inquiries</label>
+            </value>
+            <value>
+                <fullName>Collections Inquiries</fullName>
+                <default>false</default>
+                <label>Collections Inquiries</label>
+            </value>
+            <value>
+                <fullName>Invoice Changes</fullName>
+                <default>false</default>
+                <label>Invoice Changes</label>
+            </value>
+            <value>
+                <fullName>Payment Inquiries</fullName>
+                <default>false</default>
+                <label>Payment Inquiries</label>
+            </value>
+            <value>
+                <fullName>Remittance Advice</fullName>
+                <default>false</default>
+                <label>Remittance Advice</label>
+            </value>
+            <value>
+                <fullName>Documents Request</fullName>
+                <default>false</default>
+                <label>Documents Request</label>
+            </value>
+            <value>
+                <fullName>Vendor Forms</fullName>
+                <default>false</default>
+                <label>Vendor Forms</label>
+            </value>
+            <value>
+                <fullName>Portal Notifications</fullName>
+                <default>false</default>
+                <label>Portal Notifications</label>
+            </value>
+            <value>
+                <fullName>Portal Registrations</fullName>
+                <default>false</default>
+                <label>Portal Registrations</label>
+            </value>
+            <value>
+                <fullName>PO</fullName>
+                <default>false</default>
+                <label>PO</label>
+            </value>
+            <value>
+                <fullName>Chargebacks</fullName>
+                <default>false</default>
+                <label>Chargebacks</label>
+            </value>
+            <value>
+                <fullName>Spam</fullName>
+                <default>false</default>
+                <label>Spam</label>
+            </value>
+            <value>
+                <fullName>Gateway status</fullName>
+                <default>false</default>
+                <label>Gateway status</label>
+            </value>
+            <value>
+                <fullName>Quote Approval</fullName>
+                <default>false</default>
+                <label>Quote Approval</label>
+            </value>
+            <value>
+                <fullName>Quote Processing - Sent to Zuora</fullName>
+                <default>false</default>
+                <label>Quote Processing - Sent to Zuora</label>
+            </value>
+            <value>
+                <fullName>Invoice Corrections</fullName>
+                <default>false</default>
+                <label>Invoice Corrections</label>
+            </value>
+            <value>
+                <fullName>Suspension</fullName>
+                <default>false</default>
+                <label>Suspension</label>
+            </value>
+            <value>
+                <fullName>Debooking</fullName>
+                <default>false</default>
+                <label>Debooking</label>
+            </value>
+            <value>
+                <fullName>BI Ticket</fullName>
+                <default>false</default>
+                <label>BI Ticket</label>
+            </value>
+            <value>
+                <fullName>Collections</fullName>
+                <default>false</default>
+                <label>Collections</label>
+            </value>
+            <value>
+                <fullName>Process Proforma Invoice Quote</fullName>
+                <default>false</default>
+                <label>Process Proforma Invoice Quote</label>
+            </value>
+            <value>
+                <fullName>Contract Signed Manually</fullName>
+                <default>false</default>
+                <label>Contract Signed Manually</label>
+            </value>
+            <value>
+                <fullName>NT Cancellation - Automation Error</fullName>
+                <default>false</default>
+                <label>NT Cancellation - Automation Error</label>
+            </value>
+            <value>
+                <fullName>Reporting</fullName>
+                <default>false</default>
+                <label>Reporting</label>
+            </value>
+            <value>
+                <fullName>Cancel NT Subscription</fullName>
+                <default>false</default>
+                <label>Cancel NT Subscription</label>
+            </value>
+            <value>
+                <fullName>General Question</fullName>
+                <default>false</default>
+                <label>General Question</label>
+            </value>
+            <value>
+                <fullName>Update Customer Info. (w/o Amendment)</fullName>
+                <default>false</default>
+                <label>Update Customer Info. (w/o Amendment)</label>
+            </value>
+            <value>
+                <fullName>Update Customer Address</fullName>
+                <default>false</default>
+                <label>Update Customer Address</label>
+            </value>
+            <value>
+                <fullName>Update Customer Name</fullName>
+                <default>false</default>
+                <label>Update Customer Name</label>
+            </value>
+            <value>
+                <fullName>Update Bill-To Contact</fullName>
+                <default>false</default>
+                <label>Update Bill-To Contact</label>
+            </value>
+            <value>
+                <fullName>Update Sold-To Contact (i.e. Admin User)</fullName>
+                <default>false</default>
+                <label>Update Sold-To Contact (i.e. Admin User)</label>
+            </value>
+            <value>
+                <fullName>RFP (Request for Proprosal)</fullName>
+                <default>false</default>
+                <label>RFP (Request for Proprosal)</label>
+            </value>
+            <value>
+                <fullName>Route for SMWB Signature(s)</fullName>
+                <default>false</default>
+                <label>Route for SMWB Signature(s)</label>
+            </value>
+            <value>
+                <fullName>Wet Signature/Stamp</fullName>
+                <default>false</default>
+                <label>Wet Signature/Stamp</label>
+            </value>
+            <value>
+                <fullName>Retroactive SMWB Signature(s)</fullName>
+                <default>false</default>
+                <label>Retroactive SMWB Signature(s)</label>
+            </value>
+            <value>
+                <fullName>DocuSign Issue(s)</fullName>
+                <default>false</default>
+                <label>DocuSign Issue(s)</label>
+            </value>
+            <value>
+                <fullName>Update Customer Entity Upon Renewal</fullName>
+                <default>false</default>
+                <label>Update Customer Entity Upon Renewal</label>
+            </value>
+            <value>
+                <fullName>Admetricks - Monthly</fullName>
+                <default>false</default>
+                <label>Admetricks - Monthly</label>
+            </value>
+            <value>
+                <fullName>Custom Invoice Structure</fullName>
+                <default>false</default>
+                <label>Custom Invoice Structure</label>
+            </value>
+            <value>
+                <fullName>Custom Payment Terms</fullName>
+                <default>false</default>
+                <label>Custom Payment Terms</label>
+            </value>
+            <value>
+                <fullName>Non-Standard Term (e.g. 16 months)</fullName>
+                <default>false</default>
+                <label>Non-Standard Term (e.g. 16 months)</label>
+            </value>
+            <value>
+                <fullName>Waterfall (Incremental Decrease)</fullName>
+                <default>false</default>
+                <label>Waterfall (Incremental Decrease)</label>
+            </value>
+            <value>
+                <fullName>Stair-Step (Incremental Increase)</fullName>
+                <default>false</default>
+                <label>Stair-Step (Incremental Increase)</label>
+            </value>
+            <value>
+                <fullName>Term &lt; 12 Months</fullName>
+                <default>false</default>
+                <label>Term &lt; 12 Months</label>
+            </value>
+            <value>
+                <fullName>Custom Commercial Terms (e.g. Publicity Discount)</fullName>
+                <default>false</default>
+                <label>Custom Commercial Terms (e.g. Publicity Discount)</label>
+            </value>
+            <value>
+                <fullName>Custom Legal T&amp;Cs</fullName>
+                <default>false</default>
+                <label>Custom Legal T&amp;Cs</label>
+            </value>
+            <value>
+                <fullName>Attach SOW (AS/DaaS/MS)</fullName>
+                <default>false</default>
+                <label>Attach SOW (AS/DaaS/MS)</label>
+            </value>
+            <value>
+                <fullName>Opt Out</fullName>
+                <default>false</default>
+                <label>Opt Out</label>
+            </value>
+            <value>
+                <fullName>OEM Language</fullName>
+                <default>false</default>
+                <label>OEM Language</label>
+            </value>
+            <value>
+                <fullName>Ticker Mapping</fullName>
+                <default>false</default>
+                <label>Ticker Mapping</label>
+            </value>
+            <value>
+                <fullName>Trial Agreement</fullName>
+                <default>false</default>
+                <label>Trial Agreement</label>
+            </value>
+            <value>
+                <fullName>Custom Price/Fees Language</fullName>
+                <default>false</default>
+                <label>Custom Price/Fees Language</label>
+            </value>
+            <value>
+                <fullName>Custom Products/Features Language</fullName>
+                <default>false</default>
+                <label>Custom Products/Features Language</label>
+            </value>
+            <value>
+                <fullName>PO Language</fullName>
+                <default>false</default>
+                <label>PO Language</label>
+            </value>
+            <value>
+                <fullName>Tax Language</fullName>
+                <default>false</default>
+                <label>Tax Language</label>
+            </value>
+            <value>
+                <fullName>Third Party Payor</fullName>
+                <default>false</default>
+                <label>Third Party Payor</label>
+            </value>
+            <value>
+                <fullName>Assignment Language (Renewal)</fullName>
+                <default>false</default>
+                <label>Assignment Language (Renewal)</label>
+            </value>
+            <value>
+                <fullName>Dual Language Contract</fullName>
+                <default>false</default>
+                <label>Dual Language Contract</label>
+            </value>
+            <value>
+                <fullName>Multi Subscription</fullName>
+                <default>false</default>
+                <label>Multi Subscription</label>
+            </value>
+            <value>
+                <fullName>Merge</fullName>
+                <default>false</default>
+                <label>Merge</label>
+            </value>
+            <value>
+                <fullName>Non-English Contract Translation</fullName>
+                <default>false</default>
+                <label>Non-English Contract Translation</label>
+            </value>
+            <value>
+                <fullName>Change Cycle/Price</fullName>
+                <default>false</default>
+                <label>Change Cycle/Price</label>
+            </value>
+            <value>
+                <fullName>Close Won</fullName>
+                <default>false</default>
+                <label>Close Won</label>
+            </value>
+            <value>
+                <fullName>Close Lost</fullName>
+                <default>false</default>
+                <label>Close Lost</label>
+            </value>
+            <value>
+                <fullName>Reopen Opp</fullName>
+                <default>false</default>
+                <label>Reopen Opp</label>
+            </value>
+            <value>
+                <fullName>Original Renewal Amount</fullName>
+                <default>false</default>
+                <label>Original Renewal Amount</label>
+            </value>
+            <value>
+                <fullName>Original Renewal Date</fullName>
+                <default>false</default>
+                <label>Original Renewal Date</label>
+            </value>
+            <value>
+                <fullName>Contract Auto-Renewal</fullName>
+                <default>false</default>
+                <label>Contract Auto-Renewal</label>
+            </value>
+            <value>
+                <fullName>Insert Renewal Opp</fullName>
+                <default>false</default>
+                <label>Insert Renewal Opp</label>
+            </value>
+            <value>
+                <fullName>Commission Split</fullName>
+                <default>false</default>
+                <label>Commission Split</label>
+            </value>
+            <value>
+                <fullName>Reporting Inquiry</fullName>
+                <default>false</default>
+                <label>Reporting Inquiry</label>
+            </value>
+            <value>
+                <fullName>Merge Opportunity</fullName>
+                <default>false</default>
+                <label>Merge Opportunity</label>
+            </value>
+            <value>
+                <fullName>Delete Opportunity</fullName>
+                <default>false</default>
+                <label>Delete Opportunity</label>
+            </value>
+            <value>
+                <fullName>Update Quote Status</fullName>
+                <default>false</default>
+                <label>Update Quote Status</label>
+            </value>
+            <value>
+                <fullName>Change Price/Products/Terms</fullName>
+                <default>false</default>
+                <label>Change Price/Products/Terms</label>
+            </value>
+            <value>
+                <fullName>Buggy Quote</fullName>
+                <default>false</default>
+                <label>Buggy Quote</label>
+            </value>
+            <value>
+                <fullName>Replace/Create New Quote</fullName>
+                <default>false</default>
+                <label>Replace/Create New Quote</label>
+            </value>
+            <value>
+                <fullName>Multi-Subscription</fullName>
+                <default>false</default>
+                <label>Multi-Subscription</label>
+            </value>
+            <value>
+                <fullName>Submit to Zuora</fullName>
+                <default>false</default>
+                <label>Submit to Zuora</label>
+            </value>
+            <value>
+                <fullName>Extend Unactivated Trial Link</fullName>
+                <default>false</default>
+                <label>Extend Unactivated Trial Link</label>
+            </value>
+            <value>
+                <fullName>Cancel Trial Subscription</fullName>
+                <default>false</default>
+                <label>Cancel Trial Subscription</label>
+            </value>
+            <value>
+                <fullName>Amend License Fees/Currency</fullName>
+                <default>false</default>
+                <label>Amend License Fees/Currency</label>
+            </value>
+            <value>
+                <fullName>Amend Payment Terms/Frequency</fullName>
+                <default>false</default>
+                <label>Amend Payment Terms/Frequency</label>
+            </value>
+            <value>
+                <fullName>Amend Start/End Dates</fullName>
+                <default>false</default>
+                <label>Amend Start/End Dates</label>
+            </value>
+            <value>
+                <fullName>Amend Multiple Terms</fullName>
+                <default>false</default>
+                <label>Amend Multiple Terms</label>
+            </value>
+            <value>
+                <fullName>Permanent Extension</fullName>
+                <default>false</default>
+                <label>Permanent Extension</label>
+            </value>
+            <value>
+                <fullName>Payor Amendment</fullName>
+                <default>false</default>
+                <label>Payor Amendment</label>
+            </value>
+            <value>
+                <fullName>Assignment Amendment</fullName>
+                <default>false</default>
+                <label>Assignment Amendment</label>
+            </value>
+            <value>
+                <fullName>Termination</fullName>
+                <default>false</default>
+                <label>Termination</label>
+            </value>
+            <value>
+                <fullName>Split</fullName>
+                <default>false</default>
+                <label>Split</label>
+            </value>
+            <value>
+                <fullName>Service Order - Commercial Redlines</fullName>
+                <default>false</default>
+                <label>Service Order - Commercial Redlines</label>
+            </value>
+            <value>
+                <fullName>Service Order - T&amp;C Redlines</fullName>
+                <default>false</default>
+                <label>Service Order - T&amp;C Redlines</label>
+            </value>
+            <value>
+                <fullName>Amendment - Commercial Redlines</fullName>
+                <default>false</default>
+                <label>Amendment - Commercial Redlines</label>
+            </value>
+            <value>
+                <fullName>Amendment - T&amp;C Redlines</fullName>
+                <default>false</default>
+                <label>Amendment - T&amp;C Redlines</label>
+            </value>
+            <value>
+                <fullName>MSA Redlines</fullName>
+                <default>false</default>
+                <label>MSA Redlines</label>
+            </value>
+            <value>
+                <fullName>NDA Redlines</fullName>
+                <default>false</default>
+                <label>NDA Redlines</label>
+            </value>
+            <value>
+                <fullName>Question</fullName>
+                <default>false</default>
+                <label>Question</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>User Provisioning</fullName>
+                <default>false</default>
+                <label>User Provisioning</label>
+            </value>
+            <value>
+                <fullName>Integration</fullName>
+                <default>false</default>
+                <label>Integration</label>
+            </value>
+            <value>
+                <fullName>Request</fullName>
+                <default>false</default>
+                <label>Request</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Update Customer Information</controllingFieldValue>
+            <valueName>Company Name/Address Change - Open Balance</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Update Customer Information</controllingFieldValue>
+            <valueName>Company Address Change - Country</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Update Customer Information</controllingFieldValue>
+            <valueName>Subsidiary Change - Outside SWMB Policy</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Update Customer Information</controllingFieldValue>
+            <valueName>Change Payment Method  - Mid Term</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Salesops Ticket Form</controllingFieldValue>
+            <valueName>Accounts: Data Quality</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Salesops Ticket Form</controllingFieldValue>
+            <valueName>Accounts: ROE, Territories &amp; Ownership</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Salesops Ticket Form</controllingFieldValue>
+            <valueName>Contacts</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Salesops Ticket Form</controllingFieldValue>
+            <valueName>Leads</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Salesops Ticket Form</controllingFieldValue>
+            <valueName>Routing &amp; Round Robin</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Salesops Ticket Form</controllingFieldValue>
+            <valueName>Meeting Processes</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Salesops Ticket Form</controllingFieldValue>
+            <valueName>Opportunity Process</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Salesops Ticket Form</controllingFieldValue>
+            <valueName>Q2C</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Salesops Ticket Form</controllingFieldValue>
+            <valueName>Email Alerts</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Salesops Ticket Form</controllingFieldValue>
+            <valueName>Reports &amp; Dashboards</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Salesops Ticket Form</controllingFieldValue>
+            <valueName>Deal Registration (Resellers Only)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Salesops Ticket Form</controllingFieldValue>
+            <valueName>Suggestions and Improvements</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Salesops Ticket Form</controllingFieldValue>
+            <controllingFieldValue>Other</controllingFieldValue>
+            <valueName>General Question</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Salesops Ticket Form</controllingFieldValue>
+            <controllingFieldValue>Review Contract Redlines</controllingFieldValue>
+            <valueName>Service Order - T&amp;C Redlines</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>User Management</controllingFieldValue>
+            <valueName>User &amp; Tool Management</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>BI Ticket</controllingFieldValue>
+            <valueName>BI Ticket</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NT Cancellation</controllingFieldValue>
+            <valueName>NT Cancellation</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NT Cancellation</controllingFieldValue>
+            <valueName>NT Cancellation - Automation Error</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Direct Email</controllingFieldValue>
+            <valueName>Billing Inquiries</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Direct Email</controllingFieldValue>
+            <valueName>Collections Inquiries</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Direct Email</controllingFieldValue>
+            <valueName>Invoice Changes</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Direct Email</controllingFieldValue>
+            <valueName>Payment Inquiries</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Direct Email</controllingFieldValue>
+            <controllingFieldValue>Invoicing Portals</controllingFieldValue>
+            <valueName>Remittance Advice</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Direct Email</controllingFieldValue>
+            <valueName>Documents Request</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Direct Email</controllingFieldValue>
+            <valueName>Vendor Forms</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Direct Email</controllingFieldValue>
+            <controllingFieldValue>Invoicing Portals</controllingFieldValue>
+            <valueName>Portal Notifications</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Direct Email</controllingFieldValue>
+            <valueName>Portal Registrations</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Direct Email</controllingFieldValue>
+            <valueName>PO</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Direct Email</controllingFieldValue>
+            <controllingFieldValue>Payment Processor</controllingFieldValue>
+            <valueName>Chargebacks</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Direct Email</controllingFieldValue>
+            <controllingFieldValue>Internal Billing Case</controllingFieldValue>
+            <valueName>Spam</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Quote</controllingFieldValue>
+            <valueName>Quote Approval</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Quote</controllingFieldValue>
+            <valueName>Quote Processing - Sent to Zuora</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Quote</controllingFieldValue>
+            <valueName>Contract Signed Manually</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Quote</controllingFieldValue>
+            <valueName>Update Quote Status</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Quote</controllingFieldValue>
+            <valueName>Change Price/Products/Terms</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Quote</controllingFieldValue>
+            <valueName>Buggy Quote</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Quote</controllingFieldValue>
+            <valueName>Replace/Create New Quote</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Quote</controllingFieldValue>
+            <valueName>Multi-Subscription</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Quote</controllingFieldValue>
+            <valueName>Submit to Zuora</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Quote</controllingFieldValue>
+            <valueName>Extend Unactivated Trial Link</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Quote</controllingFieldValue>
+            <valueName>Cancel Trial Subscription</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Quote</controllingFieldValue>
+            <controllingFieldValue>Opportunity</controllingFieldValue>
+            <valueName>Question</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Quote</controllingFieldValue>
+            <controllingFieldValue>Opportunity</controllingFieldValue>
+            <controllingFieldValue>Internal Billing Case</controllingFieldValue>
+            <controllingFieldValue>Non-Standard/Custom Contract</controllingFieldValue>
+            <controllingFieldValue>Customer Paper [NDA/MSA/Service Order]</controllingFieldValue>
+            <controllingFieldValue>Amendment [Amend a Signed Contract]</controllingFieldValue>
+            <controllingFieldValue>Other</controllingFieldValue>
+            <valueName>Other</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Payment Processor</controllingFieldValue>
+            <valueName>Gateway status</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Opportunity</controllingFieldValue>
+            <valueName>Change Cycle/Price</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Opportunity</controllingFieldValue>
+            <valueName>Close Won</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Opportunity</controllingFieldValue>
+            <valueName>Close Lost</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Opportunity</controllingFieldValue>
+            <valueName>Reopen Opp</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Opportunity</controllingFieldValue>
+            <valueName>Original Renewal Amount</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Opportunity</controllingFieldValue>
+            <valueName>Original Renewal Date</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Opportunity</controllingFieldValue>
+            <valueName>Contract Auto-Renewal</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Opportunity</controllingFieldValue>
+            <valueName>Insert Renewal Opp</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Opportunity</controllingFieldValue>
+            <valueName>Commission Split</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Opportunity</controllingFieldValue>
+            <valueName>Reporting Inquiry</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Opportunity</controllingFieldValue>
+            <valueName>Merge Opportunity</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Opportunity</controllingFieldValue>
+            <valueName>Delete Opportunity</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Extension (Temporary, Permanent, Trial)</controllingFieldValue>
+            <valueName>Temporary</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Extension (Temporary, Permanent, Trial)</controllingFieldValue>
+            <valueName>Permanent</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Extension (Temporary, Permanent, Trial)</controllingFieldValue>
+            <valueName>Trial</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Internal Billing Case</controllingFieldValue>
+            <valueName>Invoice Corrections</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Internal Billing Case</controllingFieldValue>
+            <valueName>Suspension</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Internal Billing Case</controllingFieldValue>
+            <valueName>Debooking</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Internal Billing Case</controllingFieldValue>
+            <valueName>Collections</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Internal Billing Case</controllingFieldValue>
+            <valueName>Process Proforma Invoice Quote</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Non-Standard/Custom Contract</controllingFieldValue>
+            <valueName>Update Customer Entity Upon Renewal</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Non-Standard/Custom Contract</controllingFieldValue>
+            <valueName>Admetricks - Monthly</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Non-Standard/Custom Contract</controllingFieldValue>
+            <valueName>Custom Invoice Structure</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Non-Standard/Custom Contract</controllingFieldValue>
+            <valueName>Custom Payment Terms</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Non-Standard/Custom Contract</controllingFieldValue>
+            <valueName>Non-Standard Term (e.g. 16 months)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Non-Standard/Custom Contract</controllingFieldValue>
+            <valueName>Waterfall (Incremental Decrease)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Non-Standard/Custom Contract</controllingFieldValue>
+            <valueName>Stair-Step (Incremental Increase)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Non-Standard/Custom Contract</controllingFieldValue>
+            <valueName>Term &lt; 12 Months</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Non-Standard/Custom Contract</controllingFieldValue>
+            <valueName>Custom Commercial Terms (e.g. Publicity Discount)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Non-Standard/Custom Contract</controllingFieldValue>
+            <valueName>Custom Legal T&amp;Cs</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Non-Standard/Custom Contract</controllingFieldValue>
+            <valueName>Attach SOW (AS/DaaS/MS)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Non-Standard/Custom Contract</controllingFieldValue>
+            <valueName>Opt Out</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Non-Standard/Custom Contract</controllingFieldValue>
+            <valueName>OEM Language</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Non-Standard/Custom Contract</controllingFieldValue>
+            <valueName>Ticker Mapping</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Non-Standard/Custom Contract</controllingFieldValue>
+            <valueName>Trial Agreement</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Non-Standard/Custom Contract</controllingFieldValue>
+            <valueName>Custom Price/Fees Language</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Non-Standard/Custom Contract</controllingFieldValue>
+            <valueName>Custom Products/Features Language</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Non-Standard/Custom Contract</controllingFieldValue>
+            <valueName>PO Language</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Non-Standard/Custom Contract</controllingFieldValue>
+            <valueName>Tax Language</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Non-Standard/Custom Contract</controllingFieldValue>
+            <valueName>Third Party Payor</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Non-Standard/Custom Contract</controllingFieldValue>
+            <valueName>Assignment Language (Renewal)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Non-Standard/Custom Contract</controllingFieldValue>
+            <controllingFieldValue>Customer Paper [NDA/MSA/Service Order]</controllingFieldValue>
+            <valueName>Dual Language Contract</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Non-Standard/Custom Contract</controllingFieldValue>
+            <valueName>Multi Subscription</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Non-Standard/Custom Contract</controllingFieldValue>
+            <valueName>Merge</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Non-Standard/Custom Contract</controllingFieldValue>
+            <valueName>Non-English Contract Translation</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Non-Standard/Custom Contract</controllingFieldValue>
+            <valueName>Split</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Review Contract Redlines</controllingFieldValue>
+            <valueName>Service Order - Commercial Redlines</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Review Contract Redlines</controllingFieldValue>
+            <valueName>Amendment - Commercial Redlines</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Review Contract Redlines</controllingFieldValue>
+            <valueName>Amendment - T&amp;C Redlines</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Review Contract Redlines</controllingFieldValue>
+            <valueName>MSA Redlines</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Review Contract Redlines</controllingFieldValue>
+            <valueName>NDA Redlines</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Update Customer Info. (w/o Amendment)</controllingFieldValue>
+            <valueName>Update Customer Address</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Update Customer Info. (w/o Amendment)</controllingFieldValue>
+            <valueName>Update Customer Name</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Update Customer Info. (w/o Amendment)</controllingFieldValue>
+            <valueName>Update Bill-To Contact</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Update Customer Info. (w/o Amendment)</controllingFieldValue>
+            <valueName>Update Sold-To Contact (i.e. Admin User)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Customer Paper [NDA/MSA/Service Order]</controllingFieldValue>
+            <valueName>Customer NDA</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Customer Paper [NDA/MSA/Service Order]</controllingFieldValue>
+            <valueName>Customer MSA</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Customer Paper [NDA/MSA/Service Order]</controllingFieldValue>
+            <valueName>Customer Service Order</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Signature(s)</controllingFieldValue>
+            <valueName>Route for SMWB Signature(s)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Signature(s)</controllingFieldValue>
+            <valueName>Wet Signature/Stamp</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Signature(s)</controllingFieldValue>
+            <valueName>Retroactive SMWB Signature(s)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Signature(s)</controllingFieldValue>
+            <valueName>DocuSign Issue(s)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Amendment [Amend a Signed Contract]</controllingFieldValue>
+            <valueName>Amend License Fees/Currency</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Amendment [Amend a Signed Contract]</controllingFieldValue>
+            <valueName>Amend Payment Terms/Frequency</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Amendment [Amend a Signed Contract]</controllingFieldValue>
+            <valueName>Amend Start/End Dates</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Amendment [Amend a Signed Contract]</controllingFieldValue>
+            <valueName>Amend Multiple Terms</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Amendment [Amend a Signed Contract]</controllingFieldValue>
+            <valueName>Permanent Extension</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Amendment [Amend a Signed Contract]</controllingFieldValue>
+            <valueName>Payor Amendment</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Amendment [Amend a Signed Contract]</controllingFieldValue>
+            <valueName>Assignment Amendment</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Amendment [Amend a Signed Contract]</controllingFieldValue>
+            <valueName>Termination</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Other</controllingFieldValue>
+            <valueName>Reporting</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Other</controllingFieldValue>
+            <valueName>Cancel NT Subscription</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Salesforce</controllingFieldValue>
+            <valueName>Inquiry</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Salesforce</controllingFieldValue>
+            <valueName>Bug</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Salesforce</controllingFieldValue>
+            <valueName>User Provisioning</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Salesforce</controllingFieldValue>
+            <valueName>Integration</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Salesforce</controllingFieldValue>
+            <valueName>Request</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Q2C</controllingFieldValue>
+            <valueName>Contract</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Q2C</controllingFieldValue>
+            <valueName>Pricing</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Q2C</controllingFieldValue>
+            <valueName>Approval Process</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Q2C</controllingFieldValue>
+            <valueName>Quote Metrics</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Q2C</controllingFieldValue>
+            <valueName>Zuora Integration</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Q2C</controllingFieldValue>
+            <valueName>Sync Issues</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

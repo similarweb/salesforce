@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Current_forecasting_division__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(
+CONTAINS(Sub_Division__c, &apos;NA Strategic&apos;), &apos;NA Strategic&apos;,
+IF(
+CONTAINS(Sub_Division__c, &apos;NA Enterprise&apos;), &apos;NA Enterprise&apos;,
+IF(
+CONTAINS(Sub_Division__c, &apos;NA Inside Sales&apos;), &apos;NA Inside Sales&apos;,
+IF(
+CONTAINS(Sub_Division__c, &apos;LATAM Inside Sales&apos;), &apos;Resellers Americas&apos;,
+IF(
+CONTAINS(Sub_Division__c, &apos;EMEA Inside Sales&apos;), &apos;EMEA Inside Sales&apos;,
+IF(
+CONTAINS(Sub_Division__c, &apos;Agencies Independent EMEA&apos;), &apos;EMEA Inside Sales&apos;,
+IF(
+CONTAINS(Sub_Division__c, &apos;Investors&apos;), &apos;Investors&apos;,
+IF(
+CONTAINS(Sub_Division__c, &apos;Japan Strategic&apos;), &apos;Japan Strategic&apos;,
+IF(
+CONTAINS(Sub_Division__c, &apos;Japan&apos;), &apos;APAC Japan&apos;,
+IF(
+CONTAINS(Sub_Division__c, &apos;Agencies Strategic&apos;), &apos;Agencies Strategic&apos;,
+IF(
+CONTAINS(Sub_Division__c, &apos;APAC Strategic&apos;), &apos;APAC Strategic&apos;,
+IF(
+CONTAINS(Sub_Division__c, &apos;APAC China&apos;), &apos;APAC China&apos;,
+IF(
+CONTAINS(Sub_Division__c, &apos;APAC Inside Sales&apos;), &apos;APAC Inside Sales&apos;,
+IF(
+CONTAINS(Sub_Division__c, &apos;OEM&apos;), &apos;OEM&apos;,
+CASE (Sub_Division__c,
+&apos;UK Enterprise&apos;,&apos;EMEA Enterprise&apos;,
+&apos;Dach Enterprise&apos;,&apos;EMEA Enterprise&apos;,
+&apos;France Enterprise&apos;,&apos;EMEA Enterprise&apos;,
+&apos;EMEA Strategic&apos;,&apos;EMEA Strategic&apos;,
+&apos;Reseller - ANZ-Trellian&apos;,&apos;Resellers APAC&apos;,
+&apos;Reseller - SEA-Maestros&apos;,&apos;Resellers APAC&apos;,
+&apos;Reseller - India - Altudo&apos;,&apos;Resellers APAC&apos;,
+&apos;Reseller - Brazil - 108&apos;,&apos;Resellers Americas&apos;,
+&apos;Reseller - Mexico - Hexagon Data&apos;,&apos;Resellers Americas&apos;,
+&apos;Reseller - Brazil - Alpha&apos;,&apos;Resellers Americas&apos;,
+&apos;Reseller - Turkey-CloudyFlex&apos;,&apos;Resellers EMEA&apos;,
+&apos;Reseller - Italy - Nubo&apos;,&apos;Resellers EMEA&apos;,
+&apos;Reseller - Colombia - Indices&apos;, &apos;Resellers Americas&apos;,
+&apos;Reseller - Malaysia-LaunchPad&apos;, &apos;Resellers APAC&apos;,
+&apos;Reseller - Vietnam - AMS JSC&apos;, &apos;Resellers APAC&apos;,
+&apos;Reseller - China - TrueMetrics&apos;, &apos;Resellers APAC&apos;,
+&apos;Resellers - UAE - BrentFord Technical Services&apos;, &apos;Resellers EMEA&apos;,
+&apos;Reseller - Spain - Cartagon&apos;, &apos;Resellers EMEA&apos;,
+&apos;Reseller - Australia and Pacific Islands - Bring Performance&apos;,&apos;Resellers APAC&apos;,
+&apos;Consultancies Strategic&apos;,&apos;Consultancies Strategic&apos;,
+&apos;Raw Data&apos;,&apos;Raw Data&apos;,
+null)
+)
+)
+)
+)
+)
+)
+)
+)
+)
+)
+)
+)
+)
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>ROE Division</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

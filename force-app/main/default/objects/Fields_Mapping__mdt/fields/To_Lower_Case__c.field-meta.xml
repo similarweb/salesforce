@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>To_Lower_Case__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>If checked, converts the incoming API value to lowercase before mapping to the destination field.</description>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>To Lower Case?</label>
+    <type>Checkbox</type>
+</CustomField>

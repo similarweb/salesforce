@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Deals_in_Closing_Renewals</fullName>
+    <columns>CORE.USERS.FULL_NAME</columns>
+    <columns>OPPORTUNITY.NAME</columns>
+    <columns>OPPORTUNITY.CLOSE_DATE</columns>
+    <columns>OPPORTUNITY.STAGE_NAME</columns>
+    <columns>OPPORTUNITY.PROBABILITY</columns>
+    <columns>SFF_Commit__c</columns>
+    <columns>OPPORTUNITY.FORECAST_CATEGORY</columns>
+    <columns>ARR__c</columns>
+    <columns>Original_Renewal_Amount__c</columns>
+    <columns>Next_Steps__c</columns>
+    <columns>Cycle_Price__c</columns>
+    <columns>Opportunity_Division__c</columns>
+    <filterScope>Team</filterScope>
+    <filters>
+        <field>OPPORTUNITY.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Opportunity.Renewal</value>
+    </filters>
+    <filters>
+        <field>OPPORTUNITY.STAGE_NAME</field>
+        <operation>equals</operation>
+        <value>Proposal,Sponsor Verbal,Decision Maker Verbal</value>
+    </filters>
+    <filters>
+        <field>OPPORTUNITY.CLOSE_DATE</field>
+        <operation>equals</operation>
+        <value>THIS_QUARTER</value>
+    </filters>
+    <label>Deals in Closing - Renewals</label>
+</ListView>

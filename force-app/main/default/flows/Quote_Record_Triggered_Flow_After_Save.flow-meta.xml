@@ -1,0 +1,2573 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>emailalert_BCBatchErrorNotificationCancelQuote</name>
+        <label>BC - Batch Error notification - cancel quote</label>
+        <locationX>578</locationX>
+        <locationY>1031</locationY>
+        <actionName>zqu__Quote__c.Batch_Error_notification_cancel_quote</actionName>
+        <actionType>emailAlert</actionType>
+        <connector>
+            <targetReference>Rule_FU_Feature_Update_quote_ready_to_be_submitted</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>zqu__Quote__c.Batch_Error_notification_cancel_quote</nameSegment>
+    </actionCalls>
+    <actionCalls>
+        <name>FU_Feature_Update_quote_ready_to_be_submitted</name>
+        <label>FU - Feature Update quote ready to be submitted</label>
+        <locationX>578</locationX>
+        <locationY>1331</locationY>
+        <actionName>zqu__Quote__c.Feature_Update_quote_ready_to_be_submitted</actionName>
+        <actionType>emailAlert</actionType>
+        <connector>
+            <targetReference>Rule_TC_Trial_customer_clicked_submit</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>zqu__Quote__c.Feature_Update_quote_ready_to_be_submitted</nameSegment>
+    </actionCalls>
+    <actionCalls>
+        <name>TC_Trial_New_sale_access_notification</name>
+        <label>TC - Trial - New sale access notification</label>
+        <locationX>578</locationX>
+        <locationY>1631</locationY>
+        <actionName>zqu__Quote__c.Trial_New_sale_access_notification</actionName>
+        <actionType>emailAlert</actionType>
+        <connector>
+            <targetReference>Rule_OC_Owner_is_Changed</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>zqu__Quote__c.Trial_New_sale_access_notification</nameSegment>
+    </actionCalls>
+    <apiVersion>59.0</apiVersion>
+    <assignments>
+        <name>add_one_time_fee</name>
+        <label>add one time fee</label>
+        <locationX>468</locationX>
+        <locationY>6863</locationY>
+        <assignmentItems>
+            <assignToReference>one_time_fee</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>loop_all_one_time_product.zqu__EffectivePrice__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>loop_all_one_time_product</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Billing_Quote_Processing_Sent_to_Zuora</name>
+        <label>Assign Billing Quote Processing - Sent to Zuora</label>
+        <locationX>578</locationX>
+        <locationY>6131</locationY>
+        <assignmentItems>
+            <assignToReference>New_Case_Output_Var.Status</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>New</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>New_Case_Output_Var.Type</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Quote</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>New_Case_Output_Var.Quote__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>New_Case_Output_Var.Origin</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Quote</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>New_Case_Output_Var.Requester__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Sent_to_Zuora_Requester</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>New_Case_Output_Var.AccountId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.zqu__Account__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>New_Case_Output_Var.Opportunity__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.zqu__Opportunity__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>New_Case_Output_Var.Subject</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Case_From_Quote_Subject_Billing</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>New_Case_Output_Var.Case_Sub_Type__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Quote Processing - Sent to Zuora</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Create_Assign_Billing_Quote_Processing_Sent_to_Zuora</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Billing_Quote_Ready_for_Billing</name>
+        <label>Assign Billing Quote  - Ready for Billing</label>
+        <locationX>1106</locationX>
+        <locationY>6131</locationY>
+        <assignmentItems>
+            <assignToReference>New_Case_Output_Var.Status</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>New</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>New_Case_Output_Var.Type</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Quote</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>New_Case_Output_Var.Quote__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>New_Case_Output_Var.Origin</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Quote</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>New_Case_Output_Var.Requester__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$User.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>New_Case_Output_Var.AccountId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.zqu__Account__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>New_Case_Output_Var.Opportunity__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.zqu__Opportunity__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>New_Case_Output_Var.Subject</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Case_From_Quote_Subject_Billing</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>New_Case_Output_Var.Description</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Case_From_Quote_Subject_And_Description</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Create_Billing_Quote_Ready_for_Billing</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Deal_Desk_Contract_Signed_Manually</name>
+        <label>Assign Deal Desk Contract Signed Manually</label>
+        <locationX>314</locationX>
+        <locationY>6131</locationY>
+        <assignmentItems>
+            <assignToReference>New_Case_Output_Var.Status</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>New</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>New_Case_Output_Var.Type</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Contract Signed Manually - Quote for Deal Desk Review</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>New_Case_Output_Var.Quote__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>New_Case_Output_Var.Origin</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Deal Desk</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>New_Case_Output_Var.Requester__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$User.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>New_Case_Output_Var.AccountId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.zqu__Account__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>New_Case_Output_Var.Opportunity__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.zqu__Opportunity__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>New_Case_Output_Var.Subject</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Signed Contract &amp; Quote to Review</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>New_Case_Output_Var.Description</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Deal_Desk_Contract_Signed_Manually_Description</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Create_Deal_Desk_Contract_Signed_Manually</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Deal_Desk_Non_Standard_Custom_Contract</name>
+        <label>Assign Deal Desk Non-Standard/Custom Contract</label>
+        <locationX>50</locationX>
+        <locationY>6131</locationY>
+        <assignmentItems>
+            <assignToReference>New_Case_Output_Var.Status</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>New</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>New_Case_Output_Var.Type</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Non-Standard/Custom Contract</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>New_Case_Output_Var.Quote__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>New_Case_Output_Var.Origin</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Deal Desk</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>New_Case_Output_Var.Requester__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$User.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>New_Case_Output_Var.AccountId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.zqu__Account__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>New_Case_Output_Var.Opportunity__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.zqu__Opportunity__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>New_Case_Output_Var.Subject</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Case_From_Quote_Subject_And_Description</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>New_Case_Output_Var.Description</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Case_From_Quote_Subject_And_Description</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Create_Deal_Desk_Non_Standard_Custom_Contract_Case</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <name>Admetricks_Email_Alerts</name>
+        <label>Admetricks Email Alerts</label>
+        <locationX>710</locationX>
+        <locationY>323</locationY>
+        <defaultConnector>
+            <targetReference>Rule_PR_Prosus_flow</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Sent_To_Zoura</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.zqu_Quote_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Sent To Zuora</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Sent_to_Zoura_Quote_Product_Access_Email</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>Sent To Zoura</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MQ-2516 - update the one-time product prices for the contracts</description>
+        <name>Change_in_submit_button</name>
+        <label>Change in submit button</label>
+        <locationX>710</locationX>
+        <locationY>6431</locationY>
+        <defaultConnector>
+            <targetReference>Update_4_Or_5_years_contract</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>there_was_a_change</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Submit_Button_Timestamp__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_all_one_time_charges</targetReference>
+            </connector>
+            <label>there was a change</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MQ-2305</description>
+        <name>Change_quote_name</name>
+        <label>Change quote name</label>
+        <locationX>710</locationX>
+        <locationY>5531</locationY>
+        <defaultConnector>
+            <targetReference>Create_A_Case</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Is_there_a_quote_for</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record__Prior.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Name</leftValueReference>
+                <operator>StartsWith</operator>
+                <rightValue>
+                    <stringValue>Quote for</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Name</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Decision_26</targetReference>
+            </connector>
+            <label>Is there a quote for</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS 6210+ mis -6203</description>
+        <name>Create_A_Case</name>
+        <label>Create A Case</label>
+        <locationX>710</locationX>
+        <locationY>6023</locationY>
+        <defaultConnector>
+            <targetReference>Change_in_submit_button</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Payment_frequency_term_Other_non_standard_AND_Status_Ready_for_Billing_To_Deal_D</name>
+            <conditionLogic>1 AND (2 OR 3)</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.zqu_Quote_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Terms Pending</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.payment_frequency1__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Other</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.zqu__PaymentTerm__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Other (Non Standard)</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Deal_Desk_Non_Standard_Custom_Contract</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>Payment frequency/term= ‘Other non-standard’ AND Status= &apos;Ready for Billing&apos; - To Deal Desk</label>
+        </rules>
+        <rules>
+            <name>Contract_signed_manually_To_Deal_Desk</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Prior_Quote_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Contract Signed Manually</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.zqu_Quote_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Ready for Billing</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Deal_Desk_Contract_Signed_Manually</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>Contract signed manually - To Deal Desk</label>
+        </rules>
+        <rules>
+            <name>Sent_to_Zuora_To_Billing</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.zqu_Quote_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Sent To Zuora</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.zqu__Previewed_SubTotal__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <numberValue>0.0</numberValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Prior_Quote_Status__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Ready for Billing</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.zqu__QuoteBusinessType__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Feature Update</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Billing_Quote_Processing_Sent_to_Zuora</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>Sent to Zuora - To Billing &lt;&gt; 0</label>
+        </rules>
+        <rules>
+            <name>Sent_to_Zuora_To_Billing_0</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.zqu_Quote_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Sent To Zuora</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.zqu__Previewed_SubTotal__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <numberValue>0.0</numberValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Prior_Quote_Status__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Ready for Billing</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.zqu__QuoteBusinessType__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>New</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.zqu__QuoteBusinessType__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Feature Update</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <isGoTo>true</isGoTo>
+                <targetReference>Assign_Billing_Quote_Processing_Sent_to_Zuora</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>Sent to Zuora - To Billing =  0</label>
+        </rules>
+        <rules>
+            <name>Ready_for_Billing_To_Billing</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.zqu_Quote_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Ready for Billing</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Prior_Quote_Status__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Contract Signed Manually</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Billing_Quote_Ready_for_Billing</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>Ready for Billing - To Billing</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MQ-2305</description>
+        <name>Decision_26</name>
+        <label>IS quote start with quote for</label>
+        <locationX>512</locationX>
+        <locationY>5639</locationY>
+        <defaultConnector>
+            <targetReference>name</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Outcome_1_of_Decision_26</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Name</leftValueReference>
+                <operator>StartsWith</operator>
+                <rightValue>
+                    <stringValue>Quote for</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Replace_quote_for_with_number</targetReference>
+            </connector>
+            <label>Outcome 1 of Decision 26</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MQ-1320</description>
+        <name>decision_RuleBCBatchErrorNotificationCancelQuote</name>
+        <label>*Rule (BC)* - Batch Error Notification - Cancel Quote</label>
+        <locationX>710</locationX>
+        <locationY>923</locationY>
+        <defaultConnector>
+            <targetReference>Rule_FU_Feature_Update_quote_ready_to_be_submitted</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>False</defaultConnectorLabel>
+        <rules>
+            <name>outcome_TrueBatchErrorNotificationCancelQuote</name>
+            <conditionLogic>(1 OR 2) AND 3 AND 4 AND 5 AND 6 AND 7 AND NOT 8 AND NOT 9 AND NOT 10 AND NOT 11 and 12</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record__Prior.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Submit_To_Zuora_Error_Message__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.zqu__QuoteBusinessType__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Renewal (with/without upsell)</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.zqu_Quote_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Quote Pending Renewal Date</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Submit_To_Zuora_Error_Message__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Submit_To_Zuora_Error_Message__c</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <stringValue>The subscription being amended</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Submit_To_Zuora_Error_Message__c</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <stringValue>by the quote is no longer the latest version</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$User.Username</leftValueReference>
+                <operator>StartsWith</operator>
+                <rightValue>
+                    <stringValue>z360@similarweb.com</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$User.Username</leftValueReference>
+                <operator>StartsWith</operator>
+                <rightValue>
+                    <stringValue>salesops@similarweb.com</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$User.Username</leftValueReference>
+                <operator>StartsWith</operator>
+                <rightValue>
+                    <stringValue>daria.pindussw@synebo.io</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$User.Username</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <stringValue>automations.user@similarweb.com</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.zqu__Account__r.Name</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Lotem&apos;s Test Account</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>emailalert_BCBatchErrorNotificationCancelQuote</targetReference>
+            </connector>
+            <label>True (Batch Error Notification - Cancel Quote)</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MQ-1971</description>
+        <name>Indication_on_account_if_they_re_on_new_old_catalog</name>
+        <label>Indication on account if they&apos;re on new\old catalog</label>
+        <locationX>710</locationX>
+        <locationY>4931</locationY>
+        <defaultConnector>
+            <targetReference>Update_New_Contact_as_Sold_to_new_contact</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>New_Catalog</name>
+            <conditionLogic>(1 AND 2 AND 6 AND (3 OR 4)) OR (1 AND 5 AND 6)</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.zqu_Quote_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Sent To Zuora</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.zqu__SubscriptionType__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Amend Subscription</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Migrating_to_New_Soultion__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>No - replacing products with new catalog products</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Migrating_to_New_Soultion__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Yes</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.zqu__SubscriptionType__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>New Subscription</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.zqu__Account__r.Migrate_to_new_catalog__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_migrate_to_new_catalog_to_true</targetReference>
+            </connector>
+            <label>New Catalog</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>is_there_one_tine</name>
+        <label>is there one tine</label>
+        <locationX>512</locationX>
+        <locationY>6647</locationY>
+        <defaultConnector>
+            <targetReference>X0_one_time</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>get_records</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_all_one_time_charges</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>loop_all_one_time_product</targetReference>
+            </connector>
+            <label>get records</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Next_Rule</name>
+        <label>*Next Rule*</label>
+        <locationX>710</locationX>
+        <locationY>7631</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Next_Rule1</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>EXAMPLE_ExampleVar</leftValueReference>
+                <operator>EqualTo</operator>
+            </conditions>
+            <label>Next Rule</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MQ-1621</description>
+        <name>One_time_product_added</name>
+        <label>One time product added</label>
+        <locationX>710</locationX>
+        <locationY>4331</locationY>
+        <defaultConnector>
+            <targetReference>Quote_Pending_Renewal</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>did_one_time_product_changed</name>
+            <conditionLogic>((1 OR 2) AND (3  OR 4 OR 5 OR 6) AND 7)</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.One_Time__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.zqu_Quote_Status__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.zqu_Quote_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Sent To Zuora</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.zqu_Quote_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Processed Directly in Zuora</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.zqu_Quote_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Proforma Invoice sent</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.zqu_Quote_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Quote Pending Renewal Date</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.One_Time__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_one_time_product</targetReference>
+            </connector>
+            <label>did one time product changed</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Quote_Pending_Renewal</name>
+        <label>Quote Pending Renewal</label>
+        <locationX>710</locationX>
+        <locationY>4631</locationY>
+        <defaultConnector>
+            <targetReference>Indication_on_account_if_they_re_on_new_old_catalog</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Quote_is_Pending_Renewal</name>
+            <conditionLogic>2 AND 3 AND 4 AND 5 AND( 6 OR 7 OR 1)</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.zqu_Quote_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Quote Pending Renewal Date</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.zqu__Subscription_Name__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.zqu_Quote_Status__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.zqu__QuoteBusinessType__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Renewal (with/without upsell)</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.MultiSubscription__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.zqu_Quote_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Processed Directly in Zuora</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.zqu_Quote_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Sent To Zuora</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_next_renewal_date</targetReference>
+            </connector>
+            <label>Quote is Pending Renewal</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>When Quote Status is changed to &apos;Processed Directly in Zuora&apos; or &apos;Sent To Zuora&apos; and &apos;Subscription Type&apos; equals &apos;New Subscription&apos; -&gt; &apos;Automatic_renewal_excluded_from_T_Cs__c&apos; outcome will be executed</description>
+        <name>Rule_AR_Automatic_renewal_excluded_from_T_Cs_c</name>
+        <label>*Rule - (AR)* - Automatic_renewal_excluded_from_T_Cs__c</label>
+        <locationX>710</locationX>
+        <locationY>3431</locationY>
+        <defaultConnector>
+            <targetReference>Rule_TQ_Trial_Quote</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Automatic_renewal_excluded_from_T_Cs_c</name>
+            <conditionLogic>(1 OR 5) AND 4 AND (2 OR 3 OR 6)</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.zqu__SubscriptionType__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>New Subscription</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.zqu_Quote_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Processed Directly in Zuora</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.zqu_Quote_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Sent To Zuora</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Trial_Quote__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.zqu__SubscriptionType__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Amend Subscription</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.zqu_Quote_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Quote Pending Renewal Date</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>AR_Update_checkbox</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>Automatic_renewal_excluded_from_T_Cs__c</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>When &apos;Customer_requests_to_pay_immediately__c&apos; is changed to True -&gt; &apos;Customer pays immediately&apos; outcome will be executed</description>
+        <name>Rule_CS_Customer_pays_immediately</name>
+        <label>*Rule - (CS)* - Customer pays immediately</label>
+        <locationX>710</locationX>
+        <locationY>2123</locationY>
+        <defaultConnector>
+            <targetReference>Rule_NP_No_Publicity_Right</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Customer_pays_immediately</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Customer_requests_to_pay_immediately__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>CP_Checkboxes_to_be_unchecked</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>Customer pays immediately</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MQ-1411</description>
+        <name>Rule_FU_Feature_Update_quote_ready_to_be_submitted</name>
+        <label>*Rule (FU)* - Feature Update quote ready to be submitted</label>
+        <locationX>710</locationX>
+        <locationY>1223</locationY>
+        <defaultConnector>
+            <targetReference>Rule_TC_Trial_customer_clicked_submit</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes_ready</name>
+            <conditionLogic>(1 OR 5) AND 2 AND 3 AND 4</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Contacts_Product__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.zqu__QuoteBusinessType__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Feature Update</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.zqu_Quote_Status__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.zqu_Quote_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Contract Signed</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Exception_Product__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>FU_Feature_Update_quote_ready_to_be_submitted</targetReference>
+            </connector>
+            <label>Yes,ready</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Once &apos;Quote Status&apos; is changed to &apos;Sent To Zuora&apos; or &apos;Processed Directly in Zuora&apos; and No_Publicity_Right__c = True -&gt; &apos;No Publicity Right&apos; outcome will be executed</description>
+        <name>Rule_NP_No_Publicity_Right</name>
+        <label>*Rule - (NP)* - No Publicity Right</label>
+        <locationX>710</locationX>
+        <locationY>2423</locationY>
+        <defaultConnector>
+            <targetReference>Rule_TGD_Team_Group_Division_is_changed</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>No_Publicity_Right</name>
+            <conditionLogic>(1 OR 2) AND 3</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.zqu_Quote_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Sent To Zuora</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.zqu_Quote_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Processed Directly in Zuora</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.No_Publicity_Right__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>NP_Update_Opportunity</targetReference>
+            </connector>
+            <label>No Publicity Right</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>When the Quote Owner is changed -&gt; &apos;Owner is Changed&apos; outcome will be executed</description>
+        <name>Rule_OC_Owner_is_Changed</name>
+        <label>*Rule - (OC)* - Owner is Changed</label>
+        <locationX>710</locationX>
+        <locationY>1823</locationY>
+        <defaultConnector>
+            <targetReference>Rule_CS_Customer_pays_immediately</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Owner_is_Changed</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.OwnerId</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>OC_Update_Requests</targetReference>
+            </connector>
+            <label>Owner is Changed</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>When &apos;Prosus Flow&apos; is changed to &apos;Prosus&apos; -&gt; &apos;Prosus&apos; outcome will be executed</description>
+        <name>Rule_PR_Prosus_flow</name>
+        <label>*Rule (PR)* - Prosus flow</label>
+        <locationX>710</locationX>
+        <locationY>623</locationY>
+        <defaultConnector>
+            <targetReference>decision_RuleBCBatchErrorNotificationCancelQuote</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Prosus</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Prosus_Flow__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Prosus</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>PR_Update_PGF</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>Prosus</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>When Quote is created/updated and the &apos;Type of Solution&apos; field is not null and &apos;Solution Generation&apos; field is null -&gt; &apos;Solution Generation Field Update&apos; outcome will be executed</description>
+        <name>Rule_SG_Solution_Generation_Field_Update</name>
+        <label>*Rule - (SG)* - Solution Generation Field Update</label>
+        <locationX>710</locationX>
+        <locationY>3131</locationY>
+        <defaultConnector>
+            <targetReference>Rule_AR_Automatic_renewal_excluded_from_T_Cs_c</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Solution_Generation_Field_Update</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Type_of_solution__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.SolutionGeneration__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>SG_Solution_Generation_Field_Update</targetReference>
+            </connector>
+            <label>Solution Generation Field Update</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Rule_TC_Trial_customer_clicked_submit</name>
+        <label>*Rule - (TC)* - Trial - customer clicked submit</label>
+        <locationX>710</locationX>
+        <locationY>1523</locationY>
+        <defaultConnector>
+            <targetReference>Rule_OC_Owner_is_Changed</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Send_New_sale_access_notification</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.zqu__ElectronicPaymentMethodId__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.zqu_Quote_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Sent To Zuora</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Trial_Quote__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>TC_Trial_New_sale_access_notification</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>Send New sale access notification</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>When a new Quote is created or the &apos;Team/ Group/ Division&apos; field is changed or the &apos;Quote Status&apos; field is changed and &apos;Quote Status&apos; equals &apos;Sent To Zuora&apos; or &apos;Processed Directly in Zuora&apos; and the field &apos;Team/ Group/ Divisio&apos; is not blank -&gt; &apos;Team/ Group/ Division is changed&apos; outcome will be executed</description>
+        <name>Rule_TGD_Team_Group_Division_is_changed</name>
+        <label>*Rule - (TGD)* - Team/ Group/Division is changed</label>
+        <locationX>710</locationX>
+        <locationY>2831</locationY>
+        <defaultConnector>
+            <targetReference>Rule_SG_Solution_Generation_Field_Update</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Team_Group_Division_is_changed</name>
+            <conditionLogic>(1 OR 2) AND (3 OR 4 OR 5) AND 6</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.zqu_Quote_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Sent To Zuora</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.zqu_Quote_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Processed Directly in Zuora</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record__Prior.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Group_Description__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.zqu_Quote_Status__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Group_Description__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>TGD_Update_Account</targetReference>
+            </connector>
+            <label>Team/ Group/ Division is changed</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>When one of the following fields is changed and &apos;Trial Quote&apos; = TRUE, &apos;Quote Status&apos; = Sent To Zuora or Processed Directly in Zuora, &apos;Quote Business Type&apos; = New Sale or Feature Update -&gt; &apos;Trial Quote&apos; outcome will be executed</description>
+        <name>Rule_TQ_Trial_Quote</name>
+        <label>*Rule - (TQ)* - Trial Quote</label>
+        <locationX>710</locationX>
+        <locationY>3731</locationY>
+        <defaultConnector>
+            <targetReference>Rule_VD_Valid_date_7_days</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Trial_Quote</name>
+            <conditionLogic>1 AND (2 OR 3) AND (4 OR 5)</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Trial_Quote__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.zqu_Quote_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Sent To Zuora</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.zqu_Quote_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Processed Directly in Zuora</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.zqu__QuoteBusinessType__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>New</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.zqu__QuoteBusinessType__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Feature Update</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>TQ_Update_Opporunity</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>Trial Quote</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>When Quote is updated and &apos;Renewal By Renewal Link&apos; = True, &apos;Valid Until&apos; = Today, &apos;Quote Status&apos; not equal to &apos;Cancelled&apos;, &apos;Valid Until&apos; not equal Today+7 -&gt; &apos;Valid date  +7 days&apos; outcome will be executed</description>
+        <name>Rule_VD_Valid_date_7_days</name>
+        <label>*Rule - (VD)* - Valid date  +7 days</label>
+        <locationX>710</locationX>
+        <locationY>4031</locationY>
+        <defaultConnector>
+            <targetReference>One_time_product_added</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Valid_date_7_days</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Renewal_by_client_confirmation__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.zqu__ValidUntil__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>frToday</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.zqu_Quote_Status__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Cancelled</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.zqu__ValidUntil__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>frTodayPlus7</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>VU</targetReference>
+            </connector>
+            <label>Valid date  +7 days</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MQ-2562 - if the contract term is 60 or 48 and there is only one payment, then it will update the specific payment term</description>
+        <name>Update_4_Or_5_years_contract</name>
+        <label>Update 4 Or 5 years contract</label>
+        <locationX>710</locationX>
+        <locationY>7331</locationY>
+        <defaultConnector>
+            <targetReference>Next_Rule</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>X5_Years</name>
+            <conditionLogic>(1 OR 2) AND 3</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.payment_frequency1__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Every 5 Years</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Amendment_Renewal_Payment_Frequency__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Every 5 Years</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.zqu__InitialTerm__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <numberValue>60.0</numberValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Specific_billing_period_60</targetReference>
+            </connector>
+            <label>5 Years</label>
+        </rules>
+        <rules>
+            <name>X4_years</name>
+            <conditionLogic>(1 OR 2) AND 3</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.payment_frequency1__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Every 4 Years</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Amendment_Renewal_Payment_Frequency__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Every 4 Years</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.zqu__InitialTerm__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <numberValue>48.0</numberValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Specific_billing_period_48</targetReference>
+            </connector>
+            <label>4 years</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MQ-2139 - if the contact not created in Zuora we update the Sold to - new contact checkbox so the reps won&apos;t be able to change the country</description>
+        <name>Update_New_Contact_as_Sold_to_new_contact</name>
+        <label>Update New Contact as Sold to - new contact</label>
+        <locationX>710</locationX>
+        <locationY>5231</locationY>
+        <defaultConnector>
+            <targetReference>Change_quote_name</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>New_contact</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record__Prior.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.zqu__SoldToContact__r.Bill_To__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.zqu__SoldToContact__r.Sold_To__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Contact_as_sold_new_quote</targetReference>
+            </connector>
+            <label>New contact</label>
+        </rules>
+    </decisions>
+    <description>MIS-7585
+MQ-2562 - Updating 4 or 5 Years payment
+MIS-6981 - Disconnected Zendesk Ticket Creation
+MIS-6889 - fixed case subject for Billing Cases
+MIS-6900 - open a case sent to zoura 16\3\25 Tal
+MQ-2463
+MIS-6812 - remove *Rule (BE)* - Batch Error Notification
+MIS-6828 -   Assign Billing Quote Processing - Sent to Zuora
+MIS-6203 - Create Case
+MQ-2305 - change quote name to include number
+MIS-5944  42matters email alert - Quote Product Access Email
+Last - MQ-2139
+MQ-2228
+MIS-5343
+ MQ-1971
+MIS-3947
+MQ-1616
+MQ-1411 (adjusted 25 Jun 22)
+MQ-1320 (adjusted 20 Dec 21)
+MQ-1402 (12 jun 2022)
+MQ-1445 (1 april 2022)
+MIS-3947 (18/07/2023)</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>AdmtercicksEmailAmendmentSubject</name>
+        <dataType>String</dataType>
+        <expression>&apos;Amendment &apos;+{!$Record.zqu__Account__r.Name}+&apos;: Ametricks purchase in Q2C from Similarweb&apos;</expression>
+    </formulas>
+    <formulas>
+        <name>AdmtercicksEmailNewSaleSubject</name>
+        <dataType>String</dataType>
+        <expression>&apos;New Sale &apos;+{!$Record.zqu__Account__r.Name} + &apos;: Ametricks purchase in Q2C from Similarweb&apos;</expression>
+    </formulas>
+    <formulas>
+        <name>Case_From_Quote_Subject_And_Description</name>
+        <dataType>String</dataType>
+        <expression>&apos;Case opened from quote: &apos; &amp;{!$Record.Name}</expression>
+    </formulas>
+    <formulas>
+        <name>Case_From_Quote_Subject_Billing</name>
+        <dataType>String</dataType>
+        <expression>{!$Record.zqu__Number__c}+&apos; - &apos;+{!$Record.zqu__Account__r.Name}+ &apos; - &apos; +
+IF(TEXT({!$Record.zqu__QuoteBusinessType__c})=&quot;New&quot;, &quot;New Sale&quot;, TEXT({!$Record.zqu__QuoteBusinessType__c}))
++ &apos; - &apos; + TEXT({!$Record.zqu_Quote_Status__c})</expression>
+    </formulas>
+    <formulas>
+        <name>Deal_Desk_Contract_Signed_Manually_Description</name>
+        <dataType>String</dataType>
+        <expression>&quot;Opp name &quot; +  {!$Record.zqu__Opportunity__r.Name}</expression>
+    </formulas>
+    <formulas>
+        <name>frPGF</name>
+        <dataType>String</dataType>
+        <expression>IF(
+OR(
+AND(
+ISPICKVAL({!$Record.Product_Compatibility__c},&apos;ProsusDS&apos;), 
+ISPICKVAL( {!$Record.Migrating_to_New_Soultion__c},&apos;No&apos;)
+),
+ISPICKVAL({!$Record.Product_Compatibility_Amendment__c},&apos;ProsusDS&apos;)
+),
+&apos;Prosus&apos;,
+&apos;&apos;)</expression>
+    </formulas>
+    <formulas>
+        <name>frToday</name>
+        <dataType>Date</dataType>
+        <expression>TODAY()</expression>
+    </formulas>
+    <formulas>
+        <name>frTodayPlus7</name>
+        <dataType>Date</dataType>
+        <expression>TODAY() + 7</expression>
+    </formulas>
+    <formulas>
+        <name>QuoteBusinessTypepicklistlable</name>
+        <dataType>String</dataType>
+        <expression>IF(TEXT({!$Record.zqu__QuoteBusinessType__c}) = &apos;New&apos;,&apos;New Sale&apos;,TEXT({!$Record.zqu__QuoteBusinessType__c}) )</expression>
+    </formulas>
+    <formulas>
+        <name>QuoteName</name>
+        <dataType>String</dataType>
+        <expression>IF(
+    LEN(
+        IF(
+            BEGINS({!$Record.Name}, &quot;Quote for&quot;),
+            {!$Record.zqu__Number__c} &amp; &quot; - &quot; &amp; SUBSTITUTE({!$Record.Name}, &quot;Quote for&quot;, &quot;&quot;),
+            {!$Record.zqu__Number__c} &amp; &quot; - &quot; &amp; {!$Record.Name}
+        )
+    ) &gt; 80,
+    LEFT(
+        IF(
+            BEGINS({!$Record.Name}, &quot;Quote for&quot;),
+            {!$Record.zqu__Number__c} &amp; &quot; - &quot; &amp; SUBSTITUTE({!$Record.Name}, &quot;Quote for&quot;, &quot;&quot;),
+            {!$Record.zqu__Number__c} &amp; &quot; - &quot; &amp; {!$Record.Name}
+        ),
+        80
+    ),
+    IF(
+        BEGINS({!$Record.Name}, &quot;Quote for&quot;),
+        {!$Record.zqu__Number__c} &amp; &quot; - &quot; &amp; SUBSTITUTE({!$Record.Name}, &quot;Quote for&quot;, &quot;&quot;),
+        {!$Record.zqu__Number__c} &amp; &quot; - &quot; &amp; {!$Record.Name}
+    )
+)</expression>
+    </formulas>
+    <formulas>
+        <name>RecordLinkVar</name>
+        <dataType>String</dataType>
+        <expression>LEFT($Api.Partner_Server_URL_260, FIND( &apos;/services&apos;, $Api.Partner_Server_URL_260)) &amp; {!$Record.Id}</expression>
+    </formulas>
+    <formulas>
+        <description>MIS-6828 - Cases opened from Quote by System User , should be by Quote Owner</description>
+        <name>Sent_to_Zuora_Requester</name>
+        <dataType>String</dataType>
+        <expression>IF(
+{!$User.Email} = &apos;salesforce@similarweb.com&apos; , {!$Record.OwnerId} , {!$User.Id}
+)</expression>
+    </formulas>
+    <interviewLabel>Quote - Record-Triggered Flow - After Save {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Quote - Record-Triggered Flow - After Save</label>
+    <loops>
+        <name>loop_all_one_time_product</name>
+        <label>loop all one time product</label>
+        <locationX>380</locationX>
+        <locationY>6755</locationY>
+        <collectionReference>Get_all_one_time_charges</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>add_one_time_fee</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>Update_one_time_price_in_Quote</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Get_all_one_time_charges</name>
+        <label>Get all one time charges</label>
+        <locationX>512</locationX>
+        <locationY>6539</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>is_there_one_tine</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Quote__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>zqu__ChargeType__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>One-Time</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Amendment_type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>NewProduct</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>zqu__QuoteRatePlanCharge__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <description>Update &apos;Auto Renew&apos; and &apos;Invoice Separately&apos; checkboxes to False on the Quote</description>
+        <name>CP_Checkboxes_to_be_unchecked</name>
+        <label>CP - Checkboxes to be unchecked</label>
+        <locationX>578</locationX>
+        <locationY>2231</locationY>
+        <connector>
+            <targetReference>Rule_NP_No_Publicity_Right</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>zqu__AutoRenew__c</field>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>zqu__InvoiceSeparately__c</field>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>name</name>
+        <label>Enter quote number</label>
+        <locationX>644</locationX>
+        <locationY>5747</locationY>
+        <connector>
+            <targetReference>Create_A_Case</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Name</field>
+            <value>
+                <elementReference>QuoteName</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>Update &apos;Logo_Rights__c&apos; field on the related Account (if it doesn&apos;t equal &apos;No name/logo rights&apos;) to &apos;No name/logo rights&apos;</description>
+        <name>NP_Update_Account</name>
+        <label>NP - Update Account</label>
+        <locationX>578</locationX>
+        <locationY>2639</locationY>
+        <connector>
+            <targetReference>Rule_TGD_Team_Group_Division_is_changed</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.zqu__Account__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Logo_Rights__c</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>No name/logo rights</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Logo_Rights__c</field>
+            <value>
+                <stringValue>No name/logo rights</stringValue>
+            </value>
+        </inputAssignments>
+        <object>Account</object>
+    </recordUpdates>
+    <recordUpdates>
+        <description>Update &apos;Logo_Rights__c&apos; field on the related opportunity (if it doesn&apos;t equal &apos;No name/logo rights&apos;) to &apos;No name/logo rights&apos;</description>
+        <name>NP_Update_Opportunity</name>
+        <label>NP - Update Opportunity</label>
+        <locationX>578</locationX>
+        <locationY>2531</locationY>
+        <connector>
+            <targetReference>NP_Update_Account</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.zqu__Opportunity__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Logo_Rights__c</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>No name/logo rights</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Logo_Rights__c</field>
+            <value>
+                <stringValue>No name/logo rights</stringValue>
+            </value>
+        </inputAssignments>
+        <object>Opportunity</object>
+    </recordUpdates>
+    <recordUpdates>
+        <description>Update the&apos; Quote Owner Email&apos; field on the related Requests with the value from Quote.Owner.Email</description>
+        <name>OC_Update_Requests</name>
+        <label>OC - Update Requests</label>
+        <locationX>578</locationX>
+        <locationY>1931</locationY>
+        <connector>
+            <targetReference>Rule_CS_Customer_pays_immediately</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Quote__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Quote_Owner_Email__c</field>
+            <value>
+                <elementReference>$Record.Owner:User.Email</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Request__c</object>
+    </recordUpdates>
+    <recordUpdates>
+        <description>Update &apos;PGF__c&apos; field on the Quote with a frPGF formula</description>
+        <name>PR_Update_PGF</name>
+        <label>PR - Update PGF</label>
+        <locationX>578</locationX>
+        <locationY>731</locationY>
+        <connector>
+            <targetReference>decision_RuleBCBatchErrorNotificationCancelQuote</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>PGF__c</field>
+            <value>
+                <elementReference>frPGF</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Replace_quote_for_with_number</name>
+        <label>Replace quote for with number</label>
+        <locationX>380</locationX>
+        <locationY>5747</locationY>
+        <connector>
+            <targetReference>Create_A_Case</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Name</field>
+            <value>
+                <elementReference>QuoteName</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>Update the &apos;Solution Generation&apos; field with the value from the &apos;Type of Solution&apos; field</description>
+        <name>SG_Solution_Generation_Field_Update</name>
+        <label>SG - Solution Generation Field Update</label>
+        <locationX>578</locationX>
+        <locationY>3239</locationY>
+        <connector>
+            <targetReference>Rule_AR_Automatic_renewal_excluded_from_T_Cs_c</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>SolutionGeneration__c</field>
+            <value>
+                <elementReference>$Record.Type_of_solution__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>Update &apos;Team/ Group/ Division&apos; field on the Account if the value is not the same</description>
+        <name>TGD_Update_Account</name>
+        <label>TGD - Update Account</label>
+        <locationX>578</locationX>
+        <locationY>2939</locationY>
+        <connector>
+            <targetReference>Rule_SG_Solution_Generation_Field_Update</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.zqu__Account__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Group_Description__c</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <elementReference>$Record.Group_Description__c</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Group_Description__c</field>
+            <value>
+                <elementReference>$Record.Group_Description__c</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Account</object>
+    </recordUpdates>
+    <recordUpdates>
+        <description>Update the &apos;Trial Quote&apos; field to TRUE on the related opportunity</description>
+        <name>TQ_Update_Opporunity</name>
+        <label>TQ - Update Opporunity</label>
+        <locationX>578</locationX>
+        <locationY>3839</locationY>
+        <connector>
+            <targetReference>Rule_VD_Valid_date_7_days</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.zqu__Opportunity__c</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Trial_Quote__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <object>Opportunity</object>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Contact_as_sold_new_quote</name>
+        <label>Update Contact as sold - new quote</label>
+        <locationX>578</locationX>
+        <locationY>5339</locationY>
+        <connector>
+            <targetReference>Change_quote_name</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.zqu__SoldToContact__c</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Sold_To_New_quote__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <object>Contact</object>
+    </recordUpdates>
+    <recordUpdates>
+        <description>MQ-1971 - update account as migrated to new catalog</description>
+        <name>Update_migrate_to_new_catalog_to_true</name>
+        <label>Update migrate to new catalog to true</label>
+        <locationX>578</locationX>
+        <locationY>5039</locationY>
+        <connector>
+            <targetReference>Update_New_Contact_as_Sold_to_new_contact</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Migrate_to_new_catalog__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record.zqu__Account__r</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_next_renewal_date</name>
+        <label>Update next renewal date</label>
+        <locationX>578</locationX>
+        <locationY>4739</locationY>
+        <connector>
+            <targetReference>Indication_on_account_if_they_re_on_new_old_catalog</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Name</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.zqu__Subscription_Name__c</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Zuora__TermEndDate__c</field>
+            <value>
+                <elementReference>$Record.zqu__SubscriptionTermEndDate__c</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Zuora__Subscription__c</object>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_one_time_price_in_Quote</name>
+        <label>Update one time price in Quote</label>
+        <locationX>380</locationX>
+        <locationY>7055</locationY>
+        <connector>
+            <targetReference>Update_4_Or_5_years_contract</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Sum_Of_one_time__c</field>
+            <value>
+                <elementReference>one_time_fee</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_one_time_product</name>
+        <label>Update one time product</label>
+        <locationX>578</locationX>
+        <locationY>4439</locationY>
+        <connector>
+            <targetReference>Quote_Pending_Renewal</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.zqu__Opportunity__c</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>One_Time__c</field>
+            <value>
+                <elementReference>$Record.One_Time__c</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Opportunity</object>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Specific_billing_period_48</name>
+        <label>Update Specific billing period 48</label>
+        <locationX>710</locationX>
+        <locationY>7439</locationY>
+        <connector>
+            <targetReference>Next_Rule</targetReference>
+        </connector>
+        <filterLogic>1 AND (2 OR 3) AND 4</filterLogic>
+        <filters>
+            <field>Quote__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Amendment_type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>NewProduct</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Amendment_type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>UpdatedProduct</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>zqu__ChargeType__c</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>One-Time</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>zqu__SpecificBillingPeriod__c</field>
+            <value>
+                <numberValue>48.0</numberValue>
+            </value>
+        </inputAssignments>
+        <object>zqu__QuoteRatePlanCharge__c</object>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Specific_billing_period_60</name>
+        <label>Update Specific billing period 60</label>
+        <locationX>446</locationX>
+        <locationY>7439</locationY>
+        <connector>
+            <targetReference>Next_Rule</targetReference>
+        </connector>
+        <filterLogic>1 AND (2 OR 3) AND 4</filterLogic>
+        <filters>
+            <field>Quote__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Amendment_type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>NewProduct</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Amendment_type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>UpdateProduct</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>zqu__ChargeType__c</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>One-Time</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>zqu__SpecificBillingPeriod__c</field>
+            <value>
+                <numberValue>60.0</numberValue>
+            </value>
+        </inputAssignments>
+        <object>zqu__QuoteRatePlanCharge__c</object>
+    </recordUpdates>
+    <recordUpdates>
+        <description>Update the &apos;Valid Date&apos; field on the Quote with the value &apos;Today+7&apos;</description>
+        <name>VU</name>
+        <label>VU - update valid date</label>
+        <locationX>578</locationX>
+        <locationY>4139</locationY>
+        <connector>
+            <targetReference>One_time_product_added</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>zqu__ValidUntil__c</field>
+            <value>
+                <elementReference>frTodayPlus7</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>X0_one_time</name>
+        <label>0 one time</label>
+        <locationX>644</locationX>
+        <locationY>6755</locationY>
+        <connector>
+            <targetReference>Update_4_Or_5_years_contract</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Sum_Of_one_time__c</field>
+            <value>
+                <numberValue>0.0</numberValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>584</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Admetricks_Email_Alerts</targetReference>
+        </connector>
+        <object>zqu__Quote__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <subflows>
+        <description>Launch &apos;Quote Autolaunched Flow&apos;</description>
+        <name>AR_Update_checkbox</name>
+        <label>AR - Update checkbox</label>
+        <locationX>578</locationX>
+        <locationY>3539</locationY>
+        <connector>
+            <targetReference>Rule_TQ_Trial_Quote</targetReference>
+        </connector>
+        <flowName>Quote_Autolaunched_Flow</flowName>
+        <inputAssignments>
+            <name>varQuoteAccount</name>
+            <value>
+                <elementReference>$Record.zqu__Account__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>varQuoteID</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputAssignments>
+    </subflows>
+    <subflows>
+        <name>Create_Assign_Billing_Quote_Processing_Sent_to_Zuora</name>
+        <label>Create Assign Billing Quote Processing - Sent to Zuora</label>
+        <locationX>578</locationX>
+        <locationY>6239</locationY>
+        <connector>
+            <targetReference>Change_in_submit_button</targetReference>
+        </connector>
+        <flowName>Case_AL_Create_Case_With_Input_VAR</flowName>
+        <inputAssignments>
+            <name>New_Case_Data</name>
+            <value>
+                <elementReference>New_Case_Output_Var</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>Queue_Name</name>
+            <value>
+                <stringValue>Billing Cases</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>Record_Type_Name</name>
+            <value>
+                <stringValue>Billing</stringValue>
+            </value>
+        </inputAssignments>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </subflows>
+    <subflows>
+        <name>Create_Billing_Quote_Ready_for_Billing</name>
+        <label>Create Billing Quote  - Ready for Billing</label>
+        <locationX>1106</locationX>
+        <locationY>6239</locationY>
+        <connector>
+            <targetReference>Change_in_submit_button</targetReference>
+        </connector>
+        <flowName>Case_AL_Create_Case_With_Input_VAR</flowName>
+        <inputAssignments>
+            <name>New_Case_Data</name>
+            <value>
+                <elementReference>New_Case_Output_Var</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>Queue_Name</name>
+            <value>
+                <stringValue>Billing Cases</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>Record_Type_Name</name>
+            <value>
+                <stringValue>Billing</stringValue>
+            </value>
+        </inputAssignments>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </subflows>
+    <subflows>
+        <name>Create_Deal_Desk_Contract_Signed_Manually</name>
+        <label>Create Deal Desk Contract Signed Manually</label>
+        <locationX>314</locationX>
+        <locationY>6239</locationY>
+        <connector>
+            <targetReference>Change_in_submit_button</targetReference>
+        </connector>
+        <flowName>Case_AL_Create_Case_With_Input_VAR</flowName>
+        <inputAssignments>
+            <name>New_Case_Data</name>
+            <value>
+                <elementReference>New_Case_Output_Var</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>Queue_Name</name>
+            <value>
+                <stringValue>Deal Desk Cases</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>Record_Type_Name</name>
+            <value>
+                <stringValue>Deal Desk</stringValue>
+            </value>
+        </inputAssignments>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </subflows>
+    <subflows>
+        <name>Create_Deal_Desk_Non_Standard_Custom_Contract_Case</name>
+        <label>Create Deal Desk Non-Standard/Custom Contract Case</label>
+        <locationX>50</locationX>
+        <locationY>6239</locationY>
+        <connector>
+            <targetReference>Change_in_submit_button</targetReference>
+        </connector>
+        <flowName>Case_AL_Create_Case_With_Input_VAR</flowName>
+        <inputAssignments>
+            <name>New_Case_Data</name>
+            <value>
+                <elementReference>New_Case_Output_Var</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>Queue_Name</name>
+            <value>
+                <stringValue>Deal Desk Cases</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>Record_Type_Name</name>
+            <value>
+                <stringValue>Deal Desk</stringValue>
+            </value>
+        </inputAssignments>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </subflows>
+    <subflows>
+        <name>Sent_to_Zoura_Quote_Product_Access_Email</name>
+        <label>Sent to Zoura - Quote Product Access Email</label>
+        <locationX>578</locationX>
+        <locationY>431</locationY>
+        <connector>
+            <targetReference>Rule_PR_Prosus_flow</targetReference>
+        </connector>
+        <flowName>Quote_Subflow_Quote_Product_Access_Email</flowName>
+        <inputAssignments>
+            <name>Record</name>
+            <value>
+                <elementReference>$Record</elementReference>
+            </value>
+        </inputAssignments>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </subflows>
+    <textTemplates>
+        <name>AmendmentEmailTemplateAdmetricks</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>&lt;p&gt;Hi,&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Please note that a new purchase was made of Admetricks by Similarweb:&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;{!RecordLinkVar}&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot;&gt;Quote link&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;u&gt;Quote business type:&lt;/u&gt; {!QuoteBusinessTypepicklistlable}&lt;/p&gt;&lt;p&gt;&lt;u&gt;Sold to contact email:&lt;/u&gt;&amp;nbsp;{!$Record.zqu__SoldToContact__r.Email}&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;u&gt;Activation Date:&lt;/u&gt;&lt;/p&gt;&lt;p&gt;{!$Record.zqu__Service_Activation_Date__c}&lt;/p&gt;&lt;p&gt;&lt;u&gt;List of Added Products:&amp;nbsp;&lt;/u&gt;&lt;/p&gt;&lt;p&gt;{!Table_AdmetricksFull_Amendment}&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Please update the subscription accordingly&lt;/p&gt;&lt;p&gt;Thanks&lt;/p&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <name>NewSaleEmailAdmetrics</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>&lt;p&gt;Hi,&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Please note that a new purchase was made of Admetricks by Similarweb:&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;{!RecordLinkVar}&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot;&gt;Quote link&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;u&gt;Quote business type:&lt;/u&gt; {!QuoteBusinessTypepicklistlable}&lt;/p&gt;&lt;p&gt;&lt;u&gt;Sold to contact email:&lt;/u&gt;  {!$Record.zqu__SoldToContact__r.Email}&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;u&gt;Activation Date:&lt;/u&gt;&lt;/p&gt;&lt;p&gt;{!$Record.zqu__Service_Activation_Date__c}&lt;/p&gt;&lt;p&gt;&lt;u&gt;List of Added Products:&amp;nbsp;&lt;/u&gt;&lt;/p&gt;&lt;p&gt;{!Table_AdmetricksFull_NewSale}&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Please activate the subscription accordingly&lt;/p&gt;&lt;p&gt;Thanks&lt;/p&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <name>Table_AdmerticksHeader_Amendment</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>&lt;tr style=&quot;background-color: #4CAF50; color: white;&quot;&gt;
+&lt;th&gt;Quote Rate Plan&lt;/th&gt;
+&lt;th&gt;Conract Wording&lt;/th&gt;
+&lt;th&gt;Quantity&lt;/th&gt;
+&lt;th&gt;Amendment Type&lt;/th&gt;
+&lt;/tr&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <name>Table_AdmerticksHeader_NewSale</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>&lt;tr style=&quot;background-color: #4CAF50; color: white;&quot;&gt;
+&lt;th&gt;Quote Rate Plan&lt;/th&gt;
+&lt;th&gt;Contract Wording&lt;/th&gt;
+&lt;th&gt;Quantity&lt;/th&gt;
+&lt;/tr&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <name>Table_AdmetricksFull_Amendment</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>&lt;table style=&quot;border-collapse: collapse; width: 50%;&quot;&gt;
+{!Table_AdmerticksHeader_Amendment}  
+{!Table_Rows_NewProductsFieldForAdmetricksEmail}
+&lt;/table&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <name>Table_AdmetricksFull_NewSale</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>&lt;table style=&quot;border-collapse: collapse; width: 50%;&quot;&gt;
+{!Table_AdmerticksHeader_NewSale}
+{!Table_Rows_NewProductsFieldForAdmetricksEmail}
+&lt;/table&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <name>Table_AdmetricksStyle</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>&lt;p&gt;text-align:left; padding:8px;border: 1px solid black;&lt;/p&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <name>Table_Row_Amendment_NewUpdate_InLoop</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>&lt;tr&gt;
+&lt;td style=&quot;{!Table_AdmetricksStyle}&quot;&gt;{!1aca53ca-f7e1-496f-89b9-e9ba753a6cb8.zqu__QuoteRatePlan__r.Name}&lt;/td&gt;
+&lt;td style=&quot;{!Table_AdmetricksStyle}&quot;&gt;{!1aca53ca-f7e1-496f-89b9-e9ba753a6cb8.Contract_Wording__c}&lt;/td&gt;
+&lt;td style=&quot;{!Table_AdmetricksStyle}&quot;&gt;{!1aca53ca-f7e1-496f-89b9-e9ba753a6cb8.zqu__Quantity__c}&lt;/td&gt;
+&lt;td style=&quot;{!Table_AdmetricksStyle}&quot;&gt;{!1aca53ca-f7e1-496f-89b9-e9ba753a6cb8.zqu__QuoteRatePlan__r.zqu__AmendmentType__c}&lt;/td&gt;
+
+&lt;/tr&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <name>Table_Row_Amendment_Removed_InLoop</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>&lt;tr&gt;
+&lt;td style=&quot;{!Table_AdmetricksStyle}&quot;&gt;{!5fa1530c-5215-443e-b159-1140b78ec5fb.Name}&lt;/td&gt;
+&lt;td style=&quot;{!Table_AdmetricksStyle}&quot;&gt;&lt;/td&gt;
+&lt;td style=&quot;{!Table_AdmetricksStyle}&quot;&gt;&lt;/td&gt;
+&lt;td style=&quot;{!Table_AdmetricksStyle}&quot;&gt;{!5fa1530c-5215-443e-b159-1140b78ec5fb.zqu__AmendmentType__c}&lt;/td&gt;
+&lt;/tr&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <name>Table_Row_NewSale_InLoop</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>&lt;tr&gt;
+&lt;td style=&quot;{!Table_AdmetricksStyle}&quot;&gt;{!4b917fa6-cfc4-4521-92ff-3365ef9a900f.zqu__QuoteRatePlan__r.Name}&lt;/td&gt;
+&lt;td style=&quot;{!Table_AdmetricksStyle}&quot;&gt;{!4b917fa6-cfc4-4521-92ff-3365ef9a900f.Contract_Wording__c}&lt;/td&gt;
+&lt;td style=&quot;{!Table_AdmetricksStyle}&quot;&gt;{!4b917fa6-cfc4-4521-92ff-3365ef9a900f.zqu__Quantity__c}&lt;/td&gt;
+&lt;/tr&gt;</text>
+    </textTemplates>
+    <variables>
+        <name>AdmetricksRecipientList</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <stringValue>anamaria.labra@similarweb.com,pato.delsol@similarweb.com,hadar.kedem@similarweb.com,tal.frumerman@similarweb.com</stringValue>
+        </value>
+    </variables>
+    <variables>
+        <name>AmendmentRatePlanIDs</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>currentItem_Amendment_New_Update_Products</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>zqu__QuoteRatePlan__c</objectType>
+    </variables>
+    <variables>
+        <name>currentItem_Found_Admetricks_Records</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>zqu__QuoteRatePlan__c</objectType>
+    </variables>
+    <variables>
+        <name>currentItem_New_Sale_Rate_Plans</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>zqu__QuoteRatePlan__c</objectType>
+    </variables>
+    <variables>
+        <name>currentItem_Quote_Amendment_Type_Original</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>zqu__QuoteRatePlan__c</objectType>
+    </variables>
+    <variables>
+        <name>EXAMPLE_ExampleVar</name>
+        <dataType>Boolean</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>New_Case_Output_Var</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <objectType>Case</objectType>
+    </variables>
+    <variables>
+        <name>NewSaleRatePlanIDs</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>one_time_fee</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>2</scale>
+        <value>
+            <numberValue>0.0</numberValue>
+        </value>
+    </variables>
+    <variables>
+        <name>RemovedProductsMergeFieldForEmailTemplate</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <stringValue></stringValue>
+        </value>
+    </variables>
+    <variables>
+        <name>Table_Rows_NewProductsFieldForAdmetricksEmail</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <stringValue></stringValue>
+        </value>
+    </variables>
+</Flow>

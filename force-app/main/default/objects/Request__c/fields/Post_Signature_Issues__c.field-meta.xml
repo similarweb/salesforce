@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Post_Signature_Issues__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>MIS-1983 It can only be edited by legal / salesops</description>
+    <externalId>false</externalId>
+    <label>Post Signature Issues</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

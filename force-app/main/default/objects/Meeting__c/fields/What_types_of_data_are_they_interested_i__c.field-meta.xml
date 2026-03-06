@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>What_types_of_data_are_they_interested_i__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>What channels do they focus on? Example: Interested in competitive keywords, focused on SEO channels</inlineHelpText>
+    <label>Types of data they are interested in:</label>
+    <length>5000</length>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>4</visibleLines>
+</CustomField>

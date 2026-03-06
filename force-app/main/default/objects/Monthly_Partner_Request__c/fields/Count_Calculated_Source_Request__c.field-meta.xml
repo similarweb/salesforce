@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Count_Calculated_Source_Request__c</fullName>
+    <description>Count the &quot;Monthly Source Request&quot; that the Status changed to &quot;Calculated&quot;</description>
+    <externalId>false</externalId>
+    <label>Count Calculated Source Request</label>
+    <summaryFilterItems>
+        <field>Monthly_Source_Request__c.Status__c</field>
+        <operation>equals</operation>
+        <value>Calculated</value>
+    </summaryFilterItems>
+    <summaryForeignKey>Monthly_Source_Request__c.Monthly_Partner_Request__c</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

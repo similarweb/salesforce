@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Did_we_try_to_send_the_SW_template__c</fullName>
+    <description>MIS-1561 DDQ- Change the field name Have We Tried Pushing Back? to Did we try to send the FISD template?</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Steps to filing a DDQ/Security Questionnaire request:
+
+Share with the client the SOC3 and/or FISD documents (no NDA needed!)
+
+If the client requires more information and meets the threshold for filing information requests (50k+), they will need to sign an NDA.
+2.A. Once an NDA is signed, file a DDQ/security questionnaire request.</inlineHelpText>
+    <label>Did we try to send the SW templates?</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Yes, pending client review</fullName>
+                <default>false</default>
+                <label>Yes, pending client review</label>
+            </value>
+            <value>
+                <fullName>Yes, the client had accepted it</fullName>
+                <default>false</default>
+                <label>Yes, the client had accepted it</label>
+            </value>
+            <value>
+                <fullName>Yes, the client pushed back</fullName>
+                <default>false</default>
+                <label>Yes, the client pushed back</label>
+            </value>
+            <value>
+                <fullName>Not yet</fullName>
+                <default>false</default>
+                <label>Not yet</label>
+            </value>
+            <value>
+                <fullName>The template is not applicable to the client</fullName>
+                <default>false</default>
+                <label>The template is not applicable to the client</label>
+            </value>
+            <value>
+                <fullName>No</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>No</label>
+            </value>
+            <value>
+                <fullName>Yes</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Yes</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

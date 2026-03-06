@@ -1,0 +1,15 @@
+<template>
+    <lightning-card title="ChatGPT Account Brief">
+        <div class="slds-p-around_medium">
+            <lightning-button label="Get Account Brief" onclick={getAccountBrief}></lightning-button>
+        </div>
+        <template if:true={isLoading}>
+            <div class="slds-p-around_medium">
+                <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+            </div>
+        </template>
+        <div class="slds-p-around_medium response-text">
+            <lightning-formatted-rich-text value={accountBrief}></lightning-formatted-rich-text>
+        </div>
+    </lightning-card>
+</template>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MIR_New_Leads</fullName>
+    <columns>MQL__c</columns>
+    <columns>FULL_NAME</columns>
+    <columns>LEAD.COMPANY</columns>
+    <columns>LEAD.TITLE</columns>
+    <columns>LEAD.EMAIL</columns>
+    <columns>LEAD.COUNTRY</columns>
+    <columns>LEAD.PHONE</columns>
+    <columns>Employees_Min__c</columns>
+    <columns>Annual_Revenue_Min__c</columns>
+    <columns>LEAD.STATUS</columns>
+    <columns>LEAD.LEAD_SOURCE</columns>
+    <columns>Business_Unit__c</columns>
+    <columns>LEAD.CREATED_DATE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>LEAD.CREATED_DATE</field>
+        <operation>equals</operation>
+        <value>LAST_N_DAYS:28</value>
+    </filters>
+    <filters>
+        <field>LEAD.LEAD_SOURCE</field>
+        <operation>equals</operation>
+        <value>Pro</value>
+    </filters>
+    <filters>
+        <field>LEAD.COUNTRY</field>
+        <operation>contains</operation>
+        <value>Singapore,Malaysia,Phillipines,Thailand,Vietnam,Indonesia</value>
+    </filters>
+    <filters>
+        <field>Inferred_Solution__c</field>
+        <operation>equals</operation>
+        <value>Sales,Investors,Research,Marketing,NULL,Sales (SI),Agency (MI),Investors (II),Publishers &amp; Media,AI / PI,Marketing (MI)</value>
+    </filters>
+    <label>MIR: New Leads</label>
+</ListView>

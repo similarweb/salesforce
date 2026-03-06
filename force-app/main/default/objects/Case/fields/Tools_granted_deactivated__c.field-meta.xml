@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Tools_granted_deactivated__c</fullName>
+    <externalId>false</externalId>
+    <label>Tools granted/deactivated</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>List</fullName>
+                <default>false</default>
+                <label>List</label>
+            </value>
+            <value>
+                <fullName>Tools granted + checkbox</fullName>
+                <default>false</default>
+                <label>Tools granted + checkbox</label>
+            </value>
+            <value>
+                <fullName>Tools deactivated + checkbox</fullName>
+                <default>false</default>
+                <label>Tools deactivated + checkbox</label>
+            </value>
+            <value>
+                <fullName>Tools aligned with new role</fullName>
+                <default>false</default>
+                <label>Tools aligned with new role</label>
+            </value>
+            <value>
+                <fullName>No tools on this user</fullName>
+                <default>false</default>
+                <label>No tools on this user</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

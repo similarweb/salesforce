@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Degree_of_Interest_in_SimilarWeb__c</fullName>
+    <externalId>false</externalId>
+    <label>What buying stage is the company at?</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Initial Research</fullName>
+                <default>false</default>
+                <label>Initial Research</label>
+            </value>
+            <value>
+                <fullName>Comparing Solutions</fullName>
+                <default>false</default>
+                <label>Comparing Solutions</label>
+            </value>
+            <value>
+                <fullName>Ready to Buy</fullName>
+                <default>false</default>
+                <label>Ready to Buy</label>
+            </value>
+            <value>
+                <fullName>Unclear</fullName>
+                <default>false</default>
+                <label>Unclear</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

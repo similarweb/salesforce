@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Country_Region__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF (Contains(&quot;:DJ:EG:ET:ZM:ZW:GA:GM:GH:GN:GW:KE:LS:LR:LY:MG:MW:ML:MR:MU:MA:MZ:NA:NE:NG:DZ:AO:RE:RW:BJ:SN:SC:SL:BW:SO:ZA:SD:SZ:BF:BI:CM:CV:CF:TZ:TG:TN:KM:CI:UG:TD:CD:CG:GQ:ER:SH:ST:EH:&quot;,&quot;:&quot;&amp; text(CountryCode) &amp;&quot;:&quot;),
+&apos;Africa&apos;,(
+
+IF (Contains(&quot;AS:AQ:AU:BD:BT:BN:MM:KH:YT:CN:GL:CX:CC:CK:TL:KZ:FJ:PF:GU:HM:HK:IN:ID:JP:KI:IO::UM:TF:BV:KR:KG:LA:MO:MY:MV:MH:FM:MN:NR:NP:NC:NZ:NU:NF:MP:PK:PW:PG:PH:PN:WS:SG:SB:LK:TW:TJ:TH:TK:TO:TM:TV:UZ:WF:VU:VN:WF&quot;,&quot;:&quot;&amp;text(CountryCode)&amp;&quot;:&quot;),
+&apos;APJ&apos;,(
+
+
+
+IF (Contains(&quot;:EE:GE:LV:LT:MK:MD:AM:RU:AZ:BY:SJ:UA:&quot;,&quot;:&quot;&amp;text(CountryCode)&amp;&quot;:&quot;),
+&apos;EastEurope&apos;, (
+
+IF(Contains(&quot;:FI:FR:DE:GI:GR:GG:HU:IS:IE:IM:IT:JE:LI:LU:MT:MC:ME:NL:NO:AL:AD:AT:PL:PT:RO:BE:SM:RS:BA:BG:SK:SI:ES:SE:CH:HR:CY:CZ:DK:AX:BA:FO:VA:GB:&quot;,&quot;:&quot;&amp;text(CountryCode)&amp;&quot;:&quot;),
+&apos;Europe&apos;, (
+
+IF(Contains(&quot;:KW:OM:QA:BH:SA:AE:&quot;, &quot;:&quot;&amp;text(CountryCode)&amp;&quot;:&quot;),
+&apos;GCC&apos;, (
+
+IF(Contains(&quot;AI:AG:AR:AW:BS:BB:BZ:BM:BO::BQ:CU:CW:GF:AI:BR:VG:KY:CL:CO:SX:BL:MF:CR:DM:DO:EC:SV:FK:GD:GP:GT:GY:HT:HN:JM:MQ:MX:MS:AN:NI:PA:PY:PE:PR:KN:LC:VC:GS:SR:TT:TC:UY:VE:VI&quot;,&quot;:&quot;&amp;text(CountryCode)&amp;&quot;:&quot;),
+&apos;LATAM&apos;, (
+
+
+IF(Contains(&quot;:YE:IR:IQ:IL:JO:LB:AF:PS:TR:SY:&quot;,&quot;:&quot;&amp;text(CountryCode)&amp;&quot;:&quot;),
+&apos;MiddleEast&apos;, (
+
+IF(Contains(&quot;:ZZ:UU:&quot;,&quot;:&quot;&amp;text(CountryCode)&amp;&quot;:&quot;),
+&apos;Unknown&apos;, (
+
+IF(Contains(&quot;:CA:US:&quot;,&quot;:&quot;&amp;text(CountryCode)&amp;&quot;:&quot;),
+&apos;NorthAmerica&apos;,
+
+null)))))))))))))))))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Country Region</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

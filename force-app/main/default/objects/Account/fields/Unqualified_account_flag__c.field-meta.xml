@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Unqualified_account_flag__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>MIS-3623</description>
+    <externalId>false</externalId>
+    <label>Unqualified account flag</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

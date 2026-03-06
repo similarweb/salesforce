@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Request_Types__c</fullName>
+    <externalId>false</externalId>
+    <label>Advisory Services Project Type</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Advertising Effectiveness</fullName>
+                <default>false</default>
+                <label>Advertising Effectiveness</label>
+            </value>
+            <value>
+                <fullName>Audience Analytics</fullName>
+                <default>false</default>
+                <label>Audience Analytics</label>
+            </value>
+            <value>
+                <fullName>Brand Health</fullName>
+                <default>false</default>
+                <label>Brand Health</label>
+            </value>
+            <value>
+                <fullName>Consulting</fullName>
+                <default>false</default>
+                <label>Consulting</label>
+            </value>
+            <value>
+                <fullName>Consumer Journey</fullName>
+                <default>false</default>
+                <label>Consumer Journey</label>
+            </value>
+            <value>
+                <fullName>AS Custom Datasets</fullName>
+                <default>false</default>
+                <label>AS Custom Datasets</label>
+            </value>
+            <value>
+                <fullName>Consumer Trends (Holistic Search)</fullName>
+                <default>false</default>
+                <label>Consumer Trends (Holistic Search)</label>
+            </value>
+            <value>
+                <fullName>Channel Analytics</fullName>
+                <default>false</default>
+                <label>Channel Analytics</label>
+            </value>
+            <value>
+                <fullName>Digital Brand Health</fullName>
+                <default>false</default>
+                <label>Digital Brand Health</label>
+            </value>
+            <value>
+                <fullName>Share of Search</fullName>
+                <default>false</default>
+                <label>Share of Search</label>
+            </value>
+            <value>
+                <fullName>Cross-Retail IQ</fullName>
+                <default>false</default>
+                <label>Cross-Retail IQ</label>
+            </value>
+            <value>
+                <fullName>Retail Media (Internal Marketing Channels)</fullName>
+                <default>false</default>
+                <label>Retail Media (Internal Marketing Channels)</label>
+            </value>
+            <value>
+                <fullName>Travel Intelligence</fullName>
+                <default>false</default>
+                <label>Travel Intelligence</label>
+            </value>
+            <value>
+                <fullName>Funnel Analysis</fullName>
+                <default>false</default>
+                <label>Funnel Analysis</label>
+            </value>
+            <value>
+                <fullName>Audience Profiling</fullName>
+                <default>false</default>
+                <label>Audience Profiling</label>
+            </value>
+            <value>
+                <fullName>GenAI</fullName>
+                <default>false</default>
+                <label>GenAI</label>
+            </value>
+            <value>
+                <fullName>Custom Data Feed</fullName>
+                <default>false</default>
+                <label>Custom Data Feed</label>
+            </value>
+            <value>
+                <fullName>Traffic Share Dashboard (Desktop, Mobile &amp; App combined)</fullName>
+                <default>false</default>
+                <label>Traffic Share Dashboard (Desktop, Mobile &amp; App combined)</label>
+            </value>
+            <value>
+                <fullName>Category Dashboard</fullName>
+                <default>false</default>
+                <label>Category Dashboard</label>
+            </value>
+            <value>
+                <fullName>XPLN</fullName>
+                <default>false</default>
+                <label>XPLN</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

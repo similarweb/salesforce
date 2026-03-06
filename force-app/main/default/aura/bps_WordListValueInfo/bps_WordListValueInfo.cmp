@@ -1,0 +1,38 @@
+<aura:component controller="BaseProductSettingController">
+
+    <aura:attribute name="fullName" type="String"/>
+    <aura:attribute name="label" type="String"/>
+    <aura:attribute name="baseProductFullName" type="String"/>
+
+    <aura:handler event="c:bps_WordListValueSelected" action="{!c.handleWorldListValueSelectedEvent}"/>
+
+    <aura:method name="clearFullName" action="{!c.clearFullName}"/>
+
+    <aura:if isTrue="{!not(empty(v.fullName))}">
+    <!--    
+        <div class="slds-page-header">
+            <p class="slds-page-header__title slds-truncate" title="">{!v.label} (Api Name - {!v.fullName})</p>
+            <div class="slds-grid">                
+                <div class="slds-col_bump-left slds-align-bottom">
+                    <div class="slds-grid">
+                    </div>
+                </div>
+            </div>            
+        </div>
+    -->
+        <lightning:layout multipleRows="true" class="slds-theme_shade rounded-borders buttonL">            
+            <lightning:layoutItem size="8">
+                <div class="slds-p-around_medium">
+                    <p class="slds-page-header__title slds-truncate" title="">{!v.label}</p>
+                </div>
+            </lightning:layoutItem>
+
+            <lightning:layoutItem size="4" class="buttonItem">                    
+                <!--
+                <lightning:button variant="brand" label="Edit World Picklist value" title="Edit World Picklist value" />
+                <lightning:button variant="destructive" label="Delete World Picklist value" title="Delete World Picklist value" onclick="{!c.onDeleteClick}"/>
+                -->
+            </lightning:layoutItem>
+        </lightning:layout>
+    </aura:if>
+</aura:component>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Completed_Meeting_Required_fields</fullName>
+    <active>false</active>
+    <errorConditionFormula>NOT(ISPICKVAL(Competition__c, &quot;Unknown&quot;))
+&amp;&amp;
+NOT(ISPICKVAL(Competition__c, &quot;Not using a competitor&quot;))
+&amp;&amp;
+ISCHANGED(Status__c)
+&amp;&amp;
+ISPICKVAL(Status__c, &quot;Completed&quot;) 
+&amp;&amp;
+ ( 
+					ISPICKVAL(Competition__c,&quot;&quot;)  
+					||
+					ISBLANK(  Competitor_Product__c ) 
+					||
+					ISBLANK(text(   Primary_Use_Case__c ))
+	)  
+	&amp;&amp;
+		(
+					RecordType.DeveloperName =&quot;AE&quot;
+					||
+					RecordType.DeveloperName =&quot;SDR&quot;
+					||
+					RecordType.DeveloperName =&quot;MIR_Handover&quot;
+		)</errorConditionFormula>
+    <errorMessage>Please populate the following fields to Complete the Meeting: &apos;Using a competitor&apos;, &apos;Competitor Product&apos;, &apos;Primary Use Case&apos;</errorMessage>
+</ValidationRule>

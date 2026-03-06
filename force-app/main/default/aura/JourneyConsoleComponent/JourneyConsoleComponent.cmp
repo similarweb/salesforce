@@ -1,0 +1,64 @@
+<aura:component implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes,force:appHostable" access="global">
+    
+    <aura:attribute name="selectedTab" type="String" />
+    <aura:attribute name="modalStyle" type="String" />
+    <aura:attribute name="isStepClicked" type="Boolean" default="false"/>
+    <aura:attribute name="isReport" type="Boolean" default="false"/>
+    <aura:attribute name="stepName" type="String"/>
+    <aura:attribute name="journeyName" type="String"/>
+    <aura:handler event="c:stepClickEvent" action="{!c.handleStepClickEvent}" />
+    <aura:handler name="change" value="{!v.selectedTab}" action="{!c.selectedTabChange}"/>
+    <aura:handler name="init" value="{!v.this}" action="{!c.onInit}"/>
+    <aura:registerEvent name="JourneyConsoleTabEvent" type="c:JourneyConsoleTabEvent"/>
+    
+    <div class="slds-p-top_xx-large slds-p-right_xx-large slds-p-left_xx-large slds-p-bottom_xx-large" style="background:white;">
+        <div class="slds-page-header">
+            
+            <div class="slds-page-header__row">
+                <div class="slds-page-header__col-title">
+                    <div class="slds-align_absolute-center">
+                        
+                        <div class="slds-page-header__name">
+                            <div class="slds-page-header__name-title">
+                                <h1>
+                                    <div class="slds-align_absolute-center">
+                                        <span class="slds-page-header__title slds-truncate ff" style="font-size: 250%" title="STETHOSCOPE">
+                                            <!--<span style="color: #1B2653">M</span>
+                                        <span style="color: #FF8100">J</span>-->
+                                            STETHOSCOPE
+                                        </span>
+                                    </div>
+                                </h1>                            
+                            </div>
+                        </div>                    
+                        <img src="{!$Resource.Stethoscope}" style="width:58px;height:58px;"></img>                    
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <lightning:tabset selectedTabId="{!v.selectedTab}" class="nav">                     
+            <lightning:tab label="Jorney insight" id="JorneyInsight" class="myClass">                  
+                <aura:if isTrue="{!v.isStepClicked==true}">
+                    <lightning:button variant="neutral" class="back-btn" label="Back" title="Back" onclick="{! c.handleClick }"/>
+                    <c:DetailedFunnelComponent journeyName="{!v.journeyName}" stepName="{!v.stepName}" isReport="{!v.isReport}"/>
+                </aura:if> 
+                
+                <aura:if isTrue="{!v.isStepClicked==false}">
+                    <c:JorneyInsightComponent/>
+                </aura:if> 
+                
+            </lightning:tab>            
+            
+            <!--<lightning:tab label="Record Insight" id="RecordInsight">
+             <c:JourneyRecordInsightComponent/>                
+            </lightning:tab>  -->
+            
+            <lightning:tab label="Journey Management" id="JourneyManagement">
+                <c:JourneyManagementComponent/>
+            </lightning:tab>  
+            
+        </lightning:tabset>
+    </div>
+    
+</aura:component>

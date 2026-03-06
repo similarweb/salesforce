@@ -1,0 +1,1865 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Create_Sold_To_Post</name>
+        <label>Create Sold To Post</label>
+        <locationX>490</locationX>
+        <locationY>890</locationY>
+        <actionName>chatterPost</actionName>
+        <actionType>chatterPost</actionType>
+        <connector>
+            <targetReference>Create_Sold_To_Zuora</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>text</name>
+            <value>
+                <elementReference>Create_Sold_to_chatter</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>subjectNameOrId</name>
+            <value>
+                <elementReference>recordId</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>chatterPost</nameSegment>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </actionCalls>
+    <actionCalls>
+        <name>Create_Update_Bill_To_Chatter</name>
+        <label>Create Update Bill To Chatter</label>
+        <locationX>754</locationX>
+        <locationY>890</locationY>
+        <actionName>chatterPost</actionName>
+        <actionType>chatterPost</actionType>
+        <connector>
+            <targetReference>Copy_2_of_Create_Sold_To_Zuora</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>text</name>
+            <value>
+                <elementReference>Create_Bill_To_chatter</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>subjectNameOrId</name>
+            <value>
+                <elementReference>recordId</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>chatterPost</nameSegment>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </actionCalls>
+    <actionCalls>
+        <name>Update_Sold_To_Zuora</name>
+        <label>Update Sold To</label>
+        <locationX>50</locationX>
+        <locationY>974</locationY>
+        <actionName>chatterPost</actionName>
+        <actionType>chatterPost</actionType>
+        <connector>
+            <targetReference>create_update_Sold_To_tracking</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>text</name>
+            <value>
+                <elementReference>Chatter_Post_sold</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>subjectNameOrId</name>
+            <value>
+                <elementReference>recordId</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>chatterPost</nameSegment>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </actionCalls>
+    <actionCalls>
+        <name>Updated_Bill_To</name>
+        <label>Update Bill To</label>
+        <locationX>50</locationX>
+        <locationY>1490</locationY>
+        <actionName>chatterPost</actionName>
+        <actionType>chatterPost</actionType>
+        <connector>
+            <targetReference>create_update_Bill_to_tracking</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>text</name>
+            <value>
+                <elementReference>Bill_to_chatter</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>subjectNameOrId</name>
+            <value>
+                <elementReference>recordId</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>chatterPost</nameSegment>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </actionCalls>
+    <apiVersion>61.0</apiVersion>
+    <assignments>
+        <name>Assignment_1</name>
+        <label>Assigain Old Value</label>
+        <locationX>501</locationX>
+        <locationY>242</locationY>
+        <assignmentItems>
+            <assignToReference>Sold_Address_old</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Billing_Account.Zuora__SoldToAddress1__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Sold_City_old</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Billing_Account.Zuora__SoldToCity__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Sold_Email</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Billing_Account.Zuora__SoldToWorkEmail__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Sold_Phone_old</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Billing_Account.Zuora__SoldToWorkPhone__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Sold_State_old</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Billing_Account.Zuora__SoldToState__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Sold_Zip_old</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Billing_Account.Zuora__SoldToPostalCode__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>bill_Address_old</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Billing_Account.Zuora__BillToAddress1__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Bill_City_old</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Billing_Account.Zuora__BillToCity__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Bill_Email</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Billing_Account.Zuora__BillToWorkEmail__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Bill_Phone_old</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Billing_Account.Zuora__BillToWorkPhone__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Bill_State_old</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Billing_Account.Zuora__BillToState__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Bill_Zip_old</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Billing_Account.Zuora__BillToPostalCode__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Bill_To_First_old</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Bill_to_first_namef</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Bill_last_old</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Bill_to_last_named</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Sold_first_old</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Sold_TO_FirstName</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Sold_Last_old</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Sold_to_Last_name</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Is_Sold_to_bill_to_the_same</targetReference>
+        </connector>
+    </assignments>
+    <choices>
+        <name>Create_Bill_To</name>
+        <choiceText>Create Bill To</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Create Bill To</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>Create_Sold_to_var</name>
+        <choiceText>Create Sold to</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Create Sold to</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>No_I_want_to_update_the_existing_contact_details</name>
+        <choiceText>No - I want to update the existing contact details</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>No - I want to update the existing contact details</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>Yes_I_want_to_set_up_different_contacts</name>
+        <choiceText>Yes - I want to set up different contacts</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Yes - I want to set up different contacts</stringValue>
+        </value>
+    </choices>
+    <decisions>
+        <name>Didn_t_Select_contact_to_update</name>
+        <label>Didn&apos;t Select contact to update</label>
+        <locationX>182</locationX>
+        <locationY>566</locationY>
+        <defaultConnector>
+            <targetReference>Update_Sold_to_choice</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>No_one</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Update_Bill_To_checkbox</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Update_Sold_to1</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Error</targetReference>
+            </connector>
+            <label>No one</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Is_Sold_to_bill_to_the_same</name>
+        <label>Is Sold to/bill to the same</label>
+        <locationX>501</locationX>
+        <locationY>350</locationY>
+        <defaultConnector>
+            <targetReference>Update_or_Create_Contact</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>not_the_Same_contact</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Billing_Account.Zuora__SoldToId__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>Get_Billing_Account.Zuora__BillToId__c</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Sold_To_Contact</targetReference>
+            </connector>
+            <label>not the Same contact</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Update_Bill_to_select</name>
+        <label>Update Bill to</label>
+        <locationX>182</locationX>
+        <locationY>1382</locationY>
+        <defaultConnector>
+            <targetReference>Success</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Update_Bill_to_details</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Update_Bill_To_checkbox</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Updated_Bill_To</targetReference>
+            </connector>
+            <label>Update Bill to details</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Update_or_create_the_Contact</name>
+        <label>Update or create the Contact</label>
+        <locationX>820</locationX>
+        <locationY>566</locationY>
+        <defaultConnector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Update_Sold_To_Contact</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Create_The_Contact</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>create_or_update</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>Yes_I_want_to_set_up_different_contacts</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Create_Contact</targetReference>
+            </connector>
+            <label>Create The Contact</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Update_Sold_to_choice</name>
+        <label>Update Sold to choice</label>
+        <locationX>182</locationX>
+        <locationY>866</locationY>
+        <defaultConnector>
+            <targetReference>Update_Bill_to_select</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Update_Sold_to_details</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Update_Sold_to1</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Sold_To_Zuora</targetReference>
+            </connector>
+            <label>Update Sold to details</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Which_Contact_To_create</name>
+        <label>Which Contact To create</label>
+        <locationX>622</locationX>
+        <locationY>782</locationY>
+        <defaultConnector>
+            <targetReference>Create_Update_Bill_To_Chatter</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Create Bill To</defaultConnectorLabel>
+        <rules>
+            <name>Create_Sold_To</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Select_which_contact_you_want_to_create</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>Create_Sold_to_var</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Create_Sold_To_Post</targetReference>
+            </connector>
+            <label>Create Sold To</label>
+        </rules>
+    </decisions>
+    <description>MQ - 2248</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>Bill_to_first_namef</name>
+        <dataType>String</dataType>
+        <expression>Left({!Get_Billing_Account.Zuora__BillToName__c}, LEN({!Get_Billing_Account.Zuora__BillToName__c}) - FIND(&quot; &quot;, {!Get_Billing_Account.Zuora__BillToName__c}))</expression>
+    </formulas>
+    <formulas>
+        <name>Bill_to_last_named</name>
+        <dataType>String</dataType>
+        <expression>IF(CONTAINS({!Get_Billing_Account.Zuora__BillToName__c}, &quot; &quot;), 
+    RIGHT({!Get_Billing_Account.Zuora__BillToName__c}, LEN({!Get_Billing_Account.Zuora__BillToName__c}) - FIND(&quot; &quot;, {!Get_Billing_Account.Zuora__BillToName__c})), 
+{!Get_Billing_Account.Zuora__BillToName__c}
+)</expression>
+    </formulas>
+    <formulas>
+        <name>Change_Log_Bill_To</name>
+        <dataType>String</dataType>
+        <expression>&quot;The changes in the bill to contact are as follows:&quot; &amp; BR() &amp;
+
+IF({!Bill_to_First_name} &lt;&gt; {!Bill_To_First_old},
+    &quot; First Name changed to: &quot; &amp; {!Bill_to_First_name} &amp; &quot; from: &quot; &amp; {!Bill_To_First_old} &amp; &quot;.&quot;,
+    &quot;&quot;) &amp; BR() &amp;
+
+IF({!Bill_to_Last_Name} &lt;&gt; {!Bill_last_old},
+    &quot; Last Name changed to: &quot; &amp; {!Bill_to_Last_Name} &amp; &quot; from: &quot; &amp; {!Bill_last_old} &amp; &quot;.&quot;,
+    &quot;&quot;) &amp; BR() &amp;
+
+IF({!Bill_City_old} &lt;&gt; {!Get_Billing_Account.Zuora__BillToCity__c},
+    &quot; City changed to: &quot; &amp; {!Get_Billing_Account.Zuora__BillToCity__c} &amp; &quot; from: &quot; &amp; {!Bill_City_old} &amp; &quot;.&quot;,
+    &quot;&quot;) &amp; BR() &amp;
+
+IF({!bill_Address_old} &lt;&gt; {!Get_Billing_Account.Zuora__BillToAddress1__c},
+    &quot; Address changed to: &quot; &amp; {!Get_Billing_Account.Zuora__BillToAddress1__c} &amp; &quot; from: &quot; &amp; {!bill_Address_old} &amp; &quot;.&quot;,
+    &quot;&quot;) &amp; BR() &amp;
+
+IF({!Bill_Email} &lt;&gt; {!Get_Billing_Account.Zuora__BillToWorkEmail__c},
+    &quot; Email changed to: &quot; &amp; {!Get_Billing_Account.Zuora__BillToWorkEmail__c} &amp; &quot; from: &quot; &amp; {!Bill_Email} &amp; &quot;.&quot;,
+    &quot;&quot;) &amp; BR() &amp;
+
+IF({!Bill_Phone_old} &lt;&gt; {!Get_Billing_Account.Zuora__BillToWorkPhone__c},
+    &quot; Phone changed to: &quot; &amp; {!Get_Billing_Account.Zuora__BillToWorkPhone__c} &amp; &quot; from: &quot; &amp; {!Bill_Phone_old} &amp; &quot;.&quot;,
+    &quot;&quot;) &amp; BR() &amp;
+
+IF({!Bill_State_old} &lt;&gt; {!Get_Billing_Account.Zuora__BillToState__c},
+    &quot; State changed to: &quot; &amp; {!Get_Billing_Account.Zuora__BillToState__c} &amp; &quot; from: &quot; &amp; {!Bill_State_old} &amp; &quot;.&quot;,
+    &quot;&quot;) &amp; BR() &amp;
+
+IF({!Bill_Zip_old} &lt;&gt; {!Get_Billing_Account.Zuora__BillToPostalCode__c},
+    &quot; Zip Code changed to: &quot; &amp; {!Get_Billing_Account.Zuora__BillToPostalCode__c} &amp; &quot; from: &quot; &amp; {!Bill_Zip_old} &amp; &quot;.&quot;,
+    &quot;&quot;)</expression>
+    </formulas>
+    <formulas>
+        <name>Change_log_Sold_to</name>
+        <dataType>String</dataType>
+        <expression>&quot;The changes in the bill to contact are as follows:&quot; &amp;  
+
+IF({!First_Name}&lt;&gt; {!Sold_first_old},
+    &quot; First Name changed to: &quot; &amp; {!First_Name} &amp; &quot; changed from: &quot; &amp; {!Sold_TO_FirstName} &amp; &quot;.&quot;,
+    &quot;&quot;) &amp;  BR() &amp;
+
+
+
+IF({!Sold_To_Last_Name_text} &lt;&gt; {!Sold_Last_old},
+    &quot; Last Name changed to: &quot; &amp; {!Sold_To_Last_Name_text}  &amp; &quot; changed from: &quot; &amp; {!Sold_Last_old} &amp; &quot;.&quot;,
+    &quot;&quot;) &amp;  BR() &amp;
+
+
+
+IF({!Sold_City_old} &lt;&gt; {!Get_Billing_Account.Zuora__SoldToCity__c},
+    &quot; City changed to: &quot; &amp; {!Get_Billing_Account.Zuora__SoldToCity__c} &amp; &quot; changed from: &quot; &amp; {!Sold_City_old} &amp; &quot;.&quot;,
+    &quot;&quot;) &amp;  BR() &amp;
+
+IF({!Sold_Address_old} &lt;&gt; {!Get_Billing_Account.Zuora__SoldToAddress1__c},
+    &quot; Adress line changed to: &quot; &amp; {!Get_Billing_Account.Zuora__SoldToAddress1__c} &amp; &quot; changed from: &quot; &amp; {!Sold_Address_old} &amp; &quot;.&quot;,
+    &quot;&quot;) &amp; BR() &amp;
+
+IF({!Sold_Email} &lt;&gt; {!Get_Billing_Account.Zuora__SoldToWorkEmail__c},
+    &quot; Email changed To: &quot; &amp; {!Get_Billing_Account.Zuora__SoldToWorkEmail__c} &amp; &quot; changed from: &quot; &amp; {!Sold_Email} &amp; &quot;.&quot;,
+    &quot;&quot;) &amp;  BR() &amp;
+
+IF({!Sold_Phone_old} &lt;&gt; {!Get_Billing_Account.Zuora__SoldToWorkPhone__c},
+    &quot;Phone changed to: &quot; &amp; {!Get_Billing_Account.Zuora__SoldToWorkPhone__c} &amp; &quot; changed from: &quot; &amp; {!Sold_Phone_old} &amp; &quot;.&quot;,
+    &quot;&quot;) &amp;  BR() &amp;
+
+IF({!Sold_State_old} &lt;&gt; {!Get_Billing_Account.Zuora__SoldToState__c},
+    &quot; State changed to: &quot; &amp; {!Get_Billing_Account.Zuora__SoldToState__c} &amp; &quot; changed from: &quot; &amp; {!Sold_State_old} &amp; &quot;.&quot;,
+    &quot;&quot;) &amp; BR() &amp;
+
+IF({!Sold_Zip_old} &lt;&gt; {!Get_Billing_Account.Zuora__SoldToPostalCode__c},
+    &quot;Zip Code changed to: &quot; &amp; {!Get_Billing_Account.Zuora__SoldToPostalCode__c} &amp; &quot; changed from: &quot; &amp; {!Sold_Zip_old} &amp; &quot;.&quot;,
+    &quot;&quot;)</expression>
+    </formulas>
+    <formulas>
+        <name>New_Contact_state</name>
+        <dataType>String</dataType>
+        <expression>IF (OR( {!Get_Billing_Account.Zuora__SoldToCountry__c} = &apos;United States&apos;, {!Get_Billing_Account.Zuora__SoldToCountry__c} = &apos;Canada&apos;) , {!Get_Billing_Account.Zuora__SoldToState__c}, {!State})</expression>
+    </formulas>
+    <formulas>
+        <name>New_contact_Zip</name>
+        <dataType>String</dataType>
+        <expression>IF (OR( {!Get_Billing_Account.Zuora__SoldToCountry__c} = &apos;United States&apos;, {!Get_Billing_Account.Zuora__SoldToCountry__c} = &apos;Canada&apos;) , {!Get_Billing_Account.Zuora__SoldToPostalCode__c}, {!Zip_Code})</expression>
+    </formulas>
+    <formulas>
+        <name>New_Sold_to</name>
+        <dataType>String</dataType>
+        <expression>&quot;New Sold To created:&quot; &amp; BR() &amp;
+&quot;First Name:&quot;&amp; {!First_Name1} &amp; BR()&amp;
+&quot;Last Name: &quot;&amp; {!Last_Name1} &amp; BR()&amp;
+&quot;Email: &quot;&amp; {!Email.value} &amp; BR()&amp;
+&quot;Adress Line: &quot;&amp; {!Address_Line_1} &amp; BR()&amp;
+&quot;Zip Code: &quot;&amp; {!Zip_Code} &amp; BR()&amp;
+&quot;Sold To Country: &quot;&amp; {!Get_Billing_Account.Zuora__SoldToCountry__c} &amp; BR()&amp;
+&quot;City: &quot;&amp; {!City}&amp; BR()&amp;
+&quot;Phone: &quot;&amp; {!Phone.value}</expression>
+    </formulas>
+    <formulas>
+        <name>NewBillTo</name>
+        <dataType>String</dataType>
+        <expression>&quot;New Bill To created:&quot; &amp; BR() &amp;
+&quot;First Name:&quot;&amp; {!First_Name1} &amp; BR()&amp;
+&quot;Last Name: &quot;&amp; {!Last_Name1} &amp; BR()&amp;
+&quot;Email: &quot;&amp; {!Email.value} &amp; BR()&amp;
+&quot;Adress Line: &quot;&amp; {!Address_Line_1} &amp; BR()&amp;
+&quot;Zip Code: &quot;&amp; {!Zip_Code} &amp; BR()&amp;
+&quot;Bill To Country: &quot;&amp; {!Get_Billing_Account.Zuora__BillToCountry__c} &amp; BR()&amp;
+&quot;City: &quot;&amp; {!City}&amp; BR()&amp;
+&quot;Phone: &quot;&amp; {!Phone.value}</expression>
+    </formulas>
+    <formulas>
+        <name>Sold_TO_FirstName</name>
+        <dataType>String</dataType>
+        <expression>Left({!Get_Billing_Account.Zuora__SoldToName__c}, LEN({!Get_Billing_Account.Zuora__SoldToName__c}) - FIND(&quot; &quot;, {!Get_Billing_Account.Zuora__SoldToName__c}))</expression>
+    </formulas>
+    <formulas>
+        <name>Sold_to_Last_name</name>
+        <dataType>String</dataType>
+        <expression>IF(CONTAINS({!Get_Billing_Account.Zuora__SoldToName__c}, &quot; &quot;), 
+    RIGHT({!Get_Billing_Account.Zuora__SoldToName__c}, LEN({!Get_Billing_Account.Zuora__SoldToName__c}) - FIND(&quot; &quot;, {!Get_Billing_Account.Zuora__SoldToName__c})), 
+{!Get_Billing_Account.Zuora__SoldToName__c}
+)</expression>
+    </formulas>
+    <interviewLabel>Update bill/sold to screen flow {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Update bill/sold to screen flow</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>Flow</processType>
+    <recordCreates>
+        <name>Copy_2_of_Create_Sold_To_Zuora</name>
+        <label>Create  Bill To Zuora</label>
+        <locationX>754</locationX>
+        <locationY>998</locationY>
+        <connector>
+            <targetReference>create_new_Bill_to_tracking</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Address_Line__c</field>
+            <value>
+                <elementReference>Address_Line_1</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Contact_City__c</field>
+            <value>
+                <elementReference>City</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Contact_Email__c</field>
+            <value>
+                <elementReference>Email.value</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Contact_State__c</field>
+            <value>
+                <elementReference>New_Contact_state</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Contact_Zip__c</field>
+            <value>
+                <elementReference>New_contact_Zip</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Contact_Zuora_ID__c</field>
+            <value>
+                <elementReference>Get_Billing_Account.Zuora__SoldToId__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Country__c</field>
+            <value>
+                <elementReference>Get_Billing_Account.Zuora__BillToCountry__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>First_Name__c</field>
+            <value>
+                <elementReference>First_Name1</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Last_Name__c</field>
+            <value>
+                <elementReference>Last_Name1</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Phone__c</field>
+            <value>
+                <elementReference>Phone.value</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Process_Name__c</field>
+            <value>
+                <stringValue>Create Bill To</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Zuora_Account_ID__c</field>
+            <value>
+                <elementReference>Get_Billing_Account.Zuora__External_Id__c</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Zuora_Update__e</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordCreates>
+        <name>create_new_Bill_to_tracking</name>
+        <label>create new  Bill to tracking</label>
+        <locationX>754</locationX>
+        <locationY>1106</locationY>
+        <connector>
+            <targetReference>Success</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Action__c</field>
+            <value>
+                <stringValue>Create Bill To</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Billing_Account__c</field>
+            <value>
+                <elementReference>Get_Billing_Account.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>New_Value__c</field>
+            <value>
+                <elementReference>NewBillTo</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Billing_Account_tracking__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordCreates>
+        <name>create_new_Sold_to_tracking</name>
+        <label>create new Sold to tracking</label>
+        <locationX>490</locationX>
+        <locationY>1106</locationY>
+        <connector>
+            <targetReference>Success</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Action__c</field>
+            <value>
+                <stringValue>Create  Sold To</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Billing_Account__c</field>
+            <value>
+                <elementReference>Get_Billing_Account.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>New_Value__c</field>
+            <value>
+                <elementReference>New_Sold_to</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Billing_Account_tracking__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordCreates>
+        <name>Create_Sold_To_Zuora</name>
+        <label>Create  Sold To Zuora</label>
+        <locationX>490</locationX>
+        <locationY>998</locationY>
+        <connector>
+            <targetReference>create_new_Sold_to_tracking</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Address_Line__c</field>
+            <value>
+                <elementReference>Address_Line_1</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Contact_City__c</field>
+            <value>
+                <elementReference>City</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Contact_Email__c</field>
+            <value>
+                <elementReference>Email.value</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Contact_State__c</field>
+            <value>
+                <elementReference>New_Contact_state</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Contact_Zip__c</field>
+            <value>
+                <elementReference>New_contact_Zip</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Contact_Zuora_ID__c</field>
+            <value>
+                <elementReference>Get_Billing_Account.Zuora__SoldToId__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Country__c</field>
+            <value>
+                <elementReference>Get_Billing_Account.Zuora__SoldToCountry__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>First_Name__c</field>
+            <value>
+                <elementReference>First_Name1</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Last_Name__c</field>
+            <value>
+                <elementReference>Last_Name1</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Process_Name__c</field>
+            <value>
+                <stringValue>Create Sold To</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Zuora_Account_ID__c</field>
+            <value>
+                <elementReference>Get_Billing_Account.Zuora__External_Id__c</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Zuora_Update__e</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordCreates>
+        <name>create_update_Bill_to_tracking</name>
+        <label>create update  Bill to tracking</label>
+        <locationX>50</locationX>
+        <locationY>1598</locationY>
+        <connector>
+            <targetReference>Update_Bill_To</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Action__c</field>
+            <value>
+                <stringValue>Update Bill To</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Billing_Account__c</field>
+            <value>
+                <elementReference>Get_Billing_Account.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>New_Value__c</field>
+            <value>
+                <elementReference>Change_Log_Bill_To</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Billing_Account_tracking__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordCreates>
+        <name>create_update_Sold_To_tracking</name>
+        <label>create  update Sold To tracking</label>
+        <locationX>50</locationX>
+        <locationY>1082</locationY>
+        <connector>
+            <targetReference>Update_Sold_To</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Action__c</field>
+            <value>
+                <stringValue>Update Sold To</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Billing_Account__c</field>
+            <value>
+                <elementReference>Get_Billing_Account.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>New_Value__c</field>
+            <value>
+                <elementReference>Change_log_Sold_to</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Billing_Account_tracking__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordCreates>
+        <name>Update_Bill_To</name>
+        <label>Update Bill To</label>
+        <locationX>50</locationX>
+        <locationY>1706</locationY>
+        <connector>
+            <targetReference>Success</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Address_Line__c</field>
+            <value>
+                <elementReference>Get_Billing_Account.Zuora__BillToAddress1__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Contact_City__c</field>
+            <value>
+                <elementReference>Get_Billing_Account.Zuora__BillToCity__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Contact_Email__c</field>
+            <value>
+                <elementReference>Get_Billing_Account.Zuora__BillToWorkEmail__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Contact_State__c</field>
+            <value>
+                <elementReference>Get_Billing_Account.Zuora__BillToState__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Contact_Zip__c</field>
+            <value>
+                <elementReference>Get_Billing_Account.Zuora__BillToPostalCode__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Contact_Zuora_ID__c</field>
+            <value>
+                <elementReference>Get_Billing_Account.Zuora__BillToId__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>First_Name__c</field>
+            <value>
+                <elementReference>Bill_to_First_name</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Last_Name__c</field>
+            <value>
+                <elementReference>Bill_to_Last_Name</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Phone__c</field>
+            <value>
+                <elementReference>Get_Billing_Account.Zuora__BillToWorkPhone__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Process_Name__c</field>
+            <value>
+                <stringValue>Update Bill To</stringValue>
+            </value>
+        </inputAssignments>
+        <object>Zuora_Update__e</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordCreates>
+        <name>Update_Sold_To</name>
+        <label>Update Sold To</label>
+        <locationX>50</locationX>
+        <locationY>1190</locationY>
+        <connector>
+            <targetReference>Update_Bill_to_select</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Address_Line__c</field>
+            <value>
+                <elementReference>Get_Billing_Account.Zuora__SoldToAddress1__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Contact_City__c</field>
+            <value>
+                <elementReference>Get_Billing_Account.Zuora__SoldToCity__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Contact_Email__c</field>
+            <value>
+                <elementReference>Get_Billing_Account.Zuora__SoldToWorkEmail__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Contact_State__c</field>
+            <value>
+                <elementReference>Get_Billing_Account.Zuora__SoldToState__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Contact_Zip__c</field>
+            <value>
+                <elementReference>Get_Billing_Account.Zuora__SoldToPostalCode__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Contact_Zuora_ID__c</field>
+            <value>
+                <elementReference>Get_Billing_Account.Zuora__SoldToId__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>First_Name__c</field>
+            <value>
+                <elementReference>First_Name</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Last_Name__c</field>
+            <value>
+                <elementReference>Sold_To_Last_Name_text</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Phone__c</field>
+            <value>
+                <elementReference>Get_Billing_Account.Zuora__SoldToWorkPhone__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Process_Name__c</field>
+            <value>
+                <stringValue>Update Sold To</stringValue>
+            </value>
+        </inputAssignments>
+        <object>Zuora_Update__e</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordLookups>
+        <name>Get_Billing_Account</name>
+        <label>Get Billing Account</label>
+        <locationX>501</locationX>
+        <locationY>134</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Assignment_1</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>recordId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Zuora__CustomerAccount__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <screens>
+        <name>Create_Contact</name>
+        <label>Create Contact</label>
+        <locationX>622</locationX>
+        <locationY>674</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>Which_Contact_To_create</targetReference>
+        </connector>
+        <fields>
+            <name>Select_which_contact_you_want_to_create</name>
+            <choiceReferences>Create_Bill_To</choiceReferences>
+            <choiceReferences>Create_Sold_to_var</choiceReferences>
+            <dataType>String</dataType>
+            <fieldText>Select which contact you want to create</fieldText>
+            <fieldType>RadioButtons</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+        </fields>
+        <fields>
+            <name>Create_Contact_Section1</name>
+            <fieldType>RegionContainer</fieldType>
+            <fields>
+                <name>Create_Contact_Section1_Column1</name>
+                <fieldType>Region</fieldType>
+                <fields>
+                    <name>First_Name1</name>
+                    <dataType>String</dataType>
+                    <fieldText>First Name</fieldText>
+                    <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>true</isRequired>
+                </fields>
+                <fields>
+                    <name>Last_Name1</name>
+                    <dataType>String</dataType>
+                    <fieldText>Last Name</fieldText>
+                    <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>true</isRequired>
+                </fields>
+                <fields>
+                    <name>Email</name>
+                    <extensionName>flowruntime:email</extensionName>
+                    <fieldType>ComponentInstance</fieldType>
+                    <inputParameters>
+                        <name>label</name>
+                        <value>
+                            <stringValue>Email</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>true</isRequired>
+                    <storeOutputAutomatically>true</storeOutputAutomatically>
+                </fields>
+                <fields>
+                    <name>Address_Line_1</name>
+                    <dataType>String</dataType>
+                    <fieldText>Address Line 1</fieldText>
+                    <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>false</isRequired>
+                </fields>
+                <fields>
+                    <name>City</name>
+                    <dataType>String</dataType>
+                    <fieldText>City</fieldText>
+                    <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>false</isRequired>
+                </fields>
+                <fields>
+                    <name>Zip_Code</name>
+                    <dataType>String</dataType>
+                    <fieldText>Zip Code</fieldText>
+                    <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>false</isRequired>
+                    <visibilityRule>
+                        <conditionLogic>and</conditionLogic>
+                        <conditions>
+                            <leftValueReference>Get_Billing_Account.Zuora__SoldToCountry__c</leftValueReference>
+                            <operator>NotEqualTo</operator>
+                            <rightValue>
+                                <stringValue>United States</stringValue>
+                            </rightValue>
+                        </conditions>
+                    </visibilityRule>
+                </fields>
+                <fields>
+                    <name>ZipCode</name>
+                    <fieldText>&lt;p&gt;Zip Code&lt;/p&gt;&lt;p&gt;{!Get_Billing_Account.Zuora__BillToPostalCode__c}&lt;/p&gt;</fieldText>
+                    <fieldType>DisplayText</fieldType>
+                    <visibilityRule>
+                        <conditionLogic>or</conditionLogic>
+                        <conditions>
+                            <leftValueReference>Get_Billing_Account.Zuora__SoldToCountry__c</leftValueReference>
+                            <operator>EqualTo</operator>
+                            <rightValue>
+                                <stringValue>United States</stringValue>
+                            </rightValue>
+                        </conditions>
+                    </visibilityRule>
+                </fields>
+                <fields>
+                    <name>State</name>
+                    <dataType>String</dataType>
+                    <fieldText>State</fieldText>
+                    <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>false</isRequired>
+                    <visibilityRule>
+                        <conditionLogic>and</conditionLogic>
+                        <conditions>
+                            <leftValueReference>Get_Billing_Account.Zuora__SoldToCountry__c</leftValueReference>
+                            <operator>NotEqualTo</operator>
+                            <rightValue>
+                                <stringValue>United States</stringValue>
+                            </rightValue>
+                        </conditions>
+                    </visibilityRule>
+                </fields>
+                <fields>
+                    <name>State_NA</name>
+                    <fieldText>&lt;p&gt;State&lt;/p&gt;&lt;p&gt;{!Get_Billing_Account.Zuora__SoldToState__c}&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;</fieldText>
+                    <fieldType>DisplayText</fieldType>
+                    <visibilityRule>
+                        <conditionLogic>or</conditionLogic>
+                        <conditions>
+                            <leftValueReference>Get_Billing_Account.Zuora__SoldToCountry__c</leftValueReference>
+                            <operator>EqualTo</operator>
+                            <rightValue>
+                                <stringValue>United States</stringValue>
+                            </rightValue>
+                        </conditions>
+                    </visibilityRule>
+                </fields>
+                <fields>
+                    <name>Bill_to_Country_show</name>
+                    <fieldText>&lt;p&gt;Bill To Country&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); color: rgb(68, 68, 68);&quot;&gt;{!Get_Billing_Account.Zuora__BillToCountry__c}&lt;/span&gt;&lt;/p&gt;</fieldText>
+                    <fieldType>DisplayText</fieldType>
+                    <visibilityRule>
+                        <conditionLogic>and</conditionLogic>
+                        <conditions>
+                            <leftValueReference>Select_which_contact_you_want_to_create</leftValueReference>
+                            <operator>EqualTo</operator>
+                            <rightValue>
+                                <elementReference>Create_Bill_To</elementReference>
+                            </rightValue>
+                        </conditions>
+                    </visibilityRule>
+                </fields>
+                <fields>
+                    <name>Sold_to_country_show</name>
+                    <fieldText>&lt;p&gt;Sold To Country&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); color: rgb(68, 68, 68);&quot;&gt;{!Get_Billing_Account.Zuora__SoldToCountry__c}&lt;/span&gt;&lt;/p&gt;</fieldText>
+                    <fieldType>DisplayText</fieldType>
+                    <visibilityRule>
+                        <conditionLogic>and</conditionLogic>
+                        <conditions>
+                            <leftValueReference>Select_which_contact_you_want_to_create</leftValueReference>
+                            <operator>EqualTo</operator>
+                            <rightValue>
+                                <elementReference>Create_Sold_to_var</elementReference>
+                            </rightValue>
+                        </conditions>
+                    </visibilityRule>
+                </fields>
+                <fields>
+                    <name>Phone</name>
+                    <extensionName>flowruntime:phone</extensionName>
+                    <fieldType>ComponentInstance</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>true</isRequired>
+                    <storeOutputAutomatically>true</storeOutputAutomatically>
+                </fields>
+                <inputParameters>
+                    <name>width</name>
+                    <value>
+                        <stringValue>12</stringValue>
+                    </value>
+                </inputParameters>
+                <isRequired>false</isRequired>
+            </fields>
+            <isRequired>false</isRequired>
+            <regionContainerType>SectionWithoutHeader</regionContainerType>
+            <visibilityRule>
+                <conditionLogic>and</conditionLogic>
+                <conditions>
+                    <leftValueReference>Select_which_contact_you_want_to_create</leftValueReference>
+                    <operator>IsNull</operator>
+                    <rightValue>
+                        <booleanValue>false</booleanValue>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <name>Error</name>
+        <label>Error</label>
+        <locationX>50</locationX>
+        <locationY>674</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>Update_Sold_to_choice</targetReference>
+        </connector>
+        <fields>
+            <name>Error_message</name>
+            <fieldText>&lt;p&gt;Please click &quot;Previous&quot; and select at least one Billing contact to update&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <name>Success</name>
+        <label>Success</label>
+        <locationX>501</locationX>
+        <locationY>1982</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <fields>
+            <name>Message</name>
+            <fieldText>&lt;p&gt;&lt;span style=&quot;font-size: 20px;&quot;&gt;The Billing Account Update has been submitted, the change will be reflected in Salesforce in a few seconds. For any issues - reach out to salesops@similarweb.com&lt;/span&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <name>Update_or_Create_Contact</name>
+        <label>Update or Create Contact</label>
+        <locationX>820</locationX>
+        <locationY>458</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>Update_or_create_the_Contact</targetReference>
+        </connector>
+        <fields>
+            <name>create_or_update</name>
+            <choiceReferences>No_I_want_to_update_the_existing_contact_details</choiceReferences>
+            <choiceReferences>Yes_I_want_to_set_up_different_contacts</choiceReferences>
+            <dataType>String</dataType>
+            <fieldText>The current contact is set up as both the Bill to and Sold to. Would you like to set up a different contact for either the Bill to or Sold to?</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <name>Update_Sold_To_Contact</name>
+        <label>Update Sold To Contact</label>
+        <locationX>182</locationX>
+        <locationY>458</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>Didn_t_Select_contact_to_update</targetReference>
+        </connector>
+        <fields>
+            <name>Bill_to_contact</name>
+            <fieldText>Update Bill/Sold to</fieldText>
+            <fieldType>RegionContainer</fieldType>
+            <fields>
+                <name>Bill_to_contact_Column1</name>
+                <fieldType>Region</fieldType>
+                <fields>
+                    <name>Update_Bill_To_checkbox</name>
+                    <dataType>Boolean</dataType>
+                    <fieldText>Update Bill To checkbox</fieldText>
+                    <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>true</isRequired>
+                </fields>
+                <fields>
+                    <name>Bill_to_First_name</name>
+                    <dataType>String</dataType>
+                    <defaultValue>
+                        <elementReference>Bill_to_first_namef</elementReference>
+                    </defaultValue>
+                    <fieldText>Bill to First name</fieldText>
+                    <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>true</isRequired>
+                    <visibilityRule>
+                        <conditionLogic>and</conditionLogic>
+                        <conditions>
+                            <leftValueReference>Update_Bill_To_checkbox</leftValueReference>
+                            <operator>EqualTo</operator>
+                            <rightValue>
+                                <booleanValue>true</booleanValue>
+                            </rightValue>
+                        </conditions>
+                    </visibilityRule>
+                </fields>
+                <fields>
+                    <name>Bill_to_Last_Name</name>
+                    <dataType>String</dataType>
+                    <defaultValue>
+                        <elementReference>Bill_to_last_named</elementReference>
+                    </defaultValue>
+                    <fieldText>Bill to Last Name</fieldText>
+                    <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>true</isRequired>
+                    <visibilityRule>
+                        <conditionLogic>and</conditionLogic>
+                        <conditions>
+                            <leftValueReference>Update_Bill_To_checkbox</leftValueReference>
+                            <operator>EqualTo</operator>
+                            <rightValue>
+                                <booleanValue>true</booleanValue>
+                            </rightValue>
+                        </conditions>
+                    </visibilityRule>
+                </fields>
+                <fields>
+                    <fieldType>ObjectProvided</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>false</isRequired>
+                    <objectFieldReference>Get_Billing_Account.Zuora__BillToWorkEmail__c</objectFieldReference>
+                    <visibilityRule>
+                        <conditionLogic>and</conditionLogic>
+                        <conditions>
+                            <leftValueReference>Update_Bill_To_checkbox</leftValueReference>
+                            <operator>EqualTo</operator>
+                            <rightValue>
+                                <booleanValue>true</booleanValue>
+                            </rightValue>
+                        </conditions>
+                    </visibilityRule>
+                </fields>
+                <fields>
+                    <fieldType>ObjectProvided</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>false</isRequired>
+                    <objectFieldReference>Get_Billing_Account.Zuora__BillToAddress1__c</objectFieldReference>
+                    <visibilityRule>
+                        <conditionLogic>and</conditionLogic>
+                        <conditions>
+                            <leftValueReference>Update_Bill_To_checkbox</leftValueReference>
+                            <operator>EqualTo</operator>
+                            <rightValue>
+                                <booleanValue>true</booleanValue>
+                            </rightValue>
+                        </conditions>
+                    </visibilityRule>
+                </fields>
+                <fields>
+                    <fieldType>ObjectProvided</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>false</isRequired>
+                    <objectFieldReference>Get_Billing_Account.Zuora__BillToCity__c</objectFieldReference>
+                    <visibilityRule>
+                        <conditionLogic>and</conditionLogic>
+                        <conditions>
+                            <leftValueReference>Update_Bill_To_checkbox</leftValueReference>
+                            <operator>EqualTo</operator>
+                            <rightValue>
+                                <booleanValue>true</booleanValue>
+                            </rightValue>
+                        </conditions>
+                    </visibilityRule>
+                </fields>
+                <fields>
+                    <fieldType>ObjectProvided</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>false</isRequired>
+                    <objectFieldReference>Get_Billing_Account.Zuora__BillToPostalCode__c</objectFieldReference>
+                    <visibilityRule>
+                        <conditionLogic>and</conditionLogic>
+                        <conditions>
+                            <leftValueReference>Update_Bill_To_checkbox</leftValueReference>
+                            <operator>EqualTo</operator>
+                            <rightValue>
+                                <booleanValue>true</booleanValue>
+                            </rightValue>
+                        </conditions>
+                    </visibilityRule>
+                </fields>
+                <fields>
+                    <fieldType>ObjectProvided</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>false</isRequired>
+                    <objectFieldReference>Get_Billing_Account.Zuora__BillToState__c</objectFieldReference>
+                    <visibilityRule>
+                        <conditionLogic>and</conditionLogic>
+                        <conditions>
+                            <leftValueReference>Update_Bill_To_checkbox</leftValueReference>
+                            <operator>EqualTo</operator>
+                            <rightValue>
+                                <booleanValue>true</booleanValue>
+                            </rightValue>
+                        </conditions>
+                    </visibilityRule>
+                </fields>
+                <fields>
+                    <name>Bill_to_country</name>
+                    <fieldText>&lt;p&gt;Bill To Country&lt;/p&gt;</fieldText>
+                    <fieldType>DisplayText</fieldType>
+                    <visibilityRule>
+                        <conditionLogic>and</conditionLogic>
+                        <conditions>
+                            <leftValueReference>Update_Bill_To_checkbox</leftValueReference>
+                            <operator>EqualTo</operator>
+                            <rightValue>
+                                <booleanValue>true</booleanValue>
+                            </rightValue>
+                        </conditions>
+                    </visibilityRule>
+                </fields>
+                <fields>
+                    <name>BillToCountry</name>
+                    <fieldText>&lt;p&gt;{!Get_Billing_Account.Zuora__BillToCountry__c}&lt;/p&gt;</fieldText>
+                    <fieldType>DisplayText</fieldType>
+                    <visibilityRule>
+                        <conditionLogic>and</conditionLogic>
+                        <conditions>
+                            <leftValueReference>Update_Bill_To_checkbox</leftValueReference>
+                            <operator>EqualTo</operator>
+                            <rightValue>
+                                <booleanValue>true</booleanValue>
+                            </rightValue>
+                        </conditions>
+                    </visibilityRule>
+                </fields>
+                <fields>
+                    <fieldType>ObjectProvided</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>false</isRequired>
+                    <objectFieldReference>Get_Billing_Account.Zuora__BillToWorkPhone__c</objectFieldReference>
+                    <visibilityRule>
+                        <conditionLogic>and</conditionLogic>
+                        <conditions>
+                            <leftValueReference>Update_Bill_To_checkbox</leftValueReference>
+                            <operator>EqualTo</operator>
+                            <rightValue>
+                                <booleanValue>true</booleanValue>
+                            </rightValue>
+                        </conditions>
+                    </visibilityRule>
+                </fields>
+                <inputParameters>
+                    <name>width</name>
+                    <value>
+                        <stringValue>6</stringValue>
+                    </value>
+                </inputParameters>
+                <isRequired>false</isRequired>
+            </fields>
+            <fields>
+                <name>Bill_to_contact_Column2</name>
+                <fieldType>Region</fieldType>
+                <fields>
+                    <name>Update_Sold_to1</name>
+                    <dataType>Boolean</dataType>
+                    <fieldText>Update Sold to</fieldText>
+                    <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>true</isRequired>
+                </fields>
+                <fields>
+                    <name>First_Name</name>
+                    <dataType>String</dataType>
+                    <defaultValue>
+                        <elementReference>Sold_TO_FirstName</elementReference>
+                    </defaultValue>
+                    <fieldText>Sold To First Name</fieldText>
+                    <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>true</isRequired>
+                    <visibilityRule>
+                        <conditionLogic>and</conditionLogic>
+                        <conditions>
+                            <leftValueReference>Update_Sold_to1</leftValueReference>
+                            <operator>EqualTo</operator>
+                            <rightValue>
+                                <booleanValue>true</booleanValue>
+                            </rightValue>
+                        </conditions>
+                    </visibilityRule>
+                </fields>
+                <fields>
+                    <name>Sold_To_Last_Name_text</name>
+                    <dataType>String</dataType>
+                    <defaultValue>
+                        <elementReference>Sold_to_Last_name</elementReference>
+                    </defaultValue>
+                    <fieldText>Sold To Last Name</fieldText>
+                    <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>true</isRequired>
+                    <visibilityRule>
+                        <conditionLogic>and</conditionLogic>
+                        <conditions>
+                            <leftValueReference>Update_Sold_to1</leftValueReference>
+                            <operator>EqualTo</operator>
+                            <rightValue>
+                                <booleanValue>true</booleanValue>
+                            </rightValue>
+                        </conditions>
+                    </visibilityRule>
+                </fields>
+                <fields>
+                    <fieldType>ObjectProvided</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>false</isRequired>
+                    <objectFieldReference>Get_Billing_Account.Zuora__SoldToWorkEmail__c</objectFieldReference>
+                    <visibilityRule>
+                        <conditionLogic>and</conditionLogic>
+                        <conditions>
+                            <leftValueReference>Update_Sold_to1</leftValueReference>
+                            <operator>EqualTo</operator>
+                            <rightValue>
+                                <booleanValue>true</booleanValue>
+                            </rightValue>
+                        </conditions>
+                    </visibilityRule>
+                </fields>
+                <fields>
+                    <fieldType>ObjectProvided</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>false</isRequired>
+                    <objectFieldReference>Get_Billing_Account.Zuora__SoldToAddress1__c</objectFieldReference>
+                    <visibilityRule>
+                        <conditionLogic>and</conditionLogic>
+                        <conditions>
+                            <leftValueReference>Update_Sold_to1</leftValueReference>
+                            <operator>EqualTo</operator>
+                            <rightValue>
+                                <booleanValue>true</booleanValue>
+                            </rightValue>
+                        </conditions>
+                    </visibilityRule>
+                </fields>
+                <fields>
+                    <fieldType>ObjectProvided</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>false</isRequired>
+                    <objectFieldReference>Get_Billing_Account.Zuora__SoldToCity__c</objectFieldReference>
+                    <visibilityRule>
+                        <conditionLogic>and</conditionLogic>
+                        <conditions>
+                            <leftValueReference>Update_Sold_to1</leftValueReference>
+                            <operator>EqualTo</operator>
+                            <rightValue>
+                                <booleanValue>true</booleanValue>
+                            </rightValue>
+                        </conditions>
+                    </visibilityRule>
+                </fields>
+                <fields>
+                    <fieldType>ObjectProvided</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>false</isRequired>
+                    <objectFieldReference>Get_Billing_Account.Zuora__SoldToPostalCode__c</objectFieldReference>
+                    <visibilityRule>
+                        <conditionLogic>and</conditionLogic>
+                        <conditions>
+                            <leftValueReference>Update_Sold_to1</leftValueReference>
+                            <operator>EqualTo</operator>
+                            <rightValue>
+                                <booleanValue>true</booleanValue>
+                            </rightValue>
+                        </conditions>
+                        <conditions>
+                            <leftValueReference>Get_Billing_Account.Zuora__SoldToCountry__c</leftValueReference>
+                            <operator>NotEqualTo</operator>
+                            <rightValue>
+                                <stringValue>Canada</stringValue>
+                            </rightValue>
+                        </conditions>
+                        <conditions>
+                            <leftValueReference>Get_Billing_Account.Zuora__SoldToCountry__c</leftValueReference>
+                            <operator>NotEqualTo</operator>
+                            <rightValue>
+                                <stringValue>United States</stringValue>
+                            </rightValue>
+                        </conditions>
+                    </visibilityRule>
+                </fields>
+                <fields>
+                    <fieldType>ObjectProvided</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>false</isRequired>
+                    <objectFieldReference>Get_Billing_Account.Zuora__SoldToState__c</objectFieldReference>
+                    <visibilityRule>
+                        <conditionLogic>and</conditionLogic>
+                        <conditions>
+                            <leftValueReference>Update_Sold_to1</leftValueReference>
+                            <operator>EqualTo</operator>
+                            <rightValue>
+                                <booleanValue>true</booleanValue>
+                            </rightValue>
+                        </conditions>
+                        <conditions>
+                            <leftValueReference>Get_Billing_Account.Zuora__SoldToCountry__c</leftValueReference>
+                            <operator>NotEqualTo</operator>
+                            <rightValue>
+                                <stringValue>Canada</stringValue>
+                            </rightValue>
+                        </conditions>
+                        <conditions>
+                            <leftValueReference>Get_Billing_Account.Zuora__SoldToCountry__c</leftValueReference>
+                            <operator>NotEqualTo</operator>
+                            <rightValue>
+                                <stringValue>United States</stringValue>
+                            </rightValue>
+                        </conditions>
+                    </visibilityRule>
+                </fields>
+                <fields>
+                    <name>Sold_to_country</name>
+                    <fieldText>&lt;p&gt;Country&lt;/p&gt;&lt;p&gt;{!Get_Billing_Account.Zuora__SoldToCountry__c}&lt;/p&gt;</fieldText>
+                    <fieldType>DisplayText</fieldType>
+                    <visibilityRule>
+                        <conditionLogic>and</conditionLogic>
+                        <conditions>
+                            <leftValueReference>Update_Sold_to1</leftValueReference>
+                            <operator>EqualTo</operator>
+                            <rightValue>
+                                <booleanValue>true</booleanValue>
+                            </rightValue>
+                        </conditions>
+                        <conditions>
+                            <leftValueReference>Get_Billing_Account.Zuora__SoldToCountry__c</leftValueReference>
+                            <operator>NotEqualTo</operator>
+                            <rightValue>
+                                <stringValue>United States</stringValue>
+                            </rightValue>
+                        </conditions>
+                    </visibilityRule>
+                </fields>
+                <fields>
+                    <name>NA_sold_to</name>
+                    <fieldText>&lt;p&gt;Country&lt;/p&gt;&lt;p&gt;{!Get_Billing_Account.Zuora__SoldToCountry__c}&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;State&lt;/p&gt;&lt;p&gt;{!Get_Billing_Account.Zuora__SoldToState__c}&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Zip Code:&lt;/p&gt;&lt;p&gt;{!Get_Billing_Account.Zuora__SoldToPostalCode__c}&lt;/p&gt;</fieldText>
+                    <fieldType>DisplayText</fieldType>
+                    <visibilityRule>
+                        <conditionLogic>and</conditionLogic>
+                        <conditions>
+                            <leftValueReference>Get_Billing_Account.Zuora__SoldToCountry__c</leftValueReference>
+                            <operator>EqualTo</operator>
+                            <rightValue>
+                                <stringValue>United States</stringValue>
+                            </rightValue>
+                        </conditions>
+                        <conditions>
+                            <leftValueReference>Update_Sold_to1</leftValueReference>
+                            <operator>EqualTo</operator>
+                            <rightValue>
+                                <booleanValue>true</booleanValue>
+                            </rightValue>
+                        </conditions>
+                    </visibilityRule>
+                </fields>
+                <fields>
+                    <fieldType>ObjectProvided</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>false</isRequired>
+                    <objectFieldReference>Get_Billing_Account.Zuora__SoldToWorkPhone__c</objectFieldReference>
+                    <visibilityRule>
+                        <conditionLogic>and</conditionLogic>
+                        <conditions>
+                            <leftValueReference>Update_Sold_to1</leftValueReference>
+                            <operator>EqualTo</operator>
+                            <rightValue>
+                                <booleanValue>true</booleanValue>
+                            </rightValue>
+                        </conditions>
+                    </visibilityRule>
+                </fields>
+                <inputParameters>
+                    <name>width</name>
+                    <value>
+                        <stringValue>6</stringValue>
+                    </value>
+                </inputParameters>
+                <isRequired>false</isRequired>
+            </fields>
+            <isRequired>false</isRequired>
+            <regionContainerType>SectionWithHeader</regionContainerType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <start>
+        <locationX>375</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_Billing_Account</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <textTemplates>
+        <name>Bill_to_chatter</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>{!$User.FirstName} {!$User.LastName} has updated the Bill to contact</text>
+    </textTemplates>
+    <textTemplates>
+        <name>Chatter_Post_sold</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>{!$User.FirstName} {!$User.LastName} has updated the Sold to contact</text>
+    </textTemplates>
+    <textTemplates>
+        <name>Create_Bill_To_chatter</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>{!$User.FirstName} {!$User.LastName} has created a new Bill to contact</text>
+    </textTemplates>
+    <textTemplates>
+        <name>Create_Sold_to_chatter</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>{!$User.FirstName} {!$User.LastName} has created a new Sold to contact</text>
+    </textTemplates>
+    <variables>
+        <name>bill_Address_old</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>Bill_City_old</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>Bill_Email</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>Bill_last_old</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>Bill_Phone_old</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>Bill_State_old</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>Bill_To_First_old</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>Bill_Zip_old</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>recordId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>Sold_Address_old</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>Sold_City_old</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>Sold_Email</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>Sold_first_old</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>Sold_Last_old</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>Sold_Phone_old</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>Sold_State_old</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>Sold_Zip_old</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+</Flow>

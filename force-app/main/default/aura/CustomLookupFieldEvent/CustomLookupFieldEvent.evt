@@ -1,0 +1,4 @@
+<aura:event type="COMPONENT">
+    <aura:attribute name="message" type="String"/>
+    <aura:attribute name="quoteFieldName" type="String"/>
+</aura:event>

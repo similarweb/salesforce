@@ -1,0 +1,920 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <description>MIS-6750</description>
+        <name>Americas_Closed_Won_Alert_Slack_Message</name>
+        <label>Americas Closed Won Alert - Slack Message</label>
+        <locationX>1546</locationX>
+        <locationY>866</locationY>
+        <actionName>slackPostMessage</actionName>
+        <actionType>slackPostMessage</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>slackAppIdForToken</name>
+            <value>
+                <stringValue>A03269G3DNE</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>slackWorkspaceIdForToken</name>
+            <value>
+                <elementReference>Get_Workspace_ID.Channel_ID__c</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>slackConversationId</name>
+            <value>
+                <elementReference>Get_Slack_Channel_ID.Channel_ID__c</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>slackMessage</name>
+            <value>
+                <elementReference>Closed_Won_Americas</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>recordId</name>
+            <value>
+                <elementReference>Opp_Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>slackPostMessage</nameSegment>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </actionCalls>
+    <actionCalls>
+        <name>Closed_Won_Alert_Slack_Message</name>
+        <label>Closed Won Alert - Slack Message</label>
+        <locationX>578</locationX>
+        <locationY>866</locationY>
+        <actionName>slackPostMessage</actionName>
+        <actionType>slackPostMessage</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>slackAppIdForToken</name>
+            <value>
+                <stringValue>A03269G3DNE</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>slackWorkspaceIdForToken</name>
+            <value>
+                <elementReference>Get_Workspace_ID.Channel_ID__c</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>slackConversationId</name>
+            <value>
+                <elementReference>Get_Slack_Channel_ID.Channel_ID__c</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>slackMessage</name>
+            <value>
+                <elementReference>Closed_Won_Text_Template</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>recordId</name>
+            <value>
+                <elementReference>objectid</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>slackPostMessage</nameSegment>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </actionCalls>
+    <actionCalls>
+        <description>mis-6575</description>
+        <name>inside_sales_EMEA_Slack_Message</name>
+        <label>inside sales EMEA - Slack Message</label>
+        <locationX>1810</locationX>
+        <locationY>866</locationY>
+        <actionName>slackPostMessage</actionName>
+        <actionType>slackPostMessage</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>slackAppIdForToken</name>
+            <value>
+                <stringValue>A03269G3DNE</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>slackWorkspaceIdForToken</name>
+            <value>
+                <elementReference>Get_Workspace_ID.Channel_ID__c</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>slackConversationId</name>
+            <value>
+                <elementReference>Get_Slack_Channel_ID.Channel_ID__c</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>slackMessage</name>
+            <value>
+                <elementReference>Closed_Won_Text_Template</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>recordId</name>
+            <value>
+                <elementReference>Opp_Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>slackPostMessage</nameSegment>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </actionCalls>
+    <actionCalls>
+        <description>MIS-6518</description>
+        <name>New_MIS_Case_Slack_Message</name>
+        <label>New MIS Case - Slack Message</label>
+        <locationX>1062</locationX>
+        <locationY>1166</locationY>
+        <actionName>slackPostMessage</actionName>
+        <actionType>slackPostMessage</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>slackAppIdForToken</name>
+            <value>
+                <stringValue>A03269G3DNE</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>slackWorkspaceIdForToken</name>
+            <value>
+                <elementReference>Get_Workspace_ID.Channel_ID__c</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>slackConversationId</name>
+            <value>
+                <elementReference>Get_Case.Owner:User.Slack_ID__c</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>slackMessage</name>
+            <value>
+                <elementReference>New_MIS_Case_Template</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>recordId</name>
+            <value>
+                <elementReference>objectid</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>slackPostMessage</nameSegment>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </actionCalls>
+    <actionCalls>
+        <description>MIS-6518</description>
+        <name>New_Q2C_Case_Slack_Message</name>
+        <label>New Q2C Case - Slack Message</label>
+        <locationX>1106</locationX>
+        <locationY>866</locationY>
+        <actionName>slackPostMessage</actionName>
+        <actionType>slackPostMessage</actionType>
+        <connector>
+            <targetReference>New_MIS_Case_Slack_Message</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>slackAppIdForToken</name>
+            <value>
+                <stringValue>A03269G3DNE</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>slackWorkspaceIdForToken</name>
+            <value>
+                <elementReference>Get_Workspace_ID.Channel_ID__c</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>slackConversationId</name>
+            <value>
+                <elementReference>Get_Case.Owner:User.Slack_ID__c</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>slackMessage</name>
+            <value>
+                <elementReference>New_Q2C_Case_Template</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>recordId</name>
+            <value>
+                <elementReference>objectid</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>slackPostMessage</nameSegment>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </actionCalls>
+    <actionCalls>
+        <name>NPS_Alert_Slack_Message</name>
+        <label>NPS Alert - Slack Message</label>
+        <locationX>314</locationX>
+        <locationY>866</locationY>
+        <actionName>slackPostMessage</actionName>
+        <actionType>slackPostMessage</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>slackAppIdForToken</name>
+            <value>
+                <stringValue>A03269G3DNE</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>slackWorkspaceIdForToken</name>
+            <value>
+                <elementReference>Get_Workspace_ID.Channel_ID__c</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>slackConversationId</name>
+            <value>
+                <elementReference>Get_Slack_Channel_ID.Channel_ID__c</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>slackMessage</name>
+            <value>
+                <elementReference>NPS_Score_Text_Template</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>recordId</name>
+            <value>
+                <elementReference>objectid</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>slackPostMessage</nameSegment>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </actionCalls>
+    <actionCalls>
+        <description>MIS-4730</description>
+        <name>Onboarding_Request_Slack_Message</name>
+        <label>Onboarding Request - Slack Message</label>
+        <locationX>842</locationX>
+        <locationY>866</locationY>
+        <actionName>slackPostMessage</actionName>
+        <actionType>slackPostMessage</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>slackAppIdForToken</name>
+            <value>
+                <stringValue>A03269G3DNE</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>slackWorkspaceIdForToken</name>
+            <value>
+                <elementReference>Get_Workspace_ID.Channel_ID__c</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>slackConversationId</name>
+            <value>
+                <elementReference>Get_Request.Owner:User.Slack_ID__c</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>slackMessage</name>
+            <value>
+                <elementReference>Onbording_Request_Template</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>recordId</name>
+            <value>
+                <elementReference>objectid</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>slackPostMessage</nameSegment>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </actionCalls>
+    <actionCalls>
+        <name>test</name>
+        <label>Closed won solution 3.0</label>
+        <locationX>50</locationX>
+        <locationY>866</locationY>
+        <actionName>slackPostMessage</actionName>
+        <actionType>slackPostMessage</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>slackAppIdForToken</name>
+            <value>
+                <stringValue>A03269G3DNE</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>slackWorkspaceIdForToken</name>
+            <value>
+                <elementReference>Get_Workspace_ID.Channel_ID__c</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>slackConversationId</name>
+            <value>
+                <elementReference>Get_Slack_Channel_ID.Channel_ID__c</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>slackMessage</name>
+            <value>
+                <elementReference>closed_won_solution3</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>recordId</name>
+            <value>
+                <elementReference>opp1.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>slackPostMessage</nameSegment>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </actionCalls>
+    <apiVersion>57.0</apiVersion>
+    <decisions>
+        <name>object</name>
+        <label>object</label>
+        <locationX>1062</locationX>
+        <locationY>350</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>opp</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>objectid</leftValueReference>
+                <operator>StartsWith</operator>
+                <rightValue>
+                    <stringValue>006</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Opp_Record.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>opp1</targetReference>
+            </connector>
+            <label>opp</label>
+        </rules>
+        <rules>
+            <name>task_object</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>objectid</leftValueReference>
+                <operator>StartsWith</operator>
+                <rightValue>
+                    <stringValue>00T</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>task</targetReference>
+            </connector>
+            <label>task object</label>
+        </rules>
+        <rules>
+            <name>Survey</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>objectid</leftValueReference>
+                <operator>StartsWith</operator>
+                <rightValue>
+                    <stringValue>a03</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Survey</targetReference>
+            </connector>
+            <label>Survey</label>
+        </rules>
+        <rules>
+            <name>Request</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>objectid</leftValueReference>
+                <operator>StartsWith</operator>
+                <rightValue>
+                    <stringValue>a2n</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Request</targetReference>
+            </connector>
+            <label>Request</label>
+        </rules>
+        <rules>
+            <name>Case</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>objectid</leftValueReference>
+                <operator>StartsWith</operator>
+                <rightValue>
+                    <stringValue>500</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Case</targetReference>
+            </connector>
+            <label>Case</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Slack_massage</name>
+        <label>Slack massage</label>
+        <locationX>1062</locationX>
+        <locationY>758</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>closed_won_solution_3_0</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>slack_message</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>closed_won_solution3</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_Slack_Channel_ID.Send_Alert__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>test</targetReference>
+            </connector>
+            <label>closed won solution 3.0</label>
+        </rules>
+        <rules>
+            <name>NPS_Alert</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>slack_message</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>NPS Alert</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>NPS_Alert_Slack_Message</targetReference>
+            </connector>
+            <label>NPS Alert</label>
+        </rules>
+        <rules>
+            <name>Closed_Won_Alert</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>slack_message</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Closed Won Alert</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_Slack_Channel_ID.Send_Alert__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Closed_Won_Alert_Slack_Message</targetReference>
+            </connector>
+            <label>Closed Won Alert (crush-week-q3)</label>
+        </rules>
+        <rules>
+            <name>Onboarding_Request</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>slack_message</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Onboarding_Request</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Onboarding_Request_Slack_Message</targetReference>
+            </connector>
+            <label>Onboarding Request</label>
+        </rules>
+        <rules>
+            <name>New_Q2C_Case</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>slack_message</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>New_Q2C_Case</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>New_Q2C_Case_Slack_Message</targetReference>
+            </connector>
+            <label>New Q2C Case</label>
+        </rules>
+        <rules>
+            <name>New_MIS_Case</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>slack_message</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>New_MIS_Case</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>New_MIS_Case_Slack_Message</targetReference>
+            </connector>
+            <label>New MIS Case</label>
+        </rules>
+        <rules>
+            <name>Americas_Closed_Won</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>slack_message</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Americas_Closed_Won</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Americas_Closed_Won_Alert_Slack_Message</targetReference>
+            </connector>
+            <label>Americas Closed Won</label>
+        </rules>
+        <rules>
+            <name>inside_sales_EMEA</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>slack_message</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>inside sales EMEA</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>inside_sales_EMEA_Slack_Message</targetReference>
+            </connector>
+            <label>inside sales EMEA</label>
+        </rules>
+    </decisions>
+    <description>MIS-8109 - Added Account AM to alert
+MIS-6575 Create a slack channel for inside sales EMEA closed won deals for AM and SM only
+MIS-6750 Slack channel for all Americas Closed Won deals 16\3\25
+MIS-6518 - Slack Notification for Cases
+MIS-5509
+MIS-4962
+MIS-4730
+MIS-4710</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>objectlink</name>
+        <dataType>String</dataType>
+        <expression>LEFT( {!$Api.Partner_Server_URL_520}, FIND( &apos;/services&apos;, {!$Api.Partner_Server_URL_520} ))&amp;{!objectid}</expression>
+    </formulas>
+    <interviewLabel>Slack message general {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Slack message general</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <description>MIS-6518</description>
+        <name>Get_Case</name>
+        <label>Get Case</label>
+        <locationX>1458</locationX>
+        <locationY>458</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Slack_massage</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>objectid</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Case</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <description>MIS-4730</description>
+        <name>Get_Request</name>
+        <label>Get Request</label>
+        <locationX>1194</locationX>
+        <locationY>458</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Slack_massage</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>objectid</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Request__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Slack_Channel_ID</name>
+        <label>Get Slack Channel ID</label>
+        <locationX>1062</locationX>
+        <locationY>134</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Get_Workspace_ID</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Label</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Slack_Channel_Name</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Slack_Channels_ID__mdt</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Survey</name>
+        <label>Get Survey</label>
+        <locationX>930</locationX>
+        <locationY>458</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Slack_massage</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>objectid</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Survey__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Workspace_ID</name>
+        <label>Get Workspace ID</label>
+        <locationX>1062</locationX>
+        <locationY>242</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>object</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Label</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Workspace ID</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Slack_Channels_ID__mdt</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>opp1</name>
+        <label>opp</label>
+        <locationX>402</locationX>
+        <locationY>458</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Slack_massage</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>objectid</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Opportunity</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>task</name>
+        <label>task</label>
+        <locationX>666</locationX>
+        <locationY>458</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>taskid</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Task</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <start>
+        <locationX>936</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_Slack_Channel_ID</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <textTemplates>
+        <description>mis-6575</description>
+        <name>Closed_Won_Americas</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>Company: {!Opp_Record.Account.Name}
+Opportunity Type: {!Opp_Record.Type}
+Opp Owner:  {!Opp_Record.Owner.FirstName} {!Opp_Record.Owner.LastName}
+Assigned CSM: {!Opp_Record.Assigned_CSM_Name__r.FirstName} {!Opp_Record.Assigned_CSM_Name__r.LastName}
+Account AM: {!Opp_Record.Account_AM__r.Name}
+Product Sold: {!Opp_Record.Product_Sold__c}
+ARR: {!Opp_Record.ARR__c}
+Cycle: {!Opp_Record.Cycle__c}
+Close Date: {!Opp_Record.CloseDate}
+Division: {!Opp_Record.Opportunity_Division__c}
+Meeting Generated By: {!Opp_Record.Related_Meeting_Created_By__c}
+Link: {!$Label.SalesforceURL}/{!Opp_Record.Id}</text>
+    </textTemplates>
+    <textTemplates>
+        <name>closed_won_solution3</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>Company: {!opp1.Account.Name}
+Opportunity Type: {!opp1.Type}
+Product Sold: {!opp1.Product_Sold__c}
+ARR: {!opp1.ARR__c}
+Close Date: {!opp1.CloseDate}
+Division: {!opp1.Opportunity_Division__c}
+Opp Owner: {!opp1.Owner.FirstName} {!opp1.Owner.LastName} 
+Link: {!objectlink}</text>
+    </textTemplates>
+    <textTemplates>
+        <name>Closed_Won_Text_Template</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>Company: {!opp1.Account.Name}
+Opportunity Type: {!opp1.Type}
+Product Sold: {!opp1.Product_Sold__c}
+ARR: {!opp1.ARR__c}
+Cycle: {!opp1.Cycle__c}
+Close Date: {!opp1.CloseDate}
+Division: {!opp1.Opportunity_Division__c}
+Opp Owner: {!opp1.Owner.FirstName} {!opp1.Owner.LastName} 
+Assigned CSM: {!opp1.Assigned_CSM_Name__r.FirstName} {!opp1.Assigned_CSM_Name__r.LastName}
+Account AM: {!opp1.Account_AM__r.Name}
+Meeting Generated By: {!opp1.Related_Meeting_Created_By__c}
+Link: {!$Label.SalesforceURL}/{!opp1.Id}</text>
+    </textTemplates>
+    <textTemplates>
+        <name>ContactUsFormsslackTemplate</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>company: {!opp1.Account.Name}
+amount {!opp1.Amount}Company: {!963a7cf1-ced7-410e-8964-a5b44d3cd94a.Company}
+Annual Revenue Range: {!963a7cf1-ced7-410e-8964-a5b44d3cd94a.AnnualRevenue}
+Employees: {!963a7cf1-ced7-410e-8964-a5b44d3cd94a.Employees_Max__c}
+Industry: {!963a7cf1-ced7-410e-8964-a5b44d3cd94a.SW_Industry__c} 
+First Name: {!963a7cf1-ced7-410e-8964-a5b44d3cd94a.FirstName}
+Last Name: {!963a7cf1-ced7-410e-8964-a5b44d3cd94a.LastName}
+Phone: {!963a7cf1-ced7-410e-8964-a5b44d3cd94a.Phone} 
+Creation date: {!task.CreatedDate}
+Assigned to: {!task.Owner:User.FirstName} {!task.Owner:User.LastName} 
+Comments: {!task.Description}</text>
+    </textTemplates>
+    <textTemplates>
+        <name>ContactUsSLASMBuponcreation</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>Hi,
+Please note that a Contact Us form in your rep&apos;s name has been opened. Details:
+Email: {!vartask.Email__c}
+Subject: {!vartask.Subject}
+Message: {!vartask.Description}
+Created: {!vartask.CreatedDate}
+Link: {!objectlink}
+Please review the contact us form and reassign if needed.</text>
+    </textTemplates>
+    <textTemplates>
+        <name>New_MIS_Case_Template</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>&lt;p&gt;A new Case was submitted to MIS:&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-family: var(--lwc-fontFamily,-apple-system, BlinkMacSystemFont, &apos;Segoe UI&apos;, Roboto, Helvetica, Arial, sans-serif, &apos;Apple Color Emoji&apos;, &apos;Segoe UI Emoji&apos;, &apos;Segoe UI Symbol&apos;); font-size: var(--lwc-fontSize3,0.8125rem); color: var(--slds-g-color-neutral-base-30, var(--lwc-colorTextWeak,rgb(68, 68, 68))); background-color: var(--slds-g-color-neutral-base-100, var(--lwc-colorBackgroundInput,rgb(255, 255, 255)));&quot;&gt;Subject: {!Get_Case.Subject}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-family: var(--lwc-fontFamily,-apple-system, BlinkMacSystemFont, &apos;Segoe UI&apos;, Roboto, Helvetica, Arial, sans-serif, &apos;Apple Color Emoji&apos;, &apos;Segoe UI Emoji&apos;, &apos;Segoe UI Symbol&apos;); font-size: var(--lwc-fontSize3,0.8125rem); color: var(--slds-g-color-neutral-base-30, var(--lwc-colorTextWeak,rgb(68, 68, 68))); background-color: var(--slds-g-color-neutral-base-100, var(--lwc-colorBackgroundInput,rgb(255, 255, 255)));&quot;&gt;Related Record: {!Get_Case.Link__c}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-family: var(--lwc-fontFamily,-apple-system, BlinkMacSystemFont, &apos;Segoe UI&apos;, Roboto, Helvetica, Arial, sans-serif, &apos;Apple Color Emoji&apos;, &apos;Segoe UI Emoji&apos;, &apos;Segoe UI Symbol&apos;); font-size: var(--lwc-fontSize3,0.8125rem); color: var(--slds-g-color-neutral-base-30, var(--lwc-colorTextWeak,rgb(68, 68, 68))); background-color: var(--slds-g-color-neutral-base-100, var(--lwc-colorBackgroundInput,rgb(255, 255, 255)));&quot;&gt;Related User: {!Get_Case.Managed_User__c}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Priority: {!Get_Case.Priority}&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;Link to Case: {!objectlink}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Created By: {!Get_Case.CreatedBy.FirstName} {!Get_Case.CreatedBy.LastName}&amp;nbsp;&lt;/p&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <description>MIS-6518</description>
+        <name>New_Q2C_Case_Template</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>&lt;p&gt;A new Case was submitted to MIS:&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;background-color: var(--slds-g-color-neutral-base-100, var(--lwc-colorBackgroundInput,rgb(255, 255, 255))); color: var(--slds-g-color-neutral-base-30, var(--lwc-colorTextWeak,rgb(68, 68, 68))); font-size: var(--lwc-fontSize3,0.8125rem); font-family: var(--lwc-fontFamily,-apple-system, BlinkMacSystemFont, &apos;Segoe UI&apos;, Roboto, Helvetica, Arial, sans-serif, &apos;Apple Color Emoji&apos;, &apos;Segoe UI Emoji&apos;, &apos;Segoe UI Symbol&apos;);&quot;&gt;Subject: {!Get_Case.Subject}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;background-color: var(--slds-g-color-neutral-base-100, var(--lwc-colorBackgroundInput,rgb(255, 255, 255))); color: var(--slds-g-color-neutral-base-30, var(--lwc-colorTextWeak,rgb(68, 68, 68))); font-size: var(--lwc-fontSize3,0.8125rem); font-family: var(--lwc-fontFamily,-apple-system, BlinkMacSystemFont, &apos;Segoe UI&apos;, Roboto, Helvetica, Arial, sans-serif, &apos;Apple Color Emoji&apos;, &apos;Segoe UI Emoji&apos;, &apos;Segoe UI Symbol&apos;);&quot;&gt;Related Record: {!Get_Case.Link__c}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Priority: {!Get_Case.Priority}&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); color: rgb(68, 68, 68);&quot;&gt;Link to Case: {!objectlink}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Created By: {!Get_Case.CreatedBy.FirstName} {!Get_Case.CreatedBy.LastName}&amp;nbsp;&lt;/p&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <name>NPS_Score_Text_Template</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>Account name: {!Get_Survey.Account__r.Name}
+ARR: {!Get_Survey.Account__r.fr_ARR__c}
+Next renewal date: {!Get_Survey.Account__r.fr_Next_Renewal_Date__c}
+NPS score: {!Get_Survey.How_you_Recommend_SW__c}
+NPS Feedback: {!Get_Survey.How_to_Improve__c}
+Email: {!Get_Survey.Contact__r.Email}
+Title:{!Get_Survey.Contact__r.Title}
+Account Manager: {!Get_Survey.Account__r.Account_Owner_formula__c}
+Customer Success Manager: {!Get_Survey.Account__r.Assigned_CSA_Name__c}
+Account AM: {!Get_Survey.Account__r.Account_AM__r.Name}
+Base Product: {!Get_Survey.Account__r.Base_Product__c}</text>
+    </textTemplates>
+    <textTemplates>
+        <description>MIS-4730</description>
+        <name>Onbording_Request_Template</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>A Request has been assigned to you:
+Account Name: {!Get_Request.Opportunity__r.Account.Name}
+ARR: {!Get_Request.Account__r.fr_ARR__c}
+Product Sold: {!Get_Request.Opportunity__r.Product_Sold__c}
+Onboarding Request ID: {!Get_Request.Name}
+Request Status: {!Get_Request.Status__c}
+Business Unit: {!Get_Request.Account__r.Business_Unit__c}
+SW Industry: {!Get_Request.Account__r.SW_Industry__c}
+Country: {!Get_Request.Account__r.BillingCountry}
+Opportunity Stage: {!Get_Request.Opportunity__r.StageName}
+Opportunity Name: {!Get_Request.Opportunity__r.Name}
+Account Owner: {!Get_Request.Account__r.Owner.FirstName} {!Get_Request.Account__r.Owner.LastName}
+Link to Request: {!objectlink}</text>
+    </textTemplates>
+    <variables>
+        <name>objectid</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <description>to input all of the opp record valued from the parent flow</description>
+        <name>Opp_Record</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <objectType>Opportunity</objectType>
+    </variables>
+    <variables>
+        <name>Slack_Channel_Name</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>slack_message</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>taskid</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>vartask</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <objectType>Task</objectType>
+    </variables>
+</Flow>

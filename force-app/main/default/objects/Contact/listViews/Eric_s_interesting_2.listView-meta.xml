@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Eric_s_interesting_2</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CONTACT.CREATED_DATE</columns>
+    <columns>Last_Pro_Visit_Date__c</columns>
+    <columns>CONTACT.LAST_ACTIVITY</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>CONTACT.LEAD_SOURCE</columns>
+    <columns>Original_Lead_Source__c</columns>
+    <columns>CONTACT.EMAIL_OPT_OUT</columns>
+    <columns>CONTACT.TITLE</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+        <field>Original_Lead_Source__c</field>
+        <operation>equals</operation>
+        <value>SDR Outbound</value>
+    </filters>
+    <filters>
+        <field>CONTACT.CREATED_DATE</field>
+        <operation>lessThan</operation>
+        <value>4/1/2018 12:00 AM</value>
+    </filters>
+    <filters>
+        <field>CONTACT.CREATED_DATE</field>
+        <operation>greaterThan</operation>
+        <value>1/1/2018 12:00 AM</value>
+    </filters>
+    <filters>
+        <field>Business_Unit__c</field>
+        <operation>equals</operation>
+        <value>strategic</value>
+    </filters>
+    <label>Eric&apos;s interesting #2</label>
+</ListView>

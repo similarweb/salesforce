@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Use_Case__c</fullName>
+    <externalId>false</externalId>
+    <label>Use Case</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>KW Research</fullName>
+                <default>false</default>
+                <label>KW Research</label>
+            </value>
+            <value>
+                <fullName>Paid Search Optimization</fullName>
+                <default>false</default>
+                <label>Paid Search Optimization</label>
+            </value>
+            <value>
+                <fullName>Sales Enablement</fullName>
+                <default>false</default>
+                <label>Sales Enablement</label>
+            </value>
+            <value>
+                <fullName>Lead Generation</fullName>
+                <default>false</default>
+                <label>Lead Generation</label>
+            </value>
+            <value>
+                <fullName>Consultative Selling</fullName>
+                <default>false</default>
+                <label>Consultative Selling</label>
+            </value>
+            <value>
+                <fullName>App Intelligence</fullName>
+                <default>false</default>
+                <label>App Intelligence</label>
+            </value>
+            <value>
+                <fullName>Competitive Research</fullName>
+                <default>false</default>
+                <label>Competitive Research</label>
+            </value>
+            <value>
+                <fullName>Competitive Analysis</fullName>
+                <default>false</default>
+                <label>Competitive Analysis</label>
+            </value>
+            <value>
+                <fullName>Website Analysis</fullName>
+                <default>false</default>
+                <label>Website Analysis</label>
+            </value>
+            <value>
+                <fullName>Similarweb in Workflow</fullName>
+                <default>false</default>
+                <label>Similarweb in Workflow</label>
+            </value>
+            <value>
+                <fullName>Marketing Strategy</fullName>
+                <default>false</default>
+                <label>Marketing Strategy</label>
+            </value>
+            <value>
+                <fullName>Marketplace Intelligence</fullName>
+                <default>false</default>
+                <label>Marketplace Intelligence</label>
+            </value>
+            <value>
+                <fullName>Alternative Data</fullName>
+                <default>false</default>
+                <label>Alternative Data</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

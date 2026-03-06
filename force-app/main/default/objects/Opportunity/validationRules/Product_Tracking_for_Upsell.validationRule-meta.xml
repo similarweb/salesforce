@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Product_Tracking_for_Upsell</fullName>
+    <active>false</active>
+    <description>MIS-6306
+MIS-4011
+Duplicate VR for Upsell Opps only. In Upsell the User can choose any of the &quot;Product Tracking&quot; fields (including Other/App Intel) in order to move on from 25%.</description>
+    <errorConditionFormula>AND(
+  OR(
+    ISCHANGED(StageName),
+    ISNEW()
+  ),
+  Probability &gt;= 0.25,
+  not(ISPICKVAL(Product_Sold__c, &apos;Annual Price Increase&apos;)),
+  RecordType.DeveloperName &lt;&gt; &apos;Partnership&apos;,
+  ISPICKVAL(Type, &apos;Upsell&apos;),
+  !(Count_Tracking_Products__c &gt;0 ),
+  $Profile.Name != &quot;Integration User No DF&quot;,
+  $Profile.Name != &quot;SW SalesOps Extended&quot;,
+  $Profile.Name != &quot;SW SalesOps&quot;,
+  $Profile.Name != &quot;System Administrator1&quot;,
+  RecordType.DeveloperName &lt;&gt; &quot;Wolves&quot;,
+  RecordType.DeveloperName &lt;&gt; &quot;Rank_Ranger&quot;
+)</errorConditionFormula>
+    <errorMessage>Please fill in all applicable Products. Click no the &apos;Product Tracking&apos; button on the top left and select at least 1 Base Product (for New Sale and Renewal).</errorMessage>
+</ValidationRule>

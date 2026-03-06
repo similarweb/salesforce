@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Vivian_Stage_2_Brazil_Portugal</fullName>
+    <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+    <columns>CONTACT.FIRST_NAME</columns>
+    <columns>CONTACT.LAST_NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CONTACT.TITLE</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>CONTACT.LAST_ACTIVITY</columns>
+    <columns>CONTACT.ADDRESS2_COUNTRY</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+        <field>Prospecting_Status__c</field>
+        <operation>equals</operation>
+        <value>Attempt 2 (Call &amp; Email)</value>
+    </filters>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>SDR Prospecting</value>
+    </filters>
+    <filters>
+        <field>CONTACT.ADDRESS2_COUNTRY</field>
+        <operation>equals</operation>
+        <value>Brazil,Portugal</value>
+    </filters>
+    <label>Vivian Stage 2 - Brazil &amp; Portugal</label>
+</ListView>

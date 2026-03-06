@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Validate_Log_a_Call_subject</fullName>
+    <active>false</active>
+    <errorConditionFormula>IsNew() &amp;&amp; IsPickVal (Status,&quot;Completed&quot;) &amp;&amp; 
+Subject!=&quot;Call – Attempt&quot; &amp;&amp;
+Subject!=&quot;Call – Conversation&quot;&amp;&amp;
+Subject!=&quot;Call – Qualification&quot;&amp;&amp;
+Subject!=&quot;Call – Left Message&quot; &amp;&amp; 
+NOT($Profile.Id=&apos;00eb0000000oBvcAAE&apos;)</errorConditionFormula>
+    <errorDisplayField>Subject</errorDisplayField>
+    <errorMessage>Please select one of these values:
+
+Call – Attempt
+Call – Conversation
+Call – Qualification
+Call – Left Message</errorMessage>
+</ValidationRule>

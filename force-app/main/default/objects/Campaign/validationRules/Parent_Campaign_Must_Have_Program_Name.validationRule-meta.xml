@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Parent_Campaign_Must_Have_Program_Name</fullName>
+    <active>true</active>
+    <description>Program Name must be populated when Campaign Type=&quot;Parent&quot;</description>
+    <errorConditionFormula>ISPICKVAL(Type,&quot;Parent&quot;) &amp;&amp;
+	 ISBLANK(Program_Name__c)</errorConditionFormula>
+    <errorMessage>You must populate the field &quot;Program Name&quot; when creating a Parent Campaign</errorMessage>
+</ValidationRule>

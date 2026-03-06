@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Renewal_Quarter__c</fullName>
+    <externalId>false</externalId>
+    <formula>CASE( MONTH(Renewal_Date__c) , 01 , TEXT(YEAR(Renewal_Date__c))+&quot;-Q1&quot; , 02, TEXT(YEAR(Renewal_Date__c))+&quot;-Q1&quot;, 03, TEXT(YEAR(Renewal_Date__c))+&quot;-Q1&quot;, 04, TEXT(YEAR(Renewal_Date__c))+&quot;-Q2&quot; , 05, TEXT(YEAR(Renewal_Date__c))+&quot;-Q2&quot;, 06, TEXT(YEAR(Renewal_Date__c))+&quot;-Q2&quot;, 07, TEXT(YEAR(Renewal_Date__c))+&quot;-Q3&quot;, 08, TEXT(YEAR(Renewal_Date__c))+&quot;-Q3&quot;, 09, TEXT(YEAR(Renewal_Date__c))+&quot;-Q3&quot; , 
+TEXT(YEAR(Renewal_Date__c))+&quot;-Q4&quot;)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Renewal Quarter</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

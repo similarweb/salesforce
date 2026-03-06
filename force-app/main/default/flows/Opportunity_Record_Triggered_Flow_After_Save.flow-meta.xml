@@ -1,0 +1,3382 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>CLCG_Closed_Lost_Solution_Gap</name>
+        <label>CLCG - Closed Lost Solution Gap</label>
+        <locationX>314</locationX>
+        <locationY>3731</locationY>
+        <actionName>Opportunity.Closed_Lost_Solution_Gap</actionName>
+        <actionType>emailAlert</actionType>
+        <connector>
+            <targetReference>Rule_NSW_New_Sale_Referral_Closed_Won</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>Opportunity.Closed_Lost_Solution_Gap</nameSegment>
+    </actionCalls>
+    <actionCalls>
+        <name>Closed_lost_opp_with_SDR_meeting</name>
+        <label>Closed lost opp with SDR  meeting</label>
+        <locationX>314</locationX>
+        <locationY>6731</locationY>
+        <actionName>Opportunity.Closed_lost_opp_with_SDR_meeting</actionName>
+        <actionType>emailAlert</actionType>
+        <connector>
+            <targetReference>Champion_Changed</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>Opportunity.Closed_lost_opp_with_SDR_meeting</nameSegment>
+    </actionCalls>
+    <actionCalls>
+        <name>COS_Email_Janessa_Closed_Won_Opp_Owner_Changed</name>
+        <label>COS - Email Janessa - Closed Won Opp Owner Changed</label>
+        <locationX>314</locationX>
+        <locationY>1523</locationY>
+        <actionName>Opportunity.Email_Janessa_Closed_Won_Opp_Owner_Changed</actionName>
+        <actionType>emailAlert</actionType>
+        <connector>
+            <targetReference>Rule_MSST_Notify_SIM_when_Stage_is_changed</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>Opportunity.Email_Janessa_Closed_Won_Opp_Owner_Changed</nameSegment>
+    </actionCalls>
+    <actionCalls>
+        <name>DA_Alert_for_Doubtful_Accounts</name>
+        <label>DA - Alert for Doubtful Accounts</label>
+        <locationX>314</locationX>
+        <locationY>2423</locationY>
+        <actionName>Opportunity.Alert_for_Doubtful_Accounts</actionName>
+        <actionType>emailAlert</actionType>
+        <connector>
+            <targetReference>Next_Step_changed</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>Opportunity.Alert_for_Doubtful_Accounts</nameSegment>
+    </actionCalls>
+    <actionCalls>
+        <description>MIS-3075 
+send the alert</description>
+        <name>Email_alert_for_one_time_product</name>
+        <label>Email alert for one time product</label>
+        <locationX>314</locationX>
+        <locationY>6431</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <connector>
+            <targetReference>Closed_Lost_Alert_for_SDR_Leaders</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>one_time_product_email</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <stringValue>salesops@similarweb.com,yaron.kfir@similarweb.com</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>sendRichBody</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <stringValue>One Time product - Closed won opp {!$Record.Name} </stringValue>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+    </actionCalls>
+    <actionCalls>
+        <name>ICI_New_Sales_Investors_Sponsor_Verbal</name>
+        <label>ICI - New Sales, Investors, Sponsor Verbal</label>
+        <locationX>314</locationX>
+        <locationY>2123</locationY>
+        <actionName>Opportunity.New_Sales_Investors_Sponsor_Verbal</actionName>
+        <actionType>emailAlert</actionType>
+        <connector>
+            <targetReference>Rule_DA_Doubtful_Accounts</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>Opportunity.New_Sales_Investors_Sponsor_Verbal</nameSegment>
+    </actionCalls>
+    <actionCalls>
+        <name>MSST_Notify_SIM_when_Opp_Stage_is_changed</name>
+        <label>MSST - Notify SIM when Opp Stage is changed</label>
+        <locationX>314</locationX>
+        <locationY>1823</locationY>
+        <actionName>Opportunity.Notify_SIM_when_Opp_Stage_is_changed</actionName>
+        <actionType>emailAlert</actionType>
+        <connector>
+            <targetReference>Rule_ICI_Industry_Cluster_Investors</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>Opportunity.Notify_SIM_when_Opp_Stage_is_changed</nameSegment>
+    </actionCalls>
+    <actionCalls>
+        <name>OCW_Email_Avi_when_Opp_changed_from_WON_and_has_Invoice_Created</name>
+        <label>OCW - Email Avi when Opp changed from WON and has Invoice Created</label>
+        <locationX>314</locationX>
+        <locationY>1223</locationY>
+        <actionName>Opportunity.Email_Avi_when_Opp_changed_from_WON_and_has_Invoice_Created</actionName>
+        <actionType>emailAlert</actionType>
+        <connector>
+            <targetReference>Rule_COS_Change_in_opportunity_owner_for_closed_won</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>Opportunity.Email_Avi_when_Opp_changed_from_WON_and_has_Invoice_Created</nameSegment>
+    </actionCalls>
+    <actionCalls>
+        <name>PIR_Opportunity_Lost_New_Reasons_Template</name>
+        <label>PIR - Opportunity Lost (New Reasons Template)</label>
+        <locationX>314</locationX>
+        <locationY>3131</locationY>
+        <actionName>Opportunity.Opportunity_Lost_New_Reasons_Template</actionName>
+        <actionType>emailAlert</actionType>
+        <connector>
+            <targetReference>Rule_SVE_Sponsor_Verbal_Stage_Europe</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>Opportunity.Opportunity_Lost_New_Reasons_Template</nameSegment>
+    </actionCalls>
+    <actionCalls>
+        <name>PO_Notification_for_AR</name>
+        <label>PO Notification for AR</label>
+        <locationX>578</locationX>
+        <locationY>7847</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <connector>
+            <targetReference>Rule_IPOR_Is_PO_Required_Logic</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailAddressesArray</name>
+            <value>
+                <elementReference>PO_Recipients_email</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <elementReference>Email_header_PO_not_by_Billing</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>Po_email_Not_billing</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>sendRichBody</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+    </actionCalls>
+    <actionCalls>
+        <name>PO_Notification_for_Opp_Owner</name>
+        <label>PO Notification for Opp Owner</label>
+        <locationX>50</locationX>
+        <locationY>7739</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <connector>
+            <targetReference>Rule_IPOR_Is_PO_Required_Logic</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailAddressesArray</name>
+            <value>
+                <elementReference>PO_Recipients_email</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <elementReference>Email_header_PO_by_billing</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>PO_Notification_By_biilling</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>sendRichBody</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+    </actionCalls>
+    <actionCalls>
+        <name>Renewal_Lost_Send_to_Workato</name>
+        <label>Renewal Lost - Send to Workato</label>
+        <locationX>314</locationX>
+        <locationY>11147</locationY>
+        <actionName>Opportunity.Workato_Renewal_Lost</actionName>
+        <actionType>outboundMessage</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <nameSegment>Opportunity.Workato_Renewal_Lost</nameSegment>
+    </actionCalls>
+    <actionCalls>
+        <name>SVE_Sponsor_Verbal_Stage_Europe</name>
+        <label>SVE - Sponsor Verbal Stage &amp; Europe</label>
+        <locationX>314</locationX>
+        <locationY>3431</locationY>
+        <actionName>Opportunity.Sponsor_Verbal_Stage_Europe</actionName>
+        <actionType>emailAlert</actionType>
+        <connector>
+            <targetReference>Rule_CLSG_Closed_Lost_Solution_Gap</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>Opportunity.Sponsor_Verbal_Stage_Europe</nameSegment>
+    </actionCalls>
+    <apiVersion>52.0</apiVersion>
+    <assignments>
+        <description>MIS-6202</description>
+        <name>Assign_Deal_Desk_Case_Vars</name>
+        <label>Assign Deal Desk Case Vars</label>
+        <locationX>314</locationX>
+        <locationY>6215</locationY>
+        <assignmentItems>
+            <assignToReference>New_Case_Var.Type</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Opp Review: One-Time Product</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>New_Case_Var.Status</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>New</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>New_Case_Var.Requester__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$User.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>New_Case_Var.Opportunity__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>New_Case_Var.AccountId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.AccountId</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>New_Case_Var.Subject</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>One_Time_Deal_Desk_Case_Subject</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>New_Case_Var.Description</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>One_Time_Deal_Desk_Case_Body</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Create_Deal_Desk_Case</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Emails_if_billing_added_the_PO</name>
+        <label>Assign Emails if billing added the PO</label>
+        <locationX>50</locationX>
+        <locationY>7631</locationY>
+        <assignmentItems>
+            <assignToReference>PO_Recipients_email</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>$Record.Owner.Email</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>PO_Recipients_email</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <stringValue>eden.maman@similarweb.com </stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>PO_Notification_for_Opp_Owner</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Emails_when_Opp_Owner_added_the_PO</name>
+        <label>Assign Emails when Opp Owner added the PO</label>
+        <locationX>314</locationX>
+        <locationY>7631</locationY>
+        <assignmentItems>
+            <assignToReference>PO_Recipients_email</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <stringValue>AR@similarweb.com </stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>PO_Recipients_email</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <stringValue>eden.maman@similarweb.com </stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Get_Zuora_billing_Account</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Copy_2_of_Assign_Emails_if_billing_added_the_PO</name>
+        <label>Assign Emails when rep added the PO</label>
+        <locationX>578</locationX>
+        <locationY>7631</locationY>
+        <assignmentItems>
+            <assignToReference>PO_Recipients_email</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>$Record.Owner.Email</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>PO_Recipients_email</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <stringValue>AR@similarweb.com </stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>PO_Recipients_email</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <stringValue>eden.maman@similarweb.com </stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Get_Zuora_billing_Account</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <description>MIS-7153</description>
+        <name>Acquired_Company_is_Active</name>
+        <label>Acquired Company is Active?</label>
+        <locationX>446</locationX>
+        <locationY>9239</locationY>
+        <defaultConnector>
+            <targetReference>Close_Date_Changed_Update_Recommended_Close_Date</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Acquired_Company_Active</name>
+            <conditionLogic>1 AND (2 OR 3) AND 4</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Acquired_Company</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>ISNEW</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Active__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Active__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Deactivate_Acquired_Company_Opps</targetReference>
+            </connector>
+            <label>Acquired Company Active</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-4112
+MIS-5151</description>
+        <name>Champion_Changed</name>
+        <label>Champion Changed</label>
+        <locationX>446</locationX>
+        <locationY>6923</locationY>
+        <defaultConnector>
+            <targetReference>Economic_Buyer_Changed</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Update_Contact_Champion_True</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Champion__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record__Prior.Champion__c</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Champion__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Contact_Champion</targetReference>
+            </connector>
+            <label>Update Contact Champion = True</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-7853 Lean MEDDPICC: Recommended Close Date - Move to external flow and add a daily update</description>
+        <name>Close_Date_Changed_Update_Recommended_Close_Date</name>
+        <label>Close Date Changed - Update Recommended Close Date</label>
+        <locationX>446</locationX>
+        <locationY>9539</locationY>
+        <defaultConnector>
+            <targetReference>Type_is_empty</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Run_Update_To_Recommended_Close_Date</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.CloseDate</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Rec_Type_Name__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>New Sale/Upsell</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.medpic_Recommended_Close_Date__c</leftValueReference>
+                <operator>IsBlank</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.IsClosed</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Opportunity_AL_MEDPIC_Calculations</targetReference>
+            </connector>
+            <label>Run Update To Recommended Close Date</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-3625
+check if the closed lost opp has an SDR meeting connected and send an alert to the creator and manager</description>
+        <name>Closed_Lost_Alert_for_SDR_Leaders</name>
+        <label>Closed Lost Alert for SDR Leaders</label>
+        <locationX>446</locationX>
+        <locationY>6623</locationY>
+        <defaultConnector>
+            <targetReference>Champion_Changed</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Closet_lost_and_has_an_SDR_meeting</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.StageName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Closed Lost</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.StageName</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Related_Meeting__r.RecordType.Name</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>SDR</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Closed_lost_opp_with_SDR_meeting</targetReference>
+            </connector>
+            <label>Closet lost and has an SDR meeting</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-6202  Open a Case from Opp - ‘One Time Product’
+MIS-6187 - Exclude Cycle = one-time
+MIS-3075 - send the alert</description>
+        <name>Closed_won_and_one_time_product</name>
+        <label>Closed won and one time product</label>
+        <locationX>446</locationX>
+        <locationY>6107</locationY>
+        <defaultConnector>
+            <targetReference>Closed_Lost_Alert_for_SDR_Leaders</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>one_time_product_and_closed_won</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.StageName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Closed Won</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.One_Time__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Cycle__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>One-Time</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Deal_Desk_Case_Vars</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>one time product and closed won</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-4112</description>
+        <name>Economic_Buyer_Changed</name>
+        <label>Economic Buyer Changed</label>
+        <locationX>446</locationX>
+        <locationY>7223</locationY>
+        <defaultConnector>
+            <targetReference>Send_Update_Of_PO_Number</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Update_Contact_Economic_Buyer_True</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Economic_Buyer__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record__Prior.Economic_Buyer__c</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Economic_Buyer__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Economic_Buyer__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record.Champion__c</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Contact_Economic_Buyer</targetReference>
+            </connector>
+            <label>Update Contact Economic Buyer = True</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-6405</description>
+        <name>Forecasting_Category_Changed</name>
+        <label>Forecasting Category Changed</label>
+        <locationX>446</locationX>
+        <locationY>8639</locationY>
+        <defaultConnector>
+            <targetReference>No_Touch_Closed_Won</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Update_Commit_Fields</name>
+            <conditionLogic>(1 OR 2) AND (3 OR 4) AND (5 OR 6) AND 7</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record__Prior.ForecastCategoryName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Pipeline</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record__Prior.ForecastCategoryName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Best Case</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.ForecastCategoryName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Commit</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.ForecastCategoryName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Closed</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>FR_First_Commit_Month_Check</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.First_Commit_Date__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Rec_Type_Name__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>New Sale/Upsell</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Commit_Date_and_ARR</targetReference>
+            </connector>
+            <label>Update Commit Fields</label>
+        </rules>
+        <rules>
+            <name>Clear_Commit_Fields</name>
+            <conditionLogic>1 AND (2 OR 3) AND 4 AND 5</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record__Prior.ForecastCategoryName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Commit</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.ForecastCategoryName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Pipeline</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.ForecastCategoryName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Best Case</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>FR_First_Commit_Month_Check</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Rec_Type_Name__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>New Sale/Upsell</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Clear_Commit_Date_and_ARR</targetReference>
+            </connector>
+            <label>Clear Commit Fields</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Need_to_Update_Created_By_Sub_Motion</name>
+        <label>Need to Update Created By Sub Motion?</label>
+        <locationX>446</locationX>
+        <locationY>10439</locationY>
+        <defaultConnector>
+            <targetReference>Need_to_update_YoY_Sub_Division</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Need_to_Update_Sub_Motion</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>ISNEW</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.IsClosed</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Sub_Motion_on_field</targetReference>
+            </connector>
+            <label>Yes, Need to Update Sub Motion</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Need_to_Update_Manager_Fields</name>
+        <label>Need to Update Manager Fields?</label>
+        <locationX>446</locationX>
+        <locationY>10139</locationY>
+        <defaultConnector>
+            <targetReference>Need_to_Update_Created_By_Sub_Motion</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Need_to_Update_Manager_Fields</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>ISNEW</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.OwnerId</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Manager_Fields</targetReference>
+            </connector>
+            <label>Yes, Need to Update Manager Fields</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Need_to_update_Sub_Motion</name>
+        <label>Need to update Sub Motion</label>
+        <locationX>446</locationX>
+        <locationY>5123</locationY>
+        <defaultConnector>
+            <targetReference>Rule_PSB_Primary_Secondary_blank_on_the_Account</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Need_to_update_Sub_Motion1</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.OwnerId</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.IsClosed</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Sub_Motion</targetReference>
+            </connector>
+            <label>Yes, Need to update Sub Motion</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Need_to_update_YoY_Sub_Division</name>
+        <label>Need to update YoY Sub Division?</label>
+        <locationX>446</locationX>
+        <locationY>10739</locationY>
+        <defaultConnector>
+            <targetReference>Renewal_Closed_Lost</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Need_to_update_YoY_Sub_Division</name>
+            <conditionLogic>(1 OR 2) AND 3</conditionLogic>
+            <conditions>
+                <leftValueReference>ISNEW</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Owner_Sub_Division__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Owner_Sub_Division__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_YoY_Sub_Division</targetReference>
+            </connector>
+            <label>Yes, Need to update YoY Sub Division</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Next_Step_changed</name>
+        <label>Next Step changed?</label>
+        <locationX>446</locationX>
+        <locationY>2615</locationY>
+        <defaultConnector>
+            <targetReference>Rule_PIR_Stage_Closed_Lost_Reason_Is_Product</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Create_New_Note</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Next_Steps__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Next_Steps__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record__Prior.Next_Steps__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Create_New_Note</targetReference>
+            </connector>
+            <label>Yes - Create New Note</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-6795</description>
+        <name>No_Touch_Closed_Won</name>
+        <label>No Touch Closed Won?</label>
+        <locationX>446</locationX>
+        <locationY>8939</locationY>
+        <defaultConnector>
+            <targetReference>Acquired_Company_is_Active</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>NT_is_Closed_Won</name>
+            <conditionLogic>1 AND (2 OR 3) AND 4 AND 5</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Account.No_Touch_Account__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Account.Name</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <stringValue>- No Touch</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Account.Name</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>-No Touch</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.StageName</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.StageName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Closed Won</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Delete_No_Touch_from_Account_Name</targetReference>
+            </connector>
+            <label>NT is Closed Won</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Renewal_Closed_Lost</name>
+        <label>Renewal Closed Lost?</label>
+        <locationX>446</locationX>
+        <locationY>11039</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Closed_Lost</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.StageName</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.StageName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Closed Lost</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Type</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Renewal</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Renewal_Lost_Send_to_Workato</targetReference>
+            </connector>
+            <label>Yes, Closed Lost</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Rule_CLSG_Closed_Lost_Solution_Gap</name>
+        <label>*Rule(CLSG)* - Closed Lost Solution Gap</label>
+        <locationX>446</locationX>
+        <locationY>3623</locationY>
+        <defaultConnector>
+            <targetReference>Rule_NSW_New_Sale_Referral_Closed_Won</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Closed_Lost_Solution_Gap</name>
+            <conditionLogic>1 AND (2 OR 3 OR 4 OR 5 OR 6 OR 7)</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.StageName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Closed Lost</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Closed_Lost_Reason__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Solution Gap - Data Accuracy Discrepancies</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Closed_Lost_Reason__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Solution Gap - Missing Coverage (country / platform)</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Closed_Lost_Reason__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Solution Gap - Missing Feature / Granularity</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Closed_Lost_Reason__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Solution Gap - Pricing and packaging unfit for use case</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Closed_Lost_Reason__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Solution Gap - Pricing of upsell offering was too high</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Closed_Lost_Reason__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Solution Gap - Product or features unfit for use case</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>CLCG_Closed_Lost_Solution_Gap</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>Closed Lost Solution Gap</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Change in opportunity owner for closed won</description>
+        <name>Rule_COS_Change_in_opportunity_owner_for_closed_won</name>
+        <label>*Rule(COS)* - Change in opportunity owner for closed won</label>
+        <locationX>446</locationX>
+        <locationY>1415</locationY>
+        <defaultConnector>
+            <targetReference>Rule_MSST_Notify_SIM_when_Stage_is_changed</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Owner_and_Stage_are_changed</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.StageName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Closed Won</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.OwnerId</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>COS_Email_Janessa_Closed_Won_Opp_Owner_Changed</targetReference>
+            </connector>
+            <label>Owner and Stage are changed</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Rule_DA_Doubtful_Accounts</name>
+        <label>*Rule(DA)* - Doubtful Accounts</label>
+        <locationX>446</locationX>
+        <locationY>2315</locationY>
+        <defaultConnector>
+            <targetReference>Next_Step_changed</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Doubtful_Accounts_TRUE</name>
+            <conditionLogic>1 AND 2 AND (3 OR 4) AND ( 5 OR 6 OR 7) AND 8</conditionLogic>
+            <conditions>
+                <leftValueReference>$Profile.Name</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>SW SalesOps</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Profile.Name</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>SW SalesOps Extended</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record__Prior.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.StageName</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Type</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>New Sale</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Type</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Renewal</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Type</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Upsell</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Account.Doubtful_Accounts__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>DA_Alert_for_Doubtful_Accounts</targetReference>
+            </connector>
+            <label>Doubtful Accounts = TRUE</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Feature Update Closed Won - Add Owner to Account Team</description>
+        <name>Rule_FUW_Feature_Update_Closed_Won</name>
+        <label>*Rule(FUW)* - Feature Update Closed Won</label>
+        <locationX>446</locationX>
+        <locationY>4223</locationY>
+        <defaultConnector>
+            <targetReference>Rule_RW_Renewal_Closed_Won</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Feature_Update_Closed_Won</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.StageName</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.StageName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Feature Update</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Type</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Feature Update</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>FUW_Add_Owner_to_Account_Team</targetReference>
+            </connector>
+            <label>Feature Update Closed Won</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Rule_ICI_Industry_Cluster_Investors</name>
+        <label>*Rule(ICI)* - Industry Cluster = &quot;Investors&quot;</label>
+        <locationX>446</locationX>
+        <locationY>2015</locationY>
+        <defaultConnector>
+            <targetReference>Rule_DA_Doubtful_Accounts</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Industry_Cluster_Investors</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Type</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>New Sale</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.StageName</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.StageName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Sponsor Verbal</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Account.Industry_Cluster__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Investors</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>ICI_New_Sales_Investors_Sponsor_Verbal</targetReference>
+            </connector>
+            <label>Industry Cluster = &quot;Investors&quot;</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-5956</description>
+        <name>Rule_IPOR_Is_PO_Required_Logic</name>
+        <label>*Rule (IPOR)* - Is PO Required Logic</label>
+        <locationX>446</locationX>
+        <locationY>8039</locationY>
+        <defaultConnector>
+            <targetReference>Stage_Changed_to_Closed_Won_arr</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>IPOR_Changed_to_Yes_Yes_but_no_Number</name>
+            <conditionLogic>(1 AND (2 OR 3) AND 4 AND 5) OR ((2 OR 3) AND 5 AND 6)</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Do_customer_have_PO__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Do_customer_have_PO__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Yes</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Do_customer_have_PO__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Yes, but we don&apos;t have the number yet</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record__Prior.Do_customer_have_PO__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>No</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Account.The_Client_Works_with_Purchase_Order_PO__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>ISNEW</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Account_PO_to_TRUE</targetReference>
+            </connector>
+            <label>IPOR - Changed to Yes/Yes but no Number</label>
+        </rules>
+        <rules>
+            <name>Changed_to_No</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Do_customer_have_PO__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Do_customer_have_PO__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>No</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record__Prior.Do_customer_have_PO__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>No</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Account.The_Client_Works_with_Purchase_Order_PO__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Account_PO_to_FALSE</targetReference>
+            </connector>
+            <label>IPOR - Changed to No</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>*Rule(MSST)* - Notify SIM when Stage is changed</description>
+        <name>Rule_MSST_Notify_SIM_when_Stage_is_changed</name>
+        <label>*Rule(MSST)* - Notify SIM when Stage is changed</label>
+        <locationX>446</locationX>
+        <locationY>1715</locationY>
+        <defaultConnector>
+            <targetReference>Rule_ICI_Industry_Cluster_Investors</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Notify_SIM</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.StageName</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.SIM_Email__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>MSST_Notify_SIM_when_Opp_Stage_is_changed</targetReference>
+            </connector>
+            <label>Notify SIM</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Rule_NSW_New_Sale_Referral_Closed_Won</name>
+        <label>*Rule(NSW)* - New Sale/Referral Closed Won</label>
+        <locationX>446</locationX>
+        <locationY>3923</locationY>
+        <defaultConnector>
+            <targetReference>Rule_FUW_Feature_Update_Closed_Won</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>New_Sale_Closed_Won</name>
+            <conditionLogic>1 AND 2 AND (3 OR 4)</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.StageName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Closed Won</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.StageName</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Type</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Referral</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Type</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>New Sale</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>NSW_Add_Owner_to_Account_Team</targetReference>
+            </connector>
+            <label>New Sale Closed Won</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Opp changed from WON with Invoices</description>
+        <name>Rule_OCW_Opp_changed_from_WON_with_Invoices</name>
+        <label>*Rule (OCW)* - Opp changed from WON with Invoices</label>
+        <locationX>446</locationX>
+        <locationY>1115</locationY>
+        <defaultConnector>
+            <targetReference>Rule_COS_Change_in_opportunity_owner_for_closed_won</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Changed_from_Won_with_Invoices</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.StageName</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.IsWon</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record__Prior.StageName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Closed Won</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Count_Invoice_Created__c</leftValueReference>
+                <operator>GreaterThan</operator>
+                <rightValue>
+                    <numberValue>0.0</numberValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>OCW_Email_Avi_when_Opp_changed_from_WON_and_has_Invoice_Created</targetReference>
+            </connector>
+            <label>Changed from Won with Invoices</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Rule_OD_SD_Owner_Division_and_Sub_Division</name>
+        <label>*Rule(OD&amp;SD)* - Owner Division and Sub Division</label>
+        <locationX>446</locationX>
+        <locationY>4823</locationY>
+        <defaultConnector>
+            <targetReference>Need_to_update_Sub_Motion</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Owner_Division_and_Sub_Division</name>
+            <conditionLogic>((1 OR 2) AND 3 AND 4) OR 5</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Owner.Division</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record.Opportunity_Division__c</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Owner.Sub_Division__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record.Owner_Sub_Division__c</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.OwnerId</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.IsClosed</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record__Prior.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>OD_Update_Division</targetReference>
+            </connector>
+            <label>Owner Division and Sub Division</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Primary blank on the Account</description>
+        <name>Rule_PB_Primary_blank_on_the_Account</name>
+        <label>*Rule(PB)* - Primary blank on the Account</label>
+        <locationX>677</locationX>
+        <locationY>5531</locationY>
+        <defaultConnector>
+            <targetReference>Rule_SB_Primary_Secondary_blank_on_the_Account</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Primary_blank_on_the_Account</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.StageName</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.StageName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Closed Won</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Account.Primary_Use_Case__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Account.Status__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Active</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Account.Status__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Cancelled</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Account.Status__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Part Of Another Subscription</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>PB_Update_Account</targetReference>
+            </connector>
+            <label>Primary blank on the Account</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Rule_PIR_Stage_Closed_Lost_Reason_Is_Product</name>
+        <label>*Rule(PIR)* - Stage Closed Lost &amp; Reason Is Product</label>
+        <locationX>446</locationX>
+        <locationY>3023</locationY>
+        <defaultConnector>
+            <targetReference>Rule_SVE_Sponsor_Verbal_Stage_Europe</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Stage_Closed_Lost_Reason_Is_Product</name>
+            <conditionLogic>1 AND (2 OR 3) AND NOT 4</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.StageName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Closed Lost</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Closed_Lost_Reason__c</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <stringValue>Product</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Closed_Lost_Reason_2__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Product</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record__Prior.StageName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Prospect</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>PIR_Opportunity_Lost_New_Reasons_Template</targetReference>
+            </connector>
+            <label>Stage Closed Lost &amp; Reason Is Product</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Primary/Secondary blank on the Account</description>
+        <name>Rule_PSB_Primary_Secondary_blank_on_the_Account</name>
+        <label>*Rule(PSB)* - Primary/Secondary blank on the Account</label>
+        <locationX>446</locationX>
+        <locationY>5423</locationY>
+        <defaultConnector>
+            <targetReference>Rule_PB_Primary_blank_on_the_Account</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Primary_Secondary_blank_on_the_Account</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.StageName</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.StageName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Closed Won</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Account.Secondary_Use_Case__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Account.Primary_Use_Case__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Account.Status__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Active</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Account.Status__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Cancelled</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Account.Status__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Part Of Another Subscription</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>PSB_Update_Account</targetReference>
+            </connector>
+            <label>Primary/Secondary blank on the Account</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-4433 - Move to flow start</description>
+        <name>Rule_RBID_Relate_BI_Data</name>
+        <label>*Rule(RBID)* - Relate BI Data</label>
+        <locationX>446</locationX>
+        <locationY>323</locationY>
+        <defaultConnector>
+            <targetReference>Rule_RMI_Related_Meeting_ISCHANGED</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Execute_Flow_Relate_BI_Data</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record__Prior.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>RBID_Execute_Flow_Relate_BI_Data</targetReference>
+            </connector>
+            <label>Execute Flow - &quot;Relate BI Data&quot;</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Rule_RM_Related_Meeting</name>
+        <label>*Rule(RM)* - Related Meeting</label>
+        <locationX>644</locationX>
+        <locationY>731</locationY>
+        <defaultConnector>
+            <targetReference>Rule_OCW_Opp_changed_from_WON_with_Invoices</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Related_meeting_is_null</name>
+            <conditionLogic>1 AND (2 OR 3) AND 4</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Related_Meeting__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Renewal</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Type</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Upsell</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Id</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record__Prior.Id</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>RM_Assigning_Meeting_to_Opp</targetReference>
+            </connector>
+            <label>Related meeting is null</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-3586</description>
+        <name>Rule_RMI_Related_Meeting_ISCHANGED</name>
+        <label>*Rule (RMI)* - Related Meeting ISCHANGED?</label>
+        <locationX>446</locationX>
+        <locationY>623</locationY>
+        <defaultConnector>
+            <targetReference>Rule_RM_Related_Meeting</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Related_Meeting_ISCHANGED</name>
+            <conditionLogic>1 AND 2 AND (3 OR 4)</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Related_Meeting__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Related_Meeting__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Renewal</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Type</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Upsell</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>IRM_Meeting_on_Opp_ISCHANGED</targetReference>
+            </connector>
+            <label>Related Meeting ISCHANGED</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Renewal Closed Won - Add Owner to Account Team</description>
+        <name>Rule_RW_Renewal_Closed_Won</name>
+        <label>*Rule(RW)* - Renewal Closed Won</label>
+        <locationX>446</locationX>
+        <locationY>4523</locationY>
+        <defaultConnector>
+            <targetReference>Rule_OD_SD_Owner_Division_and_Sub_Division</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Renewal_Closed_Won</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.StageName</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.StageName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Closed Won</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Type</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Renewal</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>RW_Add_Owner_to_Account_Team</targetReference>
+            </connector>
+            <label>Renewal Closed Won</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Secondary blank on the Account</description>
+        <name>Rule_SB_Primary_Secondary_blank_on_the_Account</name>
+        <label>*Rule(SB)* - Secondary blank on the Account</label>
+        <locationX>875</locationX>
+        <locationY>5639</locationY>
+        <defaultConnector>
+            <targetReference>Closed_won_and_one_time_product</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Secondary_blank_on_the_Account</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.StageName</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.StageName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Closed Won</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Account.Secondary_Use_Case__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Account.Status__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Active</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Account.Status__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Cancelled</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Account.Status__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Part Of Another Subscription</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>SB_Update_Account</targetReference>
+            </connector>
+            <label>Secondary blank on the Account</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Rule_SVE_Sponsor_Verbal_Stage_Europe</name>
+        <label>*Rule(SVE)* - Sponsor Verbal Stage &amp; Europe</label>
+        <locationX>446</locationX>
+        <locationY>3323</locationY>
+        <defaultConnector>
+            <targetReference>Rule_CLSG_Closed_Lost_Solution_Gap</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Sponsor_Verbal_Stage_Europe</name>
+            <conditionLogic>1 AND (2 OR 3) AND 4</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.StageName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Sponsor Verbal</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Type</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>New Sale</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Type</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Upsell</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Owner.UserRole.DeveloperName</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <stringValue>France</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>SVE_Sponsor_Verbal_Stage_Europe</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>Sponsor Verbal Stage &amp; Europe</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MQ-2127 - email alert to send an update to DD and billing that the PO is done</description>
+        <name>Send_Update_Of_PO_Number</name>
+        <label>Send Update Of PO Number</label>
+        <locationX>446</locationX>
+        <locationY>7523</locationY>
+        <defaultConnector>
+            <targetReference>Rule_IPOR_Is_PO_Required_Logic</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Done_By_Billing</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.StageName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Closed Won</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Po_Number__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Po_Number__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Profile.Name</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <stringValue>Billing</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Emails_if_billing_added_the_PO</targetReference>
+            </connector>
+            <label>Done By Billing</label>
+        </rules>
+        <rules>
+            <name>Done_by_Opp_Owner</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.StageName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Closed Won</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Po_Number__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Po_Number__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$User.Id</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record.OwnerId</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Emails_when_Opp_Owner_added_the_PO</targetReference>
+            </connector>
+            <label>Done by Opp Owner</label>
+        </rules>
+        <rules>
+            <name>Done_By_anyone_else</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.StageName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Closed Won</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Po_Number__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Po_Number__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Copy_2_of_Assign_Emails_if_billing_added_the_PO</targetReference>
+            </connector>
+            <label>Done By anyone else</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Stage_Changed_to_Closed_Won_arr</name>
+        <label>Stage Changed to Closed Won + arr?</label>
+        <locationX>446</locationX>
+        <locationY>8339</locationY>
+        <defaultConnector>
+            <targetReference>Forecasting_Category_Changed</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Stage_Changed_to_Closed_Won_and_arr</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.StageName</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.StageName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Closed Won</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.ARR__c</leftValueReference>
+                <operator>GreaterThan</operator>
+                <rightValue>
+                    <numberValue>0.0</numberValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Slack_Closed_Won_Alert</targetReference>
+            </connector>
+            <label>Stage Changed to Closed Won and arr</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Type_is_empty</name>
+        <label>Type is empty?</label>
+        <locationX>446</locationX>
+        <locationY>9839</locationY>
+        <defaultConnector>
+            <targetReference>Need_to_Update_Manager_Fields</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Type_is_empty</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>ISNEW</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Type</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_Type_to_New_Sale</targetReference>
+            </connector>
+            <label>Yes, Type is empty</label>
+        </rules>
+    </decisions>
+    <description>Temporarily reverted MIS-8188 changes
+MIS-8311 - Added Sub Motion and YoY Sub Division update
+MIS-8188 - Alert for field changes after closed won/lost
+MIS-8264 - Added outbound message to Workato on Renewal Lost
+MIS-8255 - new Sub Motion field
+MIS-8186 - Moved Manager fields updates from Before-Save
+MIS-7984 - Added default Type to converted opps
+MIS-8003 deactivate Uri_open_Opp_over_15k email alert in opp rt after save
+MIS-7853 Lean MEDDPICC: Recommended Close Date - Move to external flow and add a daily update
+MIS-7609 Remove Product Sold : remove solutions 3.0
+MIS-7153 - Deactivate Acquired Company Opps
+MIS-6575  - remove the slack channeles actions 
+MIS-6795 - Closed Won for NT Account
+MIS-6750 Slack channel for all Americas Closed Won deals - addition
+MIS-6575  slack channel for inside sales EMEA closed won deals for AM and SM only
+MIS-6750 Slack channel for all Americas Closed Won deals, 16\3\25 tal
+MIS-6202  Open a Case from Opp - ‘One Time Product’
+MQ-2398 &amp; MQ-2371
+MIS-6639 &amp; MIS-6640
+MIS-6405 - Update First Commit Date and ARR
+MIS-6187 - Update on one-time email logic
+MQ-2328
+MQ-2127 - email notfaction for PO
+MIS-5956 - Client Uses PO Logic
+MIS-5151 - update Champion / Economic buyer logic
+MIS-4721 - new Champion / Economic buyer logic
+MIS-3586/MIS-4644 - Migrating last process builder
+MIS-4528 - Update Division and SubDivision from Owner
+MIS-4112 - Update Contact fields Economic Buyer / Champion
+MIS-4433 - Move *Rule(RBID)* with its sub-flow to flow start
+MIS-4163 - add opportunity owner Sub Division
+MIS-3096 - Create New note for Next Steps</description>
+    <environments>Default</environments>
+    <formulas>
+        <description>This formula generates a dynamic audit log that tracks changes for the following 13 fields: Account AM, Assigned CSM Name, Forecasting Status, Amount, Close Date, Cycle Price, Cycle, Cycle Price Local, Max ARR, Type, Record Type, and Owner. It uses ISCHANGED logic to ensure only modified fields are listed, keeping the output clean. For every change detected, it displays the field name followed by the &quot;Previous value&quot; and &quot;New value&quot; on a new line. It automatically handles data conversion for picklists, dates, and currency fields to ensure the information is human-readable.</description>
+        <name>COS_Changed_fields_text_formula</name>
+        <dataType>String</dataType>
+        <expression>IF(ISCHANGED({!$Record.Account_AM__c}), 
+   &quot;Account AM: Previous value: &quot; &amp; {!$Record__Prior.Account_AM__c} &amp; &apos;, &apos; &amp; &quot;New value: &quot; &amp; {!$Record.Account_AM__c} &amp; &apos;&lt;br&gt;&lt;br&gt;&apos;, &quot;&quot;) &amp;
+
+IF(ISCHANGED({!$Record.Assigned_CSM_Name__c}), 
+   &quot;Assigned CSM: Previous value: &quot; &amp; {!$Record__Prior.Assigned_CSM_Name__c} &amp; &apos;, &apos; &amp; &quot;New value: &quot; &amp; {!$Record.Assigned_CSM_Name__c} &amp; &apos;&lt;br&gt;&lt;br&gt;&apos;, &quot;&quot;) &amp;
+
+IF(ISCHANGED({!$Record.Similarweb_Forecasting_status__c}), 
+   &quot;Forecasting Status: Previous value: &quot; &amp; TEXT({!$Record__Prior.Similarweb_Forecasting_status__c}) &amp; &apos;, &apos; &amp; &quot;New value: &quot; &amp; TEXT({!$Record.Similarweb_Forecasting_status__c}) &amp; &apos;&lt;br&gt;&lt;br&gt;&apos;, &quot;&quot;) &amp;
+
+IF(ISCHANGED({!$Record.Amount}), 
+   &quot;Amount: Previous value: &quot; &amp; TEXT({!$Record__Prior.Amount}) &amp; &apos;, &apos; &amp; &quot;New value: &quot; &amp; TEXT({!$Record.Amount}) &amp; &apos;&lt;br&gt;&lt;br&gt;&apos;, &quot;&quot;) &amp;
+
+IF(ISCHANGED({!$Record.CloseDate}), 
+   &quot;Close Date: Previous value: &quot; &amp; TEXT({!$Record__Prior.CloseDate}) &amp; &apos;, &apos; &amp; &quot;New value: &quot; &amp; TEXT({!$Record.CloseDate}) &amp; &apos;&lt;br&gt;&lt;br&gt;&apos;, &quot;&quot;) &amp;
+
+IF(ISCHANGED({!$Record.Cycle_Price__c}), 
+   &quot;Cycle Price: Previous value: &quot; &amp; TEXT({!$Record__Prior.Cycle_Price__c}) &amp; &apos;, &apos; &amp; &quot;New value: &quot; &amp; TEXT({!$Record.Cycle_Price__c}) &amp; &apos;&lt;br&gt;&lt;br&gt;&apos;, &quot;&quot;) &amp;
+
+IF(ISCHANGED({!$Record.Cycle__c}), 
+   &quot;Cycle: Previous value: &quot; &amp; TEXT({!$Record__Prior.Cycle__c}) &amp; &apos;, &apos; &amp; &quot;New value: &quot; &amp; TEXT({!$Record.Cycle__c}) &amp; &apos;&lt;br&gt;&lt;br&gt;&apos;, &quot;&quot;) &amp;
+
+IF(ISCHANGED({!$Record.Cycle_Price_Local__c}), 
+   &quot;Cycle Price Local: Previous value: &quot; &amp; TEXT({!$Record__Prior.Cycle_Price_Local__c}) &amp; &apos;, &apos; &amp; &quot;New value: &quot; &amp; TEXT({!$Record.Cycle_Price_Local__c}) &amp; &apos;&lt;br&gt;&lt;br&gt;&apos;, &quot;&quot;) &amp;
+
+IF(ISCHANGED({!$Record.Max_ARR__c}), 
+   &quot;Max ARR: Previous value: &quot; &amp; TEXT({!$Record__Prior.Max_ARR__c}) &amp; &apos;, &apos; &amp; &quot;New value: &quot; &amp; TEXT({!$Record.Max_ARR__c}) &amp; &apos;&lt;br&gt;&lt;br&gt;&apos;, &quot;&quot;) &amp;
+
+IF(ISCHANGED({!$Record.Type}), 
+   &quot;Type: Previous value: &quot; &amp; TEXT({!$Record__Prior.Type}) &amp; &apos;, &apos; &amp; &quot;New value: &quot; &amp; TEXT({!$Record.Type}) &amp; &apos;&lt;br&gt;&lt;br&gt;&apos;, &quot;&quot;) &amp;
+
+IF(ISCHANGED({!$Record.RecordTypeId}), 
+   &quot;Record Type ID: Previous value: &quot; &amp; {!$Record__Prior.RecordTypeId} &amp; &apos;, &apos; &amp; &quot;New value: &quot; &amp; {!$Record.RecordTypeId} &amp; &apos;&lt;br&gt;&lt;br&gt;&apos;, &quot;&quot;) &amp;
+
+IF(ISCHANGED({!$Record.OwnerId}), 
+   &quot;Owner ID: Previous value: &quot; &amp; {!$Record__Prior.OwnerId} &amp; &apos;, &apos; &amp; &quot;New value: &quot; &amp; {!$Record.OwnerId} &amp; &apos;&lt;br&gt;&lt;br&gt;&apos;, &quot;&quot;)</expression>
+    </formulas>
+    <formulas>
+        <name>fr_CreatedDateTimePlus1</name>
+        <dataType>Date</dataType>
+        <expression>{!$Record.CreatedDate} +1</expression>
+    </formulas>
+    <formulas>
+        <description>MIS-6405</description>
+        <name>FR_First_Commit_Month_Check</name>
+        <dataType>Boolean</dataType>
+        <expression>IF(
+     AND(
+             MONTH({!$Record.First_Commit_Date__c}) = MONTH(TODAY()),
+             YEAR({!$Record.First_Commit_Date__c}) = YEAR(TODAY())
+     ),
+     TRUE,
+     FALSE
+)</expression>
+    </formulas>
+    <formulas>
+        <name>fr_GeneralManagerEmail</name>
+        <dataType>String</dataType>
+        <expression>IF( {!$Record.Owner.Manager.Manager.Manager.Exclude_from_Email_Alerts__c} || NOT({!$Record.Owner.Manager.Manager.Manager.IsActive}) , &quot;&quot; , {!$Record.Owner.Manager.Manager.Manager.Email} )</expression>
+    </formulas>
+    <formulas>
+        <name>fr_ManagerOfManagerEmail</name>
+        <dataType>String</dataType>
+        <expression>IF( {!$Record.Owner.Manager.Manager.Exclude_from_Email_Alerts__c} || NOT({!$Record.Owner.Manager.Manager.IsActive}
+) , &quot;&quot; , 
+IF( {!$Record.Owner.Manager.UserRole.DeveloperName}  = &apos;Director_ANZ_Sales_and_CSM&apos;, {!$Record.Owner.Manager.Email} , 
+IF( OR( {!$Record.Owner.Manager.UserRole.DeveloperName} =&apos;ENT_Resellers_Japan&apos;, {!$Record.Owner.Manager.UserRole.DeveloperName} =&apos;ENT_Resellers_ROW&apos; ), {!$Record.Owner.Manager.Email} , 
+IF( OR( {!$Record.Owner.Manager.Manager.Manager.UserRole.DeveloperName} =&apos;ENT_Resellers_Japan&apos;, {!$Record.Owner.Manager.Manager.Manager.UserRole.DeveloperName} =&apos;ENT_Resellers_ROW&apos; ), {!$Record.Owner.Manager.Manager.Manager.Email}, {!$Record.Owner.Manager.Manager.Email}) ) ) )</expression>
+    </formulas>
+    <formulas>
+        <name>General_Manager_Email_Formula</name>
+        <dataType>String</dataType>
+        <expression>IF( 
+   {!$Record.Owner.Manager.Manager.Manager.Exclude_from_Email_Alerts__c} || NOT({!$Record.Owner.Manager.Manager.Manager.IsActive}) , &quot;&quot; , {!$Record.Owner.Manager.Manager.Manager.Email}
+)</expression>
+    </formulas>
+    <formulas>
+        <description>MIS-5956</description>
+        <name>ISNEW</name>
+        <dataType>Boolean</dataType>
+        <expression>ISNEW()</expression>
+    </formulas>
+    <formulas>
+        <name>Manager_of_Manager_Email_Formula</name>
+        <dataType>String</dataType>
+        <expression>IF({!$Record.Owner.Manager.Manager.Exclude_from_Email_Alerts__c}  || NOT({!$Record.Owner.Manager.Manager.IsActive}) , &quot;&quot; ,
+IF({!$Record.Owner.Manager.UserRole.DeveloperName} = &apos;Director_ANZ_Sales_and_CSM&apos;, {!$Record.Owner.Manager.Email} ,
+IF(
+OR(
+{!$Record.Owner.Manager.UserRole.DeveloperName} =&apos;ENT_Resellers_Japan&apos;,
+{!$Record.Owner.Manager.UserRole.DeveloperName} =&apos;ENT_Resellers_ROW&apos;
+),
+{!$Record.Owner.Manager.Email} ,
+IF(
+OR(
+{!$Record.Owner.Manager.Manager.Manager.UserRole.DeveloperName} =&apos;ENT_Resellers_Japan&apos;,
+{!$Record.Owner.Manager.Manager.Manager.UserRole.DeveloperName} =&apos;ENT_Resellers_ROW&apos;
+),
+{!$Record.Owner.Manager.Manager.Manager.Email},
+{!$Record.Owner.Manager.Manager.Email}
+))))</expression>
+    </formulas>
+    <formulas>
+        <description>MIS-6202</description>
+        <name>One_Time_Deal_Desk_Case_Subject</name>
+        <dataType>String</dataType>
+        <expression>&apos;Closed-won opportunity includes a one-time &apos; +{!$Record.Id}</expression>
+    </formulas>
+    <formulas>
+        <description>MIS-3075</description>
+        <name>opp_record_link</name>
+        <dataType>String</dataType>
+        <expression>LEFT( {!$Api.Partner_Server_URL_520}, FIND( &apos;/services&apos;, {!$Api.Partner_Server_URL_520} ))&amp;{!$Record.Id}</expression>
+    </formulas>
+    <formulas>
+        <name>oppLink</name>
+        <dataType>String</dataType>
+        <expression>&apos;&lt;a href=&quot;&apos; &amp; LEFT({!$Api.Enterprise_Server_Url_100}, FIND(&apos;/services&apos;, {!$Api.Enterprise_Server_Url_100})) &amp; {!$Record.Id} &amp; &apos;&quot;&gt;&apos; &amp; {!$Record.Name} &amp; &apos;&lt;/a&gt;&apos;</expression>
+    </formulas>
+    <formulas>
+        <name>Remove_No_Touch</name>
+        <dataType>String</dataType>
+        <expression>IF(
+	CONTAINS({!$Record.Account.Name}, &quot; - No Touch&quot;), SUBSTITUTE({!$Record.Account.Name}, &quot; - No Touch&quot;, &quot;&quot;),
+	IF(
+		CONTAINS({!$Record.Account.Name}, &quot;- No Touch&quot;), SUBSTITUTE({!$Record.Account.Name}, &quot;- No Touch&quot;, &quot;&quot;),
+		IF(
+			CONTAINS({!$Record.Account.Name}, &quot; -No Touch&quot;), SUBSTITUTE({!$Record.Account.Name}, &quot; -No Touch&quot;, &quot;&quot;),
+			IF(
+				CONTAINS({!$Record.Account.Name}, &quot;-No Touch&quot;), SUBSTITUTE({!$Record.Account.Name}, &quot;-No Touch&quot;, &quot;&quot;),
+				IF(
+					CONTAINS({!$Record.Account.Name}, &quot;No Touch&quot;), SUBSTITUTE({!$Record.Account.Name}, &quot;No Touch&quot;, &quot;&quot;),
+					{!$Record.Account.Name}
+
+				)
+			)
+		)
+	)
+)</expression>
+    </formulas>
+    <formulas>
+        <description>for Rule *CR*</description>
+        <name>Request_Type_Formula_CR</name>
+        <dataType>String</dataType>
+        <expression>IF
+(
+{!$Record.ARR__c} &gt;= 30000,
+&quot;Standard&quot;,
+&quot;Growth&quot;
+)</expression>
+    </formulas>
+    <interviewLabel>Opportunity - Record Triggered Flow - After Save {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Opportunity - Record Triggered Flow - After Save</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordCreates>
+        <name>Create_New_Note</name>
+        <label>Create New Note</label>
+        <locationX>314</locationX>
+        <locationY>2723</locationY>
+        <connector>
+            <targetReference>Link_Note_to_Opportunity</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Content</field>
+            <value>
+                <elementReference>$Record__Prior.Next_Steps__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Title</field>
+            <value>
+                <elementReference>$Record__Prior.Next_Steps__c</elementReference>
+            </value>
+        </inputAssignments>
+        <object>ContentNote</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordCreates>
+        <name>FUW_Add_Owner_to_Account_Team</name>
+        <label>FUW - Add Owner to Account Team</label>
+        <locationX>314</locationX>
+        <locationY>4331</locationY>
+        <connector>
+            <targetReference>Rule_RW_Renewal_Closed_Won</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>AccountAccessLevel</field>
+            <value>
+                <stringValue>Read</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>AccountId</field>
+            <value>
+                <elementReference>$Record.AccountId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>CaseAccessLevel</field>
+            <value>
+                <stringValue>None</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>ContactAccessLevel</field>
+            <value>
+                <stringValue>Edit</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>OpportunityAccessLevel</field>
+            <value>
+                <stringValue>None</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>TeamMemberRole</field>
+            <value>
+                <stringValue>Collaborator</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>UserId</field>
+            <value>
+                <elementReference>$Record.OwnerId</elementReference>
+            </value>
+        </inputAssignments>
+        <object>AccountTeamMember</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordCreates>
+        <name>Link_Note_to_Opportunity</name>
+        <label>Link Note to Opportunity</label>
+        <locationX>314</locationX>
+        <locationY>2831</locationY>
+        <connector>
+            <targetReference>Rule_PIR_Stage_Closed_Lost_Reason_Is_Product</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>ContentDocumentId</field>
+            <value>
+                <elementReference>Create_New_Note</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>LinkedEntityId</field>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>ShareType</field>
+            <value>
+                <stringValue>I</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Visibility</field>
+            <value>
+                <stringValue>InternalUsers</stringValue>
+            </value>
+        </inputAssignments>
+        <object>ContentDocumentLink</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordCreates>
+        <name>NSW_Add_Owner_to_Account_Team</name>
+        <label>NSW - Add Owner to Account Team</label>
+        <locationX>314</locationX>
+        <locationY>4031</locationY>
+        <connector>
+            <targetReference>Rule_FUW_Feature_Update_Closed_Won</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>AccountAccessLevel</field>
+            <value>
+                <stringValue>Read</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>AccountId</field>
+            <value>
+                <elementReference>$Record.AccountId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>CaseAccessLevel</field>
+            <value>
+                <stringValue>None</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>ContactAccessLevel</field>
+            <value>
+                <stringValue>Edit</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>OpportunityAccessLevel</field>
+            <value>
+                <stringValue>None</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>TeamMemberRole</field>
+            <value>
+                <stringValue>Named Sales Manager</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>UserId</field>
+            <value>
+                <elementReference>$Record.OwnerId</elementReference>
+            </value>
+        </inputAssignments>
+        <object>AccountTeamMember</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordCreates>
+        <name>RW_Add_Owner_to_Account_Team</name>
+        <label>RW - Add Owner to Account Team</label>
+        <locationX>314</locationX>
+        <locationY>4631</locationY>
+        <connector>
+            <targetReference>Rule_OD_SD_Owner_Division_and_Sub_Division</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>AccountAccessLevel</field>
+            <value>
+                <stringValue>Read</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>AccountId</field>
+            <value>
+                <elementReference>$Record.AccountId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>CaseAccessLevel</field>
+            <value>
+                <stringValue>None</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>ContactAccessLevel</field>
+            <value>
+                <stringValue>Edit</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>OpportunityAccessLevel</field>
+            <value>
+                <stringValue>None</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>TeamMemberRole</field>
+            <value>
+                <stringValue>Supporting AM</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>UserId</field>
+            <value>
+                <elementReference>$Record.OwnerId</elementReference>
+            </value>
+        </inputAssignments>
+        <object>AccountTeamMember</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordLookups>
+        <name>Get_Zuora_billing_Account</name>
+        <label>Get Zuora billing Account</label>
+        <locationX>578</locationX>
+        <locationY>7739</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>PO_Notification_for_AR</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Zuora__Zuora_Id__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Account.Latest_Zuora_Account_ID__c</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Zuora__CustomerAccount__c</object>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>Zuora__AccountNumber__c</queriedFields>
+        <queriedFields>Zuora__Zuora_Id__c</queriedFields>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <description>MIS-6405</description>
+        <name>Assign_Commit_Date_and_ARR</name>
+        <label>Assign Commit Date and ARR</label>
+        <locationX>182</locationX>
+        <locationY>8747</locationY>
+        <connector>
+            <targetReference>No_Touch_Closed_Won</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>First_Commit_ARR__c</field>
+            <value>
+                <elementReference>$Record.ARR__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>First_Commit_Date__c</field>
+            <value>
+                <elementReference>$Flow.CurrentDate</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>MIS-6405</description>
+        <name>Clear_Commit_Date_and_ARR</name>
+        <label>Clear Commit Date and ARR</label>
+        <locationX>446</locationX>
+        <locationY>8747</locationY>
+        <connector>
+            <targetReference>No_Touch_Closed_Won</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>First_Commit_ARR__c</field>
+        </inputAssignments>
+        <inputAssignments>
+            <field>First_Commit_Date__c</field>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>MIS-7153</description>
+        <name>Deactivate_Acquired_Company_Opps</name>
+        <label>Deactivate Acquired Company Opps</label>
+        <locationX>314</locationX>
+        <locationY>9347</locationY>
+        <connector>
+            <targetReference>Close_Date_Changed_Update_Recommended_Close_Date</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>AccountId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.AccountId</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Active__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>RecordTypeId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.RecordTypeId</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Active__c</field>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </inputAssignments>
+        <object>Opportunity</object>
+    </recordUpdates>
+    <recordUpdates>
+        <description>MIS-6795</description>
+        <name>Delete_No_Touch_from_Account_Name</name>
+        <label>Delete &quot; - No Touch&quot; from Account Name</label>
+        <locationX>314</locationX>
+        <locationY>9047</locationY>
+        <connector>
+            <targetReference>Acquired_Company_is_Active</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.AccountId</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Name</field>
+            <value>
+                <elementReference>Remove_No_Touch</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Account</object>
+    </recordUpdates>
+    <recordUpdates>
+        <name>OD_Update_Division</name>
+        <label>OD - Update Division</label>
+        <locationX>314</locationX>
+        <locationY>4931</locationY>
+        <connector>
+            <targetReference>Need_to_update_Sub_Motion</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Opportunity_Division__c</field>
+            <value>
+                <elementReference>$Record.Owner.Division</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Owner_Sub_Division__c</field>
+            <value>
+                <elementReference>$Record.Owner.Sub_Division__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>PB_Update_Account</name>
+        <label>PB - Update Account</label>
+        <locationX>479</locationX>
+        <locationY>5639</locationY>
+        <connector>
+            <targetReference>Closed_won_and_one_time_product</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.AccountId</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Primary_Use_Case__c</field>
+            <value>
+                <elementReference>$Record.Primary_Use_Case__c</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Account</object>
+    </recordUpdates>
+    <recordUpdates>
+        <name>PSB_Update_Account</name>
+        <label>PSB - Update Account</label>
+        <locationX>215</locationX>
+        <locationY>5531</locationY>
+        <connector>
+            <targetReference>Closed_won_and_one_time_product</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.AccountId</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Primary_Use_Case__c</field>
+            <value>
+                <elementReference>$Record.Primary_Use_Case__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Secondary_Use_Case__c</field>
+            <value>
+                <elementReference>$Record.Secondary_Use_Case__c</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Account</object>
+    </recordUpdates>
+    <recordUpdates>
+        <name>SB_Update_Account</name>
+        <label>SB - Update Account</label>
+        <locationX>743</locationX>
+        <locationY>5747</locationY>
+        <connector>
+            <targetReference>Closed_won_and_one_time_product</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.AccountId</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Secondary_Use_Case__c</field>
+            <value>
+                <elementReference>$Record.Secondary_Use_Case__c</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Account</object>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Set_Type_to_New_Sale</name>
+        <label>Set Type to New Sale</label>
+        <locationX>314</locationX>
+        <locationY>9947</locationY>
+        <connector>
+            <targetReference>Need_to_Update_Manager_Fields</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Type</field>
+            <value>
+                <stringValue>New Sale</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>MIS-5956</description>
+        <name>Update_Account_PO_to_FALSE</name>
+        <label>Update Account PO to FALSE</label>
+        <locationX>446</locationX>
+        <locationY>8147</locationY>
+        <connector>
+            <targetReference>Stage_Changed_to_Closed_Won_arr</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.AccountId</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>The_Client_Works_with_Purchase_Order_PO__c</field>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </inputAssignments>
+        <object>Account</object>
+    </recordUpdates>
+    <recordUpdates>
+        <description>MIS-5956</description>
+        <name>Update_Account_PO_to_TRUE</name>
+        <label>Update Account PO to TRUE</label>
+        <locationX>182</locationX>
+        <locationY>8147</locationY>
+        <connector>
+            <targetReference>Stage_Changed_to_Closed_Won_arr</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.AccountId</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>The_Client_Works_with_Purchase_Order_PO__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <object>Account</object>
+    </recordUpdates>
+    <recordUpdates>
+        <description>MIS-4112</description>
+        <name>Update_Contact_Champion</name>
+        <label>Update Contact Champion</label>
+        <locationX>314</locationX>
+        <locationY>7031</locationY>
+        <connector>
+            <targetReference>Economic_Buyer_Changed</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Champion__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Champion__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Champion__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <object>Contact</object>
+    </recordUpdates>
+    <recordUpdates>
+        <description>MIS-4112</description>
+        <name>Update_Contact_Economic_Buyer</name>
+        <label>Update Contact Economic Buyer</label>
+        <locationX>314</locationX>
+        <locationY>7331</locationY>
+        <connector>
+            <targetReference>Send_Update_Of_PO_Number</targetReference>
+        </connector>
+        <filterLogic>2 AND (1 OR 3)</filterLogic>
+        <filters>
+            <field>Commercial_Role__c</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>Economic Buyer</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Economic_Buyer__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Economic_Buyer__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Commercial_Role__c</field>
+            <value>
+                <stringValue>Economic Buyer</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Economic_Buyer__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <object>Contact</object>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Manager_Fields</name>
+        <label>Update Manager Fields</label>
+        <locationX>314</locationX>
+        <locationY>10247</locationY>
+        <connector>
+            <targetReference>Need_to_Update_Created_By_Sub_Motion</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>General_Manager_Email__c</field>
+            <value>
+                <elementReference>General_Manager_Email_Formula</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Manager_of_owner_manager__c</field>
+            <value>
+                <elementReference>Manager_of_Manager_Email_Formula</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Owner_s_Manager__c</field>
+            <value>
+                <elementReference>$Record.Owner.ManagerId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Sub_Motion</name>
+        <label>Update Sub Motion</label>
+        <locationX>314</locationX>
+        <locationY>5231</locationY>
+        <connector>
+            <targetReference>Rule_PSB_Primary_Secondary_blank_on_the_Account</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Opportunity_Sub_Motion__c</field>
+            <value>
+                <elementReference>$Record.Owner.Sub_Motion__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Sub_Motion_on_field</name>
+        <label>Update Sub Motion on field</label>
+        <locationX>314</locationX>
+        <locationY>10547</locationY>
+        <connector>
+            <targetReference>Need_to_update_YoY_Sub_Division</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Created_By_Sub_Motion__c</field>
+            <value>
+                <elementReference>$Record.Owner.Sub_Motion__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_YoY_Sub_Division</name>
+        <label>Update YoY Sub Division</label>
+        <locationX>314</locationX>
+        <locationY>10847</locationY>
+        <connector>
+            <targetReference>Renewal_Closed_Lost</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>YoY_Sub_Division__c</field>
+            <value>
+                <elementReference>$Record.Owner_Sub_Division__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>320</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Rule_RBID_Relate_BI_Data</targetReference>
+        </connector>
+        <object>Opportunity</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <subflows>
+        <description>MIS-6202</description>
+        <name>Create_Deal_Desk_Case</name>
+        <label>Create Deal Desk Case</label>
+        <locationX>314</locationX>
+        <locationY>6323</locationY>
+        <connector>
+            <targetReference>Email_alert_for_one_time_product</targetReference>
+        </connector>
+        <flowName>Case_AL_Create_Case_With_Input_VAR</flowName>
+        <inputAssignments>
+            <name>New_Case_Data</name>
+            <value>
+                <elementReference>New_Case_Var</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>Queue_Name</name>
+            <value>
+                <stringValue>Deal Desk Cases</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>Record_Type_Name</name>
+            <value>
+                <stringValue>Deal Desk</stringValue>
+            </value>
+        </inputAssignments>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </subflows>
+    <subflows>
+        <description>MIS-3586</description>
+        <name>IRM_Meeting_on_Opp_ISCHANGED</name>
+        <label>IRM - Meeting on Opp ISCHANGED</label>
+        <locationX>248</locationX>
+        <locationY>731</locationY>
+        <connector>
+            <targetReference>Rule_OCW_Opp_changed_from_WON_with_Invoices</targetReference>
+        </connector>
+        <flowName>Assigning_Meeting_to_Opp</flowName>
+        <inputAssignments>
+            <name>RelatedMeetingWasChanged</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>VarMeetingID</name>
+            <value>
+                <elementReference>$Record.Related_Meeting__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>VarOppID</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </subflows>
+    <subflows>
+        <name>Opportunity_AL_MEDPIC_Calculations</name>
+        <label>Opportunity - AL - MEDPIC Calculations</label>
+        <locationX>314</locationX>
+        <locationY>9647</locationY>
+        <connector>
+            <targetReference>Type_is_empty</targetReference>
+        </connector>
+        <flowName>Opportunity_AL_MEDPIC_Calculations</flowName>
+        <inputAssignments>
+            <name>recordId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>Close_Date_Changed_Manually</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </subflows>
+    <subflows>
+        <description>MIS-4433 - Move to flow start</description>
+        <name>RBID_Execute_Flow_Relate_BI_Data</name>
+        <label>RBID - Execute Flow - &quot;Relate BI Data&quot;</label>
+        <locationX>314</locationX>
+        <locationY>431</locationY>
+        <connector>
+            <targetReference>Rule_RMI_Related_Meeting_ISCHANGED</targetReference>
+        </connector>
+        <flowName>Relate_BI_Data</flowName>
+        <inputAssignments>
+            <name>Source</name>
+            <value>
+                <stringValue>Opportunity</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>varSourceRecordID</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </subflows>
+    <subflows>
+        <name>RM_Assigning_Meeting_to_Opp</name>
+        <label>RM - Assigning Meeting to Opp.</label>
+        <locationX>512</locationX>
+        <locationY>839</locationY>
+        <connector>
+            <targetReference>Rule_OCW_Opp_changed_from_WON_with_Invoices</targetReference>
+        </connector>
+        <flowName>Assigning_Meeting_to_Opp</flowName>
+        <inputAssignments>
+            <name>OppOwnerRole</name>
+            <value>
+                <elementReference>$Record.Owner.UserRole.Name</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>VarAccountID</name>
+            <value>
+                <elementReference>$Record.Account.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>VarCreatedDateTimePlus1</name>
+            <value>
+                <elementReference>fr_CreatedDateTimePlus1</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>VarMeetingRange</name>
+            <value>
+                <elementReference>$Record.SYSMeetingRange__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>VarOppCreateDate</name>
+            <value>
+                <elementReference>$Record.CreatedDateOnly__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>VarOppID</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </subflows>
+    <subflows>
+        <description>MIS-4451</description>
+        <name>Slack_Closed_Won_Alert</name>
+        <label>Slack - Closed Won Alert</label>
+        <locationX>314</locationX>
+        <locationY>8447</locationY>
+        <connector>
+            <targetReference>Forecasting_Category_Changed</targetReference>
+        </connector>
+        <flowName>Slack_message_general</flowName>
+        <inputAssignments>
+            <name>objectid</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>Slack_Channel_Name</name>
+            <value>
+                <stringValue>crush-week-q3</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>slack_message</name>
+            <value>
+                <stringValue>Closed Won Alert</stringValue>
+            </value>
+        </inputAssignments>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </subflows>
+    <textTemplates>
+        <name>COS_EmailBodyText</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-size: 14px;&quot;&gt;Hello,&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-size: 14px;&quot;&gt;Please note that the below edits were made in a closed opportunity.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); color: rgb(0, 0, 0); font-size: 14px;&quot;&gt;Opportunity: {!oppLink}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-size: 14px;&quot;&gt;Close Date: {!$Record.CloseDate}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-size: 14px;&quot;&gt;Last Modified by: {!$User.FirstName} {!$User.LastName}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-size: 14px;&quot;&gt;At &lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-size: 14px; background-color: rgb(255, 255, 255);&quot;&gt;{!$Record.LastModifiedDate}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-size: 14px;&quot;&gt;{!COS_Changed_fields_text_formula}﻿&lt;/span&gt;&lt;/p&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <name>COS_EmailSubject</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>Fields have been updated in a closed opportunity: {!$Record.Name}</text>
+    </textTemplates>
+    <textTemplates>
+        <name>Email_header_PO_by_billing</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>Customer PO Received! For Your Opp: {!$Record.Name}</text>
+    </textTemplates>
+    <textTemplates>
+        <name>Email_header_PO_not_by_Billing</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>Customer PO Received! For The Opp: {!$Record.Name}, Zuora Account #: {!Get_Zuora_billing_Account.Zuora__AccountNumber__c}</text>
+    </textTemplates>
+    <textTemplates>
+        <name>One_Time_Deal_Desk_Case_Body</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>Hi Deal Desk,
+
+This closed-won opportunity includes a one-time product: 
+
+Please make sure to review this opportunity accordingly: {!opp_record_link}
+
+If the contract specifies a one-time fee for the one-time product(s) included, separate from the other recurring products in the contract, make sure there is a separate closed won opportunity for that one-time product and price. If there isn&apos;t, instruct the opportunity owner to create a one-time opp (cycle = one-time, ARR = $0) and close won it.
+
+Ensure that the sum of the cycle price in the opportunities (the one-time opp and the recurring revenue opp) is equal to the total price of the signed contract, and that the ARR is accurate for each opp.
+
+For example, if you have a contract for 2 years for a total of $40,000, of which $10,000 is specifically dedicated to a one-time product --&gt; 2 separate opportunities are required:
+
+A one-time opp; cycle = one-time; cycle price = $10,000; ARR = $0
+
+Another opp for the recurring revenue; cycle = 2 years; cycle price = $30,000; ARR = $15,000
+
+*If the contract indicates that the one-time product fee is grouped in with the recurring product(s) fees [i.e. no specific/separate fee assigned to the one-time product(s)], then simply proceed to review the opp as per usual.</text>
+    </textTemplates>
+    <textTemplates>
+        <description>MIS-3075</description>
+        <name>one_time_product_email</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>&lt;p&gt;Hi Sops,&lt;/p&gt;&lt;p&gt;This Closed Won opportunity - {!opp_record_link} includes a one-time product.&lt;/p&gt;&lt;p&gt;Please make sure to review this opportunity accordingly:&lt;/p&gt;&lt;p&gt;&lt;u&gt;What should be checked:&lt;/u&gt;&lt;/p&gt;&lt;ol&gt;&lt;li&gt;First, verify the quote and the contract including a one-time product with a value higher than $0.&lt;/li&gt;&lt;li&gt;Make sure there is a separate opp for the one-time product - if there isn&apos;t, create it manually and close win it under the rep&apos;s name. In case the One time products have been sold together with RR products, please ensure that sum of the opportunities, and cycle price, is equal to the amount of the contract. For example, if you have a contract of $40,000, on which $15,000 are One-time product (needs to be in a separate opp as a cycle: one-time) + $25,000 as ARR (that will be into a separate opp under a cycle: annually, 2 years, etc)&lt;/li&gt;&lt;li&gt;Check what is the price of the one-time product - because it should be reduced from the ARR of the first opp, then we should insert it as the cycle price of the one-time opp, while making sure the Cycle is defined as One-time.&lt;/li&gt;&lt;/ol&gt;&lt;p&gt;&lt;strong&gt;How to understand what is the price of the one-time product:&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Check the &quot;Subscription Product &amp;amp; Charges&quot; layout.&lt;/li&gt;&lt;li&gt;Check for a related billing ticket&lt;/li&gt;&lt;li&gt;Ask the rep for the price&lt;/li&gt;&lt;/ul&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <name>Po_email_Not_billing</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>&lt;p&gt;Hi {!$Record.Owner.FirstName} {!$Record.Owner.LastName}/AR,&amp;nbsp;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;The customer PO for your Opportunity &lt;a href=&quot;{!opp_record_link}&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot;&gt;{!$Record.Name}&lt;/a&gt; has been received,&lt;/p&gt;&lt;p&gt;Opp Owner: No action required.&lt;/p&gt;&lt;p&gt;AR Team: Please ensure Zuora and the invoice have been updated accordingly and shared with the customer.&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(68, 68, 68); background-color: rgb(255, 255, 255);&quot;&gt;Zuora Billing Account Number: {!Get_Zuora_billing_Account.Zuora__AccountNumber__c}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(68, 68, 68); background-color: rgb(255, 255, 255);&quot;&gt;﻿Zuora Billing Account ID: {!Get_Zuora_billing_Account.Zuora__Zuora_Id__c}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Have a great day!&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Thank you&lt;/p&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <name>PO_Notification_By_biilling</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>&lt;p&gt;Hi {!$Record.Owner.FirstName} {!$Record.Owner.LastName},&amp;nbsp;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;The customer PO for your Opportunity &lt;a href=&quot;{!opp_record_link}&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot;&gt;{!$Record.Name}&lt;/a&gt;  has been received, and the opportunity has been updated accordingly.&lt;/p&gt;&lt;p&gt;No action is required, this is just an FYI.&lt;/p&gt;&lt;p&gt;Have a great day!&lt;/p&gt;&lt;p&gt;Thank you,&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <name>SDR_Lost_email_template</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); font-size: 11.36px; font-family: Arial, Helvetica, sans-serif; color: rgb(0, 0, 0);&quot;&gt;Hi,&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); font-size: 11.36px; font-family: Arial, Helvetica, sans-serif; color: rgb(0, 0, 0);&quot;&gt;An Opportunity that was created from an SDR meeting was marked as closed lost.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); font-size: 11.36px; font-family: Arial, Helvetica, sans-serif; color: rgb(0, 0, 0);&quot;&gt;Opportunity p name: {!$Record.Name}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); font-size: 11.36px; font-family: Arial, Helvetica, sans-serif; color: rgb(0, 0, 0);&quot;&gt;Account: {!$Record.AccountId}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); font-size: 11.36px; font-family: Arial, Helvetica, sans-serif; color: rgb(0, 0, 0);&quot;&gt;Meeting Name: {!$Record.Related_Meeting__r.Name}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); font-size: 11.36px; font-family: Arial, Helvetica, sans-serif; color: rgb(0, 0, 0);&quot;&gt;Meeting creator: {!$Record.Related_Meeting__r.Owner:User.FirstName} {!$Record.Related_Meeting__r.Owner:User.LastName}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); font-size: 11.36px; font-family: Arial, Helvetica, sans-serif; color: rgb(0, 0, 0);&quot;&gt;Meeting created date: {!$Record.Related_Meeting__r.CreatedDate}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); font-size: 11.36px; font-family: Arial, Helvetica, sans-serif; color: rgb(0, 0, 0);&quot;&gt;Cycle Price ($): {!$Record.Cycle_Price__c}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); font-size: 11.36px; font-family: Arial, Helvetica, sans-serif; color: rgb(0, 0, 0);&quot;&gt;Cycle: {!$Record.Cycle__c}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); font-size: 11.36px; font-family: Arial, Helvetica, sans-serif; color: rgb(0, 0, 0);&quot;&gt;Type: {!$Record.Type}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); font-size: 11.36px; font-family: Arial, Helvetica, sans-serif; color: rgb(0, 0, 0);&quot;&gt;Original Renewal Date: {!$Record.Original_Renewal_Date__c}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); font-size: 11.36px; font-family: Arial, Helvetica, sans-serif; color: rgb(0, 0, 0);&quot;&gt;Closed Lost Reason: {!$Record.Closed_Lost_Reason__c}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); font-size: 11.36px; font-family: Arial, Helvetica, sans-serif; color: rgb(0, 0, 0);&quot;&gt;Customer Primary Use Case: {!$Record.Primary_Use_Case__c}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); font-size: 11.36px; font-family: Arial, Helvetica, sans-serif; color: rgb(0, 0, 0);&quot;&gt;Customer Secondary Use Case: {!$Record.Secondary_Use_Case__c}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); font-size: 11.36px; font-family: Arial, Helvetica, sans-serif; color: rgb(0, 0, 0);&quot;&gt;Additional details: {!$Record.Closed_Lost_Reason_More_details__c}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); font-size: 11.36px; font-family: Arial, Helvetica, sans-serif; color: rgb(0, 0, 0);&quot;&gt;Using a Competitor: {!$Record.Competition__c}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); font-size: 11.36px; font-family: Arial, Helvetica, sans-serif; color: rgb(0, 0, 0);&quot;&gt;Competitor Product: {!$Record.Competitor_Product__c}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); font-size: 11.36px; font-family: Arial, Helvetica, sans-serif; color: rgb(0, 0, 0);&quot;&gt;Deal lost to a Competitor (Y/N): {!$Record.Deal_Lost_To_a_Competitor__c}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); font-size: 11.36px; font-family: Arial, Helvetica, sans-serif; color: rgb(0, 0, 0);&quot;&gt;Opportunity Link: {!opp_record_link}&lt;/span&gt;&lt;/p&gt;</text>
+    </textTemplates>
+    <triggerOrder>600</triggerOrder>
+    <variables>
+        <name>New_Case_Var</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <objectType>Case</objectType>
+    </variables>
+    <variables>
+        <name>PO_Recipients_email</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>SDRleaderemailAssignment</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Weeks_in_Request__c</fullName>
+    <description>MIS-767</description>
+    <externalId>false</externalId>
+    <formula>IF(
+ISPICKVAL( Status__c, &apos;In Process&apos;),
+(TODAY() - Onboarding_Start_Date__c)/7 ,
+
+IF(
+ISPICKVAL( Status__c, &apos;Completed&apos;),
+(Onboarding_Completed_Date__c - Onboarding_Start_Date__c)/7 ,
+
+null
+)
+
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Weeks in Request</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

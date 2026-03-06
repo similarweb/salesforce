@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SYS_SDR_Name_Role__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(SDR_Name__r.UserRoleId = &quot;00Eb0000000i11v&quot; , &quot;SDR - Chat&quot;, 
+IF(SDR_Name__r.UserRoleId = &quot;00Eb0000000i120&quot; , &quot;SDR - Chat Manager&quot;, 
+IF(SDR_Name__r.UserRoleId = &quot;00Eb0000000aL6m&quot; , &quot;SDR - ENT&quot;, 
+IF(SDR_Name__r.UserRoleId = &quot;00Eb0000000aLOb&quot; , &quot;SDR - ENT Manager&quot;, 
+IF(SDR_Name__r.UserRoleId = &quot;00Eb0000000t99i&quot; , &quot;SDR - SMB&quot;, 
+IF(SDR_Name__r.UserRoleId = &quot;00Eb0000000aLOg&quot; , &quot;SDR - SMB Manager&quot;, NULL))))))</formula>
+    <label>SYS SDR Name Role</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

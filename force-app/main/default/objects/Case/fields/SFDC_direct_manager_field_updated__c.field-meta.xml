@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SFDC_direct_manager_field_updated__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>manager + old/new teams</inlineHelpText>
+    <label>SFDC direct manager field updated</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>SFDC fields updated</fullName>
+                <default>false</default>
+                <label>SFDC fields updated</label>
+            </value>
+            <value>
+                <fullName>No need on this user</fullName>
+                <default>false</default>
+                <label>No need on this user</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

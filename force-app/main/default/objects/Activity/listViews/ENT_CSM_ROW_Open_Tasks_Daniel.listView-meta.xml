@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ENT_CSM_ROW_Open_Tasks_Daniel</fullName>
+    <columns>CORE.USERS.FIRST_NAME</columns>
+    <columns>CORE.USERS.LAST_NAME</columns>
+    <columns>TASK.SUBJECT</columns>
+    <columns>TASK.DUE_DATE</columns>
+    <columns>TASK.STATUS</columns>
+    <columns>Type__c</columns>
+    <filterScope>Team</filterScope>
+    <filters>
+        <field>TASK.STATUS</field>
+        <operation>notEqual</operation>
+        <value>Completed,Rejected</value>
+    </filters>
+    <filters>
+        <field>TASK.WHAT_NAME</field>
+        <operation>contains</operation>
+        <value>ENT CSM ROW</value>
+    </filters>
+    <label>ENT CSM ROW Open Tasks - Daniel</label>
+</ListView>

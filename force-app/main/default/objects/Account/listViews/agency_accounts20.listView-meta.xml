@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>agency_accounts20</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>ACCOUNT.ADDRESS1_STATE</columns>
+    <columns>ACCOUNT.PHONE1</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>ACCOUNT.LAST_ACTIVITY</columns>
+    <columns>Number_of_Open_Opps__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Business_Unit__c</field>
+        <operation>equals</operation>
+        <value>Inside Sales</value>
+    </filters>
+    <filters>
+        <field>ACCOUNT.ADDRESS1_COUNTRY</field>
+        <operation>equals</operation>
+        <value>united states,canada,united kingdom</value>
+    </filters>
+    <filters>
+        <field>CORE.USERS.ALIAS</field>
+        <operation>equals</operation>
+        <value>jsher,eberg,smerl,bbitt</value>
+    </filters>
+    <filters>
+        <field>SW_Industry__c</field>
+        <operation>equals</operation>
+        <value>Agency,Consulting and Market Research</value>
+    </filters>
+    <label>agency accounts</label>
+</ListView>

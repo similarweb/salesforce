@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Inv_America_RE</fullName>
+    <columns>LEAD.FIRST_NAME</columns>
+    <columns>LEAD.LAST_NAME</columns>
+    <columns>LEAD.COMPANY</columns>
+    <columns>LEAD.EMAIL</columns>
+    <columns>LEAD.LAST_ACTIVITY</columns>
+    <columns>LEAD.TITLE</columns>
+    <columns>SW_Industry__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Email_address_domain_type__c</field>
+        <operation>notEqual</operation>
+        <value>Private</value>
+    </filters>
+    <filters>
+        <field>LEAD.EMAIL</field>
+        <operation>notContain</operation>
+        <value>school,college,university,sd,k12,institute,schools,0,1,2,3,4,5,6,7,8,9</value>
+    </filters>
+    <filters>
+        <field>LEAD.STATUS</field>
+        <operation>notEqual</operation>
+        <value>Qualified,Unqualified</value>
+    </filters>
+    <filters>
+        <field>LEAD.CREATED_DATE</field>
+        <operation>greaterOrEqual</operation>
+        <value>LAST_N_DAYS:40</value>
+    </filters>
+    <filters>
+        <field>LEAD.COUNTRY_CODE</field>
+        <operation>equals</operation>
+        <value>CA,US</value>
+    </filters>
+    <filters>
+        <field>ROE_Division__c</field>
+        <operation>contains</operation>
+        <value>Investors</value>
+    </filters>
+    <filters>
+        <field>SW_Industry__c</field>
+        <operation>equals</operation>
+        <value>Banking and insurance,Consulting and Market Research,Consulting &amp; Market Research,Equity Research,Financial services,Hedge Funds and Asset Management,Investment Banking,Investors,Private Equity and Venture Capital</value>
+    </filters>
+    <filters>
+        <field>LEAD.LEAD_SOURCE</field>
+        <operation>equals</operation>
+        <value>ContactForm,Pro</value>
+    </filters>
+    <filters>
+        <field>Department__c</field>
+        <operation>equals</operation>
+        <value>BI / Analytics,Corporate Development / Mergers and Acquisitions,Investment,Management (C-Level),Strategy / Market Research</value>
+    </filters>
+    <filters>
+        <field>LEAD.LAST_ACTIVITY</field>
+        <operation>notEqual</operation>
+        <value>LAST_N_DAYS:8</value>
+    </filters>
+    <label>Inv America RE</label>
+</ListView>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Is_Converted_By_Lean_Data__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Technical checkbox to indicate whether the contact was converted by lean data</description>
+    <externalId>false</externalId>
+    <label>Is Converted By Lean Data</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

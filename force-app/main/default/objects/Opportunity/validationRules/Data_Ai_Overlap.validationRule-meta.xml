@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Data_Ai_Overlap</fullName>
+    <active>false</active>
+    <description>When an Account is marked as &quot;Data.Ai Overlap&quot; the User cannot check the &quot;Data.Ai/App Annie&quot; checkbox on the Opportunity.</description>
+    <errorConditionFormula>ISCHANGED(Data_ai_App_Annie__c) &amp;&amp;
+Data_ai_App_Annie__c &amp;&amp;
+Account.Data_Ai_Overlap__c
+&amp;&amp; $Profile.Name !=&quot;System Administrator&quot;
+&amp;&amp; !$User.Financial_Invoice_Management__c
+&amp;&amp; $Profile.Name != &quot;SW SalesOps&quot;
+&amp;&amp; $Profile.Name != &quot;SW SalesOps Extended&quot;
+&amp;&amp; RecordType.DeveloperName &lt;&gt;&quot;Rank_Ranger&quot;</errorConditionFormula>
+    <errorMessage>You cannot check the “App Intelligence” for accounts that are “App Intelligence Overlap/ excluded industry</errorMessage>
+</ValidationRule>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cant_be_60_without_legal_entity</fullName>
+    <active>true</active>
+    <errorConditionFormula>RecordType.DeveloperName = &quot;Wolves&quot; &amp;&amp;  ISPICKVAL(StageName  , &quot;IO&quot;) &amp;&amp;  ISBLANK(Legal_entity__c) &amp;&amp; 
+NOT($Profile.Id=&apos;00eb0000000oBvcAAE&apos;)</errorConditionFormula>
+    <errorMessage>Please fill Legal Entity field</errorMessage>
+</ValidationRule>

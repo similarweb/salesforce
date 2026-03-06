@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cannot_change_status_when_Completed</fullName>
+    <active>true</active>
+    <description>ISPICKVAL(Status__c , &quot;Completed&quot;)&amp;&amp;
+ISCHANGED(Status__c )
+&amp;&amp; ($Profile.Name != &quot;System Administrator&quot; )
+&amp;&amp; ($Profile.Name != &quot;SW SalesOps&quot; )</description>
+    <errorConditionFormula>(ISPICKVAL(PRIORVALUE(Status__c ), &quot;Completed&quot;)||
+ISPICKVAL(PRIORVALUE(Status__c ), &quot;Unqualified&quot;))
+&amp;&amp;
+ISCHANGED(Status__c )
+&amp;&amp; ($Profile.Name != &quot;System Administrator&quot; )
+&amp;&amp; ($Profile.Name != &quot;SW SalesOps&quot; )
+&amp;&amp; ($Profile.Name != &quot;SW SalesOps Extended&quot; )</errorConditionFormula>
+    <errorDisplayField>Status__c</errorDisplayField>
+    <errorMessage>Cannot change status when meeting is completed.
+Please contact SalesOps for further assistance.</errorMessage>
+</ValidationRule>

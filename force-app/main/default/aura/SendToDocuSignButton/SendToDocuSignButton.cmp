@@ -1,0 +1,24 @@
+<aura:component extends="c:GenericQuoteButton" controller="QuoteOppFilesRelatedListController">
+    <aura:attribute name="relatedOpportunityId" type="String"/>
+    <aura:attribute name="docusignLink" type="String"/>
+    <aura:attribute name="isMoreFiles" type="Boolean" default="false"/>
+    <aura:attribute name="showModal" type="Boolean" default="false"/>
+    <aura:attribute name="signatureDateMode" type="Boolean"/>
+    <aura:attribute name="isSendToDocuSignAvailable" type="Boolean" default="false"/>
+    <aura:attribute name="isGreenLine" type="Boolean" default="false"/>
+    <aura:attribute name="isDisabled" type="Boolean" default="false"/>
+    <aura:attribute name="isPassed" type="Boolean" default="false"/>
+    
+
+    <lightning:navigation aura:id="navService"/>
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
+    <aura:handler event="c:ApplicationRefresgEvent" action="{!c.handleApplicationRefreshFired}"/>
+
+    <aura:if isTrue="{!v.isGreenLine}">
+        <button disabled="{!v.isDisabled}" 
+            class="{!'slds-button slds-button_brand ff ' + if(and(not(v.isDisabled),v.isPassed), 'passedGenerateProposalButton',if(and(v.isDisabled,v.isPassed),'passedButton',if(v.isDisabled,'disabledButton','enabledButton')))}"
+            onclick="{!c.sendToDocuSign}">
+            Send to DocuSign
+        </button>
+    </aura:if>
+</aura:component>

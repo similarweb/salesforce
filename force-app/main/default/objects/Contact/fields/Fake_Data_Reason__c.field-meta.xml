@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Fake_Data_Reason__c</fullName>
+    <description>MIS-7697
+Field will be populated automatically from Groudon or LeadCapture trigger. 
+&quot;Blacklist Website&quot; (pre-enrichment)
+&quot;Groudon detected an invalid name.&quot;
+&quot;Groudon detected an invalid email.&quot;
+&quot;Groudon detected an invalid website.&quot;</description>
+    <externalId>false</externalId>
+    <label>Fake Data Reason</label>
+    <length>255</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

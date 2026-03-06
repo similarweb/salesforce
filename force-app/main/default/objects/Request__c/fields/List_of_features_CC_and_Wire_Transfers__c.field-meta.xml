@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>List_of_features_CC_and_Wire_Transfers__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>For CC or Wire Transfer account, please include all the features sold to the customer - Base Package &amp; Any Add Ons.</inlineHelpText>
+    <label>List of features (CC and Wire Transfers)</label>
+    <length>1000</length>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>3</visibleLines>
+</CustomField>

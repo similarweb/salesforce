@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Request_Type_SI_Support</fullName>
+    <active>false</active>
+    <description>MIS-2863</description>
+    <errorConditionFormula>OR(
+AND(
+ISNEW(),
+ISPICKVAL(Request_Type__c,&apos;SI Support&apos;),
+RecordType.DeveloperName = &quot;Solution_Engineering&quot;,
+$Profile.Name &lt;&gt; &apos;System Administrator&apos;,
+$Profile.Name &lt;&gt; &apos;SW Solutions&apos;
+),
+AND(
+RecordType.DeveloperName = &quot;Solution_Engineering&quot;,
+ISCHANGED(Request_Type__c),
+ISPICKVAL(Request_Type__c,&apos;SI Support&apos;),
+$Profile.Name &lt;&gt; &apos;System Administrator&apos;,
+$Profile.Name &lt;&gt; &apos;SW Solutions&apos;
+)
+)</errorConditionFormula>
+    <errorDisplayField>Request_Type__c</errorDisplayField>
+    <errorMessage>Only SW Solutions can create a Solution Engineering request with the ‘SI Support’ type or change the Type to ‘SI Support’.</errorMessage>
+</ValidationRule>

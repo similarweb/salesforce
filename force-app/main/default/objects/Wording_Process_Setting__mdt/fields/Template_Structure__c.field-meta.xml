@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Template_Structure__c</fullName>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Template Structure</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Quantity Structure</fullName>
+                <default>true</default>
+                <label>Quantity Structure</label>
+            </value>
+            <value>
+                <fullName>Data Set Structure</fullName>
+                <default>false</default>
+                <label>Data Set Structure</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

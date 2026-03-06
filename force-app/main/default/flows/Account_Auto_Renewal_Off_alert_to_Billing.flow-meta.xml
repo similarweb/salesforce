@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>60.0</apiVersion>
+    <description>MIS-4924</description>
+    <environments>Default</environments>
+    <interviewLabel>Account - Auto-Renewal Off - alert to Billing {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Account - Auto-Renewal Off - alert to Billing</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordCreates>
+        <description>MQ-2242</description>
+        <name>Update_Zuora_Remove_Auto_Renewal</name>
+        <label>Update Zuora Remove Auto Renewal</label>
+        <locationX>308</locationX>
+        <locationY>384</locationY>
+        <inputAssignments>
+            <field>Process_Name__c</field>
+            <value>
+                <stringValue>Auto Renewal</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Subscription__c</field>
+            <value>
+                <elementReference>Get_Last_Active_Subscription.Zuora__External_Id__c</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Zuora_Update__e</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordLookups>
+        <name>Get_Last_Active_Subscription</name>
+        <label>Get Last Active Subscription</label>
+        <locationX>308</locationX>
+        <locationY>276</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Update_Zuora_Remove_Auto_Renewal</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Zuora__Account__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Zuora__Status__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Active</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Zuora__Subscription__c</object>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>Name</queriedFields>
+        <queriedFields>Zuora__External_Id__c</queriedFields>
+        <sortField>CreatedDate</sortField>
+        <sortOrder>Desc</sortOrder>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Auto_Renewal_Subscription__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <object>Account</object>
+        <recordTriggerType>Update</recordTriggerType>
+        <scheduledPaths>
+            <connector>
+                <targetReference>Get_Last_Active_Subscription</targetReference>
+            </connector>
+            <pathType>AsyncAfterCommit</pathType>
+        </scheduledPaths>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <textTemplates>
+        <name>Template_Body_RenewalOff_Billing</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>Hello Billing Team,  
+The account - {!$Record.Name} {!$Record.Link_to_Account__c} asked to not auto-renew their active subscription.
+Please process a Terms-and-Conditions Order to uncheck the Auto renew box on the subscription.
+Zuora ID - {!Get_Last_Active_Subscription.Zuora__External_Id__c}
+Subscription Number - {!Get_Last_Active_Subscription.Name}
+
+Thanks</text>
+    </textTemplates>
+    <textTemplates>
+        <name>Template_Subject_RenewalOff_Billing</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>Auto Renewal Off request - {!$Record.Name}</text>
+    </textTemplates>
+</Flow>

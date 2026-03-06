@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Phone_or_Email_opt_out</fullName>
+    <active>true</active>
+    <description>Last - MIS-2939 - added email opt-out
+MIS-2095 - if the phone opt-out is checked you can&apos;t enter a phone number unless you are a sales ops or integration</description>
+    <errorConditionFormula>AND(
+OR(
+AND(
+Phone_Opt_out__c = False,
+ischanged(Phone_Opt_out__c)
+),
+AND(
+HasOptedOutOfEmail = False,
+ISCHANGED(HasOptedOutOfEmail)
+)
+),
+$Profile.Name &lt;&gt; &quot;SW SalesOps Extended&quot;,
+$Profile.Name &lt;&gt; &quot;SW SalesOps&quot;,
+$Profile.Name &lt;&gt; &quot;Integration User&quot;,
+$Profile.Name &lt;&gt; &quot;Integration User No DF&quot;,
+$User.Id&lt;&gt;Owner.ManagerId
+)</errorConditionFormula>
+    <errorMessage>The user requested not to be contacted by phone or email, if you want to change the status, please contact Salesops and provide legal confirmation for this change</errorMessage>
+</ValidationRule>

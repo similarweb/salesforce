@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Multithread_Meeting__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>MIS-6407
+multithreading refers to the strategy of building relationships and engaging with multiple stakeholders or decision-makers within a single account or organization.</description>
+    <externalId>false</externalId>
+    <label>Multithread Meeting</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

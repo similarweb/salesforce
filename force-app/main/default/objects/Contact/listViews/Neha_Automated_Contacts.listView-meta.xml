@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Neha_Automated_Contacts</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>CONTACT.TITLE</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Account_Owner__c</field>
+        <operation>contains</operation>
+        <value>Neha</value>
+    </filters>
+    <filters>
+        <field>SW_Industry__c</field>
+        <operation>contains</operation>
+        <value>CPG,Retail,Travel</value>
+    </filters>
+    <filters>
+        <field>CONTACT.TITLE</field>
+        <operation>contains</operation>
+        <value>marketing</value>
+    </filters>
+    <filters>
+        <field>CONTACT.LAST_ACTIVITY</field>
+        <operation>notEqual</operation>
+        <value>LAST_YEAR</value>
+    </filters>
+    <filters>
+        <field>CONTACT.TITLE</field>
+        <operation>notContain</operation>
+        <value>manager,associate,coordinator,analyst,CMO,Chief,CIO,COO,CDO,Executive,Officer</value>
+    </filters>
+    <label>Neha Automated Contacts</label>
+</ListView>

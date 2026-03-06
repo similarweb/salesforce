@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CreatedToday_no_LeadCapture</fullName>
+    <columns>NAME</columns>
+    <columns>CREATED_DATE</columns>
+    <columns>Record_Ids__c</columns>
+    <columns>Log_Type__c</columns>
+    <columns>Apex_class__c</columns>
+    <columns>Apex_Method__c</columns>
+    <columns>Detailed_Error_Message__c</columns>
+    <columns>Detailed_Information__c</columns>
+    <columns>HTTP_Endpoint__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CREATED_DATE</field>
+        <operation>equals</operation>
+        <value>LAST_N_DAYS:2</value>
+    </filters>
+    <filters>
+        <field>Apex_class__c</field>
+        <operation>notEqual</operation>
+        <value>LeadCaptureServiceHandler</value>
+    </filters>
+    <label>CreatedToday - no LeadCapture</label>
+</ListView>

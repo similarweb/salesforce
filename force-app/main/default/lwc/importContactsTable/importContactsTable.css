@@ -1,0 +1,17 @@
+.table_header__cell{
+    width: 8.3%;
+    text-align: center;
+}
+
+.table_header_us__cell{
+    width: 4%;
+    text-align: center;
+}
+
+.table_header{
+    border-top: 3px solid #0070d2;
+    background-color: rgba(0,112,210,.1);
+    display: flex;
+    margin-bottom: 15px;
+    padding: 5px 0 5px 0;
+}

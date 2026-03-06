@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Solution_Fit__c</fullName>
+    <externalId>false</externalId>
+    <label>Solution Fit</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Marketing: SEO / Content</fullName>
+                <default>false</default>
+                <label>Marketing: SEO / Content</label>
+            </value>
+            <value>
+                <fullName>Marketing: Management / General</fullName>
+                <default>false</default>
+                <label>Marketing: Management / General</label>
+            </value>
+            <value>
+                <fullName>Marketing: PPC / Display</fullName>
+                <default>false</default>
+                <label>Marketing: PPC / Display</label>
+            </value>
+            <value>
+                <fullName>Marketing: PR / Comms / Social Media</fullName>
+                <default>false</default>
+                <label>Marketing: PR / Comms / Social Media</label>
+            </value>
+            <value>
+                <fullName>Marketing: Affiliate / Media Buying</fullName>
+                <default>false</default>
+                <label>Marketing: Affiliate / Media Buying</label>
+            </value>
+            <value>
+                <fullName>eCommerce</fullName>
+                <default>false</default>
+                <label>eCommerce</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Account Management / Customer Success</fullName>
+                <default>false</default>
+                <label>Account Management / Customer Success</label>
+            </value>
+            <value>
+                <fullName>BI / Analytics</fullName>
+                <default>false</default>
+                <label>BI / Analytics</label>
+            </value>
+            <value>
+                <fullName>Corporate Development / Mergers and Acquisitions</fullName>
+                <default>false</default>
+                <label>Corporate Development / Mergers and Acquisitions</label>
+            </value>
+            <value>
+                <fullName>Investment</fullName>
+                <default>false</default>
+                <label>Investment</label>
+            </value>
+            <value>
+                <fullName>Management (C-Level)</fullName>
+                <default>false</default>
+                <label>Management (C-Level)</label>
+            </value>
+            <value>
+                <fullName>Product Management</fullName>
+                <default>false</default>
+                <label>Product Management</label>
+            </value>
+            <value>
+                <fullName>Sales / Business Development</fullName>
+                <default>false</default>
+                <label>Sales / Business Development</label>
+            </value>
+            <value>
+                <fullName>Sales Operations</fullName>
+                <default>false</default>
+                <label>Sales Operations</label>
+            </value>
+            <value>
+                <fullName>Strategy / Market Research</fullName>
+                <default>false</default>
+                <label>Strategy / Market Research</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

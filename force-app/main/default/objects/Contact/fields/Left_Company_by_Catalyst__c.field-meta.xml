@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Left_Company_by_Catalyst__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>MIS-5278
+updated by User Gems</description>
+    <externalId>false</externalId>
+    <label>Left Company by Catalyst</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

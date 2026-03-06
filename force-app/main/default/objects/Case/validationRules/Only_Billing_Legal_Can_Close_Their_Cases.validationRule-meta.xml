@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Only_Billing_Legal_Can_Close_Their_Cases</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(ISCHANGED(Status) , 
+OR(
+				ISPICKVAL(Status,&apos;Completed&apos;),ISPICKVAL(Status,&apos;Cancelled&apos;)
+    ),
+					OR(
+								AND(RecordType.DeveloperName =&apos;Legal&apos;,$User.Division &lt;&gt; &apos;Legal&apos; ) ,
+				AND(RecordType.DeveloperName =&apos;Billing&apos;,$User.Division &lt;&gt; &apos;Billing&apos; )
+			   	)
+				)</errorConditionFormula>
+    <errorMessage>You are not authorized to close this case. Only members of the owning team are authorized to close it.</errorMessage>
+</ValidationRule>

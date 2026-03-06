@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>65.0</apiVersion>
+    <decisions>
+        <name>Outdated_history</name>
+        <label>Outdated history?</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Outdated_history</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Date__c</leftValueReference>
+                <operator>LessThan</operator>
+                <rightValue>
+                    <elementReference>TodayMinusRetentionMonths</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Delete_outdated_history</targetReference>
+            </connector>
+            <label>Yes, Outdated history</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Should_run_flow</name>
+        <label>Should run flow?</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Should_run_flow</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>RunFlow</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Outdated_history</targetReference>
+            </connector>
+            <label>Yes, Should run flow</label>
+        </rules>
+    </decisions>
+    <environments>Default</environments>
+    <formulas>
+        <name>RunFlow</name>
+        <dataType>Boolean</dataType>
+        <expression>DAY(TODAY()) = 1</expression>
+    </formulas>
+    <formulas>
+        <name>TodayMinusRetentionMonths</name>
+        <dataType>Date</dataType>
+        <expression>ADDMONTHS(TODAY(), - {!$Setup.User_History_Settings__c.Retention_Months__c})</expression>
+    </formulas>
+    <interviewLabel>User History: {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>User History: Clear Scheduled</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordDeletes>
+        <name>Delete_outdated_history</name>
+        <label>Delete outdated history</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <inputReference>$Record</inputReference>
+    </recordDeletes>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Should_run_flow</targetReference>
+        </connector>
+        <object>User_History__c</object>
+        <schedule>
+            <frequency>Daily</frequency>
+            <startDate>2025-12-12</startDate>
+            <startTime>00:00:00.000Z</startTime>
+        </schedule>
+        <triggerType>Scheduled</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

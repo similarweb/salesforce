@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Xavier_Hardmon_Home_Services</fullName>
+    <booleanFilter>1 AND (2 OR 3) AND 4 AND 5 AND 6 AND 7 AND 8 AND 9 and 10</booleanFilter>
+    <columns>FULL_NAME</columns>
+    <columns>CONTACT.TITLE</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.PHONE3</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Account.Sub_Division__c</field>
+        <operation>equals</operation>
+        <value>na enterprise</value>
+    </filters>
+    <filters>
+        <field>CONTACT.PHONE1</field>
+        <operation>notEqual</operation>
+    </filters>
+    <filters>
+        <field>CONTACT.PHONE3</field>
+        <operation>notEqual</operation>
+    </filters>
+    <filters>
+        <field>CONTACT.TITLE</field>
+        <operation>contains</operation>
+        <value>Digital Marketing,Performance Marketing,CMO,BI,Business Intelligence,Data,Strategy,Market</value>
+    </filters>
+    <filters>
+        <field>CONTACT.TITLE</field>
+        <operation>notContain</operation>
+        <value>account executive,manager,specialist</value>
+    </filters>
+    <filters>
+        <field>Account.SW_Industry__c</field>
+        <operation>equals</operation>
+        <value>B2C Internet Services,&quot;CPG, Food &amp; Beverages&quot;,&quot;CPG, Food and Beverages&quot;,CPG,Retail / eCommerce,Retail and eCommerce</value>
+    </filters>
+    <filters>
+        <field>Account.Status__c</field>
+        <operation>notEqual</operation>
+        <value>Active,Part Of Another Subscription</value>
+    </filters>
+    <filters>
+        <field>CONTACT.CREATED_DATE</field>
+        <operation>equals</operation>
+        <value>LAST_N_YEARS:2</value>
+    </filters>
+    <filters>
+        <field>CONTACT.LAST_ACTIVITY</field>
+        <operation>lessOrEqual</operation>
+        <value>LAST_N_DAYS:60</value>
+    </filters>
+    <filters>
+        <field>CORE.USERS.ALIAS</field>
+        <operation>equals</operation>
+        <value>Hshor</value>
+    </filters>
+    <label>Xavier Hardmon Home Services</label>
+</ListView>

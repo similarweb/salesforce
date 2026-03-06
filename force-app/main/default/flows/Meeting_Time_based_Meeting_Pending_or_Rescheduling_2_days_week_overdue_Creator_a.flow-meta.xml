@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Alert_for_Pending_or_Rescheduling_Meeting_Status_Creator_and_Creator_Manager</name>
+        <label>Alert for Pending or Rescheduling Meeting Status (Creator and Creator Manager)</label>
+        <locationX>269</locationX>
+        <locationY>359</locationY>
+        <actionName>Meeting__c.Meeting_Pending_or_Rescheduling_2_days_week_overdue_Creator_and_Creator_Manager</actionName>
+        <actionType>emailAlert</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>Meeting__c.Meeting_Pending_or_Rescheduling_2_days_week_overdue_Creator_and_Creator_Manager</nameSegment>
+    </actionCalls>
+    <actionCalls>
+        <name>X2_days_week_overdue_Creator_and_Creator_Manager_2</name>
+        <label>2 days/week overdue (Creator and Creator Manager)2</label>
+        <locationX>761</locationX>
+        <locationY>279</locationY>
+        <actionName>Meeting__c.Meeting_Pending_or_Rescheduling_2_days_week_overdue_Creator_and_Creator_Manager</actionName>
+        <actionType>emailAlert</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>Meeting__c.Meeting_Pending_or_Rescheduling_2_days_week_overdue_Creator_and_Creator_Manager</nameSegment>
+    </actionCalls>
+    <apiVersion>54.0</apiVersion>
+    <description>If &apos;Status&apos; = Pending or Rescheduling and &apos;CreatedBy.FirstName&apos; does not contain &apos;Integration&apos; and &apos;CreatedBy.LastName&apos; does not contain &apos;Integration&apos; and &apos;CreatedBy.Profile.Name&apos; does not equal &apos;Administrator&apos; - execute Scheduled Path 2 and 7 days after &apos;Meeting Date&apos;</description>
+    <environments>Default</environments>
+    <interviewLabel>Meeting - Time-based - Meeting Pending or Rescheduling - 2 days/week overdue (Creator and Creator Manager) {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Meeting - Time-based - Meeting Pending or Rescheduling - 2 days/week overdue (Creator and Creator Manager)</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>336</locationX>
+        <locationY>27</locationY>
+        <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+        <filterFormula>AND(
+NOT(CONTAINS( {!$Record.CreatedBy.Profile.Name},&apos;System Administrator&apos;)),  
+NOT(CONTAINS( {!$Record.CreatedBy.Profile.Name},&apos;Integration&apos;)),
+NOT(CONTAINS( {!$Record.CreatedBy.FirstName},&apos;Integration&apos;)),
+NOT(CONTAINS( {!$Record.CreatedBy.LastName},&apos;Integration&apos;)),
+OR(
+ISPICKVAL({!$Record.Status__c}, &apos;Pending&apos;),
+ISPICKVAL({!$Record.Status__c}, &apos;Rescheduling&apos;)
+),
+OR(
+{!$Record.CreatedBy.Manager.IsActive} = true,
+{!$Record.CreatedBy.IsActive} = true,
+NOT(ISBLANK({!$Record.Creator_Manager_Email__c}))
+)
+)</filterFormula>
+        <object>Meeting__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <scheduledPaths>
+            <name>ScheduledPath1</name>
+            <connector>
+                <targetReference>Alert_for_Pending_or_Rescheduling_Meeting_Status_Creator_and_Creator_Manager</targetReference>
+            </connector>
+            <label>ScheduledPath1</label>
+            <offsetNumber>2</offsetNumber>
+            <offsetUnit>Days</offsetUnit>
+            <recordField>Date__c</recordField>
+            <timeSource>RecordField</timeSource>
+        </scheduledPaths>
+        <scheduledPaths>
+            <name>ScheduledPath2</name>
+            <connector>
+                <targetReference>X2_days_week_overdue_Creator_and_Creator_Manager_2</targetReference>
+            </connector>
+            <label>ScheduledPath2</label>
+            <offsetNumber>7</offsetNumber>
+            <offsetUnit>Days</offsetUnit>
+            <recordField>Date__c</recordField>
+            <timeSource>RecordField</timeSource>
+        </scheduledPaths>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

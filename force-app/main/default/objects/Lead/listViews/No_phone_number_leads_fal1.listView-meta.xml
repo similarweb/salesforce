@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>No_phone_number_leads_fal1</fullName>
+    <columns>LEAD.COMPANY</columns>
+    <columns>LEAD.STATE</columns>
+    <columns>LEAD.EMAIL</columns>
+    <columns>LEAD.STATUS</columns>
+    <columns>LEAD.CREATED_DATE</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>LEAD.UNREAD</columns>
+    <columns>LEAD.PHONE</columns>
+    <columns>LEAD.FIRST_NAME</columns>
+    <columns>LEAD.LAST_NAME</columns>
+    <columns>Lead_Creation_Date_For_Mapping__c</columns>
+    <columns>LEAD.LAST_ACTIVITY</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+        <field>LEAD.CREATED_DATE</field>
+        <operation>greaterThan</operation>
+        <value>10/1/2016 12:00 AM</value>
+    </filters>
+    <filters>
+        <field>LEAD.COUNTRY</field>
+        <operation>notEqual</operation>
+        <value>United States,Canada,Brazil,United Kingdom,Colombia,Mexico</value>
+    </filters>
+    <filters>
+        <field>LEAD.PHONE</field>
+        <operation>equals</operation>
+    </filters>
+    <filters>
+        <field>LEAD.STATUS</field>
+        <operation>notEqual</operation>
+        <value>Qualified,Unqualified,SDR Prospecting</value>
+    </filters>
+    <filters>
+        <field>LEAD.COMPANY</field>
+        <operation>notEqual</operation>
+        <value>&lt;unknown&gt;</value>
+    </filters>
+    <label>No phone number leads fal</label>
+</ListView>

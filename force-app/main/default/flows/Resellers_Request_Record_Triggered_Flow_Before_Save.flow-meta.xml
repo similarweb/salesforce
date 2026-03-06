@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>54.0</apiVersion>
+    <decisions>
+        <name>Next_Rule</name>
+        <label>Next Rule</label>
+        <locationX>515</locationX>
+        <locationY>544</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Next_Rule1</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Id</leftValueReference>
+                <operator>EqualTo</operator>
+            </conditions>
+            <label>Next Rule1</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>If record is new and Status = Solved or if Status is changed to Solved - execute &apos;Is new or Status is changed&apos; outcome</description>
+        <name>Rule_NSC_Is_new_or_Status_is_changed</name>
+        <label>*Rule (NSC)* - Is new or Status is changed</label>
+        <locationX>380</locationX>
+        <locationY>357</locationY>
+        <defaultConnector>
+            <targetReference>Next_Rule</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Is_new_or_Status_is_changed</name>
+            <conditionLogic>(1 OR 2) AND 3</conditionLogic>
+            <conditions>
+                <leftValueReference>fr_ISNEW</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Solved</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>NCS_Update_Solved_Date</targetReference>
+            </connector>
+            <label>Is new or Status is changed</label>
+        </rules>
+    </decisions>
+    <formulas>
+        <name>fr_ISNEW</name>
+        <dataType>Boolean</dataType>
+        <expression>ISNEW()</expression>
+    </formulas>
+    <formulas>
+        <name>fr_NOW</name>
+        <dataType>DateTime</dataType>
+        <expression>NOW()</expression>
+    </formulas>
+    <interviewLabel>Resellers Request - Record Triggered Flow - Before Save {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Resellers Request - Record Triggered Flow - Before Save</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <description>Update Solved Date</description>
+        <name>NCS_Update_Solved_Date</name>
+        <label>NCS - Update Solved Date</label>
+        <locationX>661</locationX>
+        <locationY>344</locationY>
+        <connector>
+            <targetReference>Next_Rule</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Solved_Date__c</field>
+            <value>
+                <elementReference>fr_NOW</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>410</locationX>
+        <locationY>48</locationY>
+        <connector>
+            <targetReference>Rule_NSC_Is_new_or_Status_is_changed</targetReference>
+        </connector>
+        <object>Resellers_Ticket__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

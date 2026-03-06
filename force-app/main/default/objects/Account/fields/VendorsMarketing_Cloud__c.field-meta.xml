@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VendorsMarketing_Cloud__c</fullName>
+    <externalId>false</externalId>
+    <label>Marketing Cloud</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Oracle</fullName>
+                <default>false</default>
+                <label>Oracle</label>
+            </value>
+            <value>
+                <fullName>Adobe</fullName>
+                <default>false</default>
+                <label>Adobe</label>
+            </value>
+            <value>
+                <fullName>Salesforce Marketing Cloud</fullName>
+                <default>false</default>
+                <label>Salesforce Marketing Cloud</label>
+            </value>
+            <value>
+                <fullName>IBM</fullName>
+                <default>false</default>
+                <label>IBM</label>
+            </value>
+            <value>
+                <fullName>Marketo</fullName>
+                <default>false</default>
+                <label>Marketo</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

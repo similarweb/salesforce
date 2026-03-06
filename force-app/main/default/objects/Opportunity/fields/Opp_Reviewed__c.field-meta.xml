@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Opp_Reviewed__c</fullName>
+    <externalId>false</externalId>
+    <label>Deal Desk Opp Approval</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Varun Chaudhry</fullName>
+                <default>false</default>
+                <label>Varun Chaudhry</label>
+            </value>
+            <value>
+                <fullName>Leanne Barazani</fullName>
+                <default>false</default>
+                <label>Leanne Barazani</label>
+            </value>
+            <value>
+                <fullName>Monica Nguyen</fullName>
+                <default>false</default>
+                <label>Monica Nguyen</label>
+            </value>
+            <value>
+                <fullName>Pending Billing</fullName>
+                <default>false</default>
+                <label>Pending Billing</label>
+            </value>
+            <value>
+                <fullName>Pending Legal</fullName>
+                <default>false</default>
+                <label>Pending Legal</label>
+            </value>
+            <value>
+                <fullName>Pending Rep</fullName>
+                <default>false</default>
+                <label>Pending Rep</label>
+            </value>
+            <value>
+                <fullName>Pending Client</fullName>
+                <default>false</default>
+                <label>Pending Client</label>
+            </value>
+            <value>
+                <fullName>Pending Deal Desk</fullName>
+                <default>false</default>
+                <label>Pending Deal Desk</label>
+            </value>
+            <value>
+                <fullName>Adam Tenenboim</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Adam Tenenboim</label>
+            </value>
+            <value>
+                <fullName>Adriel Lam</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Adriel Lam</label>
+            </value>
+            <value>
+                <fullName>Anisa Kamlani</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Anisa Kamlani</label>
+            </value>
+            <value>
+                <fullName>Ariel Segal</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Ariel Segal</label>
+            </value>
+            <value>
+                <fullName>Briana Jones</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Briana Jones</label>
+            </value>
+            <value>
+                <fullName>Eden Loren</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Eden Loren</label>
+            </value>
+            <value>
+                <fullName>Gabriela Parnas</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Gabriela Parnas</label>
+            </value>
+            <value>
+                <fullName>Hadar Kedem</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Hadar Kedem</label>
+            </value>
+            <value>
+                <fullName>Itay Levy</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Itay Levy</label>
+            </value>
+            <value>
+                <fullName>Janessa Goldberg</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Janessa Goldberg</label>
+            </value>
+            <value>
+                <fullName>Keita Nishi</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Keita Nishi</label>
+            </value>
+            <value>
+                <fullName>Lola Stolper</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Lola Stolper</label>
+            </value>
+            <value>
+                <fullName>Lotem Kaiser</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Lotem Kaiser</label>
+            </value>
+            <value>
+                <fullName>Lynn Agajan</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Lynn Agajan</label>
+            </value>
+            <value>
+                <fullName>Martin Briones</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Martin Briones</label>
+            </value>
+            <value>
+                <fullName>Nitzan Goren</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Nitzan Goren</label>
+            </value>
+            <value>
+                <fullName>Noam Zins</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Noam Zins</label>
+            </value>
+            <value>
+                <fullName>Omer Pizem</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Omer Pizem</label>
+            </value>
+            <value>
+                <fullName>Omri Silberman</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Omri Silberman</label>
+            </value>
+            <value>
+                <fullName>Pending SalesOps</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Pending SalesOps</label>
+            </value>
+            <value>
+                <fullName>Pending response</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Pending response</label>
+            </value>
+            <value>
+                <fullName>Rinat Teshuva</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Rinat Teshuva</label>
+            </value>
+            <value>
+                <fullName>Shimon Keselman</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Shimon Keselman</label>
+            </value>
+            <value>
+                <fullName>Takako Kiyoshige</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Takako Kiyoshige</label>
+            </value>
+            <value>
+                <fullName>Wen Poon</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Wen Poon</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

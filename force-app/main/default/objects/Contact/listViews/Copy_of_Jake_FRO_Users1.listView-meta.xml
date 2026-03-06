@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Copy_of_Jake_FRO_Users1</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>FULL_NAME</columns>
+    <columns>Account_Status__c</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>CONTACT.TITLE</columns>
+    <columns>Account_Owner__c</columns>
+    <columns>fr_Last_Pro_Visit_Date__c</columns>
+    <columns>Account.fr_Number_Of_Allocated_Seats__c</columns>
+    <columns>Trial_Start_Date__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>fr_Pro_User_Type__c</field>
+        <operation>notEqual</operation>
+        <value>Admin,User</value>
+    </filters>
+    <filters>
+        <field>Account_Owner__c</field>
+        <operation>equals</operation>
+        <value>Simon Hilton</value>
+    </filters>
+    <filters>
+        <field>fr_Last_Pro_Visit_Date__c</field>
+        <operation>equals</operation>
+        <value>LAST_N_DAYS:7</value>
+    </filters>
+    <filters>
+        <field>Account.Status__c</field>
+        <operation>notEqual</operation>
+        <value>Active</value>
+    </filters>
+    <label>Eleanor FRO Users</label>
+</ListView>

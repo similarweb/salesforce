@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sum_of_Actions__c</fullName>
+    <description>MIS-4229</description>
+    <externalId>false</externalId>
+    <formula>IF(RecordType.DeveloperName =&apos;Solution_Implementation&apos; , Monthly_Customer_Connects__c + Quarterly_Business_Reviews__c + Trainings__c ,
+			IF(RecordType.DeveloperName =&apos;Client_Success_Strategist&apos; , Group_Training_Sessions__c +  Dedicated_Training_Sessions__c + API_Google_Sheets_Training__c + Insight_Email__c + Deck__c +
+						Product_Configuration__c + Training_Summary__c + Kick_Off_Call__c + Client_Meeting__c + IF(ISNUMBER(Demo__c),VALUE(Demo__c),0) + Data_Success_Taskforce__c + Trial_Group_Training_Sessions__c + Trial_1_1_training_session__c +
+					 Trial_API_Google_Sheets_Training__c + Trial_Insight_Email__c + Trial_Deck__c + Trial_Product_Configuration__c + Trial_Trial_Summary_Presentation__c + Excel_Analysis__c + Product_Demo__c +
+						Discovery_Call__c + DAAS_Scoping__c + Advisory_Services_Scoping__c,
+						    IF(RecordType.DeveloperName =&apos;Solution_Engineering&apos; , Product_Demo__c + Insight_Email__c +	Discovery_Call__c + Client_Meeting__c +
+													Trial_Group_Training_Sessions__c + Trial_1_1_training_session__c + Trial_Insight_Email__c + Trial_Product_Configuration__c + Trial_Trial_Summary_Presentation__c +
+													DAAS_Scoping__c + Advisory_Services_Scoping__c + DaaS_Data_Sample__c + Insight_Deck__c +  Pitch_Deck__c + Aligned_Room_Custom__c + Aligned_Room_Template__c +  RFP__c + 
+													Internal_Meeting__c + Data_Validation__c + Ongoing_Client_Communication__c + Workshop__c  ,0 )))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Sum of Actions</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cycle_and_Cycle_price_are_mandatory</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+
+Probability  &lt;&gt; 0.1,
+
+NOT(ISPICKVAL(StageName  , &apos;Closed Won&apos;)), 
+NOT(ISPICKVAL(StageName  , &apos;Closed Lost&apos;)),  
+
+OR(
+ISBLANK(TEXT(Cycle__c)) ,
+ISBLANK(TEXT(Cycle_Price__c))
+),  
+
+NOT(CONTAINS($Profile.Name, &apos;Integration&apos;)) , 
+$Profile.Name &lt;&gt; &apos;SW SalesOps Extended&apos;, 
+$Profile.Name &lt;&gt; &apos;SW SalesOps&apos;, 
+$Profile.Name &lt;&gt; &apos;System Administrator&apos;, 
+RecordType.DeveloperName &lt;&gt; &apos;Wolves&apos;,
+RecordType.DeveloperName &lt;&gt; &apos;Partnership&apos;,
+RecordType.DeveloperName &lt;&gt; &apos;Rank_Ranger&apos;,
+MEDPIC_Next_Stage__c = false
+
+
+   )</errorConditionFormula>
+    <errorMessage>Please fill &apos;Cycle&apos; and &apos;Cycle Price Local&apos; fields</errorMessage>
+</ValidationRule>

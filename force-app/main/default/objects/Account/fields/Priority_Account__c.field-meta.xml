@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Priority_Account__c</fullName>
+    <description>Last MIS-3651
+MIS-2787
+MIS-1972</description>
+    <externalId>false</externalId>
+    <formula>IF(
+  ISPICKVAL(Priority_Account_override__c, &apos;Priority Account&apos;),
+  &apos;True - Overridden&apos;,
+  IF(
+    ISPICKVAL(Priority_Account_override__c, &apos;Not Priority&apos;),
+    &apos;False - Overridden&apos;,
+    IF(
+      AND(
+        Employees_Min__c &gt;= 11,
+        OR(
+          ISPICKVAL(Business_Unit__c, &apos;Strategic&apos;),
+          ISPICKVAL(SW_Industry__c, &apos;B2B Software&apos;),
+          ISPICKVAL(SW_Industry__c, &apos;Consulting and Market Research&apos;),
+          ISPICKVAL(SW_Industry__c, &apos;CPG, Food &amp; Beverages&apos;),
+          ISPICKVAL(SW_Industry__c, &apos;Financial services&apos;),
+          ISPICKVAL(SW_Industry__c, &apos;Media and Entertainment&apos;),
+          ISPICKVAL(SW_Industry__c, &apos;Retail / eCommerce&apos;),
+          ISPICKVAL(SW_Industry__c, &apos;AdTech and AdNetwork&apos;),
+          ISPICKVAL(SW_Industry__c, &apos;Travel and Hospitality&apos;),
+          ISPICKVAL(SW_Industry__c, &apos;Logistics and Shipping&apos;),
+          ISPICKVAL(SW_Industry__c, &apos;Agency&apos;),
+          ISPICKVAL(SW_Industry__c, &apos;Hedge Funds and Asset Management&apos;),
+          ISPICKVAL(SW_Industry__c, &apos;Private Equity and Venture Capital&apos;),
+          ISPICKVAL(SW_Industry__c, &apos;Classifieds&apos;),
+          ISPICKVAL(SW_Industry__c, &apos;Payments&apos;)
+        )
+      ),
+      &apos;True&apos;,
+      &apos;False&apos;
+    )
+  )
+)</formula>
+    <label>Priority Account</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

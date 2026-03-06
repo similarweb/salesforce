@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Primary_KPI__c</fullName>
+    <description>MIS-4231</description>
+    <externalId>false</externalId>
+    <label>Primary KPI</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>New/Leads</fullName>
+                <default>false</default>
+                <label>New/Leads</label>
+            </value>
+            <value>
+                <fullName>New/Handraises</fullName>
+                <default>false</default>
+                <label>New/Handraises</label>
+            </value>
+            <value>
+                <fullName>Unique/Downloads</fullName>
+                <default>false</default>
+                <label>Unique/Downloads</label>
+            </value>
+            <value>
+                <fullName>New/Meetings</fullName>
+                <default>false</default>
+                <label>New/Meetings</label>
+            </value>
+            <value>
+                <fullName>New/Pipeline</fullName>
+                <default>false</default>
+                <label>New/Pipeline</label>
+            </value>
+            <value>
+                <fullName>Awareness</fullName>
+                <default>false</default>
+                <label>Awareness</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Panel_Acquisition_FAQ</fullName>
+    <active>true</active>
+    <description>FAQ for Panel Acquisition Partner Community</description>
+    <label>Panel Acquisition FAQ</label>
+</RecordType>

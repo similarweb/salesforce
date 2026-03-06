@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MIR_Investor_Leads</fullName>
+    <booleanFilter>1 AND 2 AND 3 AND 4 AND 5 AND 6 AND 7</booleanFilter>
+    <columns>Most_Recent_Cadence_Cadence_ID__c</columns>
+    <columns>LEAD.CREATED_DATE</columns>
+    <columns>FULL_NAME</columns>
+    <columns>LEAD.COMPANY</columns>
+    <columns>SW_Industry__c</columns>
+    <columns>LEAD.COUNTRY</columns>
+    <columns>LEAD.TITLE</columns>
+    <columns>LEAD.EMAIL_OPT_OUT</columns>
+    <columns>LEAD.EMAIL</columns>
+    <columns>Business_Unit__c</columns>
+    <columns>SW_Fit_Score__c</columns>
+    <columns>LEAD.LAST_ACTIVITY</columns>
+    <columns>Pro_User_Type__c</columns>
+    <columns>Department__c</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+        <field>LEAD.CONVERTED</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>SYS_Owner_Role__c</field>
+        <operation>contains</operation>
+        <value>MIR</value>
+    </filters>
+    <filters>
+        <field>LEAD.LEAD_SOURCE</field>
+        <operation>notContain</operation>
+        <value>ContactForm,Tradeshow,ProAdd,InvitationRegisterRequest,Webinar,Linkedin,Facebook</value>
+    </filters>
+    <filters>
+        <field>LEAD.CREATED_DATE</field>
+        <operation>greaterOrEqual</operation>
+        <value>LAST_N_MONTHS:6</value>
+    </filters>
+    <filters>
+        <field>Pro_User_Type__c</field>
+        <operation>notEqual</operation>
+        <value>User,Admin</value>
+    </filters>
+    <filters>
+        <field>Nurtured_by_Marketing__c</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>SW_Industry__c</field>
+        <operation>contains</operation>
+        <value>VC and Private Equity,Hedge Funds and Asset Management,Investment Banking</value>
+    </filters>
+    <label>MIR - Investor Leads</label>
+</ListView>

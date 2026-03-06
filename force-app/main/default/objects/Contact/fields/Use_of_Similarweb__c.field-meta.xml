@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Use_of_Similarweb__c</fullName>
+    <description>MIS-3278. Fields converted from Lead on Lead Conversion</description>
+    <externalId>false</externalId>
+    <label>Use of Similarweb</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Student</fullName>
+                <default>false</default>
+                <label>Student</label>
+            </value>
+            <value>
+                <fullName>Work</fullName>
+                <default>false</default>
+                <label>Work</label>
+            </value>
+            <value>
+                <fullName>school</fullName>
+                <default>false</default>
+                <label>school</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

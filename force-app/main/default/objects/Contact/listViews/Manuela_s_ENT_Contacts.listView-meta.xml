@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Manuela_s_ENT_Contacts</fullName>
+    <booleanFilter>1 AND 2 AND 3 AND 4 AND 5</booleanFilter>
+    <columns>Status__c</columns>
+    <columns>CONTACT.ADDRESS2_COUNTRY</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>FULL_NAME</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.LEAD_SOURCE</columns>
+    <columns>CONTACT.LAST_ACTIVITY</columns>
+    <columns>CONTACT.CREATED_DATE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CORE.USERS.ALIAS</field>
+        <operation>equals</operation>
+        <value>mshim</value>
+    </filters>
+    <filters>
+        <field>Business_Unit__c</field>
+        <operation>equals</operation>
+        <value>enterprise</value>
+    </filters>
+    <filters>
+        <field>CONTACT.ADDRESS2_COUNTRY</field>
+        <operation>notEqual</operation>
+    </filters>
+    <filters>
+        <field>CONTACT.CREATED_DATE</field>
+        <operation>greaterThan</operation>
+        <value>1/1/2017 12:00 AM</value>
+    </filters>
+    <filters>
+        <field>Status__c</field>
+        <operation>notEqual</operation>
+        <value>Qualified,Unqualified,SDR Prospecting</value>
+    </filters>
+    <label>Manuela&apos;s ENT Contacts</label>
+</ListView>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Wolves_Tracking_Method__c</fullName>
+    <externalId>false</externalId>
+    <label>Tracking Method</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Tracker</fullName>
+                <default>false</default>
+                <label>Tracker</label>
+            </value>
+            <value>
+                <fullName>Os monitor</fullName>
+                <default>false</default>
+                <label>Os monitor</label>
+            </value>
+            <value>
+                <fullName>Server2server</fullName>
+                <default>false</default>
+                <label>Server2server</label>
+            </value>
+            <value>
+                <fullName>Alternative store</fullName>
+                <default>false</default>
+                <label>Alternative store</label>
+            </value>
+            <value>
+                <fullName>Bookmark Permission</fullName>
+                <default>false</default>
+                <label>Bookmark Permission</label>
+            </value>
+            <value>
+                <fullName>Accessibility</fullName>
+                <default>false</default>
+                <label>Accessibility</label>
+            </value>
+            <value>
+                <fullName>JS Script</fullName>
+                <default>false</default>
+                <label>JS Script</label>
+            </value>
+            <value>
+                <fullName>IOS Tracker</fullName>
+                <default>false</default>
+                <label>IOS Tracker</label>
+            </value>
+            <value>
+                <fullName>Desktop Tracker</fullName>
+                <default>false</default>
+                <label>Desktop Tracker</label>
+            </value>
+            <value>
+                <fullName>Apps SDK</fullName>
+                <default>false</default>
+                <label>Apps SDK</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

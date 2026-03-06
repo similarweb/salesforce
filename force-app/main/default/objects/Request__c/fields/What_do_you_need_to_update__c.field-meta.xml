@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>What_do_you_need_to_update__c</fullName>
+    <externalId>false</externalId>
+    <label>What do you need to update</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <controllingField>Request_Type__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Bill To Update</fullName>
+                <default>false</default>
+                <label>Bill To Update</label>
+            </value>
+            <value>
+                <fullName>Admin User Update</fullName>
+                <default>false</default>
+                <label>Admin User Update</label>
+            </value>
+            <value>
+                <fullName>Payment method</fullName>
+                <default>false</default>
+                <label>Payment method</label>
+            </value>
+            <value>
+                <fullName>Company name change</fullName>
+                <default>false</default>
+                <label>Company name change</label>
+            </value>
+            <value>
+                <fullName>Payment terms</fullName>
+                <default>false</default>
+                <label>Payment terms</label>
+            </value>
+            <value>
+                <fullName>Subsidiary change</fullName>
+                <default>false</default>
+                <label>Subsidiary change</label>
+            </value>
+            <value>
+                <fullName>Claim or feature issue</fullName>
+                <default>false</default>
+                <label>Claim or feature issue</label>
+            </value>
+            <value>
+                <fullName>Missing product</fullName>
+                <default>false</default>
+                <label>Missing product</label>
+            </value>
+            <value>
+                <fullName>Address change</fullName>
+                <default>false</default>
+                <label>Address change</label>
+            </value>
+            <value>
+                <fullName>Resend Invoice</fullName>
+                <default>false</default>
+                <label>Resend Invoice</label>
+            </value>
+            <value>
+                <fullName>New Billing contact details</fullName>
+                <default>false</default>
+                <label>New Billing contact details</label>
+            </value>
+            <value>
+                <fullName>Withholding tax</fullName>
+                <default>false</default>
+                <label>Withholding tax</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Account Update request</controllingFieldValue>
+            <valueName>Bill To Update</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Account Update request</controllingFieldValue>
+            <valueName>Admin User Update</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Account Update request</controllingFieldValue>
+            <valueName>Payment method</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Account Update request</controllingFieldValue>
+            <valueName>Company name change</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Account Update request</controllingFieldValue>
+            <valueName>Payment terms</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Account Update request</controllingFieldValue>
+            <valueName>Subsidiary change</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Account Update request</controllingFieldValue>
+            <controllingFieldValue>Invoice request</controllingFieldValue>
+            <controllingFieldValue>Product Functionality Issues request</controllingFieldValue>
+            <valueName>Other</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Invoice request</controllingFieldValue>
+            <valueName>Address change</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Invoice request</controllingFieldValue>
+            <valueName>Resend Invoice</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Invoice request</controllingFieldValue>
+            <valueName>Withholding tax</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Product Functionality Issues request</controllingFieldValue>
+            <valueName>Claim or feature issue</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Product Functionality Issues request</controllingFieldValue>
+            <valueName>Missing product</valueName>
+        </valueSettings>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

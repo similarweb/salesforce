@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Account_Stage_Number_Sort__c</fullName>
+    <description>MIS-4567
+used in the Related Account screen flow to sort accounts by Stage</description>
+    <externalId>false</externalId>
+    <formula>IF(
+  text(Stage__c) = &apos;Paying Account&apos;,
+  CASE(
+    Status__c,
+    &apos;Active&apos;, 1,
+    &apos;Cancelled&apos;, 2,
+    &apos;Expired&apos;, 3,
+    &apos;Suspended&apos;, 4,
+    0
+  ),
+  0
+) + 
+Case(
+  Stage__c,
+  &apos;Trial / NT / One-time&apos;,
+  5,
+  &apos;Deal in Closing Pipeline&apos;,
+  6,
+  &apos;Early Stage Pipeline&apos;,
+  7,
+  &apos;Pre Pipeline&apos;,
+  8,
+  &apos;Pending Meeting&apos;,
+  9,
+  &apos;Ongoing Outbound&apos;,
+  10,
+  &apos;New&apos;,
+  11,
+  0
+)</formula>
+    <label>Account Stage Number Sort</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

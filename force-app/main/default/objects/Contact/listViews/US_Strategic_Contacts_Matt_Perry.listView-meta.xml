@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>US_Strategic_Contacts_Matt_Perry</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>CONTACT.TITLE</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>CONTACT.CREATED_DATE</columns>
+    <columns>SW_Industry__c</columns>
+    <columns>MQL_Prediction__c</columns>
+    <columns>Original_Lead_Source__c</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+        <field>ROE_Division__c</field>
+        <operation>contains</operation>
+        <value>global sales - us</value>
+    </filters>
+    <filters>
+        <field>CONTACT.CREATED_DATE</field>
+        <operation>greaterThan</operation>
+        <value>12/31/2020 12:00 AM</value>
+    </filters>
+    <filters>
+        <field>Owner_Role__c</field>
+        <operation>contains</operation>
+        <value>MIR</value>
+    </filters>
+    <filters>
+        <field>CONTACT.ADDRESS2_COUNTRY</field>
+        <operation>contains</operation>
+        <value>United States,Canada</value>
+    </filters>
+    <filters>
+        <field>CONTACT.EMAIL</field>
+        <operation>notContain</operation>
+        <value>edu,gmail</value>
+    </filters>
+    <label>US Strategic Contacts Matt Perry</label>
+</ListView>

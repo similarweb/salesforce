@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Count_Invoice_Created__c</fullName>
+    <externalId>false</externalId>
+    <label># Invoice Created</label>
+    <summaryFilterItems>
+        <field>Invoice_Request__c.Status__c</field>
+        <operation>equals</operation>
+        <value>Invoice Created</value>
+    </summaryFilterItems>
+    <summaryForeignKey>Invoice_Request__c.Opportunity__c</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <type>Summary</type>
+</CustomField>

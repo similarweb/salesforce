@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Android_opportunity_list</fullName>
+    <columns>Biz_Dev_Owner__c</columns>
+    <columns>OPPORTUNITY.NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>OPPORTUNITY.TYPE</columns>
+    <columns>Wolves_Tracking_Method__c</columns>
+    <columns>Wolves_Potential_DAU__c</columns>
+    <columns>Wolves_Yesterday_DAU__c</columns>
+    <columns>OPPORTUNITY.PROBABILITY</columns>
+    <columns>OPPORTUNITY.STAGE_NAME</columns>
+    <columns>Wolves_Next_Steps_Action_Items__c</columns>
+    <columns>Wolves_Link_to_Product__c</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>Opportunity_Origin__c</columns>
+    <columns>OPPORTUNITY.LAST_ACTIVITY</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Wolves_Platform__c</field>
+        <operation>equals</operation>
+        <value>Android</value>
+    </filters>
+    <filters>
+        <field>OPPORTUNITY.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Opportunity.Wolves</value>
+    </filters>
+    <filters>
+        <field>OPPORTUNITY.STAGE_NAME</field>
+        <operation>notEqual</operation>
+        <value>Not Relevant,Live</value>
+    </filters>
+    <label>Android opportunity list</label>
+</ListView>

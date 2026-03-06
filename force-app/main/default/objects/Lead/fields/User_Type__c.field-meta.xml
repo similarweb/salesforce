@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>User_Type__c</fullName>
+    <externalId>false</externalId>
+    <label>User Type</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>PDF</fullName>
+                <default>false</default>
+                <label>PDF</label>
+            </value>
+            <value>
+                <fullName>PRO</fullName>
+                <default>false</default>
+                <label>PRO</label>
+            </value>
+            <value>
+                <fullName>x-PRO</fullName>
+                <default>false</default>
+                <label>x-PRO</label>
+            </value>
+            <value>
+                <fullName>Support</fullName>
+                <default>false</default>
+                <label>Support</label>
+            </value>
+            <value>
+                <fullName>Connection</fullName>
+                <default>false</default>
+                <label>Connection</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>true</default>
+                <label>Other</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

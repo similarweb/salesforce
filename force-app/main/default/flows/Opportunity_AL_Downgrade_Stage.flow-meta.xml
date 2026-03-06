@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>63.0</apiVersion>
+    <description>MIS-8345 - Updated the run-flow configuration
+MIS-6998 - Opportunity MEDDPICC Next Stage Process</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>Stage_Downgrade_Value</name>
+        <dataType>String</dataType>
+        <expression>CASE(
+{!Stage_From_Opp},
+  &quot;Sales Qualified&quot;,     &quot;Initial Discovery&quot;,
+  &quot;Solution Validation&quot;, &quot;Sales Qualified&quot;,
+  &quot;Scope Confirmation&quot;,  &quot;Solution Validation&quot;,
+  &quot;Contracts&quot;,           &quot;Scope Confirmation&quot;,
+{!Stage_From_Opp}
+)</expression>
+    </formulas>
+    <interviewLabel>Opportunity - AL - Downgrade Stage {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Opportunity - AL - Downgrade Stage</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordCreates>
+        <name>Refresh_Page</name>
+        <label>Refresh Page</label>
+        <locationX>176</locationX>
+        <locationY>350</locationY>
+        <inputAssignments>
+            <field>Record_ID__c</field>
+            <value>
+                <elementReference>recordId</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Refresh_Record_Page__e</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordUpdates>
+        <name>Set_UpdatedByNextStageFlow_to_False</name>
+        <label>Set UpdatedByNextStageFlow to False</label>
+        <locationX>176</locationX>
+        <locationY>242</locationY>
+        <connector>
+            <targetReference>Refresh_Page</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>recordId</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>UpdatedByNextStageFlow__c</field>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </inputAssignments>
+        <object>Opportunity</object>
+    </recordUpdates>
+    <recordUpdates>
+        <description>MIS-6998 Opportunity MEDDPICC Next Stage Process</description>
+        <name>Update_Opp_Stage</name>
+        <label>Update Opp Stage</label>
+        <locationX>176</locationX>
+        <locationY>134</locationY>
+        <connector>
+            <targetReference>Set_UpdatedByNextStageFlow_to_False</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>recordId</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>StageName</field>
+            <value>
+                <elementReference>Stage_Downgrade_Value</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>UpdatedByNextStageFlow__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <object>Opportunity</object>
+    </recordUpdates>
+    <runInMode>SystemModeWithoutSharing</runInMode>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Update_Opp_Stage</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>recordId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>Stage_From_Opp</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+</Flow>

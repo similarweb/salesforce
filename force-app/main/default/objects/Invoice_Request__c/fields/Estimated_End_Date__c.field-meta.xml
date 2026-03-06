@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Estimated_End_Date__c</fullName>
+    <externalId>false</externalId>
+    <formula>Case (Cycle__c,
+
+&quot;One-time&quot;, Estimated_Start_Date__c ,
+&quot;Monthly&quot;,Estimated_Start_Date__c+30,
+&quot;Quarterly&quot;,Estimated_Start_Date__c+90,
+&quot;Semi-Annual&quot;,Estimated_Start_Date__c+180,
+&quot;Annual&quot;,
+
+IF (Month(Estimated_Start_Date__c)=2 &amp;&amp; Day(Estimated_Start_Date__c)=29,
+Date(Year(Estimated_Start_Date__c)+1,2,28),
+Date(Year(Estimated_Start_Date__c)+1,Month(Estimated_Start_Date__c),Day(Estimated_Start_Date__c)))-1,
+
+null
+)
+
+/*
+
+One-Time - Created Date
+Annual - one year from today - 1 day
+Quarterly - 90 days from Created Date
+Semi Annual - 180 days from Created Date
+Monthly - 30 days
+
+*/</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Estimated End Date</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Wolves_Last_Month_Payments__c</fullName>
+    <externalId>false</externalId>
+    <label>Last Month Payments</label>
+    <summarizedField>Opportunity.Wolves_Last_Month_Payment__c</summarizedField>
+    <summaryForeignKey>Opportunity.AccountId</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <type>Summary</type>
+</CustomField>

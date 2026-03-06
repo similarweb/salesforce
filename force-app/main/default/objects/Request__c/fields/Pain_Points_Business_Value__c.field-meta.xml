@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Pain_Points_Business_Value__c</fullName>
+    <description>MIS-3771</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Insert description of the client’s pain point(s), i.e why do they need this data or how will it help them?</inlineHelpText>
+    <label>Pain Points / Business Value</label>
+    <length>32768</length>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>3</visibleLines>
+</CustomField>

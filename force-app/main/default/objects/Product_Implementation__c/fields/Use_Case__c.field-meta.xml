@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Use_Case__c</fullName>
+    <description>MIS-474
+If a new value is added to &apos;What is the customer&apos;s use case(s)?&apos; (Use_Cases__c) field on Opportunity, formula should be updated</description>
+    <externalId>false</externalId>
+    <formula>IF ( INCLUDES (  Opportunity__r.Use_Cases__c  , &quot;User Acquisition: Marketing mix optimization&quot; ), &quot;MI: Marketing mix optimization; &quot;,null ) &amp;
+IF ( INCLUDES ( Opportunity__r.Use_Cases__c , &quot;User Acquisition: Affiliates&quot; ), &quot;MI: Affiliates Marketing; &quot;,null ) &amp;
+IF ( INCLUDES ( Opportunity__r.Use_Cases__c , &quot;User Acquisition: Organic (SEO, Content)&quot; ), &quot;MI: Organic (SEO, Content); &quot;,null ) &amp;
+IF ( INCLUDES ( Opportunity__r.Use_Cases__c , &quot;User Acquisition: Paid (PPC, Display)&quot; ), &quot;MI: Paid Marketing (PPC, Display); &quot;,null ) &amp;
+IF ( INCLUDES ( Opportunity__r.Use_Cases__c , &quot;User Acquisition: Other (Brand, PR, Social Listening)&quot; ), &quot;MI: Other (Brand, PR, Social Listening); &quot;,null ) &amp;
+IF ( INCLUDES ( Opportunity__r.Use_Cases__c , &quot;Path to Purchase: Product demand (what to sell)&quot; ), &quot;PI: Product demand (what to sell); &quot;,null ) &amp;
+IF ( INCLUDES ( Opportunity__r.Use_Cases__c , &quot;Path to Purchase: Product distribution (where to sell)&quot; ), &quot;PI: Product distribution (where to sell); &quot;,null ) &amp;
+IF ( INCLUDES ( Opportunity__r.Use_Cases__c , &quot;Path to Purchase: Optimize conversion&quot; ), &quot;PI: Optimize conversion; &quot;,null ) &amp;
+IF ( INCLUDES ( Opportunity__r.Use_Cases__c , &quot;Sales: Lead enrichment&quot; ), &quot;SI: Lead enrichment; &quot;,null ) &amp;
+IF ( INCLUDES ( Opportunity__r.Use_Cases__c , &quot;Sales: Sales intelligence (find, qualify, close, retain, monitor customers or compaines)&quot; ), &quot;SI: Sales intelligence (find, qualify, close, retain, monitor customers or compaines); &quot;,null ) &amp;
+IF ( INCLUDES ( Opportunity__r.Use_Cases__c , &quot;Investors: Source investment opportunities&quot; ), &quot;II: Source investment opportunities; &quot;,null ) &amp;
+IF ( INCLUDES ( Opportunity__r.Use_Cases__c , &quot;Investors: Diligence, M&amp;A and investment research&quot; ), &quot;II: Diligence, M&amp;A and investment research; &quot;,null ) &amp;
+IF ( INCLUDES ( Opportunity__r.Use_Cases__c , &quot;Investors: Public market investors&quot; ), &quot;II: Public market investors; &quot;,null ) &amp;
+IF ( INCLUDES ( Opportunity__r.Use_Cases__c , &quot;Other: Data integration&quot; ), &quot;OO: Data integration; &quot;,null ) &amp;
+IF ( INCLUDES ( Opportunity__r.Use_Cases__c , &quot;Other: Other&quot; ), &quot;OO: Other; &quot;,null ) &amp;
+IF ( INCLUDES ( Opportunity__r.Use_Cases__c , &quot;Research: Benchmark traffic, engagement and market share&quot; ), &quot;Research: Benchmark traffic, engagement and market share; &quot;,null ) &amp;
+IF ( INCLUDES ( Opportunity__r.Use_Cases__c , &quot;Research: Benchmark marketing channels performance against competitors&quot; ), &quot;Research: Benchmark marketing channels performance against competitors; &quot;,null ) &amp;
+IF ( INCLUDES ( Opportunity__r.Use_Cases__c , &quot;Agencies: Pitch new businesses&quot; ), &quot;Agencies: Pitch new businesses; &quot;,null ) &amp;
+IF ( INCLUDES ( Opportunity__r.Use_Cases__c , &quot;Agencies: Optimize clients&apos; marketing strategies&quot; ), &quot;Agencies: Optimize clients&apos; marketing strategies; &quot;,null ) &amp;
+IF ( INCLUDES ( Opportunity__r.Use_Cases__c , &quot;Market &amp; Consumer Research: Understand market share, market sizing &amp; trend analysis&quot; ), &quot;AI: Understand market share &amp; trend analysis; &quot;,null ) &amp;
+IF ( INCLUDES ( Opportunity__r.Use_Cases__c , &quot;Market &amp; Consumer Research: Understand audience&quot; ), &quot;AI: Understand audiences; &quot;,null )</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Use-Case</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>55.0</apiVersion>
+    <decisions>
+        <description>Check if the Account is currently marked as &quot;Data.Ai Overlap&quot;. If yes, it should be unchecked (not meeting criteria).</description>
+        <name>Already_Data_Ai_Overlap</name>
+        <label>Already Data.Ai Overlap</label>
+        <locationX>710</locationX>
+        <locationY>671</locationY>
+        <defaultConnectorLabel>Not checked</defaultConnectorLabel>
+        <rules>
+            <name>Overlap_checked</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Data_Ai_Overlap__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Uncheck_Data_Ai</targetReference>
+            </connector>
+            <label>Overlap checked</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Data_Ai_Overlap</name>
+        <label>Data.Ai Overlap?</label>
+        <locationX>281</locationX>
+        <locationY>431</locationY>
+        <defaultConnector>
+            <targetReference>SW_Industry_Overlap</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>True_Data_Ai_Overlap</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Data_Ai_Customer.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Check_Data_Ai</targetReference>
+            </connector>
+            <label>True - Data.Ai Overlap</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>SW_Industry_Overlap</name>
+        <label>SW Industry Overlap</label>
+        <locationX>512</locationX>
+        <locationY>551</locationY>
+        <defaultConnector>
+            <targetReference>Already_Data_Ai_Overlap</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>True_SW_Industry_Overlap</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.SW_Industry__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Gambling / Gaming</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.SW_Industry__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Equity Research</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.SW_Industry__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Hedge Funds and Asset Management</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.SW_Industry__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Investment Banking</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.SW_Industry__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Investors</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_SW_Industry_Overlap</targetReference>
+            </connector>
+            <label>True - SW Industry Overlap</label>
+        </rules>
+    </decisions>
+    <description>When Account created or Country/Website/SW Industry changes, we check if we should flag the Account as &quot;Data.Ai Overlap&quot;</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>For_Data_Ai_Billing_Country_Overlap_Key</name>
+        <dataType>String</dataType>
+        <expression>{!For_Website_Domain}+&quot;_&quot;+{!$Record.BillingCountry}</expression>
+    </formulas>
+    <formulas>
+        <name>For_Flow_Trigger</name>
+        <dataType>Boolean</dataType>
+        <expression>ISNEW() ||
+ISCHANGED( {!$Record.Website}) ||
+ISCHANGED({!$Record.BillingCountry}) ||
+ISCHANGED({!$Record.SW_Industry__c})</expression>
+    </formulas>
+    <formulas>
+        <description>Used this Formula so we can switch to &quot;Before&quot; Save Flow.</description>
+        <name>For_Website_Domain</name>
+        <dataType>String</dataType>
+        <expression>IF(BEGINS({!$Record.Website}, &quot;www.&quot;),
+IF(FIND(&apos;/&apos;, MID({!$Record.Website}, 5, LEN({!$Record.Website}) - 4)) != 0, MID({!$Record.Website}, 5, FIND(&apos;/&apos;, MID({!$Record.Website}, 5, LEN({!$Record.Website}) - 4)) -1), MID({!$Record.Website}, 5, LEN({!$Record.Website}) - 4)),
+
+IF(BEGINS({!$Record.Website}, &quot;http://www.&quot;),
+IF(FIND(&apos;/&apos;, MID({!$Record.Website}, 12, LEN({!$Record.Website}) - 11)) != 0,MID({!$Record.Website}, 12, FIND(&apos;/&apos;, MID({!$Record.Website},12,LEN({!$Record.Website}) - 11)) -1), MID({!$Record.Website},12,LEN({!$Record.Website})-11)),
+
+IF(BEGINS({!$Record.Website}, &quot;https://www.&quot;),
+IF(FIND(&apos;/&apos;, MID({!$Record.Website}, 13, LEN({!$Record.Website}) - 12)) != 0,MID({!$Record.Website}, 13, FIND(&apos;/&apos;, MID({!$Record.Website},13,LEN({!$Record.Website}) - 12)) -1), MID({!$Record.Website},13,LEN({!$Record.Website})-12)),
+
+IF(BEGINS({!$Record.Website}, &quot;http://&quot;),
+IF(FIND(&apos;/&apos;, MID({!$Record.Website}, 8, LEN({!$Record.Website}) - 7)) != 0,MID({!$Record.Website}, 8, FIND(&apos;/&apos;, MID({!$Record.Website},8,LEN({!$Record.Website}) - 7)) -1), MID({!$Record.Website},8,LEN({!$Record.Website})-7)),
+
+IF(BEGINS({!$Record.Website}, &quot;https://&quot;),
+IF(FIND(&apos;/&apos;, MID({!$Record.Website}, 9, LEN({!$Record.Website}) - 8)) != 0,MID({!$Record.Website}, 9, FIND(&apos;/&apos;, MID({!$Record.Website},9,LEN({!$Record.Website}) - 8)) -1), MID({!$Record.Website},9,LEN({!$Record.Website})-8)),
+
+IF(FIND(&apos;/&apos;,MID({!$Record.Website}, 1, LEN({!$Record.Website}))) !=0,MID({!$Record.Website},1,FIND(&apos;/&apos;, {!$Record.Website}) - 1), {!$Record.Website} ))))))</expression>
+    </formulas>
+    <interviewLabel>Account Before - Data.Ai Overlap WIP [OB] {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Account Before - Data.Ai Overlap</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <description>Check if we found an Active &quot;Data.Ai Customer&quot; with the same Domain and Country of the triggered Account.</description>
+        <name>Get_Data_Ai_Customer</name>
+        <label>Get Data.Ai Customer</label>
+        <locationX>281</locationX>
+        <locationY>311</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Data_Ai_Overlap</targetReference>
+        </connector>
+        <filterLogic>((1 AND 2) OR (3 AND 4)) AND 5</filterLogic>
+        <filters>
+            <field>Data_Ai_Billing_Country_Key__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Data_Ai_Billing_Country_Key__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>For_Data_Ai_Billing_Country_Overlap_Key</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Data_Ai_Shipping_Country_Key__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Data_Ai_Shipping_Country_Key__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>For_Data_Ai_Billing_Country_Overlap_Key</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Active__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Data_Ai_Customer__c</object>
+        <queriedFields>Id</queriedFields>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <name>Update_Check_Data_Ai</name>
+        <label>Update - Check Data.Ai</label>
+        <locationX>50</locationX>
+        <locationY>551</locationY>
+        <inputAssignments>
+            <field>App_Intelligence_Updated_by_Flow__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Data_Ai_Overlap__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Data_ai_Client_placeholder__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_SW_Industry_Overlap</name>
+        <label>Update SW Industry Overlap</label>
+        <locationX>314</locationX>
+        <locationY>671</locationY>
+        <inputAssignments>
+            <field>App_Intelligence_Updated_by_Flow__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Data_Ai_Overlap__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Data_ai_Client_placeholder__c</field>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Uncheck_Data_Ai</name>
+        <label>Update - Uncheck Data.Ai</label>
+        <locationX>578</locationX>
+        <locationY>791</locationY>
+        <inputAssignments>
+            <field>Data_Ai_Overlap__c</field>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Data_ai_Client_placeholder__c</field>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>155</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_Data_Ai_Customer</targetReference>
+        </connector>
+        <filterFormula>ISNEW() ||
+ISCHANGED( {!$Record.Website}) ||
+ISCHANGED({!$Record.BillingCountry}) ||
+ISCHANGED({!$Record.SW_Industry__c})</filterFormula>
+        <object>Account</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Obsolete</status>
+</Flow>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Partnership_Type__c</fullName>
+    <externalId>false</externalId>
+    <label>Partnership Type</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Mobile Web Server to Server partnerships</fullName>
+                <default>false</default>
+                <label>Mobile Web Server to Server partnerships</label>
+            </value>
+            <value>
+                <fullName>Accessibility Optimization</fullName>
+                <default>false</default>
+                <label>Accessibility Optimization</label>
+            </value>
+            <value>
+                <fullName>Accessibility Converting</fullName>
+                <default>false</default>
+                <label>Accessibility Converting</label>
+            </value>
+            <value>
+                <fullName>Accessibility New Partnership</fullName>
+                <default>false</default>
+                <label>Accessibility New Partnership</label>
+            </value>
+            <value>
+                <fullName>Desktop Tracker partnership</fullName>
+                <default>false</default>
+                <label>Desktop Tracker partnership</label>
+            </value>
+            <value>
+                <fullName>Desktop Extension Partnership</fullName>
+                <default>false</default>
+                <label>Desktop Extension Partnership</label>
+            </value>
+            <value>
+                <fullName>UserScript Partnerships</fullName>
+                <default>false</default>
+                <label>UserScript Partnerships</label>
+            </value>
+            <value>
+                <fullName>OSM Partnership</fullName>
+                <default>false</default>
+                <label>OSM Partnership</label>
+            </value>
+            <value>
+                <fullName>Desktop clickstream Server to Server partnership</fullName>
+                <default>false</default>
+                <label>Desktop clickstream Server to Server partnership</label>
+            </value>
+            <value>
+                <fullName>LS Desktop</fullName>
+                <default>false</default>
+                <label>LS Desktop</label>
+            </value>
+            <value>
+                <fullName>LS Apps</fullName>
+                <default>false</default>
+                <label>LS Apps</label>
+            </value>
+            <value>
+                <fullName>LS All</fullName>
+                <default>false</default>
+                <label>LS All</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

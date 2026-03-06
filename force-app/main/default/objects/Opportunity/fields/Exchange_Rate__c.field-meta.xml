@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Exchange_Rate__c</fullName>
+    <defaultValue>1</defaultValue>
+    <description>keeps the updated exchange rate between USD and Local Currency</description>
+    <externalId>false</externalId>
+    <inlineHelpText>keeps the updated exchange rate between USD and Local Currency</inlineHelpText>
+    <label>Exchange Rate</label>
+    <precision>11</precision>
+    <required>false</required>
+    <scale>3</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

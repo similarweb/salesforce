@@ -1,0 +1,82 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes" controller="ASProductModalController">
+    <lightning:empApi aura:id = "empApi"/>
+
+    <aura:attribute name="recordId" type="String" />
+    <aura:attribute name="subscriptionType" type="String" />
+    <aura:attribute name="previewedSubtotal" type="Decimal" />
+    <aura:attribute name="isOpenModal" type="boolean" default="false"/>
+    <aura:attribute name="isSpinner" type="boolean" default="false"/>
+    <aura:attribute name="isApprovalFlow" type="boolean" default="false"/>
+    <aura:attribute name="isGenerateContractFlow" type="boolean" default="false"/>
+    <aura:attribute name="requestId" type="String" />
+    <aura:attribute name="oneTimeRequest" type="String" default="" />
+    <aura:attribute name="recurrencyRequest" type="String" default="" />
+    <aura:attribute name="quoteBusinessType" type="String" default="" />
+    <aura:attribute name="targetPriceValue" type="Decimal" default="" />
+    <aura:attribute name="renewalFeeValue" type="Decimal" default="" />
+    <aura:attribute name="targetPriceFiledLabel" type="String" default="Target Quote Total Price" />
+    <aura:attribute name="targetPriceFiledHelperLabel" type="String" default="Target Quote Total Price" />
+    <aura:attribute name="quoteIsChangedChannel" type="String" default="/event/Quote_is_changed__e"/>
+    <aura:attribute name="amendQuoteIsChangedChannel" type="String" default="/event/Amend_quote_is_changed__e"/>
+    <aura:attribute name="quoteIsChangedSubscription" type="Map"/>
+    
+    <aura:registerEvent name="asEvent" type="c:ASProductEvent"/>
+    <aura:handler name="clEvent" event="c:CustomLookupFieldEvent" action="{!c.handleCustomLookupFieldEvent}"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <div>
+        <aura:if isTrue="{!v.isOpenModal}">
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                <div class="modal-container slds-modal__container">
+                    <header class="slds-modal__header">
+                        <lightning:buttonIcon iconName="utility:close"
+                                              onclick="{! c.closeModal }"
+                                              alternativeText="close"
+                                              variant="bare-inverse"
+                                              class="slds-modal__close"/>
+                        <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Your quote includes Advisory Services Products.</h2>
+                    </header>
+                    <div class="modal-body scrollable slds-modal__content slds-p-around--medium">
+                            
+                                <p>To proceed, you will need to attach a <B>Completed AS Request</B> from the opp this quote was created on.</p>
+                                <p>Please insert below the number of the completed request (for ex. R-12345), according to whether it's a one-time AS request, or a recurring AS requests (or both).</p>
+                                <p>Note - if you don't find the request below, it's either not on a completed status yet, OR it is not associated to the same opportunity</p>
+                                <c:CustomLookupField objectName="Request__c" fieldName="Name" label="One-Time request" iconName="standard:account" placeholder="Enter Value" recordId="{!v.recordId}" requestType="oneTime" />
+                                <c:CustomLookupField objectName="Request__c" fieldName="Name" label="Recurring request" iconName="standard:account" placeholder="Enter Value" recordId="{!v.recordId}" requestType="recurring"/>            
+                                <div class = "slds-p-horizontal_large input-field" >
+                                    <lightning:input type="Number" fieldName="TargetQuoteTotalPrice" label="{!v.targetPriceFiledLabel}"
+                                                    value="{!v.targetPriceValue}" aura:id="totalPrice" fieldLevelHelp="{!v.targetPriceFiledHelperLabel}"/>                                           
+                                </div>
+                                <aura:if isTrue="{!v.quoteBusinessType == 'Co-Term Upsell + Renewal'}">
+                                    <div class = "slds-p-horizontal_large input-field" >
+                                        <lightning:input type="Number" fieldName="RenewalFee" label="New Term Total" required="true"
+                                                        value="{!v.renewalFeeValue}" aura:id="renewalFeeId" fieldLevelHelp="Total pricing of the renewal quote (the full renewal cycle price)"/>                                           
+                                    </div>   
+                                </aura:if>
+                    </div>
+                    <footer class="slds-modal__footer">
+                        <div class="slds-float_left">
+                            <lightning:button 
+                            label="Skip"
+                            onclick="{!c.skipAction}"/>  
+                            <lightning:helptext class="customIcon"
+                            content="{!$Label.c.SkipButtonHelpText}"/>
+                        </div>
+
+                        <div class="slds-float_right">
+                            <lightning:button variant="brand"
+                            label="Submit"
+                            title="Submit request to the quote"
+                            onclick="{!c.submitRequest}"
+                            /> 
+                        </div>
+                    </footer>
+                </div>
+                <aura:if isTrue="{!v.isSpinner}">
+                    <lightning:spinner class="spins" alternativeText="Loading" />
+                </aura:if>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </aura:if>
+    </div>
+</aura:component>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Helper for Zuora CustomCpqSelectProductController in order to filter the rate plan charges add on types</description>
+    <label>AddonType</label>
+    <pluralLabel>AddonTypes</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

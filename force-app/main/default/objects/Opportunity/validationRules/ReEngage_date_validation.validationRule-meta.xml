@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ReEngage_date_validation</fullName>
+    <active>true</active>
+    <description>Prevents from editing &apos;Re-Engage date&apos;</description>
+    <errorConditionFormula>AND(
+NOT(ISPICKVAL(StageName, &apos;Closed Lost&apos;)),
+ISCHANGED(Re_Engage_date__c)
+)</errorConditionFormula>
+    <errorMessage>Re-Engage date could be updated only when Stage = Closed Lost</errorMessage>
+</ValidationRule>

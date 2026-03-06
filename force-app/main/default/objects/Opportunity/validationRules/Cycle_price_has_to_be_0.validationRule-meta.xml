@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cycle_price_has_to_be_0</fullName>
+    <active>false</active>
+    <description>Opportunities at 10% where type=&quot;New Sale&quot;, cannot have cycle price value that isn&apos;t $0.
+***Deactivated so we can create a new business process***</description>
+    <errorConditionFormula>AND(
+ISPICKVAL(Type,&apos;New Sale&apos;),
+Probability = 0.1,
+Cycle_Price__c &lt;&gt; 0,
+NOT(ISCHANGED( BI_Data__c )),
+NOT(ISCHANGED(Have_SE__c)),
+NOT(ISCHANGED(Account_owner_changed__c)),
+$Profile.Name &lt;&gt;&apos;SW SalesOps Extended&apos;,
+$Profile.Name &lt;&gt;&apos;SW SalesOps&apos;,
+$Profile.Name &lt;&gt;&apos;System Administrator&apos;,
+RecordTypeId &lt;&gt; &apos;012b0000000cfCa&apos;
+)</errorConditionFormula>
+    <errorDisplayField>Cycle_Price__c</errorDisplayField>
+    <errorMessage>Opp at 10% cannot have a cycle price value. Please move the opp to 25% or above to adjust the opp amount.</errorMessage>
+</ValidationRule>

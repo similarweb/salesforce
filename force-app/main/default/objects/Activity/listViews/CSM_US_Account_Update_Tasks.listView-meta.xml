@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CSM_US_Account_Update_Tasks</fullName>
+    <columns>CORE.USERS.FULL_NAME</columns>
+    <columns>TASK.SUBJECT</columns>
+    <columns>TASK.DUE_DATE</columns>
+    <columns>TASK.PRIORITY</columns>
+    <columns>TASK.STATUS</columns>
+    <columns>ACTIVITY.TASK</columns>
+    <columns>TASK.WHAT_NAME</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>TASK.TYPE</field>
+        <operation>equals</operation>
+        <value>CSM Account Update</value>
+    </filters>
+    <filters>
+        <field>OWNER_ROLE</field>
+        <operation>contains</operation>
+        <value>csm - us</value>
+    </filters>
+    <label>CSM US - Account Update Tasks</label>
+</ListView>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ReturnToPage__c</fullName>
+    <defaultValue>&quot;Billing Account&quot;</defaultValue>
+    <externalId>false</externalId>
+    <label>Return To Page</label>
+    <length>15</length>
+    <required>true</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

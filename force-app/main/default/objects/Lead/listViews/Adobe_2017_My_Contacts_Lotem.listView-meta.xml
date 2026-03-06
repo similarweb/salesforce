@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Adobe_2017_My_Contacts_Lotem</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>LEAD.COMPANY</columns>
+    <columns>LEAD.EMAIL</columns>
+    <columns>LEAD.STATUS</columns>
+    <columns>LEAD.CREATED_DATE</columns>
+    <columns>Business_Unit__c</columns>
+    <columns>MQL__c</columns>
+    <columns>LEAD.COUNTRY</columns>
+    <filterScope>Mine</filterScope>
+    <label>Adobe 2017 My Leads</label>
+</ListView>

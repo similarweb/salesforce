@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MIR_Non_MQL_Contacts_not_NT</fullName>
+    <columns>MQL_status_color__c</columns>
+    <columns>Contact_Us_Help_Timestamp__c</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CONTACT.TITLE</columns>
+    <columns>FULL_NAME</columns>
+    <columns>MIR_Status__c</columns>
+    <columns>CONTACT.LAST_ACTIVITY</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>Business_Unit__c</columns>
+    <columns>ACCOUNT.ADDRESS1_COUNTRY_CODE</columns>
+    <columns>SW_Industry__c</columns>
+    <columns>SW_Fit_Score__c</columns>
+    <columns>Salesloft_Status__c</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+        <field>Owner_Role__c</field>
+        <operation>equals</operation>
+        <value>MIR</value>
+    </filters>
+    <filters>
+        <field>SW_Fit_Score__c</field>
+        <operation>notEqual</operation>
+        <value>F,X,S</value>
+    </filters>
+    <filters>
+        <field>MIR_Status__c</field>
+        <operation>equals</operation>
+        <value>,In Progress / Touched,New,Prioritized</value>
+    </filters>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>Open,Qualified,Replied,Nurture,SDR Prospecting,SDR Converted,Sales Contacted,Sales Prospecting,Qualification,Post Demo,MIR Prospecting,Standby,Automated Prospecting,Automated Education,Automated Re-engagement,Dormant,Automated Onboarding</value>
+    </filters>
+    <filters>
+        <field>Mql_Status__c</field>
+        <operation>contains</operation>
+        <value>Reserve,Unverified</value>
+    </filters>
+    <filters>
+        <field>Account.No_Touch_Account__c</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>Account.Stage__c</field>
+        <operation>equals</operation>
+        <value>New,Ongoing Outbound</value>
+    </filters>
+    <filters>
+        <field>CONTACT.TITLE</field>
+        <operation>notContain</operation>
+        <value>professor,student</value>
+    </filters>
+    <filters>
+        <field>ACCOUNT.ADDRESS1_COUNTRY_CODE</field>
+        <operation>notEqual</operation>
+        <value>IR,IQ,JO,KP,LB,PS,RU,SY</value>
+    </filters>
+    <label>MIR Non-MQL Contacts (not NT)</label>
+</ListView>

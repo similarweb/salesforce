@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ASR_Status_changes</fullName>
+    <active>true</active>
+    <description>#1104786 AS Requests adjustments 
+Advisory_Services_Request can&apos;t be change to  Completed/Closed Won/Initiated - Future deliveries remaining with Closed Lost Opportunity</description>
+    <errorConditionFormula>AND(
+ ISCHANGED( Status__c ),
+ RecordType.DeveloperName = &quot;Advisory_Services_Request&quot;,
+ Opportunity_Stage__c = &apos;Closed Lost&apos;,
+ OR(
+ ISPICKVAL( Status__c , &apos;Completed&apos;),
+ ISPICKVAL( Status__c , &apos;Initiated - Future deliveries remaining&apos;),
+ ISPICKVAL( Status__c , &apos;Closed Won&apos;)
+ )
+)</errorConditionFormula>
+    <errorDisplayField>Status__c</errorDisplayField>
+    <errorMessage>Status cannot be Closed Won, Complete, or Initiated for Closed Lost Opportunity.</errorMessage>
+</ValidationRule>

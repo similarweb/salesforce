@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CU_Type_formula__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF((OR(CONTAINS(Subject,&quot;Pricing&quot;),CONTAINS(Subject,&quot;Subject line: Sales&quot;),CONTAINS(Subject,&quot;Book&quot;),CONTAINS(Subject,&quot;AP I&quot;))),&quot;Contact Form&quot;,&quot;Hook&quot;)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>CU Type formula</label>
+    <required>false</required>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

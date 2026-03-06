@@ -1,0 +1,2726 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Billing_Escalation_Email</name>
+        <label>Billing - Escalation Email</label>
+        <locationX>3570</locationX>
+        <locationY>4152</locationY>
+        <actionName>Case.Billing_Escalation_Email</actionName>
+        <actionType>emailAlert</actionType>
+        <connector>
+            <targetReference>Child_Case_Auto_Creation</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>Case.Billing_Escalation_Email</nameSegment>
+    </actionCalls>
+    <actionCalls>
+        <name>Billing_New_Case_Created_Email</name>
+        <label>Billing - New Case Created Email</label>
+        <locationX>2426</locationX>
+        <locationY>3744</locationY>
+        <actionName>Case.Billing_New_Case_Created_Email</actionName>
+        <actionType>emailAlert</actionType>
+        <connector>
+            <targetReference>Status_Changes</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>Case.Billing_New_Case_Created_Email</nameSegment>
+    </actionCalls>
+    <actionCalls>
+        <name>Billing_Reopen_Email_To_Owner</name>
+        <label>Billing - Reopen Email To Owner</label>
+        <locationX>2602</locationX>
+        <locationY>4152</locationY>
+        <actionName>Case.Billing_Reopen_Email_To_Owner</actionName>
+        <actionType>emailAlert</actionType>
+        <connector>
+            <targetReference>Child_Case_Auto_Creation</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>Case.Billing_Reopen_Email_To_Owner</nameSegment>
+    </actionCalls>
+    <actionCalls>
+        <name>Billing_Send_Email_Case_Closed</name>
+        <label>Billing - Send Email - Case Closed</label>
+        <locationX>1634</locationX>
+        <locationY>4260</locationY>
+        <actionName>Case.Billing_Send_Email_Case_Closed</actionName>
+        <actionType>emailAlert</actionType>
+        <connector>
+            <targetReference>Child_Case_Auto_Creation</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>Case.Billing_Send_Email_Case_Closed</nameSegment>
+    </actionCalls>
+    <actionCalls>
+        <name>Deal_Desk_New_Case_Created_Email</name>
+        <label>Deal Desk - New Case Created Email</label>
+        <locationX>1898</locationX>
+        <locationY>3744</locationY>
+        <actionName>Case.Deal_Desk_New_Case_Created_Email</actionName>
+        <actionType>emailAlert</actionType>
+        <connector>
+            <targetReference>Status_Changes</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>Case.Deal_Desk_New_Case_Created_Email</nameSegment>
+    </actionCalls>
+    <actionCalls>
+        <name>Deal_Desk_Reopen_Email_To_Owner</name>
+        <label>Deal Desk - Reopen Email To Owner</label>
+        <locationX>2338</locationX>
+        <locationY>4152</locationY>
+        <actionName>Case.Deal_Desk_Reopen_Email_To_Owner</actionName>
+        <actionType>emailAlert</actionType>
+        <connector>
+            <targetReference>Child_Case_Auto_Creation</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>Case.Deal_Desk_Reopen_Email_To_Owner</nameSegment>
+    </actionCalls>
+    <actionCalls>
+        <name>Deal_Desk_Send_Email_Case_Closed</name>
+        <label>Deal Desk - Send Email - Case Closed</label>
+        <locationX>1106</locationX>
+        <locationY>4260</locationY>
+        <actionName>Case.Deal_Desk_Send_Email_Case_Closed</actionName>
+        <actionType>emailAlert</actionType>
+        <connector>
+            <targetReference>Child_Case_Auto_Creation</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>Case.Deal_Desk_Send_Email_Case_Closed</nameSegment>
+    </actionCalls>
+    <actionCalls>
+        <name>Legal_New_Case_Created_Email</name>
+        <label>Legal - New Case Created Email</label>
+        <locationX>2690</locationX>
+        <locationY>3744</locationY>
+        <actionName>Case.Legal_New_Case_Created_Email</actionName>
+        <actionType>emailAlert</actionType>
+        <connector>
+            <targetReference>Status_Changes</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>Case.Legal_New_Case_Created_Email</nameSegment>
+    </actionCalls>
+    <actionCalls>
+        <name>Legal_Reopen_Email_To_Owner</name>
+        <label>Legal - Reopen Email To Owner</label>
+        <locationX>2866</locationX>
+        <locationY>4152</locationY>
+        <actionName>Case.Legal_Reopen_Email_To_Owner</actionName>
+        <actionType>emailAlert</actionType>
+        <connector>
+            <targetReference>Child_Case_Auto_Creation</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>Case.Legal_Reopen_Email_To_Owner</nameSegment>
+    </actionCalls>
+    <actionCalls>
+        <name>Legal_Send_Email_Case_Closed</name>
+        <label>Legal - Send Email - Case Closed</label>
+        <locationX>1898</locationX>
+        <locationY>4260</locationY>
+        <actionName>Case.Legal_Send_Email_Case_Closed</actionName>
+        <actionType>emailAlert</actionType>
+        <connector>
+            <targetReference>Child_Case_Auto_Creation</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>Case.Legal_Send_Email_Case_Closed</nameSegment>
+    </actionCalls>
+    <actionCalls>
+        <name>Salesops_New_Case_Created_Email</name>
+        <label>Salesops - New Case Created Email</label>
+        <locationX>2162</locationX>
+        <locationY>3744</locationY>
+        <actionName>Case.Salesops_New_Case_Created_Email</actionName>
+        <actionType>emailAlert</actionType>
+        <connector>
+            <targetReference>Status_Changes</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>Case.Salesops_New_Case_Created_Email</nameSegment>
+    </actionCalls>
+    <actionCalls>
+        <name>SalesOps_Reopen_Email_To_Owner</name>
+        <label>SalesOps - Reopen Email To Owner</label>
+        <locationX>3130</locationX>
+        <locationY>4152</locationY>
+        <actionName>Case.SalesOps_Reopen_Email_To_Owner</actionName>
+        <actionType>emailAlert</actionType>
+        <connector>
+            <targetReference>Child_Case_Auto_Creation</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>Case.SalesOps_Reopen_Email_To_Owner</nameSegment>
+    </actionCalls>
+    <actionCalls>
+        <name>SalesOps_Send_Email_Case_Closed</name>
+        <label>SalesOps - Send Email - Case Closed</label>
+        <locationX>1370</locationX>
+        <locationY>4260</locationY>
+        <actionName>Case.SalesOps_Send_Email_Case_Closed</actionName>
+        <actionType>emailAlert</actionType>
+        <connector>
+            <targetReference>Child_Case_Auto_Creation</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>Case.SalesOps_Send_Email_Case_Closed</nameSegment>
+    </actionCalls>
+    <actionCalls>
+        <name>Submit_for_Approval_Extension</name>
+        <label>Submit for Approval - Extension</label>
+        <locationX>1634</locationX>
+        <locationY>2856</locationY>
+        <actionName>submit</actionName>
+        <actionType>submit</actionType>
+        <connector>
+            <targetReference>Case_Created_Contract_signed_manually</targetReference>
+        </connector>
+        <faultConnector>
+            <targetReference>Approval_Process_Failed</targetReference>
+        </faultConnector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>objectId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>submitterId</name>
+            <value>
+                <elementReference>$Record.Requester__c</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>submit</nameSegment>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </actionCalls>
+    <apiVersion>61.0</apiVersion>
+    <assignments>
+        <description>MIS-7386 GM Owner Approval Process Update In Case</description>
+        <name>Assign_Region</name>
+        <label>Assign Region</label>
+        <locationX>1634</locationX>
+        <locationY>1752</locationY>
+        <assignmentItems>
+            <assignToReference>Role_Region_From_User</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Requester__r.Role_s_Region__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Requester_Role_Check</targetReference>
+        </connector>
+    </assignments>
+    <customErrors>
+        <name>Approval_Process_Failed</name>
+        <label>Approval Process Failed</label>
+        <locationX>2690</locationX>
+        <locationY>2964</locationY>
+        <customErrorMessages>
+            <errorMessage>Sending case {!$Record.CaseNumber}  to approval process failed
+Extension Type: {!$Record.Extension_Type__c}
+Error: {!$Flow.FaultMessage}
+
+Please contact MIS with the error</errorMessage>
+            <isFieldError>false</isFieldError>
+        </customErrorMessages>
+    </customErrors>
+    <customErrors>
+        <name>Error_Case_could_not_close</name>
+        <label>Error: Case could not close</label>
+        <locationX>314</locationX>
+        <locationY>4260</locationY>
+        <customErrorMessages>
+            <errorMessage>There was a problem closing the parent case.
+{!$Flow.FaultMessage}</errorMessage>
+            <isFieldError>false</isFieldError>
+        </customErrorMessages>
+    </customErrors>
+    <customErrors>
+        <name>Error_Failed_To_Get_Approver_GM_Detailes</name>
+        <label>Error: Failed To Get Approver: GM Detailes</label>
+        <locationX>2954</locationX>
+        <locationY>2856</locationY>
+        <customErrorMessages>
+            <errorMessage>Failed To Get Approver: GM Detailes
+Contact MIS
+{!$Flow.FaultMessage}</errorMessage>
+            <isFieldError>false</isFieldError>
+        </customErrorMessages>
+    </customErrors>
+    <customErrors>
+        <name>Error_Failed_Updating_Billing_Processing_Instructions_on_Opp</name>
+        <label>Error: Failed Updating Billing Processing Instructions on Opp</label>
+        <locationX>2426</locationX>
+        <locationY>6396</locationY>
+        <customErrorMessages>
+            <errorMessage>Error: Failed Updating Billing Processing Instructions on the related Opportunity</errorMessage>
+            <isFieldError>false</isFieldError>
+        </customErrorMessages>
+    </customErrors>
+    <customErrors>
+        <name>Error_GM</name>
+        <label>Error GM</label>
+        <locationX>1370</locationX>
+        <locationY>2076</locationY>
+        <customErrorMessages>
+            <errorMessage>Failed to get GM for approval
+Contact salesops</errorMessage>
+            <isFieldError>false</isFieldError>
+        </customErrorMessages>
+    </customErrors>
+    <customErrors>
+        <name>Error_Problem_updating_parent_case_to_in_progress</name>
+        <label>Error: Problem updating parent case to in progress</label>
+        <locationX>842</locationX>
+        <locationY>4260</locationY>
+        <customErrorMessages>
+            <errorMessage>There was a problem updating the parent case to in progress.
+Your case was not closed - Please contact MIS</errorMessage>
+            <isFieldError>false</isFieldError>
+        </customErrorMessages>
+    </customErrors>
+    <decisions>
+        <name>Assign_Group_Field_Value_From_Account</name>
+        <label>Assign Group Field Value From Account</label>
+        <locationX>2426</locationX>
+        <locationY>1296</locationY>
+        <defaultConnector>
+            <targetReference>Case_Created_Extension</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Forecasting_Division_Exist_On_Account</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Account.Forecasting_Division__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Group__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Group_From_Account</targetReference>
+            </connector>
+            <label>Forecasting Division Exist On Account</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-6714
+green lane logic</description>
+        <name>Authorized_DocuSign</name>
+        <label>Authorized DocuSign</label>
+        <locationX>2426</locationX>
+        <locationY>5724</locationY>
+        <defaultConnector>
+            <targetReference>Billing_Processing_Instructions</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Authorized_DocuSign_Changed_True</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Authorized_DocuSign_c__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Related_Quote_Authorized_DocuSign_True</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>Authorized DocuSign Changed = True</label>
+        </rules>
+        <rules>
+            <name>Authorized_DocuSign_Changed_False</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Authorized_DocuSign_c__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Related_Quote_Authorized_DocuSign_False</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>Authorized DocuSign Changed = False</label>
+        </rules>
+        <rules>
+            <name>Case_Reopens</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Status</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Reopened</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Authorized_DocuSign_c__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <isGoTo>true</isGoTo>
+                <targetReference>Update_Related_Quote_Authorized_DocuSign_False</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>Case Reopens</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-6215</description>
+        <name>Billing_Processing_Instructions</name>
+        <label>Billing Processing Instructions</label>
+        <locationX>2426</locationX>
+        <locationY>6180</locationY>
+        <defaultConnector>
+            <targetReference>Get_Organization</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Updated_On_Case</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Billing_Processing_Instructions__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Opportunity__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+            </conditions>
+            <connector>
+                <targetReference>Update_Related_Opportunity_Billing_Processing_Instructions</targetReference>
+            </connector>
+            <label>Updated On Case</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-6133</description>
+        <name>Case_Created_Add_Original_Requester_To_Case_Team</name>
+        <label>Case Created: Add Original Requester To Case Team</label>
+        <locationX>2426</locationX>
+        <locationY>840</locationY>
+        <defaultConnector>
+            <targetReference>Assign_Group_Field_Value_From_Account</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Child_Case_Add_Original_Requester</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.ParentId</leftValueReference>
+                <operator>NotEqualTo</operator>
+            </conditions>
+            <conditions>
+                <leftValueReference>IsNew</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Type</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Customer Access</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Type</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Update Customer Information</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Type</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Opp Review: One-Time Product</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Type</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Company Documents (e.g. SOC 2, SOC 3, COI, Bank Letter)</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Case_Team_Read_Only_Role_Original_Requester</targetReference>
+            </connector>
+            <label>Child Case: Add Original Requester</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Case_Created_Add_Requester_To_Case_Team</name>
+        <label>Case Created - Add Requester To Case Team</label>
+        <locationX>2426</locationX>
+        <locationY>384</locationY>
+        <defaultConnector>
+            <targetReference>Case_Created_Add_Original_Requester_To_Case_Team</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Add_Requester_to_Case_Team</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>IsNew</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Requester__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record.OwnerId</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Requester__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Requester__r.IsActive</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Requester__r.Email</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>salesforce@similarweb.com</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Case_Team_Read_Only_Role</targetReference>
+            </connector>
+            <label>Add Requester to Case Team</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-6203</description>
+        <name>Case_Created_Contract_signed_manually</name>
+        <label>Case Created: Contract signed manually</label>
+        <locationX>2426</locationX>
+        <locationY>3288</locationY>
+        <defaultConnector>
+            <targetReference>Case_Created_Emails_To_Requester</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Deal_Desk_Contract_signed_manually_created</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.RecordType.Name</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Deal Desk</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Type</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Contract Signed Manually - Quote for Deal Desk Review</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>IsNew</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Billing_Case_Fields_On_Quote</targetReference>
+            </connector>
+            <label>Deal Desk : Contract signed manually created</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-6861
+MIS-7004</description>
+        <name>Case_Created_Emails_To_Requester</name>
+        <label>Case Created:  Emails To Requester</label>
+        <locationX>2426</locationX>
+        <locationY>3636</locationY>
+        <defaultConnector>
+            <targetReference>Status_Changes</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Deal_Desk_Email</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.RecordType.Name</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Deal Desk</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>IsNew</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Cancelled</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Deal_Desk_New_Case_Created_Email</targetReference>
+            </connector>
+            <label>Deal Desk Email</label>
+        </rules>
+        <rules>
+            <name>Salesops_Email</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.RecordType.Name</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>SalesOps</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>IsNew</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.SuppliedEmail</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>salesforce@similarweb.com</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.SuppliedEmail</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>salesops@similarweb.com</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Salesops_New_Case_Created_Email</targetReference>
+            </connector>
+            <label>Salesops Email</label>
+        </rules>
+        <rules>
+            <name>Billing_Email</name>
+            <conditionLogic>1 AND   ((2 AND 3 AND 4 AND NOT 5) OR ( 5 AND 6 AND 7 AND 8 AND 9 ))</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.RecordType.Name</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Billing</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>IsNew</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.ParentId</leftValueReference>
+                <operator>IsBlank</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Type</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Contract Signed Manually - Quote for Deal Desk Review</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Origin</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Email</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record__Prior.Type</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Type</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Direct Email</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Is_Pro_User__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Billing_Blocked_Mailing_Addresses</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Billing_New_Case_Created_Email</targetReference>
+            </connector>
+            <label>Billing Email</label>
+        </rules>
+        <rules>
+            <name>Legal_Email_New_Case</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.RecordType.Name</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Legal</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>IsNew</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Cancelled</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Legal_New_Case_Created_Email</targetReference>
+            </connector>
+            <label>Legal Email - New Case</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-7386 GM Owner Approval Process Update In Case</description>
+        <name>Case_Created_Extension</name>
+        <label>Case Created - Extension</label>
+        <locationX>2426</locationX>
+        <locationY>1644</locationY>
+        <defaultConnector>
+            <targetReference>Case_Created_Contract_signed_manually</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Extension</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Type</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Extension (Temporary, Permanent, Trial)</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Approval_Signed__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>IsNew</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.ParentId</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Region</targetReference>
+            </connector>
+            <label>Send for approval</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-6136</description>
+        <name>Case_Record_Type_For_Closing_Email</name>
+        <label>Emails : Case Record Type For Closing Email</label>
+        <locationX>1634</locationX>
+        <locationY>4152</locationY>
+        <defaultConnector>
+            <targetReference>Child_Case_Auto_Creation</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Deal_Desk_Closed_Email</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.RecordType.Name</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Deal Desk</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.ParentId</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Disable_Completed_Email_Alert__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Deal_Desk_Send_Email_Case_Closed</targetReference>
+            </connector>
+            <label>Deal Desk Closed Email</label>
+        </rules>
+        <rules>
+            <name>Salesops_Closed_Email</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.RecordType.Name</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>SalesOps</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Disable_Completed_Email_Alert__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.SuppliedEmail</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>salesforce@similarweb.com</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.SuppliedEmail</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>salesops@similarweb.com</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>SalesOps_Send_Email_Case_Closed</targetReference>
+            </connector>
+            <label>Salesops Closed Email</label>
+        </rules>
+        <rules>
+            <name>Billing_Case_Closed_Email</name>
+            <conditionLogic>1 AND 5 and 8 and ( ((2 or ( 3 AND 4)) AND NOT 7) OR (6 and 7))</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.RecordType.Name</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Billing</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.ParentId</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.ParentId</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_Case_Management_CMTD.Auto_Child_Case__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Disable_Completed_Email_Alert__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Is_Pro_User__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Origin</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Email</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Billing_Blocked_Mailing_Addresses</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Billing_Send_Email_Case_Closed</targetReference>
+            </connector>
+            <label>Billing Case Closed Email</label>
+        </rules>
+        <rules>
+            <name>Legal_Closed_Email</name>
+            <conditionLogic>1 AND ( 2 or ( 3 AND 4)) and 5</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.RecordType.Name</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Legal</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.ParentId</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.ParentId</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_Case_Management_CMTD.Auto_Child_Case__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Disable_Completed_Email_Alert__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Legal_Send_Email_Case_Closed</targetReference>
+            </connector>
+            <label>Legal Closed Email</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-6133</description>
+        <name>Child_Case_Auto_Creation</name>
+        <label>Child Case Auto Creation</label>
+        <locationX>2426</locationX>
+        <locationY>4668</locationY>
+        <defaultConnector>
+            <targetReference>First_Deal_Desk_Quote_Case</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Create_Child_Case_Automatically</name>
+            <conditionLogic>((1 AND 2) OR ( (3 OR 4 OR  5 OR 6) AND 7)  OR (8 AND 9)) and 10</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Type</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Contract Signed Manually - Quote for Deal Desk Review</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.IsClosed</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Type</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Similarweb MSA</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Type</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>DDQ (Due Diligence / Security Questionnaire)</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Type</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Customer Invoice(s)/Collections</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Type</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Customer Vendor Form</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>IsNew</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Type</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Extension (Temporary, Permanent, Trial)</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Approval_Signed__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.ParentId</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Case_AL_Auto_Create_Child_Case</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>Create Child Case Automatically</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>DDQ_Type_Changed_To</name>
+        <label>DDQ Type Changed To</label>
+        <locationX>2426</locationX>
+        <locationY>6828</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Data_Privacy_Compliance</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.DDQ_Type__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.DDQ_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Data Privacy/Compliance</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Owner_ID_to_Legal_Queue</targetReference>
+            </connector>
+            <label>Data Privacy / Compliance</label>
+        </rules>
+        <rules>
+            <name>Information_Security</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.DDQ_Type__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.DDQ_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Information Security</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Owner_To_Security_Queue</targetReference>
+            </connector>
+            <label>Information Security</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-6133</description>
+        <name>Deal_Desk_Child_Case_Closed</name>
+        <label>Deal Desk Child Case Closed</label>
+        <locationX>842</locationX>
+        <locationY>4044</locationY>
+        <defaultConnector>
+            <targetReference>Case_Record_Type_For_Closing_Email</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Not Deal Desk Child Logic</defaultConnectorLabel>
+        <rules>
+            <name>Close_Parent_Case_True</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Parent.RecordType.Name</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Deal Desk</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_Case_Management_CMTD.Auto_Close_Parent__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.ParentId</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Close_Parent_Case</targetReference>
+            </connector>
+            <label>Close Parent Case = True</label>
+        </rules>
+        <rules>
+            <name>Change_Parent_Status_In_progress</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.ParentId</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Parent.RecordType.Name</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Deal Desk</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_Case_Management_CMTD.Update_Parent_To_In_Progress__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Parent_Status_In_Progress</targetReference>
+            </connector>
+            <label>Change Parent Status = In progress</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Email_2_Case_Created</name>
+        <label>Email 2 Case Created</label>
+        <locationX>4318</locationX>
+        <locationY>276</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Email_To_Case_Fields_Assignment</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Origin</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Email</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Case_AL_Email_To_Case_Assignment_Rules_Scheduled_Path</targetReference>
+            </connector>
+            <label>Email To Case Fields Assignment</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Escalation_Actions</name>
+        <label>Escalation Actions</label>
+        <locationX>3702</locationX>
+        <locationY>4044</locationY>
+        <defaultConnector>
+            <targetReference>Child_Case_Auto_Creation</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Billing_Escalation</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.RecordType.Name</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Billing</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Billing_Escalation_Email</targetReference>
+            </connector>
+            <label>Billing Escalation</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>check if this is the first case for the related quote
+MIS-6714</description>
+        <name>First_Deal_Desk_Quote_Case</name>
+        <label>First Deal Desk Quote Case</label>
+        <locationX>2426</locationX>
+        <locationY>4968</locationY>
+        <defaultConnector>
+            <targetReference>Authorized_DocuSign</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Quote_Deal_Desk_Case_Created</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>IsNew</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Quote__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.RecordType.Name</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Deal Desk</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.ParentId</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Related_Quote_Cases</targetReference>
+            </connector>
+            <label>Quote Deal Desk Case Created</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-7386 GM Owner Approval Process Update In Case</description>
+        <name>Found_GM_by_role_or_email</name>
+        <label>Found GM by role or email?</label>
+        <locationX>1634</locationX>
+        <locationY>2400</locationY>
+        <defaultConnector>
+            <targetReference>Get_GM_Approver_By_Role</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Found GM By Role</defaultConnectorLabel>
+        <rules>
+            <name>Found_GM_By_Email</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>GM_Approver_Value</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <stringValue>@</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_GM_Approver_By_Email</targetReference>
+            </connector>
+            <label>Found GM By Email</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Found_more_cases</name>
+        <label>Found more cases</label>
+        <locationX>1986</locationX>
+        <locationY>5184</locationY>
+        <defaultConnector>
+            <targetReference>Update_First_Quote_Case</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No Other Quote Cases For Quote</defaultConnectorLabel>
+        <rules>
+            <name>Found_Existing_Cases_For_Quote</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Related_Quote_Cases</leftValueReference>
+                <operator>IsBlank</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Authorized_DocuSign</targetReference>
+            </connector>
+            <label>Found Existing Cases For Quote</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Reopen_Record_Type</name>
+        <label>Reopen Record Type</label>
+        <locationX>2866</locationX>
+        <locationY>4044</locationY>
+        <defaultConnector>
+            <targetReference>Child_Case_Auto_Creation</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Deal_Desk_Reopen</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.RecordType.Name</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Deal Desk</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Deal_Desk_Reopen_Email_To_Owner</targetReference>
+            </connector>
+            <label>Deal Desk - Reopen</label>
+        </rules>
+        <rules>
+            <name>Billing_Reopen</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.RecordType.Name</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Billing</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Billing_Reopen_Email_To_Owner</targetReference>
+            </connector>
+            <label>Billing - Reopen</label>
+        </rules>
+        <rules>
+            <name>Legal_Reopen</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.RecordType.Name</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Legal</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Legal_Reopen_Email_To_Owner</targetReference>
+            </connector>
+            <label>Legal - Reopen</label>
+        </rules>
+        <rules>
+            <name>Salesops_Reopen</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.RecordType.Name</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>SalesOps</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>SalesOps_Reopen_Email_To_Owner</targetReference>
+            </connector>
+            <label>Salesops - Reopen</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-7386 GM Owner Approval Process Update In Case</description>
+        <name>Requester_Role_Check</name>
+        <label>Requester Role Check</label>
+        <locationX>1634</locationX>
+        <locationY>1860</locationY>
+        <defaultConnector>
+            <targetReference>Get_GM_Approver_By_Role_Email</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Investors_Trial_Extension</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Extension_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Trial Extension</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Role_Region_From_User</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Investors</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_GM_Approver_Investors_Trial</targetReference>
+            </connector>
+            <label>Investors - Trial Extension</label>
+        </rules>
+        <rules>
+            <name>Investors_Non_Trial_Extenstion</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Role_Region_From_User</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Investors</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_GM_Approver_Investors_Non_Trial</targetReference>
+            </connector>
+            <label>Investors - Non Trial Extenstion</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Status_Changes</name>
+        <label>Status Changes</label>
+        <locationX>2426</locationX>
+        <locationY>3936</locationY>
+        <defaultConnector>
+            <targetReference>Child_Case_Auto_Creation</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Completed</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Status</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Completed</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Deal_Desk_Child_Case_Closed</targetReference>
+            </connector>
+            <label>Completed</label>
+        </rules>
+        <rules>
+            <name>Reopen</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Status</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Reopened</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Reopen_Record_Type</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>Reopen</label>
+        </rules>
+        <rules>
+            <name>Escalation</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Status</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Pending Escalation</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Escalation_Actions</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>Escalation</label>
+        </rules>
+    </decisions>
+    <description>Excluded open case email send to 	salesops@similarweb.com 
+MIS-7038 Change Owner of DDQ Cases
+MIS-7600 Replace Flow email alerts with classic email alerts and Templates
+MIS-7730 Remove close case dependency between parent and child case
+MIS-7648 Autorize DocuSign field logic adjustment :Authorized DocuSign
+block email :  support@interioricons.com
+MIS-7600 - modify created + completed email templates
+MIS-7386 GM Owner Approval Process Update In Case
+Block emails hello@healthletic.io
+MIS-7433 - Replaced GM RR Approval process with Gal Har Zvi instead of Shay Harel
+MIS-7087 Optimize Auto-Complete Automation for Parent and Child Cases
+MIS-7004 Block email addresses from billing emails sent
+MIS-6865 - bypass Quote Validation
+disabled email sent to salesforce@smwb
+MIS-6785 - gm for approval process
+MIS-6861 - billing open and close emails
+Added error message 
+Pending Escalation 
+MIS-6819 Disable completed email alert
+MIS-6806 -   Case Created:  Emails To Requester -&gt;  billing email
+MIS-6801 Get GM Approver</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>Account_Link</name>
+        <dataType>String</dataType>
+        <expression>LEFT($Api.Partner_Server_URL_290, FIND( &apos;/services&apos;, $Api.Partner_Server_URL_260)) &amp; {!$Record.AccountId}</expression>
+    </formulas>
+    <formulas>
+        <name>Biiling_Case_Escalated_Subject</name>
+        <dataType>String</dataType>
+        <expression>&apos;Billing Case was escalated (Number: &apos; +{!$Record.CaseNumber}+&apos;)&apos;</expression>
+    </formulas>
+    <formulas>
+        <description>Will block sending email to these addresses
+MIS-7004</description>
+        <name>Billing_Blocked_Mailing_Addresses</name>
+        <dataType>Boolean</dataType>
+        <expression>IF( OR(
+{!$Record.SuppliedEmail}=&apos;team@elevenlabs.io&apos;,
+AND({!$Record.SuppliedEmail}=&apos;support@interioricons.com&apos;,{!$Record.Subject}=&apos;We have received your email&apos;),
+{!$Record.Subject}=&apos;Out of office automatic reply&apos;,
+BEGINS({!$Record.Subject}, &apos;自动回复: Your Billing Case was Created&apos;),
+AND ( {!$Record.SuppliedEmail}=&apos;marketing@acy.com&apos; , BEGINS({!$Record.Subject}, &apos;Your Billing Case was Created&apos;) ),
+AND ( {!$Record.SuppliedEmail}=&apos;hello@healthletic.io&apos; , CONTAINS({!$Record.Subject}, &apos;Your Similarweb payment was successfully processed&apos;) ),
+AND ( {!$Record.SuppliedEmail}=&apos;hello@healthletic.io&apos; , CONTAINS({!$Record.Subject}, &apos;Your Billing Case was Created&apos;) )
+
+),true,false
+
+)</expression>
+    </formulas>
+    <formulas>
+        <name>Billing_Case_Closed_Subject</name>
+        <dataType>String</dataType>
+        <expression>&apos;Your Billing Case is Completed (Number: &apos; +{!$Record.CaseNumber}+&apos;)&apos;</expression>
+    </formulas>
+    <formulas>
+        <name>Billing_Escalation_Recipient_List</name>
+        <dataType>String</dataType>
+        <expression>IF(
+    ISBLANK({!$Record.Owner:User.Manager.Email}), 
+    &quot;michal.reznick@similarweb.com&quot;, 
+   {!$Record.Owner:User.Manager.Email} &amp; &quot;, michal.reznick@similarweb.com&quot;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>Billing_Group_Assigment_Formula</name>
+        <dataType>String</dataType>
+        <expression>IF(
+    OR(
+        /* Group: Billing US */
+        $Record.Account.Forecasting_Division__c = &quot;NA Enterprise&quot;,
+        $Record.Account.Forecasting_Division__c = &quot;NA Inside Sales&quot;,
+        $Record.Account.Forecasting_Division__c = &quot;Resellers Americas&quot;,
+        $Record.Account.Forecasting_Division__c = &quot;NA Strategic&quot;,
+        $Record.Account.Forecasting_Division__c = &quot;Investors&quot;,
+        $Record.Account.Forecasting_Division__c = &quot;LATAM inside sales&quot;
+    ),
+    &quot;Billing US&quot;,
+
+    IF(
+        OR(
+            /* Group: Billing INT */
+            $Record.Account.Forecasting_Division__c = &quot;EMEA Enterprise&quot;,
+            $Record.Account.Forecasting_Division__c = &quot;EMEA Inside Sales&quot;,
+            $Record.Account.Forecasting_Division__c = &quot;Resellers EMEA&quot;,
+            $Record.Account.Forecasting_Division__c = &quot;EMEA Strategic&quot;,
+            $Record.Account.Forecasting_Division__c = &quot;OEM&quot;,
+            $Record.Account.Forecasting_Division__c = &quot;Agencies Strategic&quot;,
+            $Record.Account.Forecasting_Division__c = &quot;Consultancies Strategic&quot;
+        ),
+        &quot;Billing INT&quot;,
+
+        IF(
+            OR(
+                /* Group: Billing APAC */
+                $Record.Account.Forecasting_Division__c = &quot;APAC Strategic&quot;,
+                $Record.Account.Forecasting_Division__c = &quot;APAC Japan&quot;,
+                $Record.Account.Forecasting_Division__c = &quot;Japan Strategic&quot;,
+                $Record.Account.Forecasting_Division__c = &quot;APAC China&quot;,
+                $Record.Account.Forecasting_Division__c = &quot;APAC Inside Sales&quot;,
+                $Record.Account.Forecasting_Division__c = &quot;Resellers APAC&quot;
+            ),
+            &quot;Billing APAC&quot;,
+
+            /* Default Value if None Match */
+            null
+        )
+    )
+)</expression>
+    </formulas>
+    <formulas>
+        <name>Billing_Group_From_ToAddress_Formula</name>
+        <dataType>String</dataType>
+        <expression>IF(
+    {!Related_Email_Message.ToAddress} = &quot;billing@similarweb.com&quot;,
+    &quot;Billing&quot;,
+
+    IF(
+      {!Related_Email_Message.ToAddress}= &quot;billing-us@similarweb.com&quot;,
+        &quot;Billing US&quot;,
+
+        IF(
+         {!Related_Email_Message.ToAddress} = &quot;billing-int@similarweb.com&quot;,
+            &quot;Billing INT&quot;,
+
+            IF(
+               {!Related_Email_Message.ToAddress} = &quot;billing-apac@similarweb.com&quot;,
+                &quot;Billing APAC&quot;,
+
+                /* Default Value if None Match */
+                null
+            )
+        )
+    )
+)</expression>
+    </formulas>
+    <formulas>
+        <name>Billing_New_Case_Email_Subject</name>
+        <dataType>String</dataType>
+        <expression>&quot;Your Billing Case was Created (Number: &quot;+{!$Record.CaseNumber}+&quot;)&quot;</expression>
+    </formulas>
+    <formulas>
+        <description>conact values from all opp related cases</description>
+        <name>Billing_Processing_Instructions_Formula</name>
+        <dataType>String</dataType>
+        <expression>TEXT(Today()) &amp; &apos;-&apos; &amp; {!$Record.CaseNumber} &amp; &apos;:&apos; &amp; {!$Record.Billing_Processing_Instructions__c} &amp; BR() &amp;
+{!$Record.Opportunity__r.Billing_Processing_Instructions__c}</expression>
+    </formulas>
+    <formulas>
+        <name>Billing_Reopen_Email_Subject</name>
+        <dataType>String</dataType>
+        <expression>&apos;Billing case was reopened (Number: &apos; +{!$Record.CaseNumber}+&apos;)&apos;</expression>
+    </formulas>
+    <formulas>
+        <name>Count_Child_Cases</name>
+        <dataType>Date</dataType>
+        <expression>IF(TEXT({!$Record.Status})= &apos;Pending Requester&apos;,
+  IF({!$Record.RecordType.Name}=&apos;Deal Desk&apos;,TODAY()+10,TODAY()+3), null
+)</expression>
+    </formulas>
+    <formulas>
+        <name>Deal_Desk_New_Case_Email_Subject</name>
+        <dataType>String</dataType>
+        <expression>&apos;Your Deal Desk Case Was Created (Number:  &apos; + {!$Record.CaseNumber} + &apos;)&apos;</expression>
+    </formulas>
+    <formulas>
+        <name>Deal_Desk_Reopen_Email_Subject</name>
+        <dataType>String</dataType>
+        <expression>&apos;Deal Desk Case was reopened (Number: &apos; +{!$Record.CaseNumber}+&apos;)&apos;</expression>
+    </formulas>
+    <formulas>
+        <name>DealDesk_Case_Closed_Subject</name>
+        <dataType>String</dataType>
+        <expression>&apos;Your Deal Desk Case is Completed (Number: &apos; +{!$Record.CaseNumber}+&apos;)&apos;</expression>
+    </formulas>
+    <formulas>
+        <name>EscalationEmailSubject</name>
+        <dataType>String</dataType>
+        <expression>&apos;Case Number &apos; + {!$Record.CaseNumber}+ &apos; status was changed to Pending Escalation&apos;</expression>
+    </formulas>
+    <formulas>
+        <description>https://docs.google.com/spreadsheets/d/1GvUkaPhj4tN2fwoMz3z1M_4_j8Hffvj9Mez9f4yEb4M/edit?gid=0#gid=0
+https://similarweb-rnd.atlassian.net/browse/MIS-6154</description>
+        <name>Extension_Approval_Process_GM_Approver_By_Role</name>
+        <dataType>String</dataType>
+        <expression>IF(
+        CONTAINS({!$Record.Requester__r.SysRoleName__c}, &quot;APAC&quot;) ||
+        CONTAINS({!$Record.Requester__r.SysRoleName__c}, &quot;Japan&quot;) ||
+        CONTAINS({!$Record.Requester__r.SysRoleName__c}, &quot;Trellian&quot;) ||
+        CONTAINS({!$Record.Requester__r.SysRoleName__c}, &quot;India&quot;) ||
+        CONTAINS({!$Record.Requester__r.SysRoleName__c}, &quot;SEA&quot;) ||
+        CONTAINS({!$Record.Requester__r.SysRoleName__c}, &quot;Maestros&quot;) ||
+        CONTAINS({!$Record.Requester__r.SysRoleName__c}, &quot;Australia&quot;),
+        &quot;GM - APAC&quot;,
+
+        IF(
+            CONTAINS({!$Record.Requester__r.SysRoleName__c}, &quot;OEM&quot;) ||
+            CONTAINS({!$Record.Requester__r.SysRoleName__c}, &quot;Agencies Strategic&quot;) ||
+            CONTAINS({!$Record.Requester__r.SysRoleName__c}, &quot;Consultancies&quot;) ,
+            &quot;GM - Vertical&quot;,
+
+            IF(
+                CONTAINS({!$Record.Requester__r.SysRoleName__c}, &quot;LATAM&quot;) ||
+                CONTAINS({!$Record.Requester__r.SysRoleName__c}, &quot;NA Enterprise&quot;) ||
+                CONTAINS({!$Record.Requester__r.SysRoleName__c}, &quot;NA Strategic&quot;) ||
+                CONTAINS({!$Record.Requester__r.SysRoleName__c}, &quot;NA SMB&quot;) ||
+                CONTAINS({!$Record.Requester__r.SysRoleName__c}, &quot;Mexico&quot;) ||
+                CONTAINS({!$Record.Requester__r.SysRoleName__c}, &quot;Brazil&quot;) ||
+                CONTAINS({!$Record.Requester__r.SysRoleName__c}, &quot;Colombia&quot;),
+                &quot;GM - America&quot;,
+                
+                &apos;none&apos;
+            )
+        )
+    )</expression>
+    </formulas>
+    <formulas>
+        <description>MIS-6785</description>
+        <name>Extension_Approval_Process_GM_By_Email</name>
+        <dataType>String</dataType>
+        <expression>IF(
+ CONTAINS({!$Record.Requester__r.SysRoleName__c}, &quot;EMEA&quot;) ||
+ CONTAINS({!$Record.Requester__r.SysRoleName__c}, &quot;Turkey&quot;) ||
+ CONTAINS({!$Record.Requester__r.SysRoleName__c}, &quot;Italy&quot;),
+    &quot;mark.adams@similarweb.com&quot;,
+IF(
+  AND(
+CONTAINS({!$Record.Requester__r.SysRoleName__c}, &quot;Investors&quot;),
+TEXT({!$Record.Extension_Type__c})=&apos;Trial Extension&apos;
+      ), &apos;michael.chiappinelli@similarweb.com&apos; ,
+ IF(
+  AND(
+CONTAINS({!$Record.Requester__r.SysRoleName__c}, &quot;Investors&quot;),
+OR(TEXT({!$Record.Extension_Type__c})=&apos;Temporary Extension&apos;,TEXT({!$Record.Extension_Type__c})=&apos;Permanent Renewal Date Change&apos;)
+), &apos;michael.chiappinelli@similarweb.com&apos; ,
+
+   IF(
+{!$Record.Requester__r.SysRoleName__c}=&quot;Rank Ranger&quot; ,
+    &quot;gal.harzvi@similarweb.com&quot;, &apos;none&apos;
+
+))))</expression>
+    </formulas>
+    <formulas>
+        <name>InformationSecurityOwnerID</name>
+        <dataType>String</dataType>
+        <expression>IF({!Get_Organization.IsSandbox}, &apos;00GPw0000093MtFMAU&apos;, &apos;00GQB000005RtTl2AK&apos;)</expression>
+    </formulas>
+    <formulas>
+        <name>IsNew</name>
+        <dataType>Boolean</dataType>
+        <expression>ISNEW()</expression>
+    </formulas>
+    <formulas>
+        <name>Legal_Case_Closed_Subject</name>
+        <dataType>String</dataType>
+        <expression>&apos;Your Legal Case is Completed (Number: &apos; +{!$Record.CaseNumber}+&apos;)&apos;</expression>
+    </formulas>
+    <formulas>
+        <name>Legal_New_Case_Email_Subject</name>
+        <dataType>String</dataType>
+        <expression>&apos;Your Legal Case was Created (Number: &apos; + {!$Record.CaseNumber} + &apos;)&apos;</expression>
+    </formulas>
+    <formulas>
+        <name>Legal_Reopen_Email_Subject</name>
+        <dataType>String</dataType>
+        <expression>&apos;Legal case was reopened (Number: &apos; +{!$Record.CaseNumber}+&apos;)&apos;</expression>
+    </formulas>
+    <formulas>
+        <name>LegalQueueOwnerID</name>
+        <dataType>String</dataType>
+        <expression>IF({!Get_Organization.IsSandbox}, &apos;00GQB000003S0GL&apos;, &apos;00GQB000003S0GL&apos;)</expression>
+    </formulas>
+    <formulas>
+        <name>Parent_Subtype</name>
+        <dataType>String</dataType>
+        <expression>IF(
+ISBLANK(TEXT({!$Record.Parent.Case_Sub_Type__c})) , TEXT({!$Record.Case_Sub_Type__c}) , TEXT({!$Record.Parent.Case_Sub_Type__c})
+)</expression>
+    </formulas>
+    <formulas>
+        <description>MIS-6987 Complete &quot;Pending Requester&quot; Status Exceeding x Days for salesops and deal desk CASE record type</description>
+        <name>Pending_Requester_Count_fr</name>
+        <dataType>Date</dataType>
+        <expression>IF(
+TEXT({!$Record.Status})=&apos;Pending Requester&apos;, 
+  IF( {!$Record.RecordType.Name}=&apos;Deal Desk&apos;, TODAY()+10, TODAY()+3), null
+
+)</expression>
+    </formulas>
+    <formulas>
+        <name>RecordId_Link</name>
+        <dataType>String</dataType>
+        <expression>LEFT($Api.Partner_Server_URL_290, FIND( &apos;/services&apos;, $Api.Partner_Server_URL_260)) &amp; {!$Record.Id}</expression>
+    </formulas>
+    <formulas>
+        <name>RequesterEmail</name>
+        <dataType>String</dataType>
+        <expression>IF({!$Record.Requester__r.Email}&lt;&gt;&apos;&apos;,{!$Record.Requester__r.Email},{!$Record.SuppliedEmail})</expression>
+    </formulas>
+    <formulas>
+        <name>salesops_Case_Closed_Subject</name>
+        <dataType>String</dataType>
+        <expression>&apos;Your Salesops Case is Completed (Number: &apos; +{!$Record.CaseNumber}+&apos;)&apos;</expression>
+    </formulas>
+    <formulas>
+        <name>salesops_New_Case_Email_Subject</name>
+        <dataType>String</dataType>
+        <expression>&quot;Your SalesOps Case was Created (Number: &quot;+{!$Record.CaseNumber}+&quot;)&quot;</expression>
+    </formulas>
+    <formulas>
+        <name>SalesOps_Reopen_Email_Subject</name>
+        <dataType>String</dataType>
+        <expression>&apos;SalesOps case was reopened (Number: &apos; +{!$Record.CaseNumber}+&apos;)&apos;</expression>
+    </formulas>
+    <interviewLabel>Case - RT - After Save {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Case - RT - After Save</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordCreates>
+        <name>Add_Original_Requestor_as_Case_Team_Member</name>
+        <label>Add Original Requestor as Case Team Member</label>
+        <locationX>2162</locationX>
+        <locationY>1056</locationY>
+        <connector>
+            <targetReference>Assign_Group_Field_Value_From_Account</targetReference>
+        </connector>
+        <faultConnector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Assign_Group_Field_Value_From_Account</targetReference>
+        </faultConnector>
+        <inputAssignments>
+            <field>MemberId</field>
+            <value>
+                <elementReference>$Record.Original_Requester__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>ParentId</field>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>TeamRoleId</field>
+            <value>
+                <elementReference>Get_Case_Team_Read_Only_Role.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <object>CaseTeamMember</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordCreates>
+        <name>Add_Requestor_as_Case_Team_Member</name>
+        <label>Add Requestor as Case Team Member</label>
+        <locationX>2162</locationX>
+        <locationY>600</locationY>
+        <connector>
+            <targetReference>Case_Created_Add_Original_Requester_To_Case_Team</targetReference>
+        </connector>
+        <faultConnector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Case_Created_Add_Original_Requester_To_Case_Team</targetReference>
+        </faultConnector>
+        <inputAssignments>
+            <field>MemberId</field>
+            <value>
+                <elementReference>$Record.Requester__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>ParentId</field>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>TeamRoleId</field>
+            <value>
+                <elementReference>Get_Case_Team_Read_Only_Role.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <object>CaseTeamMember</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordLookups>
+        <name>Get_Case_Management_CMTD</name>
+        <label>Get Case Management CMTD</label>
+        <locationX>2426</locationX>
+        <locationY>276</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Case_Created_Add_Requester_To_Case_Team</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Case_Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Type</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Case_Managment__mdt</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Case_Team_Read_Only_Role</name>
+        <label>Get Case Team Read Only Role</label>
+        <locationX>2162</locationX>
+        <locationY>492</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Add_Requestor_as_Case_Team_Member</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Name</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Read Only</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>CaseTeamRole</object>
+        <queriedFields>Id</queriedFields>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Case_Team_Read_Only_Role_Original_Requester</name>
+        <label>Get Case Team Read Only Role  - Original Requester</label>
+        <locationX>2162</locationX>
+        <locationY>948</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Add_Original_Requestor_as_Case_Team_Member</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Name</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Read Only</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>CaseTeamRole</object>
+        <queriedFields>Id</queriedFields>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <description>MIS-6785
+MIS 6801 - Get GM Approver</description>
+        <name>Get_GM_Approver_By_Email</name>
+        <label>Get GM Approver By Email</label>
+        <locationX>1370</locationX>
+        <locationY>2508</locationY>
+        <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Assign_GM_Approver</targetReference>
+        </connector>
+        <faultConnector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Error_GM</targetReference>
+        </faultConnector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Email</field>
+            <operator>Contains</operator>
+            <value>
+                <elementReference>GM_Approver_Value</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>IsActive</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <object>User</object>
+        <outputAssignments>
+            <assignToReference>GM_Approver_Value</assignToReference>
+            <field>Id</field>
+        </outputAssignments>
+    </recordLookups>
+    <recordLookups>
+        <description>MIS-7386 GM Owner Approval Process Update In Case
+MIS-6785
+MIS 6801 - Get GM Approver</description>
+        <name>Get_GM_Approver_By_Role</name>
+        <label>Get GM Approver By Role</label>
+        <locationX>1898</locationX>
+        <locationY>2508</locationY>
+        <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Assign_GM_Approver</targetReference>
+        </connector>
+        <faultConnector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Error_GM</targetReference>
+        </faultConnector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>SysRoleName__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>GM_Approver_Value</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>IsActive</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <object>User</object>
+        <outputAssignments>
+            <assignToReference>GM_Approver_Value</assignToReference>
+            <field>Id</field>
+        </outputAssignments>
+    </recordLookups>
+    <recordLookups>
+        <description>MIS-7386 GM Owner Approval Process Update In Case
+MIS-6785
+MIS 6801 - Get GM Approver</description>
+        <name>Get_GM_Approver_By_Role_Email</name>
+        <label>Get GM Approver By Role\Email</label>
+        <locationX>2162</locationX>
+        <locationY>1968</locationY>
+        <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Found_GM_by_role_or_email</targetReference>
+        </connector>
+        <faultConnector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Error_GM</targetReference>
+        </faultConnector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>cmtd_type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Approval Process - GM</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Role_Name__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Requester__r.Role_s_Region__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Role_Name__c</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>Investors</stringValue>
+            </value>
+        </filters>
+        <object>Case_Managment__mdt</object>
+        <outputAssignments>
+            <assignToReference>GM_Approver_Value</assignToReference>
+            <field>GM_Approver_Value__c</field>
+        </outputAssignments>
+    </recordLookups>
+    <recordLookups>
+        <description>MIS-7386 GM Owner Approval Process Update In Case
+MIS-6785
+MIS 6801 - Get GM Approver</description>
+        <name>Get_GM_Approver_Investors_Non_Trial</name>
+        <label>Get GM Approver - Investors Non Trial</label>
+        <locationX>1634</locationX>
+        <locationY>1968</locationY>
+        <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Found_GM_by_role_or_email</targetReference>
+        </connector>
+        <faultConnector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Error_GM</targetReference>
+        </faultConnector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>cmtd_type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Approval Process - GM</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>MasterLabel</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Investors</stringValue>
+            </value>
+        </filters>
+        <object>Case_Managment__mdt</object>
+        <outputAssignments>
+            <assignToReference>GM_Approver_Value</assignToReference>
+            <field>GM_Approver_Value__c</field>
+        </outputAssignments>
+    </recordLookups>
+    <recordLookups>
+        <description>MIS-7386 GM Owner Approval Process Update In Case
+MIS-6785
+MIS 6801 - Get GM Approver</description>
+        <name>Get_GM_Approver_Investors_Trial</name>
+        <label>Get GM Approver - Investors Trial</label>
+        <locationX>1106</locationX>
+        <locationY>1968</locationY>
+        <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Found_GM_by_role_or_email</targetReference>
+        </connector>
+        <faultConnector>
+            <targetReference>Error_GM</targetReference>
+        </faultConnector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>cmtd_type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Approval Process - GM</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>MasterLabel</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Investors-Trial</stringValue>
+            </value>
+        </filters>
+        <object>Case_Managment__mdt</object>
+        <outputAssignments>
+            <assignToReference>GM_Approver_Value</assignToReference>
+            <field>GM_Approver_Value__c</field>
+        </outputAssignments>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Organization</name>
+        <label>Get Organization</label>
+        <locationX>2426</locationX>
+        <locationY>6720</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>DDQ_Type_Changed_To</targetReference>
+        </connector>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Organization</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Related_Quote_Cases</name>
+        <label>Get Related Quote Cases</label>
+        <locationX>1986</locationX>
+        <locationY>5076</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Found_more_cases</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Quote__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Quote__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>ParentId</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>RecordTypeId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.RecordType.Id</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Id</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Case</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <name>Assign_GM_Approver</name>
+        <label>Assign GM Approver</label>
+        <locationX>1634</locationX>
+        <locationY>2748</locationY>
+        <connector>
+            <targetReference>Submit_for_Approval_Extension</targetReference>
+        </connector>
+        <faultConnector>
+            <targetReference>Error_Failed_To_Get_Approver_GM_Detailes</targetReference>
+        </faultConnector>
+        <inputAssignments>
+            <field>Approval_Process_GM__c</field>
+            <value>
+                <elementReference>GM_Approver_Value</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Assign_Group_From_Account</name>
+        <label>Assign Group From Account</label>
+        <locationX>2162</locationX>
+        <locationY>1404</locationY>
+        <connector>
+            <targetReference>Case_Created_Extension</targetReference>
+        </connector>
+        <faultConnector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Case_Created_Extension</targetReference>
+        </faultConnector>
+        <inputAssignments>
+            <field>Group__c</field>
+            <value>
+                <elementReference>Billing_Group_Assigment_Formula</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Close_Parent_Case</name>
+        <label>Close Parent Case</label>
+        <locationX>50</locationX>
+        <locationY>4152</locationY>
+        <connector>
+            <targetReference>Child_Case_Auto_Creation</targetReference>
+        </connector>
+        <faultConnector>
+            <targetReference>Error_Case_could_not_close</targetReference>
+        </faultConnector>
+        <inputAssignments>
+            <field>Case_Sub_Type__c</field>
+            <value>
+                <elementReference>Parent_Subtype</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Status</field>
+            <value>
+                <stringValue>Completed</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record.Parent</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>mis-6203</description>
+        <name>Update_Billing_Case_Fields_On_Quote</name>
+        <label>Update Billing Case Fields On Quote</label>
+        <locationX>2162</locationX>
+        <locationY>3396</locationY>
+        <connector>
+            <targetReference>Case_Created_Emails_To_Requester</targetReference>
+        </connector>
+        <faultConnector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Case_Created_Emails_To_Requester</targetReference>
+        </faultConnector>
+        <inputAssignments>
+            <field>Deal_Desk_Case_Number__c</field>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Deal_Desk_Case_Status__c</field>
+            <value>
+                <stringValue></stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record.Quote__r</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Case_Authorized_DocuSign</name>
+        <label>Update Case Authorized DocuSign</label>
+        <locationX>2162</locationX>
+        <locationY>5940</locationY>
+        <connector>
+            <targetReference>Billing_Processing_Instructions</targetReference>
+        </connector>
+        <faultConnector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Billing_Processing_Instructions</targetReference>
+        </faultConnector>
+        <inputAssignments>
+            <field>Authorized_DocuSign_c__c</field>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_First_Quote_Case</name>
+        <label>Update First Quote Case</label>
+        <locationX>2074</locationX>
+        <locationY>5292</locationY>
+        <connector>
+            <targetReference>Update_Related_Quote_Authorized_DocuSign</targetReference>
+        </connector>
+        <faultConnector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Update_Related_Quote_Authorized_DocuSign</targetReference>
+        </faultConnector>
+        <inputAssignments>
+            <field>First_Quote_Case__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Owner_ID_to_Legal_Queue</name>
+        <label>Update Owner ID to Legal Queue</label>
+        <locationX>2162</locationX>
+        <locationY>6936</locationY>
+        <inputAssignments>
+            <field>OwnerId</field>
+            <value>
+                <elementReference>LegalQueueOwnerID</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Owner_To_Security_Queue</name>
+        <label>Update Owner To Security Queue</label>
+        <locationX>2426</locationX>
+        <locationY>6936</locationY>
+        <inputAssignments>
+            <field>OwnerId</field>
+            <value>
+                <elementReference>InformationSecurityOwnerID</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Parent_Status_In_Progress</name>
+        <label>Update Parent Status = In Progress</label>
+        <locationX>578</locationX>
+        <locationY>4152</locationY>
+        <connector>
+            <targetReference>Child_Case_Auto_Creation</targetReference>
+        </connector>
+        <faultConnector>
+            <targetReference>Error_Problem_updating_parent_case_to_in_progress</targetReference>
+        </faultConnector>
+        <inputAssignments>
+            <field>Status</field>
+            <value>
+                <stringValue>In Progress</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record.Parent</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Related_Opportunity_Billing_Processing_Instructions</name>
+        <label>Update Related Opportunity - Billing Processing Instructions</label>
+        <locationX>2162</locationX>
+        <locationY>6288</locationY>
+        <connector>
+            <targetReference>Get_Organization</targetReference>
+        </connector>
+        <faultConnector>
+            <targetReference>Error_Failed_Updating_Billing_Processing_Instructions_on_Opp</targetReference>
+        </faultConnector>
+        <inputAssignments>
+            <field>Billing_Processing_Instructions__c</field>
+            <value>
+                <elementReference>Billing_Processing_Instructions_Formula</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record.Opportunity__r</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Related_Quote_Authorized_DocuSign</name>
+        <label>Update Related Quote Authorized DocuSign</label>
+        <locationX>2074</locationX>
+        <locationY>5400</locationY>
+        <connector>
+            <targetReference>Authorized_DocuSign</targetReference>
+        </connector>
+        <faultConnector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Authorized_DocuSign</targetReference>
+        </faultConnector>
+        <inputAssignments>
+            <field>Q2C_Green_Lane__c</field>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record.Quote__r</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Related_Quote_Authorized_DocuSign_False</name>
+        <label>Update Related Quote Authorized DocuSign = False</label>
+        <locationX>2162</locationX>
+        <locationY>5832</locationY>
+        <connector>
+            <targetReference>Update_Case_Authorized_DocuSign</targetReference>
+        </connector>
+        <faultConnector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Update_Case_Authorized_DocuSign</targetReference>
+        </faultConnector>
+        <inputAssignments>
+            <field>Q2C_Green_Lane__c</field>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record.Quote__r</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Related_Quote_Authorized_DocuSign_True</name>
+        <label>Update Related Quote Authorized DocuSign = True</label>
+        <locationX>1634</locationX>
+        <locationY>5832</locationY>
+        <connector>
+            <targetReference>Billing_Processing_Instructions</targetReference>
+        </connector>
+        <faultConnector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Billing_Processing_Instructions</targetReference>
+        </faultConnector>
+        <inputAssignments>
+            <field>Q2C_Green_Lane__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record.Quote__r</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>3246</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_Case_Management_CMTD</targetReference>
+        </connector>
+        <object>Case</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <scheduledPaths>
+            <name>X1_minute</name>
+            <connector>
+                <targetReference>Email_2_Case_Created</targetReference>
+            </connector>
+            <label>1 minute</label>
+            <offsetNumber>0</offsetNumber>
+            <offsetUnit>Minutes</offsetUnit>
+            <recordField>CreatedDate</recordField>
+            <timeSource>RecordField</timeSource>
+        </scheduledPaths>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <subflows>
+        <description>MIS-6133</description>
+        <name>Case_AL_Auto_Create_Child_Case</name>
+        <label>Case - AL - Auto Create Child Case</label>
+        <locationX>2294</locationX>
+        <locationY>4776</locationY>
+        <connector>
+            <targetReference>First_Deal_Desk_Quote_Case</targetReference>
+        </connector>
+        <flowName>Case_AL_Auto_Create_Child_Case</flowName>
+        <inputAssignments>
+            <name>Parent_Case</name>
+            <value>
+                <elementReference>$Record</elementReference>
+            </value>
+        </inputAssignments>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </subflows>
+    <subflows>
+        <description>MIS-6209
+For using related objects in the assignment. otherwise email 2 case doesn&apos;t get the values</description>
+        <name>Case_AL_Email_To_Case_Assignment_Rules_Scheduled_Path</name>
+        <label>Case - AL - Email To Case Assignment Rules - Scheduled Path</label>
+        <locationX>4186</locationX>
+        <locationY>384</locationY>
+        <flowName>Case_AL_Email_To_Case_Assignment_Rules_Scheduled_Path</flowName>
+        <inputAssignments>
+            <name>record_Case</name>
+            <value>
+                <elementReference>$Record</elementReference>
+            </value>
+        </inputAssignments>
+    </subflows>
+    <textTemplates>
+        <name>Billing_Case_Closed_Body</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>&lt;p&gt;Hi {!$Record.Requester__r.FirstName},&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Your Billing case &lt;a href=&quot;{!RecordId_Link}&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot;&gt;{!$Record.CaseNumber}&lt;/a&gt; has been completed.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;u style=&quot;font-size: 13px;&quot;&gt;Account name:&lt;/u&gt;&lt;span style=&quot;font-size: 13px;&quot;&gt; &lt;/span&gt;&lt;a href=&quot;{!Account_Link}&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot; style=&quot;font-size: 13px;&quot;&gt;{!$Record.Account.Name}&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;u&gt;Requester:&lt;/u&gt; {!$Record.Requester__r.FirstName} {!$Record.Requester__r.LastName}&lt;/p&gt;&lt;p&gt;&lt;u style=&quot;font-size: 13px;&quot;&gt;Case subject:&lt;/u&gt;&lt;span style=&quot;font-size: 13px;&quot;&gt; {!$Record.Subject}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;u style=&quot;font-size: 13px;&quot;&gt;Case description:&lt;/u&gt;&lt;span style=&quot;font-size: 13px;&quot;&gt; {!$Record.Description}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;If you have any further questions, or need any additional assistance, simply reply to this email to reopen the case and we will assist accordingly.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Best Regards,&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;The Billing Team&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;--Do not delete below this line--&lt;/p&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <name>Billing_Case_Escalated_Body</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>&lt;p&gt;Dear Manager,&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;Please note that case &lt;a href=&quot;{!RecordId_Link}&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot;&gt;{!$Record.CaseNumber}&lt;/a&gt; was escalated is currently under ‘Escalation’ status.&lt;/p&gt;
+&lt;p&gt;Please make sure to review the case.&lt;/p&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <name>Billing_New_Case_Email_Template_Body</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>&lt;p&gt;Dear {!$Record.Requester__r.FirstName},&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Thank you for reaching out to Billing!&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Your case was opened successfully; the case number is &lt;a href=&quot;{!RecordId_Link}&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot;&gt;{!$Record.CaseNumber}&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;u&gt;Account name:&lt;/u&gt; &lt;a href=&quot;{!Account_Link}&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot;&gt;{!$Record.Account.Name}&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;u&gt;Requester:&lt;/u&gt; {!$Record.Requester__r.FirstName} {!$Record.Requester__r.LastName}&lt;/p&gt;&lt;p&gt;&lt;u&gt;Case subject:&lt;/u&gt; {!$Record.Subject}&lt;/p&gt;&lt;p&gt;&lt;u&gt;Case description:&lt;/u&gt; {!$Record.Description}&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;We’ll take a look at your case shortly and will get back to you soon.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;If you have any further questions, please reply to this email or enter the case number in Salesforce and start chatting with us there!&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Best Regards,&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;The Billing Team&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;--Do not delete below this line--&lt;/p&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <name>Billing_Reopen_Email_Body_Template</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>&lt;p&gt;Hi,&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;Please note that case &lt;a href=&quot;{!RecordId_Link}&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot;&gt;{!$Record.CaseNumber}&lt;/a&gt; was reopened.&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;Best Regards,&lt;/p&gt;
+&lt;p&gt;The Billing Team&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+--Do not delete below this line--</text>
+    </textTemplates>
+    <textTemplates>
+        <name>Deal_Desk_Reopen_Email_Body_Template</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>&lt;p&gt;Hi,&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;Please note that case &lt;a href=&quot;{!RecordId_Link}&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot;&gt;{!$Record.CaseNumber}&lt;/a&gt; was reopened.&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;Best Regards,&lt;/p&gt;
+&lt;p&gt;The Deal Desk Team&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+--Do not delete below this line--</text>
+    </textTemplates>
+    <textTemplates>
+        <name>DealDesk_Case_Closed_Body_Template</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>&lt;p&gt;Hi {!$Record.Requester__r.FirstName},&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Your Deal Desk case &lt;a href=&quot;{!RecordId_Link}&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot;&gt;{!$Record.CaseNumber}&lt;/a&gt; has been completed.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;u&gt;Account name:&lt;/u&gt; &lt;a href=&quot;{!Account_Link}&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot;&gt;{!$Record.Account.Name}&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;u&gt;Requester:&lt;/u&gt; {!$Record.Requester__r.FirstName} {!$Record.Requester__r.LastName}&lt;/p&gt;&lt;p&gt;&lt;u&gt;Case subject:&lt;/u&gt; {!$Record.Subject}&lt;/p&gt;&lt;p&gt;&lt;u&gt;Case description:&lt;/u&gt; {!$Record.Description}&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;If you have any further questions, or need any additional assistance, please tag deal desk in the chatter of the case and we will reopen it and assist accordingly.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Best Regards,&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;The Deal Desk Team&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;--Do not delete below this line--&lt;/p&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <name>DealDesk_New_Case_Email_Template_Body</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>&lt;p&gt;Dear {!$Record.Requester__r.FirstName},&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Thank you for reaching out to Deal Desk!&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Your case was opened successfully; the case number is &lt;a href=&quot;{!RecordId_Link}&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot;&gt;{!$Record.CaseNumber}&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;u&gt;Account name:&lt;/u&gt; &lt;a href=&quot;{!Account_Link}&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot;&gt;{!$Record.Account.Name}&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;u&gt;Requester:&lt;/u&gt; {!$Record.Requester__r.FirstName} {!$Record.Requester__r.LastName}&lt;/p&gt;&lt;p&gt;&lt;u&gt;Case subject:&lt;/u&gt; {!$Record.Subject}&lt;/p&gt;&lt;p&gt;&lt;u&gt;Case description:&lt;/u&gt; {!$Record.Description}&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;We’ll take a look at your case shortly and will get back to you soon.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;If you have any further questions, please enter the case number in Salesforce and start chatting with us there!&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Best Regards,&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;The Deal Desk Team&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;--Do not delete below this line--&lt;/p&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <name>EscalationEmailTemplate</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>&lt;p&gt;Case status was changed to Pending Escalation&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;/{!$Record.Id}&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot;&gt;Case &lt;/a&gt;: {!$Record.CaseNumber}&lt;/p&gt;&lt;p&gt;Owner: {!$Record.Owner:User.FirstName} &lt;span style=&quot;color: rgb(68, 68, 68); background-color: rgb(255, 255, 255);&quot;&gt;{!$Record.Owner:User.LastName}&lt;/span&gt; {!$Record.Owner:Group.Name}&lt;/p&gt;&lt;p&gt;Subject: {!$Record.Subject}&lt;/p&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <name>Legal_Case_Closed_Body_Template</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>&lt;p&gt;Hi {!$Record.Requester__r.FirstName},&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Your Legal case &lt;a href=&quot;{!RecordId_Link}&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot;&gt;{!$Record.CaseNumber}&lt;/a&gt; has been completed.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;u&gt;Account name:&lt;/u&gt; &lt;a href=&quot;{!Account_Link}&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot;&gt;{!$Record.Account.Name}&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;u&gt;Requester:&lt;/u&gt; {!$Record.Requester__r.FirstName} {!$Record.Requester__r.LastName}&lt;/p&gt;&lt;p&gt;&lt;u&gt;Case subject:&lt;/u&gt; {!$Record.Subject}&lt;/p&gt;&lt;p&gt;&lt;u&gt;Case description:&lt;/u&gt; {!$Record.Description}&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;If you have any further questions, or need any additional assistance, simply reply to this email to reopen the case and we will assist accordingly.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Best Regards,&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;The Legal Team&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;--Do not delete below this line--&lt;/p&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <name>Legal_New_Case_Email_Template_Body</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>&lt;p&gt;Dear {!$Record.Requester__r.FirstName},&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Thank you for reaching out to Legal!&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Your case was opened successfully; the case number is &lt;a href=&quot;{!RecordId_Link}&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot;&gt;{!$Record.CaseNumber}&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;u&gt;Account name:&lt;/u&gt; &lt;a href=&quot;{!Account_Link}&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot;&gt;{!$Record.Account.Name}&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;u&gt;Requester:&lt;/u&gt; {!$Record.Requester__r.FirstName} {!$Record.Requester__r.LastName}&lt;/p&gt;&lt;p&gt;&lt;u&gt;Case subject:&lt;/u&gt; {!$Record.Subject}&lt;/p&gt;&lt;p&gt;&lt;u&gt;Case description:&lt;/u&gt; {!$Record.Description}&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;We’ll take a look at your case shortly and will get back to you soon.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;If you have any further questions, please enter the case number in Salesforce and start chatting with us there!&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Best Regards,&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;The Legal Team&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;--Do not delete below this line--&lt;/p&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <name>Legal_Reopen_Email_Body_Template</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>&lt;p&gt;Hi,&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;Please note that case &lt;a href=&quot;{!RecordId_Link}&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot;&gt;{!$Record.CaseNumber}&lt;/a&gt; was reopened.&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;Best Regards,&lt;/p&gt;
+&lt;p&gt;The Legal Team&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+--Do not delete below this line--</text>
+    </textTemplates>
+    <textTemplates>
+        <name>SalesOps_Case_Closed_Body</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>&lt;p&gt;Hi {!$Record.Requester__r.FirstName},&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Your Salesops case &lt;a href=&quot;{!RecordId_Link}&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot;&gt;{!$Record.CaseNumber}&lt;/a&gt; has been completed.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;u&gt;Account name:&lt;/u&gt; &lt;a href=&quot;{!Account_Link}&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot;&gt;{!$Record.Account.Name}&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;u&gt;Requester:&lt;/u&gt; {!$Record.Requester__r.FirstName} {!$Record.Requester__r.LastName}&lt;/p&gt;&lt;p&gt;&lt;u&gt;Case subject:&lt;/u&gt; {!$Record.Subject}&lt;/p&gt;&lt;p&gt;&lt;u&gt;Case description:&lt;/u&gt; {!$Record.Description}&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;If you have any further questions, or need any additional assistance, simply reply to this email to reopen the case and we will assist accordingly.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Best Regards,&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;The Salesops Team&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;--Do not delete below this line--&lt;/p&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <name>Salesops_New_Case_Email_Template_Body</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>&lt;p&gt;Dear {!$Record.Requester__r.FirstName},&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Thank you for reaching out to Salesops!&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Your case was opened successfully; the case number is &lt;a href=&quot;{!RecordId_Link}&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot;&gt;{!$Record.CaseNumber}&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;u&gt;Account name:&lt;/u&gt; &lt;a href=&quot;{!Account_Link}&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot;&gt;{!$Record.Account.Name}&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;u&gt;Requester:&lt;/u&gt; {!$Record.Requester__r.FirstName} {!$Record.Requester__r.LastName}&lt;/p&gt;&lt;p&gt;&lt;u&gt;Case subject:&lt;/u&gt; {!$Record.Subject}&lt;/p&gt;&lt;p&gt;&lt;u&gt;Case description:&lt;/u&gt; {!$Record.Description}&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;We’ll take a look at your case shortly and will get back to you soon.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;If you have any further questions, please reply to this email or enter the case number in Salesforce and start chatting with us there!&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Best Regards,&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;The salesops Team&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;--Do not delete below this line--&lt;/p&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <name>SalesOps_Reopen_Email_Body_Template</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>&lt;p&gt;Hi,&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;Please note that case &lt;a href=&quot;{!RecordId_Link}&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot;&gt;{!$Record.CaseNumber}&lt;/a&gt; was reopened.&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;Best Regards,&lt;/p&gt;
+&lt;p&gt;The salesops Team&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+--Do not delete below this line--</text>
+    </textTemplates>
+    <variables>
+        <name>GM_Approver_Value</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>Related_Email_Message</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+        <objectType>EmailMessage</objectType>
+    </variables>
+    <variables>
+        <name>Role_Region_From_User</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

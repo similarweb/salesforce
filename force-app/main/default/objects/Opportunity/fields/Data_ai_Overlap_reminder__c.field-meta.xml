@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Data_ai_Overlap_reminder__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>After we send an Email reminder for Data.ai Overlap on 50% or higher Opps, we mark this CB to make sure we will not send additional Emails - MIS 2176</description>
+    <externalId>false</externalId>
+    <label>Data.ai Overlap reminder (Deprecated)</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

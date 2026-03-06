@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>An event for workato to collect whenever a chorus record is created under certain conditions as described in the trigger affectlayerEngagementTrigger</description>
+    <eventType>HighVolume</eventType>
+    <label>Chorus Data Event</label>
+    <pluralLabel>Chorus Data Events</pluralLabel>
+    <publishBehavior>PublishImmediately</publishBehavior>
+</CustomObject>

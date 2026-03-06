@@ -1,0 +1,5 @@
+<aura:event type="APPLICATION" description="Event template" >
+	
+    <aura:attribute name="unitName" type="String" required="true"/>
+    <aura:attribute name="year" type="String" required="true"/>
+</aura:event>

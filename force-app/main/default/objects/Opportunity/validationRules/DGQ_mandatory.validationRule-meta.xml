@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DGQ_mandatory</fullName>
+    <active>false</active>
+    <description>Part of Meddic project</description>
+    <errorConditionFormula>AND( 
+NOT(ISNEW()),
+NOT(ISCHANGED( Owner_s_Manager__c )),
+ 
+OR( 
+$Profile.Name = &apos;SW CSM Internal&apos;, 
+$Profile.Name = &apos;SW Sales Internal&apos; 
+), 
+OR( 
+ISBLANK(What_are_the_Before_Scenarios__c ) , 
+ISBLANK(What_are_the_After_Scenarios__c ) , 
+ISBLANK(What_are_the_Customer_s_Metrics__c ) , 
+ISBLANK(Solution_Fit__c ) , 
+ISBLANK(What_is_their_main_pain__c ) , 
+ISBLANK(Positive_Business_Outcome__c ) , 
+ISBLANK(How_do_we_solve_it__c ) 
+) 
+)</errorConditionFormula>
+    <errorMessage>Please populate all fields in the &apos;Discovery Guide Questions&apos; section</errorMessage>
+</ValidationRule>

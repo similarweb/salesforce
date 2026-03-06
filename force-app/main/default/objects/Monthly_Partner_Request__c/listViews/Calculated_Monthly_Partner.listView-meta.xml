@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Calculated_Monthly_Partner</fullName>
+    <columns>NAME</columns>
+    <columns>Contracts__c</columns>
+    <columns>Status__c</columns>
+    <columns>SUM_AVG_Data_Units__c</columns>
+    <columns>Monthly_Partner_Payment__c</columns>
+    <columns>Monthly_Partner_Payment_Fixed__c</columns>
+    <columns>Monthly_Partner_Payment_Final__c</columns>
+    <columns>Send_Invoice_Email__c</columns>
+    <columns>Paid_Cap__c</columns>
+    <columns>Payment_Cap_Override__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>Open,Calculated</value>
+    </filters>
+    <filters>
+        <field>CREATED_DATE</field>
+        <operation>equals</operation>
+        <value>LAST_MONTH,THIS_MONTH</value>
+    </filters>
+    <label>Monthly Partner LAST MONTH</label>
+</ListView>

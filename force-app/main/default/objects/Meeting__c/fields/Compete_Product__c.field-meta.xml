@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Compete_Product__c</fullName>
+    <externalId>false</externalId>
+    <label>Compete Product</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Compete PRO</fullName>
+                <default>false</default>
+                <label>Compete PRO</label>
+            </value>
+            <value>
+                <fullName>Compete API</fullName>
+                <default>false</default>
+                <label>Compete API</label>
+            </value>
+            <value>
+                <fullName>Intro Monthly</fullName>
+                <default>false</default>
+                <label>Intro Monthly</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

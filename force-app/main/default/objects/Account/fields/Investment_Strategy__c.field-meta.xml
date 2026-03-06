@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Investment_Strategy__c</fullName>
+    <description>MIS-6327</description>
+    <externalId>false</externalId>
+    <label>Investment Strategy</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Quant Fund</fullName>
+                <default>false</default>
+                <label>Quant Fund</label>
+            </value>
+            <value>
+                <fullName>Equity L/S</fullName>
+                <default>false</default>
+                <label>Equity L/S</label>
+            </value>
+            <value>
+                <fullName>Private Equity</fullName>
+                <default>false</default>
+                <label>Private Equity</label>
+            </value>
+            <value>
+                <fullName>Investment Banking</fullName>
+                <default>false</default>
+                <label>Investment Banking</label>
+            </value>
+            <value>
+                <fullName>Multi Strat</fullName>
+                <default>false</default>
+                <label>Multi Strat</label>
+            </value>
+            <value>
+                <fullName>Pension Fund</fullName>
+                <default>false</default>
+                <label>Pension Fund</label>
+            </value>
+            <value>
+                <fullName>Venture Capital</fullName>
+                <default>false</default>
+                <label>Venture Capital</label>
+            </value>
+            <value>
+                <fullName>Equity Research</fullName>
+                <default>false</default>
+                <label>Equity Research</label>
+            </value>
+            <value>
+                <fullName>Credit</fullName>
+                <default>false</default>
+                <label>Credit</label>
+            </value>
+            <value>
+                <fullName>Long only</fullName>
+                <default>false</default>
+                <label>Long only</label>
+            </value>
+            <value>
+                <fullName>Mutual Fund</fullName>
+                <default>false</default>
+                <label>Mutual Fund</label>
+            </value>
+            <value>
+                <fullName>Sovereign Wealth Fund</fullName>
+                <default>false</default>
+                <label>Sovereign Wealth Fund</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

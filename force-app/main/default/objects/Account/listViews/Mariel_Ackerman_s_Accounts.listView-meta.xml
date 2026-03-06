@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Mariel_Ackerman_s_Accounts</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>ACCOUNT.PHONE1</columns>
+    <columns>Reviewed__c</columns>
+    <columns>ACCOUNT.ADDRESS1_COUNTRY</columns>
+    <columns>ACCOUNT.URL</columns>
+    <columns>ACCOUNT.LAST_ACTIVITY</columns>
+    <filterScope>Mine</filterScope>
+    <label>Mariel Ackerman&apos;s Accounts</label>
+</ListView>

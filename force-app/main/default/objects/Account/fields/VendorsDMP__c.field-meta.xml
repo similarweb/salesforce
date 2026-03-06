@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VendorsDMP__c</fullName>
+    <externalId>false</externalId>
+    <label>DMP</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Adobe DMP</fullName>
+                <default>false</default>
+                <label>Adobe DMP</label>
+            </value>
+            <value>
+                <fullName>BlueKai</fullName>
+                <default>false</default>
+                <label>BlueKai</label>
+            </value>
+            <value>
+                <fullName>Krux</fullName>
+                <default>false</default>
+                <label>Krux</label>
+            </value>
+            <value>
+                <fullName>Lotame</fullName>
+                <default>false</default>
+                <label>Lotame</label>
+            </value>
+            <value>
+                <fullName>eXelate</fullName>
+                <default>false</default>
+                <label>eXelate</label>
+            </value>
+            <value>
+                <fullName>Acxiom</fullName>
+                <default>false</default>
+                <label>Acxiom</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

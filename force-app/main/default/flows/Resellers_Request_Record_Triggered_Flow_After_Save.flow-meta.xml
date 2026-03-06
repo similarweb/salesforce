@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <description>Send alert &quot;Create Other Ticket&quot;</description>
+        <name>NCC_Create_Other_Ticket</name>
+        <label>NCC - Create Other Ticket</label>
+        <locationX>659</locationX>
+        <locationY>423</locationY>
+        <actionName>Resellers_Ticket__c.Create_Other_Ticket</actionName>
+        <actionType>emailAlert</actionType>
+        <connector>
+            <targetReference>Next_Rule</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>Resellers_Ticket__c.Create_Other_Ticket</nameSegment>
+    </actionCalls>
+    <apiVersion>54.0</apiVersion>
+    <decisions>
+        <name>Next_Rule</name>
+        <label>Next Rule</label>
+        <locationX>521</locationX>
+        <locationY>575</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Next_Rule1</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Id</leftValueReference>
+                <operator>EqualTo</operator>
+            </conditions>
+            <label>Next Rule1</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>If record is new or Chanel Manager is changed - execute &apos;New or Chanel Manager is changed&apos; outcome</description>
+        <name>Rule_NCC_Is_new_or_Chanel_Manager_is_changed</name>
+        <label>*Rule (NCC)* - Is new or Chanel Manager is changed</label>
+        <locationX>418</locationX>
+        <locationY>408</locationY>
+        <defaultConnector>
+            <targetReference>Next_Rule</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>New_or_Chanel_Manager_is_changed</name>
+            <conditionLogic>(1 AND 2) OR 3</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Id</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record__Prior.Id</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Chanel_Manager__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Chanel_Manager__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>NCC_Create_Other_Ticket</targetReference>
+            </connector>
+            <label>New or Chanel Manager is changed</label>
+        </rules>
+    </decisions>
+    <interviewLabel>Resellers Request - {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Resellers Request - Record Triggered Flow - After Save</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>410</locationX>
+        <locationY>48</locationY>
+        <connector>
+            <targetReference>Rule_NCC_Is_new_or_Chanel_Manager_is_changed</targetReference>
+        </connector>
+        <object>Resellers_Ticket__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

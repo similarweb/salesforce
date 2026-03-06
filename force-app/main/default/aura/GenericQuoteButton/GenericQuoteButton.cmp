@@ -1,0 +1,81 @@
+<aura:component extensible="true" abstract="true" access="global">
+    <aura:attribute name="recordId" type="String" /> 
+    <aura:attribute name="isLoading" type="Boolean" default="false"/>
+    <aura:attribute name="label" type="String" default="Submit for Approval"/>
+    <aura:attribute name="isModalOpen" type="Boolean" default="false"/>
+    <aura:attribute name="modalWindowData" type="Object" default="{'title':'Submit for Approval','submitLabel':'Save','inputLabel':'Approval request comment','placeholder':'Enter comment for approval request...'}"/>
+    <aura:attribute name="isDisabled" type="Boolean" default="false"/>
+    <aura:attribute name="isPending" type="Boolean" default="false"/>
+    <aura:attribute name="isPassed" type="Boolean" default="false"/>
+    <aura:attribute name="isRejected" type="Boolean" default="false"/>
+    <aura:attribute name="modalFooterButton" type="Aura.Component[]" />
+    <aura:attribute name="approvalRequestComment" type="String"/>
+    <aura:attribute name="contactEmailList" type="list"/>
+    <aura:registerEvent name="sendEmailEvent" type="c:SendEmailEvent"/>
+    <aura:registerEvent name="addRecipientEvent" type="c:AddRecipientEvent"/>
+    <aura:registerEvent name="removeRecipientEvent" type="c:RemoveRecipientEvent"/>
+    {!v.body}
+
+    <aura:if isTrue="{!v.isModalOpen}">
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <header class="slds-modal__header">
+<!--                    <lightning:button class="slds-modal__close" onclick="{!c.onCancelClick}" variant="bare">-->
+<!--&lt;!&ndash;                        <lightning:icon variant="inverse" iconName="utility:close" alternativeText="Close" size="small" />&ndash;&gt;-->
+<!--                    </lightning:button>-->
+                    <h2 id="modal-heading-01" class="slds-modal__title slds-hyphenate">{!v.modalWindowData.title}</h2>
+                </header>
+                <div class="slds-modal__content slds-p-around_medium slds-is-relative" id="modal-content-id-1">
+                    
+                    <aura:if isTrue="{!v.isLoading}">  
+                        <div style="height: 100px;"> 
+                            <lightning:spinner variant="brand" alternativeText="Loading" size="large" />
+                        </div>
+                        <aura:set attribute="else">
+                            <aura:if isTrue="{!v.modalWindowData.isComment}">
+                                <lightning:textarea value="{!v.approvalRequestComment}" name="input" label="{!v.modalWindowData.inputLabel}" placeholder="{!v.modalWindowData.placeholder}"/>
+                                <aura:set attribute="else">
+                                    <aura:unescapedHtml value="{!v.modalWindowData.message}"/>
+                                    <aura:if isTrue="{!v.modalWindowData.isHint}">
+                                        <br/>
+                                        <aura:unescapedHtml value="{!v.modalWindowData.hint}"/>
+                                    </aura:if>
+                                </aura:set>
+                            </aura:if>
+
+                            <aura:if isTrue="{!v.modalWindowData.isContactTable}">
+                                <c:RelatedContactTable 
+                                aura:id="relatedContactTableId" 
+                                defaultChecked ="true"
+                                quoteRecordId = "{!v.recordId}"
+                                emailList = "{!v.contactEmailList}"
+                                />
+                            </aura:if>
+                        </aura:set>
+                    </aura:if>
+                </div>
+                <footer aura:id="footer" class="slds-modal__footer">
+                    <aura:if isTrue="{!and(v.modalWindowData.isCustom,not(v.isLoading))}">
+                        <button onclick="{!c.onCancelClick}" disabled="{!v.isLoading}" class="slds-button slds-button_neutral">Cancel</button>
+                        <aura:iteration items="{!v.modalWindowData.buttonArray}" var="button_i">
+                            <button onclick="{!c.onDynamicButtonClick}" disabled="{!v.isLoading}" class="slds-button slds-button_brand">{!button_i.title}</button>
+                        </aura:iteration>
+                        <aura:set attribute="else">
+                            <aura:if isTrue="{!or(and(v.modalWindowData.isComment,not(v.isLoading)),and(v.modalWindowData.isContactTableCheck,not(v.isLoading)))}">
+                                <button onclick="{!c.onCancelClick}" disabled="{!v.isLoading}" class="slds-button slds-button_neutral">Cancel</button>
+                                <button onclick="{!c.onSaveClick}" disabled="{!v.isLoading}" class="slds-button slds-button_brand">{!v.modalWindowData.submitLabel}</button>
+                                <aura:set attribute="else">
+                                    <aura:if isTrue="{!not(v.isLoading)}">
+                                        {!v.modalFooterButton}
+                                        <button onclick="{!c.onCancelClick}" disabled="{!v.isLoading}" class="slds-button slds-button_brand">Close</button>
+                                    </aura:if>
+                                </aura:set>
+                            </aura:if>
+                        </aura:set>
+                    </aura:if>
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </aura:if>
+</aura:component>

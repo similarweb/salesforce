@@ -1,0 +1,20 @@
+/**
+ * Created by Alon.Shalev on 8/7/2023.
+ */
+.THIS .slds-modal {
+    visibility: hidden;
+}
+
+.THIS .slds-backdrop {
+    visibility: hidden;
+}
+
+.THIS .slds-modal.slds-fade-in-open,
+.THIS .slds-backdrop.slds-backdrop_open {
+    visibility: visible;
+}
+
+.THIS .custom-flow-container .slds-modal__content lightning-flow {
+    width: 100%;
+    height: 100%;
+}

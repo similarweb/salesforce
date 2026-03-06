@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sub_Division__c</fullName>
+    <externalId>false</externalId>
+    <label>Sub Division</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>true</sorted>
+            <value>
+                <fullName>ANZ Enterprise</fullName>
+                <default>false</default>
+                <label>ANZ Enterprise</label>
+            </value>
+            <value>
+                <fullName>ANZ Inside Sales</fullName>
+                <default>false</default>
+                <label>ANZ Inside Sales</label>
+            </value>
+            <value>
+                <fullName>EMEA Enterprise</fullName>
+                <default>false</default>
+                <label>EMEA Enterprise</label>
+            </value>
+            <value>
+                <fullName>EMEA Inside Sales B2B</fullName>
+                <default>false</default>
+                <label>EMEA Inside Sales B2B</label>
+            </value>
+            <value>
+                <fullName>EMEA Inside Sales B2C</fullName>
+                <default>false</default>
+                <label>EMEA Inside Sales B2C</label>
+            </value>
+            <value>
+                <fullName>EMEA Inside Sales ENT</fullName>
+                <default>false</default>
+                <label>EMEA Inside Sales ENT</label>
+            </value>
+            <value>
+                <fullName>EMEA Mid Market</fullName>
+                <default>false</default>
+                <label>EMEA Mid Market</label>
+            </value>
+            <value>
+                <fullName>GCR Enterprise</fullName>
+                <default>false</default>
+                <label>GCR Enterprise</label>
+            </value>
+            <value>
+                <fullName>GCR Inside Sales</fullName>
+                <default>false</default>
+                <label>GCR Inside Sales</label>
+            </value>
+            <value>
+                <fullName>Investors</fullName>
+                <default>false</default>
+                <label>Investors</label>
+            </value>
+            <value>
+                <fullName>JPKR Enterprise</fullName>
+                <default>false</default>
+                <label>JPKR Enterprise</label>
+            </value>
+            <value>
+                <fullName>JPKR Inside Sales</fullName>
+                <default>false</default>
+                <label>JPKR Inside Sales</label>
+            </value>
+            <value>
+                <fullName>LATAM Inside Sales</fullName>
+                <default>false</default>
+                <label>LATAM Inside Sales</label>
+            </value>
+            <value>
+                <fullName>NA Enterprise</fullName>
+                <default>false</default>
+                <label>NA Enterprise</label>
+            </value>
+            <value>
+                <fullName>NA Inside Sales</fullName>
+                <default>false</default>
+                <label>NA Inside Sales</label>
+            </value>
+            <value>
+                <fullName>SEA Enterprise</fullName>
+                <default>false</default>
+                <label>SEA Enterprise</label>
+            </value>
+            <value>
+                <fullName>SEA Inside Sales</fullName>
+                <default>false</default>
+                <label>SEA Inside Sales</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

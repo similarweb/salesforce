@@ -1,0 +1,26 @@
+.THIS .buttonItem{
+    text-align: right;
+    padding-right: 1rem;
+}
+
+.THIS .buttonL{
+    align-items: center;
+}
+
+.THIS .hh{
+    height: 100%;
+}
+
+.THIS .ovr{
+    overflow: auto; 
+    max-height: 489px;
+}
+
+.THIS .ovrbtn{
+    white-space: nowrap; 
+}
+
+.THIS .hgltItem{
+    background: #80b6f9;
+    color: #fff;
+}

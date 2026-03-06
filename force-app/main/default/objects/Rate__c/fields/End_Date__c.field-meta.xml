@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>End_Date__c</fullName>
+    <description>Once populated, the &quot;Rate&quot; is no longer valid in the &quot;Monthly Data Request&quot; calculation.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Once populated and Date is in the past, no Monthly Data Records will be created. In case the Source is no longer relevant, make sure to deactivate it!</inlineHelpText>
+    <label>End Date</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

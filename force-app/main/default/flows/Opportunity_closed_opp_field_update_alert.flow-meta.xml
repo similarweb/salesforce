@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Send_Email</name>
+        <label>Send Email</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>recipientAddresses</name>
+            <value/>
+        </inputParameters>
+        <inputParameters>
+            <name>composeEmailContent</name>
+            <value>
+                <stringValue>True</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <elementReference>EmailSubject</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>EmailBodyText</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>sendRichBody</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>useLineBreaks</name>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+    </actionCalls>
+    <apiVersion>65.0</apiVersion>
+    <decisions>
+        <name>Check_if_a_field_was_changed</name>
+        <label>Check if a field was changed</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Changed</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.OwnerId</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.RecordTypeId</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Account_AM__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Assigned_CSM_Name__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.StageName</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Similarweb_Forecasting_status__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Amount</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.CloseDate</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Cycle_Price__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Cycle__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Cycle_Price_Local__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Max_ARR__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Type</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.RecordTypeId</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Send_Email</targetReference>
+            </connector>
+            <label>Changed</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Check_if_non_ops_OR_non_admin_user</name>
+        <label>Check if non ops OR non admin user</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>Check_if_a_field_was_changed</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>User_is_Admin_OR_Ops</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>$Profile.Name</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>System Administrator</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Profile.Name</leftValueReference>
+                <operator>StartsWith</operator>
+                <rightValue>
+                    <stringValue>SW SalesOps</stringValue>
+                </rightValue>
+            </conditions>
+            <label>User is Admin OR Ops</label>
+        </rules>
+    </decisions>
+    <description>MIS-8188</description>
+    <environments>Default</environments>
+    <formulas>
+        <description>This formula generates a dynamic audit log that tracks changes for the following 13 fields: Account AM, Assigned CSM Name, Stage, Forecasting Status, Amount, Close Date, Cycle Price, Cycle, Cycle Price Local, Max ARR, Type, Record Type, and Owner. It uses ISCHANGED logic to ensure only modified fields are listed, keeping the output clean. For every change detected, it displays the field name followed by the &quot;Previous value&quot; and &quot;New value&quot; on a new line. It automatically handles data conversion for picklists, dates, and currency fields to ensure the information is human-readable.</description>
+        <name>Changed_fields_text_formula</name>
+        <dataType>String</dataType>
+        <expression>IF(ISCHANGED({!$Record.Account_AM__c}), 
+   &quot;Account AM: Previous value: &quot; &amp; {!$Record__Prior.Account_AM__c} &amp; &apos;, &apos; &amp; &quot;New value: &quot; &amp; {!$Record.Account_AM__c} &amp; &apos;&lt;br&gt;&lt;br&gt;&apos;, &quot;&quot;) &amp;
+
+IF(ISCHANGED({!$Record.Assigned_CSM_Name__c}), 
+   &quot;Assigned CSM: Previous value: &quot; &amp; {!$Record__Prior.Assigned_CSM_Name__c} &amp; &apos;, &apos; &amp; &quot;New value: &quot; &amp; {!$Record.Assigned_CSM_Name__c} &amp; &apos;&lt;br&gt;&lt;br&gt;&apos;, &quot;&quot;) &amp;
+
+IF(ISCHANGED({!$Record.StageName}), 
+   &quot;Stage: Previous value: &quot; &amp; TEXT({!$Record__Prior.StageName}) &amp; &apos;, &apos; &amp; &quot;New value: &quot; &amp; TEXT({!$Record.StageName}) &amp; &apos;&lt;br&gt;&lt;br&gt;&apos;, &quot;&quot;) &amp;
+
+IF(ISCHANGED({!$Record.Similarweb_Forecasting_status__c}), 
+   &quot;Forecasting Status: Previous value: &quot; &amp; TEXT({!$Record__Prior.Similarweb_Forecasting_status__c}) &amp; &apos;, &apos; &amp; &quot;New value: &quot; &amp; TEXT({!$Record.Similarweb_Forecasting_status__c}) &amp; &apos;&lt;br&gt;&lt;br&gt;&apos;, &quot;&quot;) &amp;
+
+IF(ISCHANGED({!$Record.Amount}), 
+   &quot;Amount: Previous value: &quot; &amp; TEXT({!$Record__Prior.Amount}) &amp; &apos;, &apos; &amp; &quot;New value: &quot; &amp; TEXT({!$Record.Amount}) &amp; &apos;&lt;br&gt;&lt;br&gt;&apos;, &quot;&quot;) &amp;
+
+IF(ISCHANGED({!$Record.CloseDate}), 
+   &quot;Close Date: Previous value: &quot; &amp; TEXT({!$Record__Prior.CloseDate}) &amp; &apos;, &apos; &amp; &quot;New value: &quot; &amp; TEXT({!$Record.CloseDate}) &amp; &apos;&lt;br&gt;&lt;br&gt;&apos;, &quot;&quot;) &amp;
+
+IF(ISCHANGED({!$Record.Cycle_Price__c}), 
+   &quot;Cycle Price: Previous value: &quot; &amp; TEXT({!$Record__Prior.Cycle_Price__c}) &amp; &apos;, &apos; &amp; &quot;New value: &quot; &amp; TEXT({!$Record.Cycle_Price__c}) &amp; &apos;&lt;br&gt;&lt;br&gt;&apos;, &quot;&quot;) &amp;
+
+IF(ISCHANGED({!$Record.Cycle__c}), 
+   &quot;Cycle: Previous value: &quot; &amp; TEXT({!$Record__Prior.Cycle__c}) &amp; &apos;, &apos; &amp; &quot;New value: &quot; &amp; TEXT({!$Record.Cycle__c}) &amp; &apos;&lt;br&gt;&lt;br&gt;&apos;, &quot;&quot;) &amp;
+
+IF(ISCHANGED({!$Record.Cycle_Price_Local__c}), 
+   &quot;Cycle Price Local: Previous value: &quot; &amp; TEXT({!$Record__Prior.Cycle_Price_Local__c}) &amp; &apos;, &apos; &amp; &quot;New value: &quot; &amp; TEXT({!$Record.Cycle_Price_Local__c}) &amp; &apos;&lt;br&gt;&lt;br&gt;&apos;, &quot;&quot;) &amp;
+
+IF(ISCHANGED({!$Record.Max_ARR__c}), 
+   &quot;Max ARR: Previous value: &quot; &amp; TEXT({!$Record__Prior.Max_ARR__c}) &amp; &apos;, &apos; &amp; &quot;New value: &quot; &amp; TEXT({!$Record.Max_ARR__c}) &amp; &apos;&lt;br&gt;&lt;br&gt;&apos;, &quot;&quot;) &amp;
+
+IF(ISCHANGED({!$Record.Type}), 
+   &quot;Type: Previous value: &quot; &amp; TEXT({!$Record__Prior.Type}) &amp; &apos;, &apos; &amp; &quot;New value: &quot; &amp; TEXT({!$Record.Type}) &amp; &apos;&lt;br&gt;&lt;br&gt;&apos;, &quot;&quot;) &amp;
+
+IF(ISCHANGED({!$Record.RecordTypeId}), 
+   &quot;Record Type ID: Previous value: &quot; &amp; {!$Record__Prior.RecordTypeId} &amp; &apos;, &apos; &amp; &quot;New value: &quot; &amp; {!$Record.RecordTypeId} &amp; &apos;&lt;br&gt;&lt;br&gt;&apos;, &quot;&quot;) &amp;
+
+IF(ISCHANGED({!$Record.OwnerId}), 
+   &quot;Owner ID: Previous value: &quot; &amp; {!$Record__Prior.OwnerId} &amp; &apos;, &apos; &amp; &quot;New value: &quot; &amp; {!$Record.OwnerId} &amp; &apos;&lt;br&gt;&lt;br&gt;&apos;, &quot;&quot;)</expression>
+    </formulas>
+    <formulas>
+        <name>EmailBody</name>
+        <dataType>String</dataType>
+        <expression>&apos;Hi!&apos;
++BR()
++&apos;Please note that the following fields for the following opportunity has been updated:&apos;+BR()
++&apos;Opportunity name: &apos;+{!$Record.Name}+BR()
++&apos;Close date: &apos;+TEXT({!$Record.CloseDate})+BR()
++&apos;Last Modified by: &apos;+{!$User.FirstName}+&apos; &apos;+{!$User.LastName}+BR()
++{!Changed_fields_text_formula}</expression>
+    </formulas>
+    <formulas>
+        <name>EmailBodyNew</name>
+        <dataType>String</dataType>
+        <expression>&apos;Hi!&apos;
+
++BR()
+
++&apos;Please note that the following fields for the following opportunity has been updated:&apos;+BR()
+
++&apos;Opportunity name: &apos;+{!$Record.Name}+BR()
+
++&apos;Close date: &apos;+TEXT({!$Record.CloseDate})+BR()
+
++&apos;Last Modified by: &apos;+{!$User.FirstName}+&apos; &apos;+{!$User.LastName}+BR()
+
++{!Changed_fields_text_formula}</expression>
+    </formulas>
+    <formulas>
+        <name>oppLink</name>
+        <dataType>String</dataType>
+        <expression>&apos;&lt;a href=&quot;&apos; &amp; LEFT({!$Api.Enterprise_Server_Url_100}, FIND(&apos;/services&apos;, {!$Api.Enterprise_Server_Url_100})) &amp; {!$Record.Id} &amp; &apos;&quot;&gt;&apos; &amp; {!$Record.Name} &amp; &apos;&lt;/a&gt;&apos;</expression>
+    </formulas>
+    <interviewLabel>Opportunity - closed opp field update alert {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Opportunity - closed opp field update alert</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Check_if_non_ops_OR_non_admin_user</targetReference>
+        </connector>
+        <filterLogic>or</filterLogic>
+        <filters>
+            <field>StageName</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Closed Won</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>StageName</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Closed Lost</stringValue>
+            </value>
+        </filters>
+        <object>Opportunity</object>
+        <recordTriggerType>Update</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Obsolete</status>
+    <textTemplates>
+        <name>EmailBodyText</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-size: 14px;&quot;&gt;Hello,&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-size: 14px;&quot;&gt;Please note that the below edits were made in a closed opportunity.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); color: rgb(0, 0, 0); font-size: 14px;&quot;&gt;Opportunity: {!oppLink}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-size: 14px;&quot;&gt;Close Date: {!$Record.CloseDate}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-size: 14px;&quot;&gt;Last Modified by: {!$User.FirstName} {!$User.LastName}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-size: 14px;&quot;&gt;At &lt;/span&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); color: rgb(0, 0, 0); font-size: 14px;&quot;&gt;{!$Record.LastModifiedDate}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-size: 14px;&quot;&gt;{!Changed_fields_text_formula}&lt;span class=&quot;ql-cursor&quot;&gt;﻿&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <name>EmailSubject</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>Fields have been updated in a closed opportunity: {!$Record.Name}</text>
+    </textTemplates>
+</Flow>

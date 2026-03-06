@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Industry_Sub_type__c</fullName>
+    <externalId>false</externalId>
+    <label>Industry Subtype</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Ad Network</fullName>
+                <default>false</default>
+                <label>Ad Network</label>
+            </value>
+            <value>
+                <fullName>Ad Tech</fullName>
+                <default>false</default>
+                <label>Ad Tech</label>
+            </value>
+            <value>
+                <fullName>Adult</fullName>
+                <default>false</default>
+                <label>Adult</label>
+            </value>
+            <value>
+                <fullName>Analytics</fullName>
+                <default>false</default>
+                <label>Analytics</label>
+            </value>
+            <value>
+                <fullName>Apparel</fullName>
+                <default>false</default>
+                <label>Apparel</label>
+            </value>
+            <value>
+                <fullName>Beauty &amp; Personal Care</fullName>
+                <default>false</default>
+                <label>Beauty &amp; Personal Care</label>
+            </value>
+            <value>
+                <fullName>Classifieds</fullName>
+                <default>false</default>
+                <label>Classifieds</label>
+            </value>
+            <value>
+                <fullName>Computer Software</fullName>
+                <default>false</default>
+                <label>Computer Software</label>
+            </value>
+            <value>
+                <fullName>Consumer Electronics</fullName>
+                <default>false</default>
+                <label>Consumer Electronics</label>
+            </value>
+            <value>
+                <fullName>Education</fullName>
+                <default>false</default>
+                <label>Education</label>
+            </value>
+            <value>
+                <fullName>Finance</fullName>
+                <default>false</default>
+                <label>Finance</label>
+            </value>
+            <value>
+                <fullName>Food &amp; Beverages</fullName>
+                <default>false</default>
+                <label>Food &amp; Beverages</label>
+            </value>
+            <value>
+                <fullName>Forex</fullName>
+                <default>false</default>
+                <label>Forex</label>
+            </value>
+            <value>
+                <fullName>Gambling/ Gaming</fullName>
+                <default>false</default>
+                <label>Gambling/ Gaming</label>
+            </value>
+            <value>
+                <fullName>Health, Wellness and Fitness</fullName>
+                <default>false</default>
+                <label>Health, Wellness and Fitness</label>
+            </value>
+            <value>
+                <fullName>Human Resources</fullName>
+                <default>false</default>
+                <label>Human Resources</label>
+            </value>
+            <value>
+                <fullName>Insurance</fullName>
+                <default>false</default>
+                <label>Insurance</label>
+            </value>
+            <value>
+                <fullName>IT &amp; Services</fullName>
+                <default>false</default>
+                <label>IT &amp; Services</label>
+            </value>
+            <value>
+                <fullName>Management Consulting</fullName>
+                <default>false</default>
+                <label>Management Consulting</label>
+            </value>
+            <value>
+                <fullName>Marketing Agency</fullName>
+                <default>false</default>
+                <label>Marketing Agency</label>
+            </value>
+            <value>
+                <fullName>Market Research</fullName>
+                <default>false</default>
+                <label>Market Research</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Publishing</fullName>
+                <default>false</default>
+                <label>Publishing</label>
+            </value>
+            <value>
+                <fullName>Real Estate</fullName>
+                <default>false</default>
+                <label>Real Estate</label>
+            </value>
+            <value>
+                <fullName>Retail/E-commerce</fullName>
+                <default>false</default>
+                <label>Retail/E-commerce</label>
+            </value>
+            <value>
+                <fullName>Telecommunications</fullName>
+                <default>false</default>
+                <label>Telecommunications</label>
+            </value>
+            <value>
+                <fullName>Transportation</fullName>
+                <default>false</default>
+                <label>Transportation</label>
+            </value>
+            <value>
+                <fullName>Travel</fullName>
+                <default>false</default>
+                <label>Travel</label>
+            </value>
+            <value>
+                <fullName>VC/PE/Investing</fullName>
+                <default>false</default>
+                <label>VC/PE/Investing</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

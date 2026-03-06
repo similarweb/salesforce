@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Eni_Call_View</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>LEAD.EMAIL</columns>
+    <columns>LEAD.COMPANY</columns>
+    <columns>LEAD.PHONE</columns>
+    <columns>LEAD.MOBILE_PHONE</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+        <field>LEAD.PHONE</field>
+        <operation>notEqual</operation>
+    </filters>
+    <filters>
+        <field>LEAD.MOBILE_PHONE</field>
+        <operation>notEqual</operation>
+    </filters>
+    <filters>
+        <field>LEAD.LEAD_SOURCE</field>
+        <operation>equals</operation>
+        <value>Pro</value>
+    </filters>
+    <filters>
+        <field>LEAD.LAST_ACTIVITY</field>
+        <operation>lessThan</operation>
+        <value>LAST_N_DAYS:3</value>
+    </filters>
+    <filters>
+        <field>LEAD.EMAIL</field>
+        <operation>notContain</operation>
+        <value>Gmail</value>
+    </filters>
+    <filters>
+        <field>Employees_Min__c</field>
+        <operation>greaterThan</operation>
+        <value>50</value>
+    </filters>
+    <filters>
+        <field>SW_Fit_Score__c</field>
+        <operation>equals</operation>
+        <value>A,B,C</value>
+    </filters>
+    <filters>
+        <field>MIR_Status__c</field>
+        <operation>notEqual</operation>
+        <value>Fake Data,Low Traffic,Not a Good Fit: Use Case / Persona / Industry,Not Ready / Bad Timing / No Interest,Unverified: No Website / No LinkedIn</value>
+    </filters>
+    <filters>
+        <field>Bad_Number__c</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <label>Eni Call View</label>
+</ListView>

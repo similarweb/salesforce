@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Discovery_Guide_Required_Fields</fullName>
+    <active>false</active>
+    <description>Deactivated in 25/04/2022 - Approved by Lola.</description>
+    <errorConditionFormula>AND(
+NOT(ISNEW()),
+ISCHANGED(StageName),
+
+NOT(ISPICKVAL(Type,&quot;Feature Update&quot;)) ,
+Probability &gt;= 0.25,
+RecordTypeId &lt;&gt; &apos;012b0000000cfCa&apos;, /*Panel Acquisition*/
+$Profile.Id &lt;&gt; &apos;00eb0000000oBvcAAE&apos;,
+$Profile.Name &lt;&gt; &quot;SW SalesOps Extended&quot;,
+$Profile.Name &lt;&gt; &quot;SW SalesOps&quot;,
+RecordType.DeveloperName &lt;&gt; &quot;Partnership&quot;,
+
+isblank(text(Product_Sold__c )),
+
+        
+NOT(ISCHANGED(Related_Meeting__c)),
+NOT(ISCHANGED(SalesLoft1__Most_Recent_Cadence_Name__c)),
+NOT(ISCHANGED(Account_owner_changed__c)),
+NOT(ISCHANGED(DocuSign_Envelope_Status__c)),
+NOT(ISCHANGED(Legal_Request_Status__c)),
+NOT(ISCHANGED(Quote_Request_Status__c)),
+NOT(ISCHANGED(Supplier_Questionnaire_Request_Status__c)),
+
+OR(
+ISBLANK( What_are_the_Before_Scenarios__c ),
+ISBLANK( What_are_the_After_Scenarios__c ) ,
+ISBLANK( What_are_the_Customer_s_Metrics__c ) ,
+ISBLANK( text(Primary_Use_Case__c) ) ,
+ISBLANK( What_is_their_main_pain__c ) ,
+ISBLANK( Positive_Business_Outcome__c ) ,
+ISBLANK( How_do_we_solve_it__c ),
+ISBLANK(text( Product_Sold__c ))
+
+)
+)</errorConditionFormula>
+    <errorMessage>Please make sure that the following are fields are populated before moving to 25% or more:
+Primary Use Case, Product Sold - Base Product and the fields in the Discovery Guide section</errorMessage>
+</ValidationRule>

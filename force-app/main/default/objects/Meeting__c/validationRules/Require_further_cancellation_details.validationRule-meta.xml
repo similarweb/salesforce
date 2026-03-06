@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Require_further_cancellation_details</fullName>
+    <active>true</active>
+    <errorConditionFormula>IsPickVal (   Unqualified_Reason__c ,&quot;Other&quot;)&amp;&amp;
+(IsPickVal (Status__c,&quot;Cancelled&quot;) 
+|| IsPickVal (Status__c,&quot;Unqualified&quot;))
+&amp;&amp; LEN (  Cancelled_Reason__c  )&lt;3 &amp;&amp; 
+NOT($Profile.Id=&apos;00eb0000000oBvcAAE&apos;)</errorConditionFormula>
+    <errorDisplayField>Cancelled_Reason__c</errorDisplayField>
+    <errorMessage>Please provide further details for Other reason</errorMessage>
+</ValidationRule>

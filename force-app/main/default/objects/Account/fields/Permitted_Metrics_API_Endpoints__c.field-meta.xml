@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Permitted_Metrics_API_Endpoints__c</fullName>
+    <description>MIS-2133</description>
+    <externalId>false</externalId>
+    <label>Permitted Metrics - API Endpoints</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Total Visits</fullName>
+                <default>false</default>
+                <label>Total Visits</label>
+            </value>
+            <value>
+                <fullName>Desktop Unique visitors</fullName>
+                <default>false</default>
+                <label>Desktop Unique visitors</label>
+            </value>
+            <value>
+                <fullName>Mobile Unique visitors</fullName>
+                <default>false</default>
+                <label>Mobile Unique visitors</label>
+            </value>
+            <value>
+                <fullName>Page Views</fullName>
+                <default>false</default>
+                <label>Page Views</label>
+            </value>
+            <value>
+                <fullName>Pages Per Visit</fullName>
+                <default>false</default>
+                <label>Pages Per Visit</label>
+            </value>
+            <value>
+                <fullName>Bounce Rates</fullName>
+                <default>false</default>
+                <label>Bounce Rates</label>
+            </value>
+            <value>
+                <fullName>Average Visit Duration</fullName>
+                <default>false</default>
+                <label>Average Visit Duration</label>
+            </value>
+            <value>
+                <fullName>Deduplicated Audience</fullName>
+                <default>false</default>
+                <label>Deduplicated Audience</label>
+            </value>
+            <value>
+                <fullName>Global Rank</fullName>
+                <default>false</default>
+                <label>Global Rank</label>
+            </value>
+            <value>
+                <fullName>Country Rank</fullName>
+                <default>false</default>
+                <label>Country Rank</label>
+            </value>
+            <value>
+                <fullName>Category Rank</fullName>
+                <default>false</default>
+                <label>Category Rank</label>
+            </value>
+            <value>
+                <fullName>Geography Distribution</fullName>
+                <default>false</default>
+                <label>Geography Distribution</label>
+            </value>
+            <value>
+                <fullName>Similar Sites</fullName>
+                <default>false</default>
+                <label>Similar Sites</label>
+            </value>
+            <value>
+                <fullName>Desktop Traffic Sources</fullName>
+                <default>false</default>
+                <label>Desktop Traffic Sources</label>
+            </value>
+            <value>
+                <fullName>Paid Search</fullName>
+                <default>false</default>
+                <label>Paid Search</label>
+            </value>
+            <value>
+                <fullName>Organic search</fullName>
+                <default>false</default>
+                <label>Organic search</label>
+            </value>
+            <value>
+                <fullName>Top Sites Desktop</fullName>
+                <default>false</default>
+                <label>Top Sites Desktop</label>
+            </value>
+            <value>
+                <fullName>Top Sites Mobile</fullName>
+                <default>false</default>
+                <label>Top Sites Mobile</label>
+            </value>
+            <value>
+                <fullName>Desktop Referrals</fullName>
+                <default>false</default>
+                <label>Desktop Referrals</label>
+            </value>
+            <value>
+                <fullName>Mobile Referrals</fullName>
+                <default>false</default>
+                <label>Mobile Referrals</label>
+            </value>
+            <value>
+                <fullName>Audience Interests</fullName>
+                <default>false</default>
+                <label>Audience Interests</label>
+            </value>
+            <value>
+                <fullName>Audience Overlap</fullName>
+                <default>false</default>
+                <label>Audience Overlap</label>
+            </value>
+            <value>
+                <fullName>Demographics</fullName>
+                <default>false</default>
+                <label>Demographics</label>
+            </value>
+            <value>
+                <fullName>App Monthly Active Users</fullName>
+                <default>false</default>
+                <label>App Monthly Active Users</label>
+            </value>
+            <value>
+                <fullName>App Daily Active Users</fullName>
+                <default>false</default>
+                <label>App Daily Active Users</label>
+            </value>
+            <value>
+                <fullName>App Downloads</fullName>
+                <default>false</default>
+                <label>App Downloads</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

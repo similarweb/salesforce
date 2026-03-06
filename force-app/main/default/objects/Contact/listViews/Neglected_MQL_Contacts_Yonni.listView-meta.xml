@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Neglected_MQL_Contacts_Yonni</fullName>
+    <columns>MQL_date__c</columns>
+    <columns>CORE.USERS.FIRST_NAME</columns>
+    <columns>FULL_NAME</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>CONTACT.TITLE</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CONTACT.LEAD_SOURCE</columns>
+    <columns>CONTACT.ADDRESS2_COUNTRY</columns>
+    <columns>CONTACT.LAST_ACTIVITY</columns>
+    <columns>Business_Unit__c</columns>
+    <columns>Status__c</columns>
+    <columns>SW_Industry__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CORE.USERS.ALIAS</field>
+        <operation>equals</operation>
+        <value>yonniB</value>
+    </filters>
+    <filters>
+        <field>Neglected_MQL__c</field>
+        <operation>equals</operation>
+        <value>Neglected</value>
+    </filters>
+    <filters>
+        <field>Status__c</field>
+        <operation>notEqual</operation>
+        <value>Unqualified</value>
+    </filters>
+    <label>Neglected MQL Contacts - Yonni</label>
+</ListView>

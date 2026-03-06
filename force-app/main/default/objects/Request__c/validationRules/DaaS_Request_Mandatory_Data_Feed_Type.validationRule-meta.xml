@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DaaS_Request_Mandatory_Data_Feed_Type</fullName>
+    <active>true</active>
+    <description>MIS-6486</description>
+    <errorConditionFormula>AND (
+				RecordType.DeveloperName  = &apos;Technical_Solutions&apos;, /* DaaS Request */
+				ISPICKVAL(Request_Type__c, &apos;Data feed&apos;),
+    ISPICKVAL(Data_Feed_Type__c, &apos;&apos;)
+				)</errorConditionFormula>
+    <errorMessage>You must select a Data Feed Type when using the Request Type &quot;Data feed&quot;</errorMessage>
+</ValidationRule>

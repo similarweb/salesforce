@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Routed__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>To assist with CU task creation. This field will be set to TRUE once routing is complete and set to FALSE once it has completed the CU process.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>To assist with CU task creation. This field will be set to TRUE once routing is complete and set to FALSE once it has completed the CU process.</inlineHelpText>
+    <label>Routed</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

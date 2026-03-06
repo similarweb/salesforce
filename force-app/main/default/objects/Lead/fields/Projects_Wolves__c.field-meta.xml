@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Projects_Wolves__c</fullName>
+    <externalId>false</externalId>
+    <label>Projects</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>M&amp;A Q1 2018</fullName>
+                <default>false</default>
+                <label>M&amp;A Q1 2018</label>
+            </value>
+            <value>
+                <fullName>Accessibility Q1 2018</fullName>
+                <default>false</default>
+                <label>Accessibility Q1 2018</label>
+            </value>
+            <value>
+                <fullName>IOS VPN M&amp;A</fullName>
+                <default>false</default>
+                <label>IOS VPN M&amp;A</label>
+            </value>
+            <value>
+                <fullName>General Partnerships</fullName>
+                <default>false</default>
+                <label>General Partnerships</label>
+            </value>
+            <value>
+                <fullName>M&amp;A AntiVirus</fullName>
+                <default>false</default>
+                <label>M&amp;A AntiVirus</label>
+            </value>
+            <value>
+                <fullName>Ecommerce Desktop</fullName>
+                <default>false</default>
+                <label>Ecommerce Desktop</label>
+            </value>
+            <value>
+                <fullName>Security, Utility, Browsers M&amp;A</fullName>
+                <default>false</default>
+                <label>Security, Utility, Browsers M&amp;A</label>
+            </value>
+            <value>
+                <fullName>Personalization &amp; Performance M&amp;A</fullName>
+                <default>false</default>
+                <label>Personalization &amp; Performance M&amp;A</label>
+            </value>
+            <value>
+                <fullName>Ecommerce Android M&amp;A</fullName>
+                <default>false</default>
+                <label>Ecommerce Android M&amp;A</label>
+            </value>
+            <value>
+                <fullName>Chrome Extensions</fullName>
+                <default>false</default>
+                <label>Chrome Extensions</label>
+            </value>
+            <value>
+                <fullName>Top 100 Leads</fullName>
+                <default>false</default>
+                <label>Top 100 Leads</label>
+            </value>
+            <value>
+                <fullName>Not relevant for Top 100 leads</fullName>
+                <default>false</default>
+                <label>Not relevant for Top 100 leads</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

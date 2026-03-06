@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Email_Is_Mandatory</fullName>
+    <active>true</active>
+    <errorConditionFormula>Isnew() &amp;&amp; 
+Isblank(Email) &amp;&amp;
+RecordTypeId &lt;&gt; &apos;012b0000000UdVP&apos;</errorConditionFormula>
+    <errorMessage>Email is a mandatory field for Contacts.</errorMessage>
+</ValidationRule>

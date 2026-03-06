@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Last_activity_for_Replied_automation__c</fullName>
+    <description>MIS-4278 - Added division MIR
+Last activity for Replied automation</description>
+    <externalId>false</externalId>
+    <formula>IF(
+  AND(
+    TODAY() - LastActivityDate &gt;= 30,
+    OR(
+      text(Status__c) = &apos;Replied&apos;,
+      AND(
+        text(Status__c) = &apos;SDR prospecting&apos;,
+        Sync_to_Sfmc__c = TRUE
+      ),
+      AND(
+        Owner_Division__c = &apos;MIR&apos;,
+        text(Status__c) = &apos;Replied&apos;,
+        today() - DATEVALUE(Status_changed_timestamp__c) &gt;= 30
+      )
+    )
+  ),
+  TRUE,
+  FALSE
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Last activity for Replied automation</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

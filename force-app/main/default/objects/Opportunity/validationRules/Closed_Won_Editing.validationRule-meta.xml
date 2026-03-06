@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Closed_Won_Editing</fullName>
+    <active>false</active>
+    <description>prevents users from editing C/W Opp</description>
+    <errorConditionFormula>AND(IsPickVal(PriorValue(StageName),&quot;Closed Won&quot;),
+OR($Profile.Name !=&quot;System Administrator&quot;,
+$Profile.Name !=&quot;SW SalesOps Extended&quot;,
+$Profile.Name !=&quot;SW SalesOps&quot;))
+&amp;&amp;
+RecordType.DeveloperName&lt;&gt;&quot;Wolves&quot;</errorConditionFormula>
+    <errorMessage>You cannot update a closed won opportunity. Please contact an administrator for assistance.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Pardot_Status__c</fullName>
+    <externalId>false</externalId>
+    <label>Pardot Status</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>SDR Prospecting</fullName>
+                <default>false</default>
+                <label>SDR Prospecting</label>
+            </value>
+            <value>
+                <fullName>Sales Prospecting</fullName>
+                <default>false</default>
+                <label>Sales Prospecting</label>
+            </value>
+            <value>
+                <fullName>MIR Prospecting</fullName>
+                <default>false</default>
+                <label>MIR Prospecting</label>
+            </value>
+            <value>
+                <fullName>Replied</fullName>
+                <default>false</default>
+                <label>Replied</label>
+            </value>
+            <value>
+                <fullName>Nurture</fullName>
+                <default>false</default>
+                <label>Nurture</label>
+            </value>
+            <value>
+                <fullName>Unqualified</fullName>
+                <default>false</default>
+                <label>Unqualified</label>
+            </value>
+            <value>
+                <fullName>Sales Contacted</fullName>
+                <default>false</default>
+                <label>Sales Contacted</label>
+            </value>
+            <value>
+                <fullName>Open</fullName>
+                <default>false</default>
+                <label>Open</label>
+            </value>
+            <value>
+                <fullName>Automated Prospecting</fullName>
+                <default>false</default>
+                <label>Automated Prospecting</label>
+            </value>
+            <value>
+                <fullName>Automated Education</fullName>
+                <default>false</default>
+                <label>Automated Education</label>
+            </value>
+            <value>
+                <fullName>Automated Re-engagement</fullName>
+                <default>false</default>
+                <label>Automated Re-engagement</label>
+            </value>
+            <value>
+                <fullName>Dormant</fullName>
+                <default>false</default>
+                <label>Dormant</label>
+            </value>
+            <value>
+                <fullName>Qualified</fullName>
+                <default>false</default>
+                <label>Qualified</label>
+            </value>
+            <value>
+                <fullName>Qualification</fullName>
+                <default>false</default>
+                <label>Qualification</label>
+            </value>
+            <value>
+                <fullName>Post Demo</fullName>
+                <default>false</default>
+                <label>Post Demo</label>
+            </value>
+            <value>
+                <fullName>Contacted</fullName>
+                <default>false</default>
+                <label>Contacted</label>
+            </value>
+            <value>
+                <fullName>Standby</fullName>
+                <default>false</default>
+                <label>Standby</label>
+            </value>
+            <value>
+                <fullName>Automated Onboarding</fullName>
+                <default>false</default>
+                <label>Automated Onboarding</label>
+            </value>
+            <value>
+                <fullName>Test</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Test</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

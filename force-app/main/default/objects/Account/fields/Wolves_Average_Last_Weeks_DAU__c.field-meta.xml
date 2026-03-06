@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Wolves_Average_Last_Weeks_DAU__c</fullName>
+    <externalId>false</externalId>
+    <label>Average Last Weeks DAU</label>
+    <summarizedField>Opportunity.Wolves_Last_Week_Average_DAU__c</summarizedField>
+    <summaryForeignKey>Opportunity.AccountId</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <type>Summary</type>
+</CustomField>

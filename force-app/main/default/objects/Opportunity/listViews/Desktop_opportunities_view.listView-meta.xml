@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Desktop_opportunities_view</fullName>
+    <columns>OPPORTUNITY.NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>OPPORTUNITY.TYPE</columns>
+    <columns>Wolves_Potential_DAU__c</columns>
+    <columns>OPPORTUNITY.PROBABILITY</columns>
+    <columns>OPPORTUNITY.STAGE_NAME</columns>
+    <columns>Biz_Dev_Owner__c</columns>
+    <columns>Wolves_Link_to_Product__c</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>OPPORTUNITY.CLOSE_DATE</columns>
+    <columns>Wolves_Platform__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Wolves_Platform__c</field>
+        <operation>equals</operation>
+        <value>Desktop</value>
+    </filters>
+    <filters>
+        <field>OPPORTUNITY.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Opportunity.Wolves</value>
+    </filters>
+    <filters>
+        <field>OPPORTUNITY.STAGE_NAME</field>
+        <operation>notEqual</operation>
+        <value>Live</value>
+    </filters>
+    <label>Desktop opportunities view</label>
+</ListView>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Subsidiary__c</fullName>
+    <externalId>false</externalId>
+    <label>Subsidiary</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>SimilarWeb Inc</fullName>
+                <default>false</default>
+                <label>SimilarWeb Inc</label>
+            </value>
+            <value>
+                <fullName>SimilarWeb UK Ltd</fullName>
+                <default>false</default>
+                <label>SimilarWeb UK Ltd</label>
+            </value>
+            <value>
+                <fullName>SimilarWeb Ltd</fullName>
+                <default>false</default>
+                <label>SimilarWeb Ltd</label>
+            </value>
+            <value>
+                <fullName>SimilarWeb Japan K.K</fullName>
+                <default>false</default>
+                <label>SimilarWeb Japan K.K</label>
+            </value>
+            <value>
+                <fullName>SimilarWeb Australia Pty Ltd</fullName>
+                <default>false</default>
+                <label>SimilarWeb Australia Pty Ltd</label>
+            </value>
+            <value>
+                <fullName>SimilarWeb France SAS</fullName>
+                <default>false</default>
+                <label>SimilarWeb France SAS</label>
+            </value>
+            <value>
+                <fullName>SimilarWeb Germany GmbH</fullName>
+                <default>false</default>
+                <label>SimilarWeb Germany GmbH</label>
+            </value>
+            <value>
+                <fullName>Parent Company : SimilarWeb AU</fullName>
+                <default>false</default>
+                <label>Parent Company : SimilarWeb AU</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Role_s_Region__c</fullName>
+    <description>MIS-7386 
+GM Owner Approval Process Update In Case</description>
+    <externalId>false</externalId>
+    <formula>IF(CONTAINS(SysRoleName__c, &apos;APAC&apos;), &apos;APAC&apos;,
+IF(CONTAINS(SysRoleName__c, &apos;Japan&apos;), &apos;Japan&apos;,
+IF(CONTAINS(SysRoleName__c, &apos;Trellian&apos;), &apos;Trellian&apos;,
+IF(CONTAINS(SysRoleName__c, &apos;India&apos;), &apos;India&apos;,
+IF(CONTAINS(SysRoleName__c, &apos;SEA&apos;), &apos;SEA&apos;,
+IF(CONTAINS(SysRoleName__c, &apos;Maestros&apos;), &apos;Maestros&apos;,
+IF(CONTAINS(SysRoleName__c, &apos;Australia&apos;), &apos;Australia&apos;,
+IF(CONTAINS(SysRoleName__c, &apos;OEM&apos;), &apos;OEM&apos;,
+IF(CONTAINS(SysRoleName__c, &apos;Agencies Strategic&apos;), &apos;Agencies Strategic&apos;,
+IF(CONTAINS(SysRoleName__c, &apos;Consultancies&apos;), &apos;Consultancies&apos;,
+IF(CONTAINS(SysRoleName__c, &apos;LATAM&apos;), &apos;LATAM&apos;,
+IF(CONTAINS(SysRoleName__c, &apos;NA Enterprise&apos;), &apos;NA Enterprise&apos;,
+IF(CONTAINS(SysRoleName__c, &apos;NA Strategic&apos;), &apos;NA Strategic&apos;,
+IF(CONTAINS(SysRoleName__c, &apos;NA SMB&apos;), &apos;NA SMB&apos;,
+IF(CONTAINS(SysRoleName__c, &apos;Mexico&apos;), &apos;Mexico&apos;,
+IF(CONTAINS(SysRoleName__c, &apos;Brazil&apos;), &apos;Brazil&apos;,
+IF(CONTAINS(SysRoleName__c, &apos;Colombia&apos;), &apos;Colombia&apos;,
+IF(CONTAINS(SysRoleName__c, &apos;EMEA&apos;), &apos;EMEA&apos;,
+IF(CONTAINS(SysRoleName__c, &apos;Turkey&apos;), &apos;Turkey&apos;,
+IF(CONTAINS(SysRoleName__c, &apos;Italy&apos;), &apos;Italy&apos;,
+IF(CONTAINS(SysRoleName__c, &apos;Investors&apos;), &apos;Investors&apos;,
+IF(CONTAINS(SysRoleName__c, &apos;Rank Ranger&apos;), &apos;Rank Ranger&apos;,
+&apos;Other&apos;))))))))))))))))))))))</formula>
+    <label>Role&apos;s Region</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

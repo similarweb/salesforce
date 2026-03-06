@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>sp1Request_is_pending_client_for_more_than_14_days</name>
+        <label>Request__c.Request_is_pending_client_for_more_than_14_days</label>
+        <locationX>668</locationX>
+        <locationY>336</locationY>
+        <actionName>Request__c.Request_is_pending_client_for_more_than_14_days</actionName>
+        <actionType>emailAlert</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>Request__c.Request_is_pending_client_for_more_than_14_days</nameSegment>
+    </actionCalls>
+    <apiVersion>54.0</apiVersion>
+    <description>If Request Type = Legal Services and Status = Pending Client send alert after 14 days - &quot;Request is pending client for more than 14 days&quot;</description>
+    <interviewLabel>Request - Time-based - Trial - End date Notification {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Request - Time-based - Trial - Request is pending client for more than 14 days</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>410</locationX>
+        <locationY>48</locationY>
+        <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Status__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Pending Client</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Request_Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Legal Services</stringValue>
+            </value>
+        </filters>
+        <object>Request__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <scheduledPaths>
+            <name>ScheduledPath1</name>
+            <connector>
+                <targetReference>sp1Request_is_pending_client_for_more_than_14_days</targetReference>
+            </connector>
+            <label>ScheduledPath1</label>
+            <offsetNumber>14</offsetNumber>
+            <offsetUnit>Days</offsetUnit>
+            <recordField>Status_Change_TimeStamp__c</recordField>
+            <timeSource>RecordField</timeSource>
+        </scheduledPaths>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

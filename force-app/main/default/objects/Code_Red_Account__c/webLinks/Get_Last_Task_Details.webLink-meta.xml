@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Get_Last_Task_Details</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <linkType>url</linkType>
+    <masterLabel>Get Last Task Details</masterLabel>
+    <openType>replace</openType>
+    <protected>false</protected>
+    <url>/flow/GetTaskToCR?VarAccountID={!Code_Red_Account__c.AccountId__c}&amp;VarCRID={!Code_Red_Account__c.Id}&amp;retURL={!Code_Red_Account__c.Id}</url>
+</WebLink>

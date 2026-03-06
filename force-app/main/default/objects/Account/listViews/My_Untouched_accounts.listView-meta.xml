@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>My_Untouched_accounts</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>Account_Owner_formula__c</columns>
+    <columns>fr_ARR__c</columns>
+    <columns>Assigned_CSA_Name__c</columns>
+    <columns>ACCOUNT.LAST_ACTIVITY</columns>
+    <columns>Health_Score__c</columns>
+    <columns>Industry_Cluster__c</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>Active</value>
+    </filters>
+    <filters>
+        <field>fr_ARR__c</field>
+        <operation>greaterThan</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>ACCOUNT.LAST_ACTIVITY</field>
+        <operation>notEqual</operation>
+        <value>LAST_N_DAYS:30</value>
+    </filters>
+    <label>My Untouched accounts</label>
+</ListView>

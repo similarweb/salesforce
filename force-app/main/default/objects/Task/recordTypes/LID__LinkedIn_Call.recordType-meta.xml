@@ -1,0 +1,514 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LID__LinkedIn_Call</fullName>
+    <active>true</active>
+    <description>Record type for calls from the LinkedIn Sales Navigator mobile app</description>
+    <label>LinkedIn Call</label>
+    <picklistValues>
+        <picklist>CU_Reply_Type__c</picklist>
+        <values>
+            <fullName>Engagement Program</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Null</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>One Off</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Essentials_Prospect_Understands__c</picklist>
+        <values>
+            <fullName>Clear Value for his Use-case</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>How we are different from Direct Analytics</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Our easy-to-use SaaS%2FAPI Data Delivery</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>We are a Credible company</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>We have a Paid annual solution</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>What is Market Intelligence</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Fit_Score__c</picklist>
+        <values>
+            <fullName>A</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>B</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>C</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>E</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>F</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>X</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>HTML_Template_Approval_Status__c</picklist>
+        <values>
+            <fullName>Approve</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Decline</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>MIR_Handover_Rejection_Reason__c</picklist>
+        <values>
+            <fullName>Fake Data</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Free Tools Sufficient %2F One-Time Use</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Low Traffic</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No Budget</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Not Ready %2F Bad Timing %2F No Interest</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Not a Good Fit%3A Use Case %2F Persona %2F Industry</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Unreachable %2F No Reply</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Unsubscribed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Unverified%3A No Website %2F No LinkedIn</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Meeting_Status__c</picklist>
+        <values>
+            <fullName>Cancelled_CP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Completed - handover</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Completed - no handover</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No_Show_CP</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Priority</picklist>
+        <values>
+            <fullName>High</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Low</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Normal</fullName>
+            <default>true</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Source__c</picklist>
+        <values>
+            <fullName>GetFeedback</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pardot</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SalesForce</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SalesLoft</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZoomInfo</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Status</picklist>
+        <values>
+            <fullName>Completed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Deferred</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>In Progress</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Not Started</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Waiting on someone else</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Sub_type__c</picklist>
+        <values>
+            <fullName>%22Snail Mail%22%2FPackage</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Attachment Opened in Message</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Attempt%2F Left message</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bounce Received</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Call Attempt</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Call Conversation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Chat Attempt</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Chat Conversation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Commercial Conversation %28Sale%2C Upsell%2C Renewal%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Commercial talks %28Sale%2C upsell%2C renewal%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Conference</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Conversation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Customer Individual training</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Customer Kickoff call</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Customer Team training</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Decision Maker demo</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Email</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Entertainment %28Dinner%2FSocial Event%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Executive briefing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FRO Hook Attempt</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Follow-up call</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>In-Person</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Internal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Kick Off</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Legal call</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Link Clicked in Message</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LinkedIn</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Message Opened</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Message Sent</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Message Sync</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NT Credit Card Page Visit</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>On-site QBR %28CSM%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>On-site demo%2F training</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Onboarding call</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Outbound</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PRO Returning Visit</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PRO Visit High Usage</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Presentation Viewed in Message</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Presentation%2FAnalysis</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pricing Page Visit</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Prospect Cold call</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Prospect Qualification call</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Prospect demo</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>QBR call</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Recurring Call</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reply</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sales Discovery call</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sales Pricing call</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sales Scoping call</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Skype chat</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>WeChat</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Whatsapp</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Type</picklist>
+        <values>
+            <fullName>Call</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Email</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Meeting</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Type__c</picklist>
+        <values>
+            <fullName>Alerts</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Call</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Demo</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Email</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Engage</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>In-Person</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Internal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MIR Chat</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Marketing Cloud</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Multithread</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Social</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>cloudtalk__Call_Sentiment__c</picklist>
+        <values>
+            <fullName>Contact - Bad Fit</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Demo Scheduled</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Interested</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No Interest</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Rescheduling</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

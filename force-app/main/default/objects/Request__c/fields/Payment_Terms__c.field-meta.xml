@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Payment_Terms__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>What will the new Payment Terms be?</inlineHelpText>
+    <label>Payment Terms</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>30</fullName>
+                <default>false</default>
+                <label>30</label>
+            </value>
+            <value>
+                <fullName>45</fullName>
+                <default>false</default>
+                <label>45</label>
+            </value>
+            <value>
+                <fullName>60</fullName>
+                <default>false</default>
+                <label>60</label>
+            </value>
+            <value>
+                <fullName>90</fullName>
+                <default>false</default>
+                <label>90</label>
+            </value>
+            <value>
+                <fullName>Due Upon Receipt</fullName>
+                <default>false</default>
+                <label>Due Upon Receipt</label>
+            </value>
+            <value>
+                <fullName>Net 30</fullName>
+                <default>false</default>
+                <label>Net 30</label>
+            </value>
+            <value>
+                <fullName>Net 45</fullName>
+                <default>false</default>
+                <label>Net 45</label>
+            </value>
+            <value>
+                <fullName>Net 60</fullName>
+                <default>false</default>
+                <label>Net 60</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

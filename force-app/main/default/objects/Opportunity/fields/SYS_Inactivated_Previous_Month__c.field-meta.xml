@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SYS_Inactivated_Previous_Month__c</fullName>
+    <externalId>false</externalId>
+    <formula>MONTH(Wolves_Inactivation_Date__c )=
+	IF(MONTH(TODAY())=1,12,MONTH(TODAY())-1)</formula>
+    <label>SYS Inactivated Previous Month</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

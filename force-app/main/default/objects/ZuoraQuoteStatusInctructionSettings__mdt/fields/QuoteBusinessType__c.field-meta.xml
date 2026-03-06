@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>QuoteBusinessType__c</fullName>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>QuoteBusinessType</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>New</fullName>
+                <default>true</default>
+                <label>New Sale</label>
+            </value>
+            <value>
+                <fullName>Co-Term Upsell</fullName>
+                <default>false</default>
+                <label>Co-Term Upsell</label>
+            </value>
+            <value>
+                <fullName>Co-Term Upsell + Renewal</fullName>
+                <default>false</default>
+                <label>Co-Term Upsell + Renewal</label>
+            </value>
+            <value>
+                <fullName>Feature Update</fullName>
+                <default>false</default>
+                <label>Feature Update</label>
+            </value>
+            <value>
+                <fullName>Feature Update + Renewal (with/without upsell)</fullName>
+                <default>false</default>
+                <label>Feature Update + Renewal (with/without upsell)</label>
+            </value>
+            <value>
+                <fullName>Renewal Only</fullName>
+                <default>false</default>
+                <label>Renewal Only</label>
+            </value>
+            <value>
+                <fullName>Cancellation</fullName>
+                <default>false</default>
+                <label>Cancellation</label>
+            </value>
+            <value>
+                <fullName>Renewal (with/without upsell)</fullName>
+                <default>false</default>
+                <label>Renewal (with/without upsell)</label>
+            </value>
+            <value>
+                <fullName>Feature Update + Renewal</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Feature Update + Renewal</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

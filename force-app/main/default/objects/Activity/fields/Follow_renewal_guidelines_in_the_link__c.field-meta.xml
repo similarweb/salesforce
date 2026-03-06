@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Follow_renewal_guidelines_in_the_link__c</fullName>
+    <externalId>false</externalId>
+    <formula>HYPERLINK(&quot;https://docs.google.com/presentation/d/1xA7XzGdR7Jah73AaO8ztUGh4i4YFAuHmTiZxGv7BNVw/edit&quot;, &quot;Click here for Opportunity and Quote Step-by-Step Guide&quot;)+BR()+
+HYPERLINK(&quot;https://docs.google.com/spreadsheets/d/1qNDp2k7t9iZ_XcEae-vW7BAqqsZYdlhXd9TKDVLSfr8/edit#gid=1787289355&quot;, &quot;Click here for Deal Stages guide&quot;)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Follow renewal guidelines in the link</label>
+    <required>false</required>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

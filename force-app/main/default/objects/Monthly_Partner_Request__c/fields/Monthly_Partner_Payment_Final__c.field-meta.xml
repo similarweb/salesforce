@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Monthly_Partner_Payment_Final__c</fullName>
+    <description>Check if the price should be a fix price or calculated price</description>
+    <externalId>false</externalId>
+    <formula>IF
+(
+Monthly_Partner_Payment_Fixed__c  &gt; 0,
+Monthly_Partner_Payment_Fixed__c,
+IF
+(Monthly_Partner_Payment__c &gt; Contracts__r.Payment_Cap__c,
+Contracts__r.Payment_Cap__c,
+Monthly_Partner_Payment__c
+)
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>The total cost depends on whether it&apos;s a Fixed Price contract or Calculated.</inlineHelpText>
+    <label>Final Monthly Partner Payment</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

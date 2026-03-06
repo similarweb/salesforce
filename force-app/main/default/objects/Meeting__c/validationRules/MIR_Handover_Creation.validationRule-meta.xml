@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MIR_Handover_Creation</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND( 
+$Profile.Name &lt;&gt; &apos;System Administrator&apos;,
+ISNEW(),
+RecordType.DeveloperName = &apos;MIR_Handover&apos;,
+MIR_Handover_Flow__c = FALSE
+)</errorConditionFormula>
+    <errorMessage>MIR Handover meeting should be created from the Acccount level</errorMessage>
+</ValidationRule>

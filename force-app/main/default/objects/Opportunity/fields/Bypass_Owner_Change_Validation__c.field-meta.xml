@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Bypass_Owner_Change_Validation__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Created in order to allow reverting of opp owner changes from the class: RevertClosedOppOwnerQueueable</description>
+    <externalId>false</externalId>
+    <label>Bypass Owner Change Validation</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

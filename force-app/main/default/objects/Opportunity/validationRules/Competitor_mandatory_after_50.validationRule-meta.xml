@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Competitor_mandatory_after_50</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+NOT( ISPICKVAL( Type, &apos;Feature Update&apos;)),
+RecordTypeId &lt;&gt; &apos;012b0000000cfCa&apos;,
+ISCHANGED(Probability),
+Probability  &gt;= 0.5,
+ISBLANK(TEXT(Competition__c)),
+RecordType.DeveloperName&lt;&gt;&quot;Rank_Ranger&quot;,
+RecordType.DeveloperName&lt;&gt;&quot;Acquired_Company&quot;,
+$Profile.Name &lt;&gt; &apos;SW SalesOps Extended&apos;,
+MEDPIC_Next_Stage__c = false
+)</errorConditionFormula>
+    <errorDisplayField>Using_a_Competitor__c</errorDisplayField>
+    <errorMessage>Please populate a Using a Competitor</errorMessage>
+</ValidationRule>

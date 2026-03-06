@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Job_Title__c</fullName>
+    <externalId>false</externalId>
+    <label>Job Title</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Analyst</fullName>
+                <default>false</default>
+                <label>Analyst</label>
+            </value>
+            <value>
+                <fullName>Consultant</fullName>
+                <default>false</default>
+                <label>Consultant</label>
+            </value>
+            <value>
+                <fullName>Manager</fullName>
+                <default>false</default>
+                <label>Manager</label>
+            </value>
+            <value>
+                <fullName>Director</fullName>
+                <default>false</default>
+                <label>Director</label>
+            </value>
+            <value>
+                <fullName>Vice President (VP)</fullName>
+                <default>false</default>
+                <label>Vice President (VP)</label>
+            </value>
+            <value>
+                <fullName>C-Level</fullName>
+                <default>false</default>
+                <label>C-Level</label>
+            </value>
+            <value>
+                <fullName>CEO/President</fullName>
+                <default>false</default>
+                <label>CEO/President</label>
+            </value>
+            <value>
+                <fullName>Professor/Student</fullName>
+                <default>false</default>
+                <label>Professor/Student</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

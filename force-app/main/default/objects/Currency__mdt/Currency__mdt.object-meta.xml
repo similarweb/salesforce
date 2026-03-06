@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Currency codes with the name of the country and the currency name</description>
+    <label>Currency</label>
+    <pluralLabel>Currencies</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

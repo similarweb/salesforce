@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>WebsiteDomain__c</fullName>
+    <description>This formula is the domain without the &quot;Left&quot; side from &quot;Website&quot;</description>
+    <externalId>false</externalId>
+    <formula>SUBSTITUTE(Website, LEFT(Website, FIND(&quot;http://&quot;, Website)), NULL)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>WebsiteDomain</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

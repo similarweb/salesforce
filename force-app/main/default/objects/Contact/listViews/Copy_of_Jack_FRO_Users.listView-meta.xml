@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Copy_of_Jack_FRO_Users</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>FULL_NAME</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>CONTACT.TITLE</columns>
+    <columns>Account_Owner__c</columns>
+    <columns>fr_Last_Pro_Visit_Date__c</columns>
+    <columns>Account.SW_Industry__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>fr_Pro_User_Type__c</field>
+        <operation>equals</operation>
+        <value>Demo</value>
+    </filters>
+    <filters>
+        <field>Account.Parent_Company_Domain__c</field>
+        <operation>equals</operation>
+        <value>allianz.com,axelspringer.com,bertelsmann.com,bmw.com,daimler.com,db.com,telekom.com,gfk.com,burda.com,lufthansagroup.com,group.mercedes-benz.com,miele.com,ottogroup.com,schwarz-gruppe.net,vw.com,zalando.de,zurich.com</value>
+    </filters>
+    <filters>
+        <field>fr_Last_Pro_Visit_Date__c</field>
+        <operation>equals</operation>
+        <value>LAST_N_DAYS:7</value>
+    </filters>
+    <label>George FRO Users</label>
+</ListView>

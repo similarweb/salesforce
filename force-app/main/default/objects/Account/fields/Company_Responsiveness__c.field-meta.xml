@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Company_Responsiveness__c</fullName>
+    <description>MIS-4519</description>
+    <externalId>false</externalId>
+    <label>Company Responsiveness</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Not relevant</fullName>
+                <default>false</default>
+                <label>Not relevant</label>
+            </value>
+            <value>
+                <fullName>Actively engaging</fullName>
+                <default>false</default>
+                <label>Actively engaging</label>
+            </value>
+            <value>
+                <fullName>They reach out when they need something</fullName>
+                <default>false</default>
+                <label>They reach out when they need something</label>
+            </value>
+            <value>
+                <fullName>Haven&apos;t responded to me for a while</fullName>
+                <default>false</default>
+                <label>Haven&apos;t responded to me for a while</label>
+            </value>
+            <value>
+                <fullName>Client Has Us on Speed Dial</fullName>
+                <default>false</default>
+                <label>Client Has Us on Speed Dial</label>
+            </value>
+            <value>
+                <fullName>Responds to All Requests</fullName>
+                <default>false</default>
+                <label>Responds to All Requests</label>
+            </value>
+            <value>
+                <fullName>Only Engages When Needs Help</fullName>
+                <default>false</default>
+                <label>Only Engages When Needs Help</label>
+            </value>
+            <value>
+                <fullName>Does Not Reliably Respond / Unresponsive</fullName>
+                <default>false</default>
+                <label>Does Not Reliably Respond / Unresponsive</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <description>MIS-5204
+MIS-4733</description>
+        <name>Send_Alert_to_AS_Team_Leaders</name>
+        <label>Send Alert to AS Team Leaders</label>
+        <locationX>270</locationX>
+        <locationY>1031</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <stringValue>as-sf-alerts@similarweb.com</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <elementReference>Opp_AS_Request_Subject</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>AS_Team_Close_Won_Template</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>sendRichBody</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+    </actionCalls>
+    <apiVersion>59.0</apiVersion>
+    <assignments>
+        <description>MIS-4733</description>
+        <name>Add_Template_to_Main</name>
+        <label>Add Template to Main</label>
+        <locationX>358</locationX>
+        <locationY>839</locationY>
+        <assignmentItems>
+            <assignToReference>Request_Template_Concatenated</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>Request_Details_Template</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Loop_Through_Requests</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>MIS-4733</description>
+        <name>Assign_AS_Request_Header</name>
+        <label>Assign AS Request Header</label>
+        <locationX>50</locationX>
+        <locationY>539</locationY>
+        <assignmentItems>
+            <assignToReference>AS_Request_Header</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>AS Request Details:</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Found_AS_Requests</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Loop_Through_Requests</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <description>MIS-4733</description>
+        <name>FASRSA_Found_AS_Requests_or_Strat_Account</name>
+        <label>*(FASRSA)* - Found AS Requests or Strat Account?</label>
+        <locationX>270</locationX>
+        <locationY>431</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Found_Requests</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_AS_Requests</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_AS_Request_Header</targetReference>
+            </connector>
+            <label>Found Requests</label>
+        </rules>
+        <rules>
+            <name>Strat_Account</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Account.Business_Unit__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Strategic</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Loop_Through_Requests</targetReference>
+            </connector>
+            <label>Strat Account</label>
+        </rules>
+    </decisions>
+    <description>MIS-5646 - Split from Closed Won / Lost Management alert</description>
+    <environments>Default</environments>
+    <formulas>
+        <description>MIS-5646</description>
+        <name>fr_AS_Recipients</name>
+        <dataType>String</dataType>
+        <expression>IF(
+  ISPICKVAL({!$Record.StageName}, &apos;Closed Won&apos;),
+  &apos;as-sf-alerts@similarweb.com,gilles.haumont@similarweb.com&apos;,
+  &apos;as-sf-alerts@similarweb.com&apos;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>opp_record_link</name>
+        <dataType>String</dataType>
+        <expression>LEFT( {!$Api.Partner_Server_URL_520}, FIND( &apos;/services&apos;, {!$Api.Partner_Server_URL_520} ))&amp;{!$Record.Id}</expression>
+    </formulas>
+    <formulas>
+        <description>MIS-4733</description>
+        <name>Request_Details_Template</name>
+        <dataType>String</dataType>
+        <expression>&apos;&lt;strong&gt;Request Name: &lt;/strong&gt;&apos;&amp;{!Loop_Through_Requests.Name}&amp;&apos;&lt;br&gt;&apos;&amp;
+&apos;&lt;strong&gt;Link to Request: &lt;/strong&gt;&apos;&amp;{!Request_Link}&amp;&apos;&lt;br&gt;&apos;&amp;
+&apos;&lt;strong&gt;List Price: &lt;/strong&gt;&apos;&amp;TEXT({!Loop_Through_Requests.List_price__c})&amp;&apos;&lt;br&gt;&apos;&amp;
+&apos;&lt;strong&gt;Pod: &lt;/strong&gt;&apos;&amp;TEXT({!Loop_Through_Requests.Pod__c})&amp;&apos;&lt;br&gt;&apos;&amp;
+&apos;&lt;strong&gt;SOW: &lt;/strong&gt;&apos;&amp;{!Loop_Through_Requests.Link_to_Proposal__c}&amp;&apos;&lt;br&gt;&lt;br&gt;&apos;</expression>
+    </formulas>
+    <formulas>
+        <description>MIS-4733</description>
+        <name>Request_Link</name>
+        <dataType>String</dataType>
+        <expression>LEFT( {!$Api.Partner_Server_URL_520}, FIND( &apos;/services&apos;, {!$Api.Partner_Server_URL_520} ))&amp;{!Loop_Through_Requests.Id}</expression>
+    </formulas>
+    <formulas>
+        <description>MIS-4733</description>
+        <name>Strat_or_AS_Topic</name>
+        <dataType>String</dataType>
+        <expression>IF(AND({!Found_AS_Requests}=TRUE, ISPICKVAL({!$Record.Account.Business_Unit__c},&quot;Strategic&quot;)), &quot;Strat Account with AS Request&quot;,
+     IF({!Found_AS_Requests}=TRUE, &quot;Account with AS Request&quot;,
+         IF(ISPICKVAL({!$Record.Account.Business_Unit__c},&quot;Strategic&quot;), &quot;Strat Account&quot;, &quot;&quot;
+)))</expression>
+    </formulas>
+    <interviewLabel>Opportunity after save -email alert closed won / lost AS Team {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Opportunity after save -email alert closed won / lost AS Team</label>
+    <loops>
+        <description>MIS-4733</description>
+        <name>Loop_Through_Requests</name>
+        <label>Loop Through Requests</label>
+        <locationX>270</locationX>
+        <locationY>731</locationY>
+        <collectionReference>Get_AS_Requests</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Add_Template_to_Main</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>Send_Alert_to_AS_Team_Leaders</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <description>MIS-4860
+MIS-4733</description>
+        <name>Get_AS_Requests</name>
+        <label>Get AS Requests</label>
+        <locationX>270</locationX>
+        <locationY>323</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>FASRSA_Found_AS_Requests_or_Strat_Account</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Opportunity__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>RecordTypeId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>0120X0000005lrhQAA</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Pod__c</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>Managed Services</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>Request__c</object>
+        <sortField>CreatedDate</sortField>
+        <sortOrder>Desc</sortOrder>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <start>
+        <locationX>144</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_AS_Requests</targetReference>
+        </connector>
+        <filterFormula>ISCHANGED({!$Record.StageName}) &amp;&amp;
+(
+ISPICKVAL({!$Record.StageName}, &quot;Closed Won&quot;) ||
+ISPICKVAL({!$Record.StageName}, &quot;Closed Lost&quot;)
+)</filterFormula>
+        <object>Opportunity</object>
+        <recordTriggerType>Update</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <textTemplates>
+        <description>MIS-4733</description>
+        <name>AS_Team_Close_Won_Template</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>&lt;strong&gt;&lt;u&gt;{!Strat_or_AS_Topic}&lt;/strong&gt;&lt;/u&gt;&lt;br&gt;&lt;br&gt;
+&lt;strong&gt;Opportunity {!$Record.Name} has been flagged as {!$Record.StageName}&lt;/strong&gt;&lt;br&gt;&lt;br&gt;
+&lt;strong&gt;Account Name:&lt;/strong&gt; {!$Record.Account.Name}&lt;br&gt;
+&lt;strong&gt;ARR:&lt;/strong&gt; {!$Record.ARR__c}&lt;br&gt;
+&lt;strong&gt;Max ARR:&lt;/strong&gt; {!$Record.Max_ARR__c}&lt;br&gt;
+&lt;strong&gt;Link to SFDC Opportunity:&lt;/strong&gt; {!opp_record_link}&lt;br&gt;&lt;br&gt;
+&lt;strong&gt;&lt;u&gt;{!AS_Request_Header}&lt;/u&gt;&lt;/strong&gt;&lt;br&gt;&lt;br&gt;
+{!Request_Template_Concatenated}</text>
+    </textTemplates>
+    <textTemplates>
+        <description>MIS-4733</description>
+        <name>Opp_AS_Request_Subject</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>Opportunity {!$Record.StageName}</text>
+    </textTemplates>
+    <triggerOrder>1200</triggerOrder>
+    <variables>
+        <description>MIS-4733</description>
+        <name>AS_Request_Header</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>MIS-4733</description>
+        <name>Found_AS_Requests</name>
+        <dataType>Boolean</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>MIS-4733</description>
+        <name>Request_Template_Concatenated</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

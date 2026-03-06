@@ -1,0 +1,802 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Industry_Subtype__c</fullName>
+    <externalId>false</externalId>
+    <label>Industry Subtype</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <controllingField>SW_Industry__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Airlines &amp; Flights</fullName>
+                <default>false</default>
+                <label>Airlines &amp; Flights</label>
+            </value>
+            <value>
+                <fullName>Apparel</fullName>
+                <default>false</default>
+                <label>Apparel</label>
+            </value>
+            <value>
+                <fullName>Asset Management</fullName>
+                <default>false</default>
+                <label>Asset Management</label>
+            </value>
+            <value>
+                <fullName>Automotive Classifieds</fullName>
+                <default>false</default>
+                <label>Automotive Classifieds</label>
+            </value>
+            <value>
+                <fullName>Banks</fullName>
+                <default>false</default>
+                <label>Banks</label>
+            </value>
+            <value>
+                <fullName>Beauty &amp; Personal Care</fullName>
+                <default>false</default>
+                <label>Beauty &amp; Personal Care</label>
+            </value>
+            <value>
+                <fullName>Car Rental</fullName>
+                <default>false</default>
+                <label>Car Rental</label>
+            </value>
+            <value>
+                <fullName>Chemicals</fullName>
+                <default>false</default>
+                <label>Chemicals</label>
+            </value>
+            <value>
+                <fullName>Comparison and Cashback</fullName>
+                <default>false</default>
+                <label>Comparison and Cashback</label>
+            </value>
+            <value>
+                <fullName>Construction and Commercial Properties</fullName>
+                <default>false</default>
+                <label>Construction and Commercial Properties</label>
+            </value>
+            <value>
+                <fullName>Consultancies</fullName>
+                <default>false</default>
+                <label>Consultancies</label>
+            </value>
+            <value>
+                <fullName>Consumer Electronics</fullName>
+                <default>false</default>
+                <label>Consumer Electronics</label>
+            </value>
+            <value>
+                <fullName>Corporate Development</fullName>
+                <default>false</default>
+                <label>Corporate Development</label>
+            </value>
+            <value>
+                <fullName>Credit, Loans, Mortgages</fullName>
+                <default>false</default>
+                <label>Credit, Loans, Mortgages</label>
+            </value>
+            <value>
+                <fullName>Dating &amp; Relationships</fullName>
+                <default>false</default>
+                <label>Dating &amp; Relationships</label>
+            </value>
+            <value>
+                <fullName>eLearning</fullName>
+                <default>false</default>
+                <label>eLearning</label>
+            </value>
+            <value>
+                <fullName>Energy or Utilities</fullName>
+                <default>false</default>
+                <label>Energy or Utilities</label>
+            </value>
+            <value>
+                <fullName>Family Office</fullName>
+                <default>false</default>
+                <label>Family Office</label>
+            </value>
+            <value>
+                <fullName>Food, Beverage and Tobacco</fullName>
+                <default>false</default>
+                <label>Food, Beverage and Tobacco</label>
+            </value>
+            <value>
+                <fullName>Health Product Manufacturer</fullName>
+                <default>false</default>
+                <label>Health Product Manufacturer</label>
+            </value>
+            <value>
+                <fullName>Hedge Fund</fullName>
+                <default>false</default>
+                <label>Hedge Fund</label>
+            </value>
+            <value>
+                <fullName>Home &amp; Garden</fullName>
+                <default>false</default>
+                <label>Home &amp; Garden</label>
+            </value>
+            <value>
+                <fullName>Hotels</fullName>
+                <default>false</default>
+                <label>Hotels</label>
+            </value>
+            <value>
+                <fullName>Insurance</fullName>
+                <default>false</default>
+                <label>Insurance</label>
+            </value>
+            <value>
+                <fullName>Management Consulting</fullName>
+                <default>false</default>
+                <label>Management Consulting</label>
+            </value>
+            <value>
+                <fullName>Market Research</fullName>
+                <default>false</default>
+                <label>Market Research</label>
+            </value>
+            <value>
+                <fullName>Mechanical and Industrial Manufacturing</fullName>
+                <default>false</default>
+                <label>Mechanical and Industrial Manufacturing</label>
+            </value>
+            <value>
+                <fullName>News &amp; Content Sites</fullName>
+                <default>false</default>
+                <label>News &amp; Content Sites</label>
+            </value>
+            <value>
+                <fullName>Pension Fund</fullName>
+                <default>false</default>
+                <label>Pension Fund</label>
+            </value>
+            <value>
+                <fullName>Pet Care</fullName>
+                <default>false</default>
+                <label>Pet Care</label>
+            </value>
+            <value>
+                <fullName>Private Equity</fullName>
+                <default>false</default>
+                <label>Private Equity</label>
+            </value>
+            <value>
+                <fullName>Real Estate</fullName>
+                <default>false</default>
+                <label>Real Estate</label>
+            </value>
+            <value>
+                <fullName>Recruitment and HR</fullName>
+                <default>false</default>
+                <label>Recruitment and HR</label>
+            </value>
+            <value>
+                <fullName>Search Engines</fullName>
+                <default>false</default>
+                <label>Search Engines</label>
+            </value>
+            <value>
+                <fullName>Social Networks</fullName>
+                <default>false</default>
+                <label>Social Networks</label>
+            </value>
+            <value>
+                <fullName>Sports Clubs</fullName>
+                <default>false</default>
+                <label>Sports Clubs</label>
+            </value>
+            <value>
+                <fullName>Systematic Quant</fullName>
+                <default>false</default>
+                <label>Systematic Quant</label>
+            </value>
+            <value>
+                <fullName>Universities</fullName>
+                <default>false</default>
+                <label>Universities</label>
+            </value>
+            <value>
+                <fullName>Unknown</fullName>
+                <default>false</default>
+                <label>Unknown</label>
+            </value>
+            <value>
+                <fullName>Venture Capital</fullName>
+                <default>false</default>
+                <label>Venture Capital</label>
+            </value>
+            <value>
+                <fullName>Wealth Manager</fullName>
+                <default>false</default>
+                <label>Wealth Manager</label>
+            </value>
+            <value>
+                <fullName>Jewelry, Watches &amp; Accessories</fullName>
+                <default>false</default>
+                <label>Jewelry, Watches &amp; Accessories</label>
+            </value>
+            <value>
+                <fullName>Cruises</fullName>
+                <default>false</default>
+                <label>Cruises</label>
+            </value>
+            <value>
+                <fullName>Fitness &amp; Sports</fullName>
+                <default>false</default>
+                <label>Fitness &amp; Sports</label>
+            </value>
+            <value>
+                <fullName>Casinos</fullName>
+                <default>false</default>
+                <label>Casinos</label>
+            </value>
+            <value>
+                <fullName>Leisure/Adventure parks</fullName>
+                <default>false</default>
+                <label>Leisure/Adventure parks</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Transportation &amp; Logistics</fullName>
+                <default>false</default>
+                <label>Transportation &amp; Logistics</label>
+            </value>
+            <value>
+                <fullName>Telecommunications</fullName>
+                <default>false</default>
+                <label>Telecommunications</label>
+            </value>
+            <value>
+                <fullName>Home Services</fullName>
+                <default>false</default>
+                <label>Home Services</label>
+            </value>
+            <value>
+                <fullName>Big Box Retailer/Marketplace</fullName>
+                <default>false</default>
+                <label>Big Box Retailer/Marketplace</label>
+            </value>
+            <value>
+                <fullName>Video Games</fullName>
+                <default>false</default>
+                <label>Video Games</label>
+            </value>
+            <value>
+                <fullName>Hospitals and Clinics</fullName>
+                <default>false</default>
+                <label>Hospitals and Clinics</label>
+            </value>
+            <value>
+                <fullName>Pharmaceuticals</fullName>
+                <default>false</default>
+                <label>Pharmaceuticals</label>
+            </value>
+            <value>
+                <fullName>Debt Collection</fullName>
+                <default>false</default>
+                <label>Debt Collection</label>
+            </value>
+            <value>
+                <fullName>FinTech</fullName>
+                <default>false</default>
+                <label>FinTech</label>
+            </value>
+            <value>
+                <fullName>Consumer Spending Platform</fullName>
+                <default>false</default>
+                <label>Consumer Spending Platform</label>
+            </value>
+            <value>
+                <fullName>Marketplace/Index</fullName>
+                <default>false</default>
+                <label>Marketplace/Index</label>
+            </value>
+            <value>
+                <fullName>Payday and EFT</fullName>
+                <default>false</default>
+                <label>Payday and EFT</label>
+            </value>
+            <value>
+                <fullName>eCommerce Software</fullName>
+                <default>false</default>
+                <label>eCommerce Software</label>
+            </value>
+            <value>
+                <fullName>Marketing Software</fullName>
+                <default>false</default>
+                <label>Marketing Software</label>
+            </value>
+            <value>
+                <fullName>Hosting</fullName>
+                <default>false</default>
+                <label>Hosting</label>
+            </value>
+            <value>
+                <fullName>Help Desk &amp; Chat Bots</fullName>
+                <default>false</default>
+                <label>Help Desk &amp; Chat Bots</label>
+            </value>
+            <value>
+                <fullName>Affiliate Content</fullName>
+                <default>false</default>
+                <label>Affiliate Content</label>
+            </value>
+            <value>
+                <fullName>Video Streaming</fullName>
+                <default>false</default>
+                <label>Video Streaming</label>
+            </value>
+            <value>
+                <fullName>Printing</fullName>
+                <default>false</default>
+                <label>Printing</label>
+            </value>
+            <value>
+                <fullName>Audio Streaming</fullName>
+                <default>false</default>
+                <label>Audio Streaming</label>
+            </value>
+            <value>
+                <fullName>Media planning and buying</fullName>
+                <default>false</default>
+                <label>Media planning and buying</label>
+            </value>
+            <value>
+                <fullName>Digital &amp; Social Media</fullName>
+                <default>false</default>
+                <label>Digital &amp; Social Media</label>
+            </value>
+            <value>
+                <fullName>Advertising</fullName>
+                <default>false</default>
+                <label>Advertising</label>
+            </value>
+            <value>
+                <fullName>PR</fullName>
+                <default>false</default>
+                <label>PR</label>
+            </value>
+            <value>
+                <fullName>eCommerce</fullName>
+                <default>false</default>
+                <label>eCommerce</label>
+            </value>
+            <value>
+                <fullName>Full-service agency</fullName>
+                <default>false</default>
+                <label>Full-service agency</label>
+            </value>
+            <value>
+                <fullName>Design &amp; Innovation</fullName>
+                <default>false</default>
+                <label>Design &amp; Innovation</label>
+            </value>
+            <value>
+                <fullName>CRM &amp; Direct Response</fullName>
+                <default>false</default>
+                <label>CRM &amp; Direct Response</label>
+            </value>
+            <value>
+                <fullName>Sponsorship</fullName>
+                <default>false</default>
+                <label>Sponsorship</label>
+            </value>
+            <value>
+                <fullName>Promotions &amp; Experiential</fullName>
+                <default>false</default>
+                <label>Promotions &amp; Experiential</label>
+            </value>
+            <value>
+                <fullName>Cars and Car Parts</fullName>
+                <default>false</default>
+                <label>Cars and Car Parts</label>
+            </value>
+            <value>
+                <fullName>Empty</fullName>
+                <default>false</default>
+                <label>Empty</label>
+            </value>
+            <value>
+                <fullName>Online Travel Agency (OTA)</fullName>
+                <default>false</default>
+                <label>Online Travel Agency (OTA)</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Government Public Sector &amp; Non Profit</controllingFieldValue>
+            <controllingFieldValue>Media and Entertainment</controllingFieldValue>
+            <controllingFieldValue>Retail / eCommerce</controllingFieldValue>
+            <controllingFieldValue>Telecom and Hardware</controllingFieldValue>
+            <controllingFieldValue>Travel and Hospitality</controllingFieldValue>
+            <controllingFieldValue>Education</controllingFieldValue>
+            <controllingFieldValue>Equity Research</controllingFieldValue>
+            <controllingFieldValue>Financial services</controllingFieldValue>
+            <controllingFieldValue>Gambling / Gaming</controllingFieldValue>
+            <controllingFieldValue>Hedge Funds and Asset Management</controllingFieldValue>
+            <controllingFieldValue>Investment Banking</controllingFieldValue>
+            <controllingFieldValue>Investors</controllingFieldValue>
+            <controllingFieldValue>Logistics and Shipping</controllingFieldValue>
+            <controllingFieldValue>Other</controllingFieldValue>
+            <controllingFieldValue>Payments</controllingFieldValue>
+            <controllingFieldValue>AdTech and AdNetwork</controllingFieldValue>
+            <controllingFieldValue>Agency</controllingFieldValue>
+            <controllingFieldValue>Automotive and Transportation</controllingFieldValue>
+            <controllingFieldValue>B2B Software</controllingFieldValue>
+            <controllingFieldValue>B2C Internet Services</controllingFieldValue>
+            <controllingFieldValue>Classifieds</controllingFieldValue>
+            <controllingFieldValue>Consulting and Market Research</controllingFieldValue>
+            <controllingFieldValue>CPG, Food &amp; Beverages</controllingFieldValue>
+            <controllingFieldValue>Pharma and Healthcare</controllingFieldValue>
+            <controllingFieldValue>Private Equity and Venture Capital</controllingFieldValue>
+            <valueName>Other</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Government Public Sector &amp; Non Profit</controllingFieldValue>
+            <controllingFieldValue>Media and Entertainment</controllingFieldValue>
+            <controllingFieldValue>Retail / eCommerce</controllingFieldValue>
+            <controllingFieldValue>Telecom and Hardware</controllingFieldValue>
+            <controllingFieldValue>Travel and Hospitality</controllingFieldValue>
+            <controllingFieldValue>Education</controllingFieldValue>
+            <controllingFieldValue>Equity Research</controllingFieldValue>
+            <controllingFieldValue>Financial services</controllingFieldValue>
+            <controllingFieldValue>Gambling / Gaming</controllingFieldValue>
+            <controllingFieldValue>Big Tech</controllingFieldValue>
+            <controllingFieldValue>Hedge Funds and Asset Management</controllingFieldValue>
+            <controllingFieldValue>Investment Banking</controllingFieldValue>
+            <controllingFieldValue>Investors</controllingFieldValue>
+            <controllingFieldValue>Logistics and Shipping</controllingFieldValue>
+            <controllingFieldValue>Other</controllingFieldValue>
+            <controllingFieldValue>Payments</controllingFieldValue>
+            <controllingFieldValue>AdTech and AdNetwork</controllingFieldValue>
+            <controllingFieldValue>Agency</controllingFieldValue>
+            <controllingFieldValue>Automotive and Transportation</controllingFieldValue>
+            <controllingFieldValue>B2B Software</controllingFieldValue>
+            <controllingFieldValue>B2C Internet Services</controllingFieldValue>
+            <controllingFieldValue>Classifieds</controllingFieldValue>
+            <controllingFieldValue>Consulting and Market Research</controllingFieldValue>
+            <controllingFieldValue>CPG, Food &amp; Beverages</controllingFieldValue>
+            <controllingFieldValue>Pharma and Healthcare</controllingFieldValue>
+            <controllingFieldValue>Private Equity and Venture Capital</controllingFieldValue>
+            <valueName>Empty</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Media and Entertainment</controllingFieldValue>
+            <valueName>News &amp; Content Sites</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Media and Entertainment</controllingFieldValue>
+            <valueName>Sports Clubs</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Media and Entertainment</controllingFieldValue>
+            <valueName>Affiliate Content</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Media and Entertainment</controllingFieldValue>
+            <valueName>Video Streaming</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Media and Entertainment</controllingFieldValue>
+            <valueName>Printing</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Media and Entertainment</controllingFieldValue>
+            <valueName>Audio Streaming</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Retail / eCommerce</controllingFieldValue>
+            <controllingFieldValue>CPG, Food &amp; Beverages</controllingFieldValue>
+            <valueName>Apparel</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Retail / eCommerce</controllingFieldValue>
+            <controllingFieldValue>CPG, Food &amp; Beverages</controllingFieldValue>
+            <valueName>Beauty &amp; Personal Care</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Retail / eCommerce</controllingFieldValue>
+            <controllingFieldValue>CPG, Food &amp; Beverages</controllingFieldValue>
+            <valueName>Consumer Electronics</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Retail / eCommerce</controllingFieldValue>
+            <controllingFieldValue>CPG, Food &amp; Beverages</controllingFieldValue>
+            <valueName>Food, Beverage and Tobacco</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Retail / eCommerce</controllingFieldValue>
+            <controllingFieldValue>CPG, Food &amp; Beverages</controllingFieldValue>
+            <valueName>Home &amp; Garden</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Retail / eCommerce</controllingFieldValue>
+            <controllingFieldValue>CPG, Food &amp; Beverages</controllingFieldValue>
+            <valueName>Pet Care</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Retail / eCommerce</controllingFieldValue>
+            <controllingFieldValue>CPG, Food &amp; Beverages</controllingFieldValue>
+            <valueName>Jewelry, Watches &amp; Accessories</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Retail / eCommerce</controllingFieldValue>
+            <valueName>Big Box Retailer/Marketplace</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Retail / eCommerce</controllingFieldValue>
+            <controllingFieldValue>CPG, Food &amp; Beverages</controllingFieldValue>
+            <valueName>Video Games</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Retail / eCommerce</controllingFieldValue>
+            <controllingFieldValue>CPG, Food &amp; Beverages</controllingFieldValue>
+            <valueName>Cars and Car Parts</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Telecom and Hardware</controllingFieldValue>
+            <valueName>Telecommunications</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Telecom and Hardware</controllingFieldValue>
+            <valueName>Home Services</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Travel and Hospitality</controllingFieldValue>
+            <valueName>Airlines &amp; Flights</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Travel and Hospitality</controllingFieldValue>
+            <valueName>Car Rental</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Travel and Hospitality</controllingFieldValue>
+            <valueName>Hotels</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Travel and Hospitality</controllingFieldValue>
+            <valueName>Cruises</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Travel and Hospitality</controllingFieldValue>
+            <valueName>Fitness &amp; Sports</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Travel and Hospitality</controllingFieldValue>
+            <valueName>Casinos</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Travel and Hospitality</controllingFieldValue>
+            <valueName>Leisure/Adventure parks</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Travel and Hospitality</controllingFieldValue>
+            <valueName>Transportation &amp; Logistics</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Travel and Hospitality</controllingFieldValue>
+            <valueName>Online Travel Agency (OTA)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Education</controllingFieldValue>
+            <valueName>eLearning</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Education</controllingFieldValue>
+            <valueName>Universities</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Financial services</controllingFieldValue>
+            <valueName>Banks</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Financial services</controllingFieldValue>
+            <valueName>Credit, Loans, Mortgages</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Financial services</controllingFieldValue>
+            <valueName>Insurance</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Financial services</controllingFieldValue>
+            <valueName>Debt Collection</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Financial services</controllingFieldValue>
+            <valueName>FinTech</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Financial services</controllingFieldValue>
+            <valueName>Consumer Spending Platform</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Financial services</controllingFieldValue>
+            <valueName>Marketplace/Index</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Financial services</controllingFieldValue>
+            <valueName>Payday and EFT</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Hedge Funds and Asset Management</controllingFieldValue>
+            <valueName>Asset Management</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Hedge Funds and Asset Management</controllingFieldValue>
+            <controllingFieldValue>Investors</controllingFieldValue>
+            <valueName>Family Office</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Hedge Funds and Asset Management</controllingFieldValue>
+            <valueName>Hedge Fund</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Hedge Funds and Asset Management</controllingFieldValue>
+            <valueName>Pension Fund</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Hedge Funds and Asset Management</controllingFieldValue>
+            <controllingFieldValue>Investors</controllingFieldValue>
+            <controllingFieldValue>Consulting and Market Research</controllingFieldValue>
+            <valueName>Systematic Quant</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Hedge Funds and Asset Management</controllingFieldValue>
+            <controllingFieldValue>Investors</controllingFieldValue>
+            <valueName>Wealth Manager</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Other</controllingFieldValue>
+            <valueName>Chemicals</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Other</controllingFieldValue>
+            <valueName>Construction and Commercial Properties</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Other</controllingFieldValue>
+            <valueName>Energy or Utilities</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Other</controllingFieldValue>
+            <valueName>Mechanical and Industrial Manufacturing</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Other</controllingFieldValue>
+            <valueName>Unknown</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Agency</controllingFieldValue>
+            <valueName>Media planning and buying</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Agency</controllingFieldValue>
+            <valueName>Digital &amp; Social Media</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Agency</controllingFieldValue>
+            <valueName>Advertising</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Agency</controllingFieldValue>
+            <valueName>PR</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Agency</controllingFieldValue>
+            <valueName>eCommerce</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Agency</controllingFieldValue>
+            <valueName>Full-service agency</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Agency</controllingFieldValue>
+            <valueName>Design &amp; Innovation</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Agency</controllingFieldValue>
+            <valueName>CRM &amp; Direct Response</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Agency</controllingFieldValue>
+            <valueName>Sponsorship</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Agency</controllingFieldValue>
+            <valueName>Promotions &amp; Experiential</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>B2B Software</controllingFieldValue>
+            <valueName>eCommerce Software</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>B2B Software</controllingFieldValue>
+            <valueName>Marketing Software</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>B2B Software</controllingFieldValue>
+            <valueName>Hosting</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>B2B Software</controllingFieldValue>
+            <valueName>Help Desk &amp; Chat Bots</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>B2C Internet Services</controllingFieldValue>
+            <valueName>Dating &amp; Relationships</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>B2C Internet Services</controllingFieldValue>
+            <valueName>Search Engines</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>B2C Internet Services</controllingFieldValue>
+            <valueName>Social Networks</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Classifieds</controllingFieldValue>
+            <valueName>Automotive Classifieds</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Classifieds</controllingFieldValue>
+            <valueName>Comparison and Cashback</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Classifieds</controllingFieldValue>
+            <valueName>Real Estate</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Classifieds</controllingFieldValue>
+            <valueName>Recruitment and HR</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Consulting and Market Research</controllingFieldValue>
+            <valueName>Consultancies</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Consulting and Market Research</controllingFieldValue>
+            <valueName>Management Consulting</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Consulting and Market Research</controllingFieldValue>
+            <valueName>Market Research</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>CPG, Food &amp; Beverages</controllingFieldValue>
+            <controllingFieldValue>Pharma and Healthcare</controllingFieldValue>
+            <valueName>Health Product Manufacturer</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Pharma and Healthcare</controllingFieldValue>
+            <valueName>Hospitals and Clinics</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Pharma and Healthcare</controllingFieldValue>
+            <valueName>Pharmaceuticals</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Private Equity and Venture Capital</controllingFieldValue>
+            <valueName>Corporate Development</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Private Equity and Venture Capital</controllingFieldValue>
+            <valueName>Private Equity</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Private Equity and Venture Capital</controllingFieldValue>
+            <valueName>Venture Capital</valueName>
+        </valueSettings>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

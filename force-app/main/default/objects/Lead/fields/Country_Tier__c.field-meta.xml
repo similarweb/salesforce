@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Country_Tier__c</fullName>
+    <externalId>false</externalId>
+    <formula>Case(Country,
+
+&quot;United States&quot;,1,
+&quot;US&quot;,1,
+&quot;Canada&quot;,1,
+&quot;Japan&quot;,1,
+&quot;Australia&quot;,1,
+&quot;India&quot;,1,
+&quot;Russia&quot;,1,
+&quot;China&quot;,1,
+&quot;United Kingdom&quot;,1,
+&quot;France&quot;,1,
+&quot;Germany&quot;,1,
+
+&quot;Brazil&quot;,2,
+&quot;Columbia&quot;,2,
+&quot;Argentina&quot;,2,
+&quot;Mexico&quot;,2,
+&quot;Hong Kong&quot;,2,
+&quot;Singapore&quot;,2,
+&quot;New Zealand&quot;,2,
+&quot;Malaysia&quot;,2,
+&quot;Austria&quot;,2,
+&quot;Switzerland&quot;,2,
+&quot;Sweden&quot;,2,
+&quot;Denmark&quot;,2,
+&quot;Spain&quot;,2,
+&quot;Portugal&quot;,2,
+&quot;Italy&quot;,2,
+&quot;Netherlands&quot;,2,
+&quot;Ireland&quot;,2,
+&quot;Israel&quot;,2,
+&quot;Norway&quot;,2,
+&quot;Finland&quot;,2,
+
+&quot;&quot;,Null,
+
+3
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Country Tier</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

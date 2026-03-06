@@ -1,0 +1,5 @@
+<apex:page standardController="Contact">
+<apex:iframe src="https://webi.similarweb.io/MQL-BehavioralScore-contact/Dashboard-Contact/:embed=yes&Contact={!Contact.Id}&:toolbar=no/{!$User.Email}/tableau_in_sf" 
+height="400"  width="100%" scrolling="false"/>
+    
+</apex:page>

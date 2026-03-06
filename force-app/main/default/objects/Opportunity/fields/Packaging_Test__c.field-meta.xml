@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Packaging_Test__c</fullName>
+    <externalId>false</externalId>
+    <label>Packaging Test</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Agency</fullName>
+                <default>false</default>
+                <label>Agency</label>
+            </value>
+            <value>
+                <fullName>Investor</fullName>
+                <default>false</default>
+                <label>Investor</label>
+            </value>
+            <value>
+                <fullName>API add-on</fullName>
+                <default>false</default>
+                <label>API add-on</label>
+            </value>
+            <value>
+                <fullName>MW Referrals</fullName>
+                <default>false</default>
+                <label>MW Referrals</label>
+            </value>
+            <value>
+                <fullName>New Country &amp; App Engagement pricing</fullName>
+                <default>false</default>
+                <label>New Country &amp; App Engagement pricing</label>
+            </value>
+            <value>
+                <fullName>Conversion Report</fullName>
+                <default>false</default>
+                <label>Conversion Report</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>5</visibleLines>
+</CustomField>

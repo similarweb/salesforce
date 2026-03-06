@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Secondary_Solution__c</fullName>
+    <description>Secondary &quot;Solution&quot; that relates to the Campaign. Request from MIS-1928</description>
+    <externalId>false</externalId>
+    <label>Secondary Solution</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Cross</fullName>
+                <default>false</default>
+                <label>Cross</label>
+            </value>
+            <value>
+                <fullName>Web Intelligence</fullName>
+                <default>false</default>
+                <label>Web Intelligence</label>
+            </value>
+            <value>
+                <fullName>Search Intelligence</fullName>
+                <default>false</default>
+                <label>Search Intelligence</label>
+            </value>
+            <value>
+                <fullName>Stock Intelligence</fullName>
+                <default>false</default>
+                <label>Stock Intelligence</label>
+            </value>
+            <value>
+                <fullName>Sales Intelligence</fullName>
+                <default>false</default>
+                <label>Sales Intelligence</label>
+            </value>
+            <value>
+                <fullName>Shopper Intelligence</fullName>
+                <default>false</default>
+                <label>Shopper Intelligence</label>
+            </value>
+            <value>
+                <fullName>DaaS</fullName>
+                <default>false</default>
+                <label>DaaS</label>
+            </value>
+            <value>
+                <fullName>App Intelligence</fullName>
+                <default>false</default>
+                <label>App Intelligence</label>
+            </value>
+            <value>
+                <fullName>Digital Marketing</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Digital Marketing</label>
+            </value>
+            <value>
+                <fullName>Digital Research</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Digital Research</label>
+            </value>
+            <value>
+                <fullName>Investor</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Investor</label>
+            </value>
+            <value>
+                <fullName>None</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>None</label>
+            </value>
+            <value>
+                <fullName>Research (purchase intelligence)</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Research (purchase intelligence)</label>
+            </value>
+            <value>
+                <fullName>Sales</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Sales</label>
+            </value>
+            <value>
+                <fullName>Shopper</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Shopper</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

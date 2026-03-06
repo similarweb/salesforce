@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>54.0</apiVersion>
+    <decisions>
+        <name>Next_Rule</name>
+        <label>Next Rule</label>
+        <locationX>547</locationX>
+        <locationY>1188</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Next_Rule1</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Id</leftValueReference>
+                <operator>EqualTo</operator>
+            </conditions>
+            <label>Next Rule1</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>If Handover is new - execute Handover Created outcome</description>
+        <name>Rule_HC_Handover_Created</name>
+        <label>*Rule (HC)* - Handover Created</label>
+        <locationX>402</locationX>
+        <locationY>411</locationY>
+        <defaultConnector>
+            <targetReference>Rule_SCIN_Status_Change_to_In_Process</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Handover_Created</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>fr_ISNEW</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>HC_Get_Current_User_Manager_Email</targetReference>
+            </connector>
+            <label>Handover Created</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>If the status changed to Completed or Cancelled - execute Status Change to Completed/Cancelled outcome</description>
+        <name>Rule_SCCC_Status_Change_to_Completed_Cancelled</name>
+        <label>*Rule (SCCC)* - Status Change to Completed/Cancelled</label>
+        <locationX>386</locationX>
+        <locationY>973</locationY>
+        <defaultConnector>
+            <targetReference>Next_Rule</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Status_Change_to_Completed_Cancelled</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Completed</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Cancelled</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>SCCC_Update_Completed_Date</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>Status Change to Completed/Cancelled</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>If Handover is new or status is changed and status = In Process - execute Status Change to In Process or ISNEW outcome</description>
+        <name>Rule_SCIN_Status_Change_to_In_Process</name>
+        <label>*Rule (SCIN)* - Status Change to In Process</label>
+        <locationX>394</locationX>
+        <locationY>569</locationY>
+        <defaultConnector>
+            <targetReference>Rule_SCP_Status_Change_to_Pipeline</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Status_Change_to_In_Process_or_ISNEW</name>
+            <conditionLogic>(1 OR 2) AND 3</conditionLogic>
+            <conditions>
+                <leftValueReference>fr_ISNEW</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>In Process</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>SCIN_Update_Onboarding_Start_Date</targetReference>
+            </connector>
+            <label>Status Change to In Process or ISNEW</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>If the status changed to Pipeline - execute Status Change to Pipeline outcome</description>
+        <name>Rule_SCP_Status_Change_to_Pipeline</name>
+        <label>*Rule (SCP)* - Status Change to Pipeline</label>
+        <locationX>387</locationX>
+        <locationY>755</locationY>
+        <defaultConnector>
+            <targetReference>Rule_SCCC_Status_Change_to_Completed_Cancelled</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Status_Change_to_Pipeline</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Pipeline</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.PipelineDate__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>SCP_Update_Pipeline_date</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>Status Change to Pipeline</label>
+        </rules>
+    </decisions>
+    <formulas>
+        <name>fr_ISNEW</name>
+        <dataType>Boolean</dataType>
+        <expression>ISNEW()</expression>
+    </formulas>
+    <formulas>
+        <name>fr_TODAY</name>
+        <dataType>Date</dataType>
+        <expression>TODAY()</expression>
+    </formulas>
+    <interviewLabel>Handover - Record Triggered Flow - Before Save {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Handover - Record Triggered Flow - Before Save</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <description>Get Current User Manager Email</description>
+        <name>HC_Get_Current_User_Manager_Email</name>
+        <label>HC - Get Current User Manager Email</label>
+        <locationX>593</locationX>
+        <locationY>403</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>HC_Fill_CreatedBy_Manager_Email_field</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$User.ManagerId</elementReference>
+            </value>
+        </filters>
+        <object>User</object>
+        <outputAssignments>
+            <assignToReference>varCurrUserManagerEmail</assignToReference>
+            <field>Email</field>
+        </outputAssignments>
+    </recordLookups>
+    <recordUpdates>
+        <description>Update AM__c and CreatedBy_Manager_Email__c</description>
+        <name>HC_Fill_CreatedBy_Manager_Email_field</name>
+        <label>HC - Fill &apos;CreatedBy Manager Email&apos; field</label>
+        <locationX>745</locationX>
+        <locationY>402</locationY>
+        <connector>
+            <targetReference>Rule_SCIN_Status_Change_to_In_Process</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>AM__c</field>
+            <value>
+                <elementReference>$Record.Account__r.Owner.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>CreatedBy_Manager_Email__c</field>
+            <value>
+                <elementReference>varCurrUserManagerEmail</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>Update Completed Date</description>
+        <name>SCCC_Update_Completed_Date</name>
+        <label>SCCC - Update Completed Date</label>
+        <locationX>671</locationX>
+        <locationY>960</locationY>
+        <connector>
+            <targetReference>Next_Rule</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Completed_Date_del__c</field>
+            <value>
+                <elementReference>fr_TODAY</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>Update Onboarding Start Date</description>
+        <name>SCIN_Update_Onboarding_Start_Date</name>
+        <label>SCIN - Update Onboarding Start Date</label>
+        <locationX>677</locationX>
+        <locationY>561</locationY>
+        <connector>
+            <targetReference>Rule_SCP_Status_Change_to_Pipeline</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Process_Date__c</field>
+            <value>
+                <elementReference>fr_TODAY</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>Update Pipeline date</description>
+        <name>SCP_Update_Pipeline_date</name>
+        <label>SCP - Update Pipeline date</label>
+        <locationX>671</locationX>
+        <locationY>738</locationY>
+        <connector>
+            <targetReference>Rule_SCCC_Status_Change_to_Completed_Cancelled</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>PipelineDate__c</field>
+            <value>
+                <elementReference>fr_TODAY</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>410</locationX>
+        <locationY>48</locationY>
+        <connector>
+            <targetReference>Rule_HC_Handover_Created</targetReference>
+        </connector>
+        <object>Product_Implementation__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>varCurrUserManagerEmail</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

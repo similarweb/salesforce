@@ -1,0 +1,8 @@
+<apex:page showHeader="false" sidebar="false" standardController="Account">
+    <flow:interview name="GeneralReassignFlow" finishLocation="/{!Account.Id}">
+    <apex:param name="recordId" value="{!Account.Id}" />
+    <apex:param name="VarButtonType" value="MIR Reassign" />
+    <apex:param name="VarRoutingGroup" value="SDR_ReRouting" />
+    <apex:param name="VarTeam" value="MIR" />
+  </flow:interview>
+</apex:page>

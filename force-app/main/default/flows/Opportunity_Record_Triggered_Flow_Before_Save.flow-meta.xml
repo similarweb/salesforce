@@ -1,0 +1,4224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>53.0</apiVersion>
+    <assignments>
+        <description>MIS-3303</description>
+        <name>Assign_closed_to_Similarweb_Forecasting_status</name>
+        <label>Assign closed to Similarweb Forecasting status</label>
+        <locationX>2074</locationX>
+        <locationY>1103</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Similarweb_Forecasting_status__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Closed</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Rule_FSFV_Forecasting_Status_First_Value</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>MIS-4201</description>
+        <name>assign_forecast_category_from_SW_forecast</name>
+        <label>assign forecast category from SW forecast</label>
+        <locationX>50</locationX>
+        <locationY>1103</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.ForecastCategoryName</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>fr_Renewal_SW_forecast_status</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Rule_FSFV_Forecasting_Status_First_Value</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>MIS-8017</description>
+        <name>Assign_MEDDPICC_Station_Status_Fields</name>
+        <label>Assign MEDDPICC Station Status Fields</label>
+        <locationX>1260</locationX>
+        <locationY>14579</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.MEDDPICC_Champion_Status__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>MEDDPICC_Champion_Status</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.MEDDPICC_Decision_Criteria_Status__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>MEDDPICC_Decision_Criteria_Status</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.MEDDPICC_Decision_Process_Status__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>MEDDPICC_Decision_Process_Status</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.MEDDPICC_Economic_Buyer_Status__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>MEDDPICC_Economic_Buyer_Status</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.MEDDPICC_Metrics_Status__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>MEDDPICC_Metrics_Status</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.MEDDPICC_Pain_Status__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>MEDDPICC_Pain_Status</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.MEDDPICC_Paper_Process_Status__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>MEDDPICC_Paper_Process_Status</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Next_rule</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>MIS-3303</description>
+        <name>Assign_Omitted_to_Similarweb_Forecasting_status</name>
+        <label>Assign Omitted to Similarweb Forecasting status</label>
+        <locationX>2338</locationX>
+        <locationY>1103</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Similarweb_Forecasting_status__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Omitted</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Rule_FSFV_Forecasting_Status_First_Value</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>MIS-4583</description>
+        <name>Assign_Primary_Champion_from_the_recent_Opp</name>
+        <label>Assign Primary &amp; Champion from the recent Opp</label>
+        <locationX>726</locationX>
+        <locationY>11327</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Primary_Contact__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Last_25.Champion__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Champion__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Last_25.Champion__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Is_There_a_PO_number</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>mis-5588</description>
+        <name>Assign_SW_Forecasting_Status_First_Value</name>
+        <label>Assign SW Forecasting Status - First Value</label>
+        <locationX>1260</locationX>
+        <locationY>1487</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.First_Forecasting_Value_For_This_Quarter__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Similarweb_Forecasting_status__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Forecasting_Status_Q_First_Value_Date__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Flow.CurrentDate</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Rule_PC_Push_Counter</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_to_Forecasting_status_the_Similarweb_Forecasting_status_value</name>
+        <label>Assign to Forecasting status the Similarweb Forecasting status value</label>
+        <locationX>1810</locationX>
+        <locationY>1103</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.ForecastCategoryName</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Similarweb_Forecasting_status__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Rule_FSFV_Forecasting_Status_First_Value</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>MIS-4583</description>
+        <name>Copy_1_of_Assign_Primary_Champion_from_the_recent_Opp</name>
+        <label>Copy 1 of Assign Primary &amp; Champion from the recent Opp</label>
+        <locationX>990</locationX>
+        <locationY>11435</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Primary_Contact__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Last_25.Primary_Contact__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Champion__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Last_25.Primary_Contact__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Is_There_a_PO_number</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Copy_1_of_Assign_to_Forecasting_status_the_Similarweb_Forecasting_status_value</name>
+        <label>Copy 1 of Assign to Forecasting status the Similarweb Forecasting status value</label>
+        <locationX>1546</locationX>
+        <locationY>1103</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Similarweb_Forecasting_status__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.ForecastCategoryName</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Rule_FSFV_Forecasting_Status_First_Value</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>MIS-4201</description>
+        <name>Keep_prior_Forecast_Category</name>
+        <label>Keep prior Forecast Category</label>
+        <locationX>1106</locationX>
+        <locationY>1103</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.ForecastCategoryName</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record__Prior.ForecastCategoryName</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Rule_FSFV_Forecasting_Status_First_Value</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>MIS-4201</description>
+        <name>Renewal_Assign_closed_to_Similarweb_Forecasting_status_and_category</name>
+        <label>Renewal Assign closed to Similarweb Forecasting status and category</label>
+        <locationX>314</locationX>
+        <locationY>1103</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Similarweb_Forecasting_status__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Closed</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.ForecastCategoryName</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Closed</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Rule_FSFV_Forecasting_Status_First_Value</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>MIS-4201</description>
+        <name>Renewal_Assign_omitted_to_Similarweb_Forecasting_status_and_category</name>
+        <label>Renewal Assign omitted to Similarweb Forecasting status and category</label>
+        <locationX>578</locationX>
+        <locationY>1103</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Similarweb_Forecasting_status__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Omitted</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.ForecastCategoryName</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Omitted</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Rule_FSFV_Forecasting_Status_First_Value</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>MIS-4201</description>
+        <name>Renewal_Forecasting_Status_to_Reopen_Opp</name>
+        <label>Renewal Forecasting Status to Reopen Opp</label>
+        <locationX>842</locationX>
+        <locationY>1103</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Similarweb_Forecasting_status__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>fr_renewal_reopen_forecastStatus</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Rule_FSFV_Forecasting_Status_First_Value</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Set_Adjusted_ARR_Timestamp</name>
+        <label>Set Adjusted ARR Timestamp</label>
+        <locationX>1260</locationX>
+        <locationY>13187</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Adjusted_ARR_Timestamp__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>fr_NOW</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Is_New</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Set_ARR_0</name>
+        <label>Set ARR = 0</label>
+        <locationX>1106</locationX>
+        <locationY>13595</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.ARR__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <numberValue>0.0</numberValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Cycle_Price_is_blank</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Set_Cycle_Price_0</name>
+        <label>Set Cycle Price = 0</label>
+        <locationX>1106</locationX>
+        <locationY>13895</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Cycle_Price__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <numberValue>0.0</numberValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Cycle_Price_Local_is_blank</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Set_Cycle_Price_Local_0</name>
+        <label>Set Cycle Price (Local) = 0</label>
+        <locationX>1106</locationX>
+        <locationY>14195</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Cycle_Price_Local__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <numberValue>0.0</numberValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>MEDDPICC_Stations_Update</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Update_Opportunity</name>
+        <label>(CS) Update Opportunity</label>
+        <locationX>1106</locationX>
+        <locationY>611</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Cross_Sell__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Forecast_fields_Sync</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <name>Adjusted_ARR_changed</name>
+        <label>Adjusted ARR changed?</label>
+        <locationX>1392</locationX>
+        <locationY>13079</locationY>
+        <defaultConnector>
+            <targetReference>Is_New</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Adjusted_ARR_changed</name>
+            <conditionLogic>(1 OR 2) AND 3</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Adjusted_ARR__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>fr_ISNEW</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Adjusted_ARR__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_Adjusted_ARR_Timestamp</targetReference>
+            </connector>
+            <label>Yes, Adjusted ARR changed</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>ARR_is_blank</name>
+        <label>ARR is blank?</label>
+        <locationX>1238</locationX>
+        <locationY>13487</locationY>
+        <defaultConnector>
+            <targetReference>Cycle_Price_is_blank</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes_ARR_is_blank</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.ARR__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_ARR_0</targetReference>
+            </connector>
+            <label>Yes, ARR is blank</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-4162</description>
+        <name>Assigned_CSM_needs_to_update</name>
+        <label>Assigned CSM needs to update</label>
+        <locationX>1392</locationX>
+        <locationY>10595</locationY>
+        <defaultConnector>
+            <targetReference>Rule_OCPC_Opp_CL_and_Primary_Contact_empty</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Update_from_Account</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Assigned_CSM_Name__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record.Account.Assigned_CSA_Name__c</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.IsClosed</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Assigned_CSM_Name_from_Account</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>Update from Account</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>CS_Found_Account</name>
+        <label>(CS) Found Account</label>
+        <locationX>1238</locationX>
+        <locationY>503</locationY>
+        <defaultConnector>
+            <targetReference>Forecast_fields_Sync</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>Yes</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>CS_Get_Account.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Opportunity</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Cycle_Price_is_blank</name>
+        <label>Cycle Price is blank?</label>
+        <locationX>1238</locationX>
+        <locationY>13787</locationY>
+        <defaultConnector>
+            <targetReference>Cycle_Price_Local_is_blank</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Cycle_Price_is_blank</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Cycle_Price__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_Cycle_Price_0</targetReference>
+            </connector>
+            <label>Yes, Cycle Price is blank</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Cycle_Price_Local_is_blank</name>
+        <label>Cycle Price (Local) is blank?</label>
+        <locationX>1238</locationX>
+        <locationY>14087</locationY>
+        <defaultConnector>
+            <targetReference>MEDDPICC_Stations_Update</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Cycle_Price_Local_is_blank</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Cycle_Price_Local__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_Cycle_Price_Local_0</targetReference>
+            </connector>
+            <label>Yes, Cycle Price (Local) is blank</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-4201</description>
+        <name>Forecast_fields_Sync</name>
+        <label>Forecast fields Sync</label>
+        <locationX>1392</locationX>
+        <locationY>887</locationY>
+        <defaultConnector>
+            <targetReference>Forecast_status</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Not Renewal</defaultConnectorLabel>
+        <rules>
+            <name>Renewal</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.RecordType.Name</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Renewal</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Renewal_Sync_forecast_category</targetReference>
+            </connector>
+            <label>Renewal</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-2433 - update the default forecast category based on the similarweb Forecast</description>
+        <name>Forecast_status</name>
+        <label>Forecast status</label>
+        <locationX>2074</locationX>
+        <locationY>995</locationY>
+        <defaultConnector>
+            <targetReference>Rule_FSFV_Forecasting_Status_First_Value</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Reopen_opportunity</name>
+            <conditionLogic>(1 or 2 Or 3) AND 4</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record__Prior.StageName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Closed Won</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record__Prior.StageName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Closed Lost</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record__Prior.StageName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Feature Update</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.ForecastCategoryName</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Copy_1_of_Assign_to_Forecasting_status_the_Similarweb_Forecasting_status_value</targetReference>
+            </connector>
+            <label>Reopen opportunity</label>
+        </rules>
+        <rules>
+            <name>Change_in_forecast</name>
+            <conditionLogic>(1 OR 2) AND (3 AND 4 AND 5 and 6)</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Similarweb_Forecasting_status__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.ForecastCategoryName</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.StageName</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Closed Won</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.StageName</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Closed Lost</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.StageName</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Feature Update</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Similarweb_Forecasting_status__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue></stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_to_Forecasting_status_the_Similarweb_Forecasting_status_value</targetReference>
+            </connector>
+            <label>Change in Forecast</label>
+        </rules>
+        <rules>
+            <name>Opp_closed</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.StageName</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.StageName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Closed Won</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_closed_to_Similarweb_Forecasting_status</targetReference>
+            </connector>
+            <label>Opp closed won</label>
+        </rules>
+        <rules>
+            <name>Opp_Closed_lost</name>
+            <conditionLogic>1 AND (2 OR 3)</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.StageName</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.StageName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Closed Lost</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.StageName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Feature Update</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Omitted_to_Similarweb_Forecasting_status</targetReference>
+            </connector>
+            <label>Opp Closed lost</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Is_New</name>
+        <label>Is New?</label>
+        <locationX>1392</locationX>
+        <locationY>13379</locationY>
+        <defaultConnector>
+            <targetReference>MEDDPICC_Stations_Update</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Is_New</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>fr_ISNEW</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>ARR_is_blank</targetReference>
+            </connector>
+            <label>Yes, Is New</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-5742</description>
+        <name>Is_There_a_PO_number</name>
+        <label>Is There a PO number</label>
+        <locationX>1392</locationX>
+        <locationY>11879</locationY>
+        <defaultConnector>
+            <targetReference>Rule_CUPO_Client_Uses_Purchase_Order_PO_and_ISNEW</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes_there_is_a_PO_number</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Po_Number__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Po_Number__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_PO_number</targetReference>
+            </connector>
+            <label>Yes there is a PO number</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-8017</description>
+        <name>MEDDPICC_Stations_Update</name>
+        <label>MEDDPICC Stations Update</label>
+        <locationX>1392</locationX>
+        <locationY>14471</locationY>
+        <defaultConnector>
+            <targetReference>Next_rule</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No Change In medpic</defaultConnectorLabel>
+        <rules>
+            <name>MEDDPICC_Stations_Fields_Changed</name>
+            <conditionLogic>1 OR (2 AND 3) OR 4</conditionLogic>
+            <conditions>
+                <leftValueReference>MEDDPICC_Stations_Fields_Changed_FR</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.RecordType.Name</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>New Sale/Upsell</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>fr_ISNEW</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.MEDDPICC_Champion_Status__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_MEDDPICC_Station_Status_Fields</targetReference>
+            </connector>
+            <label>MEDDPICC Stations Fields Changed</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Next_rule</name>
+        <label>Next rule</label>
+        <locationX>1392</locationX>
+        <locationY>14771</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Next_rule1</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Description</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Next rule</stringValue>
+                </rightValue>
+            </conditions>
+            <label>Next rule1</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Opportunity_Name_Changed</name>
+        <label>Opportunity Name Changed?</label>
+        <locationX>1238</locationX>
+        <locationY>2495</locationY>
+        <defaultConnector>
+            <targetReference>Rule_SWRT_Set_Wolves_RT_upon_conversion</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>New_Opp_Name</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>fr_OppName</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record.Name</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>SON_Set_Opportunity_Name</targetReference>
+            </connector>
+            <label>New Opp Name</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-4112</description>
+        <name>Populate_Champion_title</name>
+        <label>Populate Champion title</label>
+        <locationX>1392</locationX>
+        <locationY>10295</locationY>
+        <defaultConnector>
+            <targetReference>Assigned_CSM_needs_to_update</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>New_Champion</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Champion__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Champion__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Champion_Title</targetReference>
+            </connector>
+            <label>New Champion</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-3658</description>
+        <name>Populate_economic_buyer_title</name>
+        <label>Populate economic buyer title</label>
+        <locationX>1392</locationX>
+        <locationY>9995</locationY>
+        <defaultConnector>
+            <targetReference>Populate_Champion_title</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>New_Economic_buyer</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Economic_Buyer__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Economic_Buyer__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Economic_Buyer_Title</targetReference>
+            </connector>
+            <label>New Economic buyer</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-4201</description>
+        <name>Renewal_Sync_forecast_category</name>
+        <label>Renewal Sync forecast category</label>
+        <locationX>710</locationX>
+        <locationY>995</locationY>
+        <defaultConnector>
+            <targetReference>Rule_FSFV_Forecasting_Status_First_Value</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Change_in_SW_Forecast_category</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Similarweb_Forecasting_status__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>assign_forecast_category_from_SW_forecast</targetReference>
+            </connector>
+            <label>Change in SW Forecast category</label>
+        </rules>
+        <rules>
+            <name>Closed_Won</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.StageName</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.StageName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Closed Won</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Renewal_Assign_closed_to_Similarweb_Forecasting_status_and_category</targetReference>
+            </connector>
+            <label>Closed Won</label>
+        </rules>
+        <rules>
+            <name>Closed_Lost</name>
+            <conditionLogic>1 AND 2</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.StageName</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.StageName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Closed Lost</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Renewal_Assign_omitted_to_Similarweb_Forecasting_status_and_category</targetReference>
+            </connector>
+            <label>Closed Lost</label>
+        </rules>
+        <rules>
+            <name>Reopen_Reneal_Opp</name>
+            <conditionLogic>(1 OR 2) AND 3</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record__Prior.StageName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Closed Won</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record__Prior.StageName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Closed Lost</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.StageName</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Renewal_Forecasting_Status_to_Reopen_Opp</targetReference>
+            </connector>
+            <label>Reopen Reneal Opp</label>
+        </rules>
+        <rules>
+            <name>Change_in_Renewal_Stage</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.StageName</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Keep_prior_Forecast_Category</targetReference>
+            </connector>
+            <label>Change in Renewal Stage</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Rule_50DT_50_Date_Time</name>
+        <label>*Rule(50DT)* - &gt;50% Date/Time</label>
+        <locationX>1392</locationX>
+        <locationY>6995</locationY>
+        <defaultConnector>
+            <targetReference>Rule_60DT_60_Date_Time</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>X50_Date_Time</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.X50_Date_Time__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Probability</leftValueReference>
+                <operator>GreaterThanOrEqualTo</operator>
+                <rightValue>
+                    <numberValue>50.0</numberValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Probability</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>X50DT_Update_50_Date_Time</targetReference>
+            </connector>
+            <label>&gt;50% Date/Time</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Rule_60DT_60_Date_Time</name>
+        <label>*Rule(60DT)* - &gt;60% Date/Time</label>
+        <locationX>1392</locationX>
+        <locationY>7295</locationY>
+        <defaultConnector>
+            <targetReference>Rule_80DT_80_Date_Time</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>X60_Date_Time</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.X60_Date_Time__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Probability</leftValueReference>
+                <operator>GreaterThanOrEqualTo</operator>
+                <rightValue>
+                    <numberValue>60.0</numberValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Probability</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>X60DT_Update_60_Date_Time</targetReference>
+            </connector>
+            <label>&gt;60% Date/Time</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Rule_80DT_80_Date_Time</name>
+        <label>*Rule(80DT)* - &gt;80% Date/Time</label>
+        <locationX>1392</locationX>
+        <locationY>7595</locationY>
+        <defaultConnector>
+            <targetReference>Rule_OJ_Opportunity_Jumped</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>X80_Date_Time</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.X80_Date_Time__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Probability</leftValueReference>
+                <operator>GreaterThanOrEqualTo</operator>
+                <rightValue>
+                    <numberValue>80.0</numberValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Probability</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>X80DT_Update_80_Date_Time</targetReference>
+            </connector>
+            <label>&gt;80% Date/Time</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-4985</description>
+        <name>Rule_ACP_Assigned_CSM_is_Populated</name>
+        <label>*Rule (ACP)* - Assigned CSM is Populated?</label>
+        <locationX>1238</locationX>
+        <locationY>4703</locationY>
+        <defaultConnector>
+            <targetReference>Rule_CRT_Check_RT</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>ACP_Yes</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Assigned_CSM_Name__r.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Emails</targetReference>
+            </connector>
+            <label>ACP - Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>If cycle price is changed for Cycle = Annually and Rank Ranger opportunity = populate RR ARR</description>
+        <name>Rule_CARR_Cycle_price_is_changed_for_Annually_cycle</name>
+        <label>*Rule(CARR)* - Cycle price is changed for Annually cycle</label>
+        <locationX>1106</locationX>
+        <locationY>5603</locationY>
+        <defaultConnector>
+            <targetReference>Rule_RRA_Set_Amount_for_RR_Opportunities</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Cycle_is_Annually_and_Currency_is_USD</name>
+            <conditionLogic>1 AND 3 AND 4 AND (2 OR 5 OR 6 OR 7) AND 8</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Rank_Ranger</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Cycle_Price__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Cycle__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Annually</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Currency__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>USD</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Cycle_Price_Local__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Cycle__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Amount</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Amount</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>CARR_Update_RR_ARR_for_USD</targetReference>
+            </connector>
+            <label>Cycle is Annually and Currency is USD</label>
+        </rules>
+        <rules>
+            <name>Cycle_is_Annually_and_Currency_is_NOT_USD</name>
+            <conditionLogic>1 AND 3 AND 4 AND (2 OR 5 OR 6 OR 7) AND 8</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Rank_Ranger</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Cycle_Price__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Cycle__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Annually</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Currency__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>USD</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Cycle_Price_Local__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Cycle__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Amount</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Amount</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>CARR_Get_Exchange_Rate</targetReference>
+            </connector>
+            <label>Cycle is Annually and Currency is NOT USD</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-4513</description>
+        <name>Rule_CP_Champion_Contact_is_Populated</name>
+        <label>*Rule (CP)* - Champion Contact is Populated</label>
+        <locationX>924</locationX>
+        <locationY>11219</locationY>
+        <defaultConnector>
+            <targetReference>Rule_PCP_Primary_Contact_is_Populated</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Champion_Contact_is_Populated</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Last_25.Champion__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Primary_Champion_from_the_recent_Opp</targetReference>
+            </connector>
+            <label>Champion Contact is Populated</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>If cycle price is changed for Rank Ranger opportunity = changed MRR</description>
+        <name>Rule_CPC_Cycle_price_is_changed_for_Monthly_Cycle</name>
+        <label>*Rule(CPC)* - Cycle price is changed for Monthly Cycle</label>
+        <locationX>1106</locationX>
+        <locationY>5195</locationY>
+        <defaultConnector>
+            <targetReference>Rule_CARR_Cycle_price_is_changed_for_Annually_cycle</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Cycle_price_is_changed_AND_Currency_USD</name>
+            <conditionLogic>1 AND 3 AND 4 AND (2 OR 5 OR 6)</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Rank_Ranger</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Cycle_Price__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Cycle__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Monthly</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Currency__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>USD</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Cycle_Price_Local__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Cycle__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>CPC_Update_MRR_for_USD</targetReference>
+            </connector>
+            <label>Cycle price is changed AND Currency = USD</label>
+        </rules>
+        <rules>
+            <name>Cycle_price_is_changed_AND_Currency_not_equal_USD</name>
+            <conditionLogic>1 AND 3 AND 4 AND (2 OR 5 OR 6)</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Rank_Ranger</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Cycle_Price__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Cycle__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Monthly</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Currency__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>USD</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Cycle_Price_Local__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Cycle__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>CPC_Get_Exchange_Rate</targetReference>
+            </connector>
+            <label>Cycle price is changed AND Currency &lt;&gt; USD</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Rule_CQT_Clear_Quote_Not_Submitted_Timestamp</name>
+        <label>*Rule(CQT)* - Clear Quote Not Submitted Timestamp</label>
+        <locationX>1392</locationX>
+        <locationY>9395</locationY>
+        <defaultConnector>
+            <targetReference>Rule_ME_Meeting_Created_By_Manager_Email</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Clear_Quote_Not_Submitted_Timestamp</name>
+            <conditionLogic>1 AND 2 AND (3 OR 4 OR 5 OR 6 OR 7 OR 8 OR 9 OR 10 OR 11) AND (12 OR 13 OR 14 OR 15 OR 16 OR 17 OR 18 OR 19 OR 20)</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Quote_Status__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.StageName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Closed Won</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record__Prior.Quote_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Deal Size Approved</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record__Prior.Quote_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Rejected By Billing</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record__Prior.Quote_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>New Amendment</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record__Prior.Quote_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Terms Approved</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record__Prior.Quote_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Contract Signed</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record__Prior.Quote_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Contract Signed Manually</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record__Prior.Quote_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Approved By Billing</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record__Prior.Quote_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Pending rep to adjust quote</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record__Prior.Quote_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Contract Signed Manually</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Quote_Status__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Deal Size Approved</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Quote_Status__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Rejected By Billing</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Quote_Status__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>New Amendment</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Quote_Status__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Terms Approved</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Quote_Status__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Contract Signed</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Quote_Status__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Contract Signed Manually</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Quote_Status__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Approved By Billing</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Quote_Status__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Pending Legal or Billing Request</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Quote_Status__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Pending rep to adjust quote</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>CQT_Clear_Time_stamp</targetReference>
+            </connector>
+            <label>Clear Quote Not Submitted Timestamp</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Check record type for next population ARR/ RR ARR/ MRR/ Amount/ Month Amount.</description>
+        <name>Rule_CRT_Check_RT</name>
+        <label>*Rule(CRT)* - Check RT</label>
+        <locationX>1392</locationX>
+        <locationY>5087</locationY>
+        <defaultConnector>
+            <targetReference>Rule_SA_Set_Amount</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Record_Type_is_Rank_Ranger</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Rank_Ranger</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Rule_CPC_Cycle_price_is_changed_for_Monthly_Cycle</targetReference>
+            </connector>
+            <label>Record Type is Rank Ranger</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Check if the Opportunity&apos;s Stage was changed</description>
+        <name>Rule_CS_Cross_Sale</name>
+        <label>*Rule (CS)*-  Cross Sale?</label>
+        <locationX>1392</locationX>
+        <locationY>287</locationY>
+        <defaultConnector>
+            <targetReference>Forecast_fields_Sync</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>New_Sales_Closed_Won</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.StageName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Closed Won</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Type</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>New Sale</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.StageName</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Account.Parent_Company_Domain__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>CS_Get_Account</targetReference>
+            </connector>
+            <label>New Sales Closed Won?</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Update CSMs Manager Email</description>
+        <name>Rule_CSME_CSMs_Manager_Email</name>
+        <label>*Rule(CSME)* - CSMs Manager Email</label>
+        <locationX>1392</locationX>
+        <locationY>4487</locationY>
+        <defaultConnector>
+            <targetReference>Rule_CRT_Check_RT</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Update_CSMs_Manager_Email</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>fr_ISNEW</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>CSEM_Update_CSMs_Manager_Email</targetReference>
+            </connector>
+            <label>Update CSMs Manager Email</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-5956</description>
+        <name>Rule_CUPO_Client_Uses_Purchase_Order_PO_and_ISNEW</name>
+        <label>*Rule (CUPO)* - Client Uses Purchase Order (PO) and ISNEW?</label>
+        <locationX>1392</locationX>
+        <locationY>12179</locationY>
+        <defaultConnector>
+            <targetReference>Rule_UFCD_Update_First_Commit_Date</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>PO_is_TRUE</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>fr_ISNEW</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Account.The_Client_Works_with_Purchase_Order_PO__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Do_customer_have_PO__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>No</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Is_PO_Required</targetReference>
+            </connector>
+            <label>PO is TRUE</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Rule_DRNB_DR_on_Account_NOT_BLANK</name>
+        <label>*Rule(DRNB)* - DR on Account NOT BLANK</label>
+        <locationX>1392</locationX>
+        <locationY>4187</locationY>
+        <defaultConnector>
+            <targetReference>Rule_CSME_CSMs_Manager_Email</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>DR_on_Account_NOT_BLANK</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>fr_ISNEW</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Account.Deal_Registration__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>DRNB_Update_Deal_Registration</targetReference>
+            </connector>
+            <label>DR on Account NOT BLANK</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-4513</description>
+        <name>Rule_FR_Found_Recent_25</name>
+        <label>*Rule (FR)* - Found Recent 25%?</label>
+        <locationX>1177</locationX>
+        <locationY>11111</locationY>
+        <defaultConnector>
+            <targetReference>Is_There_a_PO_number</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Found_Recent_25</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Last_25</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Rule_CP_Champion_Contact_is_Populated</targetReference>
+            </connector>
+            <label>Found Recent 25%</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>new issue: MIS-5588
+MIS-4500 --&gt; removed.</description>
+        <name>Rule_FSFV_Forecasting_Status_First_Value</name>
+        <label>*Rule (FSFV)* - Forecasting Status First Value</label>
+        <locationX>1392</locationX>
+        <locationY>1379</locationY>
+        <defaultConnector>
+            <targetReference>Rule_PC_Push_Counter</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Forecasting_Status_First_Value</name>
+            <conditionLogic>(1 OR  ( 3 AND 4)) AND 2</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Similarweb_Forecasting_status__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>IS_Forecasting_Status_First_Value_Date_NOT_Current_Q</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Similarweb_Forecasting_status__c</leftValueReference>
+                <operator>IsBlank</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>fr_ISNEW</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_SW_Forecasting_Status_First_Value</targetReference>
+            </connector>
+            <label>Forecasting Status First Value</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Last Month Payment Change</description>
+        <name>Rule_LMPC_Last_Month_Payment_Change</name>
+        <label>*Rule (LMPC)* - Last Month Payment Change</label>
+        <locationX>1392</locationX>
+        <locationY>1979</locationY>
+        <defaultConnector>
+            <targetReference>Rule_SON_Set_Opportunity_Name</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Last_Month_Payment_Change_or_ISNEW</name>
+            <conditionLogic>(1 OR 2 OR 3) AND 4</conditionLogic>
+            <conditions>
+                <leftValueReference>fr_ISNEW</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Last_month_payment_for_ROW_countries__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Last_month_payment_for_Tier1_countr__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Wolves</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>LMPC_Update_Opp_Last_Month_Payment</targetReference>
+            </connector>
+            <label>Last Month Payment Change or ISNEW</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Rule_LONR_Lost_Opp_is_not_relevant</name>
+        <label>*Rule(LONR)* - Lost Opp is not relevant</label>
+        <locationX>1392</locationX>
+        <locationY>8795</locationY>
+        <defaultConnector>
+            <targetReference>Rule_QNS_Close_Won_Quote_not_Sumbitted</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Lost_Opp_is_not_relevant</name>
+            <conditionLogic>(1 OR 2) AND 3 AND 4</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Opp_will_be_relevant__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.StageName</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.StageName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Closed Lost</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Opp_will_be_relevant__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Not relevant</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>LONR_Update_Re_Engage</targetReference>
+            </connector>
+            <label>Lost Opp is not relevant</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Rule_ME_Meeting_Created_By_Manager_Email</name>
+        <label>*Rule(ME)* - Meeting Created By Manager Email</label>
+        <locationX>1392</locationX>
+        <locationY>9695</locationY>
+        <defaultConnector>
+            <targetReference>Populate_economic_buyer_title</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Meeting_Created_By_Manager_Email</name>
+            <conditionLogic>(1 AND 2) OR (3 AND 2) or (4 or 5)</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record__Prior.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Related_Meeting__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Related_Meeting__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Related_Meeting_Created_By_Email__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record.Related_Meeting__r.CreatedBy.Email</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Meeting_Created_by_Manager_Email__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record.Related_Meeting__r.CreatedBy.Manager.Email</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>ME_Update_Meeting_Created_By_Manager_and_Related_Meeting_Created_By_emails</targetReference>
+            </connector>
+            <label>Meeting Created By Manager Email</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Rule_NARR_Set_New_ARR</name>
+        <label>*Rule(NARR)* - Set New ARR</label>
+        <locationX>1678</locationX>
+        <locationY>5495</locationY>
+        <defaultConnector>
+            <targetReference>Rule_WCO_Wolves_Closed_Opportunity</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Set_New_ARR</name>
+            <conditionLogic>(1 OR 2 OR 3 OR 4) AND 5</conditionLogic>
+            <conditions>
+                <leftValueReference>fr_ISNEW</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Cycle__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Amount</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Amount</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Rank_Ranger</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>NAAR_Update_ARR</targetReference>
+            </connector>
+            <label>Set New ARR</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Rule_NWO_New_Wolves_Opportunity</name>
+        <label>*Rule(NWO)* - New Wolves Opportunity</label>
+        <locationX>1392</locationX>
+        <locationY>6695</locationY>
+        <defaultConnector>
+            <targetReference>Rule_50DT_50_Date_Time</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>New_Wolves_Opportunity</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record__Prior.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Wolves</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>NWO_Update_Close_Date</targetReference>
+            </connector>
+            <label>New Wolves Opportunity</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-4583</description>
+        <name>Rule_OCPC_Opp_CL_and_Primary_Contact_empty</name>
+        <label>*Rule (OCPC)* - Opp CL and Primary Contact empty?</label>
+        <locationX>1392</locationX>
+        <locationY>10895</locationY>
+        <defaultConnector>
+            <targetReference>Is_There_a_PO_number</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Opp_CL_and_Primary_Contact_empty</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.StageName</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.StageName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Closed Lost</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Primary_Contact__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Last_25</targetReference>
+            </connector>
+            <label>Opp CL and Primary Contact empty</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Rule_OJ_Opportunity_Jumped</name>
+        <label>*Rule(OJ)* - Opportunity Jumped?</label>
+        <locationX>1392</locationX>
+        <locationY>7895</locationY>
+        <defaultConnector>
+            <targetReference>Rule_OWR_Opportunity_will_be_relevant</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Opportunity_Jumped</name>
+            <conditionLogic>1 AND ((2 AND 5)OR (3 AND 7) OR (4 AND 6))</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Opportunity_Jumped__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.X50_Date_Time__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record.X60_Date_Time__c</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.X50_Date_Time__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record.X80_Date_Time__c</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.X60_Date_Time__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record.X80_Date_Time__c</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.X50_Date_Time__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.X60_Date_Time__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.X50_Date_Time__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>OJ_Update_Opportunity_Jumped</targetReference>
+            </connector>
+            <label>Opportunity Jumped</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Stage is Closed Lost</description>
+        <name>Rule_OWR_Opportunity_will_be_relevant</name>
+        <label>*Rule(OWR)* - Opportunity will be relevant</label>
+        <locationX>1392</locationX>
+        <locationY>8195</locationY>
+        <defaultConnector>
+            <targetReference>Rule_TMA_Total_Max_ARR</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Opportunity_will_be_relevant</name>
+            <conditionLogic>(1 OR 2) AND 3 AND 4</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Opp_will_be_relevant__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.StageName</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Opp_will_be_relevant__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Not relevant</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.StageName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Closed Lost</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>OWR_Update_Re_Engage</targetReference>
+            </connector>
+            <label>Opportunity will be relevant</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Rule_P25_Opp_prob_25</name>
+        <label>*Rule(P25%)* - Opp prob &gt;=25%</label>
+        <locationX>1392</locationX>
+        <locationY>3287</locationY>
+        <defaultConnector>
+            <targetReference>Rule_SUD_Update_Stage_Update_Date_Field_on_Opportunity</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Opp_prob_25</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.X25_Date_Time__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Probability</leftValueReference>
+                <operator>GreaterThanOrEqualTo</operator>
+                <rightValue>
+                    <numberValue>25.0</numberValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>P25_Update_field_25_Date_Time</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>Opp prob &gt;=25%</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Rule_PC_Push_Counter</name>
+        <label>*Rule (PC)* - Push Counter</label>
+        <locationX>1392</locationX>
+        <locationY>1679</locationY>
+        <defaultConnector>
+            <targetReference>Rule_LMPC_Last_Month_Payment_Change</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Update_Push_Counter</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.CloseDate</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>PC_Update_Push_Counter</targetReference>
+            </connector>
+            <label>Update Push Counter</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Rule_PCM_Primary_Contact_is_Null</name>
+        <label>*Rule(PCM)* - Primary Contact is Null</label>
+        <locationX>1392</locationX>
+        <locationY>3887</locationY>
+        <defaultConnector>
+            <targetReference>Rule_DRNB_DR_on_Account_NOT_BLANK</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Primary_Contact_is_Null</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.CreatedDate</leftValueReference>
+                <operator>GreaterThanOrEqualTo</operator>
+                <rightValue>
+                    <elementReference>fr_NowMinus30</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.IsClosed</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.SalesLoft1__Primary_Contact__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.SalesLoft1__Most_Recent_Cadence_Name__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.SalesLoft1__Most_Recent_Last_Completed_Step__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.SalesLoft1__Primary_Contact__r.SalesLoft1__Most_Recent_Cadence_Name__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.SalesLoft1__Primary_Contact__r.SalesLoft1__Most_Recent_Last_Completed_Step__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>PCN_Update_Cadence_Name_and_Last_Step_Number</targetReference>
+            </connector>
+            <label>Primary Contact is Null</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-4513</description>
+        <name>Rule_PCP_Primary_Contact_is_Populated</name>
+        <label>*Rule (PCP)* - Primary Contact is Populated?</label>
+        <locationX>1122</locationX>
+        <locationY>11327</locationY>
+        <defaultConnector>
+            <targetReference>Is_There_a_PO_number</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Primary_Contact_is_Populated</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Last_25.Primary_Contact__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Copy_1_of_Assign_Primary_Champion_from_the_recent_Opp</targetReference>
+            </connector>
+            <label>Primary Contact is Populated</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Rule_QNS_Close_Won_Quote_not_Sumbitted</name>
+        <label>*Rule(QNS)* - Close Won/Quote not Sumbitted</label>
+        <locationX>1392</locationX>
+        <locationY>9095</locationY>
+        <defaultConnector>
+            <targetReference>Rule_CQT_Clear_Quote_Not_Submitted_Timestamp</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Close_Won_Quote_not_Sumbitted</name>
+            <conditionLogic>(1 OR 2) AND 3 AND (4 OR 5 OR 6 OR 7 OR 8 OR 9 OR 10 OR 11 OR 12)</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.StageName</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Quote_Status__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.StageName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Closed Won</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Quote_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Deal Size Approved</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Quote_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Rejected By Billing</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Quote_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>New Amendment</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Quote_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Terms Approved</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Quote_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Contract Signed</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Quote_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Contract Signed Manually</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Quote_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Approved By Billing</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Quote_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Pending Legal or Billing Request</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Quote_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Pending rep to adjust quote</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>QNS_Update_Quote_Not_Submitted_Timestamp</targetReference>
+            </connector>
+            <label>Close Won/Quote not Sumbitted</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Rule_RRA_Set_Amount_for_RR_Opportunities</name>
+        <label>*Rule(RRA)* - Set Amount for RR Opportunities</label>
+        <locationX>1106</locationX>
+        <locationY>6011</locationY>
+        <defaultConnector>
+            <targetReference>Rule_WCO_Wolves_Closed_Opportunity</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>RT_Rank_Ranger_and_Cycle_price_is_not_blank</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Rank_Ranger</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Cycle_Price__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>RRA_Update_Amount_Monthly_Amount</targetReference>
+            </connector>
+            <label>RT = Rank Ranger and Cycle price is not blank</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Rule_SA_Set_Amount</name>
+        <label>*Rule (SA)* - Set Amount</label>
+        <locationX>1678</locationX>
+        <locationY>5195</locationY>
+        <defaultConnector>
+            <targetReference>Rule_NARR_Set_New_ARR</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Set_Amount</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Cycle_Price__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Rank_Ranger</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>SA_Set_Monthly_Amount_Amount_New_ARR</targetReference>
+            </connector>
+            <label>Set Amount</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Set Opportunity Name
+MIS-7609 Remove Product Sold</description>
+        <name>Rule_SON_Set_Opportunity_Name</name>
+        <label>*Rule(SON)* - Set Opportunity Name</label>
+        <locationX>1392</locationX>
+        <locationY>2279</locationY>
+        <defaultConnector>
+            <targetReference>Rule_SWRT_Set_Wolves_RT_upon_conversion</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Set_Opportunity_Name</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Renewal</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Rank_Ranger</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Partnership</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Wolves</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Enterprise</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Acquired_Company</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Product_Tracking_Line_Items</targetReference>
+            </connector>
+            <label>Set Opportunity Name</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Update &apos;Stage Update Date&apos; Field on Opportunity when Stage is changed</description>
+        <name>Rule_SUD_Update_Stage_Update_Date_Field_on_Opportunity</name>
+        <label>*Rule(SUD)* - Update &apos;Stage Update Date&apos; Field on Opportunity</label>
+        <locationX>1392</locationX>
+        <locationY>3587</locationY>
+        <defaultConnector>
+            <targetReference>Rule_PCM_Primary_Contact_is_Null</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Stage_is_changed</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.StageName</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>SUD_Update_Stage_Update_Date_Field_on_Opportunity</targetReference>
+            </connector>
+            <label>Stage is changed</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Set Wolves RT upon conversion</description>
+        <name>Rule_SWRT_Set_Wolves_RT_upon_conversion</name>
+        <label>*Rule(SWRT)* - Set Wolves RT upon conversion</label>
+        <locationX>1392</locationX>
+        <locationY>2879</locationY>
+        <defaultConnector>
+            <targetReference>Rule_P25_Opp_prob_25</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>RT_Wolves_and_ISNEW</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>fr_ISNEW</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.SYS_Record_Type_Conversion__c</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <stringValue>Panel Acquisition</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>SWRT_Get_Wolves_Panel_Acquisition_RT</targetReference>
+            </connector>
+            <label>RT = Wolves and ISNEW</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Rule_TMA_Total_Max_ARR</name>
+        <label>*Rule(TMA)* - Total Max ARR</label>
+        <locationX>1392</locationX>
+        <locationY>8495</locationY>
+        <defaultConnector>
+            <targetReference>Rule_LONR_Lost_Opp_is_not_relevant</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Total_Max_ARR</name>
+            <conditionLogic>(1 OR 2 OR 3) AND (4 OR 5)</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record__Prior.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Max_ARR__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.ARR__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Max_ARR__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Max_ARR__c</leftValueReference>
+                <operator>LessThan</operator>
+                <rightValue>
+                    <elementReference>$Record.ARR__c</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>OWR_Max_ARR_ARR</targetReference>
+            </connector>
+            <label>Total Max ARR</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-7241</description>
+        <name>Rule_UFCD_Update_First_Commit_Date</name>
+        <label>*Rule (UFCD)* - Update First Commit Date?</label>
+        <locationX>1392</locationX>
+        <locationY>12479</locationY>
+        <defaultConnector>
+            <targetReference>Update_NT2T</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>UFCD_Update_Commit_New_Sale_Upsell</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.IsClosed</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.CloseDate</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.CloseDate</leftValueReference>
+                <operator>IsBlank</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.First_Commit_Date__c</leftValueReference>
+                <operator>GreaterThan</operator>
+                <rightValue>
+                    <elementReference>$Record.CloseDate</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.RecordTypeId</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>012b0000000M3zQAAS</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_First_Commit_Date</targetReference>
+            </connector>
+            <label>UFCD - Update Commit (New Sale/Upsell)</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Rule_WCO_Wolves_Closed_Opportunity</name>
+        <label>*Rule(WCO)* - Wolves Closed Opportunity</label>
+        <locationX>1392</locationX>
+        <locationY>6395</locationY>
+        <defaultConnector>
+            <targetReference>Rule_NWO_New_Wolves_Opportunity</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Wolves_Closed_Opportunity</name>
+            <conditionLogic>(1 OR 2 OR 3) AND 4</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.StageName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Live</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.StageName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Cold Opportunity</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.StageName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Not Relevant</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Wolves</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>WCO_Update_Close_Date</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>Wolves Closed Opportunity</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-7442 - T2T tag on opp- check if the account is NT2t at the completion of the meeting and update the NT2T field</description>
+        <name>Update_NT2T</name>
+        <label>Update NT2T</label>
+        <locationX>1392</locationX>
+        <locationY>12779</locationY>
+        <defaultConnector>
+            <targetReference>Adjusted_ARR_changed</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>NT2T_True</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.StageName</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.NT2T_Opportunity__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Account.NT2T_eligible__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_NT2T_true</targetReference>
+            </connector>
+            <label>NT2T True</label>
+        </rules>
+        <rules>
+            <name>NT2T_False</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.StageName</leftValueReference>
+                <operator>EqualTo</operator>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.NT2T_Opportunity__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Account.NT2T_eligible__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record__Prior.IsClosed</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_NT2T_false</targetReference>
+            </connector>
+            <label>NT2T False</label>
+        </rules>
+    </decisions>
+    <description>MIS-8338 - Replaced sorting of line items to be sorted by Id
+MIS-8255 - Moved Sub Motion update to after-save
+MIS-8186 - Removed Manager fields updates
+MIS-8017 Lean MEDDPICC Displayed on Pipeline Inspector
+MIS-7769 - Added defaults to ARR, Cycle Price, Cycle Price (Local)
+MIS-7858 - Added Adjusted ARR Timestamp handling
+MIS-7609 Remove Product Sold + add opp name RT Acquired Company
+MIS-7517 - Removed Opportunity Product Tracking population
+MIS-7442 - update NT2T
+MIS-7359 - Update create sub motion field
+MIS-7271 Add Product Tracking Names To CW Opportunity Email
+MIS-7241 - Update First Commit Date
+MIS-5956 - Is a PO Required Logic
+MIS-5742 - PO and Portal
+MIS-5588 - SW_Forecasting_Status_First_Value__c
+MIS-4985 - Populate CSM &amp; CSM Manager Emails
+MIS-4831 - API update
+MIS-4513
+MIS-4500
+MIS-1893 Fixes
+Last - MIS-4112
+MIS-4201
+MIS-4247
+MIS-4162
+MIS-3658
+
+MIS-6901</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>fr_Amount</name>
+        <dataType>Currency</dataType>
+        <expression>{!$Record.Cycle_Price__c} / Case ( {!$Record.Cycle__c} ,
+&quot;3 Years&quot;,36,
+&quot;2 Years&quot;,24,
+&quot;18 Months&quot;,18,
+&quot;9 Months&quot;,9,
+&quot;16 Months&quot;,16,
+&quot;15 Months&quot;,15,
+&quot;14 Months&quot;,14,
+&quot;25 Months&quot;,25,
+&quot;26 Months&quot;,26,
+&quot;Monthly&quot;,1,
+&quot;Annually&quot;,12,
+&quot;Quarterly&quot;,3,
+&quot;Semi-Annual&quot;,6,
+1)</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <name>fr_Amount_MonthlyAmmount_for_RR</name>
+        <dataType>Currency</dataType>
+        <expression>{!$Record.Cycle_Price__c} / Case ( {!$Record.Cycle__c} ,
+&quot;3 Years&quot;,36,
+&quot;2 Years&quot;,24,
+&quot;18 Months&quot;,18,
+&quot;9 Months&quot;,9,
+&quot;16 Months&quot;,16,
+&quot;15 Months&quot;,15,
+&quot;14 Months&quot;,14,
+&quot;25 Months&quot;,25,
+&quot;26 Months&quot;,26,
+&quot;Monthly&quot;,1,
+&quot;Annually&quot;,12,
+&quot;Quarterly&quot;,3,
+&quot;Semi-Annual&quot;,6,
+1)</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <name>fr_ISNEW</name>
+        <dataType>Boolean</dataType>
+        <expression>ISNEW()</expression>
+    </formulas>
+    <formulas>
+        <name>fr_Last_Month_Payment</name>
+        <dataType>Currency</dataType>
+        <expression>{!$Record.Last_month_payment_for_ROW_countries__c} + {!$Record.Last_month_payment_for_Tier1_countr__c}</expression>
+        <scale>1</scale>
+    </formulas>
+    <formulas>
+        <name>fr_MonthlyAmount</name>
+        <dataType>Currency</dataType>
+        <expression>{!$Record.Cycle_Price__c}  / Case ( {!$Record.Cycle__c} ,
+&quot;3 Years&quot;,36,
+&quot;2 Years&quot;,24,
+&quot;18 Months&quot;,18,
+&quot;9 Months&quot;,9,
+&quot;16 Months&quot;,16,
+&quot;15 Months&quot;,15,
+&quot;14 Months&quot;,14,
+&quot;25 Months&quot;,25,
+&quot;Monthly&quot;,1,
+&quot;Annually&quot;,12,
+&quot;Quarterly&quot;,3,
+&quot;Semi-Annual&quot;,6,
+1)</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <description>For Currency &lt;&gt; USD</description>
+        <name>fr_MRR</name>
+        <dataType>Currency</dataType>
+        <expression>ROUND({!CPC_Get_Exchange_Rate.USD_Exchange_Rate__c} *{!$Record.Cycle_Price_Local__c},0)</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <name>fr_NewARR</name>
+        <dataType>Currency</dataType>
+        <expression>IF(ISBLANK({!$Record.Overwrite_ARR__c}),
+IF(ISPICKVAL( {!$Record.Cycle__c} , &quot;One-Time&quot;),0,
+IF(ISPICKVAL( {!$Record.Cycle__c} , &quot;Monthly&quot;),0,
+IF(ISPICKVAL( {!$Record.Cycle__c} , &quot;Annually&quot;), {!$Record.Cycle_Price__c} ,
+{!$Record.Amount} *12))),{!$Record.Overwrite_ARR__c}
+)</expression>
+        <scale>0</scale>
+    </formulas>
+    <formulas>
+        <name>fr_NOW</name>
+        <dataType>DateTime</dataType>
+        <expression>NOW()</expression>
+    </formulas>
+    <formulas>
+        <name>fr_NowMinus30</name>
+        <dataType>Date</dataType>
+        <expression>NOW()-30</expression>
+    </formulas>
+    <formulas>
+        <description>MIS-7609 Remove Product Sold</description>
+        <name>fr_OppName</name>
+        <dataType>String</dataType>
+        <expression>IF({!$Record.RecordType.DeveloperName} = &apos;Wolves&apos;,
+IF(NOT(ISPICKVAL( {!$Record.Type} , &quot;Strategic Partnership&quot;)),
+LEFT( {!$Record.Wolves_App_Name__c} +&quot; - &quot;+ TEXT({!$Record.Type})+&quot; - &quot;+ TEXT({!$Record.Wolves_Platform__c} ),100),
+LEFT( {!$Record.Account.Name} +&quot; - &quot;+ TEXT({!$Record.Type})+&quot; - &quot;+ TEXT( {!$Record.SBD_Type__c} ),100)) ,
+LEFT(({!$Record.Account.Name} + &apos; - &apos; + TEXT({!$Record.Type}) + &apos; - &apos; + {!Get_Product_Tracking_Line_Items.Product2.Name} + &apos; &apos; + {!$Record.Plan_Details__c}),100))</expression>
+    </formulas>
+    <formulas>
+        <name>fr_PushCounter</name>
+        <dataType>Number</dataType>
+        <expression>If (YEAR({!$Record__Prior.CloseDate})&lt;YEAR({!$Record.CloseDate}),
+{!$Record.Push_Counter__c} + 1 ,
+If(MONTH({!$Record__Prior.CloseDate})&lt; MONTH({!$Record.CloseDate}) &amp;&amp; YEAR({!$Record__Prior.CloseDate}) = YEAR({!$Record.CloseDate}) , 
+{!$Record.Push_Counter__c} + 1 , 
+{!$Record.Push_Counter__c}
+)
+)</expression>
+        <scale>1</scale>
+    </formulas>
+    <formulas>
+        <name>fr_Re_Engage</name>
+        <dataType>Date</dataType>
+        <expression>IF(CONTAINS(TEXT({!$Record.Opp_will_be_relevant__c}) , &quot;60&quot;) , {!$Record.CloseDate} +60 , IF(CONTAINS(TEXT({!$Record.Opp_will_be_relevant__c}) , &quot;90&quot;) , {!$Record.CloseDate} +90, IF(CONTAINS(TEXT({!$Record.Opp_will_be_relevant__c}) , &quot;120&quot;) , {!$Record.CloseDate} +120, IF(CONTAINS(TEXT({!$Record.Opp_will_be_relevant__c}) , &quot;180&quot;) , {!$Record.CloseDate} +180, Null))))</expression>
+    </formulas>
+    <formulas>
+        <description>MIS-4201</description>
+        <name>fr_renewal_reopen_forecastStatus</name>
+        <dataType>String</dataType>
+        <expression>IF(
+  AND(
+    text({!$Record.StageName}) &lt;&gt; &apos;Closed Won&apos;,
+    text({!$Record__Prior.StageName}) = &apos;Closed Lost&apos;
+  ),
+  &quot;25% - Confirmed Out&quot;,
+  IF(
+    AND(
+      text({!$Record.StageName}) &lt;&gt; &apos;Closed Lost&apos;,
+      text({!$Record__Prior.StageName}) = &apos;Closed Won&apos;
+    ),
+    &quot;80% - Confirmed In&quot;,
+    NULL
+  )
+)</expression>
+    </formulas>
+    <formulas>
+        <description>MIS-4201</description>
+        <name>fr_Renewal_SW_forecast_status</name>
+        <dataType>String</dataType>
+        <expression>IF(
+  and({!$Record.RecordType.Name} = &apos;Renewal&apos;, ischanged({!$Record.Similarweb_Forecasting_status__c})),
+  IF(
+    OR(
+      ispickval({!$Record.Similarweb_Forecasting_status__c}, &apos;25% - Confirmed Out&apos;),
+      ispickval({!$Record.Similarweb_Forecasting_status__c}, &apos;40% - Projected Out&apos;)
+    ),
+    &quot;Pipeline&quot;,
+    IF(
+      ispickval({!$Record.Similarweb_Forecasting_status__c}, &apos;60% - Projected In&apos;),
+      &quot;Best Case&quot;,
+      IF(
+        ispickval({!$Record.Similarweb_Forecasting_status__c}, &apos;80% - Confirmed In&apos;),
+        &quot;Commit&quot;,
+        IF(
+          ispickval({!$Record.Similarweb_Forecasting_status__c}, &apos;Closed&apos;),
+          &quot;Closed&quot;,
+          IF(
+            ispickval({!$Record.Similarweb_Forecasting_status__c}, &apos;Omitted&apos;),
+            &quot;Omitted&quot;,
+            Null
+          )
+        )
+      )
+    )
+  ),
+  NULL
+)</expression>
+    </formulas>
+    <formulas>
+        <name>fr_RR_ARR_for_not_USD</name>
+        <dataType>Currency</dataType>
+        <expression>ROUND( {!CARR_Get_Exchange_Rate.USD_Exchange_Rate__c}*{!$Record.Cycle_Price_Local__c},0)</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <name>fr_TODAY</name>
+        <dataType>Date</dataType>
+        <expression>TODAY()</expression>
+    </formulas>
+    <formulas>
+        <name>fr_Today_45</name>
+        <dataType>Date</dataType>
+        <expression>TODAY()+45</expression>
+    </formulas>
+    <formulas>
+        <name>IS_Forecasting_Status_First_Value_Date_NOT_Current_Q</name>
+        <dataType>Boolean</dataType>
+        <expression>IF((CEILING( MONTH ({!$Record.Forecasting_Status_Q_First_Value_Date__c})/ 3 ) &lt;&gt; CEILING( MONTH(TODAY())/3)) || ISBLANK({!$Record.Forecasting_Status_Q_First_Value_Date__c}), true,false
+)</expression>
+    </formulas>
+    <formulas>
+        <description>MIS-8017</description>
+        <name>MEDDPICC_Champion_Status</name>
+        <dataType>String</dataType>
+        <expression>IF(
+    OR(
+        ISBLANK(TEXT({!$Record.medpic_Champion_Influence_on_Deal__c})),
+        ISBLANK(TEXT({!$Record.medpic_Champion_Advocating_Stakeholders__c}))
+    ),
+    &quot;⚪️&quot;,
+    IF(
+        OR(
+            NOT(ISPICKVAL({!$Record.medpic_Champion_Influence_on_Deal__c}, &quot;Yes&quot;)),
+            NOT(ISPICKVAL({!$Record.medpic_Champion_Advocating_Stakeholders__c}, &quot;Yes&quot;))
+        ),
+        &quot;🔴&quot;,
+        &quot;🟢&quot;
+    )
+)</expression>
+    </formulas>
+    <formulas>
+        <description>MIS-7018</description>
+        <name>MEDDPICC_Decision_Criteria_Status</name>
+        <dataType>String</dataType>
+        <expression>IF(
+    OR(
+        ISBLANK(TEXT({!$Record.medpic_Positive_ROI_Success_Demonstrate__c})),
+        ISBLANK(TEXT({!$Record.medpic_Solution_Aligne_Decision_Criteria__c}))
+    ),
+    &quot;⚪️&quot;,
+    IF(
+        OR(
+            NOT(ISPICKVAL({!$Record.medpic_Positive_ROI_Success_Demonstrate__c}, &quot;Yes&quot;)),
+            NOT(ISPICKVAL({!$Record.medpic_Solution_Aligne_Decision_Criteria__c}, &quot;Yes&quot;))
+        ),
+        &quot;🔴&quot;,
+        &quot;🟢&quot;
+    )
+)</expression>
+    </formulas>
+    <formulas>
+        <description>MIS-8017</description>
+        <name>MEDDPICC_Decision_Process_Status</name>
+        <dataType>String</dataType>
+        <expression>IF(
+    OR(
+        ISBLANK(TEXT({!$Record.medpic_Decision_Process_Timeline_Set__c})),
+        ISBLANK(TEXT({!$Record.medpic_All_Key_Stakeholders_Identified__c}))
+    ),
+    &quot;⚪️&quot;,
+    IF(
+        OR(
+            NOT(ISPICKVAL({!$Record.medpic_Decision_Process_Timeline_Set__c}, &quot;Yes&quot;)),
+            NOT(ISPICKVAL({!$Record.medpic_All_Key_Stakeholders_Identified__c}, &quot;Yes&quot;))
+        ),
+        &quot;🔴&quot;,
+        &quot;🟢&quot;
+    )
+)</expression>
+    </formulas>
+    <formulas>
+        <name>MEDDPICC_Economic_Buyer_Status</name>
+        <dataType>String</dataType>
+        <expression>IF(
+    OR(
+        ISBLANK(TEXT({!$Record.medpic_Economic_Buyer_Interested_Aligned__c})),
+        ISBLANK(TEXT({!$Record.medpic_Decision_Maker_Identified__c}))
+    ),
+    &quot;⚪️&quot;,
+    IF(
+        OR(
+            NOT(ISPICKVAL({!$Record.medpic_Economic_Buyer_Interested_Aligned__c}, &quot;Yes&quot;)),
+            NOT(ISPICKVAL({!$Record.medpic_Decision_Maker_Identified__c}, &quot;Yes&quot;))
+        ),
+        &quot;🔴&quot;,
+        &quot;🟢&quot;
+    )
+)</expression>
+    </formulas>
+    <formulas>
+        <description>MIS-8017</description>
+        <name>MEDDPICC_Metrics_Status</name>
+        <dataType>String</dataType>
+        <expression>IF(
+    OR(
+        ISBLANK(TEXT({!$Record.medpic_Customer_s_Success_Metrics_Known__c})),
+        ISBLANK(TEXT({!$Record.medpic_Customer_believes_metric_improve__c}))
+    ),
+    &quot;⚪️&quot;,
+    IF(
+        NOT(ISPICKVAL({!$Record.medpic_Customer_believes_metric_improve__c}, &quot;Yes&quot;)),
+        &quot;🔴&quot;,
+        &quot;🟢&quot;
+    )
+)</expression>
+    </formulas>
+    <formulas>
+        <name>MEDDPICC_Pain_Status</name>
+        <dataType>String</dataType>
+        <expression>IF(
+    OR(
+        ISBLANK(TEXT({!$Record.medpic_Identified_Customer_Key_Challenge__c})),
+        ISBLANK(TEXT({!$Record.medpic_Customer_Acknowledged_Urgency__c})),
+        ISBLANK(TEXT({!$Record.medpic_Impact_of_Challenges_Known__c}))
+    ),
+    &quot;⚪️&quot;,
+    IF(
+        NOT(ISPICKVAL({!$Record.medpic_Impact_of_Challenges_Known__c}, &quot;Yes&quot;)),
+        &quot;🔴&quot;,
+        &quot;🟢&quot;
+    )
+)</expression>
+    </formulas>
+    <formulas>
+        <description>MIS-8017</description>
+        <name>MEDDPICC_Paper_Process_Status</name>
+        <dataType>String</dataType>
+        <expression>IF(
+    OR(
+        ISBLANK(TEXT({!$Record.medpic_Confirmed_No_Roadblocks_In_Quote__c})),
+        ISBLANK(TEXT({!$Record.medpic_Verbal_Agreement_From_Authority__c}))
+    ),
+    &quot;⚪️&quot;,
+    IF(
+        OR(
+            NOT(ISPICKVAL({!$Record.medpic_Confirmed_No_Roadblocks_In_Quote__c}, &quot;Yes&quot;)),
+            NOT(ISPICKVAL({!$Record.medpic_Verbal_Agreement_From_Authority__c}, &quot;Yes&quot;))
+        ),
+        &quot;🔴&quot;,
+        &quot;🟢&quot;
+    )
+)</expression>
+    </formulas>
+    <formulas>
+        <description>MIS-8017</description>
+        <name>MEDDPICC_Stations_Fields_Changed_FR</name>
+        <dataType>Boolean</dataType>
+        <expression>OR(
+    ISCHANGED({!$Record.medpic_All_Key_Stakeholders_Identified__c}),
+    ISCHANGED({!$Record.medpic_Champion_Advocating_Stakeholders__c}),
+    ISCHANGED({!$Record.medpic_Champion_Influence_on_Deal__c}),
+    ISCHANGED({!$Record.medpic_Confirmed_No_Roadblocks_In_Quote__c}),
+    ISCHANGED({!$Record.medpic_Customer_Acknowledged_Urgency__c}),
+    ISCHANGED({!$Record.medpic_Customer_believes_metric_improve__c}),
+    ISCHANGED({!$Record.medpic_Customer_s_Success_Metrics_Known__c}),
+    ISCHANGED({!$Record.medpic_Decision_Maker_Identified__c}),
+    ISCHANGED({!$Record.medpic_Decision_Process_Timeline_Set__c}),
+    ISCHANGED({!$Record.medpic_Economic_Buyer_Interested_Aligned__c}),
+    ISCHANGED({!$Record.medpic_Identified_Customer_Key_Challenge__c}),
+    ISCHANGED({!$Record.medpic_Impact_of_Challenges_Known__c}),
+    ISCHANGED({!$Record.medpic_Positive_ROI_Success_Demonstrate__c}),
+    ISCHANGED({!$Record.medpic_Solution_Aligne_Decision_Criteria__c}),
+    ISCHANGED({!$Record.medpic_Verbal_Agreement_From_Authority__c})
+)</expression>
+    </formulas>
+    <interviewLabel>Opportunity - Record Triggered Flow - Before Save {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Opportunity - Record Triggered Flow - Before Save</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>CARR_Get_Exchange_Rate</name>
+        <label>CARR - Get Exchange Rate</label>
+        <locationX>1106</locationX>
+        <locationY>5711</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>CARRR_Update_RR_ARR_for_not_USD</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Name</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Currency__c</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Netsuite_Daily_Exchange_Rate__c</object>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>USD_Exchange_Rate__c</queriedFields>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>CPC_Get_Exchange_Rate</name>
+        <label>CPC - Get Exchange Rate</label>
+        <locationX>1106</locationX>
+        <locationY>5303</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>CPC_Update_MRR_for_currency_not_equal_USD</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Name</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Currency__c</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Netsuite_Daily_Exchange_Rate__c</object>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>USD_Exchange_Rate__c</queriedFields>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>CS_Get_Account</name>
+        <label>(CS) Get Account</label>
+        <locationX>1238</locationX>
+        <locationY>395</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>CS_Found_Account</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Parent_Company_Domain__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Account.Parent_Company_Domain__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>fr_ARR__c</field>
+            <operator>GreaterThan</operator>
+            <value>
+                <numberValue>0.0</numberValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Id</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <elementReference>$Record.Account.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Account</object>
+        <queriedFields>Id</queriedFields>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <description>MIS-4583</description>
+        <name>Get_Last_25</name>
+        <label>Get Last 25%</label>
+        <locationX>1177</locationX>
+        <locationY>11003</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Rule_FR_Found_Recent_25</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>AccountId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.AccountId</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>X25_Date_Time__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Id</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Opportunity</object>
+        <sortField>X25_Date_Time__c</sortField>
+        <sortOrder>Desc</sortOrder>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <description>MIS-7609 Remove Product Sold</description>
+        <name>Get_Product_Tracking_Line_Items</name>
+        <label>Get Product Tracking Line Items</label>
+        <locationX>1238</locationX>
+        <locationY>2387</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Opportunity_Name_Changed</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Product_Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Solution / Delivery</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>OpportunityId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>OpportunityLineItem</object>
+        <sortField>Id</sortField>
+        <sortOrder>Asc</sortOrder>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>SWRT_Get_Wolves_Panel_Acquisition_RT</name>
+        <label>SWRT - Get Wolves(Panel Acquisition) RT</label>
+        <locationX>1260</locationX>
+        <locationY>2987</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>SWRT_Update_Record_Type</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>DeveloperName</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Wolves</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>RecordType</object>
+        <queriedFields>Id</queriedFields>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <name>CARR_Update_RR_ARR_for_USD</name>
+        <label>CARR - Update RR ARR for USD</label>
+        <locationX>842</locationX>
+        <locationY>5711</locationY>
+        <connector>
+            <targetReference>Rule_RRA_Set_Amount_for_RR_Opportunities</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>ARR_Rank_Ranger__c</field>
+            <value>
+                <elementReference>$Record.Cycle_Price__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>ARR__c</field>
+            <value>
+                <elementReference>$Record.Account.BI_Data__r.ARR__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>MRR__c</field>
+            <value>
+                <numberValue>0.0</numberValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>CARRR_Update_RR_ARR_for_not_USD</name>
+        <label>CARRR - Update RR ARR for not USD</label>
+        <locationX>1106</locationX>
+        <locationY>5819</locationY>
+        <connector>
+            <targetReference>Rule_RRA_Set_Amount_for_RR_Opportunities</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>ARR_Rank_Ranger__c</field>
+            <value>
+                <elementReference>fr_RR_ARR_for_not_USD</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>ARR__c</field>
+            <value>
+                <elementReference>$Record.Account.BI_Data__r.ARR__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>MRR__c</field>
+            <value>
+                <numberValue>0.0</numberValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>Update MRR for Rank Ranger Opportunity when cycle price is changed and currency &lt;&gt; USD( for monthly cycle only )</description>
+        <name>CPC_Update_MRR_for_currency_not_equal_USD</name>
+        <label>CPC - Update MRR for currency &lt;&gt; USD</label>
+        <locationX>1106</locationX>
+        <locationY>5411</locationY>
+        <connector>
+            <targetReference>Rule_CARR_Cycle_price_is_changed_for_Annually_cycle</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>ARR_Rank_Ranger__c</field>
+            <value>
+                <numberValue>0.0</numberValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>ARR__c</field>
+            <value>
+                <numberValue>0.0</numberValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>MRR__c</field>
+            <value>
+                <elementReference>fr_MRR</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>Update MRR for Rank Ranger Opportunity when cycle price is changed ( for monthly cycle only )</description>
+        <name>CPC_Update_MRR_for_USD</name>
+        <label>CPC - Update MRR for USD</label>
+        <locationX>842</locationX>
+        <locationY>5303</locationY>
+        <connector>
+            <targetReference>Rule_CARR_Cycle_price_is_changed_for_Annually_cycle</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>ARR_Rank_Ranger__c</field>
+            <value>
+                <numberValue>0.0</numberValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>ARR__c</field>
+            <value>
+                <numberValue>0.0</numberValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>MRR__c</field>
+            <value>
+                <elementReference>$Record.Cycle_Price__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>CQT_Clear_Time_stamp</name>
+        <label>CQT - Clear Time-stamp</label>
+        <locationX>1260</locationX>
+        <locationY>9503</locationY>
+        <connector>
+            <targetReference>Rule_ME_Meeting_Created_By_Manager_Email</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Quote_Not_Submitted_Timestamp__c</field>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>CSEM_Update_CSMs_Manager_Email</name>
+        <label>CSEM - Update CSMs Manager Email</label>
+        <locationX>1238</locationX>
+        <locationY>4595</locationY>
+        <connector>
+            <targetReference>Rule_ACP_Assigned_CSM_is_Populated</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>SYS_CSMs_Manager_Email__c</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <elementReference>$Record.Owner.Manager.Email</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>SYS_CSMs_Manager_Email__c</field>
+            <value>
+                <elementReference>$Record.Owner.Manager.Email</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>DRNB_Update_Deal_Registration</name>
+        <label>DRNB - Update Deal Registration</label>
+        <locationX>1260</locationX>
+        <locationY>4295</locationY>
+        <connector>
+            <targetReference>Rule_CSME_CSMs_Manager_Email</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Deal_Registration__c</field>
+            <value>
+                <elementReference>$Record.Account.Deal_Registration__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Get_Assigned_CSM_Name_from_Account</name>
+        <label>Get Assigned CSM Name from Account</label>
+        <locationX>1260</locationX>
+        <locationY>10703</locationY>
+        <connector>
+            <targetReference>Rule_OCPC_Opp_CL_and_Primary_Contact_empty</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Assigned_CSM_Name__c</field>
+            <value>
+                <elementReference>$Record.Account.Assigned_CSA_Name__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>LMPC_Update_Opp_Last_Month_Payment</name>
+        <label>LMPC - Update Opp Last Month Payment</label>
+        <locationX>1260</locationX>
+        <locationY>2087</locationY>
+        <connector>
+            <targetReference>Rule_SON_Set_Opportunity_Name</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Wolves_Last_Month_Payment__c</field>
+            <value>
+                <elementReference>fr_Last_Month_Payment</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>LONR_Update_Re_Engage</name>
+        <label>LONR - Update Re-Engage</label>
+        <locationX>1260</locationX>
+        <locationY>8903</locationY>
+        <connector>
+            <targetReference>Rule_QNS_Close_Won_Quote_not_Sumbitted</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Re_Engage_date__c</field>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>ME_Update_Meeting_Created_By_Manager_and_Related_Meeting_Created_By_emails</name>
+        <label>ME - Update Meeting Created By Manager and Related Meeting Created By emails</label>
+        <locationX>1260</locationX>
+        <locationY>9803</locationY>
+        <connector>
+            <targetReference>Populate_economic_buyer_title</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Meeting_Created_by_Manager_Email__c</field>
+            <value>
+                <elementReference>$Record.Related_Meeting__r.CreatedBy.Manager.Email</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Related_Meeting_Created_By_Email__c</field>
+            <value>
+                <elementReference>$Record.Related_Meeting__r.CreatedBy.Email</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>NAAR_Update_ARR</name>
+        <label>NAAR - Update ARR</label>
+        <locationX>1546</locationX>
+        <locationY>5603</locationY>
+        <connector>
+            <targetReference>Rule_WCO_Wolves_Closed_Opportunity</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>ARR__c</field>
+            <value>
+                <elementReference>fr_NewARR</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>NWO_Update_Close_Date</name>
+        <label>NWO - Update Close Date</label>
+        <locationX>1260</locationX>
+        <locationY>6803</locationY>
+        <connector>
+            <targetReference>Rule_50DT_50_Date_Time</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>CloseDate</field>
+            <value>
+                <elementReference>fr_Today_45</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>OJ_Update_Opportunity_Jumped</name>
+        <label>OJ - Update Opportunity Jumped</label>
+        <locationX>1260</locationX>
+        <locationY>8003</locationY>
+        <connector>
+            <targetReference>Rule_OWR_Opportunity_will_be_relevant</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Opportunity_Jumped__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>OWR_Max_ARR_ARR</name>
+        <label>OWR - Max ARR = ARR</label>
+        <locationX>1260</locationX>
+        <locationY>8603</locationY>
+        <connector>
+            <targetReference>Rule_LONR_Lost_Opp_is_not_relevant</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Max_ARR__c</field>
+            <value>
+                <elementReference>$Record.ARR__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>OWR_Update_Re_Engage</name>
+        <label>OWR - Update Re-Engage</label>
+        <locationX>1260</locationX>
+        <locationY>8303</locationY>
+        <connector>
+            <targetReference>Rule_TMA_Total_Max_ARR</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Re_Engage_date__c</field>
+            <value>
+                <elementReference>fr_Re_Engage</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>P25_Update_field_25_Date_Time</name>
+        <label>P25 - Update field &apos;&gt;25% Date/Time&apos;</label>
+        <locationX>1260</locationX>
+        <locationY>3395</locationY>
+        <connector>
+            <targetReference>Rule_SUD_Update_Stage_Update_Date_Field_on_Opportunity</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>X25_Date_Time__c</field>
+            <value>
+                <elementReference>fr_NOW</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>PC_Update_Push_Counter</name>
+        <label>PC - Update Push Counter</label>
+        <locationX>1260</locationX>
+        <locationY>1787</locationY>
+        <connector>
+            <targetReference>Rule_LMPC_Last_Month_Payment_Change</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Push_Counter__c</field>
+            <value>
+                <elementReference>fr_PushCounter</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>PCN_Update_Cadence_Name_and_Last_Step_Number</name>
+        <label>PCN - Update Cadence Name and Last Step Number</label>
+        <locationX>1260</locationX>
+        <locationY>3995</locationY>
+        <connector>
+            <targetReference>Rule_DRNB_DR_on_Account_NOT_BLANK</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>SalesLoft1__Most_Recent_Cadence_Name__c</field>
+            <value>
+                <elementReference>$Record.SalesLoft1__Primary_Contact__r.SalesLoft1__Most_Recent_Cadence_Name__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>SalesLoft1__Most_Recent_Last_Completed_Step__c</field>
+            <value>
+                <elementReference>$Record.SalesLoft1__Primary_Contact__r.SalesLoft1__Most_Recent_Last_Completed_Step__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>QNS_Update_Quote_Not_Submitted_Timestamp</name>
+        <label>QNS - Update Quote Not Submitted Timestamp</label>
+        <locationX>1260</locationX>
+        <locationY>9203</locationY>
+        <connector>
+            <targetReference>Rule_CQT_Clear_Quote_Not_Submitted_Timestamp</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Quote_Not_Submitted_Timestamp__c</field>
+            <value>
+                <elementReference>fr_NOW</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>RRA_Update_Amount_Monthly_Amount</name>
+        <label>RRA - Update Amount/Monthly Amount</label>
+        <locationX>974</locationX>
+        <locationY>6119</locationY>
+        <connector>
+            <targetReference>Rule_WCO_Wolves_Closed_Opportunity</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Amount</field>
+            <value>
+                <elementReference>fr_Amount_MonthlyAmmount_for_RR</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Monthly_Amount__c</field>
+            <value>
+                <elementReference>fr_Amount_MonthlyAmmount_for_RR</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>SA_Set_Monthly_Amount_Amount_New_ARR</name>
+        <label>SA - Set Monthly Amount/ Amount /New ARR</label>
+        <locationX>1546</locationX>
+        <locationY>5303</locationY>
+        <connector>
+            <targetReference>Rule_NARR_Set_New_ARR</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>ARR__c</field>
+            <value>
+                <elementReference>fr_NewARR</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Amount</field>
+            <value>
+                <elementReference>fr_Amount</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Monthly_Amount__c</field>
+            <value>
+                <elementReference>fr_MonthlyAmount</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>SON_Set_Opportunity_Name</name>
+        <label>SON - Set Opportunity Name</label>
+        <locationX>1106</locationX>
+        <locationY>2603</locationY>
+        <connector>
+            <targetReference>Rule_SWRT_Set_Wolves_RT_upon_conversion</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Name</field>
+            <value>
+                <elementReference>fr_OppName</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>SUD_Update_Stage_Update_Date_Field_on_Opportunity</name>
+        <label>SUD - Update &apos;Stage Update Date&apos; Field on Opportunity</label>
+        <locationX>1260</locationX>
+        <locationY>3695</locationY>
+        <connector>
+            <targetReference>Rule_PCM_Primary_Contact_is_Null</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Stage_Update_Date_Wolves__c</field>
+            <value>
+                <elementReference>fr_TODAY</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>SWRT_Update_Record_Type</name>
+        <label>SWRT - Update Record Type</label>
+        <locationX>1260</locationX>
+        <locationY>3095</locationY>
+        <connector>
+            <targetReference>Rule_P25_Opp_prob_25</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>RecordTypeId</field>
+            <value>
+                <elementReference>SWRT_Get_Wolves_Panel_Acquisition_RT.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>MIS-4112</description>
+        <name>Update_Champion_Title</name>
+        <label>Update Champion Title</label>
+        <locationX>1260</locationX>
+        <locationY>10403</locationY>
+        <connector>
+            <targetReference>Assigned_CSM_needs_to_update</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Champion_Title__c</field>
+            <value>
+                <stringValue>$Record.Champion__r.Title</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>MIS-3658</description>
+        <name>Update_Economic_Buyer_Title</name>
+        <label>Update Economic Buyer Title</label>
+        <locationX>1260</locationX>
+        <locationY>10103</locationY>
+        <connector>
+            <targetReference>Populate_Champion_title</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Economic_Buyer_Title__c</field>
+            <value>
+                <elementReference>$Record.Economic_Buyer__r.Title</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>MIS-4985</description>
+        <name>Update_Emails</name>
+        <label>Update Emails</label>
+        <locationX>1106</locationX>
+        <locationY>4811</locationY>
+        <connector>
+            <targetReference>Rule_CRT_Check_RT</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Assigned_CSM_Email__c</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <elementReference>$Record.Assigned_CSM_Name__r.Email</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Assigned_CSM_Email__c</field>
+            <value>
+                <elementReference>$Record.Assigned_CSM_Name__r.Email</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Assigned_CSM_Manager_Email__c</field>
+            <value>
+                <elementReference>$Record.Assigned_CSM_Name__r.Manager.Email</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>MIS-7241</description>
+        <name>Update_First_Commit_Date</name>
+        <label>Update First Commit Date</label>
+        <locationX>1260</locationX>
+        <locationY>12587</locationY>
+        <connector>
+            <targetReference>Update_NT2T</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>First_Commit_Date__c</field>
+            <value>
+                <elementReference>$Record.CloseDate</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>MIS-5956</description>
+        <name>Update_Is_PO_Required</name>
+        <label>Update Is PO Required</label>
+        <locationX>1260</locationX>
+        <locationY>12287</locationY>
+        <connector>
+            <targetReference>Rule_UFCD_Update_First_Commit_Date</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Do_customer_have_PO__c</field>
+            <value>
+                <stringValue>Yes, but we don&apos;t have the number yet</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_NT2T_false</name>
+        <label>Update NT2T false</label>
+        <locationX>1392</locationX>
+        <locationY>12887</locationY>
+        <connector>
+            <targetReference>Adjusted_ARR_changed</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>NT2T_Opportunity__c</field>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_NT2T_true</name>
+        <label>Update NT2T true</label>
+        <locationX>1128</locationX>
+        <locationY>12887</locationY>
+        <connector>
+            <targetReference>Adjusted_ARR_changed</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>NT2T_Opportunity__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>MIS-5742</description>
+        <name>Update_PO_number</name>
+        <label>Update is PO number required</label>
+        <locationX>1260</locationX>
+        <locationY>11987</locationY>
+        <connector>
+            <targetReference>Rule_CUPO_Client_Uses_Purchase_Order_PO_and_ISNEW</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Do_customer_have_PO__c</field>
+            <value>
+                <stringValue>Yes</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>WCO_Update_Close_Date</name>
+        <label>WCO - Update Close Date</label>
+        <locationX>1260</locationX>
+        <locationY>6503</locationY>
+        <connector>
+            <targetReference>Rule_NWO_New_Wolves_Opportunity</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>CloseDate</field>
+            <value>
+                <elementReference>fr_TODAY</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>X50DT_Update_50_Date_Time</name>
+        <label>50DT - Update &quot;&gt;50% Date/Time&quot;</label>
+        <locationX>1260</locationX>
+        <locationY>7103</locationY>
+        <connector>
+            <targetReference>Rule_60DT_60_Date_Time</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>X50_Date_Time__c</field>
+            <value>
+                <elementReference>fr_NOW</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>X60DT_Update_60_Date_Time</name>
+        <label>60DT - Update &quot;&gt;60% Date/Time&quot;</label>
+        <locationX>1260</locationX>
+        <locationY>7403</locationY>
+        <connector>
+            <targetReference>Rule_80DT_80_Date_Time</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>X60_Date_Time__c</field>
+            <value>
+                <elementReference>fr_NOW</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>X80DT_Update_80_Date_Time</name>
+        <label>80DT - Update &quot;&gt;80% Date/Time&quot;</label>
+        <locationX>1260</locationX>
+        <locationY>7703</locationY>
+        <connector>
+            <targetReference>Rule_OJ_Opportunity_Jumped</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>X80_Date_Time__c</field>
+            <value>
+                <elementReference>fr_NOW</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>1266</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Rule_CS_Cross_Sale</targetReference>
+        </connector>
+        <object>Opportunity</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>Opp_Products_Concat</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

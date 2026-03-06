@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Exclude_From_Territory_Owner_Change__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Exclude the account from the owner&apos;s changes in the territory automation.
+MIS-3611</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Exclude the account from the owner&apos;s changes in the territory automation.</inlineHelpText>
+    <label>Exclude From Territory Owner Change</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

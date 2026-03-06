@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Chris_M_Account_List</fullName>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>Business_Unit__c</columns>
+    <columns>SW_Industry__c</columns>
+    <columns>TCV__c</columns>
+    <columns>Code_Red_Flag__c</columns>
+    <columns>Health_Score__c</columns>
+    <columns>ACCOUNT.ADDRESS1_STATE</columns>
+    <columns>ACCOUNT.LAST_ACTIVITY</columns>
+    <columns>ONB_What_is_their_use_case__c</columns>
+    <columns>ONB_What_is_their_main_pain__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>Active</value>
+    </filters>
+    <filters>
+        <field>CORE.USERS.ALIAS</field>
+        <operation>equals</operation>
+        <value>cmune</value>
+    </filters>
+    <filters>
+        <field>ACCOUNT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Account.Current_25_10_16,Account.B2C</value>
+    </filters>
+    <label>Chris M Account List</label>
+</ListView>

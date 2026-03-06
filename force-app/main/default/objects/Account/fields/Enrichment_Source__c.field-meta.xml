@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Enrichment_Source__c</fullName>
+    <externalId>false</externalId>
+    <label>Enrichment Source</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Mass Verify</fullName>
+                <default>false</default>
+                <label>Mass Verify</label>
+            </value>
+            <value>
+                <fullName>Clearbit</fullName>
+                <default>false</default>
+                <label>Clearbit</label>
+            </value>
+            <value>
+                <fullName>Datafox</fullName>
+                <default>false</default>
+                <label>Datafox</label>
+            </value>
+            <value>
+                <fullName>ZoomInfo</fullName>
+                <default>false</default>
+                <label>ZoomInfo</label>
+            </value>
+            <value>
+                <fullName>LeadIQ</fullName>
+                <default>false</default>
+                <label>LeadIQ</label>
+            </value>
+            <value>
+                <fullName>Enrichment Team</fullName>
+                <default>false</default>
+                <label>Enrichment Team</label>
+            </value>
+            <value>
+                <fullName>Brandbase</fullName>
+                <default>false</default>
+                <label>Brandbase</label>
+            </value>
+            <value>
+                <fullName>Sales Intelligence</fullName>
+                <default>false</default>
+                <label>Sales Intelligence</label>
+            </value>
+            <value>
+                <fullName>Enrichment Team (Automated)</fullName>
+                <default>false</default>
+                <label>Enrichment Team (Automated)</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

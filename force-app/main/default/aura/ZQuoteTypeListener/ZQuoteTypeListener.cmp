@@ -1,0 +1,15 @@
+<aura:component controller="GetQuoteType" implements="flexipage:availableForAllPageTypes,force:hasRecordId" access="global" >
+    <aura:attribute name="recordId" type="String" />
+    <aura:attribute name="isDisplay" type="Boolean" default="false"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+	
+    <aura:if isTrue="{!v.isDisplay}">
+        <aura:html tag="style">
+            li[title="Approval History"], li[title="Approval Flow"] {
+            	display: none;
+            }
+        
+        </aura:html>
+    </aura:if>
+	
+</aura:component>

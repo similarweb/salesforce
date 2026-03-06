@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Generate_insights_w_PRO_CIG_Tool__c</fullName>
+    <externalId>false</externalId>
+    <formula>HYPERLINK(&quot;http://labs.similarweb.com/&quot;, &quot;Click here to access CIG&quot;)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Generate insights w/PRO &amp; CIG Tool</label>
+    <required>false</required>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

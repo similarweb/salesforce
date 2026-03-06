@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>60.0</apiVersion>
+    <assignments>
+        <name>Sync_BI_Data_to_SFMC_TRUE</name>
+        <label>Sync_BI_Data_to_SFMC = TRUE</label>
+        <locationX>50</locationX>
+        <locationY>395</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Sync_BI_Data_to_SFMC__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <decisions>
+        <name>Was_MC_Field_Updated</name>
+        <label>Was MC Field Updated</label>
+        <locationX>182</locationX>
+        <locationY>287</locationY>
+        <defaultConnectorLabel>MC Did not update</defaultConnectorLabel>
+        <rules>
+            <name>MC_Updated_and_Not_Null</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>MC_Field_Updated</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>MC_Field_Not_NULL</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Sync_BI_Data_to_SFMC_TRUE</targetReference>
+            </connector>
+            <label>MC Updated and Not Null</label>
+        </rules>
+    </decisions>
+    <description>MIS-7789
+MIS-7701
+MIS-7414
+MIS-7300
+MIS-6604</description>
+    <environments>Default</environments>
+    <formulas>
+        <description>MIS-6031</description>
+        <name>MC_Field_Not_NULL</name>
+        <dataType>Boolean</dataType>
+        <expression>OR(
+  NOT(ISBLANK({!$Record.Competitors_List__c})),
+  NOT(ISBLANK({!$Record.Last_Competitors_List__c})),
+  NOT(ISBLANK({!$Record.Last_High_Usage_Threshold__c})),
+  NOT(ISBLANK({!$Record.intent_first_high_date__c})),
+  NOT(ISBLANK({!$Record.intent_first_low_date__c})),
+  NOT(ISBLANK({!$Record.intent_first_medium_date__c})),
+  NOT(ISBLANK({!$Record.intent_last_action_date__c})),
+  NOT(ISBLANK({!$Record.intent_last_update_date__c})),
+  NOT(ISBLANK({!$Record.Intent_Log_Ins__c})),
+  NOT(ISBLANK({!$Record.intent_num_of_asset_view__c})),
+  NOT(ISBLANK({!$Record.intent_num_of_compares__c})),
+  NOT(ISBLANK({!$Record.intent_num_of_content_downloads__c})),
+  NOT(ISBLANK({!$Record.intent_num_of_dashboards__c})),
+  NOT(ISBLANK({!$Record.intent_num_of_events_participation__c})),
+  NOT(ISBLANK({!$Record.intent_num_of_handraises__c})),
+  NOT(ISBLANK({!$Record.intent_num_of_hr_calendar__c})),
+  NOT(ISBLANK({!$Record.intent_num_of_hr_chat__c})),
+  NOT(ISBLANK({!$Record.intent_num_of_hr_contact_us__c})),
+  NOT(ISBLANK({!$Record.intent_num_of_hr_email_reply__c})),
+  NOT(ISBLANK({!$Record.intent_num_of_invite_users__c})),
+  NOT(ISBLANK({!$Record.intent_num_of_lite_visits__c})),
+  NOT(ISBLANK({!$Record.intent_num_of_minisites_visits__c})),
+  NOT(ISBLANK({!$Record.intent_num_of_package_page_visits__c})),
+  NOT(ISBLANK({!$Record.intent_num_of_pdf_downloads__c})),
+  NOT(ISBLANK({!$Record.intent_num_of_png_downloads__c})),
+  NOT(ISBLANK({!$Record.intent_num_of_pricing_page_visits__c})),
+  NOT(ISBLANK({!$Record.intent_num_of_pro_actions__c})),
+  NOT(ISBLANK({!$Record.intent_num_of_sfmc_clicks__c})),
+  NOT(ISBLANK({!$Record.intent_num_of_sfmc_opens__c})),
+  NOT(ISBLANK({!$Record.intent_num_of_webinar_participation__c})),
+  NOT(ISBLANK({!$Record.intent_num_of_widget_share__c})),
+  NOT(ISBLANK({!$Record.intent_score_tier__c})),
+  NOT(ISBLANK({!$Record.Mrkt_Days_Reached_Query_Limit__c})),
+  NOT(ISBLANK({!$Record.Mrkt_Hook_Without_CU__c})),
+  NOT(ISBLANK({!$Record.Mrkt_Last_3_Compare_Websites__c})),
+  NOT(ISBLANK({!$Record.Mrkt_Last_3_Keyword_List__c})),
+  NOT(ISBLANK({!$Record.Mrkt_Last_3_Tracker_Sites__c})),
+  NOT(ISBLANK({!$Record.Mrkt_Premium_Features_Dates__c})),
+  NOT(ISBLANK({!$Record.Mrkt_Pro_Hook_Clicked__c})),
+  NOT(ISBLANK({!$Record.Mrkt_Pro_Hook_Clicked_Dates__c})),
+  NOT(ISBLANK({!$Record.Mrkt_Talk_to_Us_Last_Feature_Name__c})),
+  NOT({!$Record.intent_is_trial__c}),
+  NOT(ISBLANK({!$Record.mrkt_homepage_website__c})),
+  NOT(ISBLANK({!$Record.mrkt_homepage_topics__c})),
+  NOT(ISBLANK({!$Record.mrkt_homepage_competitors__c})),
+  NOT(ISBLANK({!$Record.mrkt_homepage_benchmark__c})),
+  NOT(ISBLANK({!$Record.mrkt_high_usage_date__c})),
+  NOT(ISBLANK({!$Record.mrkt_abandoned_payment_page_date__c})),
+  NOT(ISBLANK({!$Record.mrkt_abandoned_package_page_date__c})),
+  NOT(ISBLANK({!$Record.Mrkt_si_company_analysis__c})),
+  NOT(ISBLANK({!$Record.Mrkt_si_list_name__c})),
+  NOT(ISBLANK({!$Record.Mrkt_si_signals__c})),
+  NOT(ISBLANK({!$Record.Mrkt_solution_switcher_old__c})),
+  NOT(ISBLANK({!$Record.Mrkt_solution_switcher_new__c})),
+  NOT(ISBLANK({!$Record.Mrkt_keyword_gap__c})),
+  NOT(ISBLANK({!$Record.Mrkt_generate_api_button__c})),
+  NOT(ISBLANK({!$Record.Mrkt_solution_switcher_date__c})),
+  NOT(ISBLANK({!$Record.Mrkt_CC_Wall_Bounce__c})),
+NOT(ISBLANK({!$Record.mrkt_landed_on_cc_wall__c})),
+NOT(ISBLANK({!$Record.mrkt_trial_reactivation__c})),
+NOT(ISBLANK({!$Record.mrkt_deleted_from_secure__c})),
+NOT(ISBLANK({!$Record.mrkt_SI_saved_search__c})),
+NOT(ISBLANK({!$Record.mrkt_SI_advanced_search_filtering__c})),
+NOT(ISBLANK({!$Record.mrkt_SI_company_analysis_visit__c})),
+NOT(ISBLANK({!$Record.mrkt_SI_generate_brief__c})),
+NOT(ISBLANK({!$Record.mrkt_date_range_hook__c}))
+)</expression>
+    </formulas>
+    <formulas>
+        <description>MIS-6031</description>
+        <name>MC_Field_Updated</name>
+        <dataType>Boolean</dataType>
+        <expression>OR(
+  ISCHANGED({!$Record.Competitors_List__c}),
+  ISCHANGED({!$Record.Last_Competitors_List__c}),
+  ISCHANGED({!$Record.Last_High_Usage_Threshold__c}),
+  ISCHANGED({!$Record.intent_first_high_date__c}),
+  ISCHANGED({!$Record.intent_first_low_date__c}),
+  ISCHANGED({!$Record.intent_first_medium_date__c}),
+  ISCHANGED({!$Record.intent_is_trial__c}),
+  ISCHANGED({!$Record.intent_last_action_date__c}),
+  ISCHANGED({!$Record.intent_last_update_date__c}),
+  ISCHANGED({!$Record.Intent_Log_Ins__c}),
+  ISCHANGED({!$Record.intent_num_of_asset_view__c}),
+  ISCHANGED({!$Record.intent_num_of_compares__c}),
+  ISCHANGED({!$Record.intent_num_of_content_downloads__c}),
+  ISCHANGED({!$Record.intent_num_of_dashboards__c}),
+  ISCHANGED({!$Record.intent_num_of_events_participation__c}),
+  ISCHANGED({!$Record.intent_num_of_handraises__c}),
+  ISCHANGED({!$Record.intent_num_of_hr_calendar__c}),
+  ISCHANGED({!$Record.intent_num_of_hr_chat__c}),
+  ISCHANGED({!$Record.intent_num_of_hr_contact_us__c}),
+  ISCHANGED({!$Record.intent_num_of_hr_email_reply__c}),
+  ISCHANGED({!$Record.intent_num_of_invite_users__c}),
+  ISCHANGED({!$Record.intent_num_of_lite_visits__c}),
+  ISCHANGED({!$Record.intent_num_of_minisites_visits__c}),
+  ISCHANGED({!$Record.intent_num_of_package_page_visits__c}),
+  ISCHANGED({!$Record.intent_num_of_pdf_downloads__c}),
+  ISCHANGED({!$Record.intent_num_of_png_downloads__c}),
+  ISCHANGED({!$Record.intent_num_of_pricing_page_visits__c}),
+  ISCHANGED({!$Record.intent_num_of_pro_actions__c}),
+  ISCHANGED({!$Record.intent_num_of_sfmc_clicks__c}),
+  ISCHANGED({!$Record.intent_num_of_sfmc_opens__c}),
+  ISCHANGED({!$Record.intent_num_of_webinar_participation__c}),
+  ISCHANGED({!$Record.intent_num_of_widget_share__c}),
+  ISCHANGED({!$Record.intent_score_tier__c}),
+  ISCHANGED({!$Record.Mrkt_Days_Reached_Query_Limit__c}),
+  ISCHANGED({!$Record.Mrkt_Hook_Without_CU__c}),
+  ISCHANGED({!$Record.Mrkt_Last_3_Compare_Websites__c}),
+  ISCHANGED({!$Record.Mrkt_Last_3_Keyword_List__c}),
+  ISCHANGED({!$Record.Mrkt_Last_3_Tracker_Sites__c}),
+  ISCHANGED({!$Record.Mrkt_Premium_Features_Dates__c}),
+  ISCHANGED({!$Record.Mrkt_Pro_Hook_Clicked__c}),
+  ISCHANGED({!$Record.Mrkt_Pro_Hook_Clicked_Dates__c}),
+  ISCHANGED({!$Record.Mrkt_Talk_to_Us_Last_Feature_Name__c}),
+  ISCHANGED({!$Record.mrkt_homepage_website__c}),
+ISCHANGED({!$Record.mrkt_homepage_topics__c}),
+ISCHANGED({!$Record.mrkt_homepage_competitors__c}),
+ISCHANGED({!$Record.mrkt_homepage_benchmark__c}),
+ISCHANGED({!$Record.mrkt_high_usage_date__c}),
+ISCHANGED({!$Record.mrkt_abandoned_payment_page_date__c}),
+ISCHANGED({!$Record.mrkt_abandoned_package_page_date__c}),
+ISCHANGED({!$Record.Mrkt_si_company_analysis__c}),
+ISCHANGED({!$Record.Mrkt_si_list_name__c}),
+ISCHANGED({!$Record.Mrkt_si_signals__c}),
+ISCHANGED({!$Record.Mrkt_solution_switcher_old__c}),
+ISCHANGED({!$Record.Mrkt_solution_switcher_new__c}),
+ISCHANGED({!$Record.Mrkt_keyword_gap__c}),
+ISCHANGED({!$Record.Mrkt_generate_api_button__c}),
+ISCHANGED({!$Record.Mrkt_solution_switcher_date__c}),
+ISCHANGED({!$Record.Mrkt_CC_Wall_Bounce__c}),
+ISCHANGED({!$Record.mrkt_landed_on_cc_wall__c}),
+ISCHANGED({!$Record.mrkt_trial_reactivation__c}),
+ISCHANGED({!$Record.mrkt_deleted_from_secure__c}),
+ISCHANGED({!$Record.mrkt_SI_saved_search__c}),
+ISCHANGED({!$Record.mrkt_SI_advanced_search_filtering__c}),
+ISCHANGED({!$Record.mrkt_SI_company_analysis_visit__c}),
+ISCHANGED({!$Record.mrkt_SI_generate_brief__c}),
+ISCHANGED({!$Record.mrkt_date_range_hook__c})
+)</expression>
+    </formulas>
+    <interviewLabel>Bi Data - Before Save {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Bi Data Before Save</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>56</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Was_MC_Field_Updated</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Sync_BI_Data_to_SFMC__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <object>BI_Data__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>BiDataAssignments</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>BI_Data__c</objectType>
+    </variables>
+</Flow>

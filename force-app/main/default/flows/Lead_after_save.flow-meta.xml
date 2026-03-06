@@ -1,0 +1,2333 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <description>MIS-5743</description>
+        <name>Send_Hard_MQL_Notification</name>
+        <label>Send Hard MQL Notification</label>
+        <locationX>204</locationX>
+        <locationY>5609</locationY>
+        <actionName>customNotificationAction</actionName>
+        <actionType>customNotificationAction</actionType>
+        <connector>
+            <targetReference>Fit_Score_changed_to_S</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>customNotifTypeId</name>
+            <value>
+                <elementReference>Hard_MQL_Get_Soft_Hard_MQL_Notification_Type.Id</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>recipientIds</name>
+            <value>
+                <elementReference>Lead_Owner_ID</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>title</name>
+            <value>
+                <elementReference>Soft_Hard_MQL_Notification_Title</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>body</name>
+            <value>
+                <elementReference>Soft_Hard_MQL_Notification_Body</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>targetId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>customNotificationAction</nameSegment>
+    </actionCalls>
+    <actionCalls>
+        <description>MIS-4891</description>
+        <name>Send_Reassinged_CU_Email</name>
+        <label>Send Reassinged CU Email</label>
+        <locationX>215</locationX>
+        <locationY>3695</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <connector>
+            <targetReference>Rule_RFS_Recalculate_Fit_Score</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailAddressesArray</name>
+            <value>
+                <elementReference>Email_Recipients</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderType</name>
+            <value>
+                <stringValue>OrgWideEmailAddress</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderAddress</name>
+            <value>
+                <stringValue>field.growth@similarweb.com</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <elementReference>Reassinged_CU_Email_Subject</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>Reassigned_CU_Task_Email_Body</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>sendRichBody</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+    </actionCalls>
+    <actionCalls>
+        <description>MIS-5460 - Update for changes in fit score</description>
+        <name>Send_Reopened_CU_Email</name>
+        <label>Send Reopened CU Email</label>
+        <locationX>50</locationX>
+        <locationY>2795</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <connector>
+            <targetReference>Rule_OI_Owner_ISCHANGED</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailAddressesArray</name>
+            <value>
+                <elementReference>Email_Recipients</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderType</name>
+            <value>
+                <stringValue>OrgWideEmailAddress</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderAddress</name>
+            <value>
+                <stringValue>field.growth@similarweb.com</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <elementReference>Reopened_CU_Task_Email_Subject</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>Reopened_CU_Task_Email_Body</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>sendRichBody</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+    </actionCalls>
+    <apiVersion>53.0</apiVersion>
+    <assignments>
+        <description>MIS-4891</description>
+        <name>Assign_Email_Recipients</name>
+        <label>Assign Email Recipients</label>
+        <locationX>215</locationX>
+        <locationY>3587</locationY>
+        <assignmentItems>
+            <assignToReference>Email_Recipients</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <stringValue>lola.stolper@similarweb.com</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Email_Recipients</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>$Record.Owner:User.Email</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Email_Recipients</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>$Record.Owner:User.Manager.Email</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Email_Recipients</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>fr_MIR_Director_Email</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Send_Reassinged_CU_Email</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>MIS-5460 - Update for changes in fit score</description>
+        <name>Assign_Email_Recipients_for_Reopened_Task</name>
+        <label>Assign Email Recipients for Reopened Task</label>
+        <locationX>50</locationX>
+        <locationY>2687</locationY>
+        <assignmentItems>
+            <assignToReference>Email_Recipients</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <stringValue>lola.stolper@similarweb.com</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Email_Recipients</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>$Record.Owner:User.Email</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Email_Recipients</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>$Record.Owner:User.Manager.Email</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Email_Recipients</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>fr_MIR_Director_Email</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Send_Reopened_CU_Email</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Connect_BI_Data_to_Lead</name>
+        <label>Connect BI Data to Lead</label>
+        <locationX>369</locationX>
+        <locationY>1655</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.BI_Data__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Create_BI_Data</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ShouldUpdate</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Converted_ID</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>CW_Update_Website</name>
+        <label>CW - Update Website</label>
+        <locationX>369</locationX>
+        <locationY>431</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Website</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Clean_Domain__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ShouldUpdate</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Is_incomplete_lead</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>MIS-5743</description>
+        <name>Hard_MQL_Add_Lead_Owner_ID_to_Collection</name>
+        <label>Hard MQL - Add Lead Owner ID to Collection</label>
+        <locationX>204</locationX>
+        <locationY>5393</locationY>
+        <assignmentItems>
+            <assignToReference>Lead_Owner_ID</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>$Record.OwnerId</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Hard_MQL_Get_Soft_Hard_MQL_Notification_Type</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>MIS-6878</description>
+        <name>Save_Original_Variables_Before_FitScore_Calc</name>
+        <label>Save Original Variables Before FitScore Calc</label>
+        <locationX>237</locationX>
+        <locationY>4079</locationY>
+        <assignmentItems>
+            <assignToReference>Var_Save_Department</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Department__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Var_Save_SW_Industry</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.SW_Industry__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Var_Save_Seniority</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Seniority__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Get_FitScore</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Update_Employee_Size_and_SW_Industry</name>
+        <label>Update Employee Size and SW Industry</label>
+        <locationX>369</locationX>
+        <locationY>5993</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Employees_Max__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>EmployeeMaxSizeCalc</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Employees_Min__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>EmployeeMinSizeCalc</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.SW_Industry__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>SWIndustryCalc</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ShouldUpdate</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>NextRule_Please_use_should_update_for_DMLs</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Update_Lead_First_MQL</name>
+        <label>Update Lead First MQL</label>
+        <locationX>50</locationX>
+        <locationY>5009</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.First_MQL_Date__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Fit_Score_Intent_Compare</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ShouldUpdate</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Rule_RSN_Relevant_for_Sending_Notification</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <description>MIS-4679</description>
+        <name>Converted_ID</name>
+        <label>Converted ID</label>
+        <locationX>501</locationX>
+        <locationY>1847</locationY>
+        <defaultConnector>
+            <targetReference>Rule_FSI_Fit_Score_ISCHANGED_to_ABCD</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>converted_ids</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.ConvertedContactId</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Individual_email</targetReference>
+            </connector>
+            <label>converted id</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-6893</description>
+        <name>FCCU_Owner_Role_not_Admin_or_Director_MIR</name>
+        <label>FCCU - Owner Role not Admin or Director MIR?</label>
+        <locationX>182</locationX>
+        <locationY>2579</locationY>
+        <defaultConnector>
+            <targetReference>Rule_OI_Owner_ISCHANGED</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>FCCU_Send_Email</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Owner:User.UserRole.Name</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Admin</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Owner:User.UserRole.Name</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Director MIR</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Email_Recipients_for_Reopened_Task</targetReference>
+            </connector>
+            <label>FCCU - Send Email</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-6336
+MIS-6227</description>
+        <name>Fit_Score_and_Intent_Compare_ISNULL</name>
+        <label>Fit Score and Intent Compare ISNULL?</label>
+        <locationX>182</locationX>
+        <locationY>4901</locationY>
+        <defaultConnector>
+            <targetReference>Rule_RSN_Relevant_for_Sending_Notification</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>NOT_NULL</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Fit_Score_Intent_Compare</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Lead_First_MQL</targetReference>
+            </connector>
+            <label>NOT NULL</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Fit_Score_changed_to_S</name>
+        <label>Fit Score changed to S?</label>
+        <locationX>501</locationX>
+        <locationY>5885</locationY>
+        <defaultConnector>
+            <targetReference>NextRule_Please_use_should_update_for_DMLs</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Fit_Score_changed_to_S</name>
+            <conditionLogic>(1 OR 2) AND 3</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.SW_Fit_Score__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>IsNew</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.SW_Fit_Score__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>S</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Employee_Size_and_SW_Industry</targetReference>
+            </connector>
+            <label>Yes, Fit Score changed to S</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Is_incomplete_lead</name>
+        <label>Is incomplete lead</label>
+        <locationX>501</locationX>
+        <locationY>623</locationY>
+        <defaultConnector>
+            <targetReference>Rule_LC_Lead_is_Converted</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>incomplete_lead</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.OwnerId</leftValueReference>
+                <operator>StartsWith</operator>
+                <rightValue>
+                    <stringValue>00G</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record__Prior.Country</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Email_address_domain_type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Company</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>get_account</targetReference>
+            </connector>
+            <label>incomplete lead</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-5743</description>
+        <name>Lead_Received_Soft_Hard_MQL_Status</name>
+        <label>Lead Received Soft/Hard MQL Status?</label>
+        <locationX>501</locationX>
+        <locationY>4685</locationY>
+        <defaultConnector>
+            <targetReference>Fit_Score_changed_to_S</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Soft_Hard_MQL_Status</name>
+            <conditionLogic>1 AND ((2 AND 3) OR (4 AND 5))</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.SW_Fit_Score__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.mql_status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Hard MQL</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record__Prior.mql_status__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Hard MQL</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.mql_status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Soft MQL</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record__Prior.mql_status__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Soft MQL</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Rule_RFMQL_Relevant_for_First_MQL_Calculation</targetReference>
+            </connector>
+            <label>Soft/Hard MQL Status</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>NextRule_Please_use_should_update_for_DMLs</name>
+        <label>NextRule (Please use ShouldUpdate var for lead DMLs)</label>
+        <locationX>501</locationX>
+        <locationY>6185</locationY>
+        <defaultConnector>
+            <targetReference>Should_Update</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Next</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Description</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Nextrule1</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Should_Update</targetReference>
+            </connector>
+            <label>Next</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Rule_CBI_Create_BI_Data</name>
+        <label>*Rule(CBI)* - Create BI Data</label>
+        <locationX>501</locationX>
+        <locationY>1439</locationY>
+        <defaultConnector>
+            <targetReference>Converted_ID</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Record_is_new</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record__Prior.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Create_BI_Data</targetReference>
+            </connector>
+            <label>Record is new</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-6893
+MIS-4891</description>
+        <name>Rule_CUTF_CU_Task_was_Found</name>
+        <label>*Rule (CUTF)* - CU Task was Found?</label>
+        <locationX>347</locationX>
+        <locationY>3479</locationY>
+        <defaultConnector>
+            <targetReference>Rule_RFS_Recalculate_Fit_Score</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>CUTF_Yes</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Latest_CU_Task</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Owner:User.UserRole.Name</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Admin</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Owner:User.UserRole.Name</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Director MIR</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Email_Recipients</targetReference>
+            </connector>
+            <label>CUTF - Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Rule_CW_CleanDomain_Website</name>
+        <label>*Rule - (CW)* - CleanDomain = Website</label>
+        <locationX>501</locationX>
+        <locationY>323</locationY>
+        <defaultConnector>
+            <targetReference>Is_incomplete_lead</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>True_Outcome</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Email_DomainClean__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Email_address_domain_type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Company</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Website</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>CW_Update_Website</targetReference>
+            </connector>
+            <label>True Outcome</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-5460 - Update for changes in fit score</description>
+        <name>Rule_FCCU_Found_Closed_CU_Task</name>
+        <label>*Rule (FCCU)* - Found Closed CU Task?</label>
+        <locationX>336</locationX>
+        <locationY>2363</locationY>
+        <defaultConnector>
+            <targetReference>Rule_OI_Owner_ISCHANGED</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>FCCU_Found_Closed_CU_Task</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Latest_Closed_CU_Task</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_to_Open_CU_Task</targetReference>
+            </connector>
+            <label>FCCU - Found Closed CU Task?</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-7371 - Added FitScore E to Lead Logic
+MIS-5460 - Update for changes in fit score</description>
+        <name>Rule_FSI_Fit_Score_ISCHANGED_to_ABCD</name>
+        <label>*Rule (FSI)* - Fit Score ISCHANGED to ABCD?</label>
+        <locationX>501</locationX>
+        <locationY>2147</locationY>
+        <defaultConnector>
+            <targetReference>Rule_OI_Owner_ISCHANGED</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>FSI_Fit_Score_ISCHANGED_to_ABCD</name>
+            <conditionLogic>1 AND (2 OR 3 OR 4 OR 5 OR (6 AND 7 AND 8)) AND (9 OR 10 OR 11 OR 12 OR 13)</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.SW_Fit_Score__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.SW_Fit_Score__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>A</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.SW_Fit_Score__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>B</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.SW_Fit_Score__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>C</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.SW_Fit_Score__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>D</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record__Prior.SW_Fit_Score__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>E</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Last_Contact_Us_Form_Message__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Last_Contact_Us_Form_Message__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Hook - no text sent</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record__Prior.SW_Fit_Score__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>A</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record__Prior.SW_Fit_Score__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>B</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record__Prior.SW_Fit_Score__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>C</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record__Prior.SW_Fit_Score__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>D</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record__Prior.SW_Fit_Score__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>E</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Latest_Closed_CU_Task</targetReference>
+            </connector>
+            <label>FSI - Fit Score ISCHANGED to ABCD</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Rule_LC_Lead_is_Converted</name>
+        <label>*Rule(LC)* - Lead is Converted</label>
+        <locationX>501</locationX>
+        <locationY>1031</locationY>
+        <defaultConnector>
+            <targetReference>Rule_CBI_Create_BI_Data</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Converted</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.IsConverted</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.IsConverted</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>LC_Update_Campaign_Member</targetReference>
+            </connector>
+            <label>Converted</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-4891</description>
+        <name>Rule_OI_Owner_ISCHANGED</name>
+        <label>*Rule (OI)* - Owner ISCHANGED</label>
+        <locationX>501</locationX>
+        <locationY>3155</locationY>
+        <defaultConnector>
+            <targetReference>Rule_RFS_Recalculate_Fit_Score</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>OI_Owner_ISCHANGED</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.OwnerId</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_CU_Task_Owner</targetReference>
+            </connector>
+            <label>OI - Owner ISCHANGED</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-6336
+MIS-6227</description>
+        <name>Rule_RFMQL_Relevant_for_First_MQL_Calculation</name>
+        <label>*Rule(RFMQL)* - Relevant for First MQL Calculation?</label>
+        <locationX>336</locationX>
+        <locationY>4793</locationY>
+        <defaultConnector>
+            <targetReference>Rule_RSN_Relevant_for_Sending_Notification</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>RFMQL_Calculate_First_MQL_Date</name>
+            <conditionLogic>1 AND (2 OR 3 OR 4) AND (5 OR 6)</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.First_MQL_Date__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>SW_Fit_Score_Timestamp_2100</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Intent_First_Medium_Date_2100</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Intent_First_High_Date_2100</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.CreatedDate</leftValueReference>
+                <operator>GreaterThanOrEqualTo</operator>
+                <rightValue>
+                    <elementReference>NOW_Minus_60</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.BI_Data__r.intent_last_action_date__c</leftValueReference>
+                <operator>GreaterThanOrEqualTo</operator>
+                <rightValue>
+                    <elementReference>NOW_Minus_60</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Fit_Score_and_Intent_Compare_ISNULL</targetReference>
+            </connector>
+            <label>RFMQL - Calculate First MQL Date</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-6637</description>
+        <name>Rule_RFS_Recalculate_Fit_Score</name>
+        <label>*Rule (RFS)* - Recalculate Fit Score?</label>
+        <locationX>501</locationX>
+        <locationY>3971</locationY>
+        <defaultConnector>
+            <targetReference>Lead_Received_Soft_Hard_MQL_Status</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>RFS_Recalculate</name>
+            <conditionLogic>((1 AND 2) OR 3) AND 4 AND 5 AND 6</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.SW_Fit_Score_Timestamp__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.SW_Fit_Score_Timestamp__c</leftValueReference>
+                <operator>LessThanOrEqualTo</operator>
+                <rightValue>
+                    <elementReference>X2_Weeks_Ago</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.SW_Fit_Score_Timestamp__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Fit_Score_ABCD</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.OwnerId</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Intent_Score__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Save_Original_Variables_Before_FitScore_Calc</targetReference>
+            </connector>
+            <label>RFS - Recalculate</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-6255</description>
+        <name>Rule_RSN_Relevant_for_Sending_Notification</name>
+        <label>*Rule (RSN)* - Relevant for Sending Notification?</label>
+        <locationX>336</locationX>
+        <locationY>5285</locationY>
+        <defaultConnector>
+            <targetReference>Fit_Score_changed_to_S</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>RSN_Relevant</name>
+            <conditionLogic>(1 OR 2) AND 3 AND 4 AND 5</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.MIR_Status__c</leftValueReference>
+                <operator>IsBlank</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.MIR_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>New</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>LastActivity_More_Than_30</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Owner:User.Division</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>MIR</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.OwnerId</leftValueReference>
+                <operator>StartsWith</operator>
+                <rightValue>
+                    <stringValue>005</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Hard_MQL_Add_Lead_Owner_ID_to_Collection</targetReference>
+            </connector>
+            <label>RSN - Relevant</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Should_Update</name>
+        <label>Should Update</label>
+        <locationX>501</locationX>
+        <locationY>6377</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes_should_update</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>ShouldUpdate</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_lead1</targetReference>
+            </connector>
+            <label>Yes, should update</label>
+        </rules>
+    </decisions>
+    <description>MIS-8337 - Fixed fr_body_for_log formula
+MIS-8114 - Merged DMLs, Moved BI Data creation here
+MIS-7958 - Added FitScore S handling
+MIS-7371 - Added FitScore E to Lead Logic
+MIS-6878 - FitScore Log Updates
+MIS-6893 - Exclude Admin and Director MIR from CU Emails
+MIS-6372 - Department Update from FitScore Flow
+MIS-6637 - FitScore Calc Before First MQL Date
+MIS-6546 - First MQL Date 2.0 - Year 2100 fix
+MIS-6336 - First MQL Date 2.0
+MIS-6259 - MQL Notifications Update 2
+MIS-6255 - MQL Notifications Update
+MIS-6227 - First MQL Date Update
+MIS-5743 - Soft/Hard MQL Status notification
+MIS-5784 - Update converted contact status
+MIS-5529 - mql date
+MIS-5460 - Update for changes in fit score
+MIS-5503 - owner logic update
+MIS-5459 - removed status = &apos;unqualified upon creation&apos; on owner change
+MIS-4891
+MIS-4679</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>EmployeeMaxSizeCalc</name>
+        <dataType>Number</dataType>
+        <expression>IF(ISNULL({!$Record.Employees_Max__c}), 10, {!$Record.Employees_Max__c})</expression>
+        <scale>0</scale>
+    </formulas>
+    <formulas>
+        <name>EmployeeMinSizeCalc</name>
+        <dataType>Number</dataType>
+        <expression>IF(ISNULL({!$Record.Employees_Min__c}), 1, {!$Record.Employees_Min__c})</expression>
+        <scale>0</scale>
+    </formulas>
+    <formulas>
+        <description>MIS-6637</description>
+        <name>Fit_Score_ABCD</name>
+        <dataType>Boolean</dataType>
+        <expression>OR(
+      ISPICKVAL({!$Record.SW_Fit_Score__c}, &apos;A&apos;),
+      ISPICKVAL({!$Record.SW_Fit_Score__c}, &apos;B&apos;),
+      ISPICKVAL({!$Record.SW_Fit_Score__c}, &apos;C&apos;),
+      ISPICKVAL({!$Record.SW_Fit_Score__c}, &apos;D&apos;)
+)</expression>
+    </formulas>
+    <formulas>
+        <description>if fit score is latest → take fit score
+if intent_first_medium_date__c or intent_first_high_date__c) is later than SW Fit score timestamp → take the earliest between intent_first_medium_date__c or intent_first_high_date__c</description>
+        <name>Fit_Score_Intent_Compare</name>
+        <dataType>DateTime</dataType>
+        <expression>IF(
+    {!SW_Fit_Score_Timestamp_2100} &gt;= 
+    IF(
+        AND(
+            ISBLANK({!Intent_First_Medium_Date_2100}),
+            ISBLANK({!Intent_First_High_Date_2100})
+        ),
+        DATETIMEVALUE(&quot;1900-01-01 00:00:00&quot;),
+        IF(
+            AND(
+                ISBLANK({!Intent_First_Medium_Date_2100}),
+                NOT(ISBLANK({!Intent_First_High_Date_2100}))
+            ),
+            {!Intent_First_High_Date_2100},
+            IF(
+                AND(
+                    ISBLANK({!Intent_First_High_Date_2100}),
+                    NOT(ISBLANK({!Intent_First_Medium_Date_2100}))
+                ),
+                {!Intent_First_Medium_Date_2100},
+                IF(
+                    {!Intent_First_Medium_Date_2100} &gt; {!Intent_First_High_Date_2100},
+                    {!Intent_First_Medium_Date_2100},
+                    {!Intent_First_High_Date_2100}
+                )
+            )
+        )
+    ),
+    {!SW_Fit_Score_Timestamp_2100},
+    IF(
+        AND(
+            ISBLANK({!Intent_First_Medium_Date_2100}),
+            NOT(ISBLANK({!Intent_First_High_Date_2100}))
+        ),
+        {!Intent_First_High_Date_2100},
+        IF(
+            AND(
+                ISBLANK({!Intent_First_High_Date_2100}),
+                NOT(ISBLANK({!Intent_First_Medium_Date_2100}))
+            ),
+            {!Intent_First_Medium_Date_2100},
+            IF(
+                {!Intent_First_Medium_Date_2100} &lt; {!Intent_First_High_Date_2100},
+                {!Intent_First_Medium_Date_2100},
+                {!Intent_First_High_Date_2100}
+            )
+        )
+    )
+)</expression>
+    </formulas>
+    <formulas>
+        <description>MIS-6637</description>
+        <name>fr_body_for_log</name>
+        <dataType>String</dataType>
+        <expression>&quot; Business_Unit__c   = &quot; +  text({!$Record.Business_Unit__c})+&quot;, &quot;+
+&quot; Clean_Domain__c  = &quot; +  ({!$Record.Clean_Domain__c})+&quot;, &quot;+
+&quot; Country  = &quot; + ({!$Record.Country})+&quot;, &quot;+
+&quot; CountryCode  = &quot; +  text({!$Record.CountryCode})+&quot;, &quot;+
+&quot; Department__c  = &quot; +  {!Var_Save_Department}+&quot;, &quot;+
+&quot; Calculated_Department  = &quot;+  {!Get_FitScore.Var_Department}+&quot;, &quot;+
+&quot; Department_Other_Description__c  = &quot; +  ({!$Record.Department_Other_Description__c})+&quot;, &quot;+
+&quot; Email_Address_Domain_Type__c   = &quot; + text({!$Record.Email_address_domain_type__c})+&quot;, &quot;+
+&quot; Email_Address_Domain_Type_Details__c   = &quot; +  ({!$Record.Email_Address_Domain_Type_Details__c})+&quot;, &quot;+
+&quot; Employees_Min__c   = &quot; +  text({!$Record.Employees_Min__c})+&quot;, &quot;+
+&quot; Lead Source = &quot; + text({!$Record.LeadSource})+&quot;, &quot;+
+&quot; Quiz Data Incomplete = &quot; + {!$Record.Quiz_Data_Incomplete__c}+&quot;, &quot;+
+&quot; ROE_Division__c  = &quot; +  ({!$Record.ROE_Division__c})+&quot;, &quot;+
+&quot; Secondary_email__c   = &quot; +  ({!$Record.Secondary_email__c})+&quot;, &quot;+
+&quot; Seniority__c   = &quot; +  {!Var_Save_Seniority}+&quot;, &quot;+
+&quot; Calculated_Seniority   = &quot; +  {!Get_FitScore.Var_Seniority}+&quot;, &quot;+
+&quot; SI Enrichment Visit = &quot; + text({!$Record.SI_Enrichment_Visits__c})+&quot;, &quot;+
+&quot; SW_Industry__c   = &quot; +  {!Var_Save_SW_Industry}+&quot;, &quot;+
+&quot; Calculated_SW_Industry   = &quot; +  {!Get_FitScore.Var_SW_Industry}+&quot;, &quot;+
+&quot; Title  = &quot; +  ({!$Record.Title})+&quot;, &quot;+
+&quot; Use_of_Similarweb__c   = &quot; +  text({!$Record.Use_of_Similarweb__c})+&quot;, &quot;+
+&quot; Website  = &quot; +  ({!$Record.Website})+&quot;, &quot;+
+&quot; LinkedIn Profile  = &quot; +  ({!$Record.LinkedIn_Profile__c})+&quot;, &quot;+
+&quot; LinkedIn  = &quot; +  ({!$Record.LinkedIn__c})+&quot;, &quot;+
+&quot; Website  = &quot; +  ({!$Record.Website})+&quot;, &quot;+
+&quot; SI_Enrichment_Visits__c  = &quot; +  text({!$Record.SI_Enrichment_Visits__c})+&quot;, &quot;+
+&quot; sw_connector_Total Monthly Visits  = &quot; +  text({!$Record.sw_connector__swId__r.sw_connector__Visits__c})+&quot;, &quot;+
+&quot; Clean Domain  = &quot; +  ({!$Record.Clean_Domain__c})+&quot;, &quot;+
+&quot; ROE_Division__c  = &quot; +  ({!$Record.ROE_Division__c})</expression>
+    </formulas>
+    <formulas>
+        <description>MIS-6637</description>
+        <name>fr_cause_for_log</name>
+        <dataType>String</dataType>
+        <expression>IF(
+  ISNEW(),
+  &apos;Record is new first time getting Fit Score&apos;,
+  IF(
+    ischanged({!$Record.Country }),
+    &apos;Country changed from &apos; + {!$Record__Prior.Country} + &quot; to &quot; + {!$Record.Country},
+    IF(
+      ischanged({!$Record.CountryCode }),
+      &apos;CountryCode changed from &apos; + text({!$Record__Prior.CountryCode}) + &quot; to &quot; + text({!$Record.CountryCode}),
+      IF(
+        ischanged({!$Record.Department__c}),
+        &apos;department__c changed from &apos; + text({!$Record.Department__c}) + &quot; to &quot; + {!Get_FitScore.Var_Department},
+        IF(
+          ischanged({!$Record.Department_Other_Description__c }),
+          &apos;Department_Other_Description__c changed from &apos; + {!$Record__Prior.Department_Other_Description__c} + &quot; to &quot; + {!$Record.Department_Other_Description__c},
+          IF(
+            ischanged({!$Record.Employees_Min__c}),
+            &apos;employees_min__c changed from &apos; + text({!$Record__Prior.Employees_Min__c}) + &quot; to &quot; + text({!$Record.Employees_Min__c}),
+            IF(
+              ischanged({!$Record.Email_address_domain_type__c }),
+              &apos;Email_address_domain_type__c changed from &apos; + text({!$Record__Prior.Email_address_domain_type__c}) + &quot; to &quot; + text({!$Record.Email_address_domain_type__c}),
+              IF(
+                ischanged({!$Record.Email_Address_Domain_Type_Details__c }),
+                &apos;Email_Address_Domain_Type_Details__c changed from &apos; + {!$Record__Prior.Email_Address_Domain_Type_Details__c} + &quot; to &quot; + {!$Record.Email_Address_Domain_Type_Details__c},
+                IF(
+                  ischanged({!$Record.Clean_Domain__c }),
+                  &apos;Clean_Domain__c changed from &apos; + {!$Record__Prior.Clean_Domain__c} + &quot; to &quot; + {!$Record.Clean_Domain__c},
+                  IF(
+                    ischanged({!$Record.SW_Industry__c}),
+                    &apos;sw_industry__c changed from &apos; + text({!$Record__Prior.SW_Industry__c}) + &quot; to &quot; + text({!$Record.SW_Industry__c}),
+                    IF(
+                      ischanged({!$Record.Business_Unit__c }),
+                      &apos;Business_Unit__c changed from &apos; + text({!$Record__Prior.Business_Unit__c}) + &quot; to &quot; + text({!$Record.Business_Unit__c}),
+                      IF(
+                        ischanged({!$Record.Secondary_email__c }),
+                        &apos;Secondary_email__c changed from &apos; + {!$Record__Prior.Secondary_email__c} + &quot; to &quot; + {!$Record.Secondary_email__c},
+                        IF(
+                          ischanged({!$Record.Website }),
+                          &apos;website changed from &apos; + {!$Record__Prior.Website} + &quot; to &quot; + {!$Record.Website},
+                          IF(
+                            ischanged({!$Record.Title }),
+                            &apos;Title changed from &apos; + {!$Record__Prior.Title} + &quot; to &quot; + {!$Record.Title},
+                            IF(
+                              ischanged({!$Record.Use_of_Similarweb__c }),
+                              &apos;Use_of_Similarweb__c changed from &apos; + text({!$Record__Prior.Use_of_Similarweb__c}) + &quot; to &quot; + text({!$Record.Use_of_Similarweb__c}),
+                              IF(
+                                ischanged({!$Record.Seniority__c }),
+                                &apos;Seniority__c changed from &apos; + text({!$Record__Prior.Seniority__c}) + &quot; to &quot; + text({!$Record.Seniority__c}),
+                                IF(
+                                  ischanged({!$Record.Quiz_Data_Incomplete__c}),
+                                  &apos;Quiz_Data_Incomplete__c changed to &apos; + {!$Record.Quiz_Data_Incomplete__c},
+                                  Null
+                                )
+                              )
+                            )
+                          )
+                        )
+                      )
+                    )
+                  )
+                )
+              )
+            )
+          )
+        )
+      )
+    )
+  )
+)</expression>
+    </formulas>
+    <formulas>
+        <description>MIS-6637</description>
+        <name>fr_fitscore_log_name</name>
+        <dataType>String</dataType>
+        <expression>{!Get_FitScore.Response_FitScore}+&quot; - &quot;+{!Get_FitScore.Response_Reason}+&quot; - &quot;+SUBSTITUTE(TEXT(NOW()), &quot;Z&quot;, NULL)</expression>
+    </formulas>
+    <formulas>
+        <description>MIS-4891</description>
+        <name>fr_MIR_Director_Email</name>
+        <dataType>String</dataType>
+        <expression>IF({!$Record.Owner:User.Division}=&apos;MIR&apos;, &apos;rachel.eviston@similarweb.com&apos;, &quot;&quot;)</expression>
+    </formulas>
+    <formulas>
+        <description>MIS-6546</description>
+        <name>Intent_First_High_Date_2100</name>
+        <dataType>DateTime</dataType>
+        <expression>IF(YEAR(DATEVALUE({!$Record.BI_Data__r.intent_first_high_date__c})) &gt;= 2100, NULL, {!$Record.BI_Data__r.intent_first_high_date__c})</expression>
+    </formulas>
+    <formulas>
+        <description>MIS-6546</description>
+        <name>Intent_First_Medium_Date_2100</name>
+        <dataType>DateTime</dataType>
+        <expression>IF(YEAR(DATEVALUE({!$Record.BI_Data__r.intent_first_medium_date__c})) &gt;= 2100, NULL, {!$Record.BI_Data__r.intent_first_medium_date__c})</expression>
+    </formulas>
+    <formulas>
+        <name>IsNew</name>
+        <dataType>Boolean</dataType>
+        <expression>ISNEW()</expression>
+    </formulas>
+    <formulas>
+        <description>MIS-6255</description>
+        <name>LastActivity_More_Than_30</name>
+        <dataType>Boolean</dataType>
+        <expression>OR(
+      TODAY()-{!$Record.LastActivityDate}&gt;30,
+      ISBLANK({!$Record.LastActivityDate})
+)</expression>
+    </formulas>
+    <formulas>
+        <description>MIS-4891</description>
+        <name>Lead_Link</name>
+        <dataType>String</dataType>
+        <expression>LEFT( {!$Api.Partner_Server_URL_520}, FIND( &apos;/services&apos;, {!$Api.Partner_Server_URL_520} ))&amp;{!$Record.Id}</expression>
+    </formulas>
+    <formulas>
+        <description>MIS-6637</description>
+        <name>NOW_Minus_60</name>
+        <dataType>DateTime</dataType>
+        <expression>NOW()-60</expression>
+    </formulas>
+    <formulas>
+        <description>MIS-4891</description>
+        <name>Reassinged_Task_Link</name>
+        <dataType>String</dataType>
+        <expression>LEFT( {!$Api.Partner_Server_URL_520}, FIND( &apos;/services&apos;, {!$Api.Partner_Server_URL_520} ))&amp;{!Get_Latest_CU_Task.Id}</expression>
+    </formulas>
+    <formulas>
+        <description>MIS-5460</description>
+        <name>Reopened_Task_Link</name>
+        <dataType>String</dataType>
+        <expression>LEFT( {!$Api.Partner_Server_URL_520}, FIND( &apos;/services&apos;, {!$Api.Partner_Server_URL_520} ))&amp;{!Get_Latest_Closed_CU_Task.Id}</expression>
+    </formulas>
+    <formulas>
+        <description>MIS-6546</description>
+        <name>SW_Fit_Score_Timestamp_2100</name>
+        <dataType>DateTime</dataType>
+        <expression>IF(YEAR(DATEVALUE({!$Record.SW_Fit_Score_Timestamp__c})) &gt;= 2100, NULL, {!$Record.SW_Fit_Score_Timestamp__c})</expression>
+    </formulas>
+    <formulas>
+        <name>SWIndustryCalc</name>
+        <dataType>String</dataType>
+        <expression>IF(ISBLANK(TEXT({!$Record.SW_Industry__c})), &apos;Other&apos;, TEXT({!$Record.SW_Industry__c}))</expression>
+    </formulas>
+    <formulas>
+        <description>MIS-4891</description>
+        <name>TODAY_Minus_30</name>
+        <dataType>DateTime</dataType>
+        <expression>NOW()-30</expression>
+    </formulas>
+    <formulas>
+        <description>MIS-6637</description>
+        <name>X2_Weeks_Ago</name>
+        <dataType>DateTime</dataType>
+        <expression>NOW()-14</expression>
+    </formulas>
+    <interviewLabel>Lead after save {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Lead after save</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordCreates>
+        <name>Create_BI_Data</name>
+        <label>Create BI Data</label>
+        <locationX>369</locationX>
+        <locationY>1547</locationY>
+        <connector>
+            <targetReference>Connect_BI_Data_to_Lead</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Related_Record_ID__c</field>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <object>BI_Data__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordCreates>
+        <description>MIS-6637</description>
+        <name>Create_new_FitScore_Log_Failed</name>
+        <label>Create new FitScore Log - Failed</label>
+        <locationX>501</locationX>
+        <locationY>4403</locationY>
+        <connector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Lead_Received_Soft_Hard_MQL_Status</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Entity_Id__c</field>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Error_log__c</field>
+            <value>
+                <elementReference>$Flow.FaultMessage</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>JSONString_for_testing__c</field>
+            <value>
+                <elementReference>Get_FitScore.Response_JSONString_for_test</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Name</field>
+            <value>
+                <elementReference>fr_fitscore_log_name</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Type__c</field>
+            <value>
+                <stringValue>Failed</stringValue>
+            </value>
+        </inputAssignments>
+        <object>Fit_Score_Call_Log__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordCreates>
+        <description>MIS-6637</description>
+        <name>Create_new_FitScore_Log_Success</name>
+        <label>Create new FitScore Log - Success</label>
+        <locationX>237</locationX>
+        <locationY>4403</locationY>
+        <connector>
+            <targetReference>Lead_Received_Soft_Hard_MQL_Status</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Call_Body__c</field>
+            <value>
+                <elementReference>fr_body_for_log</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Cause__c</field>
+            <value>
+                <elementReference>fr_cause_for_log</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Entity_Id__c</field>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>JSONString_for_testing__c</field>
+            <value>
+                <elementReference>Get_FitScore.Response_JSONString_for_test</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Name</field>
+            <value>
+                <elementReference>fr_fitscore_log_name</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Response__c</field>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Type__c</field>
+            <value>
+                <stringValue>Successful</stringValue>
+            </value>
+        </inputAssignments>
+        <object>Fit_Score_Call_Log__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordLookups>
+        <name>get_account</name>
+        <label>get account</label>
+        <locationX>369</locationX>
+        <locationY>731</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Update_lead</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Website</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Email_DomainClean__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>BillingCountry</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Country</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Account</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <description>MIS-5460 - Update for changes in fit score</description>
+        <name>Get_Latest_Closed_CU_Task</name>
+        <label>Get Latest Closed CU Task</label>
+        <locationX>336</locationX>
+        <locationY>2255</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Rule_FCCU_Found_Closed_CU_Task</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>WhoId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>RecordTypeId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>012QB000000XkfBYAS</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Status</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Unqualified Upon Creation</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>CreatedDate</field>
+            <operator>GreaterThanOrEqualTo</operator>
+            <value>
+                <elementReference>TODAY_Minus_30</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Task</object>
+        <sortField>CreatedDate</sortField>
+        <sortOrder>Desc</sortOrder>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <description>MIS-5460 - Update for changes in fit score
+MIS-5503 - owner logic update
+MIS-4891</description>
+        <name>Get_Latest_CU_Task</name>
+        <label>Get Latest CU Task</label>
+        <locationX>347</locationX>
+        <locationY>3371</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Rule_CUTF_CU_Task_was_Found</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>WhoId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>RecordTypeId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>012QB000000XkfBYAS</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Status</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>Cancelled / Irrelevant</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Status</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>Rejected</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Status</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>Unqualified</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Status</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>Unqualified Upon Creation</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Status</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>Neglected</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>OwnerId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.OwnerId</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>CreatedDate</field>
+            <operator>GreaterThanOrEqualTo</operator>
+            <value>
+                <elementReference>TODAY_Minus_30</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Task</object>
+        <sortField>CreatedDate</sortField>
+        <sortOrder>Desc</sortOrder>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <description>MIS-5743</description>
+        <name>Hard_MQL_Get_Soft_Hard_MQL_Notification_Type</name>
+        <label>Hard MQL - Get Soft/Hard MQL Notification Type</label>
+        <locationX>204</locationX>
+        <locationY>5501</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Send_Hard_MQL_Notification</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>DeveloperName</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>ContactLead_SoftHard_MQL_Status</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>CustomNotificationType</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <name>LC_Update_Campaign_Member</name>
+        <label>LC - Update Campaign Member</label>
+        <locationX>369</locationX>
+        <locationY>1139</locationY>
+        <connector>
+            <targetReference>Update_Converted_Contact_Status</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>LeadId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Converted__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <object>CampaignMember</object>
+    </recordUpdates>
+    <recordUpdates>
+        <description>MIS-5784</description>
+        <name>Update_Converted_Contact_Status</name>
+        <label>Update Converted Contact Status</label>
+        <locationX>369</locationX>
+        <locationY>1247</locationY>
+        <connector>
+            <targetReference>Rule_CBI_Create_BI_Data</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Converted_Lead_ID__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Lead_ID__c</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Status__c</field>
+            <value>
+                <elementReference>$Record.Status</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Contact</object>
+    </recordUpdates>
+    <recordUpdates>
+        <description>MIS-5460 - Update for changes in fit score
+MIS-5459 - removed status = &apos;unqualified upon creation&apos;
+MIS-4891</description>
+        <name>Update_CU_Task_Owner</name>
+        <label>Update CU Task Owner</label>
+        <locationX>347</locationX>
+        <locationY>3263</locationY>
+        <connector>
+            <targetReference>Get_Latest_CU_Task</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>WhoId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>RecordTypeId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>012QB000000XkfBYAS</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>CreatedDate</field>
+            <operator>GreaterThanOrEqualTo</operator>
+            <value>
+                <elementReference>TODAY_Minus_30</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Status</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>Completed</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Status</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>Cancelled / Irrelevant</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Status</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>Rejected</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Status</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>Unqualified</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Status</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>Neglected</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>OwnerId</field>
+            <value>
+                <elementReference>$Record.OwnerId</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Task</object>
+    </recordUpdates>
+    <recordUpdates>
+        <description>MIS-6637</description>
+        <name>Update_Final_FitScore</name>
+        <label>Update Final FitScore</label>
+        <locationX>237</locationX>
+        <locationY>4295</locationY>
+        <connector>
+            <targetReference>Create_new_FitScore_Log_Success</targetReference>
+        </connector>
+        <faultConnector>
+            <targetReference>Create_new_FitScore_Log_Failed</targetReference>
+        </faultConnector>
+        <inputAssignments>
+            <field>Department__c</field>
+            <value>
+                <elementReference>Get_FitScore.Var_Department</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Fit_Score_Country_Tier__c</field>
+            <value>
+                <elementReference>Get_FitScore.Response_Fit_Score_Country_Tier</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Fit_Score_Industry_Department_Tier__c</field>
+            <value>
+                <elementReference>Get_FitScore.Response_Fit_Score_Industry_Department_Tier</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Fit_Score_Seniority_Tier__c</field>
+            <value>
+                <elementReference>Get_FitScore.Response_Fit_Score_Seniority_Tier</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Fit_Score_Test__c</field>
+            <value>
+                <elementReference>Get_FitScore.Response_FitScore_Test</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Force_FitScore_Calc__c</field>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>SW_Fit_Score_Reason__c</field>
+            <value>
+                <elementReference>Get_FitScore.Response_Reason</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>SW_Fit_Score_Timestamp__c</field>
+            <value>
+                <elementReference>$Flow.CurrentDateTime</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>SW_Fit_Score__c</field>
+            <value>
+                <elementReference>Get_FitScore.Response_FitScore</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>MIS-4679 - Update Individual email from lead to contact when the lead is converted</description>
+        <name>Update_Individual_email</name>
+        <label>Update Individual email from lead to contact</label>
+        <locationX>369</locationX>
+        <locationY>1955</locationY>
+        <connector>
+            <targetReference>Rule_FSI_Fit_Score_ISCHANGED_to_ABCD</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>et4ae5__Lead__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>et4ae5__Contact__c</field>
+            <value>
+                <elementReference>$Record.ConvertedContactId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>et4ae5__Lead__c</field>
+            <value>
+                <stringValue></stringValue>
+            </value>
+        </inputAssignments>
+        <object>et4ae5__IndividualEmailResult__c</object>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_lead</name>
+        <label>Update lead</label>
+        <locationX>369</locationX>
+        <locationY>839</locationY>
+        <connector>
+            <targetReference>Rule_LC_Lead_is_Converted</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Email_DomainClean__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>get_account.Website</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Country</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>get_account.BillingCountry</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Company</field>
+            <value>
+                <elementReference>get_account.Name</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Domain__c</field>
+            <value>
+                <elementReference>get_account.AccountDomain__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Employees_Max__c</field>
+            <value>
+                <elementReference>get_account.Employees_Max__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Employees_Min__c</field>
+            <value>
+                <elementReference>get_account.Employees_Min__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>SW_Industry__c</field>
+            <value>
+                <elementReference>get_account.SW_Industry__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Website</field>
+            <value>
+                <elementReference>get_account.Website</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_lead1</name>
+        <label>Update lead</label>
+        <locationX>369</locationX>
+        <locationY>6485</locationY>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>MIS-5460 - Update for changes in fit score</description>
+        <name>Update_to_Open_CU_Task</name>
+        <label>Update to Open CU Task</label>
+        <locationX>182</locationX>
+        <locationY>2471</locationY>
+        <connector>
+            <targetReference>FCCU_Owner_Role_not_Admin_or_Director_MIR</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Get_Latest_Closed_CU_Task.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Fit_Score__c</field>
+            <value>
+                <elementReference>$Record.SW_Fit_Score__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Priority</field>
+            <value>
+                <stringValue>Normal</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Status</field>
+            <value>
+                <stringValue>Submitted</stringValue>
+            </value>
+        </inputAssignments>
+        <object>Task</object>
+    </recordUpdates>
+    <start>
+        <locationX>375</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Rule_CW_CleanDomain_Website</targetReference>
+        </connector>
+        <object>Lead</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <subflows>
+        <description>MIS-6637</description>
+        <name>Get_FitScore</name>
+        <label>Get FitScore</label>
+        <locationX>237</locationX>
+        <locationY>4187</locationY>
+        <connector>
+            <targetReference>Update_Final_FitScore</targetReference>
+        </connector>
+        <flowName>FitScore_Calculation</flowName>
+        <inputAssignments>
+            <name>Var_Business_Unit</name>
+            <value>
+                <elementReference>$Record.Business_Unit__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>Var_Clean_Domain</name>
+            <value>
+                <elementReference>$Record.Clean_Domain__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>Var_CountryCode</name>
+            <value>
+                <elementReference>$Record.CountryCode</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>Var_CountryName</name>
+            <value>
+                <elementReference>$Record.Country</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>Var_Department</name>
+            <value>
+                <elementReference>$Record.Department__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>Var_Department_Other_Description</name>
+            <value>
+                <elementReference>$Record.Department_Other_Description__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>Var_Email</name>
+            <value>
+                <elementReference>$Record.Email</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>Var_Email_Address_Domain_Type</name>
+            <value>
+                <elementReference>$Record.Email_address_domain_type__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>Var_Employees_Min</name>
+            <value>
+                <elementReference>$Record.Employees_Min__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>Var_LinkedIn_Flag</name>
+            <value>
+                <elementReference>$Record.LinkedIn_leadsource__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>Var_LinkedIn_Profile</name>
+            <value>
+                <elementReference>$Record.LinkedIn_Profile__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>Var_MIR_Status</name>
+            <value>
+                <elementReference>$Record.MIR_Status__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>Var_Quiz_Data_Incomplete</name>
+            <value>
+                <elementReference>$Record.Quiz_Data_Incomplete__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>Var_Request_Source</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>Var_ROE_Division</name>
+            <value>
+                <elementReference>$Record.ROE_Division__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>Var_Seniority</name>
+            <value>
+                <elementReference>$Record.Seniority__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>Var_SI_Enrichment_Visits</name>
+            <value>
+                <elementReference>$Record.SI_Enrichment_Visits__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>Var_SW_Connector_Visits</name>
+            <value>
+                <elementReference>$Record.sw_connector__swId__r.sw_connector__Visits__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>Var_SW_Industry</name>
+            <value>
+                <elementReference>$Record.SW_Industry__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>Var_Title</name>
+            <value>
+                <elementReference>$Record.Title</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>Var_Use_of_Similarweb</name>
+            <value>
+                <elementReference>$Record.Use_of_Similarweb__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>Var_Website</name>
+            <value>
+                <elementReference>$Record.Website</elementReference>
+            </value>
+        </inputAssignments>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </subflows>
+    <textTemplates>
+        <description>MIS-4891</description>
+        <name>Reassigned_CU_Task_Email_Body</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>New CU has been submitted:&lt;br&gt;&lt;br&gt;
+&lt;b&gt;CU Details:&lt;/b&gt;&lt;br&gt;
+Status: {!Get_Latest_CU_Task.Status}
+Due Date: {!Get_Latest_CU_Task.ActivityDate}&lt;br&gt;
+CU Type: {!Get_Latest_CU_Task.CU_Type_formula__c}&lt;br&gt;
+Subject: &lt;a href=&quot;{!Reassinged_Task_Link}&quot;&gt;{!Get_Latest_CU_Task.Subject}&lt;/a&gt;&lt;br&gt;
+Message: {!Get_Latest_CU_Task.Description}&lt;br&gt;
+Form Location URL: {!Get_Latest_CU_Task.Form_Location_URL__c}&lt;br&gt;&lt;br&gt;
+&lt;b&gt;Lead Details:&lt;/b&gt;&lt;br&gt;
+Name: &lt;a href=&quot;{!Lead_Link}&quot;&gt;{!$Record.FirstName} {!$Record.LastName}&lt;/a&gt;&lt;br&gt;
+Email: {!$Record.Email}&lt;br&gt;
+Phone: {!$Record.Phone}&lt;br&gt;
+Current Registration Type: {!$Record.Current_Registration_Type__c}&lt;br&gt;
+Fit Score: {!$Record.SW_Fit_Score__c}&lt;br&gt;
+Department: {!$Record.Department__c}&lt;br&gt;
+Title: {!$Record.Title}&lt;br&gt;
+How to Contact: {!$Record.how_to_contact_user_primary__c}&lt;br&gt;
+LinkedIn Profile: {!$Record.LinkedIn_Profile__c}&lt;br&gt;
+Website Domain: {!$Record.Website_Domain__c}&lt;br&gt;&lt;br&gt;
+&lt;b&gt;Company Details:&lt;/b&gt;&lt;br&gt;
+Company: {!$Record.Company}&lt;br&gt;
+Country: {!$Record.Country}&lt;br&gt;
+SW Industry: {!$Record.SW_Industry__c}&lt;br&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <description>MIS-4891</description>
+        <name>Reassinged_CU_Email_Subject</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>You have a new CU by {!Get_Latest_CU_Task.Email__c} from Company: {!$Record.Company}</text>
+    </textTemplates>
+    <textTemplates>
+        <description>MIS-5460 - Update for changes in fit score</description>
+        <name>Reopened_CU_Task_Email_Body</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>New CU has been submitted:&lt;br&gt;&lt;br&gt;
+&lt;b&gt;CU Details:&lt;/b&gt;&lt;br&gt;
+Status: Submitted
+Due Date: {!Get_Latest_Closed_CU_Task.ActivityDate}&lt;br&gt;
+CU Type: {!Get_Latest_Closed_CU_Task.CU_Type_formula__c}&lt;br&gt;
+Subject: &lt;a href=&quot;{!Reopened_Task_Link}&quot;&gt;{!Get_Latest_Closed_CU_Task.Subject}&lt;/a&gt;&lt;br&gt;
+Message: {!Get_Latest_Closed_CU_Task.Description}&lt;br&gt;
+Form Location URL: {!Get_Latest_Closed_CU_Task.Form_Location_URL__c}&lt;br&gt;&lt;br&gt;
+&lt;b&gt;Lead Details:&lt;/b&gt;&lt;br&gt;
+Name: &lt;a href=&quot;{!Lead_Link}&quot;&gt;{!$Record.FirstName} {!$Record.LastName}&lt;/a&gt;&lt;br&gt;
+Email: {!$Record.Email}&lt;br&gt;
+Phone: {!$Record.Phone}&lt;br&gt;
+Current Registration Type: {!$Record.Current_Registration_Type__c}&lt;br&gt;
+Fit Score: {!$Record.SW_Fit_Score__c}&lt;br&gt;
+Department: {!$Record.Department__c}&lt;br&gt;
+Title: {!$Record.Title}&lt;br&gt;
+How to Contact: {!$Record.how_to_contact_user_primary__c}&lt;br&gt;
+LinkedIn Profile: {!$Record.LinkedIn_Profile__c}&lt;br&gt;
+Website Domain: {!$Record.Website_Domain__c}&lt;br&gt;&lt;br&gt;
+&lt;b&gt;Company Details:&lt;/b&gt;&lt;br&gt;
+Company: {!$Record.Company}&lt;br&gt;
+Country: {!$Record.Country}&lt;br&gt;
+SW Industry: {!$Record.SW_Industry__c}&lt;br&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <description>MIS-5460 - Update for changes in fit score</description>
+        <name>Reopened_CU_Task_Email_Subject</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>You have a new CU by {!Get_Latest_Closed_CU_Task.Email__c} from Company: {!$Record.Company}</text>
+    </textTemplates>
+    <textTemplates>
+        <description>MIS-5743</description>
+        <name>Soft_Hard_MQL_Notification_Body</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>The Lead {!$Record.FirstName} {!$Record.LastName} has received {!$Record.mql_status__c} Status. Please reach out ASAP!</text>
+    </textTemplates>
+    <textTemplates>
+        <description>MIS-5743</description>
+        <name>Soft_Hard_MQL_Notification_Title</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>Lior Degani requires your attention</text>
+    </textTemplates>
+    <variables>
+        <description>MIS-4891</description>
+        <name>Email_Recipients</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>MIS-5743</description>
+        <name>Lead_Owner_ID</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>ShouldUpdate</name>
+        <dataType>Boolean</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <booleanValue>false</booleanValue>
+        </value>
+    </variables>
+    <variables>
+        <description>MIS-6878</description>
+        <name>Var_Save_Department</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>MIS-6878</description>
+        <name>Var_Save_Seniority</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>MIS-6878</description>
+        <name>Var_Save_SW_Industry</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

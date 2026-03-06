@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Meeting_Division__c</fullName>
+    <description>MIS-4071</description>
+    <externalId>false</externalId>
+    <label>Meeting Division</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Agencies Strategic - CSM</fullName>
+                <default>false</default>
+                <label>Agencies Strategic - CSM</label>
+            </value>
+            <value>
+                <fullName>Agencies Strategic - Sales</fullName>
+                <default>false</default>
+                <label>Agencies Strategic - Sales</label>
+            </value>
+            <value>
+                <fullName>APAC China Hybrid - CSM</fullName>
+                <default>false</default>
+                <label>APAC China Hybrid - CSM</label>
+            </value>
+            <value>
+                <fullName>APAC China Hybrid - Sales</fullName>
+                <default>false</default>
+                <label>APAC China Hybrid - Sales</label>
+            </value>
+            <value>
+                <fullName>APAC Inside Sales Hybrid - CSM</fullName>
+                <default>false</default>
+                <label>APAC Inside Sales Hybrid - CSM</label>
+            </value>
+            <value>
+                <fullName>APAC Inside Sales Hybrid - Sales</fullName>
+                <default>false</default>
+                <label>APAC Inside Sales Hybrid - Sales</label>
+            </value>
+            <value>
+                <fullName>APAC Strategic - CSM</fullName>
+                <default>false</default>
+                <label>APAC Strategic - CSM</label>
+            </value>
+            <value>
+                <fullName>APAC Strategic - Sales</fullName>
+                <default>false</default>
+                <label>APAC Strategic - Sales</label>
+            </value>
+            <value>
+                <fullName>Channel Sales</fullName>
+                <default>false</default>
+                <label>Channel Sales</label>
+            </value>
+            <value>
+                <fullName>Dach - CSM</fullName>
+                <default>false</default>
+                <label>Dach - CSM</label>
+            </value>
+            <value>
+                <fullName>Dach - Sales</fullName>
+                <default>false</default>
+                <label>Dach - Sales</label>
+            </value>
+            <value>
+                <fullName>Dach - SDR</fullName>
+                <default>false</default>
+                <label>Dach - SDR</label>
+            </value>
+            <value>
+                <fullName>UK - CSM</fullName>
+                <default>false</default>
+                <label>UK - CSM</label>
+            </value>
+            <value>
+                <fullName>UK - Sales</fullName>
+                <default>false</default>
+                <label>UK - Sales</label>
+            </value>
+            <value>
+                <fullName>EMEA Inside Sales - CSM</fullName>
+                <default>false</default>
+                <label>EMEA Inside Sales - CSM</label>
+            </value>
+            <value>
+                <fullName>EMEA Inside Sales - Sales</fullName>
+                <default>false</default>
+                <label>EMEA Inside Sales - Sales</label>
+            </value>
+            <value>
+                <fullName>France - CSM</fullName>
+                <default>false</default>
+                <label>France - CSM</label>
+            </value>
+            <value>
+                <fullName>France - Sales</fullName>
+                <default>false</default>
+                <label>France - Sales</label>
+            </value>
+            <value>
+                <fullName>Investors Enterprise - CSM</fullName>
+                <default>false</default>
+                <label>Investors Enterprise - CSM</label>
+            </value>
+            <value>
+                <fullName>Investors Enterprise - Sales</fullName>
+                <default>false</default>
+                <label>Investors Enterprise - Sales</label>
+            </value>
+            <value>
+                <fullName>Investors SMB - CSM</fullName>
+                <default>false</default>
+                <label>Investors SMB - CSM</label>
+            </value>
+            <value>
+                <fullName>Investors SMB - Sales</fullName>
+                <default>false</default>
+                <label>Investors SMB - Sales</label>
+            </value>
+            <value>
+                <fullName>Investors Strategic - CSM</fullName>
+                <default>false</default>
+                <label>Investors Strategic - CSM</label>
+            </value>
+            <value>
+                <fullName>Investors Strategic - Sales</fullName>
+                <default>false</default>
+                <label>Investors Strategic - Sales</label>
+            </value>
+            <value>
+                <fullName>Japan - CSM</fullName>
+                <default>false</default>
+                <label>Japan - CSM</label>
+            </value>
+            <value>
+                <fullName>Japan - Sales</fullName>
+                <default>false</default>
+                <label>Japan - Sales</label>
+            </value>
+            <value>
+                <fullName>LATAM Inside Sales - CSM</fullName>
+                <default>false</default>
+                <label>LATAM Inside Sales - CSM</label>
+            </value>
+            <value>
+                <fullName>LATAM Inside Sales - Sales</fullName>
+                <default>false</default>
+                <label>LATAM Inside Sales - Sales</label>
+            </value>
+            <value>
+                <fullName>Low Touch</fullName>
+                <default>false</default>
+                <label>Low Touch</label>
+            </value>
+            <value>
+                <fullName>NA Enterprise - CSM</fullName>
+                <default>false</default>
+                <label>NA Enterprise - CSM</label>
+            </value>
+            <value>
+                <fullName>NA Enterprise - Sales</fullName>
+                <default>false</default>
+                <label>NA Enterprise - Sales</label>
+            </value>
+            <value>
+                <fullName>NA SMB - CSM</fullName>
+                <default>false</default>
+                <label>NA SMB - CSM</label>
+            </value>
+            <value>
+                <fullName>NA SMB - Sales</fullName>
+                <default>false</default>
+                <label>NA SMB - Sales</label>
+            </value>
+            <value>
+                <fullName>NA Strategic - CSM</fullName>
+                <default>false</default>
+                <label>NA Strategic - CSM</label>
+            </value>
+            <value>
+                <fullName>NA Strategic - Sales</fullName>
+                <default>false</default>
+                <label>NA Strategic - Sales</label>
+            </value>
+            <value>
+                <fullName>OEM - CSM</fullName>
+                <default>false</default>
+                <label>OEM - CSM</label>
+            </value>
+            <value>
+                <fullName>OEM - Sales</fullName>
+                <default>false</default>
+                <label>OEM - Sales</label>
+            </value>
+            <value>
+                <fullName>Reseller - ANZ-Trellian</fullName>
+                <default>false</default>
+                <label>Reseller - ANZ-Trellian</label>
+            </value>
+            <value>
+                <fullName>Reseller - Brazil - 108</fullName>
+                <default>false</default>
+                <label>Reseller - Brazil - 108</label>
+            </value>
+            <value>
+                <fullName>Reseller - Brazil - Alpha</fullName>
+                <default>false</default>
+                <label>Reseller - Brazil - Alpha</label>
+            </value>
+            <value>
+                <fullName>Reseller - China - TrueMetrics</fullName>
+                <default>false</default>
+                <label>Reseller - China - TrueMetrics</label>
+            </value>
+            <value>
+                <fullName>Reseller - Colombia - Indices</fullName>
+                <default>false</default>
+                <label>Reseller - Colombia - Indices</label>
+            </value>
+            <value>
+                <fullName>Reseller - India - Altudo</fullName>
+                <default>false</default>
+                <label>Reseller - India - Altudo</label>
+            </value>
+            <value>
+                <fullName>Reseller - Italy - Nubo</fullName>
+                <default>false</default>
+                <label>Reseller - Italy - Nubo</label>
+            </value>
+            <value>
+                <fullName>Reseller - Malaysia - Launchpad</fullName>
+                <default>false</default>
+                <label>Reseller - Malaysia - Launchpad</label>
+            </value>
+            <value>
+                <fullName>Reseller - Mexico - Hexagon Data</fullName>
+                <default>false</default>
+                <label>Reseller - Mexico - Hexagon Data</label>
+            </value>
+            <value>
+                <fullName>Reseller - SEA-Maestros</fullName>
+                <default>false</default>
+                <label>Reseller - SEA-Maestros</label>
+            </value>
+            <value>
+                <fullName>Reseller - UAE - BrentFord Technical Services</fullName>
+                <default>false</default>
+                <label>Reseller - UAE - BrentFord Technical Services</label>
+            </value>
+            <value>
+                <fullName>Reseller - Turkey-CloudyFlex</fullName>
+                <default>false</default>
+                <label>Reseller - Turkey-CloudyFlex</label>
+            </value>
+            <value>
+                <fullName>Reseller - Israel - BDO (VAR)</fullName>
+                <default>false</default>
+                <label>Reseller - Israel - BDO (VAR)</label>
+            </value>
+            <value>
+                <fullName>Reseller - Finland - Luxid</fullName>
+                <default>false</default>
+                <label>Reseller - Finland - Luxid</label>
+            </value>
+            <value>
+                <fullName>Reseller - Spain - Cartagon</fullName>
+                <default>false</default>
+                <label>Reseller - Spain - Cartagon</label>
+            </value>
+            <value>
+                <fullName>Reseller - UK - Lynchpin (VAR)</fullName>
+                <default>false</default>
+                <label>Reseller - UK - Lynchpin (VAR)</label>
+            </value>
+            <value>
+                <fullName>Reseller - France - Digital Overview (VAR)</fullName>
+                <default>false</default>
+                <label>Reseller - France - Digital Overview (VAR)</label>
+            </value>
+            <value>
+                <fullName>Reseller - HK - Master Concept (VAR)</fullName>
+                <default>false</default>
+                <label>Reseller - HK - Master Concept (VAR)</label>
+            </value>
+            <value>
+                <fullName>Reseller - US - Qrious Insight (VAR)</fullName>
+                <default>false</default>
+                <label>Reseller - US - Qrious Insight (VAR)</label>
+            </value>
+            <value>
+                <fullName>Reseller - US - PwC (VAR)</fullName>
+                <default>false</default>
+                <label>Reseller - US - PwC (VAR)</label>
+            </value>
+            <value>
+                <fullName>Reseller - US - BCG (VAR)</fullName>
+                <default>false</default>
+                <label>Reseller - US - BCG (VAR)</label>
+            </value>
+            <value>
+                <fullName>Reseller - US - Keen DS (VAR)</fullName>
+                <default>false</default>
+                <label>Reseller - US - Keen DS (VAR)</label>
+            </value>
+            <value>
+                <fullName>Reseller - Vietnam - AMS JSC</fullName>
+                <default>false</default>
+                <label>Reseller - Vietnam - AMS JSC</label>
+            </value>
+            <value>
+                <fullName>Reseller - Australia and Pacific Islands - Bring Performance</fullName>
+                <default>false</default>
+                <label>Reseller - Australia and Pacific Islands - Bring Performance</label>
+            </value>
+            <value>
+                <fullName>Reseller - India - Onnivation</fullName>
+                <default>false</default>
+                <label>Reseller - India - Onnivation</label>
+            </value>
+            <value>
+                <fullName>Reseller - Poland - Data Ventures (VAR)</fullName>
+                <default>false</default>
+                <label>Reseller - Poland - Data Ventures (VAR)</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Timing__c</fullName>
+    <description>MIS-6753 - Estimated time frame for initiating a sales cycle</description>
+    <externalId>false</externalId>
+    <label>Timing</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>ASAP</fullName>
+                <default>false</default>
+                <label>ASAP</label>
+            </value>
+            <value>
+                <fullName>1-3 Months</fullName>
+                <default>false</default>
+                <label>1-3 Months</label>
+            </value>
+            <value>
+                <fullName>3-6 Months</fullName>
+                <default>false</default>
+                <label>3-6 Months</label>
+            </value>
+            <value>
+                <fullName>&gt; 6 Months</fullName>
+                <default>false</default>
+                <label>&gt; 6 Months</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

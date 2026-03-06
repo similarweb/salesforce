@@ -1,0 +1,44 @@
+<template>
+    <template if:true={showModal}>
+        <c-upload-c-s-v-file show-modal={showModal} onclose={closeModal} onimportdrafts={importDraftsFromCSV} is-disabled={disabledImportButton} onrowsloading={startTimerLoad}></c-upload-c-s-v-file>
+    </template>
+    <lightning-card>
+        <div class="slds-var-p-horizontal_medium">
+            <div class="slds-media__body slds-var-m-vertical_large">
+                <h2 class="slds-card__header-title">
+                <a href="javascript:void(0);" class="slds-card__header-link slds-truncate" title="Import Contacts table">
+                    <span>Import Contacts Table</span>
+                </a>
+                </h2>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: flex-end;">
+                <div style="display: flex;flex-direction: column;">
+                    <label class="slds-form-element__label" for="pages">Pages: </label>
+                    <select class="slds-input slds-combobox__input" id="pages" name="liveagent.prechat:Product" style="width:220px" onchange={handlePageChange} tabindex="0">
+                        <template for:each={numberOfPages} for:item="item">
+                            <option key={item.value} value={item.value}>{item.label}</option>
+                        </template>
+                    </select>
+                </div>
+                <div style="display: flex;">
+                    <div class="slds-button-group" style="display: flex;justify-content: flex-end;align-items: flex-end;" role="group">
+                        <lightning-button variant="brand" label="Import" title="Import" onclick={onImportContactsClick} class="slds-var-m-left_x-small"></lightning-button>
+                        <lightning-button variant="brand" label="Clear page" title="Clear page" onclick={deleteAllDrafts} class="slds-var-m-left_x-small"></lightning-button>
+                        <lightning-button variant="brand" label="Add row" title="Add row" onclick={onAddRowClick} class="slds-var-m-left_x-small"></lightning-button>
+                        <lightning-button variant="brand" label="Upload .csv file" title="Upload .csv file" onclick={openModal} class="slds-var-m-left_x-small"></lightning-button>
+                    </div>
+                </div>
+            </div>
+            <c-import-contacts-table onsavedraft={saveDraft} onsavedraftonrefresh={saveDraftOnRefresh} ondeletespecrow={deleteSpecificRow} onloaded={refreshAllRows} current-page-items={_currentPageItems} onrowsloaded={stopTimerLoad} onrowsloading={startTimerLoad}></c-import-contacts-table>
+            <div class="slds-button-group slds-var-m-top_x-large" style="display: flex; justify-content: flex-end;" role="group">
+                <lightning-button variant="brand" label="Import" title="Import" onclick={onImportContactsClick} class="slds-var-m-left_x-small"></lightning-button>
+                <lightning-button variant="brand" label="Add row" title="Add row" onclick={onAddRowClick} class="slds-var-m-left_x-small"></lightning-button>
+            </div>
+        </div>
+    </lightning-card>
+    <div if:false={isLoaded}  style="margin: 50px 0 50px 0;">
+        <lightning-spinner
+            alternative-text="Loading..." variant="brand" style="z-index: 1000">
+        </lightning-spinner>
+    </div>
+</template>

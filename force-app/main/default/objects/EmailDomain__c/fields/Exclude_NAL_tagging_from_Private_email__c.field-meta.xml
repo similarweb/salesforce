@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Exclude_NAL_tagging_from_Private_email__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>if email address domain type = Private and exclude NAL tagging from Private email= true -&gt; remove NAL tagging in Strategic Pod</description>
+    <externalId>false</externalId>
+    <inlineHelpText>if email address domain type = Private and exclude NAL tagging from Private email= true -&gt; remove NAL tagging in Strategic Pod</inlineHelpText>
+    <label>Exclude NAL tagging from Private email</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

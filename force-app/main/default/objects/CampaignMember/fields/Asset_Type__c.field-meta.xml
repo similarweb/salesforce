@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Asset_Type__c</fullName>
+    <description>MIS-4271</description>
+    <externalId>false</externalId>
+    <label>Asset Type</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Event - Owned Branded</fullName>
+                <default>false</default>
+                <label>Event - Owned Branded</label>
+            </value>
+            <value>
+                <fullName>Event - External</fullName>
+                <default>false</default>
+                <label>Event - External</label>
+            </value>
+            <value>
+                <fullName>Event - Dinner</fullName>
+                <default>false</default>
+                <label>Event - Dinner</label>
+            </value>
+            <value>
+                <fullName>Event - Trade Show</fullName>
+                <default>false</default>
+                <label>Event - Trade Show</label>
+            </value>
+            <value>
+                <fullName>Event - Customer Event</fullName>
+                <default>false</default>
+                <label>Event - Customer Event</label>
+            </value>
+            <value>
+                <fullName>Event - Owned</fullName>
+                <default>false</default>
+                <label>Event - Owned</label>
+            </value>
+            <value>
+                <fullName>Event - Online</fullName>
+                <default>false</default>
+                <label>Event - Online</label>
+            </value>
+            <value>
+                <fullName>Content - Report</fullName>
+                <default>false</default>
+                <label>Content - Report</label>
+            </value>
+            <value>
+                <fullName>Content - Case Study</fullName>
+                <default>false</default>
+                <label>Content - Case Study</label>
+            </value>
+            <value>
+                <fullName>Content - Deck</fullName>
+                <default>false</default>
+                <label>Content - Deck</label>
+            </value>
+            <value>
+                <fullName>Content - Infographic</fullName>
+                <default>false</default>
+                <label>Content - Infographic</label>
+            </value>
+            <value>
+                <fullName>Content - Ebook</fullName>
+                <default>false</default>
+                <label>Content - Ebook</label>
+            </value>
+            <value>
+                <fullName>Content - White paper</fullName>
+                <default>false</default>
+                <label>Content - White paper</label>
+            </value>
+            <value>
+                <fullName>Content - Blog Post</fullName>
+                <default>false</default>
+                <label>Content - Blog Post</label>
+            </value>
+            <value>
+                <fullName>Content - Video</fullName>
+                <default>false</default>
+                <label>Content - Video</label>
+            </value>
+            <value>
+                <fullName>Email - One-off</fullName>
+                <default>false</default>
+                <label>Email - One-off</label>
+            </value>
+            <value>
+                <fullName>Email - One-off Cadence</fullName>
+                <default>false</default>
+                <label>Email - One-off Cadence</label>
+            </value>
+            <value>
+                <fullName>Email - Automated Cadence</fullName>
+                <default>false</default>
+                <label>Email - Automated Cadence</label>
+            </value>
+            <value>
+                <fullName>Email - Triggered</fullName>
+                <default>false</default>
+                <label>Email - Triggered</label>
+            </value>
+            <value>
+                <fullName>Email - Newsletter</fullName>
+                <default>false</default>
+                <label>Email - Newsletter</label>
+            </value>
+            <value>
+                <fullName>Blog Post</fullName>
+                <default>false</default>
+                <label>Blog Post</label>
+            </value>
+            <value>
+                <fullName>Blog Post - CTA</fullName>
+                <default>false</default>
+                <label>Blog Post - CTA</label>
+            </value>
+            <value>
+                <fullName>Blog Post - Contact us</fullName>
+                <default>false</default>
+                <label>Blog Post - Contact us</label>
+            </value>
+            <value>
+                <fullName>Blog Post - Whitepaper</fullName>
+                <default>false</default>
+                <label>Blog Post - Whitepaper</label>
+            </value>
+            <value>
+                <fullName>Case Study</fullName>
+                <default>false</default>
+                <label>Case Study</label>
+            </value>
+            <value>
+                <fullName>Chat Bot - One-off</fullName>
+                <default>false</default>
+                <label>Chat Bot - One-off</label>
+            </value>
+            <value>
+                <fullName>Chat Bot Automated</fullName>
+                <default>false</default>
+                <label>Chat Bot Automated</label>
+            </value>
+            <value>
+                <fullName>Report</fullName>
+                <default>false</default>
+                <label>Report</label>
+            </value>
+            <value>
+                <fullName>Video</fullName>
+                <default>false</default>
+                <label>Video</label>
+            </value>
+            <value>
+                <fullName>Get a demo</fullName>
+                <default>false</default>
+                <label>Get a demo</label>
+            </value>
+            <value>
+                <fullName>PPC - Search</fullName>
+                <default>false</default>
+                <label>PPC - Search</label>
+            </value>
+            <value>
+                <fullName>PPC - LinkedIn</fullName>
+                <default>false</default>
+                <label>PPC - LinkedIn</label>
+            </value>
+            <value>
+                <fullName>PPC - Facebook</fullName>
+                <default>false</default>
+                <label>PPC - Facebook</label>
+            </value>
+            <value>
+                <fullName>Lead List</fullName>
+                <default>false</default>
+                <label>Lead List</label>
+            </value>
+            <value>
+                <fullName>PR</fullName>
+                <default>false</default>
+                <label>PR</label>
+            </value>
+            <value>
+                <fullName>Trial Registration</fullName>
+                <default>false</default>
+                <label>Trial Registration</label>
+            </value>
+            <value>
+                <fullName>Social - LinkedIn</fullName>
+                <default>false</default>
+                <label>Social - LinkedIn</label>
+            </value>
+            <value>
+                <fullName>Social - Facebook</fullName>
+                <default>false</default>
+                <label>Social - Facebook</label>
+            </value>
+            <value>
+                <fullName>Social - Twitter</fullName>
+                <default>false</default>
+                <label>Social - Twitter</label>
+            </value>
+            <value>
+                <fullName>Webinar - Recording</fullName>
+                <default>false</default>
+                <label>Webinar - Recording</label>
+            </value>
+            <value>
+                <fullName>Webinar - Internal</fullName>
+                <default>false</default>
+                <label>Webinar - Internal</label>
+            </value>
+            <value>
+                <fullName>Webinar - External (partnership)</fullName>
+                <default>false</default>
+                <label>Webinar - External (partnership)</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

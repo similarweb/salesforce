@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>The_Ultimate_IS_View_Leads</fullName>
+    <columns>LEAD.COMPANY</columns>
+    <columns>FULL_NAME</columns>
+    <columns>LEAD.TITLE</columns>
+    <columns>LEAD.EMAIL</columns>
+    <columns>LEAD.PHONE</columns>
+    <columns>LEAD.COUNTRY</columns>
+    <columns>SW_Industry__c</columns>
+    <columns>LEAD.STATUS</columns>
+    <columns>Business_Unit__c</columns>
+    <columns>LEAD.CREATED_DATE</columns>
+    <columns>MQL_date__c</columns>
+    <columns>LEAD.LEAD_SOURCE</columns>
+    <columns>LEAD.URL</columns>
+    <columns>LEAD.LAST_ACTIVITY</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+        <field>MQL__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <filters>
+        <field>Pro_User_Type__c</field>
+        <operation>notEqual</operation>
+        <value>User,Admin</value>
+    </filters>
+    <filters>
+        <field>LEAD.STATUS</field>
+        <operation>notEqual</operation>
+        <value>Unqualified</value>
+    </filters>
+    <filters>
+        <field>LEAD.LAST_ACTIVITY</field>
+        <operation>notEqual</operation>
+        <value>LAST_N_DAYS:30,NEXT_N_DAYS:30</value>
+    </filters>
+    <filters>
+        <field>Business_Unit__c</field>
+        <operation>equals</operation>
+        <value>Inside Sales</value>
+    </filters>
+    <label>The Ultimate IS View - Leads</label>
+</ListView>

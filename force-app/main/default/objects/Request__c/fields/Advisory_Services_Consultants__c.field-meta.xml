@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Advisory_Services_Consultants__c</fullName>
+    <externalId>false</externalId>
+    <label>Primary ASC</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Becca Edelman</fullName>
+                <default>false</default>
+                <label>Becca Edelman</label>
+            </value>
+            <value>
+                <fullName>Ben Fernando</fullName>
+                <default>false</default>
+                <label>Ben Fernando</label>
+            </value>
+            <value>
+                <fullName>Heidi Frank</fullName>
+                <default>false</default>
+                <label>Heidi Frank</label>
+            </value>
+            <value>
+                <fullName>Lindsey Anderson</fullName>
+                <default>false</default>
+                <label>Lindsey Anderson</label>
+            </value>
+            <value>
+                <fullName>Linh Tran Huy</fullName>
+                <default>false</default>
+                <label>Linh Tran Huy</label>
+            </value>
+            <value>
+                <fullName>Lisa Grunwald</fullName>
+                <default>false</default>
+                <label>Lisa Grunwald</label>
+            </value>
+            <value>
+                <fullName>Tom Verderber</fullName>
+                <default>false</default>
+                <label>Tom Verderber</label>
+            </value>
+            <value>
+                <fullName>Varvara Blazhko</fullName>
+                <default>false</default>
+                <label>Varvara Blazhko</label>
+            </value>
+            <value>
+                <fullName>Victoria Mauriello</fullName>
+                <default>false</default>
+                <label>Victoria Mauriello</label>
+            </value>
+            <value>
+                <fullName>Mackenzie Cahill</fullName>
+                <default>false</default>
+                <label>Mackenzie Cahill</label>
+            </value>
+            <value>
+                <fullName>Tianming Jiang</fullName>
+                <default>false</default>
+                <label>Tina Jiang</label>
+            </value>
+            <value>
+                <fullName>Adam Wertheim</fullName>
+                <default>false</default>
+                <label>Adam Wertheim</label>
+            </value>
+            <value>
+                <fullName>Biqing Kuang</fullName>
+                <default>false</default>
+                <label>Biqing Kuang</label>
+            </value>
+            <value>
+                <fullName>Celal Alici</fullName>
+                <default>false</default>
+                <label>Celal Alici</label>
+            </value>
+            <value>
+                <fullName>Ivana Nikolic</fullName>
+                <default>false</default>
+                <label>Ivana Nikolic</label>
+            </value>
+            <value>
+                <fullName>Andrew Liu</fullName>
+                <default>false</default>
+                <label>Andrew Liu</label>
+            </value>
+            <value>
+                <fullName>Gavin Davidson</fullName>
+                <default>false</default>
+                <label>Gavin Davidson</label>
+            </value>
+            <value>
+                <fullName>James Alici</fullName>
+                <default>false</default>
+                <label>James Alici</label>
+            </value>
+            <value>
+                <fullName>Michael Monroe</fullName>
+                <default>false</default>
+                <label>Michael Monroe</label>
+            </value>
+            <value>
+                <fullName>Jack Sherman</fullName>
+                <default>false</default>
+                <label>Jack Sherman</label>
+            </value>
+            <value>
+                <fullName>Joshua Shyu</fullName>
+                <default>false</default>
+                <label>Joshua Shyu</label>
+            </value>
+            <value>
+                <fullName>Domenico Mansi</fullName>
+                <default>false</default>
+                <label>Domenico Mansi</label>
+            </value>
+            <value>
+                <fullName>Francesca Everson</fullName>
+                <default>false</default>
+                <label>Francesca Everson</label>
+            </value>
+            <value>
+                <fullName>Natasha Chatterjee</fullName>
+                <default>false</default>
+                <label>Natasha Chatterjee</label>
+            </value>
+            <value>
+                <fullName>Nicolas Bureau</fullName>
+                <default>false</default>
+                <label>Nicolas Bureau</label>
+            </value>
+            <value>
+                <fullName>Priyesh Patel</fullName>
+                <default>false</default>
+                <label>Priyesh Patel</label>
+            </value>
+            <value>
+                <fullName>Kelvin Seah</fullName>
+                <default>false</default>
+                <label>Kelvin Seah</label>
+            </value>
+            <value>
+                <fullName>Aaron Wong</fullName>
+                <default>false</default>
+                <label>Aaron Wong</label>
+            </value>
+            <value>
+                <fullName>Christian Kearns</fullName>
+                <default>false</default>
+                <label>Christian Kearns</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

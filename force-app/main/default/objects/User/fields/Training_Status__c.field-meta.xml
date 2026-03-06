@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Training_Status__c</fullName>
+    <description>MIS-4001</description>
+    <externalId>false</externalId>
+    <label>Training Status</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Pending onboarding</fullName>
+                <default>false</default>
+                <label>Pending onboarding</label>
+            </value>
+            <value>
+                <fullName>Skipped onboarding</fullName>
+                <default>false</default>
+                <label>Skipped onboarding</label>
+            </value>
+            <value>
+                <fullName>Completed onboarding</fullName>
+                <default>false</default>
+                <label>Completed onboarding</label>
+            </value>
+            <value>
+                <fullName>Pending blacklist training</fullName>
+                <default>false</default>
+                <label>Pending blacklist training</label>
+            </value>
+            <value>
+                <fullName>Skipped blacklist training</fullName>
+                <default>false</default>
+                <label>Skipped blacklist training</label>
+            </value>
+            <value>
+                <fullName>Completed blacklist training</fullName>
+                <default>false</default>
+                <label>Completed blacklist training</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

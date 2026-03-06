@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MQL2Formula__c</fullName>
+    <externalId>false</externalId>
+    <formula>If (sw_MQL_Label2__c=&quot;A1&quot; || 
+sw_MQL_Label2__c=&quot;A2&quot; || 
+sw_MQL_Label2__c=&quot;A3&quot; || 
+sw_MQL_Label2__c=&quot;B1&quot;||
+ sw_MQL_Label2__c=&quot;B2&quot; ||
+ sw_MQL_Label2__c=&quot;C1&quot;, True,false)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>MQL2Formula</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,3 @@
+<apex:page standardController="Lead" extensions="AssignmentButtonHandler" action="{!ManualLeadReassignment}">
+
+</apex:page>

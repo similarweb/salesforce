@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Affiliate_Country__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>SW will pay per lead/contact only for affiliates that bring leads/contacts from countries that checked as &apos;Affiliate Country&apos;</description>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Affiliate Country</label>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sub_Motion_old__c</fullName>
+    <description>MIS-6829 - Works with Custom Metadata - &quot;User Sub Motion&quot;</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Calculated according to Sub Division and Role Type</inlineHelpText>
+    <label>Sub Motion - old</label>
+    <length>255</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

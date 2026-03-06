@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Change_Case_Owner_by_MIS_Team_only</fullName>
+    <active>false</active>
+    <errorConditionFormula>ISCHANGED(OwnerId) &amp;&amp;
+$Profile.Name &lt;&gt; &quot;System Administrator&quot; &amp;&amp;
+ RecordType.Name = &quot;MIS Support&quot;</errorConditionFormula>
+    <errorDisplayField>OwnerId</errorDisplayField>
+    <errorMessage>Only System Administrator can change the case owner</errorMessage>
+</ValidationRule>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AS_Closed_Lost_Reason__c</fullName>
+    <description>#1104786 AS Requests adjustments</description>
+    <externalId>false</externalId>
+    <label>Closed Lost Reason</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Budget</fullName>
+                <default>false</default>
+                <label>Budget</label>
+            </value>
+            <value>
+                <fullName>Candidate for custom cuts (Datasets only)</fullName>
+                <default>false</default>
+                <label>Candidate for custom cuts (Datasets only)</label>
+            </value>
+            <value>
+                <fullName>Client need changed</fullName>
+                <default>false</default>
+                <label>Client need changed</label>
+            </value>
+            <value>
+                <fullName>Competition</fullName>
+                <default>false</default>
+                <label>Competition</label>
+            </value>
+            <value>
+                <fullName>Data quality</fullName>
+                <default>false</default>
+                <label>Data quality</label>
+            </value>
+            <value>
+                <fullName>Fund lacks data feed ingestion capabilities (Datasets only)</fullName>
+                <default>false</default>
+                <label>Fund lacks data feed ingestion capabilities (Datasets only)</label>
+            </value>
+            <value>
+                <fullName>Mobile web</fullName>
+                <default>false</default>
+                <label>Mobile web</label>
+            </value>
+            <value>
+                <fullName>Not enough signal</fullName>
+                <default>false</default>
+                <label>Not enough signal</label>
+            </value>
+            <value>
+                <fullName>Not Feasible</fullName>
+                <default>false</default>
+                <label>Not Feasible</label>
+            </value>
+            <value>
+                <fullName>Not relevant stock</fullName>
+                <default>false</default>
+                <label>Not relevant stock</label>
+            </value>
+            <value>
+                <fullName>Not relevant to investment strategy (Datasets only)</fullName>
+                <default>false</default>
+                <label>Not relevant to investment strategy (Datasets only)</label>
+            </value>
+            <value>
+                <fullName>Not right time</fullName>
+                <default>false</default>
+                <label>Not right time</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Too expensive</fullName>
+                <default>false</default>
+                <label>Too expensive</label>
+            </value>
+            <value>
+                <fullName>Weak Signal</fullName>
+                <default>false</default>
+                <label>Weak Signal</label>
+            </value>
+            <value>
+                <fullName>We sold another SMWB solution</fullName>
+                <default>false</default>
+                <label>We sold another SMWB solution</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

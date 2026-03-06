@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>55.0</apiVersion>
+    <description>MIS-2130
+Triggered when:
+OwnerId Is Changed
+AND
+NOT (IsConverted)
+AND
+OwnerId Starts With 005
+AND
+Owner_Division__c &lt;&gt; Integration
+AND
+Owner_Role__c &lt;&gt;Internal</description>
+    <environments>Default</environments>
+    <interviewLabel>Lead - Update Campaign Members when owner is changed {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Lead - Update Campaign Members when owner is changed</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Update_Campaign_Members_Lead_Contact_Owner_Email</name>
+        <label>Update Campaign Members - Lead\Contact Owner Email</label>
+        <locationX>176</locationX>
+        <locationY>335</locationY>
+        <filterLogic>1 AND 2 AND (3 OR 4 OR 5 OR 6)</filterLogic>
+        <filters>
+            <field>LeadId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Campaign_Type__c</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>Email</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Status</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Registered</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Status</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Attended</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Status</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Attended Session</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Status</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Booth Demo</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Contact_Lead_Owner_Email__c</field>
+            <value>
+                <elementReference>$Record.Owner:User.Email</elementReference>
+            </value>
+        </inputAssignments>
+        <object>CampaignMember</object>
+    </recordUpdates>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Update_Campaign_Members_Lead_Contact_Owner_Email</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>OwnerId</field>
+            <operator>IsChanged</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>IsConverted</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>OwnerId</field>
+            <operator>StartsWith</operator>
+            <value>
+                <stringValue>005</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Owner_Division__c</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>Integration</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Owner_Role__c</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>Internal</stringValue>
+            </value>
+        </filters>
+        <object>Lead</object>
+        <recordTriggerType>Update</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

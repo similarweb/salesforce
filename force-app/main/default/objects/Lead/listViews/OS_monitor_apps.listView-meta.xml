@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>OS_monitor_apps</fullName>
+    <columns>LEAD.STATUS</columns>
+    <columns>Wolves_App_Name__c</columns>
+    <columns>LEAD.COMPANY</columns>
+    <columns>LEAD.EMAIL</columns>
+    <columns>Wolves_App_Category__c</columns>
+    <columns>Wolves_Quality_Score__c</columns>
+    <columns>Lead_Creation_Date_For_Mapping__c</columns>
+    <columns>Minimum_Installs__c</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>Wolves_Link_to_App__c</columns>
+    <columns>Wolves_Rating_Count__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>LEAD.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Lead.Wolves</value>
+    </filters>
+    <filters>
+        <field>Wolves_Tracking_Method__c</field>
+        <operation>equals</operation>
+        <value>Os monitor,Bookmark Permission</value>
+    </filters>
+    <filters>
+        <field>LEAD.STATUS</field>
+        <operation>equals</operation>
+        <value>Unqualified</value>
+    </filters>
+    <filters>
+        <field>Wolves_App_Category__c</field>
+        <operation>equals</operation>
+        <value>Parenting,Personalization,Productivity</value>
+    </filters>
+    <filters>
+        <field>Wolves_Account_Origin__c</field>
+        <operation>notEqual</operation>
+        <value>China</value>
+    </filters>
+    <label>OS monitor apps</label>
+</ListView>

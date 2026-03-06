@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>View1</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>fr_Pro_User_Type__c</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>CONTACT.TITLE</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+        <field>fr_Pro_User_Type__c</field>
+        <operation>equals</operation>
+        <value>Admin,User</value>
+    </filters>
+    <filters>
+        <field>Account_Owner__c</field>
+        <operation>contains</operation>
+        <value>shimizu</value>
+    </filters>
+    <label>清水テスト</label>
+</ListView>

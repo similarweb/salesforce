@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>General_partnerships_project_21_5_18</fullName>
+    <columns>Projects_Wolves__c</columns>
+    <columns>LEAD.STATUS</columns>
+    <columns>Wolves_App_Name__c</columns>
+    <columns>Wolves_Link_to_App__c</columns>
+    <columns>Wolves_Rating_Count__c</columns>
+    <columns>Minimum_Installs__c</columns>
+    <columns>LEAD.COMPANY</columns>
+    <columns>LEAD.CREATED_DATE</columns>
+    <columns>Wolves_Quality_Score__c</columns>
+    <columns>Wolves_Tracking_Method__c</columns>
+    <columns>Wolves_App_Category__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CORE.USERS.ALIAS</field>
+        <operation>equals</operation>
+        <value>hvata</value>
+    </filters>
+    <filters>
+        <field>LEAD.CONVERTED</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>Wolves_App_Category__c</field>
+        <operation>notContain</operation>
+        <value>game</value>
+    </filters>
+    <filters>
+        <field>Wolves_Platform__c</field>
+        <operation>equals</operation>
+        <value>Android</value>
+    </filters>
+    <filters>
+        <field>Minimum_Installs__c</field>
+        <operation>greaterOrEqual</operation>
+        <value>50000000</value>
+    </filters>
+    <filters>
+        <field>LEAD.STATUS</field>
+        <operation>notEqual</operation>
+        <value>Unqualified</value>
+    </filters>
+    <label>General partnerships project 21.5.18</label>
+</ListView>

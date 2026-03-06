@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SE_request_for_New_Sale_and_Upsell_only</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+ OR(
+ ISNEW(),
+ ISCHANGED(RecordTypeId)
+ ),
+ RecordType.DeveloperName = &apos;Solution_Engineering&apos;,
+ NOT(ISPICKVAL(Opportunity__r.Type, &apos;New Sale&apos;)),
+ NOT(ISPICKVAL(Opportunity__r.Type, &apos;Upsell&apos;)) 
+)</errorConditionFormula>
+    <errorMessage>Solution Engineering request can be created for New Sale and Upsell opportunities only</errorMessage>
+</ValidationRule>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Website_Domain__c</fullName>
+    <externalId>false</externalId>
+    <formula>If(BEGINS(Website__c , &quot;www.&quot;), 
+IF(FIND(&apos;/&apos;, MID(Website__c, 5, LEN(Website__c) - 4)) != 0, MID(Website__c, 5, FIND(&apos;/&apos;, MID(Website__c, 5, LEN(Website__c) - 4)) -1), MID(Website__c, 5, LEN(Website__c) - 4)), 
+
+If(BEGINS(Website__c, &quot;http://www.&quot;), 
+IF(FIND(&apos;/&apos;, MID(Website__c, 12, LEN(Website__c) - 11)) != 0,MID(Website__c, 12, FIND(&apos;/&apos;, MID(Website__c,12,LEN(Website__c) - 11)) -1), MID(Website__c,12,LEN(Website__c)-11)), 
+
+If(BEGINS(Website__c, &quot;https://www.&quot;), 
+IF(FIND(&apos;/&apos;, MID(Website__c, 13, LEN(Website__c) - 12)) != 0,MID(Website__c, 13, FIND(&apos;/&apos;, MID(Website__c,13,LEN(Website__c) - 12)) -1), MID(Website__c,13,LEN(Website__c)-12)), 
+
+If(BEGINS(Website__c, &quot;http://&quot;), 
+IF(FIND(&apos;/&apos;, MID(Website__c, 8, LEN(Website__c) - 7)) != 0,MID(Website__c, 8, FIND(&apos;/&apos;, MID(Website__c,8,LEN(Website__c) - 7)) -1), MID(Website__c,8,LEN(Website__c)-7)), 
+
+If(BEGINS(Website__c, &quot;https://&quot;), 
+IF(FIND(&apos;/&apos;, MID(Website__c, 9, LEN(Website__c) - 8)) != 0,MID(Website__c, 9, FIND(&apos;/&apos;, MID(Website__c,9,LEN(Website__c) - 8)) -1), MID(Website__c,9,LEN(Website__c)-8)), 
+
+IF(FIND(&apos;/&apos;,MID(Website__c, 1, LEN(Website__c))) !=0,MID(Website__c,1,FIND(&apos;/&apos;, Website__c) - 1), Website__c ))))))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Website Domain</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

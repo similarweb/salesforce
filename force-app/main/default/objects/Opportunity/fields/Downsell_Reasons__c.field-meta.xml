@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Downsell_Reasons__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Please select up to 2 of the following reasons</inlineHelpText>
+    <label>Downsell Reasons</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>No Downsell</fullName>
+                <default>false</default>
+                <label>No Downsell</label>
+            </value>
+            <value>
+                <fullName>Relationship - No relationship with decision-making authority</fullName>
+                <default>false</default>
+                <label>Relationship - No relationship with decision-making authority</label>
+            </value>
+            <value>
+                <fullName>Relationship - Working with few/wrong teams for company’s use case(s)</fullName>
+                <default>false</default>
+                <label>Relationship - Working with few/wrong teams for company’s use case(s)</label>
+            </value>
+            <value>
+                <fullName>Relationship - Insufficient touchpoints/onboarding/education</fullName>
+                <default>false</default>
+                <label>Relationship - Insufficient touchpoints/onboarding/education</label>
+            </value>
+            <value>
+                <fullName>Solution Gap - Downgraded plan / removed feature(s)</fullName>
+                <default>false</default>
+                <label>Solution Gap - Downgraded plan / removed feature(s)</label>
+            </value>
+            <value>
+                <fullName>Solution Gap - Missing Feature / Granularity</fullName>
+                <default>false</default>
+                <label>Solution Gap - Missing Feature / Granularity</label>
+            </value>
+            <value>
+                <fullName>Solution Gap - Missing Coverage (country / platform)</fullName>
+                <default>false</default>
+                <label>Solution Gap - Missing Coverage (country / platform)</label>
+            </value>
+            <value>
+                <fullName>Solution Gap - Data Accuracy Discrepancies</fullName>
+                <default>false</default>
+                <label>Solution Gap - Data Accuracy Discrepancies</label>
+            </value>
+            <value>
+                <fullName>Solution Gap - Product or features unfit for the use case</fullName>
+                <default>false</default>
+                <label>Solution Gap - Product or features unfit for the use case</label>
+            </value>
+            <value>
+                <fullName>Solution Gap - Pricing and packaging unfit for client’s needs</fullName>
+                <default>false</default>
+                <label>Solution Gap - Pricing and packaging unfit for client’s needs</label>
+            </value>
+            <value>
+                <fullName>Pricing Gap - Unwilling to pay previous price as pricing did not justify ROI/value</fullName>
+                <default>false</default>
+                <label>Pricing Gap - Unwilling to pay previous price as pricing did not justify ROI/value</label>
+            </value>
+            <value>
+                <fullName>Pricing Gap - Price match vs competitor</fullName>
+                <default>false</default>
+                <label>Pricing Gap - Price match vs competitor</label>
+            </value>
+            <value>
+                <fullName>Client Gap - Insufficient Budget (unable to pay previous price due to internal budget reasons)</fullName>
+                <default>false</default>
+                <label>Client Gap - Insufficient Budget (unable to pay previous price due to internal budget reasons)</label>
+            </value>
+            <value>
+                <fullName>Client Gap - Getting data from Agency/Third Party</fullName>
+                <default>false</default>
+                <label>Client Gap - Getting data from Agency/Third Party</label>
+            </value>
+            <value>
+                <fullName>Conversion Rate/currency technicality (requires approval)</fullName>
+                <default>false</default>
+                <label>Conversion Rate/currency technicality (requires approval)</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

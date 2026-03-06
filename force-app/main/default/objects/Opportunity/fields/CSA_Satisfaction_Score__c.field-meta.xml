@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CSA_Satisfaction_Score__c</fullName>
+    <description>MIS - 1337. Used in Closed Won/Lost processes (Flows). The rep that closes the Opp will add a satisfaction score on the related CS. 
+*Current values (Green/Yellow/Red) are temp. Will finalise with Lola.
+*Dec 9 2021 - Removed the default value from &quot;N/A&quot; and ran a data fix to remove the value from all Opps (971 records).</description>
+    <externalId>false</externalId>
+    <label>CS/SE Satisfaction</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>N/A</fullName>
+                <default>false</default>
+                <label>N/A</label>
+            </value>
+            <value>
+                <fullName>Added Incremental Value</fullName>
+                <default>false</default>
+                <label>Added Incremental Value</label>
+            </value>
+            <value>
+                <fullName>Did not add incremental value</fullName>
+                <default>false</default>
+                <label>Did not add incremental value</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

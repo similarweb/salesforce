@@ -1,0 +1,2502 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CSM</fullName>
+    <active>true</active>
+    <label>CSM</label>
+    <picklistValues>
+        <picklist>Agency__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>App_Intelligence__c</picklist>
+        <values>
+            <fullName>Demoed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Not relevant</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pitched by MIR%2FSDR</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Auto_Message__c</picklist>
+        <values>
+            <fullName>1st visitor pricing message</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Acquire%3A Ad-Tech Solution</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Acquire%3A Agency Solution</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Acquire%3A Business Strategy Page</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Acquire%3A E-Commerce Industry</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Acquire%3A Insights per page</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Acquire%3A Insurance Industry</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Acquire%3A Knowledgebase</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Acquire%3A Multiple Visits to Pricing Page</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Acquire%3A New Pricing Message</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Acquire%3A Our Data</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Acquire%3A Overnight Pricing Page</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Acquire%3A PRO Product Lite</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Acquire%3A Publisher Solution</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Acquire%3A Travel Industry</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Acquire%3A Weekend Pricing Page</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Acquire_Ad-Tech_Solution Overnight</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Acquire_Agency_Solution Overnight</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Acquire_Business_Strategy_Page Overnight</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Acquire_E-Commerce_Industry Overnight</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Acquire_Insights_per_page Overnight</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Acquire_Insurance_Industry Overnight</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Acquire_Knowledgebase Overnight</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Acquire_Multiple_Visits_to_Pricing_Page Overnight</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Acquire_Our_Data Overnight</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Acquire_PRO_Product_Lite Overnight</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Acquire_Publisher_Solution Overnight</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Acquire_Travel_Industry Overnight</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ad-Tech Solution - Weekend</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Agency Solution Page - Weekend</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Business Strategy Page - Weekend</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>E-commerce Industry Solution Page - Weekend</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Engage%3A First Login SDR</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Engage%3A SDR-FRO More than 10 days</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Engage%3A Weekend First Login SDR</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Engage_First_Login_SDR Overnight</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Engage_SDR-FRO_More_than_10_days Overnight</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FRO Overviews Message</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Industry Message</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Insights Page Message - Weekend</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Insurance Industry - Weekend</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Knowledgebase - Weekend</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Multiple Demo Logins- SDR</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Multiple Visits to Pricing Page - Weekend</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>None</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Our Data - Weekend</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PRO Product Page- Lite Weekend</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Publishers Solution - Weekend</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SDR FRO More than 5 days</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Travel Industry Solution Page - Weekend</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Budget_Indication__c</picklist>
+        <values>
+            <fullName>Negotiable</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No Budget</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Not discussed %2F Can%E2%80%99t tell yet</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Buyer_Journey_Stage__c</picklist>
+        <values>
+            <fullName>Solution Comparison</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Solution Research</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Solution Selection</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Client_seeing_value_from_SW__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Compete_AM__c</picklist>
+        <values>
+            <fullName>Brian Zanella</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Brooke Lavallee</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cameron Munger</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Meghan Mulvey</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Compete_API_Type__c</picklist>
+        <values>
+            <fullName>External</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Internal</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Compete_Product__c</picklist>
+        <values>
+            <fullName>Compete API</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Compete PRO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Intro Monthly</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Competition__c</picklist>
+        <values>
+            <fullName>Currently using a competitor</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Evaluating a competitor</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Not using a competitor</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Unknown</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Will replace SW with a competitor</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Competitor_Product__c</picklist>
+        <values>
+            <fullName>7Park Data</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>AdClarity</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Adbeat</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ahrefs</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Alexa</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>AppAnnie</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Apptopia</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Brightedge</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Builtwith</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Capital IQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Clavis</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Clearbit</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Comscore</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Conductor</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Crunchbase</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DataHawks</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Datafox</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Earnest Research</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Edge by Ascential</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EtailInsights</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Insideview</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Junglescout</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MScience</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MarketBeyond</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mixdata</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Moat</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Morning Consult</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Moz</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Nielsen</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>OneClickRetail</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pathmatics</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pitchbook</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Profitero</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Red Volcano</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SEMRush</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sales Optimize</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Searchmetrics</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Second Measure</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sellics</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sensor Tower</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SimilarTech</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Spyfu</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Stackline</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Thinknum</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Unknown</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Values eMark%2B</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Verto</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yipit</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Zoominfo</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Confirmation_of_Available_Budget__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Contact_Type__c</picklist>
+        <values>
+            <fullName>Existing contact</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New contact</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Customer_s_Main_Business_Revenue_Model__c</picklist>
+        <values>
+            <fullName>Advertising</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Affiliate</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Investing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Online Transaction</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Professional Services</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Subscription</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Degree_of_Interest_in_SimilarWeb__c</picklist>
+        <values>
+            <fullName>Comparing Solutions</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Initial Research</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ready to Buy</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Unclear</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Essentials_Prospect_Understands__c</picklist>
+        <values>
+            <fullName>Clear Value for his Use-case</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>How we are different from Direct Analytics</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Our easy-to-use SaaS%2FAPI Data Delivery</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>We are a Credible company</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>We have a Paid annual solution</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>What is Market Intelligence</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Gen_AI__c</picklist>
+        <values>
+            <fullName>Demoed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Not relevant</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pitched by MIR%2FSDR</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>High_Level_Use_Case__c</picklist>
+        <values>
+            <fullName>Agency</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Analyst</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Integration</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Marketing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PR</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Research</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sales</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>How_did_you_hear_about_us__c</picklist>
+        <values>
+            <fullName>A friend%2Fcolleague%E2%80%99s recommendation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Advertisement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Blog</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Have been using Similarweb%E2%80%99s free tools</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Online search</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Social</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Was a customer in the past</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Webinar</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Locked_Feature_On_Demand__c</picklist>
+        <values>
+            <fullName>API</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>App Analysis</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Audience</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Brand Protection</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Conversion Rate</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Country Filters</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Custom Industry</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Folder</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Historical Data</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Lead Generation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>More Results</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>More Users</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Popular Pages</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Rank Tracker</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Segment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Subdomains</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Website Technology</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Meeting_Division__c</picklist>
+        <values>
+            <fullName>APAC China Hybrid - CSM</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>APAC China Hybrid - Sales</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>APAC Inside Sales Hybrid - CSM</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>APAC Inside Sales Hybrid - Sales</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>APAC Strategic - CSM</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>APAC Strategic - Sales</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Agencies Strategic - CSM</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Agencies Strategic - Sales</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Channel Sales</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Dach - CSM</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Dach - SDR</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Dach - Sales</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EMEA Inside Sales - CSM</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EMEA Inside Sales - Sales</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>France - CSM</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>France - Sales</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Investors Enterprise - CSM</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Investors Enterprise - Sales</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Investors SMB - CSM</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Investors SMB - Sales</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Investors Strategic - CSM</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Investors Strategic - Sales</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Japan - CSM</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Japan - Sales</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LATAM Inside Sales - CSM</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LATAM Inside Sales - Sales</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Low Touch</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NA Enterprise - CSM</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NA Enterprise - Sales</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NA SMB - CSM</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NA SMB - Sales</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NA Strategic - CSM</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NA Strategic - Sales</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>OEM - CSM</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>OEM - Sales</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reseller - ANZ-Trellian</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reseller - Australia and Pacific Islands - Bring Performance</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reseller - Brazil - 108</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reseller - Brazil - Alpha</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reseller - China - TrueMetrics</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reseller - Colombia - Indices</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reseller - Finland - Luxid</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reseller - France - Digital Overview %28VAR%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reseller - HK - Master Concept %28VAR%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reseller - India - Altudo</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reseller - India - Onnivation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reseller - Israel - BDO %28VAR%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reseller - Italy - Nubo</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reseller - Malaysia - Launchpad</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reseller - Mexico - Hexagon Data</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reseller - Poland - Data Ventures %28VAR%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reseller - SEA-Maestros</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reseller - Spain - Cartagon</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reseller - Turkey-CloudyFlex</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reseller - UAE - BrentFord Technical Services</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reseller - UK - Lynchpin %28VAR%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reseller - US - BCG %28VAR%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reseller - US - Keen DS %28VAR%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reseller - US - PwC %28VAR%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reseller - US - Qrious Insight %28VAR%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reseller - Vietnam - AMS JSC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>UK - CSM</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>UK - Sales</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Meeting_Score__c</picklist>
+        <values>
+            <fullName>1</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>2</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Meeting_Source__c</picklist>
+        <values>
+            <fullName>AM cross-sell</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Partnership - Referral</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reach out to online prospect %28Proactive outreach%29</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Meeting_Sub_Division__c</picklist>
+        <values>
+            <fullName>AGO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ANZ Enterprise</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ANZ Inside Sales</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>APAC Strategic</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Agencies %26 Consultancies</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EMEA Enterprise</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EMEA Inside Sales B2B</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EMEA Inside Sales B2C</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EMEA Inside Sales ENT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EMEA Mid Market</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>GCR Enterprise</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>GCR Inside Sales</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Go To Market</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>India Inside Sales</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Investors</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>JPKR Enterprise</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>JPKR Inside Sales</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LATAM Inside Sales</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LLM %26 AI</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Meta%2FMSFT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NA Enterprise</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NA Inside Sales</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>OEM</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reseller - Brazil - 108</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reseller - Brazil - Alpha</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reseller - Vietnam - AMS JSC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SEA Enterprise</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SEA Inside Sales</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Meeting_Sub_Type__c</picklist>
+        <values>
+            <fullName>Chat Handover</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Company Event</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Conference Meeting</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Demo</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Discovery Call</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Onboarding</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Partner Event</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Phone Call</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Qualification %2F Discovery Call</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Quarterly Business Review</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Multithread_By__c</picklist>
+        <values>
+            <fullName>SDR</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SM</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Primary_Solution__c</picklist>
+        <values>
+            <fullName>Investors</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Marketing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Research</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sales</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Primary_Use_Case__c</picklist>
+        <values>
+            <fullName>Account management</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Affiliate management</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Apps intelligence</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Audience Research</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Competitive Benchmarking</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Consultative Sales</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Consumer Demand</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Content planning</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Data Integration</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Demand planning</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Investment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Keyword Research</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Lead enrichment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Market Analysis</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Marketplace sales optimization</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>On-site search optimization</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Paid Acquisition optimization</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Prospecting</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Shopper Behavior</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Social Media competitive analysis</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Product_Sold__c</picklist>
+        <values>
+            <fullName>42matters</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>AI Traffic</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>API</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Additional Monthly Data Credits</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Admetricks</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Advisory Services</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Annual Price Increase</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>App Intelligence</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Batch API</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Competitive Intelligence - Business</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Competitive Intelligence - Enterprise</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Competitive Intelligence - Team</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Competitive Intelligence-  Business for Investors%C2%A0</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Contact Data Feature</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Conversion Analysis</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Country Filters</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Data Feeds</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Historical data</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Intelligence Suite - Advanced</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Intelligence Suite - Essential</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Intelligence Suite - Ultimate</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Newslever</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Newslever - Tier I</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Newslever - Tier II</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Newslever - Tier III</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No Fit</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No Touch</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Popular Pages</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Rest API</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sales Intelligence - Business</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sales Intelligence - Business for Investors</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sales Intelligence - Enterprise</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sales Intelligence Pro</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sales Solution - Lead Enrichment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Service Package</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Shopper Intelligence - Advanced</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Shopper Intelligence - Essential</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Shopper Intelligence - Ultimate</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Stock Intelligence Platform</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Technographics</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Technology Partner</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>User</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Website Segment Analysis</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Referral__c</picklist>
+        <values>
+            <fullName>Joel Janovsky</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tzvi Barish</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Relevant_Features__c</picklist>
+        <values>
+            <fullName>API %28Dashboard%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>API %28Traditional%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>App Analysis</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>App Category Analysis</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>App Engagement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Country Filters</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Custom Dashboards</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Desktop vs%2E Mobile</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Display</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Engagement Stats</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Export</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Google Play Keywords</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Industry Analysis</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Keyword Competitors</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mobile Web Referrals</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Outgoing Links%2FAds</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Popular Pages</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Referrals</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Search</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Similar Sites</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Social</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Top Sites</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Traffic Overview</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Traffic Source Breakdown</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Right_Contact__c</picklist>
+        <values>
+            <fullName>Not The Right Contact</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Potential Champion</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Potential Decision Maker</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Potential End-User</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>SW_Industry__c</picklist>
+        <values>
+            <fullName>Ad Tech %2F Ad Network</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Agency</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Automotive %26 Transportation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>B2B Software</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>B2C Internet Services</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CPG%2C Food %26 Beverages</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Classifieds</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Consulting %26 Market Research</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Education</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Equity Research</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Financial services</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Gambling %2F Gaming</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Government Public Sector %26 Non Profit</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Hedge Funds and Asset Management</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Investment Banking</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Investors</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Logistics and Shipping</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Media %26 Entertainment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Payments</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pharma %26 Healthcare</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Retail %2F eCommerce</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Telecom %26 Hardware</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Travel %26 Hospitality</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>VC and Private Equity</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Venture Capital</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Secondary_Solution__c</picklist>
+        <values>
+            <fullName>Investors</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Marketing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Research</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sales</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Unable to identify</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Secondary_Use_Case__c</picklist>
+        <values>
+            <fullName>Account management</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Affiliate management</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Apps intelligence</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Audience Research</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Competitive Benchmarking</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Consultative Sales</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Consumer Demand</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Content planning</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Data Integration</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Demand planning</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Investment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Keyword Research</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Lead enrichment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Market Analysis</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Marketplace sales optimization</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>On-site search optimization</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Paid Acquisition optimization</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Prospecting</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Shopper Behavior</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Social Media competitive analysis</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Shopper_Intelligence__c</picklist>
+        <values>
+            <fullName>Demoed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Not relevant</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pitched by MIR%2FSDR</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Solution_Fit__c</picklist>
+        <values>
+            <fullName>Account Management %2F Customer Success</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>BI %2F Analytics</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Corporate Development %2F Mergers and Acquisitions</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Investment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Management %28C-Level%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Marketing%3A Affiliate %2F Media Buying</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Marketing%3A Management %2F General</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Marketing%3A PPC %2F Display</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Marketing%3A PR %2F Comms %2F Social Media</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Marketing%3A SEO %2F Content</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Product Management</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sales %2F Business Development</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sales Operations</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Strategy %2F Market Research</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>eCommerce</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Specific_Use_Cases__c</picklist>
+        <values>
+            <fullName>Investors%3A Diligence%2C M%26A and investment research</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Investors%3A Public market investors</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Investors%3A Source investment opportunities</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Market %26 Consumer Research%3A Understand audience</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Market %26 Consumer Research%3A Understand market share%2C market sizing %26 trend analysis</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other%3A Data integration</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other%3A Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Path to Purchase%3A Optimize conversion</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Path to Purchase%3A Product demand %28what to sell%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Path to Purchase%3A Product distribution %28where to sell%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sales%3A Lead enrichment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sales%3A Sales intelligence %28find%2C qualify%2C close%2C retain%2C monitor customers or compaines%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>User Acquisition%3A Affiliates</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>User Acquisition%3A Marketing mix optimization</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>User Acquisition%3A Organic %28SEO%2C Content%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>User Acquisition%3A Other %28Brand%2C PR%2C Social Listening%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>User Acquisition%3A Paid %28PPC%2C Display%29</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Status__c</picklist>
+        <values>
+            <fullName>Cancelled</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Completed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>In Progress</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pending</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Placeholder</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Rescheduling</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Scheduling in Progress</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Unqualified</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Stock_Intel_Industry__c</picklist>
+        <values>
+            <fullName>Airlines</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Alcohol %26 Tobacco</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Amusement Parks</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Apparel</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Application Performance Management</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Audio Streaming</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Beauty</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Broadcasting</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Business Intelligence</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CRM</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Car Rentals</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Casinos %26 Gaming</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cloud Content Management</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Commercial Banks</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Consumer %26 P2P Loans</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cruises</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>D2C Brands</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Data Warehouse</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Department and General Merchandise</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Drug %26 Pharmacy</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>E-commerce %26 Marketplaces</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Electronics</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fitness Services</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Food Delivery</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Footwear</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>For Profit Education</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Freelancing Platforms</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Gaming</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Grocery %26 Grocery Delivery</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Healthcare Providers</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Home</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Household Products</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Identity %26 Access Management</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Insurance</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Live Events</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Luxury %26 Jewelry</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Meal Kits</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Meeting Solution</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>OTA %26 Metasearch</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Online Accomodations</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Online Automarket</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Online Autoparts</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Online Autos</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Online Dating Platforms</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Online Gambling</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Online Publishers</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Online Real Estate</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Online Telemedicine</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Payments</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pet</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Restaurant</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Retail Brokerages</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ride Sharing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SMB Lending</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Social Media Advertising</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sports %26 Athleisure</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sports %26 Entertainment News</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>State Unemployment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Streaming</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Website Builders</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Weight %26 Nutrition Management</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Weight Management</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Wholesale Club Stores</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Stock_Intel_Sector__c</picklist>
+        <values>
+            <fullName>Auto %26 Parts</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Consumer Goods</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Finance %26 Insurance</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Government</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Health Care</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Internet</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Media %26 Entertainment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Online Retail</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Restaurants %26 Delivery</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SaaS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Specialized Consumer Services</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Transportation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Travel %26 Leisure</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Timing__c</picklist>
+        <values>
+            <fullName>%3E 6 Months</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>1-3 Months</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3-6 Months</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ASAP</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Type__c</picklist>
+        <values>
+            <fullName>Chat Handover</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Company Event</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Conference Meeting</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Demo</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Discovery Call</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>In-Person</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Onboarding</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Partner Event</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Phone Call</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Qualification %2F Discovery Call</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Quarterly Business Review</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Remote</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Unqualified_Reason__c</picklist>
+        <values>
+            <fullName>AM canceled</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Automate cancellation process</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Company not ENT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Feature is in the current package</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Irrelevant Prospect</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NT Training</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No Show</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No need we can deliver</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Product Issue</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Prospect Cancelled</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sales Cancelled</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

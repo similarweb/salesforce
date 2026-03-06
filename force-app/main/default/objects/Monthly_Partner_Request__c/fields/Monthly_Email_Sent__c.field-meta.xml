@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Monthly_Email_Sent__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Once the &quot;Invoice Email&quot; was sent to the Billing Contact, the Flow also check this CB. This will be an indication that the Email was sent.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>When checked, Invoice Email was sent to the &quot;Billing Contact&quot;.</inlineHelpText>
+    <label>Monthly Email Sent</label>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

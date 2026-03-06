@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SFDCFirstMQLTimeStamp__c</fullName>
+    <description>Timestamp for the moment a lead/Contact is MQL in SFDC (field not in use)</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Timestamp for the moment a lead/Contact is MQL in SFDC</inlineHelpText>
+    <label>SFDC First MQL - TimeStamp (not in use)</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>DateTime</type>
+</CustomField>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RegectionReason__c</fullName>
+    <externalId>false</externalId>
+    <label>Rejection Reason</label>
+    <required>false</required>
+    <trackFeedHistory>true</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Status__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Existing Sales Process</fullName>
+                <default>false</default>
+                <label>Existing Sales Process</label>
+            </value>
+            <value>
+                <fullName>Insufficient Data</fullName>
+                <default>false</default>
+                <label>Insufficient Data</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Strategic Account</fullName>
+                <default>false</default>
+                <label>Strategic Account</label>
+            </value>
+            <value>
+                <fullName>Active Account</fullName>
+                <default>false</default>
+                <label>Active Account</label>
+            </value>
+            <value>
+                <fullName>Not Relevant</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Not Relevant</label>
+            </value>
+            <value>
+                <fullName>Strategic - Owned by Sales</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Strategic - Owned by Sales</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Rejected</controllingFieldValue>
+            <valueName>Existing Sales Process</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Rejected</controllingFieldValue>
+            <valueName>Insufficient Data</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Rejected</controllingFieldValue>
+            <valueName>Other</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

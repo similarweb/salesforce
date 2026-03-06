@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Close_Case_mandatory_fields_Billing</fullName>
+    <active>true</active>
+    <description>Required fields when closing the ticket for Billing</description>
+    <errorConditionFormula>OR(
+
+AND(
+ISCHANGED(Status),
+ISPICKVAL(Status, &apos;Completed&apos;),
+RecordType.Name = &apos;Billing&apos;,
+TEXT(Origin) &lt;&gt; &apos;Deal Desk&apos;,
+ Parent.RecordType.Name &lt;&gt;&apos;SalesOps&apos;,
+OR(
+TEXT(Type) = &apos;&apos;,
+TEXT(Case_Sub_Type__c) = &apos;&apos;
+)
+),
+				
+				
+				AND(
+ISPICKVAL(Status, &apos;Completed&apos;),
+TEXT(Origin) = &apos;Deal Desk&apos;,
+
+OR(
+AND(
+NOT(ISPICKVAL(Type, &quot;Contract Signed Manually - Quote for Deal Desk Review&quot;)),
+NOT(ISPICKVAL(Type, &quot;Similarweb MSA&quot;)),
+NOT(ISPICKVAL(Type, &quot;DDQ (Due Diligence / Security Questionnaire)&quot;)),
+NOT(ISPICKVAL(Type, &quot;Customer Access&quot;)),
+NOT(ISPICKVAL(Type, &quot;Customer Invoice(s)/Collections&quot;)),
+NOT(ISPICKVAL(Type, &quot;Customer Vendor Form&quot;)),
+NOT(ISPICKVAL(Type, &quot;RFP/RFI (Request for Proprosal)&quot;)),
+NOT(ISPICKVAL(Type, &quot;Opp Review: One-Time Product&quot;)),
+NOT(ISPICKVAL(Type, &quot;Company Documents (e.g. SOC 2, SOC 3, COI, Bank Letter)&quot;)),
+NOT(ISPICKVAL(Type, &quot;Third Party Access Agreement (TPAA)&quot;)),
+				
+OR(
+TEXT(Type) = &apos;&apos;,
+TEXT(Case_Sub_Type__c) = &apos;&apos;
+)
+)
+)
+)
+				
+				)</errorConditionFormula>
+    <errorMessage>Before closing the case please fill out Case Type and Sub Type</errorMessage>
+</ValidationRule>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NAL_strategic_pod</fullName>
+    <active>false</active>
+    <errorConditionFormula>BEGINS(Text(Strategic_Pod__c), &quot;NAL&quot;) &amp;&amp; ISBLANK(Sub_Division__c)</errorConditionFormula>
+    <errorMessage>If you enter a NAL Strategic Pod you must enter Sub division</errorMessage>
+</ValidationRule>

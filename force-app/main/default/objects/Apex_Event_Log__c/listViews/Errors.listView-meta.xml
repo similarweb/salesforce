@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Errors</fullName>
+    <columns>NAME</columns>
+    <columns>CREATED_DATE</columns>
+    <columns>Record_Ids__c</columns>
+    <columns>Log_Type__c</columns>
+    <columns>Apex_class__c</columns>
+    <columns>Apex_Method__c</columns>
+    <columns>Detailed_Error_Message__c</columns>
+    <columns>Detailed_Information__c</columns>
+    <columns>HTTP_Endpoint__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Apex_class__c</field>
+        <operation>notEqual</operation>
+    </filters>
+    <filters>
+        <field>CREATED_DATE</field>
+        <operation>equals</operation>
+        <value>TODAY</value>
+    </filters>
+    <filters>
+        <field>Log_Type__c</field>
+        <operation>equals</operation>
+        <value>Error</value>
+    </filters>
+    <label>Errors</label>
+</ListView>

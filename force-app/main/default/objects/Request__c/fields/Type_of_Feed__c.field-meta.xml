@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Type_of_Feed__c</fullName>
+    <description>MIS-2334</description>
+    <externalId>false</externalId>
+    <label>Type of Feed</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Global Growth Sites</fullName>
+                <default>false</default>
+                <label>Global Growth Sites</label>
+            </value>
+            <value>
+                <fullName>Google Keywords</fullName>
+                <default>false</default>
+                <label>Google Keywords</label>
+            </value>
+            <value>
+                <fullName>OSS (use Amazon.com)</fullName>
+                <default>false</default>
+                <label>OSS (use Amazon.com)</label>
+            </value>
+            <value>
+                <fullName>Page Shares (Amazon.com)</fullName>
+                <default>false</default>
+                <label>Page Shares (Amazon.com)</label>
+            </value>
+            <value>
+                <fullName>Product Views and Purchases (Amazon.com)</fullName>
+                <default>false</default>
+                <label>Product Views and Purchases (Amazon.com)</label>
+            </value>
+            <value>
+                <fullName>Quant Feed</fullName>
+                <default>false</default>
+                <label>Quant Feed</label>
+            </value>
+            <value>
+                <fullName>Ticker Tracker</fullName>
+                <default>false</default>
+                <label>Ticker Tracker</label>
+            </value>
+            <value>
+                <fullName>Video Tracker (YouTube.com)</fullName>
+                <default>false</default>
+                <label>Video Tracker (YouTube.com)</label>
+            </value>
+            <value>
+                <fullName>Quant Feed Russell 1000 Calibrated Domain - Needs to be rerun, will update later</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Quant Feed Russell 1000 Calibrated Domain - Needs to be rerun, will update later</label>
+            </value>
+            <value>
+                <fullName>Quant Feed Russell 1000 Calibrated Ticker - Needs to be rerun, will update later</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Quant Feed Russell 1000 Calibrated Ticker - Needs to be rerun, will update later</label>
+            </value>
+            <value>
+                <fullName>Quant Feed Russell 1000 Estimated Domain</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Quant Feed Russell 1000 Estimated Domain</label>
+            </value>
+            <value>
+                <fullName>Quant Feed Russell 1000 Estimated Ticker</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Quant Feed Russell 1000 Estimated Ticker</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

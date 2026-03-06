@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MIS_Support</fullName>
+    <fields>Subject</fields>
+    <fields>Priority</fields>
+    <fields>Status</fields>
+    <fields>Type</fields>
+    <fields>CaseNumber</fields>
+    <label>MIS Support</label>
+</CompactLayout>

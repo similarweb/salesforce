@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Desired_Outcome__c</fullName>
+    <externalId>false</externalId>
+    <label>Desired Outcome</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Schedule a demo</fullName>
+                <default>false</default>
+                <label>Schedule a demo</label>
+            </value>
+            <value>
+                <fullName>Present a QBR or Deck</fullName>
+                <default>false</default>
+                <label>Present a QBR or Deck</label>
+            </value>
+            <value>
+                <fullName>Build a Rapport (current or advanced negotiation stages)</fullName>
+                <default>false</default>
+                <label>Build a Rapport (current or advanced negotiation stages)</label>
+            </value>
+            <value>
+                <fullName>Expansion (get this circulating among a larger audience)</fullName>
+                <default>false</default>
+                <label>Expansion (get this circulating among a larger audience)</label>
+            </value>
+            <value>
+                <fullName>Any sort of response! (lead or client has gone cold)</fullName>
+                <default>false</default>
+                <label>Any sort of response! (lead or client has gone cold)</label>
+            </value>
+            <value>
+                <fullName>Increased Usage</fullName>
+                <default>false</default>
+                <label>Increased Usage</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Create a new opportunity</fullName>
+                <default>false</default>
+                <label>Create a new opportunity</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>7</visibleLines>
+</CustomField>

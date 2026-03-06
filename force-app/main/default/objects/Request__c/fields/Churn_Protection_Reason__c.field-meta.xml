@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Churn_Protection_Reason__c</fullName>
+    <description>MIS-775</description>
+    <externalId>false</externalId>
+    <label>Churn Protection Reason</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Renewal more than 7 days late, incl. extension &amp; backdating</fullName>
+                <default>false</default>
+                <label>Renewal more than 7 days late, incl. extension &amp; backdating</label>
+            </value>
+            <value>
+                <fullName>Account transitioned 90 days prior to renewal due to a rep leaving the company</fullName>
+                <default>false</default>
+                <label>Account transitioned 90 days prior to renewal due to a rep leaving the company</label>
+            </value>
+            <value>
+                <fullName>Accounts transition to NT</fullName>
+                <default>false</default>
+                <label>Accounts transition to NT</label>
+            </value>
+            <value>
+                <fullName>The purchased product is no longer supported</fullName>
+                <default>false</default>
+                <label>The purchased product is no longer supported</label>
+            </value>
+            <value>
+                <fullName>Other - All other churn protection requests outside of this list - must go through special approval process</fullName>
+                <default>false</default>
+                <label>Other - All other churn protection requests outside of this list - must go through special approval process</label>
+            </value>
+            <value>
+                <fullName>$5K ARR Accounts / Serengeti Sunset</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>$5K ARR Accounts / Serengeti Sunset</label>
+            </value>
+            <value>
+                <fullName>Accounts transitioned to the rep less than 90 days prior renewal date</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Accounts transitioned to the rep less than 90 days prior renewal date</label>
+            </value>
+            <value>
+                <fullName>Debooking</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Debooking</label>
+            </value>
+            <value>
+                <fullName>Merges (in cases where there was no loss of ARR)</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Merges (in cases where there was no loss of ARR)</label>
+            </value>
+            <value>
+                <fullName>Product Change - Small Sites / Popular Pages</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Product Change - Small Sites / Popular Pages</label>
+            </value>
+            <value>
+                <fullName>Renewals 7+ days late, including extension and backdated contract</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Renewals 7+ days late, including extension and backdated contract</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

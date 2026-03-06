@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DDQ_prioritization_cleanup</fullName>
+    <columns>NAME</columns>
+    <columns>Status__c</columns>
+    <columns>Account__c</columns>
+    <columns>Account_Owner__c</columns>
+    <columns>Opportunity__c</columns>
+    <columns>Opportunity_Stage__c</columns>
+    <columns>Opportunity_ARR__c</columns>
+    <columns>Opportunity_Close_Date__c</columns>
+    <columns>Renewal_date_FromAccount__c</columns>
+    <columns>Account_Division__c</columns>
+    <columns>CREATED_DATE</columns>
+    <columns>DDQ_Prioritization__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Request__c.Supplier_Questionnaires</value>
+    </filters>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>Cancelled,Completed,Pending Client,Pending Requestor,Pending update from Client,Sent to customer</value>
+    </filters>
+    <filters>
+        <field>DDQ_Prioritization__c</field>
+        <operation>notEqual</operation>
+    </filters>
+    <label>DDQ prioritization cleanup</label>
+</ListView>

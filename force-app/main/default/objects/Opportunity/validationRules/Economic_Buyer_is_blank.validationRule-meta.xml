@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Economic_Buyer_is_blank</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+  NOT(ISPICKVAL(Type, &apos;Feature Update&apos;)),
+  RecordTypeId &lt;&gt; &apos;012b0000000cfCa&apos;,
+  ISCHANGED(Probability),
+  Probability &gt;= 0.5,
+  OR(
+    ISBLANK(Economic_Buyer__c),
+    ISBLANK(Economic_Buyer_Title__c)
+  ),
+  RecordType.DeveloperName &lt;&gt; &quot;Rank_Ranger&quot;,
+  RecordType.DeveloperName &lt;&gt; &quot;Acquired_Company&quot;,
+  RecordTypeId &lt;&gt; &apos;012b0000000cfCa&apos;, /*Panel Acquisition*/
+  RecordType.DeveloperName &lt;&gt; &quot;Partnership&quot;,
+  $Profile.Name &lt;&gt; &apos;SW SalesOps Extended&apos;,
+  MEDPIC_Next_Stage__c = false
+)</errorConditionFormula>
+    <errorDisplayField>Economic_Buyer__c</errorDisplayField>
+    <errorMessage>Please Insert the name of the economic buyer with a title</errorMessage>
+</ValidationRule>

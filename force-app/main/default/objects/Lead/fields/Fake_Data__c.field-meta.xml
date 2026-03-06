@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Fake_Data__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>MIS-7697
+Field will be populated automatically from Groudon or LeadCapture trigger.</description>
+    <externalId>false</externalId>
+    <label>Fake Data</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

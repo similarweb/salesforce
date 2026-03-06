@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Short_Term_Projects_Decision_Makers__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>What projects are currently in progress or may be planned in the near term (six months)</inlineHelpText>
+    <label>Short Term Projects - Decision Makers</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>TextArea</type>
+</CustomField>

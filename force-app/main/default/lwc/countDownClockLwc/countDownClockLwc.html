@@ -1,0 +1,34 @@
+<template>
+    <lightning-card title="SLA time left" icon-name="utility:clock">
+        <div class="timer-background">
+            <template if:true={error}>
+                <div class="error">
+                    <p>Error: {error}</p>
+                </div>
+            </template>
+
+            <template if:true={timeRemaining}>
+                <div class="time-remaining">
+                    <template if:true={days}>
+                        <span class="time-box">{days}</span><span class="label">Days</span>
+                    </template>
+                    <span class={hoursClass}>{hours}</span><span class="label">:</span>
+                    <span class={minutesClass}>{minutes}</span><span class="label">:</span>
+                    <span class={secondsClass}>{seconds}</span>
+                </div>
+            </template>
+
+            <template if:true={showMessage}>
+                <div class="funny-message">
+                    <p>{message}</p>
+                </div>
+            </template>
+
+            <template if:true={isComplete}>
+                <div class="complete-message">
+                    <p>The countdown has completed!</p>
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+</template>

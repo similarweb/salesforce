@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Source_User_to_Duplicate__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Selected User to clone all the details of the New/Updated User</description>
+    <externalId>false</externalId>
+    <label>Source User to Duplicate</label>
+    <referenceTo>User</referenceTo>
+    <relationshipName>Manage_Users_Logs_Cloned_To</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

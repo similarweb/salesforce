@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Contact_Owner_Equals_Account_Owner__c</fullName>
+    <externalId>false</externalId>
+    <formula>If(OwnerId=Account.OwnerId,true,false)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Contact Owner Equals Account Owner</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

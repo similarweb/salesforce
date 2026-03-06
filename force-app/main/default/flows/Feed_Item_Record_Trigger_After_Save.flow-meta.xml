@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>61.0</apiVersion>
+    <decisions>
+        <name>Update_Case_Status_In_Progress</name>
+        <label>Update Case Status = In Progress</label>
+        <locationX>314</locationX>
+        <locationY>323</locationY>
+        <defaultConnector>
+            <targetReference>Update_Case_Status_Resubmitted</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Case_Status_New</name>
+            <conditionLogic>1 AND 2 AND 3 and (4 or 5) and 6</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Parent:Case.Status</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>New</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Type</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>TextPost</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Parent:Case.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>SalesOps</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.CreatedBy:User.Profile.Name</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>SW SalesOps</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.CreatedBy:User.Profile.Name</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>SW SalesOps Extended</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>ISNEW</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Case_Status_to_In_Progress</targetReference>
+            </connector>
+            <label>Case Status = New</label>
+        </rules>
+        <rules>
+            <name>Case_Stauts_Pending_Requester</name>
+            <conditionLogic>1 AND 2 AND 3  AND ( 4 OR (5 AND 6))</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Parent:Case.Status</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Pending Requester</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Type</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>TextPost</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Parent:Case.RecordType.Name</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Deal Desk</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.CreatedBy:User.Id</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record.Parent:Case.Original_Requester__c</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.CreatedBy:User.Id</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record.Parent:Case.Requester__c</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Parent:Case.ParentId</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <isGoTo>true</isGoTo>
+                <targetReference>Update_Case_Status_to_In_Progress</targetReference>
+            </connector>
+            <label>Case Status = Pending Requester</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-6888</description>
+        <name>Update_Case_Status_Resubmitted</name>
+        <label>Update Case Status Resubmitted</label>
+        <locationX>314</locationX>
+        <locationY>731</locationY>
+        <defaultConnector>
+            <targetReference>Uptate_Case_Status_Reopened</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Case_Status_Resubmitted</name>
+            <conditionLogic>1 AND 2 AND 3 AND (4 OR 5)</conditionLogic>
+            <conditions>
+                <leftValueReference>ISNEW</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Parent:Case.Status</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Pending Requester</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Parent:Case.RecordType.Name</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Legal</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.CreatedById</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record.Parent:Case.Requester__c</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.CreatedById</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record.Parent:Case.Original_Requester__c</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Legal_Case_Resubmitted</targetReference>
+            </connector>
+            <label>Case Status Resubmitted</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Uptate_Case_Status_Reopened</name>
+        <label>Update Case Status = Reopened</label>
+        <locationX>314</locationX>
+        <locationY>1031</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Case_Status_Completed</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Parent:Case.Status</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Completed</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Type</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>TextPost</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.CreatedById</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record.Parent:Case.Requester__c</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>ISNEW</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Parent:Case.Do_Not_Reopen__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Parent:Case.RecordType.Name</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Deal Desk</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Parent:Case.Case_Sub_Type__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Spam</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Case_Status_to_In_Reopened</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>Case Status = Completed</label>
+        </rules>
+    </decisions>
+    <description>MIS-7866 Stop emails with Case Sub-Type &quot;Spam&quot; from re-opening
+MIS-6888 change legal status to resubmitted
+MIS-6807 Remove DD case reopening from chatter comment
+MIS-6802 - do not refresh checkbox
+mis 6632 - refresh record
+mis-6213 add billing to in progress from chatter 
+mis - 6134 - add pending requester to in progress</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>ISNEW</name>
+        <dataType>Boolean</dataType>
+        <expression>ISNEW()</expression>
+    </formulas>
+    <interviewLabel>Feed Item - Record Trigger - After Save {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Feed Item - Record Trigger - After Save</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordCreates>
+        <name>Copy_1_of_Refresh_Case</name>
+        <label>Copy 1 of Refresh Case</label>
+        <locationX>182</locationX>
+        <locationY>1247</locationY>
+        <inputAssignments>
+            <field>Record_ID__c</field>
+            <value>
+                <elementReference>$Record.Parent:Case.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Refresh_Record_Page__e</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordCreates>
+        <name>Refresh_Case</name>
+        <label>Refresh Case</label>
+        <locationX>50</locationX>
+        <locationY>539</locationY>
+        <connector>
+            <targetReference>Update_Case_Status_Resubmitted</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Record_ID__c</field>
+            <value>
+                <elementReference>$Record.Parent:Case.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Refresh_Record_Page__e</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordUpdates>
+        <name>Update_Case_Status_to_In_Progress</name>
+        <label>Update Case Status to In Progress</label>
+        <locationX>50</locationX>
+        <locationY>431</locationY>
+        <connector>
+            <targetReference>Refresh_Case</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Status</field>
+            <value>
+                <stringValue>In Progress</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record.Parent:Case</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Case_Status_to_In_Reopened</name>
+        <label>Update Case Status to In Reopened</label>
+        <locationX>182</locationX>
+        <locationY>1139</locationY>
+        <connector>
+            <targetReference>Copy_1_of_Refresh_Case</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Status</field>
+            <value>
+                <stringValue>Reopened</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record.Parent:Case</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Legal_Case_Resubmitted</name>
+        <label>Update Legal Case Resubmitted</label>
+        <locationX>182</locationX>
+        <locationY>839</locationY>
+        <connector>
+            <targetReference>Uptate_Case_Status_Reopened</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Status</field>
+            <value>
+                <stringValue>Resubmitted</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record.Parent:Case</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>188</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Update_Case_Status_In_Progress</targetReference>
+        </connector>
+        <object>FeedItem</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

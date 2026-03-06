@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Reassign_SDR</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>Reassign - MIR (absolute)</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <url>var bu = &quot;{!Account.Business_Unit__c}&quot;;
+var country = &quot;{!Account.BillingCountry}&quot;;
+
+if (bu==&quot;&quot; || country==&quot;&quot;)
+{
+  alert (&quot;Please set the Business Unit and Country before re-assigning&quot;);
+}
+else
+{
+  var url=&quot;/apex/ManualReassignAcc?id=&quot;+&quot;{!Account.Id}&quot;;
+  
+  parent.window.location=&quot;/apex/ManualReassignAcc?id={!Account.Id}&quot;;
+}</url>
+</WebLink>

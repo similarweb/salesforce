@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>What_is_the_missing_Data_Coverage__c</fullName>
+    <description>MIS-7131</description>
+    <externalId>false</externalId>
+    <label>What is the missing Data / Coverage?</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Missing country data</fullName>
+                <default>false</default>
+                <label>Missing country data</label>
+            </value>
+            <value>
+                <fullName>Missing subdomains</fullName>
+                <default>false</default>
+                <label>Missing subdomains</label>
+            </value>
+            <value>
+                <fullName>Missing domains data</fullName>
+                <default>false</default>
+                <label>Missing domains data</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

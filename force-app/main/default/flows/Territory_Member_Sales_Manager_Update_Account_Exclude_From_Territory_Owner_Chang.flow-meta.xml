@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>58.0</apiVersion>
+    <description>MIS-4317
+New Territory Member OR Territory Member Role Changed 
+&amp;&amp; 
+Role = Sales Manager 
+&amp;&amp;
+Territory Member &lt;&gt; Territory Owner
+
+Action
+Get All Accounts related to the Territory
+Check if New Territory Member = Account Owner
+
+Update
+If true → Update Account.Exclude_From_Territory_Owner_Change__c = True
+If false → Update Account.Exclude_From_Territory_Owner_Change__c = False</description>
+    <environments>Default</environments>
+    <interviewLabel>Territory Member - Update {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Territory Member - Sales Manager - Update Account Exclude From Territory Owner Change</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <description>Get All Accounts related to the Territory &amp; New Territory Member = Account Owner
+Update Account.Exclude_From_Territory_Owner_Change__c = True</description>
+        <name>Update_True_to_Account_Exclude_from_Territory_Owner_Change</name>
+        <label>Update True to Account Exclude from Territory Owner Change</label>
+        <locationX>176</locationX>
+        <locationY>323</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Territory__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Territory__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>OwnerId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Name__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Exclude_From_Territory_Owner_Change__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Exclude_From_Territory_Owner_Change__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <object>Account</object>
+    </recordUpdates>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Update_True_to_Account_Exclude_from_Territory_Owner_Change</targetReference>
+        </connector>
+        <filterFormula>(ISNEW() || ISCHANGED({!$Record.Territory_Member_Role__c}))
+&amp;&amp;
+TEXT ({!$Record.Territory_Member_Role__c}) = &apos;Sales Manager&apos;
+&amp;&amp;
+{!$Record.Territory__r.OwnerId}  &lt;&gt; {!$Record.Name__c}</filterFormula>
+        <object>Territory_Member__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

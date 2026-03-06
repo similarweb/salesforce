@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Orre_s_lead_View_10_7_18</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>LEAD.STATUS</columns>
+    <columns>Wolves_App_Name__c</columns>
+    <columns>LEAD.COMPANY</columns>
+    <columns>Wolves_Link_to_App__c</columns>
+    <columns>Wolves_Tracking_Method__c</columns>
+    <columns>Wolves_Rating_Count__c</columns>
+    <columns>Minimum_Installs__c</columns>
+    <columns>Wolves_App_Category__c</columns>
+    <columns>Wolves_Quality_Score__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Wolves_App_Category__c</field>
+        <operation>notContain</operation>
+        <value>GAME</value>
+    </filters>
+    <filters>
+        <field>LEAD.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Lead.Wolves</value>
+    </filters>
+    <filters>
+        <field>LEAD.STATUS</field>
+        <operation>equals</operation>
+        <value>Open</value>
+    </filters>
+    <filters>
+        <field>LEAD.CONVERTED</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>Minimum_Installs__c</field>
+        <operation>greaterOrEqual</operation>
+        <value>5000000</value>
+    </filters>
+    <label>Orre&apos;s Android lead View 10.7.18</label>
+</ListView>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Send_With_DocuSign</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <hasMenubar>false</hasMenubar>
+    <hasScrollbars>true</hasScrollbars>
+    <hasToolbar>false</hasToolbar>
+    <height>600</height>
+    <isResizable>true</isResizable>
+    <linkType>url</linkType>
+    <masterLabel>Send With DocuSign</masterLabel>
+    <openType>newWindow</openType>
+    <position>none</position>
+    <protected>false</protected>
+    <showsLocation>false</showsLocation>
+    <showsStatus>false</showsStatus>
+    <url>{!URLFOR(&quot;/apex/dsfs__DocuSign_CreateEnvelope&quot;, null, [SourceID = Opportunity.Id, CRL = &quot;Email~avii@similarweb.com;FirstName~Avi;LastName~Israel;Role~EVP Finance&quot;, 
+CES=&apos;Please Sign: SimilarWeb Subscription Access - &apos; +Account.Name+ &apos; - &apos; + dsfs__DocuSign_Status__c.Name, 
+CEM=&apos;I hope this finds you well.\\n \\nPlease sign the following document in order to access your SimilarWeb subscription.\\n \\nIf you have any questions_COMMA_ feel free to reach out directly and I will be happy to help.\\n \\nThanks so much!&apos;, 
+SSB=&apos;0&apos;,
+RES= &apos;1,1,2,1,10,2&apos;, 
+LA = &quot;0&quot;,
+LF = &quot;0&quot;])}</url>
+</WebLink>

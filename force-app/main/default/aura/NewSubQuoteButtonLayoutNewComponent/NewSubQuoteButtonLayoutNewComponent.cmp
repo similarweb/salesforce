@@ -1,0 +1,578 @@
+<aura:component>
+    <aura:attribute name="quoteStatus" type="String" required="true"/>
+    <aura:attribute name="subscriptionType" type="String" required="true"/>
+    <aura:attribute name="zuoraVisualforceUrl" type="String" required="true"/>
+    <aura:attribute name="documentType" type="String" required="true"/>
+    <aura:attribute name="quoteRecordId" type="String" required="true"/>
+    <aura:attribute name="paymentMethod" type="String" required="true"/>
+    <aura:attribute name="paymentFrequency" type="String" required="true"/>
+    <aura:attribute name="isDiscountApprove" type="Boolean" required="true"/>
+    <aura:attribute name="paymentLink" type="String" required="true"/>
+    <aura:attribute name="quoteRecordTypeReadOnlyId" default="012b0000000QNKCAA4" type="String"/>
+    <aura:attribute name="recordTypeId" type="String" required="true"/>
+    <aura:attribute name="flowMode" type="String" required="true"/>
+    <aura:attribute name="isQuoteApprovalEnabled" type="Boolean"/>
+    <aura:attribute name="isMsaSentToZuoraEnabled" type="Boolean"/>
+    <aura:attribute name="isLegalFlowEnabled" type="Boolean"/>
+    <aura:attribute name="isHitwiseAccount" type="Boolean"/>
+    <aura:attribute name="isNewSubFromExistingAcc" type="Boolean"/>
+    <aura:attribute name="isContractSignedManually" type="Boolean"/>
+    <aura:attribute name="stepList" type="List"/>
+    <aura:attribute name="hitwiseLink" type="String"/>
+    <aura:attribute name="isASproductExist" type="Boolean" default="false"/>
+    <aura:attribute name="isGreenLane" type="Boolean" default="false"/>
+
+    <lightning:layout class="slds-p-vertical_small">
+        <!-- New buttons -->
+        <!-- Payment Method: Credit Card -->
+        <!-- New Billing Account -->
+        <aura:if
+                isTrue="{!(equals(v.paymentMethod,'Credit Card')||equals(v.paymentMethod,'PayPal'))&amp;&amp;not(v.isNewSubFromExistingAcc)&amp;&amp;not(v.isHitwiseAccount)}">
+            <!--            <lightning:layoutItem class="slds-p-horizontal_small">-->
+            <!--                <c:GenerateProposalsButton  quoteRecordId="{!v.quoteRecordId}"-->
+            <!--                                            isDisabled="{!equals(v.quoteStatus,'Pending Rep To Adjust Quote') || equals(v.quoteStatus,'Sent To Zuora') || equals(v.quoteStatus,'Processed Directly in Zuora')}"-->
+            <!--                                            isPassed="{!equals(v.quoteStatus,'Terms Approved') || equals(v.quoteStatus,'Sent To Zuora') || equals(v.quoteStatus,'Processed Directly in Zuora')}"-->
+            <!--                />-->
+            <!--            </lightning:layoutItem>-->
+            <!--            <lightning:layoutItem class="slds-p-right_small">-->
+            <!--                <lightning:icon variant="inverse" iconName="utility:macros" />-->
+            <!--            </lightning:layoutItem>-->
+            <lightning:layoutItem class="slds-p-horizontal_small">
+                <c:PaymentLinkButton    recordId="{!v.quoteRecordId}"
+                                        isDisabled="{!notequals(v.quoteStatus,'Contract Signed')&amp;&amp;notequals(v.quoteStatus,'Terms Approved') || equals(v.quoteStatus,'Processed Directly in Zuora')}"
+                                        label="Payment link"
+                                        isPassed="{!equals(v.quoteStatus,'Sent To Zuora') || equals(v.quoteStatus,'Processed Directly in Zuora')}"
+                                        paymentLink="{!v.paymentLink}"
+                />
+            </lightning:layoutItem>
+
+            <aura:if isTrue="{!v.isASproductExist}">
+                <lightning:layoutItem class="slds-p-right_small">
+                    <lightning:icon variant="inverse" iconName="utility:macros" />
+                </lightning:layoutItem>
+                <lightning:layoutItem class="slds-p-horizontal_small">
+                    <c:ReadyForBillingButton recordId="{!v.quoteRecordId}"
+                                             isDisabled="{!notequals(v.quoteStatus,'Proforma Invoice sent')&amp;&amp;notequals(v.quoteStatus,'Contract Signed Manually')&amp;&amp;notequals(v.quoteStatus,'Contract Signed') &amp;&amp;notequals(v.quoteStatus,'Terms Approved') || equals(v.quoteStatus,'Processed Directly in Zuora')}"
+                                             isPassed="{!equals(v.quoteStatus,'Ready for Billing') || equals(v.quoteStatus,'Processed Directly in Zuora') || equals(v.quoteStatus,'Sent To Zuora')}"
+                    />
+                </lightning:layoutItem>
+            </aura:if>
+
+            <aura:if isTrue="{!v.isMsaSentToZuoraEnabled}">
+                <lightning:layoutItem class="slds-p-right_small">
+                    <lightning:icon variant="inverse" iconName="utility:macros"/>
+                </lightning:layoutItem>
+                <lightning:layoutItem class="slds-p-right_small">
+                    <c:SubmitToZuoraButton  recordId="{!v.quoteRecordId}"
+                                            isDisabled="{!notequals(v.quoteStatus, 'Terms Approved') || equals(v.quoteStatus,'Processed Directly in Zuora')}"
+                                            isPassed="{!equals(v.quoteStatus,'Processed Directly in Zuora') || equals(v.quoteStatus,'Sent To Zuora')}"
+                                            submitMode="Submit manually"
+                    />
+                </lightning:layoutItem>
+            </aura:if>
+        </aura:if>
+
+        <!-- Payment Method: Credit Card -->
+        <!-- Existing Billing Account -->
+        <aura:if
+                isTrue="{!((equals(v.paymentMethod,'Credit Card')||equals(v.paymentMethod,'PayPal'))&amp;&amp;v.isNewSubFromExistingAcc)&amp;&amp;not(v.isHitwiseAccount)}">
+            <lightning:layoutItem class="slds-p-horizontal_small">
+                <c:ReadyForBillingButton    recordId="{!v.quoteRecordId}"
+                                            isDisabled="{!notequals(v.quoteStatus,'Terms Approved') || equals(v.quoteStatus,'Processed Directly in Zuora')}"
+                                            isPassed="{!equals(v.quoteStatus,'Ready for Billing') || equals(v.quoteStatus,'Sent To Zuora') || equals(v.quoteStatus,'Processed Directly in Zuora')}"
+                />
+            </lightning:layoutItem>
+            <aura:if isTrue="{!v.isMsaSentToZuoraEnabled}">
+                <lightning:layoutItem class="slds-p-right_small">
+                    <lightning:icon variant="inverse" iconName="utility:macros"/>
+                </lightning:layoutItem>
+                <lightning:layoutItem class="slds-p-right_small">
+                    <c:SubmitToZuoraButton  recordId="{!v.quoteRecordId}"
+                                            isDisabled="{!notequals(v.quoteStatus, 'Ready for Billing') || equals(v.quoteStatus,'Processed Directly in Zuora')}"
+                                            isPassed="{!equals(v.quoteStatus,'Sent To Zuora') || equals(v.quoteStatus,'Processed Directly in Zuora')}"
+                                            submitMode="Submit manually"
+                    />
+                </lightning:layoutItem>
+            </aura:if>
+        </aura:if>
+
+        <!-- Payment Method: Wire Transfer -->
+        <!-- New Billing Account -->
+        <aura:if
+                isTrue="{!equals(v.paymentMethod,'Wire Transfer')&amp;&amp;not(v.isNewSubFromExistingAcc)&amp;&amp;not(v.isHitwiseAccount)}">
+            <lightning:layoutItem class="slds-p-horizontal_small">
+                <c:SubmitForApprovalIconButton  recordId="{!v.quoteRecordId}"
+                                                label="Finance Approval"
+                                                isDisabled="{!equals(v.quoteStatus,'Pending Legal Or Billing request') || equals(v.quoteStatus,'Terms Approved') || equals(v.quoteStatus,'Terms Pending') || equals(v.quoteStatus,'Contract Signed') || equals(v.quoteStatus,'Proforma Invoice sent')||equals(v.quoteStatus,'Sent To Zuora')|| equals(v.quoteStatus,'Ready for Billing') || equals(v.quoteStatus,'Processed Directly in Zuora')}"
+                                                isPending="{!equals(v.quoteStatus,'Terms Pending')}"
+                                                isRejected="{!equals(v.quoteStatus,'Terms Rejected')}"
+                                                isPassed="{!equals(v.quoteStatus,'Terms Approved') || equals(v.quoteStatus,'Contract Signed') || equals(v.quoteStatus,'Proforma Invoice sent')||equals(v.quoteStatus,'Sent To Zuora')|| equals(v.quoteStatus,'Ready for Billing') || equals(v.quoteStatus,'Processed Directly in Zuora')}" />
+            </lightning:layoutItem>
+            <lightning:layoutItem class="slds-p-right_small">
+                <lightning:icon variant="inverse" iconName="utility:macros" />
+            </lightning:layoutItem>
+            <!--            <lightning:layoutItem class="slds-p-horizontal_small">-->
+            <!--                <c:GenerateProposalsButton  quoteRecordId="{!v.quoteRecordId}"-->
+            <!--                                            isDisabled="{!equals(v.quoteStatus,'Pending Rep To Adjust Quote') || equals(v.quoteStatus,'Pending Legal Or Billing request') || equals(v.quoteStatus,'Processed Directly in Zuora')}"-->
+            <!--                                            isPassed="{!equals(v.quoteStatus,'Terms Approved') || equals(v.quoteStatus,'Proforma Invoice sent') || equals(v.quoteStatus, 'Contract Signed Manually') || equals(v.quoteStatus,'Ready for Billing') || equals(v.quoteStatus,'Sent To Zuora') || equals(v.quoteStatus,'Processed Directly in Zuora')}"-->
+            <!--                />-->
+            <!--            </lightning:layoutItem>-->
+            <!--            <lightning:layoutItem class="slds-p-right_small">-->
+            <!--                <lightning:icon variant="inverse" iconName="utility:macros" />-->
+            <!--            </lightning:layoutItem>-->
+            <lightning:layoutItem class="slds-p-right_small">
+                <c:GenerateContractComponentIconButton  recordId="{!v.quoteRecordId}"
+                                                        buttonLabel="Proforma Invoice"
+                                                        isDisabled="{! (equals(v.quoteStatus,'Pending Rep To Adjust Quote') &amp;&amp; not(v.isLegalFlowEnabled)) || (equals(v.quoteStatus,'Pending Legal Or Billing request') &amp;&amp; not(v.isLegalFlowEnabled)) || equals(v.quoteStatus,'Deal Size Approved') || equals(v.quoteStatus,'Processed Directly in Zuora') || (equals(v.quoteStatus,'Approved By Billing') &amp;&amp; not(v.isLegalFlowEnabled))}"
+                                                        isPassed="{!equals(v.quoteStatus,'Proforma Invoice sent') || (equals(v.quoteStatus,'Approved By Billing') &amp;&amp; not(v.isLegalFlowEnabled)) || equals(v.quoteStatus,'Ready for Billing') || equals(v.quoteStatus,'Contract Signed') || equals(v.quoteStatus,'Contract Signed Manually') || equals(v.quoteStatus,'Sent To Zuora') || equals(v.quoteStatus,'Processed Directly in Zuora')}"
+                                                        finalizeQuote="{!true}"/>
+                <!-- <c:GenerateContractComponentIconButton  recordId="{!v.quoteRecordId}"
+                                                        buttonLabel="Proforma Invoice"
+                                                        isDisabled="{!equals(v.quoteStatus,'Deal Size Approved') || equals(v.quoteStatus,'Proforma Invoice sent') || equals(v.quoteStatus,'Processed Directly in Zuora')}"
+                                                        isPassed="{!equals(v.quoteStatus,'Proforma Invoice sent') || equals(v.quoteStatus,'Ready for Billing')  || equals(v.recordTypeId,v.quoteRecordTypeReadOnlyId) || equals(v.quoteStatus,'Contract Signed') || equals(v.quoteStatus,'Contract Signed Manually') || equals(v.quoteStatus,'Sent To Zuora') || equals(v.quoteStatus,'Processed Directly in Zuora')}"
+                                                        finalizeQuote="{!true}"/> -->
+            </lightning:layoutItem>
+
+            <aura:if isTrue="{!v.isGreenLane &amp;&amp; (equals(v.quoteStatus,'Terms Approved') || equals(v.quoteStatus,'Approved By Billing'))}">
+                <lightning:layoutItem class="slds-p-right_small">
+                    <lightning:icon variant="inverse" iconName="utility:macros" />
+                </lightning:layoutItem>
+
+                <lightning:layoutItem class="slds-p-horizontal_small">
+                    <c:SendToDocuSignButton recordId="{!v.quoteRecordId}"/>
+                </lightning:layoutItem>
+            </aura:if>
+
+            <!-- Contract upload manually -->
+            <aura:if isTrue="{!v.isContractSignedManually}">
+                <lightning:layoutItem class="slds-p-right_small">
+                    <lightning:icon variant="inverse" iconName="utility:macros" />
+                </lightning:layoutItem>
+                <lightning:layoutItem class="slds-p-horizontal_small">
+                    <c:ReadyForBillingButton recordId="{!v.quoteRecordId}"
+                                             isDisabled="{!equals(v.quoteStatus,'Pending Legal Or Billing request') || equals(v.quoteStatus,'Ready for Billing') || equals(v.quoteStatus,'Sent To Zuora') || equals(v.quoteStatus,'Processed Directly in Zuora')}"
+                                             isPassed="{!equals(v.quoteStatus,'Ready for Billing') || equals(v.quoteStatus,'Sent To Zuora') || equals(v.quoteStatus,'Processed Directly in Zuora')}"
+                    />
+                </lightning:layoutItem>
+                <aura:if isTrue="{!v.isMsaSentToZuoraEnabled}">
+                    <lightning:layoutItem class="slds-p-right_small">
+                        <lightning:icon variant="inverse" iconName="utility:macros"/>
+                    </lightning:layoutItem>
+                    <lightning:layoutItem class="slds-p-right_small">
+                        <c:SubmitToZuoraButton  recordId="{!v.quoteRecordId}"
+                                                isDisabled="{!equals(v.quoteStatus,'Pending Legal Or Billing request') || notequals(v.quoteStatus,'Ready for Billing') || equals(v.quoteStatus,'Terms Approved') || equals(v.quoteStatus,'Deal Size Approved') || equals(v.quoteStatus,'Proforma Invoice sent') || equals(v.quoteStatus,'Sent To Zuora') || equals(v.quoteStatus,'Processed Directly in Zuora') || not(v.isMsaSentToZuoraEnabled)}"
+                                                isPassed="{!equals(v.quoteStatus,'Processed Directly in Zuora') || equals(v.quoteStatus,'Sent To Zuora')}"
+                                                submitMode="Submit manually"
+                        />
+                    </lightning:layoutItem>
+                </aura:if>
+            </aura:if>
+
+            <!-- Contract upload NOT manually -->
+            <aura:if isTrue="{!not(v.isContractSignedManually)}">
+
+                <aura:if isTrue="{!v.isASproductExist}">
+                    <lightning:layoutItem class="slds-p-right_small">
+                        <lightning:icon variant="inverse" iconName="utility:macros" />
+                    </lightning:layoutItem>
+                    <lightning:layoutItem class="slds-p-horizontal_small">
+                        <c:ReadyForBillingButton recordId="{!v.quoteRecordId}"
+                                                 isDisabled="{!notequals(v.quoteStatus,'Proforma Invoice sent')&amp;&amp;notequals(v.quoteStatus,'Contract Signed Manually')&amp;&amp;notequals(v.quoteStatus,'Contract Signed') || equals(v.quoteStatus,'Processed Directly in Zuora')}"
+                                                 isPassed="{!equals(v.quoteStatus,'Ready for Billing') || equals(v.quoteStatus,'Processed Directly in Zuora') || equals(v.quoteStatus,'Sent To Zuora')}"
+                        />
+                    </lightning:layoutItem>
+                </aura:if>
+
+                <aura:if isTrue="{!v.isMsaSentToZuoraEnabled}">
+                    <lightning:layoutItem class="slds-p-right_small">
+                        <lightning:icon variant="inverse" iconName="utility:macros"/>
+                    </lightning:layoutItem>
+                    <lightning:layoutItem class="slds-p-right_small">
+                        <c:SubmitToZuoraButton  recordId="{!v.quoteRecordId}"
+                                                isDisabled="{!notequals(v.quoteStatus,'Proforma Invoice sent') || equals(v.quoteStatus,'Processed Directly in Zuora') || not(v.isMsaSentToZuoraEnabled)}"
+                                                isPassed="{!equals(v.quoteStatus,'Processed Directly in Zuora') || equals(v.quoteStatus,'Sent To Zuora')}"
+                                                submitMode="Submit manually"
+                        />
+                    </lightning:layoutItem>
+                </aura:if>
+            </aura:if>
+        </aura:if>
+
+        <!-- Payment Method: Wire Transfer -->
+        <!-- Existing Billing Account -->
+        <aura:if
+                isTrue="{!(equals(v.paymentMethod,'Wire Transfer')&amp;&amp;v.isNewSubFromExistingAcc)&amp;&amp;not(v.isHitwiseAccount)}">
+            <lightning:layoutItem class="slds-p-horizontal_small">
+                <c:SubmitForApprovalIconButton  recordId="{!v.quoteRecordId}"
+                                                label="Finance Approval"
+                                                isDisabled="{!equals(v.quoteStatus,'Pending Legal Or Billing request') || equals(v.quoteStatus,'Terms Approved') || equals(v.quoteStatus,'Terms Pending') || equals(v.quoteStatus,'Contract Signed') || equals(v.quoteStatus,'Proforma Invoice sent')||equals(v.quoteStatus,'Sent To Zuora')|| equals(v.quoteStatus,'Ready for Billing') || equals(v.quoteStatus,'Processed Directly in Zuora')}"
+                                                isPending="{!equals(v.quoteStatus,'Terms Pending')}"
+                                                isRejected="{!equals(v.quoteStatus,'Terms Rejected')}"
+                                                isPassed="{!equals(v.quoteStatus,'Terms Approved') || equals(v.quoteStatus,'Contract Signed') || equals(v.quoteStatus,'Proforma Invoice sent')||equals(v.quoteStatus,'Sent To Zuora')|| equals(v.quoteStatus,'Ready for Billing') || equals(v.quoteStatus,'Processed Directly in Zuora')}" />
+            </lightning:layoutItem>
+            <lightning:layoutItem class="slds-p-right_small">
+                <lightning:icon variant="inverse" iconName="utility:macros" />
+            </lightning:layoutItem>
+            <lightning:layoutItem class="slds-p-horizontal_small">
+                <c:GenerateContractComponentIconButton  recordId="{!v.quoteRecordId}"
+                                                        buttonLabel="Proforma Invoice"
+                                                        isDisabled="{!(equals(v.quoteStatus,'Pending Rep To Adjust Quote') &amp;&amp; not(v.isLegalFlowEnabled)) || (equals(v.quoteStatus,'Pending Legal Or Billing request') &amp;&amp; not(v.isLegalFlowEnabled)) || (equals(v.quoteStatus,'Approved By Billing') &amp;&amp; not(v.isLegalFlowEnabled)) || notequals(v.quoteStatus,'Terms Approved') || equals(v.quoteStatus,'Processed Directly in Zuora')}"
+                                                        isPassed="{!equals(v.quoteStatus,'Proforma Invoice sent') || (equals(v.quoteStatus,'Approved By Billing') &amp;&amp; not(v.isLegalFlowEnabled)) || equals(v.quoteStatus,'Ready for Billing') || equals(v.quoteStatus,'Contract Signed') || equals(v.quoteStatus,'Contract Signed Manually') || equals(v.quoteStatus,'Sent To Zuora') || equals(v.quoteStatus,'Processed Directly in Zuora')}"
+                                                        finalizeQuote="{!true}"/>
+            </lightning:layoutItem>
+
+            <aura:if isTrue="{!v.isGreenLane &amp;&amp; (equals(v.quoteStatus,'Terms Approved') || equals(v.quoteStatus,'Approved By Billing'))}">
+                <lightning:layoutItem class="slds-p-right_small">
+                    <lightning:icon variant="inverse" iconName="utility:macros" />
+                </lightning:layoutItem>
+
+                <lightning:layoutItem class="slds-p-horizontal_small">
+                    <c:SendToDocuSignButton recordId="{!v.quoteRecordId}"/>
+                </lightning:layoutItem>
+            </aura:if>
+
+            <lightning:layoutItem class="slds-p-right_small">
+                <lightning:icon variant="inverse" iconName="utility:macros"/>
+            </lightning:layoutItem>
+            <lightning:layoutItem class="slds-p-right_small">
+                <c:ReadyForBillingButton recordId="{!v.quoteRecordId}"
+                                         isDisabled="{!notequals(v.quoteStatus,'Proforma Invoice sent')&amp;&amp;notequals(v.quoteStatus,'Contract Signed Manually')&amp;&amp;notequals(v.quoteStatus,'Contract Signed') || equals(v.quoteStatus,'Processed Directly in Zuora')}"
+                                         isPassed="{!equals(v.quoteStatus,'Ready for Billing') || equals(v.quoteStatus,'Processed Directly in Zuora') || equals(v.quoteStatus,'Sent To Zuora')}"
+                />
+            </lightning:layoutItem>
+            <aura:if isTrue="{!v.isMsaSentToZuoraEnabled}">
+                <lightning:layoutItem class="slds-p-right_small">
+                    <lightning:icon variant="inverse" iconName="utility:macros"/>
+                </lightning:layoutItem>
+                <lightning:layoutItem class="slds-p-right_small">
+                    <c:SubmitToZuoraButton  recordId="{!v.quoteRecordId}"
+                                            isDisabled="{!notequals(v.quoteStatus, 'Ready for Billing') || equals(v.quoteStatus,'Processed Directly in Zuora') || not(v.isMsaSentToZuoraEnabled)}"
+                                            isPassed="{!equals(v.quoteStatus,'Processed Directly in Zuora') || equals(v.quoteStatus,'Sent To Zuora')}"
+                                            submitMode="Submit manually"
+                    />
+                </lightning:layoutItem>
+            </aura:if>
+        </aura:if>
+
+        <!-- Payment Method: Other -->
+        <!-- New Billing Account -->
+        <aura:if
+                isTrue="{!equals(v.paymentMethod,'Other')&amp;&amp;not(v.isNewSubFromExistingAcc)&amp;&amp;not(v.isHitwiseAccount)}">
+            <!--            <lightning:layoutItem class="slds-p-horizontal_small">-->
+            <!--                <c:GenerateProposalsButton  quoteRecordId="{!v.quoteRecordId}"-->
+            <!--                                            isDisabled="{!(notequals(v.quoteStatus,'Deal Size Approved') &amp;&amp; notequals(v.quoteStatus,'New MSA')) || equals(v.quoteStatus,'Terms Approved') || equals(v.quoteStatus,'Terms Pending') || equals(v.quoteStatus,'Contract Signed Manually') || equals(v.quoteStatus,'Ready for Billing') || equals(v.quoteStatus,'Processed Directly in Zuora')}"-->
+            <!--                                            isPassed="{!equals(v.quoteStatus,'Terms Approved') || equals(v.quoteStatus,'Terms Pending') || equals(v.quoteStatus,'Contract Signed') || equals(v.quoteStatus,'Sent To Zuora') || equals(v.quoteStatus,'Contract Signed Manually') || equals(v.quoteStatus,'Ready for Billing') || equals(v.quoteStatus,'Processed Directly in Zuora')}"-->
+            <!--                />-->
+            <!--            </lightning:layoutItem>-->
+            <!--            <lightning:layoutItem class="slds-p-right_small">-->
+            <!--                <lightning:icon variant="inverse" iconName="utility:macros" />-->
+            <!--            </lightning:layoutItem>-->
+            <lightning:layoutItem class="slds-p-horizontal_small">
+                <c:SubmitForApprovalIconButton  recordId="{!v.quoteRecordId}"
+                                                label="Finance Approval"
+                                                isDisabled="{!notequals(v.quoteStatus,'Deal Size Approved') || equals(v.quoteStatus,'Terms Approved') || equals(v.quoteStatus,'Processed Directly in Zuora')}"
+                                                isPending="{!equals(v.quoteStatus,'Terms Pending')}"
+                                                isRejected="{!equals(v.quoteStatus,'Terms Rejected')}"
+                                                isPassed="{!equals(v.quoteStatus,'Terms Approved') || equals(v.quoteStatus,'Proforma Invoice sent') || equals(v.quoteStatus,'Ready for Billing') || equals(v.quoteStatus,'Contract Signed') || equals(v.quoteStatus,'Contract Signed Manually') || equals(v.quoteStatus,'Sent To Zuora') || equals(v.quoteStatus,'Processed Directly in Zuora')}"
+                />
+            </lightning:layoutItem>
+            <lightning:layoutItem class="slds-p-right_small">
+                <lightning:icon variant="inverse" iconName="utility:macros" />
+            </lightning:layoutItem>
+            <lightning:layoutItem class="slds-p-right_small">
+                <aura:if isTrue="{!(equals(v.isLegalFlowEnabled, true))}">
+                    <c:GenerateContractComponentIconButton recordId="{!v.quoteRecordId}" buttonLabel="Generate Contract"
+                                                           isPassed="{!equals(v.quoteStatus,'Contract Signed Manually') || equals(v.quoteStatus,'Contract Signed') || equals(v.quoteStatus,'Quote Pending Renewal Date') || equals(v.quoteStatus,'Proforma Invoice sent')||equals(v.quoteStatus,'Sent To Zuora') || equals(v.quoteStatus,'Processed Directly in Zuora') || equals(v.quoteStatus,'Ready for Billing')}"
+                                                           isDisabled="{!notequals(v.quoteStatus,'Terms Approved') &amp;&amp; notequals(v.quoteStatus,'Pending Rep To Adjust Quote') &amp;&amp; notequals(v.quoteStatus,'Approved By Billing') &amp;&amp; notequals(v.quoteStatus,'Pending Legal Or Billing request') &amp;&amp; notequals(v.quoteStatus,'Deal Size Approved') &amp;&amp; notequals(v.quoteStatus,'Terms Pending')}"
+                                                           finalizeQuote="true" />
+                </aura:if>
+
+                <aura:if isTrue="{!(equals(v.isLegalFlowEnabled, false))}">
+                    <c:GenerateContractComponentIconButton recordId="{!v.quoteRecordId}" buttonLabel="Generate Contract"
+                                                           isPassed="{!equals(v.quoteStatus,'Contract Signed Manually') || equals(v.quoteStatus,'Contract Signed') || equals(v.quoteStatus,'Quote Pending Renewal Date') || equals(v.quoteStatus,'Approved By Billing') || equals(v.quoteStatus,'Proforma Invoice sent')||equals(v.quoteStatus,'Sent To Zuora') || equals(v.quoteStatus,'Processed Directly in Zuora') || equals(v.quoteStatus,'Ready for Billing')}"
+                                                           isDisabled="{!notequals(v.quoteStatus,'Terms Approved')}"
+                                                           finalizeQuote="true" />
+                </aura:if>
+            </lightning:layoutItem>
+
+            <aura:if isTrue="{!v.isGreenLane &amp;&amp; (equals(v.quoteStatus,'Terms Approved') || equals(v.quoteStatus,'Approved By Billing'))}">
+                <lightning:layoutItem class="slds-p-right_small">
+                    <lightning:icon variant="inverse" iconName="utility:macros" />
+                </lightning:layoutItem>
+
+                <lightning:layoutItem class="slds-p-horizontal_small">
+                    <c:SendToDocuSignButton recordId="{!v.quoteRecordId}"/>
+                </lightning:layoutItem>
+            </aura:if>
+
+            <!-- Contract upload manually -->
+            <aura:if isTrue="{!v.isContractSignedManually}">
+                <lightning:layoutItem class="slds-p-right_small">
+                    <lightning:icon variant="inverse" iconName="utility:macros" />
+                </lightning:layoutItem>
+                <lightning:layoutItem class="slds-p-horizontal_small">
+                    <c:ReadyForBillingButton recordId="{!v.quoteRecordId}"
+                                             isDisabled="{!notequals(v.quoteStatus,'Proforma Invoice sent')&amp;&amp;notequals(v.quoteStatus,'Contract Signed Manually')&amp;&amp;notequals(v.quoteStatus,'Contract Signed') || equals(v.quoteStatus,'Processed Directly in Zuora')}"
+                                             isPassed="{!equals(v.quoteStatus,'Ready for Billing') || equals(v.quoteStatus,'Processed Directly in Zuora') || equals(v.quoteStatus,'Sent To Zuora')}"
+                    />
+                </lightning:layoutItem>
+                <aura:if isTrue="{!v.isMsaSentToZuoraEnabled}">
+                    <lightning:layoutItem class="slds-p-right_small">
+                        <lightning:icon variant="inverse" iconName="utility:macros"/>
+                    </lightning:layoutItem>
+                    <lightning:layoutItem class="slds-p-right_small">
+                        <c:SubmitToZuoraButton  recordId="{!v.quoteRecordId}"
+                                                isDisabled="{!notequals(v.quoteStatus, 'Ready for Billing') &amp;&amp; notequals(v.quoteStatus,'Contract Signed') || equals(v.quoteStatus,'Processed Directly in Zuora')}"
+                                                isPassed="{!equals(v.quoteStatus,'Processed Directly in Zuora') || equals(v.quoteStatus,'Sent To Zuora')}"
+                                                submitMode="Submit manually"
+                        />
+                    </lightning:layoutItem>
+                </aura:if>
+            </aura:if>
+
+            <!-- Contract upload NOT manually -->
+            <aura:if isTrue="{!not(v.isContractSignedManually)}">
+
+                <aura:if isTrue="{!v.isASproductExist}">
+                    <lightning:layoutItem class="slds-p-right_small">
+                        <lightning:icon variant="inverse" iconName="utility:macros" />
+                    </lightning:layoutItem>
+                    <lightning:layoutItem class="slds-p-horizontal_small">
+                        <c:ReadyForBillingButton recordId="{!v.quoteRecordId}"
+                                                 isDisabled="{!notequals(v.quoteStatus,'Proforma Invoice sent')&amp;&amp;notequals(v.quoteStatus,'Contract Signed Manually')&amp;&amp;notequals(v.quoteStatus,'Contract Signed') || equals(v.quoteStatus,'Processed Directly in Zuora')}"
+                                                 isPassed="{!equals(v.quoteStatus,'Ready for Billing') || equals(v.quoteStatus,'Processed Directly in Zuora') || equals(v.quoteStatus,'Sent To Zuora')}"
+                        />
+                    </lightning:layoutItem>
+                </aura:if>
+                <lightning:layoutItem class="slds-p-right_small">
+                    <lightning:icon variant="inverse" iconName="utility:macros"/>
+                </lightning:layoutItem>
+                <lightning:layoutItem class="slds-p-right_small">
+                    <c:SubmitToZuoraButton  recordId="{!v.quoteRecordId}"
+                                            isDisabled="{!notequals(v.quoteStatus, 'Ready for Billing') &amp;&amp; notequals(v.quoteStatus,'Contract Signed') || equals(v.quoteStatus,'Processed Directly in Zuora')}"
+                                            isPassed="{!equals(v.quoteStatus,'Processed Directly in Zuora') || equals(v.quoteStatus,'Sent To Zuora')}"
+                                            submitMode="Submit manually"
+                    />
+                </lightning:layoutItem>
+            </aura:if>
+        </aura:if>
+
+        <!-- Payment Method: Other -->
+        <!-- Existing Billing Account -->
+        <aura:if
+                isTrue="{!(equals(v.paymentMethod,'Other')&amp;&amp;v.isNewSubFromExistingAcc)&amp;&amp;not(v.isHitwiseAccount)}">
+            <!--            <lightning:layoutItem class="slds-p-horizontal_small">-->
+            <!--                <c:GenerateProposalsButton  quoteRecordId="{!v.quoteRecordId}"-->
+            <!--                                            isDisabled="{!equals(v.quoteStatus,'Pending Rep To Adjust Quote') || equals(v.quoteStatus,'Pending Rep To Adjust Quote') || equals(v.quoteStatus,'Pending Legal Or Billing request') || equals(v.quoteStatus,'Approved By Billing') || equals(v.quoteStatus,'Ready for Billing') || equals(v.quoteStatus,'Sent To Zuora') || equals(v.quoteStatus,'Contract Signed') || equals(v.quoteStatus,'Deal Size Rejected') || equals(v.quoteStatus,'Recalled') || equals(v.quoteStatus,'Sent To Zuora') || equals(v.quoteStatus,'Ready for Billing') || equals(v.quoteStatus,'Terms Pending') || equals(v.quoteStatus,'Processed Directly in Zuora')}"-->
+            <!--                                            isPassed="{!equals(v.quoteStatus,'Approved By Billing') || equals(v.quoteStatus,'Terms Approved') || equals(v.quoteStatus,'Terms Rejected') || equals(v.quoteStatus,'Terms Pending') || equals(v.quoteStatus,'Proforma Invoice sent') || equals(v.quoteStatus,'Ready for Billing') || equals(v.quoteStatus,'Contract Signed') || equals(v.quoteStatus,'Contract Signed Manually') || equals(v.quoteStatus,'Sent To Zuora') || equals(v.quoteStatus,'Processed Directly in Zuora')}"-->
+            <!--                />-->
+            <!--            </lightning:layoutItem>-->
+            <!--            <lightning:layoutItem class="slds-p-right_small">-->
+            <!--                <lightning:icon variant="inverse" iconName="utility:macros" />-->
+            <!--            </lightning:layoutItem>-->
+            <lightning:layoutItem class="slds-p-horizontal_small">
+                <c:SubmitForApprovalIconButton  recordId="{!v.quoteRecordId}"
+                                                label="Finance Approval"
+                                                isDisabled="{!(notequals(v.quoteStatus,'Deal Size Approved')&amp;&amp;notequals(v.quoteStatus,'Terms Rejected')) || equals(v.quoteStatus,'Approved By Billing') || equals(v.quoteStatus,'Processed Directly in Zuora')}"
+                                                isPending="{!equals(v.quoteStatus,'Terms Pending')}"
+                                                isRejected="{!equals(v.quoteStatus,'Terms Rejected')}"
+                                                isPassed="{!equals(v.quoteStatus,'Approved By Billing') || equals(v.quoteStatus,'Terms Approved') || equals(v.quoteStatus,'Proforma Invoice sent') || equals(v.quoteStatus,'Ready for Billing') || equals(v.quoteStatus,'Contract Signed') || equals(v.quoteStatus,'Contract Signed Manually') || equals(v.quoteStatus,'Sent To Zuora') || equals(v.quoteStatus,'Processed Directly in Zuora')}"
+                />
+            </lightning:layoutItem>
+            <lightning:layoutItem class="slds-p-right_small">
+                <lightning:icon variant="inverse" iconName="utility:macros" />
+            </lightning:layoutItem>
+            <lightning:layoutItem class="slds-p-right_small">
+
+                <aura:if isTrue="{!(equals(v.isLegalFlowEnabled, true))}">
+                    <c:GenerateContractComponentIconButton  recordId="{!v.quoteRecordId}"
+                                                            buttonLabel="Generate Contract"
+                                                            isDisabled="{!equals(v.quoteStatus,'Contract Signed') || equals(v.quoteStatus,'Sent To Zuora') || equals(v.quoteStatus,'Processed Directly in Zuora')}"
+                                                            isPassed="{!equals(v.quoteStatus,'Proforma Invoice sent') || (equals(v.quoteStatus,'Approved By Billing') &amp;&amp; not(v.isLegalFlowEnabled)) || equals(v.quoteStatus,'Ready for Billing') || equals(v.quoteStatus,'Contract Signed') || equals(v.quoteStatus,'Contract Signed Manually') || equals(v.quoteStatus,'Sent To Zuora') || equals(v.quoteStatus,'Processed Directly in Zuora')}"
+                                                            finalizeQuote="{!true}"/>
+                </aura:if>
+
+                <aura:if isTrue="{!(equals(v.isLegalFlowEnabled, false))}">
+                    <c:GenerateContractComponentIconButton  recordId="{!v.quoteRecordId}"
+                                                            buttonLabel="Generate Contract"
+                                                            isDisabled="{!(equals(v.quoteStatus,'Pending Rep To Adjust Quote')) || (equals(v.quoteStatus,'Approved By Billing')) || (equals(v.quoteStatus,'Pending Legal Or Billing request')) || equals(v.quoteStatus,'Contract Signed') || equals(v.quoteStatus,'Sent To Zuora') || equals(v.quoteStatus,'Deal Size Approved') || equals(v.quoteStatus,'Terms Pending') || equals(v.quoteStatus,'Processed Directly in Zuora')}"
+                                                            isPassed="{!equals(v.quoteStatus,'Proforma Invoice sent') || (equals(v.quoteStatus,'Approved By Billing') &amp;&amp; not(v.isLegalFlowEnabled)) || equals(v.quoteStatus,'Ready for Billing') || equals(v.quoteStatus,'Contract Signed') || equals(v.quoteStatus,'Contract Signed Manually') || equals(v.quoteStatus,'Sent To Zuora') || equals(v.quoteStatus,'Processed Directly in Zuora')}"
+                                                            finalizeQuote="{!true}"/>
+                </aura:if>
+
+            </lightning:layoutItem>
+
+            <aura:if isTrue="{!v.isGreenLane &amp;&amp; (equals(v.quoteStatus,'Terms Approved') || equals(v.quoteStatus,'Approved By Billing'))}">
+                <lightning:layoutItem class="slds-p-right_small">
+                    <lightning:icon variant="inverse" iconName="utility:macros" />
+                </lightning:layoutItem>
+
+                <lightning:layoutItem class="slds-p-horizontal_small">
+                    <c:SendToDocuSignButton recordId="{!v.quoteRecordId}"/>
+                </lightning:layoutItem>
+            </aura:if>
+
+            <!-- Contract upload manually -->
+            <aura:if isTrue="{!v.isContractSignedManually}">
+                <lightning:layoutItem class="slds-p-right_small">
+                    <lightning:icon variant="inverse" iconName="utility:macros" />
+                </lightning:layoutItem>
+                <lightning:layoutItem class="slds-p-horizontal_small">
+                    <c:ReadyForBillingButton recordId="{!v.quoteRecordId}"
+                                             isDisabled="{!notequals(v.quoteStatus,'Proforma Invoice sent')&amp;&amp;notequals(v.quoteStatus,'Contract Signed Manually')&amp;&amp;notequals(v.quoteStatus,'Contract Signed') || equals(v.quoteStatus,'Processed Directly in Zuora')}"
+                                             isPassed="{!equals(v.quoteStatus,'Ready for Billing') || equals(v.quoteStatus,'Processed Directly in Zuora') || equals(v.quoteStatus,'Sent To Zuora')}"
+                    />
+                </lightning:layoutItem>
+                <aura:if isTrue="{!v.isMsaSentToZuoraEnabled}">
+                    <lightning:layoutItem class="slds-p-right_small">
+                        <lightning:icon variant="inverse" iconName="utility:macros"/>
+                    </lightning:layoutItem>
+                    <lightning:layoutItem class="slds-p-right_small">
+                        <c:SubmitToZuoraButton  recordId="{!v.quoteRecordId}"
+                                                isDisabled="{!(notequals(v.quoteStatus, 'Ready for Billing') &amp;&amp; not(v.isHitwiseAccount)) || equals(v.quoteStatus,'Processed Directly in Zuora')}"
+                                                isPassed="{!equals(v.quoteStatus,'Processed Directly in Zuora') || equals(v.quoteStatus,'Sent To Zuora')}"
+                                                submitMode="Submit manually"
+                        />
+                    </lightning:layoutItem>
+                </aura:if>
+            </aura:if>
+
+            <!-- Contract upload NOT manually -->
+            <aura:if isTrue="{!not(v.isContractSignedManually)}">
+                <aura:if isTrue="{!v.isASproductExist}">
+                    <lightning:layoutItem class="slds-p-right_small">
+                        <lightning:icon variant="inverse" iconName="utility:macros" />
+                    </lightning:layoutItem>
+                    <lightning:layoutItem class="slds-p-horizontal_small">
+                        <c:ReadyForBillingButton recordId="{!v.quoteRecordId}"
+                                                 isDisabled="{!notequals(v.quoteStatus,'Proforma Invoice sent')&amp;&amp;notequals(v.quoteStatus,'Contract Signed Manually')&amp;&amp;notequals(v.quoteStatus,'Contract Signed') || equals(v.quoteStatus,'Processed Directly in Zuora')}"
+                                                 isPassed="{!equals(v.quoteStatus,'Ready for Billing') || equals(v.quoteStatus,'Processed Directly in Zuora') || equals(v.quoteStatus,'Sent To Zuora')}"
+                        />
+                    </lightning:layoutItem>
+                </aura:if>
+
+                <lightning:layoutItem class="slds-p-right_small">
+                    <lightning:icon variant="inverse" iconName="utility:macros"/>
+                </lightning:layoutItem>
+                <lightning:layoutItem class="slds-p-right_small">
+                    <c:SubmitToZuoraButton  recordId="{!v.quoteRecordId}"
+                                            isDisabled="{!notequals(v.quoteStatus, 'Contract Signed') || equals(v.quoteStatus,'Processed Directly in Zuora')}"
+                                            isPassed="{!equals(v.quoteStatus,'Processed Directly in Zuora') &amp;&amp; notequals(v.quoteStatus,'Pending Legal Or Billing request') &amp;&amp; notequals(v.quoteStatus,'Approved By Billing') || equals(v.quoteStatus,'Sent To Zuora')}"
+                                            submitMode="Submit manually"
+                    />
+                </lightning:layoutItem>
+            </aura:if>
+        </aura:if>
+
+        <!-- Hitwise Account -->
+        <aura:if isTrue="{!v.isHitwiseAccount}">
+            <!--            <lightning:layoutItem class="slds-p-horizontal_small">-->
+            <!--                <c:GenerateProposalsButton  quoteRecordId="{!v.quoteRecordId}"-->
+            <!--                                            isDisabled="{!equals(v.quoteStatus,'Pending Rep To Adjust Quote') || equals(v.quoteStatus,'Pending Legal Or Billing request') || equals(v.quoteStatus,'New') || equals(v.quoteStatus,'Deal Size Rejected') || equals(v.quoteStatus,'Recalled') || equals(v.quoteStatus,'Sent To Zuora') || equals(v.quoteStatus,'Ready for Billing') || equals(v.quoteStatus,'Terms Pending') || equals(v.quoteStatus,'Processed Directly in Zuora')}"-->
+            <!--                                            isPassed="{!equals(v.quoteStatus,'Terms Approved')||equals(v.quoteStatus,'Terms Rejected') || equals(v.quoteStatus,'Terms Pending') || equals(v.quoteStatus,'Proforma Invoice sent') || equals(v.quoteStatus,'Ready for Billing') || equals(v.quoteStatus,'Contract Signed') || equals(v.quoteStatus,'Contract Signed Manually') || equals(v.quoteStatus,'Sent To Zuora') || equals(v.quoteStatus,'Processed Directly in Zuora')}"-->
+            <!--                />-->
+            <!--            </lightning:layoutItem>-->
+            <!--            <lightning:layoutItem class="slds-p-right_small">-->
+            <!--                <lightning:icon variant="inverse" iconName="utility:macros" />-->
+            <!--            </lightning:layoutItem>-->
+            <lightning:layoutItem class="slds-p-horizontal_small">
+                <c:SubmitForApprovalIconButton  recordId="{!v.quoteRecordId}"
+                                                label="Finance Approval"
+                                                isDisabled="{!(notequals(v.quoteStatus,'Deal Size Approved')&amp;&amp;notequals(v.quoteStatus,'Terms Rejected')) || equals(v.quoteStatus,'Sent To Zuora') || equals(v.quoteStatus,'Processed Directly in Zuora')}"
+                                                isPending="{!equals(v.quoteStatus,'Terms Pending')}"
+                                                isRejected="{!equals(v.quoteStatus,'Terms Rejected')}"
+                                                isPassed="{!equals(v.quoteStatus,'Terms Approved') || equals(v.quoteStatus,'Proforma Invoice sent') || equals(v.quoteStatus,'Ready for Billing') || equals(v.quoteStatus,'Contract Signed') || equals(v.quoteStatus,'Contract Signed Manually') || equals(v.quoteStatus,'Sent To Zuora') || equals(v.quoteStatus,'Processed Directly in Zuora')}"
+                />
+            </lightning:layoutItem>
+            <lightning:layoutItem class="slds-p-right_small">
+                <lightning:icon variant="inverse" iconName="utility:macros" />
+            </lightning:layoutItem>
+            <lightning:layoutItem class="slds-p-right_small">
+                <c:PaymentLinkButton  recordId="{!v.quoteRecordId}"
+                                      isDisabled="{!(notequals(v.quoteStatus,'Terms Approved')&amp;&amp;notequals(v.quoteStatus,'Contract Signed Manually')&amp;&amp;notequals(v.quoteStatus,'Contract Signed')&amp;&amp;notequals(v.quoteStatus,'Ready for Billing')) || equals(v.quoteStatus,'Sent To Zuora') || equals(v.quoteStatus,'Processed Directly in Zuora')}"
+                                      label="Payment link"
+                                      isPassed="{!equals(v.quoteStatus,'Sent To Zuora') || equals(v.quoteStatus,'Processed Directly in Zuora')}"
+                                      paymentLink="{!v.paymentLink}"
+                />
+            </lightning:layoutItem>
+            <lightning:layoutItem class="slds-p-right_small">
+                <lightning:icon variant="inverse" iconName="utility:macros" />
+            </lightning:layoutItem>
+            <lightning:layoutItem class="slds-p-right_small">
+                <aura:if isTrue="{!(equals(v.isLegalFlowEnabled, true))}">
+                    <c:GenerateContractComponentIconButton  recordId="{!v.quoteRecordId}"
+                                                            buttonLabel="Generate Contract"
+                                                            isDisabled="{!equals(v.quoteStatus,'Contract Signed') || equals(v.quoteStatus,'Sent To Zuora') || equals(v.quoteStatus,'Processed Directly in Zuora')}"
+                                                            isPassed="{!equals(v.quoteStatus,'Proforma Invoice sent') || (equals(v.quoteStatus,'Approved By Billing') &amp;&amp; not(v.isLegalFlowEnabled)) || equals(v.quoteStatus,'Ready for Billing') || equals(v.quoteStatus,'Contract Signed') || equals(v.quoteStatus,'Contract Signed Manually') || equals(v.quoteStatus,'Sent To Zuora') || equals(v.quoteStatus,'Processed Directly in Zuora')}"
+                                                            finalizeQuote="{!true}"/>
+                </aura:if>
+
+                <aura:if isTrue="{!(equals(v.isLegalFlowEnabled, false))}">
+                    <c:GenerateContractComponentIconButton  recordId="{!v.quoteRecordId}"
+                                                            buttonLabel="Generate Contract"
+                                                            isDisabled="{!(equals(v.quoteStatus,'Pending Rep To Adjust Quote')) || (equals(v.quoteStatus,'Approved By Billing')) || (equals(v.quoteStatus,'Pending Legal Or Billing request')) || equals(v.quoteStatus,'Contract Signed') || equals(v.quoteStatus,'Sent To Zuora') || equals(v.quoteStatus,'Deal Size Approved') || equals(v.quoteStatus,'Terms Pending') || equals(v.quoteStatus,'Processed Directly in Zuora')}"
+                                                            isPassed="{!equals(v.quoteStatus,'Proforma Invoice sent') || (equals(v.quoteStatus,'Approved By Billing') &amp;&amp; not(v.isLegalFlowEnabled)) || equals(v.quoteStatus,'Ready for Billing') || equals(v.quoteStatus,'Contract Signed') || equals(v.quoteStatus,'Contract Signed Manually') || equals(v.quoteStatus,'Sent To Zuora') || equals(v.quoteStatus,'Processed Directly in Zuora')}"
+                                                            finalizeQuote="{!true}"/>
+                </aura:if>
+            </lightning:layoutItem>
+
+            <aura:if isTrue="{!v.isGreenLane &amp;&amp; (equals(v.quoteStatus,'Terms Approved') || equals(v.quoteStatus,'Approved By Billing'))}">
+                <lightning:layoutItem class="slds-p-right_small">
+                    <lightning:icon variant="inverse" iconName="utility:macros" />
+                </lightning:layoutItem>
+
+                <lightning:layoutItem class="slds-p-horizontal_small">
+                    <c:SendToDocuSignButton recordId="{!v.quoteRecordId}"/>
+                </lightning:layoutItem>
+            </aura:if>
+
+            <aura:if isTrue="{!v.isASproductExist}">
+                <lightning:layoutItem class="slds-p-right_small">
+                    <lightning:icon variant="inverse" iconName="utility:macros" />
+                </lightning:layoutItem>
+                <lightning:layoutItem class="slds-p-horizontal_small">
+                    <c:ReadyForBillingButton recordId="{!v.quoteRecordId}"
+                                             isDisabled="{!notequals(v.quoteStatus,'Proforma Invoice sent')&amp;&amp;notequals(v.quoteStatus,'Contract Signed Manually')&amp;&amp;notequals(v.quoteStatus,'Contract Signed') || equals(v.quoteStatus,'Processed Directly in Zuora')}"
+                                             isPassed="{!equals(v.quoteStatus,'Ready for Billing') || equals(v.quoteStatus,'Processed Directly in Zuora') || equals(v.quoteStatus,'Sent To Zuora')}"
+                    />
+                </lightning:layoutItem>
+            </aura:if>
+
+            <aura:if isTrue="{!v.isMsaSentToZuoraEnabled}">
+                <lightning:layoutItem class="slds-p-right_small">
+                    <lightning:icon variant="inverse" iconName="utility:macros"/>
+                </lightning:layoutItem>
+                <lightning:layoutItem class="slds-p-right_small">
+                    <c:SubmitToZuoraButton  recordId="{!v.quoteRecordId}"
+                                            isDisabled="{!notequals(v.quoteStatus, 'Contract Signed') || equals(v.quoteStatus,'Processed Directly in Zuora')}"
+                                            isPassed="{!equals(v.quoteStatus,'Processed Directly in Zuora') &amp;&amp; notequals(v.quoteStatus,'Approved By Billing') || equals(v.quoteStatus,'Sent To Zuora')}"
+                                            submitMode="Submit manually"
+                    />
+                </lightning:layoutItem>
+            </aura:if>
+        </aura:if>
+
+        <div style="display: flex; margin-left: auto;">
+
+            <aura:if
+                    isTrue="{!notequals(v.quoteStatus,'Sent To Zuora') &amp;&amp; notequals(v.quoteStatus,'Processed Directly in Zuora')}">
+<!--                <lightning:layoutItem class="slds-p-horizontal_small">-->
+<!--                    <c:CreateLegalRequestButton recordId="{!v.quoteRecordId}"-->
+<!--                                                isDisabled="{!not(equals(v.quoteStatus, 'Terms Approved') || equals(v.quoteStatus,'Pending Legal Or Billing request'))}"-->
+<!--                                                isPassed="{! equals(v.quoteStatus, 'Pending Legal Or Billing request') || equals(v.quoteStatus, 'Pending Rep To Adjust Quote') || equals(v.quoteStatus, 'Approved By Billing')}" />-->
+<!--                </lightning:layoutItem>-->
+                <lightning:layoutItem class="slds-p-right_small" >
+                    <c:ZuoraRecallButtonComponent recordId="{!v.quoteRecordId}" isDisabled="false" />
+                </lightning:layoutItem>
+            </aura:if>
+            <aura:if isTrue="{!notequals(v.quoteStatus,'Ready for Billing') &amp;&amp; notequals(v.quoteStatus,'Sent To Zuora') &amp;&amp; notequals(v.quoteStatus,'Processed Directly in Zuora')}">
+                <lightning:layoutItem class="slds-p-right_small">
+                    <c:ZuoraCancelQuoteButton recordId="{!v.quoteRecordId}" />
+                </lightning:layoutItem>
+            </aura:if>
+            <lightning:layoutItem class="slds-p-right_small">
+                <c:ZuoraCloneQuoteIconButton zuoraVisualforceUrl="{!v.zuoraVisualforceUrl}" recordId="{!v.quoteRecordId}" />
+            </lightning:layoutItem>
+        </div>
+    </lightning:layout>
+</aura:component>

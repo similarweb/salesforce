@@ -1,0 +1,20 @@
+<apex:page controller="vfTestBatch_CalculateAccSubStatus" docType="html-5.0">
+
+    <apex:form >
+        
+        <br/><br/>
+        Select action below - Do not fire one batch before the older one finishes
+        <br/><br/>
+        <apex:commandButton action="{!RunSubBatch}" value="Run Subscription Batch" id="SubButton" rerender="main"/><br/>
+        
+        <apex:outputPanel id="main">
+        
+        <apex:OutputText value="{!errors}" id="errors"/>
+        
+        </apex:outputPanel>
+        
+    </apex:form>
+
+
+        
+</apex:page>

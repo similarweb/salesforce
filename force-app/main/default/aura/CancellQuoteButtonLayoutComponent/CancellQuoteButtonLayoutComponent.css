@@ -1,0 +1,48 @@
+.THIS{
+    background-color: rgba(33, 46, 110, 1);
+    border-radius: 15px 15px 15px 15px;
+}
+.THIS .pendingButton {
+    background: rgb(234, 215, 41);
+}
+
+.THIS .passedButton {
+    background: #46C793;
+}
+
+.THIS .disabledButton{
+    background: #EEF2F7;
+    color: black;
+}
+
+.THIS .passedGenerateProposalButton{
+    background: #46C793;
+}
+
+.THIS .passedGenerateProposalButton:hover{
+    background: rgba(41, 123, 182, 0.36);
+}
+
+.THIS .enabledButton{
+    background: #297BB6;
+    color: #FFFFFF;
+}
+
+.THIS .rejectedButton{
+    background: #E14F49;
+    color: #FFFFFF;
+}
+
+.THIS .enabledButton:hover{
+    background: rgba(41, 123, 182, 0.36);
+}
+
+.THIS .rejectedButton:hover{
+    background: rgba(41, 123, 182, 0.36);
+}
+
+.THIS .ff{
+    font-family: roboto-thin,sans-serif; 
+    font-size: 14px;
+    transition: inherit;
+}

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Data_Feed_Type__c</fullName>
+    <externalId>false</externalId>
+    <label>Data Feed Type</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>true</sorted>
+            <value>
+                <fullName>42matters</fullName>
+                <default>false</default>
+                <label>42matters</label>
+            </value>
+            <value>
+                <fullName>AI Prompts</fullName>
+                <default>false</default>
+                <label>AI Prompts</label>
+            </value>
+            <value>
+                <fullName>Apps</fullName>
+                <default>false</default>
+                <label>Apps</label>
+            </value>
+            <value>
+                <fullName>Buyer Intent / Intent Topics</fullName>
+                <default>false</default>
+                <label>Buyer Intent / Intent Topics</label>
+            </value>
+            <value>
+                <fullName>Contacts</fullName>
+                <default>false</default>
+                <label>Contacts</label>
+            </value>
+            <value>
+                <fullName>GGS</fullName>
+                <default>false</default>
+                <label>GGS</label>
+            </value>
+            <value>
+                <fullName>Keywords</fullName>
+                <default>false</default>
+                <label>Keywords</label>
+            </value>
+            <value>
+                <fullName>Lead enrichment</fullName>
+                <default>false</default>
+                <label>Lead enrichment</label>
+            </value>
+            <value>
+                <fullName>Shopper Intelligence</fullName>
+                <default>false</default>
+                <label>Shopper Intelligence</label>
+            </value>
+            <value>
+                <fullName>Stock Intelligence Mapping</fullName>
+                <default>false</default>
+                <label>Stock Intelligence Mapping</label>
+            </value>
+            <value>
+                <fullName>Technographics</fullName>
+                <default>false</default>
+                <label>Technographics</label>
+            </value>
+            <value>
+                <fullName>Ticker Mapping</fullName>
+                <default>false</default>
+                <label>Ticker Mapping</label>
+            </value>
+            <value>
+                <fullName>Ticker Mapping &amp; Performance feed</fullName>
+                <default>false</default>
+                <label>Ticker Mapping &amp; Performance feed</label>
+            </value>
+            <value>
+                <fullName>User-level data</fullName>
+                <default>false</default>
+                <label>User-level data</label>
+            </value>
+            <value>
+                <fullName>Website</fullName>
+                <default>false</default>
+                <label>Website</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

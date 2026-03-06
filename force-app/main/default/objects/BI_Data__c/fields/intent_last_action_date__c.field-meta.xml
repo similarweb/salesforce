@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>intent_last_action_date__c</fullName>
+    <defaultValue>DATETIMEVALUE(&quot;2100-01-01 00:00:00&quot;)</defaultValue>
+    <description>The date of the last action in the lite/pro</description>
+    <externalId>false</externalId>
+    <label>intent_last_action_date</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>DateTime</type>
+</CustomField>

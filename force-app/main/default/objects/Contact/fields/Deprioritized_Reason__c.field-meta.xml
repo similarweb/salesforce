@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Deprioritized_Reason__c</fullName>
+    <description>MIS-4660</description>
+    <externalId>false</externalId>
+    <label>Deprioritized Reason</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Bad Industry</fullName>
+                <default>false</default>
+                <label>Bad Industry</label>
+            </value>
+            <value>
+                <fullName>Bad Persona</fullName>
+                <default>false</default>
+                <label>Bad Persona</label>
+            </value>
+            <value>
+                <fullName>No Traffic</fullName>
+                <default>false</default>
+                <label>No Traffic</label>
+            </value>
+            <value>
+                <fullName>No website/LinkedIn</fullName>
+                <default>false</default>
+                <label>No website/LinkedIn</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

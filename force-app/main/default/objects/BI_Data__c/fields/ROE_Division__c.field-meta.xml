@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ROE_Division__c</fullName>
+    <externalId>false</externalId>
+    <label>ROE Division</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>ENT Sales - France</fullName>
+                <default>false</default>
+                <label>ENT Sales - France</label>
+            </value>
+            <value>
+                <fullName>Global Sales - Investors</fullName>
+                <default>false</default>
+                <label>Global Sales - Investors</label>
+            </value>
+            <value>
+                <fullName>Global Sales - US</fullName>
+                <default>false</default>
+                <label>Global Sales - US</label>
+            </value>
+            <value>
+                <fullName>Reseller - SEA-Maestros</fullName>
+                <default>false</default>
+                <label>Reseller - SEA-Maestros</label>
+            </value>
+            <value>
+                <fullName>ENT Sales - US</fullName>
+                <default>false</default>
+                <label>ENT Sales - US</label>
+            </value>
+            <value>
+                <fullName>Global Sales - Agencies</fullName>
+                <default>false</default>
+                <label>Global Sales - Agencies</label>
+            </value>
+            <value>
+                <fullName>Reseller - India-eDynamics</fullName>
+                <default>false</default>
+                <label>Reseller - India-eDynamics</label>
+            </value>
+            <value>
+                <fullName>SMB Sales - ROW</fullName>
+                <default>false</default>
+                <label>SMB Sales - ROW</label>
+            </value>
+            <value>
+                <fullName>Reseller - ANZ - Direct</fullName>
+                <default>false</default>
+                <label>Reseller - ANZ - Direct</label>
+            </value>
+            <value>
+                <fullName>Reseller - Italy-GlobalDots</fullName>
+                <default>false</default>
+                <label>Reseller - Italy-GlobalDots</label>
+            </value>
+            <value>
+                <fullName>Reseller - ANZ-Trellian</fullName>
+                <default>false</default>
+                <label>Reseller - ANZ-Trellian</label>
+            </value>
+            <value>
+                <fullName>Reseller - Japan</fullName>
+                <default>false</default>
+                <label>Reseller - Japan</label>
+            </value>
+            <value>
+                <fullName>Reseller - Turkey-Nielsen</fullName>
+                <default>false</default>
+                <label>Reseller - Turkey-Nielsen</label>
+            </value>
+            <value>
+                <fullName>Global Sales - Europe</fullName>
+                <default>false</default>
+                <label>Global Sales - Europe</label>
+            </value>
+            <value>
+                <fullName>Reseller - Brazil</fullName>
+                <default>false</default>
+                <label>Reseller - Brazil</label>
+            </value>
+            <value>
+                <fullName>SMB Sales - US</fullName>
+                <default>false</default>
+                <label>SMB Sales - US</label>
+            </value>
+            <value>
+                <fullName>ENT Sales - Europe</fullName>
+                <default>false</default>
+                <label>ENT Sales - Europe</label>
+            </value>
+            <value>
+                <fullName>NA</fullName>
+                <default>false</default>
+                <label>NA</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

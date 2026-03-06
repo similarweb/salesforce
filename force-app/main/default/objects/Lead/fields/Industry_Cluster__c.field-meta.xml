@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Industry_Cluster__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(
+ISPICKVAL(SW_Industry__c,&quot;Agency&quot;),
+&apos;Agency&apos;,
+IF(
+OR(
+ISPICKVAL(SW_Industry__c,&quot;AdTech and AdNetwork&quot;),
+ISPICKVAL(SW_Industry__c,&quot;B2B Software&quot;),
+ISPICKVAL(SW_Industry__c,&quot;Logistics and Shipping&quot;),
+ISPICKVAL(SW_Industry__c,&quot;Payments&quot;)
+),
+&quot;B2B Services&quot;,
+IF(
+ISPICKVAL(SW_Industry__c,&quot;Consulting and Market Research&quot;),
+&quot;Consulting and Market Research&quot;,
+IF(
+ISPICKVAL(SW_Industry__c,&quot;CPG, Food &amp; Beverages&quot;),
+&quot;CPG&quot;,
+IF(
+ISPICKVAL(SW_Industry__c,&quot;Financial services&quot;),
+&quot;Financial services&quot;,
+IF(
+OR(
+ISPICKVAL(SW_Industry__c,&quot;Equity Research&quot;),
+ISPICKVAL(SW_Industry__c,&quot;Hedge Funds and Asset Management&quot;),
+ISPICKVAL(SW_Industry__c,&quot;Investment Banking&quot;),
+ISPICKVAL(SW_Industry__c,&quot;Investors&quot;),
+ISPICKVAL(SW_Industry__c, &quot;Private Equity and Venture Capital&quot;)
+),
+&quot;Investors&quot;,
+IF(
+OR(
+ISPICKVAL(SW_Industry__c,&quot;Classifieds&quot;),
+ISPICKVAL(SW_Industry__c,&quot;Media and Entertainment&quot;)
+),
+&quot;Publishers / Classifieds&quot;,
+IF(
+ISPICKVAL(SW_Industry__c,&quot;Retail / eCommerce&quot;),
+&quot;Retail and eCommerce&quot;,
+IF(
+ISPICKVAL(SW_Industry__c,&quot;Travel and Hospitality&quot;),
+&quot;Travel&quot;,
+IF(
+OR(
+ISPICKVAL(SW_Industry__c,&quot;Automotive and Transportation&quot;),
+ISPICKVAL(SW_Industry__c,&quot;B2C Internet Services&quot;),
+ISPICKVAL(SW_Industry__c,&quot;Education&quot;),
+ISPICKVAL(SW_Industry__c,&quot;Gambling / Gaming&quot;),
+ISPICKVAL(SW_Industry__c,&quot;Other&quot;),
+ISPICKVAL(SW_Industry__c,&quot;Pharma and Healthcare&quot;),
+ISPICKVAL(SW_Industry__c,&quot;Government Public Sector &amp; Non Profit&quot;),
+ISPICKVAL(SW_Industry__c,&quot;Telecom and Hardware&quot;)
+),
+&quot;Tier 2&quot;,
+&quot;&quot;
+))))))))))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Industry Cluster</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Count_Deactivated_Rates__c</fullName>
+    <description>How many deactivated Rated under the Source</description>
+    <externalId>false</externalId>
+    <label>Count Deactivated Rates</label>
+    <summaryFilterItems>
+        <field>Rate__c.Active__c</field>
+        <operation>equals</operation>
+        <value>False</value>
+    </summaryFilterItems>
+    <summaryForeignKey>Rate__c.Source__c</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

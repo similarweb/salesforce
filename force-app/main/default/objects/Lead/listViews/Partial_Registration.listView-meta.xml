@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Partial_Registration</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>LEAD.EMAIL</columns>
+    <columns>LEAD.COMPANY</columns>
+    <columns>LEAD.STATUS</columns>
+    <columns>LEAD.CREATED_DATE</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>SW_Fit_Score__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>LEAD.COUNTRY</field>
+        <operation>equals</operation>
+        <value>united states,canda</value>
+    </filters>
+    <filters>
+        <field>Current_Registration_Type__c</field>
+        <operation>equals</operation>
+        <value>registration-transit</value>
+    </filters>
+    <filters>
+        <field>LEAD.STATUS</field>
+        <operation>notEqual</operation>
+        <value>Qualified,Replied,Unqualified,SDR Prospecting</value>
+    </filters>
+    <filters>
+        <field>SW_Fit_Score__c</field>
+        <operation>notEqual</operation>
+        <value>D,E,F</value>
+    </filters>
+    <filters>
+        <field>Owner_Role__c</field>
+        <operation>contains</operation>
+        <value>MIR</value>
+    </filters>
+    <filters>
+        <field>LEAD.CREATED_DATE</field>
+        <operation>greaterThan</operation>
+        <value>3/1/2022 12:00 AM</value>
+    </filters>
+    <label>Partial Registration</label>
+</ListView>

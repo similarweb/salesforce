@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>bi_help_field__c</fullName>
+    <externalId>false</externalId>
+    <formula>Id &lt;&gt;LEFT(BI_Data__r.Related_Record_18_ID__c,15)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>bi help field</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Non_MQL_Contacts_w_out_Activity_Yonni</fullName>
+    <booleanFilter>1 AND (2 or 7) and 3 AND 4 AND 5 and 6</booleanFilter>
+    <columns>FULL_NAME</columns>
+    <columns>CONTACT.TITLE</columns>
+    <columns>Department__c</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CONTACT.ADDRESS2_COUNTRY</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.LAST_ACTIVITY</columns>
+    <columns>Original_Lead_Source__c</columns>
+    <columns>CONTACT.LEAD_SOURCE</columns>
+    <columns>SW_Industry__c</columns>
+    <columns>Last_Pro_Visit_Date__c</columns>
+    <columns>CONTACT.CREATED_DATE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>MQL__c</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>CONTACT.LAST_ACTIVITY</field>
+        <operation>equals</operation>
+    </filters>
+    <filters>
+        <field>CONTACT.LEAD_SOURCE</field>
+        <operation>notContain</operation>
+        <value>Employee Referral,Sales Outbound,SDR Outbound,zoominfo</value>
+    </filters>
+    <filters>
+        <field>Original_Lead_Source__c</field>
+        <operation>notContain</operation>
+        <value>SDR Outbound,Sales Outbound,Employee Referral,zoominfo</value>
+    </filters>
+    <filters>
+        <field>CORE.USERS.ALIAS</field>
+        <operation>equals</operation>
+        <value>yonniB</value>
+    </filters>
+    <filters>
+        <field>Status__c</field>
+        <operation>notEqual</operation>
+        <value>Unqualified</value>
+    </filters>
+    <filters>
+        <field>CONTACT.LAST_ACTIVITY</field>
+        <operation>lessThan</operation>
+        <value>LAST_YEAR</value>
+    </filters>
+    <label>Non-MQL Contacts w/out Activity - Yonni</label>
+</ListView>

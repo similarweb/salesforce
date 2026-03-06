@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Country_Required</fullName>
+    <active>true</active>
+    <errorConditionFormula>(IsPickVal(StageName, &quot;Closed Won&quot;))
+&amp;&amp;ISBLANK(Account.BillingCountry)
+&amp;&amp; $Profile.Name !=&quot;System Administrator&quot;
+&amp;&amp; RecordType.DeveloperName&lt;&gt;&quot;Wolves&quot;
+&amp;&amp; RecordType.DeveloperName&lt;&gt;&quot;Rank_Ranger&quot;</errorConditionFormula>
+    <errorMessage>Please add a billing country on account under the field called &quot;Address&quot;</errorMessage>
+</ValidationRule>

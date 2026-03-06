@@ -1,0 +1,15 @@
+<template>
+    <div class="gauge-container">
+        <div class="score-header">
+            <span class="slds-text-heading--small">{score} - {lastModify}</span>
+        </div>
+        <div class="gauge">
+            <div class="gauge-section NURTURE">NURTURE</div>
+            <div class="gauge-section UNVERIFIED">UNVERIFIED</div>
+            <div class="gauge-section RESERVE">RESERVE</div>
+            <div class="gauge-section SOFT">SOFT MQL</div>
+            <div class="gauge-section HARD">HARD MQL</div>
+            <div class="gauge-indicator" style={indicatorStyle}></div>
+        </div>
+    </div>
+</template>

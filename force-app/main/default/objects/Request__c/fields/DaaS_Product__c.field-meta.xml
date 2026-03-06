@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DaaS_Product__c</fullName>
+    <description>MIS-4239</description>
+    <externalId>false</externalId>
+    <label>DaaS Product</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Predefined Dataset Feed</fullName>
+                <default>false</default>
+                <label>Predefined Dataset Feed</label>
+            </value>
+            <value>
+                <fullName>Flexible/Custom Dataset Feed</fullName>
+                <default>false</default>
+                <label>Flexible/Custom Dataset Feed</label>
+            </value>
+            <value>
+                <fullName>API(Questions, Inquiry, Demo)</fullName>
+                <default>false</default>
+                <label>API(Questions, Inquiry, Demo)</label>
+            </value>
+            <value>
+                <fullName>One time - dataset delivery</fullName>
+                <default>false</default>
+                <label>One time - dataset delivery</label>
+            </value>
+            <value>
+                <fullName>General</fullName>
+                <default>false</default>
+                <label>General</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

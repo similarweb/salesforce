@@ -1,0 +1,33 @@
+.THIS {
+    z-index: 9999;
+    margin-right: .3rem;
+}
+.THIS .slds-modal__container{
+    position: relative;  
+}
+.THIS .slds-modal__container.modal-footer.slds-modal__footer.slds-size_1-of-1 {
+    position: relative;
+    bottom: 0;
+}
+.THIS .slds-modal__container{
+    width: 40%!important; 
+}
+.THIS fieldset {
+    padding: 0 3rem!important;
+}
+.THIS .slds-modal__container.slds-modal__content {
+    height: 250px;
+    position: relative;
+    overflow: hidden;
+}
+.THIS .slds-notify.slds-notify_alert.slds-theme_alert-texture.slds-theme_error{
+    border-radius: .25rem;
+}
+.THIS .slds-modal__container.slds-form-element__control .slds-radio {
+    display: block;
+    margin: .3rem 0;
+}
+.THIS .slds-modal__content:last-child {
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0; 
+}

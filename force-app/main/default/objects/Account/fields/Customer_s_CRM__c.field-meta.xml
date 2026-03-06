@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Customer_s_CRM__c</fullName>
+    <externalId>false</externalId>
+    <label>Customer&apos;s CRM</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Salesforce</fullName>
+                <default>false</default>
+                <label>Salesforce</label>
+            </value>
+            <value>
+                <fullName>Hubspot</fullName>
+                <default>false</default>
+                <label>Hubspot</label>
+            </value>
+            <value>
+                <fullName>Zoho</fullName>
+                <default>false</default>
+                <label>Zoho</label>
+            </value>
+            <value>
+                <fullName>Proprietary CRM</fullName>
+                <default>false</default>
+                <label>Proprietary CRM</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>None</fullName>
+                <default>false</default>
+                <label>None</label>
+            </value>
+            <value>
+                <fullName>inhouse</fullName>
+                <default>false</default>
+                <label>inhouse</label>
+            </value>
+            <value>
+                <fullName>Oracle</fullName>
+                <default>false</default>
+                <label>Oracle</label>
+            </value>
+            <value>
+                <fullName>Microsoft Dynamics</fullName>
+                <default>false</default>
+                <label>Microsoft Dynamics</label>
+            </value>
+            <value>
+                <fullName>Copper</fullName>
+                <default>false</default>
+                <label>Copper</label>
+            </value>
+            <value>
+                <fullName>Monday.com</fullName>
+                <default>false</default>
+                <label>Monday.com</label>
+            </value>
+            <value>
+                <fullName>Pipedrive</fullName>
+                <default>false</default>
+                <label>Pipedrive</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

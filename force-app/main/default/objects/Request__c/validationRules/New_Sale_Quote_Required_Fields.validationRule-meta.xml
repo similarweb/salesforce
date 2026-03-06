@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>New_Sale_Quote_Required_Fields</fullName>
+    <active>true</active>
+    <description>Billing Contact and Sold to Contact fields are mandatory on New Sale business type Quotes.</description>
+    <errorConditionFormula>AND(
+    TEXT(Quote_Business_Type__c) = &apos;New Sale&apos;,
+OR(
+    ISBLANK(Billing_Contact__c),
+    ISBLANK(Sold_to_Contact__c)
+  )
+   )</errorConditionFormula>
+    <errorDisplayField>Billing_Contact__c</errorDisplayField>
+    <errorMessage>&apos;Billing Contact&apos; and &apos;Sold to Contact&apos; are required on the &apos;New Sales&apos; quote type</errorMessage>
+</ValidationRule>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VendorsAnalytics__c</fullName>
+    <externalId>false</externalId>
+    <label>Analytics</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Google Analytics</fullName>
+                <default>false</default>
+                <label>Google Analytics</label>
+            </value>
+            <value>
+                <fullName>Adobe Omniture</fullName>
+                <default>false</default>
+                <label>Adobe Omniture</label>
+            </value>
+            <value>
+                <fullName>Mixpanel</fullName>
+                <default>false</default>
+                <label>Mixpanel</label>
+            </value>
+            <value>
+                <fullName>Heap</fullName>
+                <default>false</default>
+                <label>Heap</label>
+            </value>
+            <value>
+                <fullName>KISSmetrics</fullName>
+                <default>false</default>
+                <label>KISSmetrics</label>
+            </value>
+            <value>
+                <fullName>Piwik</fullName>
+                <default>false</default>
+                <label>Piwik</label>
+            </value>
+            <value>
+                <fullName>Woopra</fullName>
+                <default>false</default>
+                <label>Woopra</label>
+            </value>
+            <value>
+                <fullName>Domo</fullName>
+                <default>false</default>
+                <label>Domo</label>
+            </value>
+            <value>
+                <fullName>Clicktale</fullName>
+                <default>false</default>
+                <label>Clicktale</label>
+            </value>
+            <value>
+                <fullName>AT Internet</fullName>
+                <default>false</default>
+                <label>AT Internet</label>
+            </value>
+            <value>
+                <fullName>ChartBeat</fullName>
+                <default>false</default>
+                <label>ChartBeat</label>
+            </value>
+            <value>
+                <fullName>Webtrends</fullName>
+                <default>false</default>
+                <label>Webtrends</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

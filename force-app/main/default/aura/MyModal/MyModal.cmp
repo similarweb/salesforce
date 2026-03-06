@@ -1,0 +1,38 @@
+<!--
+ - Created by Alon.Shalev on 8/6/2023.
+ -->
+<aura:component>
+    <aura:method name="startTheFlow" action="{!c.startTheFlow}" />
+
+    <aura:attribute name="isOpen" type="Boolean" default="false"/>
+    <aura:attribute name="flowName" type="String" default="Quote_QRPC_type_2"/>
+    <aura:attribute name="recordId" type="String" />
+    <aura:attribute name="onClose" type="Aura.Action" description="Callback function to run when the component is closed." />
+    <aura:attribute name="quantity" type="Integer" default="0"/>
+
+
+
+    <!-- Modal -->
+    <div aura:id="myModal" class="{!v.isOpen ? 'slds-modal slds-fade-in-open' : 'slds-modal'}">
+        <div class="slds-modal__container">
+            <div class="slds-modal__header">
+                <h1 id="modal-heading-01" class="slds-modal__title slds-hyphenate"/>
+                <lightning:buttonIcon
+                        iconName="utility:close"
+                        onclick="{!c.closeModal}"
+                        alternativeText="close"
+                        variant="bare-inverse"
+                        class="slds-modal__close"/>
+            </div>
+            <div class="slds-modal__content">
+                <lightning:flow aura:id="flowData" onstatuschange="{!c.statusChange}"/>
+            </div>
+            <!--            <footer class="slds-modal__footer">-->
+            <!--&lt;!&ndash;                <lightning:button label="Start Flow" onclick="{!c.startFlow}" />&ndash;&gt;-->
+            <!--                <lightning:button label="Close" onclick="{!c.closeModal}" class="CloseModalClass"/>-->
+            <!--            </footer>-->
+        </div>
+    </div>
+    <div class="{!v.isOpen ? 'slds-backdrop slds-backdrop_open' : 'slds-backdrop'}"></div>
+
+</aura:component>

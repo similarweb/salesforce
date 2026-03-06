@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Legal_Team_Request</fullName>
+    <columns>NAME</columns>
+    <columns>Request_Type__c</columns>
+    <columns>Status__c</columns>
+    <columns>Requester__c</columns>
+    <columns>Recipient_Picklist__c</columns>
+    <columns>Target_Close_Date__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Request__c.Legal_Services</value>
+    </filters>
+    <filters>
+        <field>Requester__c</field>
+        <operation>equals</operation>
+        <value>Peter Conroy</value>
+    </filters>
+    <label>Legal Team</label>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

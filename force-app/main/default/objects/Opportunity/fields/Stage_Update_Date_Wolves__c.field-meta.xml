@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Stage_Update_Date_Wolves__c</fullName>
+    <description>This is an assisting field used in &apos;Opp On Stage For Too Long&apos; PB.</description>
+    <externalId>false</externalId>
+    <label>Stage Update Date</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Date</type>
+</CustomField>

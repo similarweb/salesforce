@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Resubmitted</fullName>
+    <active>true</active>
+    <description>MIS-1947</description>
+    <errorConditionFormula>RecordType.DeveloperName = &apos;Supplier_Questionnaires&apos;
+&amp;&amp;
+TEXT(PRIORVALUE(Status__c)) = &apos;Pending Requestor&apos;
+&amp;&amp;
+ISPICKVAL(Status__c, &apos;Submitted&apos;)
+&amp;&amp;
+$User.Title  &lt;&gt; &apos;General Counsel	&apos;
+&amp;&amp;
+NOT(CONTAINS($Profile.Name, &apos;SW SalesOps&apos;))
+&amp;&amp;
+NOT ($Profile.Name = &apos;System Administrator&apos;) 
+&amp;&amp;
+NOT ($User.Division = &apos;Integration&apos;)</errorConditionFormula>
+    <errorMessage>You can&apos;t change the request status to submitted if it&apos;s Pending requester. you can change the status to resubmitted or any other status.</errorMessage>
+</ValidationRule>

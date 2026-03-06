@@ -1,0 +1,8 @@
+<apex:page showHeader="false" sidebar="false" standardController="Lead">
+    <flow:interview name="GeneralReassignFlow" finishLocation="/{!Lead.Id}">
+    <apex:param name="recordId" value="{!Lead.Id}" />
+    <apex:param name="VarButtonType" value="Reassign Inside Sales" />
+    <apex:param name="VarRoutingGroup" value="IS_ReRouting" />
+    <apex:param name="VarTeam" value="MQL_Under_500" />
+  </flow:interview>
+</apex:page>

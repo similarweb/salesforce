@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Research_section_can_be_edited_by_JS</fullName>
+    <active>true</active>
+    <description>Research section should be editable only by Jeremy Scott</description>
+    <errorConditionFormula>OR(
+
+   AND(
+       NOT(ISNEW()),
+       RecordType.DeveloperName =&apos;Investor_Solution&apos;,
+       $User.Id  &lt;&gt;   OwnerId ,
+
+     OR(
+        ISCHANGED (   Start_project_date__c ),
+        ISCHANGED (   End_project_date__c  ),
+        ISCHANGED (   Link_to_Proposal__c  ),
+        ISCHANGED (   List_price__c   ),
+        ISCHANGED (   Invoiced_Price__c  )
+        )
+    ),
+
+
+  AND( 
+       ISNEW(),
+       RecordType.DeveloperName =&apos;Investor_Solution&apos;,
+     
+   
+        OR(
+           NOT(ISBLANK(Start_project_date__c)),
+           NOT(ISBLANK(End_project_date__c)),
+           NOT(ISBLANK(Link_to_Proposal__c)),
+           NOT(ISBLANK(List_price__c)),
+           NOT(ISBLANK(Invoiced_Price__c))
+          )
+
+
+)
+
+
+)</errorConditionFormula>
+    <errorMessage>You&apos;re not allowed to edit the Research section.</errorMessage>
+</ValidationRule>

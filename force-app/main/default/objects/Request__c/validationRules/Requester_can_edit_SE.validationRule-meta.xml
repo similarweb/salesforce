@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Requester_can_edit_SE</fullName>
+    <active>true</active>
+    <description>#1104750</description>
+    <errorConditionFormula>AND(
+NOT(ISNEW()),
+NOW() &gt; (CreatedDate + (1/1440)),
+RecordType.DeveloperName = &quot;Solution_Engineering&quot;,
+$User.Id = Requester__r.Id ,NOT(ISPICKVAL(Opportunity__r.StageName,&apos;Closed Lost&apos;)),
+OR(
+Requester__c &lt;&gt; Recipient__c ,
+
+AND(
+ISCHANGED(Recipient_Picklist__c),
+(Requester__r.FirstName &amp; &apos; &apos; &amp; Requester__r.LastName) = PRIORVALUE(Recipient_Picklist__c),
+OR(
+NOT(ISCHANGED( Recipient_Email__c )),
+NOT(ISCHANGED( Requester_Email__c )),
+NOT(ISCHANGED( OwnerId )))
+)),
+
+
+OR(
+ISCHANGED( Account__c ),
+ISCHANGED( Opportunity__c ),
+(ISCHANGED( Status__c ) &amp;&amp; NOT(ISPICKVAL(Status__c,&apos;Cancelled&apos;))) , 
+ISCHANGED( Request_Type__c ),
+ISCHANGED( Details_of_Deliverable__c ),
+ISCHANGED( Pain_Point_Use_Case_for_Request__c ),
+ISCHANGED( Websites__c ),
+ISCHANGED( Title_Of_Person_People_Meetings_Are_With__c ),
+ISCHANGED( Excel_Analysis__c ),
+ISCHANGED( RFP_Written_Submission__c ),
+ISCHANGED( DI_Feasibility_Test__c ),
+ISCHANGED( Client_Meeting__c ),
+ISCHANGED( DI_Pricing_Legal__c ),
+ISCHANGED( Insight_Email__c ),
+ISCHANGED( Discovery_Call__c ),
+ISCHANGED( Deck__c ),
+ISCHANGED( Proposal__c ),
+ISCHANGED( Trial_Summary__c ),
+ISCHANGED( RecordTypeId ),
+AND(
+ISCHANGED(Recipient_Picklist__c),
+OR(
+(Requester__r.FirstName &amp; &apos; &apos; &amp; Requester__r.LastName) = TEXT(Recipient_Picklist__c),
+(Requester__r.FirstName &amp; &apos; &apos; &amp; Requester__r.LastName) &lt;&gt; TEXT(Recipient_Picklist__c)
+)
+)
+)
+)</errorConditionFormula>
+    <errorDisplayField>Additional_Information__c</errorDisplayField>
+    <errorMessage>Only Additional Information can be edited by requester</errorMessage>
+</ValidationRule>

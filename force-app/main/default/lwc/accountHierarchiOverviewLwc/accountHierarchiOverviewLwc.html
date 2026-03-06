@@ -1,0 +1,74 @@
+<template>
+    <lightning-card title="Hierarchy Data">
+        <div class="slds-grid slds-wrap">
+            <div class="slds-col slds-size_1-of-2 slds-p-right_large">
+                <lightning-layout multiple-rows>
+                    <lightning-layout-item size="12" class="slds-p-around_small slds-border_bottom">
+                        <div class="header">
+                            <span class="label">Total # accounts under hierarchy:</span>
+                            <lightning-formatted-number value={data.totalAccounts}></lightning-formatted-number>
+                        </div>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="12" class="slds-p-around_small slds-border_bottom">
+                        <div class="header">
+                            <span class="label">Total # paying accounts in hierarchy:</span>
+                            <lightning-formatted-number value={data.payingAccounts}></lightning-formatted-number>
+                        </div>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="12" class="slds-p-around_small slds-border_bottom">
+                        <div class="header">
+                            <span class="label">Total # NT accounts:</span>
+                            <lightning-formatted-number value={data.noTouchAccounts}></lightning-formatted-number>
+                        </div>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="12" class="slds-p-around_small slds-border_bottom">
+                        <div class="header">
+                            <span class="label">Total # opportunities in hierarchy:</span>
+                            <lightning-formatted-number value={data.totalOpportunities}></lightning-formatted-number>
+                        </div>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="12" class="slds-p-around_small slds-border_bottom">
+                        <div class="header">
+                            <span class="label">Total # meetings in hierarchy:</span>
+                            <lightning-formatted-number value={data.totalMeetings}></lightning-formatted-number>
+                        </div>
+                    </lightning-layout-item>
+                </lightning-layout>
+            </div>
+            <div class="slds-col slds-size_1-of-2 slds-p-left_large">
+                <lightning-layout multiple-rows>
+                    <lightning-layout-item size="12" class="slds-p-around_small slds-border_bottom">
+                        <div class="header">
+                            <span class="label">Total # subscriptions in hierarchy:</span>
+                            <lightning-formatted-number value={data.totalSubscriptions}></lightning-formatted-number>
+                        </div>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="12" class="slds-p-around_small slds-border_bottom">
+                        <div class="header">
+                            <span class="label">Total # champions:</span>
+                            <lightning-formatted-number value={data.totalChampions}></lightning-formatted-number>
+                        </div>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="12" class="slds-p-around_small slds-border_bottom">
+                        <div class="header">
+                            <span class="label">Total # admins / active users:</span>
+                            <lightning-formatted-number value={data.totalAdmins}></lightning-formatted-number>
+                        </div>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="12" class="slds-p-around_small slds-border_bottom">
+                        <div class="header">
+                            <span class="label">Total # contacts:</span>
+                            <lightning-formatted-number value={data.totalContacts}></lightning-formatted-number>
+                        </div>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="12" class="slds-p-around_small slds-border_bottom">
+                        <div class="header">
+                            <span class="label">Hierarchy owner:</span>
+                            <lightning-formatted-number value={data.hierarchyOwner}></lightning-formatted-number>
+                        </div>
+                    </lightning-layout-item>
+                </lightning-layout>
+            </div>
+        </div>
+    </lightning-card>
+</template>

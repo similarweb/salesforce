@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Calculated_Monthly_Partner_Request</fullName>
+    <columns>NAME</columns>
+    <columns>Status__c</columns>
+    <columns>CREATED_DATE</columns>
+    <columns>Contracts__c</columns>
+    <columns>Send_Invoice_Email__c</columns>
+    <columns>Monthly_Partner_Payment_Fixed__c</columns>
+    <columns>Monthly_Partner_Payment_Final__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>Calculated</value>
+    </filters>
+    <label>Calculated Monthly Partner Request</label>
+</ListView>

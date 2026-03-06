@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Marketing_Greenlight__c</fullName>
+    <description>MIS-5888</description>
+    <externalId>false</externalId>
+    <formula>IF(
+  AND(
+    HasOptedOutOfEmail = FALSE,
+    TEXT(Status__c) &lt;&gt; &apos;Do Not Contact&apos;,
+    Account.Open_Opps_Stage_NOT_Initial_Discovery__c = 0,
+    OR(
+      TODAY() - Last_Activity_Date_by_GTM__c &gt;= 30,
+      ISBLANK(Last_Activity_Date_by_GTM__c)
+    ),
+    OR(
+      TODAY() - Account.Last_Closed_Lost_Opp_Renewal__c &gt;= 120,
+      ISBLANK(Account.Last_Closed_Lost_Opp_Renewal__c)
+    ),
+    OR(
+      TODAY() - Account.Last_Closed_Lost_Opp_Upsell_New_sale__c &gt;= 30,
+      ISBLANK(Account.Last_Closed_Lost_Opp_Upsell_New_sale__c)
+    )
+  ),
+  &apos;true&apos;,
+  &apos;false&apos;
+)</formula>
+    <label>Marketing Greenlight</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

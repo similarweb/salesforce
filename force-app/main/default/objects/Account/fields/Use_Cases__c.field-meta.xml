@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Use_Cases__c</fullName>
+    <externalId>false</externalId>
+    <label>What is the customer&apos;s use case(s)?</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Benchmark Performance Against Competitors</fullName>
+                <default>false</default>
+                <label>Benchmark Performance Against Competitors</label>
+            </value>
+            <value>
+                <fullName>Detect Fraud/Illicit Content (Media, Finance)</fullName>
+                <default>false</default>
+                <label>Detect Fraud/Illicit Content (Media, Finance)</label>
+            </value>
+            <value>
+                <fullName>Find, Qualify, and Close Partners &amp; Prospects</fullName>
+                <default>false</default>
+                <label>Find, Qualify, and Close Partners &amp; Prospects</label>
+            </value>
+            <value>
+                <fullName>Make investment decisions (Hedge Funds, VC)</fullName>
+                <default>false</default>
+                <label>Make investment decisions (Hedge Funds, VC)</label>
+            </value>
+            <value>
+                <fullName>Maximize 3rd Party eCommerce Sales (CPG)</fullName>
+                <default>false</default>
+                <label>Maximize 3rd Party eCommerce Sales (CPG)</label>
+            </value>
+            <value>
+                <fullName>Optimize Customer Acquisition</fullName>
+                <default>false</default>
+                <label>Optimize Customer Acquisition</label>
+            </value>
+            <value>
+                <fullName>Prove Advertising/Media Property Effectiveness (Publishers)Prove Advertising/Campaign/Media Property Effectiveness</fullName>
+                <default>false</default>
+                <label>Prove Advertising/Media Property Effectiveness (Publishers)Prove Advertising/Campaign/Media Property Effectiveness</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

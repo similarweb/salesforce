@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Procurement_Information_Completion_Rate__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(Procurement_Completion__c *200&lt;150, 
+IMAGE(&quot;/img/samples/color_red.gif&quot;, &quot;red&quot;, 15, Procurement_Completion__c *200 )&amp;LEFT(TEXT(Procurement_Completion__c *100),5)+&quot;%&quot;, 
+
+IF(Procurement_Completion__c *200 &lt; 200, 
+IMAGE(&quot;/img/samples/color_yellow.gif&quot;, &quot;yellow&quot;, 15,Procurement_Completion__c *200 ) &amp; 
+LEFT(TEXT(Procurement_Completion__c *100),5)+&quot;%&quot;, 
+
+IMAGE(&quot;/img/samples/color_green.gif&quot;, &quot;green&quot;, 15, Procurement_Completion__c *200 ) &amp;LEFT(TEXT(Procurement_Completion__c *100),5)+&quot;%&quot; 
+))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Procurement Information Completion Rate</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

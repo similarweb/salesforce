@@ -1,0 +1,406 @@
+<apex:page sidebar="false" tabStyle="zqu__Quote__c" standardController="zqu__Quote__c" extensions="CustomCpqSelectProductController" lightningStylesheets="true">
+  <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/design-system/2.5.0/styles/salesforce-lightning-design-system.min.css" />
+  </head>
+  <apex:includeScript value="{!$Site.BaseUrl}/lightning/lightning.out.js?v=2"/>
+  <apex:includeLightning />
+    <apex:variable value="{!zqu__Quote__c.Id}" var="quoteId"/>
+    <apex:composition template="zqu__QuoteWizardTemplateNoForm" >
+        <apex:define name="PageBody" >
+          <div id="SelectValuesDiv" ></div>
+          <apex:form >
+            <zqu:CpqSelectProduct options="{!theOptions}"/>
+            <apex:outputField value="{!zqu__Quote__c.zqu_Quote_Status__c}" rendered="false"/>
+            <apex:outputField value="{!zqu__Quote__c.RecordTypeId}" rendered="false"/>
+
+            <apex:actionFunction action="{!fixProductDiscountPercentage}" name="onFixingPercentage" reRender=""/>
+            <apex:actionFunction action="{!redirectToRecordPage}" name="onRedirectToRecordPage" />
+            <apex:actionFunction name="fetchRecord" action="{!fetchRecord}"/>
+            <script>
+                var globalId;
+                var quoteId = '{!quoteId}';
+                var msQuantity = 0;
+
+                document.addEventListener('blur', function(event) {
+                    // Check if the blurred element was our desired input
+                  if (event.target.closest('td.QUANTITY input, td.EFFECTIVE_PRICE input, td.SPECIFIC_BILLING_PERIOD input, td.PERIOD select, td.zqu__billingperiodalignment__c select')
+                          || event.target.getAttribute('data-id') === 'saveButton'){
+                        setTimeout(function() {
+                            attachButton();
+                        }, 200); // 2000 milliseconds = 2 seconds
+                    }
+                }, true);
+
+
+                window.addEventListener("message", function(event) {
+                    if (event.data === 'reloadVFPage') {
+                        location.reload(); // This will refresh the VF page
+                    }
+                }, false);
+
+                function createButtons(validIds) {
+                    var trElements = document.querySelectorAll('tr.odd');  // Removed [data-id]
+
+                    trElements.forEach(function (tr) {
+                        var id = tr.getAttribute('data-id');
+
+                        if (!id) {
+                            // If data-id is null, try to get it from the div.panelStatusOriginal
+                            var divElement = tr.querySelector('div.panelStatusOriginal, div.panelStatusUpdated, div.panelStatusAdded');
+
+                            if (divElement && divElement.id) {
+                                id = divElement.id.replace('_status', '');
+                            }
+                        }
+
+                        if (id && validIds.hasOwnProperty(id)) {
+                            // Check if a button with class 'myButton' already exists in the row
+                            var existingButton = tr.querySelector('.myButton');
+                            if (existingButton) {
+                                // If a button already exists, remove it
+                                existingButton.remove();
+                            }
+
+                            var btn = document.createElement('BUTTON');
+                            btn.innerHTML = 'Select Values';
+                            btn.className = 'slds-button slds-button_brand myButton'; // Adding SLDS classes
+                            btn.style.display = 'block';
+                            btn.style.margin = '0 auto';
+                            btn.setAttribute('data-id', validIds[id]);
+                            // var td = document.createElement('TD');
+                            // td.style.textAlign = 'center'; // This will center the button within the cell
+                            // td.style.height = 'auto';
+                            // td.style.overflow = 'visible';
+
+                            btn.addEventListener('click', function() {
+                                debugger;
+                                event.preventDefault();
+                              let trElement = event.target.closest('tr.odd');
+                              if (trElement) {
+                                // Fetch the QUANTITY value
+                                let quantityTd = trElement.querySelector('td.QUANTITY');
+
+                                if (quantityTd) {
+                                  let quantityValue = quantityTd.textContent.trim();
+                                  let quantityNumber = parseInt(quantityTd.textContent.trim());
+                                  msQuantity = quantityNumber;
+                                }
+                              }
+                                var recordId = this.getAttribute('data-id');
+                                showModal(recordId);
+                            });
+                            var targetTd = tr.querySelector('.quantity_allowed__c');
+                            if (targetTd) {
+                                targetTd.appendChild(btn);
+                            }
+
+                            // td.appendChild(btn);
+                            // tr.appendChild(td);
+                        }
+                    });
+                }
+
+                function showModal(recordId) {
+                    let modalCmp = $A.getComponent(globalId);
+                    modalCmp.set("v.recordId", recordId);
+                    modalCmp.set("v.isOpen", true);
+                    modalCmp.set("v.quantity", msQuantity);
+                    modalCmp.startTheFlow(); // This now calls the exposed Aura action
+                }
+
+                attachButton();
+
+                function attachButton(){
+                    var trElements = document.querySelectorAll('tr.odd[data-id]');
+                    var idsToCheck = [];
+
+                    trElements.forEach(function (tr) {
+                        idsToCheck.push(tr.getAttribute('data-id'));
+                    });
+                    debugger;
+
+                    var divExtractedIds = extractIDsFromDivs();
+
+                    Visualforce.remoting.Manager.invokeAction(
+                        '{!$RemoteAction.CustomCpqSelectProductController.checkValidIds}',
+                        idsToCheck,
+                        divExtractedIds,
+                        quoteId,
+                        function (result, event) {
+                            if (event.status) {
+                                var validIds = result;
+                                createButtons(validIds);
+                            } else {
+                                console.log(event.message);
+                            }
+                        }
+                    );
+                }
+                // Get IDs from the rows and call the remote action to check valid IDs
+
+                createMyModalComponent();
+
+                function refreshMyModalComponent() {
+                    // Destroy the existing component
+                    var oldComponent = $A.getComponent(globalId);
+                    if (oldComponent) {
+                        oldComponent.destroy();
+                    }
+
+                    // Re-create the component
+                    createMyModalComponent();
+                }
+
+                // Create the Lightning component
+                function createMyModalComponent() {
+                    $Lightning.use("c:MyModalApp", function() {
+                        $Lightning.createComponent("c:MyModal",
+                            {
+                                onClose: refreshMyModalComponent,
+                            },
+                            "SelectValuesDiv",
+                            function(cmp, status, errorMessage) {
+                                globalId = cmp.getGlobalId();
+                            });
+                    });
+                }
+
+                function extractIDsFromDivs() {
+                    var divElements = document.querySelectorAll('div.panelStatusOriginal, div.panelStatusUpdated, div.panelStatusAdded');
+                    var extractedIds = [];
+
+                    divElements.forEach(function (div) {
+                        var id = div.id.replace('_status', '');
+                        extractedIds.push(id);
+                    });
+
+                    return extractedIds;
+                }
+
+              Visualforce.remoting.timeout = 120000;
+                nextButtonLogic();
+
+                bPageTitleElArr = document.getElementsByClassName('bPageTitle');
+                if (bPageTitleElArr && bPageTitleElArr.length > 0) {
+                    bPageTitleEl = bPageTitleElArr[0];
+                    bPageTitleEl.style.display='none';
+                }
+
+                bPageTitleElArr = document.getElementsByClassName('pbHeader');
+                if (bPageTitleElArr && bPageTitleElArr.length > 0) {
+                    bPageTitleEl = bPageTitleElArr[0];
+                    bPageTitleEl.style.display='none';
+                }
+
+                var IS_ZUORA_SUBMIT_ALLOWED = false;
+                var spanList = document.querySelectorAll('[data-id=nextButton]');
+                if (spanList && spanList.length > 0 && spanList[0].innerText.toLowerCase() == 'submit') {
+                    var saveOnClickFunction = spanList[0].onclick;
+                    spanList[0].onclick = submitButtonClick;
+                }
+
+                function submitButtonClick(){
+                    if (IS_ZUORA_SUBMIT_ALLOWED) {
+                        IS_ZUORA_SUBMIT_ALLOWED = false;
+                        return;
+                    }
+                    event.stopImmediatePropagation(); // in order to prevent default Zuora "Submit" button logic
+                    clickSaveButtonAndValidationAfter();
+                }
+                function clickSaveButtonAndValidationAfter(){
+                var spanList = document.querySelectorAll('[data-id=saveButton]');
+                var saveButtonEl;
+                if (spanList && spanList.length > 0) {
+                    saveButtonEl = spanList[0];
+                    saveButtonEl.click();
+                }
+                if (!saveButtonEl) {
+                    return;
+                }
+                var spanElToListen;
+                for (const child_i of saveButtonEl.childNodes) {
+                    if (child_i.classList && [...child_i.classList].includes('running') && [...child_i.classList].includes('hidden')) {
+                        spanElToListen = child_i;
+                        break;
+                    }
+                }
+                if (!spanElToListen) {
+                    return;
+                }
+                var observer = new MutationObserver(callback)
+                        .observe(spanElToListen, {attributes: true, attributeOldValue: true});
+
+                function callback(mutations, observer) {
+                    var target = mutations[0].target;
+                    mutations.forEach(function(mutation) {
+                        if (mutation.type == "attributes" && mutation.attributeName == 'style') {
+                            var sectionDivEl = mutation.target;
+                            if(sectionDivEl.style.display == 'none') {
+                                observer.disconnect();
+                                runRenewalCalculation();
+                            }
+                        }
+                    });
+                }
+            }
+
+            function runRenewalCalculation(){
+                setLoadingOnZuoraButtons(true);
+                var spanList = document.querySelectorAll('[data-id=nextButton]');
+                if (spanList && spanList.length > 0 && spanList[0].innerText.toLowerCase() == 'submit') {
+                    var saveOnClickFunction = spanList[0].onclick;
+                    spanList[0].onclick = submitButtonClick;
+                }
+                Visualforce.remoting.Manager.invokeAction(
+                    '{!$RemoteAction.CustomCpqSelectProductController.renewalCalculation}', 
+                    '{!thisQuote}',
+                    function(result, event){
+                        setLoadingOnZuoraButtons(false);
+                        if (event.status) {
+                        onRedirectToRecordPage();
+                        } 
+                    }
+                );
+
+                function setLoadingOnZuoraButtons(isLoading){
+                    var zuoraButtonArray = getZuoraButtonArray();
+                    for (const zuoraButton of zuoraButtonArray) {
+                        if (zuoraButton.dataset.id == 'calculateButton') {
+                            setSpinnerVisibilityOnCalculateButton(zuoraButton,isLoading);
+                        } else {
+                            if (isLoading) {
+                                zuoraButton.classList.add('disabled');
+                            } else {
+                                zuoraButton.classList.remove('disabled');
+                            }
+                        }
+                    }
+
+                    function getZuoraButtonArray(){
+                        var zuoraButtonArray = document.querySelectorAll('[data-id=cancelButton],[data-id=backButton],[data-id=calculateButton],[data-id=saveButton],[data-id=nextButton]');
+                        return zuoraButtonArray;
+                    }
+
+                    function setSpinnerVisibilityOnCalculateButton(calculatedButton, isLoading){
+                        var spanList = calculatedButton.getElementsByTagName('span');
+                        for (const childSpan_i of spanList) {
+                            if (childSpan_i.classList.contains('not-running')) {
+                                if (isLoading) {
+                                    childSpan_i.style.display = 'none';
+                                } else {
+                                    childSpan_i.style.display = 'block';
+                                }   
+                            } else if (childSpan_i.classList.contains('running') && childSpan_i.classList.contains('hidden')){
+                                if (isLoading) {
+                                    childSpan_i.style.display = 'inline';
+                                } else {
+                                    childSpan_i.style.display = 'none';
+                                }
+                            }
+                        }
+
+                    }
+                }
+
+                function showAlertMessage(validationErrorMessageArray){
+                    var alertifyWarningMessage='';
+                    alertifyWarningMessage += getStandartWarningMessage();
+                    alertifyWarningMessage += getHtmlWrappedAlertMessageRaw(validationErrorMessageArray); 
+                    alertify.alert(alertifyWarningMessage);
+                    
+                    function getStandartWarningMessage(){
+                        return 'There are validation errors that prevent your quote from being saved.';
+                    }
+                    
+                    function getHtmlWrappedAlertMessageRaw(validationErrorMessageArray){
+                        var htmlWrappedWarningMessage = '';
+                        htmlWrappedWarningMessage += '<ul class = "ul.scrollableNotification">';
+                        for (const validationErrorMessage of validationErrorMessageArray) {
+                            htmlWrappedWarningMessage += '<div class="rule-log type-ERROR action-VALIDATION">';
+                            htmlWrappedWarningMessage += validationErrorMessage;
+                            htmlWrappedWarningMessage += '</div>';
+                            htmlWrappedWarningMessage += '<br>';
+                        }
+                        htmlWrappedWarningMessage += '</ul>';
+                        htmlWrappedWarningMessage += '<p></p>';
+                        return htmlWrappedWarningMessage;
+                    }
+                }
+
+                function addAlertMessageToRulesEngineLogs(validationErrorMessageArray){
+                    var rulesEngineLogElement = document.getElementById('rulesEngineLogDetailInfo');
+                    if (rulesEngineLogElement) {
+                        var rulesEngineLogWarningMessageArray = [];
+                        if (rulesEngineLogElement.hasChildNodes()) {
+                            markLogElementsAsOld(rulesEngineLogElement.childNodes);
+                            rulesEngineLogWarningMessageArray.push(getSeparator(rulesEngineLogElement));
+                        }
+                        rulesEngineLogWarningMessageArray = rulesEngineLogWarningMessageArray.concat(getHtmlWrappedRuleEngineLogWarningMessageArray(validationErrorMessageArray));
+                        for (const rulesEngineLogWarningMessage_i of rulesEngineLogWarningMessageArray) {
+                            rulesEngineLogElement.appendChild(rulesEngineLogWarningMessage_i);
+                        }
+                    }
+                    
+                    function markLogElementsAsOld(elementNodeList){
+                        for (const elementNode_i of elementNodeList) {
+                            if (elementNode_i.classList) {
+                                elementNode_i.classList.add('old');
+                            }
+                        }
+                    }
+
+                    function getSeparator(rulesEngineLogElement){
+                        var separator = document.createElement("span");
+                        separator.classList.add('RuleSeparator');
+                        separator.appendChild(document.createElement("hr"));
+                        return separator;
+                    }
+
+                    function getHtmlWrappedRuleEngineLogWarningMessageArray(validationErrorMessageArray){
+                        var rulesEngineLogWarningMessageArray = [];
+                        for (const validationErrorMessage of validationErrorMessageArray) {
+                            var ruleLogMessage = document.createElement("li");
+                            ruleLogMessage.classList.add('rule-log');
+                            ruleLogMessage.classList.add('type-ERROR');
+                            ruleLogMessage.classList.add('action-VALIDATION"');
+                            ruleLogMessage.innerHTML = validationErrorMessage
+                            rulesEngineLogWarningMessageArray.push(ruleLogMessage);
+                        }
+                        return rulesEngineLogWarningMessageArray;
+                    }                   
+                }
+            }
+                
+            function nextButtonLogic(){
+                var saveButtonEl = document.querySelector('[data-id=nextButton]');
+                if (saveButtonEl) {
+                    saveButtonEl.addEventListener("click", function(){
+                    onFixingPercentage();
+                    });
+                }
+            }
+            </script>
+              <style>
+                  .myButton {
+                      background-color: #008CBA; /* Blue */
+                      border: none;
+                      color: white;
+                      padding: 8px 16px;
+                      text-align: center;
+                      text-decoration: none;
+                      display: inline-block;
+                      font-size: 12px;
+                      margin: 2px 1px;
+                      cursor: pointer;
+                      transition-duration: 0.4s;
+                  }
+
+                  .myButton:hover {
+                      background-color: #00688B;
+                  }
+              </style>
+          </apex:form>
+
+        </apex:define>
+      </apex:composition>  
+</apex:page>

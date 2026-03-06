@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Opportunity_generator__c</fullName>
+    <description>MIS-4417</description>
+    <externalId>false</externalId>
+    <formula>IF(
+  CONTAINS(LOWER(Related_Meeting__r.CreatedBy.SysRoleName__c), &apos;reseller&apos;),
+  &apos;Sales&apos;,
+  CASE(
+    Related_Meeting__r.RecordType.DeveloperName,
+    &apos;MIR_Handover&apos;, &apos;MIR&apos;,
+    &apos;SDR&apos;, &apos;SDR&apos;,
+    &apos;Sales&apos;
+  )
+)</formula>
+    <label>Opportunity Generator</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

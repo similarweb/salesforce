@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Bill_to_Sold_to_information</fullName>
+    <active>true</active>
+    <description>Prevents sales rep from editing the contact details in case the contact sold to / bill to fields are checked</description>
+    <errorConditionFormula>AND(
+OR(
+$Profile.Name = &apos;SW Sales Internal&apos;,
+$Profile.Name = &apos;SW CSM Internal&apos;,
+$Profile.Name = &apos;SW MIR&apos;,
+$Profile.Name = &apos;SW SDR&apos;,
+$Profile.Name = &apos;SW Sales External&apos;,
+$Profile.Name = &apos;SW Management&apos;
+),
+OR(
+Bill_To__c = True,
+Sold_To__c = True
+),
+OR(
+ISCHANGED(FirstName),
+ISCHANGED(LastName),
+ISCHANGED(MailingStreet),
+ISCHANGED(Phone),
+ISCHANGED(Email),
+ISCHANGED(MailingCity),
+ISCHANGED(MailingPostalCode),
+ISCHANGED(MailingState),
+ISCHANGED(MailingCountry)
+)
+)</errorConditionFormula>
+    <errorMessage>You are trying to edit a sold to / bill to contact information which can be done only by the billing team.
+Please open a ticket to billing with the changes that you wish to make.</errorMessage>
+</ValidationRule>

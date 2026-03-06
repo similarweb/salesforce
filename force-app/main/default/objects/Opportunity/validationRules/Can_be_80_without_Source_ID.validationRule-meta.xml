@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Can_be_80_without_Source_ID</fullName>
+    <active>true</active>
+    <errorConditionFormula>RecordType.DeveloperName = &quot;Wolves&quot; &amp;&amp;  OR(ISPICKVAL(StageName , &quot;Mobile - SDK Implementation&quot;), ISPICKVAL(StageName , &quot;Desktop - UFF Development&quot;)) &amp;&amp; ISBLANK(Wolves_Source_ID_SGAdmin__c ) &amp;&amp; 
+NOT($Profile.Id=&apos;00eb0000000oBvcAAE&apos;)</errorConditionFormula>
+    <errorDisplayField>Wolves_Source_ID_SGAdmin__c</errorDisplayField>
+    <errorMessage>Please fill Source ID field</errorMessage>
+</ValidationRule>

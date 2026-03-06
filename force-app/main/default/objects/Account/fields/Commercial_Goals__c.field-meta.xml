@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Commercial_Goals__c</fullName>
+    <description>MIS-4810</description>
+    <externalId>false</externalId>
+    <label>Commercial Goals</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Data Upsell</fullName>
+                <default>false</default>
+                <label>Data Upsell</label>
+            </value>
+            <value>
+                <fullName>Multiyear</fullName>
+                <default>false</default>
+                <label>Multiyear</label>
+            </value>
+            <value>
+                <fullName>Multiyear + Data Upsell</fullName>
+                <default>false</default>
+                <label>Multiyear + Data Upsell</label>
+            </value>
+            <value>
+                <fullName>Multiyear + Soft upsells</fullName>
+                <default>false</default>
+                <label>Multiyear + Soft upsells</label>
+            </value>
+            <value>
+                <fullName>Multiyear + Soft upsells + Cross Sells</fullName>
+                <default>false</default>
+                <label>Multiyear + Soft upsells + Cross Sells</label>
+            </value>
+            <value>
+                <fullName>Multiyear + Soft upsells + Cross Sells + MS</fullName>
+                <default>false</default>
+                <label>Multiyear + Soft upsells + Cross Sells + MS</label>
+            </value>
+            <value>
+                <fullName>Multiyear + Soft upsells + Cross Sells + MS + AS</fullName>
+                <default>false</default>
+                <label>Multiyear + Soft upsells + Cross Sells + MS + AS</label>
+            </value>
+            <value>
+                <fullName>Multiyear + Soft upsells + MS</fullName>
+                <default>false</default>
+                <label>Multiyear + Soft upsells + MS</label>
+            </value>
+            <value>
+                <fullName>Soft upsells</fullName>
+                <default>false</default>
+                <label>Soft upsells</label>
+            </value>
+            <value>
+                <fullName>Soft upsells + Cross Sells</fullName>
+                <default>false</default>
+                <label>Soft upsells + Cross Sells</label>
+            </value>
+            <value>
+                <fullName>Soft upsells + Cross Sells + MS</fullName>
+                <default>false</default>
+                <label>Soft upsells + Cross Sells + MS</label>
+            </value>
+            <value>
+                <fullName>Soft upsells + Cross Sells + MS + AS</fullName>
+                <default>false</default>
+                <label>Soft upsells + Cross Sells + MS + AS</label>
+            </value>
+            <value>
+                <fullName>Soft upsells + MS</fullName>
+                <default>false</default>
+                <label>Soft upsells + MS</label>
+            </value>
+            <value>
+                <fullName>N/A</fullName>
+                <default>false</default>
+                <label>N/A</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

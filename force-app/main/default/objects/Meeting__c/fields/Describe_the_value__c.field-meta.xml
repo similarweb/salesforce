@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Describe_the_value__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Please describe the value Similarweb is delivering to the customer or why they are not seeing enough value.</inlineHelpText>
+    <label>Describe the value</label>
+    <length>2000</length>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>3</visibleLines>
+</CustomField>

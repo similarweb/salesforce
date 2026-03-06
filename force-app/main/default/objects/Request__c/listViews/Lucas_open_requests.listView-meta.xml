@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lucas_open_requests</fullName>
+    <columns>Account__c</columns>
+    <columns>NAME</columns>
+    <columns>Opportunity__c</columns>
+    <columns>Request_Type__c</columns>
+    <columns>Status__c</columns>
+    <columns>CREATED_DATE</columns>
+    <columns>OWNER.ALIAS</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+        <field>Status__c</field>
+        <operation>notEqual</operation>
+        <value>Completed</value>
+    </filters>
+    <label>Lucas open requests</label>
+</ListView>

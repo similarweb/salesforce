@@ -1,0 +1,58 @@
+<aura:component>
+
+    <aura:attribute name="worldListPicklistValues" type="Object[]"/> 
+    <aura:attribute name="shownWordListDualModal" type="Boolean" default="false"/> 
+    <aura:attribute name="highlitedIndx" type="Integer" default="-1"/>  
+    <aura:attribute name="baseProductFullName" type="String"/>
+
+    <aura:registerEvent name="WorldListValueSelectedEvent" type="c:WorldListValueSelected"/>
+
+    <aura:if isTrue="{!v.shownWordListDualModal}">
+        <c:WorldListDualBoxModal isShown="{!v.shownWordListDualModal}"
+                                selectedWorldListPicklistValues="{!v.worldListPicklistValues}"
+                                controllingFieldValue = "{!v.baseProductFullName}"/>
+    </aura:if>
+
+    <lightning:layout multipleRows="true" class="hh">
+
+        <lightning:layoutItem size="12" class="slds-theme_shade rounded-borders_no-bottom ">
+            <lightning:layout multipleRows="true" class="buttonL">
+                <lightning:layoutItem size="8">
+                    <div class="slds-p-around_medium slds-page-header__title">
+                        Word list Picklist Values
+                    </div>
+                </lightning:layoutItem>
+
+                <lightning:layoutItem size="4" class="buttonItem">  
+                    <lightning:buttonIcon iconName="utility:edit"  alternativeText="Edit value" onclick="{!c.onAddValuesClick}" class="ovrbtn"/>                        
+                    <!--<lightning:button onclick="{!c.onAddValuesClick}" variant="brand" label="Edit values" title="Edit values" /> -->
+                </lightning:layoutItem>
+            </lightning:layout>
+            
+
+        </lightning:layoutItem>
+
+        <lightning:layoutItem size="12" class="rounded-borders">
+        
+            <div class="slds-theme_default slds-p-around_small slds-text-heading_medium rounded-borders ovr">
+                <aura:iteration items="{!v.worldListPicklistValues}" var="picklitVal">
+                    <lightning:layoutItem size="12" class="{!join(' '
+                                                        , 'slds-p-bottom_small'
+                                                        , 'hover-color-change' 
+                                                        , _index == v.highlitedIndx ? 'hgltItem': '')}">
+                        <div class="slds-p-top--xx-small slds-p-left--xx-small">
+                            <div class="slds-p-left_small row-other-part"
+                                data-value="{!picklitVal.value}"
+                                data-label="{!picklitVal.label}"
+                                data-index="{!_index}"
+                                onclick="{!c.onWorldListValueSelection}">
+                                {!picklitVal.label}
+                            </div>
+                        </div>
+                    </lightning:layoutItem>
+                </aura:iteration>
+            </div>                                
+
+        </lightning:layoutItem>
+    </lightning:layout>
+</aura:component>

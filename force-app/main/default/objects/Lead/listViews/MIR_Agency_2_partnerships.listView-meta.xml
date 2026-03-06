@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MIR_Agency_2_partnerships</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>LEAD.EMAIL</columns>
+    <columns>LEAD.COMPANY</columns>
+    <columns>LEAD.STATUS</columns>
+    <columns>LEAD.UNREAD</columns>
+    <columns>LEAD.CREATED_DATE</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>Open_Activity_Count__c</columns>
+    <columns>Agency_Category__c</columns>
+    <columns>LEAD.COUNTRY</columns>
+    <columns>LEAD.EMAIL_OPT_OUT</columns>
+    <columns>Employees_Max__c</columns>
+    <columns>LEAD.LAST_UPDATE</columns>
+    <columns>LEAD.EMPLOYEES</columns>
+    <columns>SW_Industry__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Open_Activity_Count__c</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>Owner_Division__c</field>
+        <operation>equals</operation>
+        <value>MIR</value>
+    </filters>
+    <filters>
+        <field>LEAD.LAST_ACTIVITY</field>
+        <operation>notEqual</operation>
+        <value>LAST_N_DAYS:60</value>
+    </filters>
+    <filters>
+        <field>SW_Industry__c</field>
+        <operation>equals</operation>
+        <value>Agency,Consulting and Market Research,Consulting &amp; Market Research</value>
+    </filters>
+    <filters>
+        <field>LEAD.COUNTRY</field>
+        <operation>equals</operation>
+        <value>united states,usa,canada,mexico,guatemala,el salvador,panama,nicaragua,honduras,costa rica,colombia,venezuela,bolivia,peru,chile,argentina,paraguay,uruguay,ecuador</value>
+    </filters>
+    <filters>
+        <field>Employees_Min__c</field>
+        <operation>lessThan</operation>
+        <value>80</value>
+    </filters>
+    <filters>
+        <field>LEAD.EMAIL_BOUNCED_DATE</field>
+        <operation>equals</operation>
+    </filters>
+    <filters>
+        <field>LEAD.EMAIL_OPT_OUT</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>LEAD.STATUS</field>
+        <operation>notEqual</operation>
+        <value>Unqualified</value>
+    </filters>
+    <label>MIR Agency 2 partnerships</label>
+</ListView>

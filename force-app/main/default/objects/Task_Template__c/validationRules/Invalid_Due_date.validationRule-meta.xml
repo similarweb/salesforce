@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Invalid_Due_date</fullName>
+    <active>false</active>
+    <errorConditionFormula>Due_date__c &lt; Generation_date__c &amp;&amp; 
+NOT($Profile.Id=&apos;00eb0000000oBvcAAE&apos;)</errorConditionFormula>
+    <errorDisplayField>Due_date__c</errorDisplayField>
+    <errorMessage>Due Date cannot be less than Generation Date</errorMessage>
+</ValidationRule>

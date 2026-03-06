@@ -1,0 +1,30 @@
+.THIS {
+}
+
+.THIS p {
+    margin: 1.2em;
+}
+
+.THIS .modal-body {
+    height: 100%;
+    max-height: 520px;
+    position: relative;
+}
+.THIS .input-field {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.THIS .spins::after {
+    position: absolute;
+    content: 'Please wait while the metrics are calculated by Zuora';
+    width: 100%;
+    text-align: center;
+    top: calc(50% + 3em);
+    font-weight: bold;
+}
+
+.THIS .customIcon div{
+    vertical-align: top !important;
+    padding-left: 5px;
+}

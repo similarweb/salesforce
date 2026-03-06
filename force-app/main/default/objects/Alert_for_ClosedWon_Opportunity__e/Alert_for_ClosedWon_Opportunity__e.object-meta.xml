@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Publish a platform event on closed won opps. The website listens to it and will generate a &quot;Gong&quot; on the website.</description>
+    <eventType>HighVolume</eventType>
+    <label>Alert for ClosedWon Opportunity</label>
+    <pluralLabel>Alerts for ClosedWon Opportunity</pluralLabel>
+    <publishBehavior>PublishAfterCommit</publishBehavior>
+</CustomObject>

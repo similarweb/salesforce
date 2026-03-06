@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Renewal_Cant_Change</fullName>
+    <active>true</active>
+    <description>MIS-6560</description>
+    <errorConditionFormula>OR(
+   AND(
+							Rec_Type_Name__c  = &quot;Renewal&quot;,
+							PRIORVALUE(Rec_Type_Name__c) &lt;&gt; &quot;Renewal&quot;
+							),
+   AND(
+							Rec_Type_Name__c &lt;&gt; &quot;Renewal&quot;,
+							PRIORVALUE(Rec_Type_Name__c) = &quot;Renewal&quot;
+							),
+			AND(
+							ISPICKVAL(Type, &quot;Renewal&quot;),
+							NOT(ISPICKVAL(PRIORVALUE(Type), &quot;Renewal&quot;))
+							),
+			AND(
+							NOT(ISPICKVAL(Type, &quot;Renewal&quot;)),
+							ISPICKVAL(PRIORVALUE(Type), &quot;Renewal&quot;)
+							)
+		)</errorConditionFormula>
+    <errorMessage>Renewal Opportunity is restricted. Please contact Deal Desk</errorMessage>
+</ValidationRule>

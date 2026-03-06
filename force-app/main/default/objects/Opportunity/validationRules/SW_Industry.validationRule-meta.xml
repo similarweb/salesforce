@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SW_Industry</fullName>
+    <active>true</active>
+    <description>(isnew() || ischanged(StageName))
+&amp;&amp; IsPickVal(Account.SW_Industry__c, &quot;&quot;)
+&amp;&amp; $Profile.Name !=&quot;System Administrator&quot;
+&amp;&amp; $Profile.Name !=&quot;SW SalesOps&quot;
+&amp;&amp; Account.RecordTypeId !=&quot;012b0000000cfIJ&quot;
+&amp;&amp; ( $User.Id = Account.Owner.Id )</description>
+    <errorConditionFormula>((isnew()&amp;&amp; Probability!= 0.1)|| ischanged(StageName)) 
+&amp;&amp; IsPickVal(Account.SW_Industry__c, &quot;&quot;) 
+&amp;&amp; $Profile.Name !=&quot;System Administrator&quot; 
+&amp;&amp; $Profile.Name !=&quot;SW SalesOps&quot; 
+&amp;&amp; Account.RecordTypeId !=&quot;012b0000000cfIJ&quot; 
+&amp;&amp; ( $User.Id = Account.Owner.Id )
+&amp;&amp; RecordType.DeveloperName&lt;&gt;&quot;Rank_Ranger&quot;</errorConditionFormula>
+    <errorMessage>Please select the SW Industry on the account.</errorMessage>
+</ValidationRule>

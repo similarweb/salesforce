@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Neglected_MQL2__c</fullName>
+    <description>Ticket #1090700</description>
+    <externalId>false</externalId>
+    <formula>IF(
+(ISBLANK(BI_Data__r.First_MQL2_Date__c) ||
+(Datevalue(BI_Data__r.First_MQL2_Date__c) &lt; date(2018,09,01)) &amp;&amp; Isblank(LastActivityDate)),
+&apos;&apos;,
+
+IF( (LastActivityDate-DATEVALUE(BI_Data__r.MQL2_Date__c) &gt;= -14) ||
+(((ISBLANK(BI_Data__r.MQL2_Date__c ) &amp;&amp; LastActivityDate - DATEVALUE(BI_Data__r.First_MQL2_Date__c) &gt;=- 14)) ||
+(datevalue( BI_Data__r.First_MQL2_Date__c) &lt; date(2018,09,01))),
+&apos;Followed Up&apos;,&apos;Neglected&apos;))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Neglected MQL2?</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

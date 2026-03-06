@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DR_Approved_DR_must_have_Contact</fullName>
+    <active>true</active>
+    <errorConditionFormula>Ischanged(Status__c)&amp;&amp; 
+Isblank(Contact__c)&amp;&amp;
+NOT(ISPICKVAL(Status__c,&apos;Rejected&apos;))&amp;&amp;
+Not($User.Id=&quot;0050O000007jTyY&quot;)</errorConditionFormula>
+    <errorDisplayField>Contact__c</errorDisplayField>
+    <errorMessage>Please associate a Contact to the Deal Registration before changing Status.</errorMessage>
+</ValidationRule>

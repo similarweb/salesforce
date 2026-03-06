@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Tomer_Traveling_Russia2</fullName>
+    <booleanFilter>1 AND (2 OR 3 OR 4)</booleanFilter>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CONTACT.TITLE</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>CONTACT.FIRST_NAME</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+        <field>Status__c</field>
+        <operation>notEqual</operation>
+        <value>Qualified,Nurture,Unqualified,SDR Prospecting,SDR Converted</value>
+    </filters>
+    <filters>
+        <field>CONTACT.ADDRESS2_COUNTRY</field>
+        <operation>contains</operation>
+        <value>Russia</value>
+    </filters>
+    <filters>
+        <field>zqu__County__c</field>
+        <operation>contains</operation>
+        <value>Russia</value>
+    </filters>
+    <label>Tomer Traveling Russia</label>
+</ListView>

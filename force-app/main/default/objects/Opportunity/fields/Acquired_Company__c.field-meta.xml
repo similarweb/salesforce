@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Acquired_Company__c</fullName>
+    <externalId>false</externalId>
+    <label>Acquired Company</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Newslever</fullName>
+                <default>false</default>
+                <label>Newslever</label>
+            </value>
+            <value>
+                <fullName>The Search Monitor</fullName>
+                <default>false</default>
+                <label>The Search Monitor</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

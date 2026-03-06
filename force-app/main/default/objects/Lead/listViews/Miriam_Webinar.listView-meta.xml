@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Miriam_Webinar</fullName>
+    <columns>Campaign_Name__c</columns>
+    <columns>FULL_NAME</columns>
+    <columns>LEAD.EMAIL</columns>
+    <columns>LEAD.COMPANY</columns>
+    <columns>LEAD.STATUS</columns>
+    <columns>LEAD.CREATED_DATE</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>LEAD.LAST_ACTIVITY</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Owner_Email__c</field>
+        <operation>contains</operation>
+        <value>miriam,brandon,sean,james thomas,george,jackie,jake</value>
+    </filters>
+    <filters>
+        <field>Campaign_Name__c</field>
+        <operation>contains</operation>
+        <value>Keyword Research Panel</value>
+    </filters>
+    <label>NA Webinar</label>
+</ListView>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cant_edit_if_Status_not_equal_Submitted</fullName>
+    <active>true</active>
+    <errorConditionFormula>OR( 
+AND( 
+$Profile.Name = &apos;SW Sales External&apos;, 
+NOT(
+TEXT(Status__c) = &apos;Submitted&apos;
+)
+), 
+
+
+AND( 
+$Profile.Name = &apos;SW Sales External&apos;, 
+ISCHANGED(Status__c), 
+TEXT(PRIORVALUE(Status__c)) = &apos;Submitted&apos; 
+) 
+)</errorConditionFormula>
+    <errorMessage>You are not allowed to edit records when the Status is not &apos;Submitted&apos;</errorMessage>
+</ValidationRule>

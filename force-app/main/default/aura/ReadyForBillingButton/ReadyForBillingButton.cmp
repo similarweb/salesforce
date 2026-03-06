@@ -1,0 +1,26 @@
+<aura:component  extends="c:GenericQuoteButton" controller="ReadyForBillingButtonController">
+    <aura:attribute name="recordId" type="String" />
+    <aura:attribute name="isDisabled" type="Boolean" default="false"/>
+    <aura:attribute name="isPending" type="Boolean" default="false"/>
+    <aura:attribute name="isPassed" type="Boolean" default="false"/>
+    <aura:attribute name="isCancel" type="Boolean" default="false"/>
+    <aura:attribute name="autoFinalizeQuote" type="Boolean" default="false"/>
+    <aura:attribute name="isOpenModal" type="Boolean" default="false"/>
+    <aura:attribute name="actionType" type="String" default="RFB"/>
+    <aura:attribute name="readyForBillingButtonLabel" type="String" default="{!$Label.c.Ready_for_billing_button}" />
+
+    <aura:registerEvent name="ApplicationRefresgEvent" type="c:ApplicationRefresgEvent"/>
+    <aura:handler name="confirmEvent" event="c:ConfirmSubmitEvent" action="{!c.handleConfirmSubmitEvent}"/>
+
+    <!-- <lightning:button variant="brand" disabled="{!v.isDisabled}" label="Ready For Billing" onclick="{!c.onButtonClick}"/> -->
+    <button disabled="{!v.isDisabled}" 
+            class="{! 'slds-button slds-button_brand ff ' + if(and(v.isDisabled,v.isPending),'pendingButton',if(and(v.isDisabled,v.isPassed),'passedButton',if(v.isDisabled,'disabledButton','enabledButton')))}"
+            onclick="{!c.onButtonClick}">
+            Ready For Deal Desk
+    </button>
+
+    <c:ConfirmSubmitModal isOpenModal="{!v.isOpenModal}"
+                          recordId="{!v.recordId}"
+                          actionType="{!v.actionType}"
+                          />
+</aura:component>

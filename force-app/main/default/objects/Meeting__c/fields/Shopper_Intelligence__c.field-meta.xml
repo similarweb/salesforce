@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Shopper_Intelligence__c</fullName>
+    <description>MIS-8039  Cross solution&apos;s product tracking - Meetings</description>
+    <externalId>false</externalId>
+    <label>Shopper Intelligence</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Status__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetName>Cross_solution_s_product_tracking</valueSetName>
+        <valueSettings>
+            <controllingFieldValue>Pending</controllingFieldValue>
+            <valueName>Pitched by MIR/SDR</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Pending</controllingFieldValue>
+            <controllingFieldValue>Completed</controllingFieldValue>
+            <controllingFieldValue>Cancelled</controllingFieldValue>
+            <controllingFieldValue>Unqualified</controllingFieldValue>
+            <valueName>Not relevant</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Completed</controllingFieldValue>
+            <controllingFieldValue>Cancelled</controllingFieldValue>
+            <controllingFieldValue>Unqualified</controllingFieldValue>
+            <valueName>Demoed</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Named_Account_Management</fullName>
+    <columns>TASK.WHAT_NAME</columns>
+    <columns>TASK.PRIORITY</columns>
+    <columns>TASK.SUBJECT</columns>
+    <columns>TASK.STATUS</columns>
+    <columns>TASK.DUE_DATE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>OWNER_ROLE</field>
+        <operation>contains</operation>
+        <value>SDR</value>
+    </filters>
+    <label>Named Account Management</label>
+</ListView>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Business_Line_Giro__c</fullName>
+    <externalId>false</externalId>
+    <label>Business Line (Giro)</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>INFORMACIÓN Y COMUNICACIONES</fullName>
+                <default>false</default>
+                <label>INFORMACIÓN Y COMUNICACIONES</label>
+            </value>
+            <value>
+                <fullName>ACTIVIDADES FINANCIERAS Y DE SEGUROS</fullName>
+                <default>false</default>
+                <label>ACTIVIDADES FINANCIERAS Y DE SEGUROS</label>
+            </value>
+            <value>
+                <fullName>ENSEÑANZA</fullName>
+                <default>false</default>
+                <label>ENSEÑANZA</label>
+            </value>
+            <value>
+                <fullName>ACTIVIDADES PROFESIONALES, CIENTIFICAS Y TÉCNICAS</fullName>
+                <default>false</default>
+                <label>ACTIVIDADES PROFESIONALES, CIENTIFICAS Y TÉCNICAS</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

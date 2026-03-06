@@ -1,0 +1,47 @@
+.THIS.step{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    flex: 1;
+    min-width: 120px;
+    white-space: normal;
+    text-align: center;
+    padding-bottom: 20px;
+    /*display: inline-block;*/
+}
+
+.THIS.step:first-child .decoration .line{ display: none; }
+
+.THIS.step .decoration{
+    width: 100%;
+    transform: translateX(calc(-50% + 25px));
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+}
+
+.THIS.step .decoration .circle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border: 2px solid #0087b3;
+    border-radius: 50%;
+}
+.THIS.step .decoration .circle p{ color: #0087b3; }
+
+.THIS.step .decoration .line{
+    flex: 1;
+    height: 2px;
+    background-color: #0087b3;
+}
+
+.THIS.step .description{
+    text-align: center;
+}
+
+.THIS.step.done .decoration .circle { border-color: #fcb034;}
+.THIS.step.done .decoration .circle p { color: #fcb034; }
+.THIS.step.done .decoration .line { background-color: #fcb034;  }

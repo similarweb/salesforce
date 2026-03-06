@@ -1,0 +1,6 @@
+<apex:page standardController="Account">
+
+<apex:iframe src="https://biportal.similarweb.io/WhitespaceTool/WhitespaceTool/:embed=yes&account_owner_id={!$User.Id}&:toolbar=no/{!$User.Email}/tableau_in_sf"
+height="800"  scrolling="true" />
+    
+</apex:page>

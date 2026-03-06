@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Jamie_Contacts</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>FULL_NAME</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>Pro_User_Type__c</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>SW_Industry__c</columns>
+    <columns>CONTACT.TITLE</columns>
+    <columns>Department__c</columns>
+    <columns>Commercial_Role__c</columns>
+    <columns>CONTACT.LAST_ACTIVITY</columns>
+    <columns>Last_Pro_Visit_Date__c</columns>
+    <columns>CONTACT.ADDRESS2_CITY</columns>
+    <columns>KPIGoal__c</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+        <field>Pro_User_Type__c</field>
+        <operation>equals</operation>
+        <value>User,Admin</value>
+    </filters>
+    <label>Jamie Contacts</label>
+</ListView>

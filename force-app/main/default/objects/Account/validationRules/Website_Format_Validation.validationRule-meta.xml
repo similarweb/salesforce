@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Website_Format_Validation</fullName>
+    <active>true</active>
+    <errorConditionFormula>(ISNEW() || ISCHANGED(Website))
+&amp;&amp;
+NOT(ISCHANGED(Stage__c))
+&amp;&amp;
+Website &lt;&gt; &apos;no_website&apos;
+&amp;&amp;
+(NOT(CONTAINS( Website , &quot;.&quot;) )
+||
+CONTAINS( Website , &quot;www&quot;)
+||
+CONTAINS( Website , &quot;https://&quot;)
+||
+CONTAINS( Website , &quot;http://&quot;))
+&amp;&amp;
+$Profile.Name &lt;&gt; &quot;BI Dev&quot;
+&amp;&amp;
+$Profile.Name &lt;&gt; &quot;Infer API&quot;
+&amp;&amp;
+$Profile.Name &lt;&gt; &quot;Integration User&quot;
+&amp;&amp;
+$Profile.Name &lt;&gt; &quot;Integration User No DF&quot;
+&amp;&amp;
+$Profile.Name &lt;&gt; &quot;System Administrator&quot;
+&amp;&amp;
+$Profile.Name &lt;&gt; &quot;SW SalesOps Extended&quot;
+&amp;&amp;
+$Profile.Name &lt;&gt; &quot;SW SalesOps&quot;</errorConditionFormula>
+    <errorMessage>Account`s Website should match the format &quot;google.com&quot;. Please remove any domain prefixes: &quot;www&quot;, &quot;https://&quot;, &quot;http://&quot;.</errorMessage>
+</ValidationRule>

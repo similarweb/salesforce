@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ENT_ClosingThisMonth</fullName>
+    <booleanFilter>1 AND 2 AND 3</booleanFilter>
+    <columns>CORE.USERS.FULL_NAME</columns>
+    <columns>OPPORTUNITY.NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>OPPORTUNITY.STAGE_NAME</columns>
+    <columns>OPPORTUNITY.PROBABILITY</columns>
+    <columns>Cycle_Price__c</columns>
+    <columns>Expected_Close_Date__c</columns>
+    <columns>Site_Rank__c</columns>
+    <columns>TOP_INSIGHT</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>OPPORTUNITY.CLOSED</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>OPPORTUNITY.CLOSE_DATE</field>
+        <operation>equals</operation>
+        <value>THIS_MONTH</value>
+    </filters>
+    <filters>
+        <field>Cycle_Price__c</field>
+        <operation>greaterThan</operation>
+        <value>20000</value>
+    </filters>
+    <label>ENT_Closing This Month</label>
+</ListView>

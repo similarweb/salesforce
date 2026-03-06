@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Inferred_Solution_From_Web__c</fullName>
+    <description>Populated by the Web team and passed through Pardot</description>
+    <externalId>false</externalId>
+    <label>Inferred Solution From Web</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>NULL</fullName>
+                <default>true</default>
+                <label>NULL</label>
+            </value>
+            <value>
+                <fullName>Marketing (MI)</fullName>
+                <default>false</default>
+                <label>Marketing (MI)</label>
+            </value>
+            <value>
+                <fullName>research</fullName>
+                <default>false</default>
+                <label>research</label>
+            </value>
+            <value>
+                <fullName>investors</fullName>
+                <default>false</default>
+                <label>investors</label>
+            </value>
+            <value>
+                <fullName>marketing</fullName>
+                <default>false</default>
+                <label>marketing</label>
+            </value>
+            <value>
+                <fullName>sales</fullName>
+                <default>false</default>
+                <label>sales</label>
+            </value>
+            <value>
+                <fullName>web-solution</fullName>
+                <default>false</default>
+                <label>web-solution</label>
+            </value>
+            <value>
+                <fullName>shopper-solution</fullName>
+                <default>false</default>
+                <label>shopper-solution</label>
+            </value>
+            <value>
+                <fullName>sales-solution</fullName>
+                <default>false</default>
+                <label>sales-solution</label>
+            </value>
+            <value>
+                <fullName>app-solution</fullName>
+                <default>false</default>
+                <label>app-solution</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

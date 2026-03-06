@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Use_Cases_Persona__c</fullName>
+    <externalId>false</externalId>
+    <label>Use Cases (Persona)</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Content Marketing</fullName>
+                <default>false</default>
+                <label>Content Marketing</label>
+            </value>
+            <value>
+                <fullName>Media Buying</fullName>
+                <default>false</default>
+                <label>Media Buying</label>
+            </value>
+            <value>
+                <fullName>PPC</fullName>
+                <default>false</default>
+                <label>PPC</label>
+            </value>
+            <value>
+                <fullName>SEO</fullName>
+                <default>false</default>
+                <label>SEO</label>
+            </value>
+            <value>
+                <fullName>Affiliates</fullName>
+                <default>false</default>
+                <label>Affiliates</label>
+            </value>
+            <value>
+                <fullName>Mobile app user acquisition</fullName>
+                <default>false</default>
+                <label>Mobile app user acquisition</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>General digital marketing analysis</fullName>
+                <default>false</default>
+                <label>General digital marketing analysis</label>
+            </value>
+            <value>
+                <fullName>Investing</fullName>
+                <default>false</default>
+                <label>Investing</label>
+            </value>
+            <value>
+                <fullName>Competitive analysis - websites</fullName>
+                <default>false</default>
+                <label>Competitive analysis - websites</label>
+            </value>
+            <value>
+                <fullName>Competitive analysis - apps</fullName>
+                <default>false</default>
+                <label>Competitive analysis - apps</label>
+            </value>
+            <value>
+                <fullName>Lead discovery/ qualification</fullName>
+                <default>false</default>
+                <label>Lead discovery/ qualification</label>
+            </value>
+            <value>
+                <fullName>Partnership opportunities</fullName>
+                <default>false</default>
+                <label>Partnership opportunities</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

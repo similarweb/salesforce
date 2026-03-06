@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Upsell_Type_Required_Above_25_Percent</fullName>
+    <active>true</active>
+    <description>MIS-6998
+MIS-7165</description>
+    <errorConditionFormula>AND(
+					RecordTypeId =&apos;012b0000000M3zQ&apos;, /* News Sale/Upsell */
+					ISPICKVAL(Type, &apos;Upsell&apos;),
+				 ISCHANGED(StageName),
+					Probability &gt;= 0.25,
+				 ISNULL(Upsell_Type__c),
+				  MEDPIC_Next_Stage__c =false
+)</errorConditionFormula>
+    <errorMessage>You must select a value in &quot;Upsell Type&quot; if Stage is &quot;Sales Qualified&quot; or higher and the Type is &quot;Upsell&quot;</errorMessage>
+</ValidationRule>

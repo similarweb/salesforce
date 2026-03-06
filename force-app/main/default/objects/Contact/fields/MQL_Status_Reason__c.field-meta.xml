@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MQL_Status_Reason__c</fullName>
+    <description>MIS-6612
+MIS-6285</description>
+    <externalId>false</externalId>
+    <formula>TEXT(SW_Fit_Score__c)+&quot; - &quot;+(If((Intent_Score__c)&gt;6,&quot;High&quot;,If((Intent_Score__c)&lt;4,&quot;Low&quot;,&quot;Medium&quot;)))</formula>
+    <label>MQL Status Reason</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

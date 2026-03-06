@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PartnerStack_MQL_Action__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Indication if we triggered a Reward to a Partner when the Lead recognized as MQL.</description>
+    <externalId>false</externalId>
+    <label>PartnerStack MQL Action</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

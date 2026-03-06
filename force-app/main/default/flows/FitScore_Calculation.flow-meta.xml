@@ -1,0 +1,2527 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>59.0</apiVersion>
+    <assignments>
+        <description>MIS-6372</description>
+        <name>Assign_Department_According_to_Title</name>
+        <label>Assign Department According to Title</label>
+        <locationX>446</locationX>
+        <locationY>2042</locationY>
+        <assignmentItems>
+            <assignToReference>Var_Department</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>FR_Department_Other_NA_Calc</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Industry_is_Other_or_NA_or_NULL</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>MIS-6878</description>
+        <name>Assign_Department_from_MDT</name>
+        <label>Assign Department from MDT</label>
+        <locationX>292</locationX>
+        <locationY>1058</locationY>
+        <assignmentItems>
+            <assignToReference>Var_Department</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Department_Get_Mapping_Metadata.Department__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Seniority_ISBLANK</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Existing_Contact_FitScore_and_Division</name>
+        <label>Assign Existing Contact FitScore and Division</label>
+        <locationX>710</locationX>
+        <locationY>3458</locationY>
+        <assignmentItems>
+            <assignToReference>Response_FitScore</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Search_Contacts.SW_Fit_Score__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Response_is_in_salesforce</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Response_owner_division_from_salesforce</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Search_Contacts.Owner_Division__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Response_Reason</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Search_Contacts.SW_Fit_Score_Reason__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Search_paying_Account</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Existing_Lead_FitScore_and_Division</name>
+        <label>Assign Existing Lead FitScore and Division</label>
+        <locationX>1018</locationX>
+        <locationY>3674</locationY>
+        <assignmentItems>
+            <assignToReference>Response_FitScore</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Search_Leads.SW_Fit_Score__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Response_is_in_salesforce</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Response_owner_division_from_salesforce</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Search_Leads.Owner_Division__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Response_Reason</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Search_Leads.SW_Fit_Score_Reason__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Is_Relevant_For_Sales</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>MIS-6372</description>
+        <name>Assign_Industry_According_to_Title</name>
+        <label>Assign Industry According to Title</label>
+        <locationX>446</locationX>
+        <locationY>2342</locationY>
+        <assignmentItems>
+            <assignToReference>Var_SW_Industry</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>FR_Industry_Other_NA_Calc</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Seniority_is_Other_or_NA_or_NULL</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_JSON_String_for_test</name>
+        <label>Assign JSON String for test</label>
+        <locationX>578</locationX>
+        <locationY>3026</locationY>
+        <assignmentItems>
+            <assignToReference>Response_JSONString_for_test</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>JSONString_for_test</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>What_is_the_Source</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Paying_Account</name>
+        <label>Assign Paying Account</label>
+        <locationX>578</locationX>
+        <locationY>3782</locationY>
+        <assignmentItems>
+            <assignToReference>Response_is_paying_user</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Response_FitScore</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Search_Contacts.SW_Fit_Score__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Is_Relevant_For_Sales</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Relevant_For_Sales_Value</name>
+        <label>Assign Relevant For Sales Value</label>
+        <locationX>798</locationX>
+        <locationY>4166</locationY>
+        <assignmentItems>
+            <assignToReference>Response_Relevent_For_Sales</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Fit_Relevant_For_Sales</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Calculate_FitScore_anyway</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>MIS-6804</description>
+        <name>Assign_Seniority_Calc1_According_to_Title</name>
+        <label>Assign Seniority Calc1 According to Title</label>
+        <locationX>94</locationX>
+        <locationY>2750</locationY>
+        <assignmentItems>
+            <assignToReference>Var_Seniority</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>FR_Seniority_Other_NA_Calc1</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Assign_JSON_String_for_test</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>MIS-6804</description>
+        <name>Assign_Seniority_Calc2_According_to_Title</name>
+        <label>Assign Seniority Calc2 According to Title</label>
+        <locationX>358</locationX>
+        <locationY>2750</locationY>
+        <assignmentItems>
+            <assignToReference>Var_Seniority</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>FR_Seniority_Other_NA_Calc2</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Assign_JSON_String_for_test</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>MIS-6878</description>
+        <name>Assign_Seniority_from_MDT</name>
+        <label>Assign Seniority from MDT</label>
+        <locationX>292</locationX>
+        <locationY>1658</locationY>
+        <assignmentItems>
+            <assignToReference>Var_Seniority</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Seniority_Get_Mapping_Metadata.Seniority__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Department_is_Other_or_NA_or_NULL</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>MIS-6878</description>
+        <name>Assign_SW_Industry_from_MDT</name>
+        <label>Assign SW Industry from MDT</label>
+        <locationX>292</locationX>
+        <locationY>458</locationY>
+        <assignmentItems>
+            <assignToReference>Var_SW_Industry</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>SW_Industry_Get_Mapping_Metadata.SW_Industry__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Department_ISBLANK</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>MIS-5711</description>
+        <name>Fit_Score_Tiers_Assignment</name>
+        <label>Fit Score Tiers Assignment</label>
+        <locationX>578</locationX>
+        <locationY>5042</locationY>
+        <assignmentItems>
+            <assignToReference>Response_Fit_Score_Country_Tier</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Fit_Score_Country_Tier</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Response_Fit_Score_Industry_Department_Tier</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Fit_Score_Industry_Department_Tier_Calculation</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Response_Fit_Score_Seniority_Tier</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Fit_Score_Seniority_Tier</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <name>Score_A_D_Assignment</name>
+        <label>Score A-D Assignment</label>
+        <locationX>842</locationX>
+        <locationY>4850</locationY>
+        <assignmentItems>
+            <assignToReference>Response_FitScore</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Fit_Score_A_D_Tier</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Response_Reason</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Score_A_D_Tier_Reason</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Response_Relevent_For_Sales</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Fit_Relevant_For_Sales</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Fit_Score_Tiers_Assignment</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Score_E_Assignment</name>
+        <label>Score E Assignment</label>
+        <locationX>578</locationX>
+        <locationY>4850</locationY>
+        <assignmentItems>
+            <assignToReference>Response_FitScore</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>E</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Response_Reason</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Score_E_and_Reason</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Response_Relevent_For_Sales</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Fit_Relevant_For_Sales</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Fit_Score_Tiers_Assignment</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Score_F_Assignment</name>
+        <label>Score F Assignment</label>
+        <locationX>50</locationX>
+        <locationY>4850</locationY>
+        <assignmentItems>
+            <assignToReference>Response_FitScore</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>F</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Response_Relevent_For_Sales</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Fit_Relevant_For_Sales</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Response_Reason</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Score_F_and_Reason</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Fit_Score_Tiers_Assignment</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Score_S_Assignment</name>
+        <label>Score S Assignment</label>
+        <locationX>314</locationX>
+        <locationY>4850</locationY>
+        <assignmentItems>
+            <assignToReference>Response_FitScore</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>S</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Response_Reason</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Score_S_and_Reason</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Response_Relevent_For_Sales</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Fit_Relevant_For_Sales</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Fit_Score_Tiers_Assignment</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Score_X_Assignment</name>
+        <label>Score X Assignment</label>
+        <locationX>1106</locationX>
+        <locationY>4850</locationY>
+        <assignmentItems>
+            <assignToReference>Response_FitScore</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>X</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Response_Reason</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Not in other Fit score, No Country</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Response_Relevent_For_Sales</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Fit_Relevant_For_Sales</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Fit_Score_Tiers_Assignment</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <name>Calculate_FitScore_anyway</name>
+        <label>Calculate FitScore anyway?</label>
+        <locationX>930</locationX>
+        <locationY>4358</locationY>
+        <defaultConnectorLabel>No, Stop Flow</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Continue</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Var_Force_FitCalc</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Score_Decision</targetReference>
+            </connector>
+            <label>Yes, Continue</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-6804
+MIS-6372</description>
+        <name>Department_is_Other_or_NA_or_NULL</name>
+        <label>Department is &quot;Other&quot; or &quot;NA&quot; or NULL?</label>
+        <locationX>578</locationX>
+        <locationY>1934</locationY>
+        <defaultConnector>
+            <targetReference>Industry_is_Other_or_NA_or_NULL</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Department_Override</name>
+            <conditionLogic>(1 OR 2 OR 3) AND 4</conditionLogic>
+            <conditions>
+                <leftValueReference>Var_Department</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Other</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Var_Department</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>NA</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Var_Department</leftValueReference>
+                <operator>IsBlank</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Var_Title</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Department_According_to_Title</targetReference>
+            </connector>
+            <label>Department Override</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-6878</description>
+        <name>Department_ISBLANK</name>
+        <label>Department ISBLANK?</label>
+        <locationX>578</locationX>
+        <locationY>734</locationY>
+        <defaultConnector>
+            <targetReference>Seniority_ISBLANK</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Department_Check_Metadata</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Var_Department</leftValueReference>
+                <operator>IsBlank</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Department_Get_Mapping_Metadata</targetReference>
+            </connector>
+            <label>Department - Check Metadata</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Found_Contact</name>
+        <label>Found Contact?</label>
+        <locationX>930</locationX>
+        <locationY>3350</locationY>
+        <defaultConnector>
+            <targetReference>Search_Leads</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Nope, Search Lead</defaultConnectorLabel>
+        <rules>
+            <name>Found_Contact_with_Fitscore</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Search_Contacts.SW_Fit_Score__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Existing_Contact_FitScore_and_Division</targetReference>
+            </connector>
+            <label>Found Contact with Fitscore</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-6878</description>
+        <name>Found_Department_MDT</name>
+        <label>Found Department MDT?</label>
+        <locationX>424</locationX>
+        <locationY>950</locationY>
+        <defaultConnector>
+            <targetReference>Seniority_ISBLANK</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Department_MDT</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Department_Get_Mapping_Metadata</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Department_from_MDT</targetReference>
+            </connector>
+            <label>Yes - Department MDT</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Found_Lead</name>
+        <label>Found Lead</label>
+        <locationX>1150</locationX>
+        <locationY>3566</locationY>
+        <defaultConnector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Score_Decision</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Nope, Calculate FitScore</defaultConnectorLabel>
+        <rules>
+            <name>Found_Lead_with_Fitscore</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Search_Leads.SW_Fit_Score__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Existing_Lead_FitScore_and_Division</targetReference>
+            </connector>
+            <label>Found Lead with Fitscore</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Found_Paying_Account</name>
+        <label>Found Paying Account?</label>
+        <locationX>710</locationX>
+        <locationY>3674</locationY>
+        <defaultConnector>
+            <targetReference>Is_Relevant_For_Sales</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Found</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Search_paying_Account.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Paying_Account</targetReference>
+            </connector>
+            <label>Found</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-6878</description>
+        <name>Found_Seniority_MDT</name>
+        <label>Found Seniority MDT?</label>
+        <locationX>424</locationX>
+        <locationY>1550</locationY>
+        <defaultConnector>
+            <targetReference>Department_is_Other_or_NA_or_NULL</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Seniority_MDT</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Seniority_Get_Mapping_Metadata</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Seniority_from_MDT</targetReference>
+            </connector>
+            <label>Yes - Seniority MDT</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-6878</description>
+        <name>Found_SW_Industry_MDT</name>
+        <label>Found SW Industry MDT?</label>
+        <locationX>424</locationX>
+        <locationY>350</locationY>
+        <defaultConnector>
+            <targetReference>Department_ISBLANK</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes_SW_Industry_MDT</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>SW_Industry_Get_Mapping_Metadata</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_SW_Industry_from_MDT</targetReference>
+            </connector>
+            <label>Yes - SW Industry MDT</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-6804</description>
+        <name>Industry_is_Other_or_NA_or_NULL</name>
+        <label>Industry is &quot;Other&quot; or &quot;NA&quot; or NULL?</label>
+        <locationX>578</locationX>
+        <locationY>2234</locationY>
+        <defaultConnector>
+            <targetReference>Seniority_is_Other_or_NA_or_NULL</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Industry_Override</name>
+            <conditionLogic>(1 OR 2 OR 3) AND 4</conditionLogic>
+            <conditions>
+                <leftValueReference>Var_SW_Industry</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Other</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Var_SW_Industry</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>NA</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Var_SW_Industry</leftValueReference>
+                <operator>IsBlank</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Var_Title</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Industry_According_to_Title</targetReference>
+            </connector>
+            <label>Industry Override</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Is_Relevant_For_Sales</name>
+        <label>Is_Relevant_For_Sales?</label>
+        <locationX>930</locationX>
+        <locationY>4058</locationY>
+        <defaultConnector>
+            <targetReference>Calculate_FitScore_anyway</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Relevant_For_Sales_True</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Fit_Relevant_For_Sales</leftValueReference>
+                <operator>GreaterThanOrEqualTo</operator>
+                <rightValue>
+                    <numberValue>0.0</numberValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Relevant_For_Sales_Value</targetReference>
+            </connector>
+            <label>Relevant For Sales True</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Score_Decision</name>
+        <label>Score Decision</label>
+        <locationX>578</locationX>
+        <locationY>4742</locationY>
+        <defaultConnector>
+            <targetReference>Score_X_Assignment</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>X</defaultConnectorLabel>
+        <rules>
+            <name>Score_F</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>Fit_Countries_F</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Var_Fake_Data</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Score_F_Assignment</targetReference>
+            </connector>
+            <label>Score F</label>
+        </rules>
+        <rules>
+            <name>Score_S</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Score_S_and_Reason</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Score_S_Assignment</targetReference>
+            </connector>
+            <label>Score S</label>
+        </rules>
+        <rules>
+            <name>Score_E</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Score_E_and_Reason</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Score_E_Assignment</targetReference>
+            </connector>
+            <label>Score E</label>
+        </rules>
+        <rules>
+            <name>Score_A</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Fit_Score_A_D_Tier</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Score_A_D_Assignment</targetReference>
+            </connector>
+            <label>Score A</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-6804</description>
+        <name>Seniority_is_Other_or_NA_or_NULL</name>
+        <label>Seniority is &quot;Other&quot; or &quot;NA&quot; or NULL?</label>
+        <locationX>578</locationX>
+        <locationY>2534</locationY>
+        <defaultConnector>
+            <targetReference>Assign_JSON_String_for_test</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Seniority_Override</name>
+            <conditionLogic>(1 OR 2 OR 3) AND 4</conditionLogic>
+            <conditions>
+                <leftValueReference>Var_Seniority</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Other</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Var_Seniority</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>NA</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Var_Seniority</leftValueReference>
+                <operator>IsBlank</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Var_Title</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Which_Seniority_to_Calc</targetReference>
+            </connector>
+            <label>Seniority Override</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-6878</description>
+        <name>Seniority_ISBLANK</name>
+        <label>Seniority ISBLANK?</label>
+        <locationX>578</locationX>
+        <locationY>1334</locationY>
+        <defaultConnector>
+            <targetReference>Department_is_Other_or_NA_or_NULL</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Seniority_Check_Metadata</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Var_Seniority</leftValueReference>
+                <operator>IsBlank</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Seniority_Get_Mapping_Metadata</targetReference>
+            </connector>
+            <label>Seniority - Check Metadata</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-6878</description>
+        <name>SW_Industry_ISBLANK</name>
+        <label>SW Industry ISBLANK?</label>
+        <locationX>578</locationX>
+        <locationY>134</locationY>
+        <defaultConnector>
+            <targetReference>Department_ISBLANK</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>SW_Industry_Check_Metadata</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Var_SW_Industry</leftValueReference>
+                <operator>IsBlank</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>SW_Industry_Get_Mapping_Metadata</targetReference>
+            </connector>
+            <label>SW Industry - Check Metadata</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>What_is_the_Source</name>
+        <label>What is the Source</label>
+        <locationX>578</locationX>
+        <locationY>3134</locationY>
+        <defaultConnector>
+            <targetReference>Search_Contacts</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Web</defaultConnectorLabel>
+        <rules>
+            <name>Lead</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Var_Request_Source</leftValueReference>
+                <operator>StartsWith</operator>
+                <rightValue>
+                    <stringValue>00Q</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Score_Decision</targetReference>
+            </connector>
+            <label>Lead</label>
+        </rules>
+        <rules>
+            <name>Contact</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Var_Request_Source</leftValueReference>
+                <operator>StartsWith</operator>
+                <rightValue>
+                    <stringValue>003</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Score_Decision</targetReference>
+            </connector>
+            <label>Contact</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-6804</description>
+        <name>Which_Seniority_to_Calc</name>
+        <label>Which Seniority to Calc?</label>
+        <locationX>358</locationX>
+        <locationY>2642</locationY>
+        <defaultConnector>
+            <targetReference>Assign_JSON_String_for_test</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Calc1</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>FR_Seniority_Other_NA_Calc1</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Other</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>FR_Seniority_Other_NA_Calc1</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>NA</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>FR_Seniority_Other_NA_Calc1</leftValueReference>
+                <operator>IsBlank</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Seniority_Calc1_According_to_Title</targetReference>
+            </connector>
+            <label>Calc1</label>
+        </rules>
+        <rules>
+            <name>Calc2</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>FR_Seniority_Other_NA_Calc2</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Other</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>FR_Seniority_Other_NA_Calc2</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>NA</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>FR_Seniority_Other_NA_Calc2</leftValueReference>
+                <operator>IsBlank</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Seniority_Calc2_According_to_Title</targetReference>
+            </connector>
+            <label>Calc2</label>
+        </rules>
+    </decisions>
+    <description>02-03-2026: MIS-8534 Stakeholder and Bug fixes 2026Q1-2
+MIS-8341 - Added a check for fake data
+MIS-8065 - Demoted Russia to Tier 4, Updated Investors indicator, Updated Score E calc to check Tier instead Country
+MIS-7978 - Updated Si Enrichment Visits indicator and Russia&apos;s country tier
+08.10.2025 - changed to contains si enrichment indicator removed
+30.09.25 in si enrichment indicator removed &quot;,&quot; - lola
+03-09-25: MIS-7717
+05-08-25: MIS-7637
+09-07-25: MIS-7485
+02-07-25: MIS-7245
+07-05-25: MIS-7094
+09-04-25: MIS-7138
+25-03-25: MIS-6931
+06-03-25: MIS-6878
+06-03-25: MIS-6879
+02-03-25: MIS-6804
+06-02-25: MIS-6672
+05-02-25: MIS-6372
+09-01-25: MIS-6371
+9-12-24: MIS-6399
+24-11-24: MIS-6319 
+10-11-24: MIS-6186 Another update
+31-10-24: MIS-6186 MIR Status
+29-10-24: MIS-6186 Remove Russia from F Countries
+6-10-24: MIS-6015 Fit_Score_A_D_Tier_Reason
+22-9-2: MIS-6000 Push Fit_Score_Test formula to Response_FitScore 
+18-9-2: MIS-6000 Fix FC Industry Department Tier
+4-9-24: MIS-5811 FitScore_Test field + Relevant_For_Sales</description>
+    <environments>Default</environments>
+    <formulas>
+        <description>MIS-4782</description>
+        <name>Fit_Clean_Domain_Student</name>
+        <dataType>Boolean</dataType>
+        <expression>OR(
+  CONTAINS(LOWER({!Var_Clean_Domain}), &apos;.student&apos;),
+  CONTAINS(LOWER({!Var_Clean_Domain}), &apos;student.&apos;),
+  CONTAINS(LOWER({!Var_Clean_Domain}), &apos;.ac.&apos;),
+  CONTAINS(LOWER({!Var_Clean_Domain}), &apos;.edu&apos;),
+  CONTAINS(LOWER({!Var_Clean_Domain}), &apos;edu.&apos;),
+  CONTAINS(LOWER({!Var_Clean_Domain}), &apos;students.&apos;),
+  CONTAINS(LOWER({!Var_Clean_Domain}), &apos;tcd.ie&apos;),
+  CONTAINS(LOWER({!Var_Clean_Domain}), &apos;umail.ucc.ie&apos;),
+  CONTAINS(LOWER({!FR_Secondary_Clean_Domain}), &apos;.student&apos;),
+  CONTAINS(LOWER({!FR_Secondary_Clean_Domain}), &apos;student.&apos;),
+  CONTAINS(LOWER({!FR_Secondary_Clean_Domain}), &apos;.ac.&apos;),
+  CONTAINS(LOWER({!FR_Secondary_Clean_Domain}), &apos;.edu&apos;),
+  CONTAINS(LOWER({!FR_Secondary_Clean_Domain}), &apos;edu.&apos;),
+  CONTAINS(LOWER({!FR_Secondary_Clean_Domain}), &apos;students.&apos;),
+  CONTAINS(LOWER({!FR_Secondary_Clean_Domain}), &apos;tcd.ie&apos;),
+  CONTAINS(LOWER({!FR_Secondary_Clean_Domain}), &apos;umail.ucc.ie&apos;)
+)</expression>
+    </formulas>
+    <formulas>
+        <name>Fit_Countries_E</name>
+        <dataType>Boolean</dataType>
+        <expression>OR(
+  REGEX(
+    {!Var_CountryCode},
+    &apos;^(PK|NG|BD|TN|LK|BO|CR|CU|DO|GT|HN|NI|PA|PE|PY|SV|UY|VE|MN|AD|AF|BH|JO|MC|OM|SS|YE|RU)$&apos;
+  ),
+  REGEX(
+    LOWER({!Var_CountryName}),
+    &apos;^(pakistan|nigeria|bangladesh|tunisia|sri lanka|bolivia|costa rica|cuba|dominican republic|guatemala|honduras|nicaragua|panama|peru|paraguay|el salvador|uruguay|bolivarian republic of venezuela|mongolia|andorra|afghanistan|bahrain|jordan|monaco|oman|south sudan|yemen|russian federation)$&apos;
+  ),
+  REGEX(
+    {!Var_CountryCode},
+    &apos;^(MA|NG|EG|DZ|KE|TN|GH|ET|CM|BJ|CI|TZ|AO|UG|ZW|SN|LY|SO|MU|MZ|MG|RE|RW|TG|ZM|CD|BF|BW|NA|MR|GA|ML|GN|SL|MW|GM|CG|SZ|SC|CV|DJ|LS|NE|BI|GQ|GW|ST|TD|LR|ER)$&apos;
+  ),
+  REGEX(
+    LOWER({!Var_CountryName}),
+    &apos;^(morocco|nigeria|egypt|algeria|kenya|tunisia|ghana|ethiopia|cameroon|benin|ivory coast|tanzania|angola|uganda|zimbabwe|senegal|libya|somalia|mauritius|mozambique|madagascar|réunion|rwanda|togo|zambia|democratic republic of the congo|burkina faso|botswana|namibia|mauritania|gabon|mali|guinea|sierra leone|malawi|the gambia|republic of the congo|eswatini|seychelles|cape verde|djibouti|lesotho|niger|burundi|equatorial guinea|guinea-bissau|sao tome and principe|chad|liberia|eritrea)$&apos;
+  )
+)</expression>
+    </formulas>
+    <formulas>
+        <name>Fit_Countries_Excluded_From_A_to_C</name>
+        <dataType>Boolean</dataType>
+        <expression>False 
+/*   16/5/24 - changed to False hardcoded 
+  OR(
+    REGEX(Var_CountryCode, &apos;^(MA|NG|DZ)$&apos;),
+    REGEX(LOWER(Var_CountryName), &apos;^(morocco|nigeria|algeria)$&apos;)
+  ) */</expression>
+    </formulas>
+    <formulas>
+        <name>Fit_Countries_F</name>
+        <dataType>Boolean</dataType>
+        <expression>OR(
+  REGEX({!Var_CountryCode}, &apos;^(SY|IR|PS|LB|IQ|KP)$&apos;),
+  REGEX(LOWER({!Var_CountryName}), &apos;^(syrian arab republic|syria|iran islamic republic of|iran|palestine|lebanon|iraq|democratic peoples republic of korea)$&apos;)
+)</expression>
+    </formulas>
+    <formulas>
+        <name>Fit_Countries_SEA</name>
+        <dataType>Boolean</dataType>
+        <expression>OR(
+  REGEX({!Var_CountryCode}, &apos;^(VN|TH|PH|MY|ID|IN)$&apos;),
+  REGEX(LOWER({!Var_CountryName}), &apos;^(viet nam|thailand|philippines|malaysia|indonesia|india)$&apos;)
+)</expression>
+    </formulas>
+    <formulas>
+        <name>Fit_Countries_TOP</name>
+        <dataType>Boolean</dataType>
+        <expression>OR(
+  REGEX({!Var_CountryCode}, &apos;^(US|CA|JP|AU|BG|FR|DE|AT|CH|CO|AR|MX|HK|NZ|BE|DK|FI|NL|NO|PT|ES|SE|IE|IT|IL|PL|HU|GB|CN|TW|SG)$&apos;),
+  REGEX(LOWER({!Var_CountryName}), &apos;^(united states|canada|japan|australia|bulgaria|france|germany|austria|switzerland|colombia|argentina|mexico|hong kong|new zealand|belgium|denmark|finland|netherlands|norway|portugal|spain|sweden|ireland|italy|israel|poland|hungary|united kingdom|china|taiwan|singapore)$&apos;)
+)</expression>
+    </formulas>
+    <formulas>
+        <name>Fit_Department_Excluded_From_A_to_D</name>
+        <dataType>Boolean</dataType>
+        <expression>OR(
+  CONTAINS(LOWER({!Var_Department}), &quot;marketing: pr / comms / social media&quot;)
+)</expression>
+    </formulas>
+    <formulas>
+        <name>Fit_in_Quiz_Excluded_From_A_to_C</name>
+        <dataType>Boolean</dataType>
+        <expression>{!Var_Quiz_Data_Incomplete}=&quot;True&quot;</expression>
+    </formulas>
+    <formulas>
+        <description>MIS-4782</description>
+        <name>Fit_Industry_Excluded_From_A_to_C</name>
+        <dataType>Boolean</dataType>
+        <expression>REGEX(LOWER({!Var_SW_Industry}), &quot;(education)&quot;)</expression>
+    </formulas>
+    <formulas>
+        <description>MIS-4782</description>
+        <name>Fit_Industry_Investors</name>
+        <dataType>Boolean</dataType>
+        <expression>REGEX(LOWER({!Var_SW_Industry}), &quot;.*(hedge funds &amp; asset management|hedge funds and asset management|private equity|investment banking|private equity and venture capital|venture capital|vc and private equity|equity research|investors).*&quot;)</expression>
+    </formulas>
+    <formulas>
+        <description>MIS-4782</description>
+        <name>Fit_Industry_SI_Enrichment</name>
+        <dataType>Boolean</dataType>
+        <expression>REGEX(LOWER({!Var_SW_Industry}), &quot;.*(publishers and media|media and entertainment|retail|classifieds|b2c internet services|travel|telecom|pharma|automotive|education|other).*&quot;)</expression>
+    </formulas>
+    <formulas>
+        <name>Fit_Industry_Tam</name>
+        <dataType>Boolean</dataType>
+        <expression>REGEX(LOWER({!Var_SW_Industry}), &quot;.*(adtech and adnetwork|b2b software|payments|agency|publishers and media|retail and ecommerce|cpg|financial services|hedge funds &amp; asset management|hedge funds and asset management|private equity|private equity and venture capital|venture capital|cpg, food &amp; beverages|vc and private equity|equity research|retail / ecommerce|gambling and gaming|gambling / gaming).*&quot;)</expression>
+    </formulas>
+    <formulas>
+        <name>Fit_Relevant_For_Sales</name>
+        <dataType>Number</dataType>
+        <expression>IF(
+  OR(
+    {!Response_FitScore} = &apos;A&apos;,
+    {!Response_FitScore} = &apos;B&apos;,
+    {!Response_FitScore} = &apos;C&apos;,
+    {!Response_FitScore} = &apos;D&apos;,
+    {!Response_is_paying_user} = TRUE
+  ),
+  1,
+  IF(
+    AND(
+      {!Response_FitScore} &lt;&gt; &apos;A&apos;,
+      {!Response_FitScore} &lt;&gt; &apos;B&apos;,
+      {!Response_FitScore} &lt;&gt; &apos;C&apos;,
+      {!Response_FitScore} &lt;&gt; &apos;D&apos;,
+      {!Response_is_paying_user} = FALSE
+    ),
+    0,
+    -1
+  )
+)</expression>
+        <scale>0</scale>
+    </formulas>
+    <formulas>
+        <description>MIS-5811</description>
+        <name>Fit_Score_A_D_Tier</name>
+        <dataType>String</dataType>
+        <expression>IF(
+  OR(
+    CONTAINS(LOWER({!Var_Business_Unit}), &quot;strat&quot;),
+    CONTAINS(LOWER({!Var_Strategic_Pod}), &quot;nal-&quot;),
+    BLANKVALUE({!Fit_Score_Country_Tier}, 3) + BLANKVALUE({!Fit_Score_Industry_Department_Tier_Calculation}, 3) + BLANKVALUE({!Fit_Score_Seniority_Tier}, 3) = 3
+  ),
+  &quot;A&quot;,
+  IF(
+    BLANKVALUE({!Fit_Score_Country_Tier}, 3) + BLANKVALUE({!Fit_Score_Industry_Department_Tier_Calculation}, 3) + BLANKVALUE({!Fit_Score_Seniority_Tier}, 3) = 4,
+    &quot;B&quot;,
+    IF(
+      BLANKVALUE({!Fit_Score_Country_Tier}, 3) + BLANKVALUE({!Fit_Score_Industry_Department_Tier_Calculation}, 3) + BLANKVALUE({!Fit_Score_Seniority_Tier}, 3) = 5,
+      &quot;C&quot;,
+      &quot;D&quot;
+    )
+  )
+)</expression>
+    </formulas>
+    <formulas>
+        <name>Fit_Score_Country_Tier</name>
+        <dataType>Number</dataType>
+        <expression>IF(
+  FIND(BLANKVALUE({!Var_CountryCode}, &apos;00&apos;), &apos;,IT,MY,TH,PH,NZ,ES,AE,PT,CN,AU,SG,HK,TW,DE,CH,AT,GB,IL,PL,SE,DK,CY,MT,FR,JP,MX,CO,BR,US,NL,GR,CZ,BG,BE,RO,IE,LT,FI,LV,HU,EE,HR,NO,LU,CA,CL,AR,&apos;, 0) &gt; 0,
+  1,
+  IF(
+    FIND(BLANKVALUE({!Var_CountryCode}, &apos;00&apos;), &apos;,,ID,VN,KR,KZ,TR,ZA,,SA,,,,,RS,SK,GG,ME,GI,LI,EC,PE,GE,CW&apos;, 0) &gt; 0,
+    2,
+    IF(
+      FIND(BLANKVALUE({!Var_CountryCode}, &apos;00&apos;), &apos;,PK,LK,BD,EG,NG,KE,TN,MA,SC,MU,BW,LB,DZ,UY,PA,DO,GT,PY,HN,SV,BO,CU,CR,AO,BJ,BF,BI,CM,TD,CG,DJ,GQ,ER,ET,GA,GM,GH,GN,GW,IR,IQ,KP,LS,LR,MG,MW,ML,JO,BH,OM,ZW,ZM,YE,UG,TG,TZ,SY,SZ,SS,SO,SL,SN,RW,RE,PS,NE,NA,MZ,MC,LY,CI,CD,AD,AF,MR,RU&apos;, 0) &gt; 0,
+      4,
+      3
+    )
+  )
+)</expression>
+        <scale>0</scale>
+    </formulas>
+    <formulas>
+        <description>MIS-6371
+MIS-8534</description>
+        <name>Fit_Score_Department_Tier_Override</name>
+        <dataType>Number</dataType>
+        <expression>IF(
+    AND(
+        FIND(BLANKVALUE({!Var_Department}, &apos;00&apos;), &apos;,Product Management,Student / Intern&apos;, 0) &gt; 0, 
+        NOT(FIND(BLANKVALUE({!Var_SW_Industry}, &apos;NA&apos;) &amp; &apos; &gt; &apos; &amp; BLANKVALUE({!Var_Department}, &apos;NA&apos;), &apos;,B2B Software &gt; Product Management,&apos;, 0) &gt; 0)
+    ), 4,
+IF(
+    FIND(BLANKVALUE({!Var_Department}, &apos;00&apos;), &apos;,NA,Other&apos;, 0) &gt; 0, 
+    3,
+IF(
+    FIND(BLANKVALUE({!Var_Department}, &apos;00&apos;), &apos;,Strategy / Market Research,BI / Analytics, Marketing: PR / Comms / Social Media, Marketing: Affiliate / Media Buying, Marketing: Management / General, Marketing: SEO / Content, Marketing: PPC / Display&apos;, 0) &gt; 0,
+    2,
+IF(
+    OR(
+        FIND(BLANKVALUE({!Var_Department}, &apos;00&apos;), &apos;,Management (C-Level)&apos;, 0) &gt; 0,
+        FIND(BLANKVALUE({!Var_SW_Industry}, &apos;NA&apos;) &amp; &apos; &gt; &apos; &amp; BLANKVALUE({!Var_Department}, &apos;NA&apos;), &apos;,B2B Software &gt; Product Management,&apos;, 0) &gt; 0
+    ), 1,
+    NULL
+)
+)
+)
+)</expression>
+        <scale>0</scale>
+    </formulas>
+    <formulas>
+        <name>Fit_Score_Industry_Department_Tier_1</name>
+        <dataType>Number</dataType>
+        <expression>IF(
+  FIND((BLANKVALUE({!Var_SW_Industry},
+ &apos;NA&apos;) &amp; &apos; &gt; &apos; &amp; BLANKVALUE({!Var_Department},
+ &apos;NA&apos;)), &apos;,AdTech and AdNetwork &gt; Sales / Business Development,AdTech and AdNetwork &gt; Sales Operations,Agency &gt; Marketing: Affiliate / Media Buying,Agency &gt; Strategy / Market Research,Automotive &gt; eCommerce,Automotive and Transportation  &gt; eCommerce,B2B Software &gt; Account Management / Customer Success,B2B Software &gt; Product Management,B2B Software &gt; Sales / Business Development,B2B Software &gt; Sales Operations,B2C Internet Services &gt; Corporate Development / Mergers and Acquisitions,B2C Internet Services &gt; eCommerce,Big Tech &gt; Sales / Business Development,Big Tech &gt; Sales Operations,Big Tech &gt; Strategy / Market Research,Consulting and Market Research &gt; Marketing: Affiliate / Media Buying,Consulting and Market Research &gt; Strategy / Market Research,CPG &gt; eCommerce,CPG &gt; Strategy / Market Research,CPG, Food &amp; Beverages &gt; eCommerce,CPG, Food &amp; Beverages &gt; Strategy / Market Research,Equity Research &gt; BI / Analytics,Equity Research &gt; Investment,Equity Research &gt; Sales / Business Development,Financial services &gt; eCommerce,Financial services &gt; Marketing: PPC / Display,Financial services &gt; Strategy / Market Research,Gambling / Gaming &gt; Marketing: Management / General,Gambling / Gaming &gt; Sales Operations,Gambling / Gaming &gt; Strategy / Market Research,Gambling and Gaming &gt; Marketing: Management / General,Gambling and Gaming &gt; Sales Operations,Gambling and Gaming &gt; Strategy / Market Research,Hedge Funds and Asset Management &gt; Account Management / Customer Success,Hedge Funds and Asset Management &gt; BI / Analytics,Hedge Funds and Asset Management &gt; Investment,Hedge Funds and Asset Management &gt; NA,Hedge Funds and Asset Management &gt; Sales / Business Development,Investment Banking &gt; Account Management / Customer Success,Investment Banking &gt; BI / Analytics,Investment Banking &gt; Investment,Investment Banking &gt; Other,Investment Banking &gt; Sales / Business Development,Investors &gt; Account Management / Customer Success,Investors &gt; BI / Analytics,Investors &gt; Investment,Investors &gt; Marketing: Management / General,Investors &gt; NA,Investors &gt; Other,Investors &gt; Sales / Business Development,Logistics and Shipping &gt; Sales / Business Development,Logistics and Shipping &gt; Sales Operations,Payments &gt; Account Management / Customer Success,Payments &gt; Management (C-Level),Payments &gt; NA,Payments &gt; Sales / Business Development,Payments &gt; Sales Operations,Pharma and Healthcare &gt; eCommerce,Private Equity and Venture Capital &gt; Account Management / Customer Success,Private Equity and Venture Capital &gt; BI / Analytics,Private Equity and Venture Capital &gt; Corporate Development / Mergers and Acquisitions,Private Equity and Venture Capital &gt; Investment,Private Equity and Venture Capital &gt; Sales / Business Development,Publishers and Media &gt; Strategy / Market Research,Media and Entertainment &gt; Strategy / Market Research,Retail / eCommerce &gt; BI / Analytics,Retail / eCommerce &gt; Corporate Development / Mergers and Acquisitions,Retail / eCommerce &gt; eCommerce,Retail / eCommerce &gt; Strategy / Market Research,Retail and eCommerce &gt; BI / Analytics,Retail and eCommerce &gt; Corporate Development / Mergers and Acquisitions,Retail and eCommerce &gt; eCommerce,Retail and eCommerce &gt; Strategy / Market Research,Telecom &gt; Corporate Development / Mergers and Acquisitions,Telecom &gt; eCommerce,Telecom and Hardware &gt; Corporate Development / Mergers and Acquisitions,Telecom and Hardware &gt; eCommerce,Travel &gt; Corporate Development / Mergers and Acquisitions,Travel &gt; eCommerce,Travel and Hospitality &gt; Corporate Development / Mergers and Acquisitions,Travel and Hospitality &gt; eCommerce,&apos;, 0) &gt; 0,
+
+  1,
+
+  0
+)</expression>
+        <scale>0</scale>
+    </formulas>
+    <formulas>
+        <name>Fit_Score_Industry_Department_Tier_2</name>
+        <dataType>Number</dataType>
+        <expression>IF(
+  FIND((BLANKVALUE({!Var_SW_Industry},
+ &apos;NA&apos;) &amp; &apos; &gt; &apos; &amp; BLANKVALUE({!Var_Department},
+ &apos;NA&apos;)), &apos;,AdTech and AdNetwork &gt; Account Management / Customer Success,AdTech and AdNetwork &gt; Management (C-Level),AdTech and AdNetwork &gt; NA,Agency &gt; Account Management / Customer Success,Agency &gt; Corporate Development / Mergers and Acquisitions,Agency &gt; Management (C-Level),Agency &gt; Marketing: Management / General,Agency &gt; Marketing: PPC / Display,Agency &gt; Marketing: PR / Comms / Social Media,Agency &gt; Marketing: SEO / Content,Agency &gt; NA,Automotive &gt; Strategy / Market Research,Automotive and Transportation &gt; Strategy / Market Research,B2B Software &gt; Corporate Development / Mergers and Acquisitions,B2B Software &gt; Management (C-Level),B2B Software &gt; NA,Big Tech &gt; Management (C-Level),Big Tech &gt; Marketing: Management / General,Big Tech &gt; Marketing: PR / Comms / Social Media,Big Tech &gt; Marketing: SEO / Content,Big Tech &gt; NA,Big Tech &gt; Other,Classifieds &gt; Marketing: Management / General,Classifieds &gt; NA,Consulting and Market Research &gt; Corporate Development / Mergers and Acquisitions,CPG &gt; Marketing: Management / General,CPG &gt; NA,CPG, Food &amp; Beverages &gt; Marketing: Management / General,CPG, Food &amp; Beverages &gt; NA,Equity Research &gt; Management (C-Level),Equity Research &gt; Other,Financial services &gt; Corporate Development / Mergers and Acquisitions,Financial services &gt; Management (C-Level),Financial services &gt; Marketing: Management / General,Financial services &gt; NA,Financial services &gt; Other,Financial services &gt; Product Management,Gambling and Gaming &gt; Management (C-Level),Gambling and Gaming &gt; Marketing: PPC / Display,Gambling and Gaming &gt; Marketing: PR / Comms / Social Media,Gambling / Gaming &gt; Management (C-Level),Gambling / Gaming &gt; Marketing: PPC / Display,Gambling / Gaming &gt; Marketing: PR / Comms / Social Media,Hedge Funds and Asset Management &gt; Management (C-Level),Hedge Funds and Asset Management &gt; Marketing: Management / General,Hedge Funds and Asset Management &gt; Marketing: SEO / Content,Hedge Funds and Asset Management &gt; Other,Hedge Funds and Asset Management &gt; Product Management,Hedge Funds and Asset Management &gt; Strategy / Market Research,Investment Banking &gt; Marketing: Management / General,Investment Banking &gt; NA,Logistics and Shipping &gt; Management (C-Level),Logistics and Shipping &gt; Marketing: Management / General,Logistics and Shipping &gt; NA,Logistics and Shipping &gt; Other,Other &gt; Corporate Development / Mergers and Acquisitions,Payments &gt; Marketing: Management / General,Payments &gt; Marketing: SEO / Content,Payments &gt; Other,Payments &gt; Product Management,&apos;, 0) &gt; 0,  2,  0)</expression>
+        <scale>0</scale>
+    </formulas>
+    <formulas>
+        <name>Fit_Score_Industry_Department_Tier_3</name>
+        <dataType>Number</dataType>
+        <expression>IF(
+  FIND((BLANKVALUE({!Var_SW_Industry},
+ &apos;NA&apos;) &amp; &apos; &gt; &apos; &amp; BLANKVALUE({!Var_Department},
+ &apos;NA&apos;)), &apos;,Automotive &gt; Marketing: PPC / Display,Automotive and Transportation &gt; Marketing: PPC / Display,B2B Software &gt; Account Management / Customer Success,B2C Internet Services &gt; Marketing: PPC / Display,B2C Internet Services &gt; Strategy / Market Research,Classifieds &gt; Marketing: PPC / Display,Classifieds &gt; Strategy / Market Research,Consulting and Market Research &gt; Account Management / Customer Success,Consulting and Market Research &gt; Marketing: PPC / Display,CPG &gt; Marketing: PPC / Display,CPG, Food &amp; Beverages &gt; Marketing: PPC / Display,Equity Research &gt; Sales Operations,Equity Research &gt; Strategy / Market Research,Financial services &gt; Marketing: PPC / Display,Hedge Funds and Asset Management &gt; Sales Operations,Investment Banking &gt; Sales Operations,Investment Banking &gt; Strategy / Market Research,Investors &gt; Sales Operations,Investors &gt; Strategy / Market Research,Logistics and Shipping &gt; Account Management / Customer Success,Payments &gt; Account Management / Customer Success,Pharma and Healthcare &gt; Marketing: PPC / Display,Pharma and Healthcare &gt; Strategy / Market Research,Private Equity and Venture Capital &gt; Account Management / Customer Success,Private Equity and Venture Capital &gt; BI / Analytics,Private Equity and Venture Capital &gt; Marketing: PR / Comms / Social Media,Private Equity and Venture Capital &gt; NA,Private Equity and Venture Capital &gt; Other,Private Equity and Venture Capital &gt; Product Management,Private Equity and Venture Capital &gt; Sales Operations,Private Equity and Venture Capital &gt; Strategy / Market Research,Public Sector, Non Profit, Fraud and Compliance &gt; Marketing: PPC / Display,Public Sector, Non Profit, Fraud and Compliance &gt; Investment,Public Sector, Non Profit, Fraud and Compliance &gt; Strategy / Market Research,Government Public Sector &amp; Non Profit &gt; Marketing: PPC / Display,Government Public Sector &amp; Non Profit &gt; Investment,Government Public Sector &amp; Non Profit &gt; Strategy / Market Research,Publishers and Media &gt; BI / Analytics,Publishers and Media &gt; Corporate Development / Mergers and Acquisitions,Publishers and Media &gt; Marketing: Affiliate / Media Buying,Publishers and Media &gt; Marketing: PPC / Display,Publishers and Media &gt; Sales / Business Development,Media and Entertainment &gt; BI / Analytics,Media and Entertainment &gt; Corporate Development / Mergers and Acquisitions,Media and Entertainment &gt; Marketing: Affiliate / Media Buying,Media and Entertainment &gt; Marketing: PPC / Display,Media and Entertainment &gt; Sales / Business Development,Retail and eCommerce &gt; Marketing: Management / General,Retail and eCommerce &gt; Marketing: PPC / Display,Retail and eCommerce &gt; NA,Retail and eCommerce &gt; Product Management,Retail and eCommerce &gt; Strategy / Market Research,Retail / eCommerce &gt; Marketing: Management / General,Retail / eCommerce &gt; Marketing: PPC / Display,Retail / eCommerce &gt; NA,Retail / eCommerce &gt; Product Management,Retail / eCommerce &gt; Strategy / Market Research,Software &amp; Internet &gt; Marketing: PPC / Display,Software &amp; Internet &gt; Strategy / Market Research,Telecom &gt; eCommerce,Telecom &gt; Marketing: PPC / Display,Telecom &gt; NA,Telecom &gt; Strategy / Market Research,Telecom and Hardware &gt; eCommerce,Telecom and Hardware &gt; Marketing: PPC / Display,Telecom and Hardware &gt; NA,Telecom and Hardware &gt; Strategy / Market Research,Travel and Hospitality &gt; Corporate Development / Mergers and Acquisitions,Travel and Hospitality &gt; Marketing: PPC / Display,Travel and Hospitality &gt; Strategy / Market Research,Travel &gt; Corporate Development / Mergers and Acquisitions,Travel &gt; Marketing: PPC / Display,Travel &gt; Strategy / Market Research,&apos;, 0) &gt; 0,  2,  0)</expression>
+        <scale>0</scale>
+    </formulas>
+    <formulas>
+        <name>Fit_Score_Industry_Department_Tier_4</name>
+        <dataType>Number</dataType>
+        <expression>IF(
+  FIND((BLANKVALUE({!Var_SW_Industry},
+ &apos;NA&apos;) &amp; &apos; &gt; &apos; &amp; BLANKVALUE({!Var_Department},
+ &apos;NA&apos;)),
+ &apos;,AdTech and AdNetwork &gt; Marketing: SEO / Content,B2B Software &gt; Marketing,B2C Internet Services &gt; NA,Classifieds &gt; Marketing,Education &gt; BI / Analytics,Education &gt; Marketing: PPC / Display,Education &gt; Marketing: SEO / Content,Education &gt; NA,Education &gt; Sales / Business Development,Education &gt; Strategy / Market Research,Other &gt; Investment,Other &gt; Marketing: PR / Comms / Social Media,Publishers and Media &gt; Marketing: PR / Comms / Social Media,Media and Entertainment &gt; Marketing: PR / Comms / Social Media,Software &amp; Internet &gt; Product Management,&apos;, 0) &gt; 0,  4,  3)</expression>
+        <scale>0</scale>
+    </formulas>
+    <formulas>
+        <name>Fit_Score_Industry_Department_Tier_Calculation</name>
+        <dataType>Number</dataType>
+        <expression>IF(
+  BLANKVALUE({!Fit_Score_Department_Tier_Override},0)&lt;&gt;0,
+    {!Fit_Score_Department_Tier_Override},
+  IF(
+    {!Fit_Score_Industry_Department_Tier_1} = 1,
+    1,
+    IF(
+      OR(
+        {!Fit_Score_Industry_Department_Tier_2} = 2,
+        {!Fit_Score_Industry_Department_Tier_3} = 2
+      ),
+      2,
+      {!Fit_Score_Industry_Department_Tier_4}
+    )
+  )
+)</expression>
+        <scale>0</scale>
+    </formulas>
+    <formulas>
+        <name>Fit_Score_Seniority_Tier</name>
+        <dataType>Number</dataType>
+        <expression>IF(
+  FIND(BLANKVALUE({!Var_Seniority}, &apos;00&apos;), &apos;,VP/director,C-Suite,C level,Team lead/manager&apos;, 0) &gt; 0,
+  1,
+  IF(
+    OR(
+      FIND(BLANKVALUE({!Var_Seniority}, &apos;00&apos;), &apos;,NA,Individual contributor&apos;, 0) &gt; 0,
+      ISBLANK({!Var_Seniority})
+    ),
+    2,
+    IF(
+      FIND(BLANKVALUE({!Var_Seniority}, &apos;00&apos;), &apos;,Contractor&apos;, 0) &gt; 0,
+      4,
+      3
+    )
+  )
+)</expression>
+        <scale>0</scale>
+    </formulas>
+    <formulas>
+        <description>MIS-7094
+MIS-6186</description>
+        <name>Fit_Score_Testing_Value</name>
+        <dataType>String</dataType>
+        <expression>NULL</expression>
+    </formulas>
+    <formulas>
+        <description>MIS-4782</description>
+        <name>Fit_Seniority_Excluded_From_A_to_C</name>
+        <dataType>Boolean</dataType>
+        <expression>REGEX(LOWER({!Var_Seniority}), &quot;(other|contractor)&quot;)</expression>
+    </formulas>
+    <formulas>
+        <description>MIS-6186
+MIS-4782</description>
+        <name>Fit_Title_Excluded_From_A_to_D</name>
+        <dataType>Boolean</dataType>
+        <expression>OR(
+REGEX(LOWER({!Var_Title}), &quot;(.* pr|pr .*|.* pr .*|sales development representative.*|account manager|accounting director|client service specialist|customer support associate|customer support manager|customer support representative|senior vice president \\(svp\\) of customer service|support specialist|vice president \\(vp\\) of customer service|account executive|account representative|b2b sales specialist|sales associate)&quot;)
+)</expression>
+    </formulas>
+    <formulas>
+        <name>Fit_Use_Of_Similarweb_Excluded_From_A_to_C</name>
+        <dataType>Boolean</dataType>
+        <expression>LOWER({!Var_Use_of_Similarweb})=&apos;other&apos;</expression>
+    </formulas>
+    <formulas>
+        <description>MIS-6804
+MIS-6372</description>
+        <name>FR_Department_Other_NA_Calc</name>
+        <dataType>String</dataType>
+        <expression>IF(
+  REGEX(LOWER({!Var_Title}), &quot;^(student|intern)$&quot;), &quot;Student / Intern&quot;, /* Exact match for &apos;student&apos; or &apos;intern&apos; */
+  IF(
+    REGEX(LOWER({!Var_Title}), &quot;^(business owner|entrepreneur|executive)$&quot;), &quot;Management (C-Level)&quot;, /* Exact match for these titles */
+    IF(
+      REGEX(LOWER({!Var_Title}), &quot;^(web developer|software engineer|it manager|it professional|it specialist|devops engineer)$&quot;), &quot;R&amp;D&quot;, /* Exact match for R&amp;D roles */
+      IF(
+        REGEX(LOWER({!Var_Title}), &quot;.*(general manager|svp).*&quot;), &quot;Marketing: Management / General&quot;, /* Contains &apos;general manager&apos; or &apos;svp&apos; */
+        IF(
+          AND(
+            REGEX(LOWER({!Var_Title}), &quot;.*chief.*&quot;), 
+            REGEX(LOWER({!Var_Title}), &quot;.*officer.*&quot;)
+          ), &quot;Management (C-Level)&quot;, /* Both &apos;chief&apos; and &apos;officer&apos; must be present somewhere */
+          IF(
+            REGEX(LOWER({!Var_Title}), &quot;.*ceo.*&quot;), &quot;Management (C-Level)&quot;, /* Contains &apos;ceo&apos; */
+            IF(
+              REGEX(LOWER({!Var_Title}), &quot;.*seo.*&quot;), &quot;Marketing: SEO / Content&quot;, /* Contains &apos;seo&apos; */
+              {!Var_Department} /* Default case for no matches */
+            )
+          )
+        )
+      )
+    )
+  )
+)</expression>
+    </formulas>
+    <formulas>
+        <description>MIS-7094
+MIS-6804</description>
+        <name>FR_Industry_Other_NA_Calc</name>
+        <dataType>String</dataType>
+        <expression>IF(
+FIND(&apos;,&apos;&amp;LOWER(BLANKVALUE({!Var_Industry_Other_Description}, &apos;00&apos;))&amp;&apos;,&apos;, &apos;,,food,cpg,&apos;, 0) &gt; 0,&apos;CPG, Food &amp; Beverages&apos;,
+IF(
+FIND(&apos;,&apos;&amp;LOWER(BLANKVALUE({!Var_Industry_Other_Description}, &apos;00&apos;))&amp;&apos;,&apos;, &apos;,,clothing,clothes,e commerce,retail,ecommerce,&apos;, 0) &gt; 0,&apos;Retail / eCommerce&apos;,
+IF(
+FIND(&apos;,&apos;&amp;LOWER(BLANKVALUE({!Var_Industry_Other_Description}, &apos;00&apos;))&amp;&apos;,&apos;, &apos;,,school,university,study,education,teaching,college,tech,academic,academia,&apos;, 0) &gt; 0,&apos;Education&apos;,
+IF(
+FIND(&apos;,&apos;&amp;LOWER(BLANKVALUE({!Var_Industry_Other_Description}, &apos;00&apos;))&amp;&apos;,&apos;, &apos;,,finance,forex,trading,&apos;, 0) &gt; 0,&apos;Financial services&apos;,
+IF(
+FIND(&apos;,&apos;&amp;LOWER(BLANKVALUE({!Var_Industry_Other_Description}, &apos;00&apos;))&amp;&apos;,&apos;, &apos;,,igaming,&apos;, 0) &gt; 0,&apos;Gambling / Gaming&apos;,
+IF(
+FIND(&apos;,&apos;&amp;LOWER(BLANKVALUE({!Var_Industry_Other_Description}, &apos;00&apos;))&amp;&apos;,&apos;, &apos;,,hotel,&apos;, 0) &gt; 0,&apos;Travel and Hospitality&apos;,
+IF(
+FIND(&apos;,&apos;&amp;LOWER(BLANKVALUE({!Var_Industry_Other_Description}, &apos;00&apos;))&amp;&apos;,&apos;, &apos;,,agriculture,other,none,cleaning,interior design,home,nothing,no,all,&apos;, 0) &gt; 0,&apos;Other&apos;,{!Var_SW_Industry})))))))</expression>
+    </formulas>
+    <formulas>
+        <description>MIS-6878</description>
+        <name>FR_Lower_Pre_Mapped_Industry</name>
+        <dataType>String</dataType>
+        <expression>LOWER({!Var_Pre_Mapped_Industry})</expression>
+    </formulas>
+    <formulas>
+        <description>MIS-6878</description>
+        <name>FR_Lower_Pre_Mapped_Title</name>
+        <dataType>String</dataType>
+        <expression>LOWER({!Var_Pre_Mapped_Title})</expression>
+    </formulas>
+    <formulas>
+        <description>MIS-7245</description>
+        <name>FR_Secondary_Clean_Domain</name>
+        <dataType>String</dataType>
+        <expression>IF(FIND(&quot;@&quot;,{!Var_Secondary_Email})&gt;0,SUBSTITUTE({!Var_Secondary_Email}, LEFT({!Var_Secondary_Email}, FIND(&quot;@&quot;, {!Var_Secondary_Email})),&apos;&apos;),&apos;&apos;)</expression>
+    </formulas>
+    <formulas>
+        <description>MIS-7094
+MIS-6804</description>
+        <name>FR_Seniority_Other_NA_Calc1</name>
+        <dataType>String</dataType>
+        <expression>IF(
+
+FIND(&apos;,&apos;&amp;LOWER(BLANKVALUE({!Var_Title}, &apos;00&apos;))&amp;&apos;,&apos;, &apos;,,freelancer,consultant,ghostwriter,contractor,&apos;, 0) &gt; 0,&apos;Contractor&apos;,
+
+
+IF(
+FIND(&apos;,&apos;&amp;LOWER(BLANKVALUE({!Var_Title}, &apos;00&apos;))&amp;&apos;,&apos;, &apos;,,b2b marketing team lead,ppc team lead,customer success team lead,&apos;, 0) &gt; 0,&apos;Team lead/manager&apos;,
+
+IF(
+FIND(&apos;,&apos;&amp;LOWER(BLANKVALUE({!Var_Title}, &apos;00&apos;))&amp;&apos;,&apos;, &apos;,,digital marketing executive,account executive,marketing executive,sales executive,executive assistant,enterprise account executive,restaurant chain executive,customer service executive,marketing director,managing director,sales director,assistant account executive,business development / sales executive,director of consumer market insights (cmi),director of ecommerce,investment executive,vp marketing,acount executive,senior vp,sr. mid-market account executive,solution sales executive,director of ops,data and tech director,vice president, digital strategy,director of corporate development,director of digital strategy,associate strategy director,director, growth ops,partner success director,account director,seo director,vp of digital marketing,sr vp, customer success,director of insights,&apos;, 0) &gt; 0,&apos;VP/director&apos;,
+
+
+IF(
+FIND(&apos;,&apos;&amp;LOWER(BLANKVALUE({!Var_Title}, &apos;00&apos;))&amp;&apos;,&apos;, &apos;,,executive,cro manager,chief executive officer (ceo),co-founder/founder,ceo,global cmo,president &amp; founder,ceo &amp; cofounder of travelio,media relations &amp; social media officer,chief technology officer,chief growth officer (cgo),founder &amp; ceo,chief executive officer,chief sales officer,founder, managing partner,chief marketing officer (cmo),executive,&apos;, 0) &gt; 0,&apos;C-Suite&apos;,
+IF(FIND(&apos;,&apos;&amp;LOWER(BLANKVALUE({!Var_Title}, &apos;00&apos;))&amp;&apos;,&apos;, &apos;,,social worker,store manager,educator,nurse,secretary,office assistant,attorney,office clerk,electrician,mechanic,cashier,server,machinery operator,account collector,coach,iron worker,lecturer,personal trainer,translator,music producer,musician,&apos;, 0) &gt; 0,&apos;Other&apos;,
+
+IF(
+FIND(&apos;,&apos;&amp;LOWER(BLANKVALUE({!Var_Title}, &apos;00&apos;))&amp;&apos;,&apos;, &apos;,,student,&apos;, 0) &gt; 0, &apos;Student/Intern&apos;,
+
+IF(
+REGEX(LOWER({!Var_Title}), &quot;(general manager|ceo|coo | coo|cto|cro|cmo|chief|officer)&quot;),&apos;C-Suite&apos;,
+
+IF(
+REGEX(LOWER({!Var_Title}), &quot;(director| vp|vp | vice|vice |head of|svp)&quot;),&apos;C-Suite&apos;
+
+,{!Var_Seniority}))))))))</expression>
+    </formulas>
+    <formulas>
+        <description>MIS-7094
+MIS-6804</description>
+        <name>FR_Seniority_Other_NA_Calc2</name>
+        <dataType>String</dataType>
+        <expression>IF(
+FIND(&apos;,&apos;&amp;LOWER(BLANKVALUE({!Var_Title}, &apos;00&apos;))&amp;&apos;,&apos;, &apos;,,marketing analyst,seo,analyst,engineer,entrepreneur,web developer,market researcher,digital marketing analyst,graphic designer,account manager,marketing assistant,software engineer,researcher,web designer,application developer,seo analyst,computer programmer,sales analyst,marketing manager,data analyst,business analyst,product manager (pm),content creator,product designer,business development,it manager,marketing acquisition,it professional,ecommerce manager,digital advertising manager,affiliate marketing manager,market development manager,pr manager,trader,sales representative,sales associate,blog writer,ux designer,operations analyst,digital marketing manager,marketing consultant,accountant,administrative analyst,design manager,research assistant,writer,administrative manager,administrative assistant,project manager,architect,devops engineer,sales development representative (sdr),public relations,field marketing,social media manager,marketing strategist,video editor,retail worker,assistant manager,sales manager,real estate agent,operations assistant,media buyer,management consultant,personal assistant,account based marketing manager (abm),business consultant,economist,copywriter,network administrator,content writer,web editor,computer scientist,technical seo manager,engineering technician,assistant engineer,social media assistant,marketing performance analyst,seo account manager,media planner,marketing communications manager,growth marketer,marketing coordinator,editor/proofreader,video game writer,help desk/desktop support worker,financial analyst,business development manager,seo content writer,data entry,affiliate program manager,business manager,investor,travel agent,community manager,influencer marketing manager,seo developer,marketing research analyst,business development representative (bdr),channel manager,product owner,customer service agent,business technology instructor,data scientist,sales team manager,marketing automation manager,communications coordinator,accounting analyst,investment analyst,brand manager,file clerk,system administrator,information security analyst,product marketing manager,seo manager,marketplace manager,brand strategist,artificial intelligence engineer,seo content manager,visual design,group sales,business development representative,data engineer,call center rep,content marketing manager,customer care associate,ux researcher,sales enablement,technical writer,budget analyst,title analyst,performance marketing manager,business systems analyst,sales operations analyst,quality assurance manager (qa),category manager,ppc manager,marketing operations analyst,ppc account manager,media relations coordinator,outbound sales,customer care representative,account representative,operations coordinator,email marketing manager,sql developer,demand generation manager,revenue operations analyst,user acquisition manager,public relations manager,customer service representative,marketing operations manager,customer service manager,inside sales manager,crm manager,customer service expert,sales operations manager,financial service representative,customer support associate,customer support representative,ux writer,&apos;, 0) &gt; 0,&apos;Individual Contributor&apos;,{!Var_Seniority})</expression>
+    </formulas>
+    <formulas>
+        <name>Indication_Bad_MIR_Status</name>
+        <dataType>Boolean</dataType>
+        <expression>OR(
+  CONTAINS(LOWER({!Var_MIR_Status}), &quot;fake data&quot;),
+  CONTAINS(LOWER({!Var_MIR_Status}), &quot;unverified:&quot;),
+  CONTAINS(LOWER({!Var_MIR_Status}), &quot;not a good fit:&quot;)
+)</expression>
+    </formulas>
+    <formulas>
+        <description>MIS-6931</description>
+        <name>Indicator_Fit_Bad_Email</name>
+        <dataType>Boolean</dataType>
+        <expression>OR(
+  BEGINS(LOWER({!Var_Email}), &quot;test@&quot;),
+  BEGINS(LOWER({!Var_Email}), &quot;info@&quot;),
+  BEGINS(LOWER({!Var_Email}), &quot;communication@&quot;),
+  BEGINS(LOWER({!Var_Email}), &quot;communications@&quot;),
+  BEGINS(LOWER({!Var_Email}), &quot;updates@&quot;)
+)</expression>
+    </formulas>
+    <formulas>
+        <description>MIS-7637</description>
+        <name>Indicator_Fit_Bad_Phone</name>
+        <dataType>Boolean</dataType>
+        <expression>AND(
+    LOWER(BLANKVALUE({!Var_Quiz_Data_Incomplete},&apos;false&apos;)) = &apos;true&apos;,
+    {!Var_Original_Lead_Source} = &apos;Pro&apos;,
+    LEN(BLANKVALUE({!Var_Phone},&apos;0&apos;)) &lt; 4
+)</expression>
+    </formulas>
+    <formulas>
+        <description>MIS-4782</description>
+        <name>Indicator_Fit_BU_Invest</name>
+        <dataType>Boolean</dataType>
+        <expression>OR(
+  AND(
+    {!Indicator_Fit_Investor},
+    {!Var_Email_Address_Domain_Type} != &apos;Private&apos;
+  ),
+  CONTAINS(LOWER({!Var_Business_Unit}), &quot;strat&quot;),
+  CONTAINS(LOWER({!Var_Strategic_Pod}), &quot;nal-&quot;)
+)</expression>
+    </formulas>
+    <formulas>
+        <description>MIS-7485
+MIS-4782</description>
+        <name>Indicator_Fit_Company</name>
+        <dataType>String</dataType>
+        <expression>IF(
+  OR(
+    CONTAINS(LOWER({!Var_Email_Address_Domain_Type}), &quot;company&quot;),
+    AND(
+              NOT(ISBLANK({!Var_LinkedIn_Profile})),
+              LOWER({!Var_LinkedIn_Profile}) &lt;&gt; &quot;https://www.didnotfind.com&quot;
+  ),
+  {!Var_LinkedIn_Flag} = TRUE
+  ),
+  &quot;company&quot;,
+  LOWER({!Var_Email_Address_Domain_Type})
+)</expression>
+    </formulas>
+    <formulas>
+        <name>Indicator_Fit_Excluded_From_A_to_C</name>
+        <dataType>Boolean</dataType>
+        <expression>OR(
+  {!Fit_Countries_Excluded_From_A_to_C},
+  {!Fit_Industry_Excluded_From_A_to_C},
+  {!Fit_Seniority_Excluded_From_A_to_C},
+  {!Fit_Title_Excluded_From_A_to_D},
+  {!Fit_in_Quiz_Excluded_From_A_to_C} = True,
+  {!Fit_Department_Excluded_From_A_to_D},
+  {!Fit_Use_Of_Similarweb_Excluded_From_A_to_C}
+)</expression>
+    </formulas>
+    <formulas>
+        <description>MIS-4782</description>
+        <name>Indicator_Fit_Investor</name>
+        <dataType>Boolean</dataType>
+        <expression>OR(
+  {!Fit_Industry_Investors} = TRUE,
+  CONTAINS(LOWER({!Var_ROE_Division}), &quot;investors&quot;)
+)</expression>
+    </formulas>
+    <formulas>
+        <name>Indicator_Fit_Seniority_Excluding_India</name>
+        <dataType>Boolean</dataType>
+        <expression>AND(
+  REGEX(LOWER({!Var_Seniority}), &apos;^(vp/director|c-suite)$&apos;),
+  {!Var_Employees_Min} &gt; 50,
+  LOWER({!Var_Department_Other_Description}) != &quot;education - student&quot;,
+  NOT(
+    AND(
+      OR(
+        {!Var_CountryCode} = &apos;IN&apos;,
+        {!Var_CountryName} = &apos;India&apos;
+      ),
+      {!Var_Employees_Min} &lt; 200
+    )
+  )
+)</expression>
+    </formulas>
+    <formulas>
+        <description>MIS-4782</description>
+        <name>Indicator_Fit_SI_Enrichment</name>
+        <dataType>Boolean</dataType>
+        <expression>AND(
+  {!Fit_Industry_SI_Enrichment},
+  (NOT(CONTAINS(BLANKVALUE({!Var_Inferred_Solution_From_Web},&apos;NA&apos;),&apos;app&apos;))),
+  (NOT(CONTAINS(BLANKVALUE({!Var_Inferred_Solution_From_Web},&apos;NA&apos;),&apos;shopper&apos;))),
+  OR(
+    ISNULL({!MAX_SI_Enrichment_SW_Visits}),
+    {!MAX_SI_Enrichment_SW_Visits} &lt;= 20000
+  )
+)</expression>
+    </formulas>
+    <formulas>
+        <description>MIS-4782</description>
+        <name>Indicator_Fit_Student</name>
+        <dataType>Boolean</dataType>
+        <expression>OR(
+  LOWER({!Var_Use_of_Similarweb}) = &quot;school&quot;,
+  {!Fit_Clean_Domain_Student},
+  CONTAINS(LOWER({!Var_Title}), &quot;student&quot;),
+  LOWER({!Var_Department_Other_Description}) = &quot;education - student&quot;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>Indicator_Fit_TAM</name>
+        <dataType>Boolean</dataType>
+        <expression>OR(
+  /*Criteria for &apos;Adtech and Adnetwork|B2B Software|Payments&apos;*/
+  AND(
+    REGEX(LOWER({!Var_SW_Industry}), &apos;.*(adtech and adnetwork|b2b software|payments).*&apos;),
+    REGEX(LOWER({!Var_Department}), &apos;.*(account management / customer success|management.*(c-level)|sales / business development|sales operations).*&apos;)
+  ), 
+  /*Criteria for &apos;Agency&apos;*/
+  AND(
+    LOWER({!Var_SW_Industry}) = &apos;agency&apos;,
+    REGEX(LOWER({!Var_Department}), &apos;.*(account management / customer success|management.*(c-level)|marketing analytics and management|marketing seo and content|marketing general|marketing: affiliate / media buying|marketing: general|marketing: ppc / display|marketing: pr / comms / social media|sales / business development|strategy / market research|marketing: management / general).*&apos;)
+  ), 
+  /*Criteria for &apos;Publishers and Media|Media and Entertainment&apos;*/
+  AND(
+    REGEX(LOWER({!Var_SW_Industry}), &apos;.*(publishers and media|media and entertainment).*&apos;),
+    REGEX(LOWER({!Var_Department}), &apos;.*(bi / analytics|marketing seo and content|marketing: seo / content|marketing: affiliate / media buying|marketing: ppc / display|sales / business development|strategy / market research).*&apos;)
+  ), 
+  /*Criteria for &apos;CPG|Financial Services|Retail.*Ecommerce&apos;*/
+  AND(
+    REGEX(LOWER({!Var_SW_Industry}), &apos;.*(cpg|financial services|retail.*ecommerce).*&apos;),
+    REGEX(LOWER({!Var_Department}), &apos;.*(bi / analytics|corp dev|marketing analytics and management|strategy / market research|ecommerce).*&apos;)
+  ), 
+  /*Criteria for &apos;Hedge Funds.*Asset Management|.*Private Equity.*|Venture Capital|Equity Research&apos;*/
+  AND(
+    REGEX(LOWER({!Var_SW_Industry}), &apos;.*(hedge funds.*asset management|.*private equity.*|venture capital|equity research).*&apos;),
+    REGEX(LOWER({!Var_Department}), &apos;.*(corporate development / (m&amp;a|mergers and acquisitions)|investment|investment banking|investors).*&apos;)
+  )
+)</expression>
+    </formulas>
+    <formulas>
+        <name>JSONString_for_test</name>
+        <dataType>String</dataType>
+        <expression>&apos;{ &quot;inputs&quot; : [ {&apos; +
+&apos;      &quot;Var_Business_Unit&quot; : &quot;&apos; + {!Var_Business_Unit} + &apos;&quot;,&apos; +
+&apos;      &quot;Var_Clean_Domain&quot; : &quot;&apos; + {!Var_Clean_Domain}+ &apos;&quot;,&apos; +
+&apos;      &quot;Var_CountryCode&quot; : &quot;&apos; + {!Var_CountryCode}+ &apos;&quot;,&apos; +
+&apos;      &quot;Var_CountryName&quot; : &quot;&apos; + {!Var_CountryName}+ &apos;&quot;,&apos; +
+&apos;      &quot;Var_Department&quot; : &quot;&apos; + {!Var_Department}+ &apos;&quot;,&apos; +
+&apos;      &quot;Var_Department_Other_Description&quot; : &quot;&apos; + {!Var_Department_Other_Description}+ &apos;&quot;,&apos; +
+&apos;      &quot;Var_Email&quot; : &quot;&apos; + {!Var_Email}+ &apos;&quot;,&apos; +
+&apos;      &quot;Var_Email_Address_Domain_Type&quot; : &quot;&apos; + {!Var_Email_Address_Domain_Type}+ &apos;&quot;,&apos; +
+&apos;      &quot;Var_Employees_Min&quot; : &apos; + IF({!Var_Employees_Min}&gt;0,TEXT({!Var_Employees_Min}),&apos;null&apos;) + &apos;,&apos; +
+&apos;      &quot;Var_Force_FitCalc&quot; : &apos; + IF({!Var_Force_FitCalc}, &apos;true&apos;, &apos;false&apos;) + &apos;,&apos; +
+&apos;      &quot;Var_LinkedIn_Flag&quot; : &apos; + IF({!Var_LinkedIn_Flag}, &apos;true&apos;, &apos;false&apos;) + &apos;,&apos; +
+&apos;      &quot;Var_LinkedIn_Profile&quot; : &quot;&apos; + {!Var_LinkedIn_Profile}+ &apos;&quot;,&apos; +
+&apos;      &quot;Var_Quiz_Data_Incomplete&quot; : &quot;&apos; + {!Var_Quiz_Data_Incomplete} + &apos;&quot;,&apos; +
+&apos;      &quot;Var_Request_Source&quot; : &quot;&apos; + {!Var_Request_Source}+ &apos;&quot;,&apos; +
+&apos;      &quot;Var_ROE_Division&quot; : &quot;&apos; + {!Var_ROE_Division}+ &apos;&quot;,&apos; +
+&apos;      &quot;Var_Seniority&quot; : &quot;&apos; + {!Var_Seniority}+ &apos;&quot;,&apos; +
+&apos;      &quot;Var_SI_Enrichment_Visits&quot; : &apos; + IF({!Var_SI_Enrichment_Visits}&gt;0,TEXT({!Var_SI_Enrichment_Visits}),&apos;null&apos;) + &apos;,&apos; +
+&apos;      &quot;Var_SW_Connector_Visits&quot; : &apos; + IF({!Var_SW_Connector_Visits}&gt;0,TEXT({!Var_SW_Connector_Visits}),&apos;null&apos;) + &apos;,&apos; +
+&apos;      &quot;Var_SW_Industry&quot; : &quot;&apos; + {!Var_SW_Industry}+ &apos;&quot;,&apos; +
+&apos;      &quot;Var_Title&quot; : &quot;&apos; + {!Var_Title}+ &apos;&quot;,&apos; +
+&apos;      &quot;Var_Use_of_Similarweb&quot; : &quot;&apos; + {!Var_Use_of_Similarweb}+ &apos;&quot;,&apos; +
+&apos;      &quot;Var_Website&quot; : &quot;&apos; + {!Var_Website}+ &apos;&quot;&apos; +
+&apos;      }       ] }&apos;</expression>
+    </formulas>
+    <formulas>
+        <name>MAX_SI_Enrichment_SW_Visits</name>
+        <dataType>Number</dataType>
+        <expression>MAX(
+  NULLVALUE({!Var_SI_Enrichment_Visits}, 0),
+  NULLVALUE({!Var_SW_Connector_Visits}, 0)
+)</expression>
+        <scale>0</scale>
+    </formulas>
+    <formulas>
+        <name>Score_A_and_Reason</name>
+        <dataType>String</dataType>
+        <expression>IF(
+  {!Indicator_Fit_Company} = &apos;company&apos;,
+  IF(
+    CONTAINS(LOWER({!Var_Business_Unit}), &quot;strat&quot;),
+    &quot;Strategic Account&quot;,
+    IF(
+      AND(
+        {!Indicator_Fit_Excluded_From_A_to_C} = False,
+        {!Fit_Countries_TOP} = True,
+        {!Indicator_Fit_TAM} = True
+      ),
+      &quot;TAM Top Tier Countries&quot;,
+      Null
+    )
+  ),
+  NULL
+)</expression>
+    </formulas>
+    <formulas>
+        <description>MIS-6015</description>
+        <name>Score_A_D_Tier_Reason</name>
+        <dataType>String</dataType>
+        <expression>IF(
+  CONTAINS(LOWER({!Var_Business_Unit}), &quot;strat&quot;),
+  &quot;Strategic Account&quot;,
+   IF(
+        CONTAINS(LOWER({!Var_Strategic_Pod}), &quot;nal-&quot;),&quot;Named Account List (NAL)&quot;,
+
+        &apos;Tiers: Country &apos; &amp; TEXT({!Fit_Score_Country_Tier}) &amp; &apos;, Seniority &apos; &amp; TEXT({!Fit_Score_Seniority_Tier}) &amp; &apos;, Industry&amp;Dep &apos; &amp; TEXT({!Fit_Score_Industry_Department_Tier_Calculation})
+))</expression>
+    </formulas>
+    <formulas>
+        <name>Score_B_and_Reason</name>
+        <dataType>String</dataType>
+        <expression>IF(
+  AND(
+    {!Indicator_Fit_Excluded_From_A_to_C} = False,
+    {!Indicator_Fit_Company} = &apos;company&apos;
+  ),
+  IF(
+    AND(
+      {!Fit_Countries_TOP} = False,
+      {!Indicator_Fit_TAM} = True
+    ),
+    &quot;TAM Other Countries&quot;,
+    IF(
+      AND(
+        {!Fit_Countries_TOP} = True,
+        {!Fit_Industry_Tam} = True
+      ),
+      &quot;Good Industry Top Tier Countries&quot;,
+      Null
+    )
+  ),
+  NULL
+)</expression>
+    </formulas>
+    <formulas>
+        <name>Score_C_and_Reason</name>
+        <dataType>String</dataType>
+        <expression>IF(
+  AND(
+    {!Indicator_Fit_Excluded_From_A_to_C} = False,
+    {!Indicator_Fit_Company} = &apos;company&apos;
+  ),
+  IF(
+    {!Fit_Countries_TOP} = True,
+    &quot;Top Tier Countries&quot;,
+    IF(
+      AND(
+        {!Fit_Countries_TOP} = False,
+        {!Fit_Industry_Tam} = True,
+        {!Fit_Countries_SEA} = true
+      ),
+      &quot;Good Industry SEA Countries&quot;,
+      IF(
+        AND(
+          {!Fit_Countries_TOP} = False,
+          {!Fit_Industry_Tam} = True
+        ),
+        &quot;Good Industry Other Countries&quot;,
+        IF(
+          {!Indicator_Fit_Seniority_Excluding_India} = True,
+          &quot;High Seniority&quot;,
+          IF(
+            {!Indicator_Fit_Investor} = True,
+            &quot;Investors&quot;,
+            Null
+          )
+        )
+      )
+    )
+  ),
+  NULL
+)</expression>
+    </formulas>
+    <formulas>
+        <name>Score_D_and_Reason</name>
+        <dataType>String</dataType>
+        <expression>IF(
+  OR(
+    NOT(ISBLANK({!Var_CountryCode})),
+    NOT(ISBLANK({!Var_CountryName}))
+  ),
+  IF(
+    AND(
+      {!Fit_Countries_Excluded_From_A_to_C} = True,
+      {!Indicator_Fit_Excluded_From_A_to_C} = True
+    ),
+    &quot;Country Excluded from A to C&quot;,
+    IF(
+      AND(
+        {!Indicator_Fit_Excluded_From_A_to_C} = True,
+        {!Fit_Industry_Excluded_From_A_to_C} = True
+      ),
+      &quot;Industry Excluded from A to C&quot;,
+      IF(
+        AND(
+          {!Indicator_Fit_Excluded_From_A_to_C} = True,
+          {!Fit_Department_Excluded_From_A_to_D} = True
+        ),
+        &quot;Department Excluded from A to C&quot;,
+        IF(
+          AND(
+            {!Indicator_Fit_Excluded_From_A_to_C} = True,
+            {!Fit_Seniority_Excluded_From_A_to_C} = True
+          ),
+          &quot;Seniority Excluded from A to C&quot;,
+          IF(
+            AND(
+              {!Indicator_Fit_Excluded_From_A_to_C} = True,
+              {!Fit_Title_Excluded_From_A_to_D} = True
+            ),
+            &quot;Title Excluded from A to C&quot;,
+            IF(
+              AND(
+                {!Indicator_Fit_Excluded_From_A_to_C} = True,
+                {!Fit_Use_Of_Similarweb_Excluded_From_A_to_C} = True
+              ),
+              &quot;Use of Similarweb Excluded from A to C&quot;,
+              IF(
+                AND(
+                  {!Fit_in_Quiz_Excluded_From_A_to_C} = True,
+                  {!Indicator_Fit_Excluded_From_A_to_C} = True
+                ),
+                &quot;In Quiz Excluded from A to C&quot;,
+                IF(
+                  {!Indicator_Fit_Excluded_From_A_to_C} = True,
+                  &quot;Excluded from A to C&quot;,
+                  &quot;Not in other Fit score, Country not empty&quot;
+                )
+              )
+            )
+          )
+        )
+      )
+    )
+  ),
+  Null
+)</expression>
+    </formulas>
+    <formulas>
+        <name>Score_E_and_Reason</name>
+        <dataType>String</dataType>
+        <expression>IF(
+   {!Indication_Bad_MIR_Status} = True,
+   &quot;MIR Status unqualified&quot;,
+    IF(
+      {!Indicator_Fit_BU_Invest} = False,
+      IF(
+        OR(
+          {!Var_Employees_Min} &lt;= 10,
+          ISNULL({!Var_Employees_Min})
+        ),
+        IF({!Indicator_Fit_Investor}, &quot;Investor Private - Company size 1-10&quot; , &quot;Company size 1-10&quot;),
+        IF(
+          {!Indicator_Fit_Company} != &apos;company&apos;,
+          IF({!Indicator_Fit_Investor}, &quot;Investor Private - Private Domain Type&quot; , &quot;Private Domain Type&quot;),
+          IF(
+            {!Fit_Score_Country_Tier} = 4,
+            &quot;Low Tier Countries&quot;,
+            IF(
+              {!Indicator_Fit_SI_Enrichment} = True,
+              &quot;Low traffic Website&quot;,
+              IF(
+                AND(
+                  LOWER({!Var_Email_Address_Domain_Type}) = &apos;private&apos;,
+                    {!Var_Website} = &apos;no_website&apos;
+                  ),
+                  &quot;SalesOps overwrite no_website&quot;,
+                  IF(
+                    {!Fit_Title_Excluded_From_A_to_D} = TRUE,
+                    &apos;Title Excluded from A-D&apos;,
+                    IF(
+                      AND(
+                        OR(
+                          {!Var_CountryCode} = &apos;IN&apos;,
+                          {!Var_CountryName} = &apos;India&apos;
+                        ),
+                        {!Var_Employees_Min} &lt; 201
+                      ),
+                      &quot;Small India Company Size&quot;,
+                       IF(
+                         {!Indicator_Fit_Bad_Email} = True,
+                         &quot;Generic email address&quot;,
+                         IF(
+                            {!Fit_Department_Excluded_From_A_to_D} = True,
+                            &quot;Department Excluded from A-D&quot;,
+                            IF(
+                                {!Indicator_Fit_Bad_Phone} = True,
+                                &quot;Incomplete quiz, no phone&quot;,
+                                Null
+                       )
+                      )
+                    )
+                  )
+                )
+            )
+          )
+        )
+      )
+      ),
+      Null
+)
+)</expression>
+    </formulas>
+    <formulas>
+        <name>Score_F_and_Reason</name>
+        <dataType>String</dataType>
+        <expression>IF( {!Fit_Countries_F} = True, &quot;Blocked Countries&quot;, IF( {!Var_Fake_Data} = True, &quot;Fake Data&quot;, NULL ) )</expression>
+    </formulas>
+    <formulas>
+        <description>MIS-7485</description>
+        <name>Score_S_and_Reason</name>
+        <dataType>String</dataType>
+        <expression>IF(
+  {!Indicator_Fit_BU_Invest} = False,
+  IF(
+    LOWER({!Var_Use_of_Similarweb}) = &apos;school&apos;,
+    &quot;Student School use&quot;,
+    IF(
+      {!Fit_Clean_Domain_Student} = True,
+      &quot;Student Email Domain&quot;,
+      IF(
+        CONTAINS(LOWER({!Var_Title}), &quot;student&quot;),
+        &quot;Student Title&quot;,
+         IF(
+        OR(
+          LOWER({!Var_Department_Other_Description}) = &quot;education - student&quot;,
+          LOWER({!Var_Department}) = &quot;student/intern&quot;
+          )
+          ,&quot;Student Department&quot;,
+           IF(
+              LOWER({!Var_Seniority}) = &quot;student/intern&quot;,
+              &quot;Student Seniority&quot;,
+              Null
+          )
+        )
+      )
+    )
+  ),
+  Null
+)</expression>
+    </formulas>
+    <interviewLabel>FitScore Calculation {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>FitScore Calculation</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <description>MIS-6878</description>
+        <name>Department_Get_Mapping_Metadata</name>
+        <label>Department - Get Mapping Metadata</label>
+        <locationX>424</locationX>
+        <locationY>842</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Found_Department_MDT</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Pre_Mapped_Title__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>FR_Lower_Pre_Mapped_Title</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Department__c</field>
+            <operator>NotEqualTo</operator>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Fit_Score_Mapping__mdt</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Search_Contacts</name>
+        <label>Search Contacts</label>
+        <locationX>930</locationX>
+        <locationY>3242</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Found_Contact</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Email</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Var_Email</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Email</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Contact</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Search_Leads</name>
+        <label>Search Leads</label>
+        <locationX>1150</locationX>
+        <locationY>3458</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Found_Lead</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Email</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Var_Email</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Email</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Lead</object>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>SW_Fit_Score__c</queriedFields>
+        <queriedFields>Owner_Division__c</queriedFields>
+        <queriedFields>SW_Fit_Score_Reason__c</queriedFields>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Search_paying_Account</name>
+        <label>Search paying Account</label>
+        <locationX>710</locationX>
+        <locationY>3566</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Found_Paying_Account</targetReference>
+        </connector>
+        <filterLogic>1 AND (2 OR 3)</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Search_Contacts.AccountId</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Stage__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Paying Account</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Stage__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Trial / NT / One-time</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Account</object>
+        <queriedFields>Id</queriedFields>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <description>MIS-6878</description>
+        <name>Seniority_Get_Mapping_Metadata</name>
+        <label>Seniority - Get Mapping Metadata</label>
+        <locationX>424</locationX>
+        <locationY>1442</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Found_Seniority_MDT</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Pre_Mapped_Title__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>FR_Lower_Pre_Mapped_Title</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Seniority__c</field>
+            <operator>NotEqualTo</operator>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Fit_Score_Mapping__mdt</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <description>MIS-6878</description>
+        <name>SW_Industry_Get_Mapping_Metadata</name>
+        <label>SW Industry - Get Mapping Metadata</label>
+        <locationX>424</locationX>
+        <locationY>242</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Found_SW_Industry_MDT</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Pre_Mapped_Industry__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>FR_Lower_Pre_Mapped_Industry</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>SW_Industry__c</field>
+            <operator>NotEqualTo</operator>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Fit_Score_Mapping__mdt</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <runInMode>SystemModeWithoutSharing</runInMode>
+    <start>
+        <locationX>452</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>SW_Industry_ISBLANK</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <description>MIS-5711</description>
+        <name>Response_Fit_Score_Country_Tier</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <scale>0</scale>
+    </variables>
+    <variables>
+        <description>MIS-5711</description>
+        <name>Response_Fit_Score_Industry_Department_Tier</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <scale>0</scale>
+    </variables>
+    <variables>
+        <description>MIS-5711</description>
+        <name>Response_Fit_Score_Seniority_Tier</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <scale>0</scale>
+    </variables>
+    <variables>
+        <name>Response_FitScore</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <description>MIS-5811</description>
+        <name>Response_FitScore_Test</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>Response_is_in_salesforce</name>
+        <dataType>Boolean</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+        <value>
+            <booleanValue>false</booleanValue>
+        </value>
+    </variables>
+    <variables>
+        <name>Response_is_paying_user</name>
+        <dataType>Boolean</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+        <value>
+            <booleanValue>false</booleanValue>
+        </value>
+    </variables>
+    <variables>
+        <description>stores the Input variables in a JSON format</description>
+        <name>Response_JSONString_for_test</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>Response_owner_division_from_salesforce</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>Response_Reason</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>Response_Relevent_For_Sales</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+        <scale>0</scale>
+        <value>
+            <numberValue>-1.0</numberValue>
+        </value>
+    </variables>
+    <variables>
+        <name>Var_Business_Unit</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>Var_Clean_Domain</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>Var_CountryCode</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>Var_CountryName</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>Var_Department</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>Var_Department_Other_Description</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>Var_Email</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>Var_Email_Address_Domain_Type</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>Var_Employees_Min</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+        <scale>0</scale>
+        <value>
+            <numberValue>0.0</numberValue>
+        </value>
+    </variables>
+    <variables>
+        <name>Var_Fake_Data</name>
+        <dataType>Boolean</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <booleanValue>false</booleanValue>
+        </value>
+    </variables>
+    <variables>
+        <description>if set from web, it would always calculate FitScore even if Lead/Contact found</description>
+        <name>Var_Force_FitCalc</name>
+        <dataType>Boolean</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <booleanValue>false</booleanValue>
+        </value>
+    </variables>
+    <variables>
+        <description>MIS-6931</description>
+        <name>Var_Indication_Lugia_Fit_Score</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>MIS-6804</description>
+        <name>Var_Industry_Other_Description</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>MIS-7637</description>
+        <name>Var_Inferred_Solution_From_Web</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <description>MIS-4782</description>
+        <name>Var_LinkedIn_Flag</name>
+        <dataType>Boolean</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <booleanValue>false</booleanValue>
+        </value>
+    </variables>
+    <variables>
+        <description>MIS-4782</description>
+        <name>Var_LinkedIn_Profile</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>MIS-6931</description>
+        <name>Var_Lugia_Linkedin_Profile</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>Var_MIR_Status</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <description>MIS-7637</description>
+        <name>Var_Original_Lead_Source</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <description>MIS-7637</description>
+        <name>Var_Phone</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <description>MIS-6878</description>
+        <name>Var_Pre_Mapped_Industry</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>MIS-6878</description>
+        <name>Var_Pre_Mapped_Title</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>Var_Quiz_Data_Incomplete</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>Var_Request_Source</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>Var_ROE_Division</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>MIS-7245</description>
+        <name>Var_Secondary_Email</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>Var_Seniority</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>Var_SI_Enrichment_Visits</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+        <scale>0</scale>
+        <value>
+            <numberValue>0.0</numberValue>
+        </value>
+    </variables>
+    <variables>
+        <description>MIS-6879</description>
+        <name>Var_Strategic_Pod</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>Var_SW_Connector_Visits</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+        <scale>0</scale>
+        <value>
+            <numberValue>0.0</numberValue>
+        </value>
+    </variables>
+    <variables>
+        <name>Var_SW_Industry</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>Var_Title</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>Var_Use_of_Similarweb</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>Var_Website</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

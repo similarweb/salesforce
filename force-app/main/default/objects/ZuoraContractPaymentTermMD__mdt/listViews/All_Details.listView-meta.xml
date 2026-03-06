@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All_Details</fullName>
+    <columns>MasterLabel</columns>
+    <columns>DeveloperName</columns>
+    <columns>Initial_Term__c</columns>
+    <columns>Payment_Term__c</columns>
+    <columns>Payment_Type__c</columns>
+    <columns>Payment_Frequency__c</columns>
+    <columns>Payment_Term_Contract__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Payment_Term__c</field>
+        <operation>equals</operation>
+        <value>Due Upon Receipt</value>
+    </filters>
+    <filters>
+        <field>Payment_Type__c</field>
+        <operation>equals</operation>
+        <value>Wire Transfer</value>
+    </filters>
+    <filters>
+        <field>Initial_Term__c</field>
+        <operation>equals</operation>
+        <value>24</value>
+    </filters>
+    <filters>
+        <field>Payment_Frequency__c</field>
+        <operation>equals</operation>
+        <value>Semi-Annual</value>
+    </filters>
+    <label>All + Details</label>
+    <language>en_US</language>
+</ListView>

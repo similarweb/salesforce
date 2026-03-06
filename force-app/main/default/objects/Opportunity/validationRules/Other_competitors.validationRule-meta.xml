@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Other_competitors</fullName>
+    <active>true</active>
+    <errorConditionFormula>INCLUDES(Competitor_Product__c,&quot;Other&quot;) &amp;&amp;
+ISBLANK(Other_Competitors__c) &amp;&amp;
+$Profile.Name&lt;&gt;&quot;System Administrator&quot; &amp;&amp;
+RecordType.DeveloperName&lt;&gt;&quot;Wolves&quot;  &amp;&amp; 
+RecordType.DeveloperName&lt;&gt;&quot;Rank_Ranger&quot;&amp;&amp;
+RecordType.DeveloperName&lt;&gt;&quot;Acquired_Company&quot;&amp;&amp;
+MEDPIC_Next_Stage__c = false</errorConditionFormula>
+    <errorDisplayField>Other_Competitors__c</errorDisplayField>
+    <errorMessage>Please provide details on other compitetors.</errorMessage>
+</ValidationRule>

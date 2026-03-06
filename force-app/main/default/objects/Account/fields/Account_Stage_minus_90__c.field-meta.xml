@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Account_Stage_minus_90__c</fullName>
+    <description>MIS-1027</description>
+    <externalId>false</externalId>
+    <formula>LastActivityDate &gt;=TODAY()-90</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Account Stage minus 90</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,56 @@
+.custom-brand-button {
+    background-color: #0A2540; /* Similarweb dark navy */
+    color: #ffffff;
+    font-weight: bold;
+    border-radius: 0.25rem;
+    /*padding: 0.6rem 1.2rem;*/
+    border: none;
+}
+
+.custom-brand-button:hover {
+    background-color: #081d33;
+    cursor: pointer;
+}
+
+.custom-action-button {
+    background-color: #FF7C39; /* Similarweb orange */
+    color: #ffffff;
+    font-weight: bold;
+    border-radius: 0.25rem;
+    /*padding: 0.6rem 1.2rem;*/
+    border: none;
+}
+
+.custom-action-button:hover {
+    background-color: #e96521;
+    cursor: pointer;
+}
+
+.custom-subtle-button {
+    background-color: blue;
+    color: blue;
+    border: 2px solid #0A2540;
+    border-radius: 0.25rem;
+    /*padding: 0.6rem 1.2rem;*/
+    font-weight: 600;
+}
+
+.custom-subtle-button:hover {
+    background-color: #f5f5f5;
+    cursor: pointer;
+}
+
+.button-medium {
+    font-size: 1rem;
+}
+
+/* Smaller button */
+.button-small {
+    font-size: 0.85rem;
+}
+
+/* Bigger button */
+.button-big {
+    font-size: 1.2rem;
+    font-weight: 600;
+}

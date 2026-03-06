@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>live_opportunities_with_price_plan</fullName>
+    <columns>OPPORTUNITY.NAME</columns>
+    <columns>Wolves_Source_ID_SGAdmin__c</columns>
+    <columns>Payment_Type__c</columns>
+    <columns>OPPORTUNITY.AMOUNT</columns>
+    <columns>Plan_Details__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>OPPORTUNITY.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Opportunity.Wolves</value>
+    </filters>
+    <filters>
+        <field>OPPORTUNITY.PROBABILITY</field>
+        <operation>equals</operation>
+        <value>100</value>
+    </filters>
+    <label>live opportunities with price plan</label>
+</ListView>

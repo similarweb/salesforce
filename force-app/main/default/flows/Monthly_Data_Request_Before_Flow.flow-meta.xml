@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>53.0</apiVersion>
+    <assignments>
+        <description>Update the record that started the Flow according to the data from the &quot;Rate&quot;</description>
+        <name>Update_Record_from_Rate</name>
+        <label>Update Record from &quot;Rate&quot;</label>
+        <locationX>479</locationX>
+        <locationY>395</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Data_Rate__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Rate__r.Rate__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Country__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Rate__r.Country__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Request_Type__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Rate__r.Request_Type__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Country_Tier__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Rate__r.Country_Tier__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Source__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Rate__r.Source__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Name</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>For_MDR_Name</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Data_Type__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Rate__r.Data_Type__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.AVG_Data_Date__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>For_MM_YYYY</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Rule_ADP_AVG_DAU_Populated</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <description>In case there is a second Rate on the related &quot;Rate&quot; record, the calculation should be according the Monthly Fix DAU threshold and both Rates.</description>
+        <name>Is_there_a_Second_Rate</name>
+        <label>Is there a Second Rate?</label>
+        <locationX>182</locationX>
+        <locationY>803</locationY>
+        <defaultConnector>
+            <targetReference>Update_Record_Fix_Calc</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No Second Rate</defaultConnectorLabel>
+        <rules>
+            <name>True_Second_Rate</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Rate__r.Second_Rate__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Record_Fix_Second_Rate</targetReference>
+            </connector>
+            <label>True - Second Rate</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Monthly_Fix_Payment</name>
+        <label>Monthly Fix Payment?</label>
+        <locationX>380</locationX>
+        <locationY>695</locationY>
+        <defaultConnector>
+            <targetReference>Update_Record_Rate_Calc</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Calculate by Rate</defaultConnectorLabel>
+        <rules>
+            <name>Monthly_Fix</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Rate__r.Fixed_Monthly_DAU__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Is_there_a_Second_Rate</targetReference>
+            </connector>
+            <label>Monthly Fix</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Next_Rule_here</name>
+        <label>Next Rule here</label>
+        <locationX>611</locationX>
+        <locationY>1271</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Next_Criteria_hare</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>For_NOW</leftValueReference>
+                <operator>EqualTo</operator>
+            </conditions>
+            <label>Next Criteria hare</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>In case the &quot;Rate&quot; lookup was populated or changed we should update the data according to the &quot;Rate&quot;</description>
+        <name>Rate_Populated_Changed</name>
+        <label>Rate Populated/Changed</label>
+        <locationX>611</locationX>
+        <locationY>287</locationY>
+        <defaultConnector>
+            <targetReference>Rule_ADP_AVG_DAU_Populated</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Not Populated</defaultConnectorLabel>
+        <rules>
+            <name>Rate_Populated</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Rate__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Record_from_Rate</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>Rate Populated</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Check when the &quot;AVG.DAU&quot; is populated from BI</description>
+        <name>Rule_ADP_AVG_DAU_Populated</name>
+        <label>Rule (ADP) AVG Data Units Populated</label>
+        <locationX>611</locationX>
+        <locationY>587</locationY>
+        <defaultConnector>
+            <targetReference>Next_Rule_here</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Not Populated</defaultConnectorLabel>
+        <rules>
+            <name>AVG_DAU_populated</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.AVG_Data_Units__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Monthly_Fix_Payment</targetReference>
+            </connector>
+            <label>AVG.DAU populated</label>
+        </rules>
+    </decisions>
+    <description>Test for Shai&apos;s update</description>
+    <environments>Default</environments>
+    <formulas>
+        <description>Calculate the additional Payment above the fix monthly payment in case the monthly DAU was higher than the Fixed monthly.</description>
+        <name>For_Additional_DAU_Threshold_Calc</name>
+        <dataType>Currency</dataType>
+        <expression>IF( 
+{!$Record.AVG_Data_Units__c} -{!$Record.Rate__r.Fixed_Monthly_DAU__c}&lt;{!$Record.Rate__r.DAU_Threshold__c},0,
+FLOOR({!For_DAU_Floor_Calc})*{!$Record.Rate__r.Payment_Threshold__c}
+)</expression>
+        <scale>0</scale>
+    </formulas>
+    <formulas>
+        <description>In case the Contract is Monthly fix payment, we need to calculate how much to pay according to the fix DAU and Payment thresholds.</description>
+        <name>For_Calculate_Fix_Payment_Calc</name>
+        <dataType>Currency</dataType>
+        <expression>IF( 
+ {!$Record.AVG_Data_Units__c} &lt;{!$Record.Rate__r.Fixed_Monthly_DAU__c},{!$Record.Rate__r.Fixed_Monthly_Payment__c},
+{!$Record.Rate__r.Fixed_Monthly_Payment__c} +{!For_Additional_DAU_Threshold_Calc}
+)</expression>
+        <scale>0</scale>
+    </formulas>
+    <formulas>
+        <description>Calculate the payment of the MDR when there is a &quot;Second Rate&quot; on the related Rate. 
+Format is: DAU till the Monthly Fix DAU*Rate + (DAU - Monthly Fix DAU)*Second Rate</description>
+        <name>For_Calculate_Second_Rate</name>
+        <dataType>Currency</dataType>
+        <expression>IF( 
+{!$Record.AVG_Data_Units__c}&lt;{!$Record.Rate__r.Fixed_Monthly_DAU__c},/*Standard Calculation:*/{!$Record.AVG_Data_Units__c}*{!$Record.Data_Rate__c},/*Second Rate Calculation:*/
+{!$Record.Rate__r.Fixed_Monthly_DAU__c}*{!$Record.Data_Rate__c} +({!$Record.AVG_Data_Units__c}-{!$Record.Rate__r.Fixed_Monthly_DAU__c})*{!$Record.Rate__r.Second_Rate__c}
+)</expression>
+        <scale>0</scale>
+    </formulas>
+    <formulas>
+        <description>The number represents the bulks of additional DAU (above the monthly fix) that we need to pay for.</description>
+        <name>For_DAU_Floor_Calc</name>
+        <dataType>Number</dataType>
+        <expression>({!$Record.AVG_Data_Units__c}-{!$Record.Rate__r.Fixed_Monthly_DAU__c})/{!$Record.Rate__r.DAU_Threshold__c}</expression>
+        <scale>0</scale>
+    </formulas>
+    <formulas>
+        <description>Auto populate MDR Name on creation/when adding the related &quot;Rate&quot;.</description>
+        <name>For_MDR_Name</name>
+        <dataType>String</dataType>
+        <expression>{!$Record.Rate__r.Name} +&quot; &quot;+ {!For_MM_YYYY}</expression>
+    </formulas>
+    <formulas>
+        <name>For_MM_YYYY</name>
+        <dataType>String</dataType>
+        <expression>TEXT(MONTH(DATEVALUE({!For_NOW}))) +&quot;/&quot;+ TEXT(YEAR(DATEVALUE({!For_NOW})))</expression>
+    </formulas>
+    <formulas>
+        <name>For_NOW</name>
+        <dataType>DateTime</dataType>
+        <expression>ADDMONTHS(NOW(), -1)</expression>
+    </formulas>
+    <formulas>
+        <name>For_Request_Payment_Calculation</name>
+        <dataType>Currency</dataType>
+        <expression>{!$Record.AVG_Data_Units__c}*{!$Record.Data_Rate__c}</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <name>For_Status_Calc</name>
+        <dataType>String</dataType>
+        <expression>IF(
+ISNULL({!$Record.AVG_Data_Units__c}),&apos;Open&apos;,&apos;Calculated&apos;)</expression>
+    </formulas>
+    <interviewLabel>Monthly {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Monthly Data Request Before Flow</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Update_Record_Fix_Calc</name>
+        <label>Update Record - Fix Calc</label>
+        <locationX>314</locationX>
+        <locationY>911</locationY>
+        <connector>
+            <targetReference>Next_Rule_here</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Request_Payment__c</field>
+            <value>
+                <elementReference>For_Calculate_Fix_Payment_Calc</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Status__c</field>
+            <value>
+                <elementReference>For_Status_Calc</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Record_Fix_Second_Rate</name>
+        <label>Update Record - Fix - Second Rate</label>
+        <locationX>50</locationX>
+        <locationY>911</locationY>
+        <connector>
+            <targetReference>Next_Rule_here</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Request_Payment__c</field>
+            <value>
+                <elementReference>For_Calculate_Second_Rate</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Status__c</field>
+            <value>
+                <elementReference>For_Status_Calc</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Record_Rate_Calc</name>
+        <label>Update Record - Rate Calc</label>
+        <locationX>578</locationX>
+        <locationY>803</locationY>
+        <connector>
+            <targetReference>Next_Rule_here</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Request_Payment__c</field>
+            <value>
+                <elementReference>For_Request_Payment_Calculation</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Status__c</field>
+            <value>
+                <elementReference>For_Status_Calc</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>485</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Rate_Populated_Changed</targetReference>
+        </connector>
+        <object>Monthly_Data_Request__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Obsolete</status>
+</Flow>

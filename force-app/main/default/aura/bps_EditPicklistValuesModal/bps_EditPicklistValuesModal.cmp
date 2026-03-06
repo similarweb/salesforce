@@ -1,0 +1,29 @@
+<aura:component controller="BaseProductSettingController">
+    <aura:attribute name="fullName" type="String" required="true"/>
+    <aura:attribute name="oldLabel" type="String" required="true"/>
+    <aura:attribute name="newLabel" type="String"/>
+    <aura:attribute name="isShown" type="Boolean" required="true"/>
+    <aura:attribute name="isLoading" type="Boolean" default="false"/>
+
+    <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+        <div class="slds-modal__container">
+            <header class="slds-modal__header">
+                <lightning:button class="slds-modal__close" onclick="{!c.onCancelClick}" variant="bare">
+                    <lightning:icon iconName="utility:close" alternativeText="Close" size="small" />
+                </lightning:button>
+                <h2 id="modal-heading-01" class="slds-modal__title slds-hyphenate">Edit values</h2>            
+            </header>
+            <div class="slds-modal__content slds-p-around_medium slds-is-relative" id="modal-content-id-1">
+                <aura:if isTrue="{!v.isLoading}">
+                    <lightning:spinner alternativeText="" size="large" />
+                </aura:if>
+                <lightning:input placeholder="{!'Old label - ' + v.oldLabel}" name="input2" label="New Label" value="{!v.newLabel}"/>                
+            </div>
+            <footer class="slds-modal__footer">
+                <button onclick="{!c.onCancelClick}" disabled="{!v.isLoading}" class="slds-button slds-button_neutral">Cancel</button>
+                <button onclick="{!c.onSaveClick}" disabled="{!v.isLoading}" class="slds-button slds-button_brand">Save</button>
+            </footer>
+        </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open"></div>
+</aura:component>

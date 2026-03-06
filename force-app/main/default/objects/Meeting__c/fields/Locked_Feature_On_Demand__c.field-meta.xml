@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Locked_Feature_On_Demand__c</fullName>
+    <description>MIS-4833</description>
+    <externalId>false</externalId>
+    <label>Locked Feature On Demand</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>true</sorted>
+            <value>
+                <fullName>API</fullName>
+                <default>false</default>
+                <label>API</label>
+            </value>
+            <value>
+                <fullName>App Analysis</fullName>
+                <default>false</default>
+                <label>App Analysis</label>
+            </value>
+            <value>
+                <fullName>Audience</fullName>
+                <default>false</default>
+                <label>Audience</label>
+            </value>
+            <value>
+                <fullName>Brand Protection</fullName>
+                <default>false</default>
+                <label>Brand Protection</label>
+            </value>
+            <value>
+                <fullName>Conversion Rate</fullName>
+                <default>false</default>
+                <label>Conversion Rate</label>
+            </value>
+            <value>
+                <fullName>Country Filters</fullName>
+                <default>false</default>
+                <label>Country Filters</label>
+            </value>
+            <value>
+                <fullName>Custom Industry</fullName>
+                <default>false</default>
+                <label>Custom Industry</label>
+            </value>
+            <value>
+                <fullName>Folder</fullName>
+                <default>false</default>
+                <label>Folder</label>
+            </value>
+            <value>
+                <fullName>Historical Data</fullName>
+                <default>false</default>
+                <label>Historical Data</label>
+            </value>
+            <value>
+                <fullName>Lead Generation</fullName>
+                <default>false</default>
+                <label>Lead Generation</label>
+            </value>
+            <value>
+                <fullName>More Results</fullName>
+                <default>false</default>
+                <label>More Results</label>
+            </value>
+            <value>
+                <fullName>More Users</fullName>
+                <default>false</default>
+                <label>More Users</label>
+            </value>
+            <value>
+                <fullName>Popular Pages</fullName>
+                <default>false</default>
+                <label>Popular Pages</label>
+            </value>
+            <value>
+                <fullName>Rank Tracker</fullName>
+                <default>false</default>
+                <label>Rank Tracker</label>
+            </value>
+            <value>
+                <fullName>Segment</fullName>
+                <default>false</default>
+                <label>Segment</label>
+            </value>
+            <value>
+                <fullName>Subdomains</fullName>
+                <default>false</default>
+                <label>Subdomains</label>
+            </value>
+            <value>
+                <fullName>Website Technology</fullName>
+                <default>false</default>
+                <label>Website Technology</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

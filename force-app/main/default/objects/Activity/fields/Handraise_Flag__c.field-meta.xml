@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Handraise_Flag__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>MIS-3208
+Changed from Synced_from_SalesLoft__c at 23/11/22</description>
+    <externalId>false</externalId>
+    <label>Handraise Flag</label>
+    <type>Checkbox</type>
+</CustomField>

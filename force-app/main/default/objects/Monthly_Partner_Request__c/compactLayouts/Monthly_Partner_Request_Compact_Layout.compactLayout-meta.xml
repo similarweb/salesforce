@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Monthly_Partner_Request_Compact_Layout</fullName>
+    <fields>Name</fields>
+    <fields>Status__c</fields>
+    <fields>Monthly_Partner_Payment_Final__c</fields>
+    <fields>Contracts__c</fields>
+    <fields>Send_Invoice_Email__c</fields>
+    <label>Monthly Partner Request Compact Layout</label>
+</CompactLayout>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Close_date_opportunity_past_month</fullName>
+    <active>true</active>
+    <description>&amp;&amp; ($Profile.Name !=&quot;System Administrator&quot; )
+
+&amp;&amp; IF($Profile.Name =&quot;SW SalesOps&quot;,MONTH( CloseDate ) !=  MONTH(TODAY()),TRUE)
+להוריד שורה במקום</description>
+    <errorConditionFormula>(IsNew() || 
+IsChanged (StageName) ||
+ISCHANGED( CloseDate )
+) &amp;&amp;
+ CloseDate &lt; DATE( YEAR(TODAY()), MONTH(TODAY()), 1)
+&amp;&amp; NOT ISPICKVAL(StageName, &apos;Closed Stalled&apos;)
+&amp;&amp; ($Profile.Name !=&quot;System Administrator&quot; )
+&amp;&amp; ($Profile.Name !=&quot;SW SalesOps Extended&quot; ) 
+&amp;&amp; ($Profile.Name !=&quot;SW SalesOps&quot;)
+
+&amp;&amp; ! $User.Financial_Invoice_Management__c
+&amp;&amp;  NOT( ISCHANGED( Open_Activity_Count__c ) )
+&amp;&amp; RecordType.DeveloperName&lt;&gt;&quot;Wolves&quot; &amp;&amp; 
+NOT($Profile.Id=&apos;00eb0000000oBvcAAE&apos;)</errorConditionFormula>
+    <errorMessage>Close Date cannot be prior to current month. Please contact an administrator if you need further assistance.</errorMessage>
+</ValidationRule>

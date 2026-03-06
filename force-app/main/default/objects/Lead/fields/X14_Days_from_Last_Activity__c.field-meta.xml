@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>X14_Days_from_Last_Activity__c</fullName>
+    <description>MIS-6072</description>
+    <externalId>false</externalId>
+    <formula>TODAY() - LastActivityDate &gt;14</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>14 Days from Last Activity</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

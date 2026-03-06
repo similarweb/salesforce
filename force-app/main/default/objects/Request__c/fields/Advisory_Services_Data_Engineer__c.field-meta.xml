@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Advisory_Services_Data_Engineer__c</fullName>
+    <externalId>false</externalId>
+    <label>Primary ASDE</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Dana Mishor</fullName>
+                <default>false</default>
+                <label>Dana Mishor</label>
+            </value>
+            <value>
+                <fullName>Ido Amit</fullName>
+                <default>false</default>
+                <label>Ido Amit</label>
+            </value>
+            <value>
+                <fullName>Keren Hondiashvili</fullName>
+                <default>false</default>
+                <label>Keren Hondiashvili</label>
+            </value>
+            <value>
+                <fullName>Maya Rosenthal</fullName>
+                <default>false</default>
+                <label>Maya Rosenthal</label>
+            </value>
+            <value>
+                <fullName>Nimrod Fischer</fullName>
+                <default>false</default>
+                <label>Nimrod Fischer</label>
+            </value>
+            <value>
+                <fullName>Omri Tal</fullName>
+                <default>false</default>
+                <label>Omri Tal</label>
+            </value>
+            <value>
+                <fullName>Shahar Barak</fullName>
+                <default>false</default>
+                <label>Shahar Barak</label>
+            </value>
+            <value>
+                <fullName>Tal Yahini</fullName>
+                <default>false</default>
+                <label>Tal Yahini</label>
+            </value>
+            <value>
+                <fullName>Tanya Patroul</fullName>
+                <default>false</default>
+                <label>Tanya Patroul</label>
+            </value>
+            <value>
+                <fullName>Tomer Avizur Gilad</fullName>
+                <default>false</default>
+                <label>Tomer Avizur Gilad</label>
+            </value>
+            <value>
+                <fullName>Itay Ridel</fullName>
+                <default>false</default>
+                <label>Itay Ridel</label>
+            </value>
+            <value>
+                <fullName>Linoy Mirel</fullName>
+                <default>false</default>
+                <label>Linoy Mirel</label>
+            </value>
+            <value>
+                <fullName>Roy Benisty</fullName>
+                <default>false</default>
+                <label>Roy Benisty</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

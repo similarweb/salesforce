@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Description__c</fullName>
+    <description>Add a description to your custom metadata, like where is it used or important notes for it.</description>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <inlineHelpText>Add a description to your custom metadata, like where is it used or important notes for it.</inlineHelpText>
+    <label>Description</label>
+    <required>false</required>
+    <type>TextArea</type>
+</CustomField>

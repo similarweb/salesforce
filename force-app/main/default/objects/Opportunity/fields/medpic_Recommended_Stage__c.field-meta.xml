@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>medpic_Recommended_Stage__c</fullName>
+    <externalId>false</externalId>
+    <label>Recommended Stage</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Sales Qualified</fullName>
+                <default>false</default>
+                <label>Sales Qualified</label>
+            </value>
+            <value>
+                <fullName>Solution Validation</fullName>
+                <default>false</default>
+                <label>Solution Validation</label>
+            </value>
+            <value>
+                <fullName>Scope Confirmation</fullName>
+                <default>false</default>
+                <label>Scope Confirmation</label>
+            </value>
+            <value>
+                <fullName>Contracts</fullName>
+                <default>false</default>
+                <label>Contracts</label>
+            </value>
+            <value>
+                <fullName>Initial Discovery</fullName>
+                <default>false</default>
+                <label>Initial Discovery</label>
+            </value>
+            <value>
+                <fullName>Closed Lost</fullName>
+                <default>false</default>
+                <label>Closed Lost</label>
+            </value>
+            <value>
+                <fullName>Close Won</fullName>
+                <default>false</default>
+                <label>Close Won</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

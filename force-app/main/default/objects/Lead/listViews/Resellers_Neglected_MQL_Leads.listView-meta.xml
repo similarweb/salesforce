@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Resellers_Neglected_MQL_Leads</fullName>
+    <columns>LEAD.CREATED_DATE</columns>
+    <columns>CORE.USERS.FIRST_NAME</columns>
+    <columns>CORE.USERS.LAST_NAME</columns>
+    <columns>FULL_NAME</columns>
+    <columns>LEAD.TITLE</columns>
+    <columns>LEAD.EMAIL</columns>
+    <columns>LEAD.COMPANY</columns>
+    <columns>LEAD.URL</columns>
+    <columns>LEAD.COUNTRY</columns>
+    <columns>LEAD.STATUS</columns>
+    <columns>SW_Industry__c</columns>
+    <columns>LEAD.PHONE</columns>
+    <columns>Business_Unit__c</columns>
+    <columns>Last_Pro_Visit_Date__c</columns>
+    <columns>MQL__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>LEAD.CONVERTED</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>LEAD.STATUS</field>
+        <operation>notEqual</operation>
+        <value>Unqualified</value>
+    </filters>
+    <filters>
+        <field>Neglected_MQL__c</field>
+        <operation>equals</operation>
+        <value>Neglected</value>
+    </filters>
+    <filters>
+        <field>Owner_Role__c</field>
+        <operation>notContain</operation>
+        <value>Gaprise,Japan</value>
+    </filters>
+    <filters>
+        <field>Owner_Role__c</field>
+        <operation>contains</operation>
+        <value>Reseller,Partner User</value>
+    </filters>
+    <filters>
+        <field>CORE.USERS.LAST_NAME</field>
+        <operation>notContain</operation>
+        <value>Finger,Fraga,Jacobsen,Sandri,bacovic,glat</value>
+    </filters>
+    <label>Resellers - Neglected MQL Leads</label>
+</ListView>

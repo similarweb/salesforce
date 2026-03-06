@@ -1,0 +1,93 @@
+<aura:component controller = "BaseProductSettingController">
+
+    <aura:attribute name="worldListPicklistValues" type="Object[]"/>
+    <aura:attribute name="defaultAddonsValues" type="Object[]"/>
+    <aura:attribute name="dynamicAddonsValues" type="Object[]"/>
+    <aura:attribute name="numberOfUsers" type="Integer"/>
+    <aura:attribute name="baseProductFullName" type="String"/>
+    <aura:attribute name="baseProductLabel" type="String"/>
+    <aura:attribute name="isLoading" type="Boolean" default="false"/>
+    <aura:attribute name="shownEditValueModal" type="Boolean" default="false"/>
+    <aura:attribute name="myPicklistValues" type="Object"/>
+
+    <aura:handler event="c:bps_BaseProductValueSelected" action="{!c.handleBaseProductValueSelectedEvent}"/>
+
+    <aura:if isTrue="{!v.shownEditValueModal}">
+        <c:bps_EditPicklistValuesModal isShown="{!v.shownEditValueModal}"
+                                       fullName="{!v.baseProductFullName}"
+                                       oldLabel="{!v.baseProductLabel}"/>
+    </aura:if>
+
+    <aura:if isTrue="{!not(empty(v.baseProductFullName))}">
+        <!--
+            <lightning:layout multipleRows="true" class="slds-theme_shade rounded-borders buttonL">
+                <lightning:layoutItem size="8">
+                    <div class="slds-p-around_medium">
+                        <p class="slds-page-header__title slds-truncate" title="">{!v.baseProductLabel}</p>
+                    </div>
+                </lightning:layoutItem>
+
+                <lightning:layoutItem size="4" class="buttonItem">
+                    <lightning:buttonIcon iconName="utility:edit"  alternativeText="Edit Base Product value" onclick="{!c.onEditClick}"/>
+                    <lightning:buttonIcon iconName="utility:delete"  alternativeText="Delete Base Product value" onclick="{!c.onDeleteClick}"/>
+                     <lightning:button variant="brand" label="Edit Base Product value" title="Edit Base Product value" onclick="{!c.onEditClick}"/>
+                    <lightning:button variant="destructive" label="Delete Base Product value" title="Delete Base Product value" onclick="{!c.onDeleteClick}"/>
+                </lightning:layoutItem>
+            </lightning:layout>
+        -->
+        <lightning:layout multipleRows="true" class="rounded-borders">
+            <div style="width: 100%;">
+                <lightning:layoutItem>
+                    <lightning:layout class="rounded-borders">
+                        <lightning:layoutItem size="6" padding="horizontal-small">
+                            <div class="slds-theme_default rounded-borders">
+                                <c:bps_WordListValuesList baseProductFullName="{!v.baseProductFullName}"
+                                                          worldListPicklistValues="{!v.worldListPicklistValues}"
+                                                          isLoading="{!v.isLoading}"/>
+                            </div>
+                        </lightning:layoutItem>
+
+                        <lightning:layoutItem size="6" padding="horizontal-small">
+                            <div class="slds-theme_default rounded-borders">
+                                <c:bps_BaseProductDefaultAddons baseProductFullName = "{!v.baseProductFullName}"
+                                                                defaultAddonsValues = "{!v.defaultAddonsValues}"
+                                                                isLoading ="{!v.isLoading}"/>
+                            </div>
+                        </lightning:layoutItem>
+                    </lightning:layout>
+                </lightning:layoutItem>
+
+                <lightning:layoutItem>
+                    <lightning:layout class="bottom-line rounded-borders">
+                        <lightning:layoutItem size="6" padding="horizontal-small">
+                            <div class="slds-theme_default rounded-borders">
+                                <c:bps_BaseProductDynamicAddons baseProductFullName ="{!v.baseProductFullName}"
+                                                                dynamicAddonsValues = "{!v.dynamicAddonsValues}"
+                                                                isLoading ="{!v.isLoading}"
+                                                                myPicklistValues="{!v.myPicklistValues}"/>
+                            </div>
+                        </lightning:layoutItem>
+
+                        <lightning:layoutItem size="6" padding="horizontal-small">
+                            <div class="slds-theme_default rounded-borders">
+                                <c:bps_BaseProductNumOfUsers baseProductFullName="{!v.baseProductFullName}"
+                                                             numberOfUsers = "{!v.numberOfUsers}"
+                                                             isLoading="{!v.isLoading}"/>
+                            </div>
+                        </lightning:layoutItem>
+                    </lightning:layout>
+                </lightning:layoutItem>
+
+
+
+                <!--
+                <lightning:layoutItem size="6" class="slds-p-left-d-small">
+                    <c:bps_WordListValueInfo aura:id = "worldListInfo"
+                                        baseProductFullName="{!v.baseProductFullName}"/>
+                </lightning:layoutItem>
+                -->
+            </div>
+        </lightning:layout>
+
+    </aura:if>
+</aura:component>

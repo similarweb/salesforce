@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Rate__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF( ISPICKVAL( Price_Plan__r.Payment_Plan__c ,&quot;Tiers&quot;),
+IF(Tier__c=1, Price_Plan__r.Tier_1_Rate__c   ,
+IF(Tier__c=2, Price_Plan__r.Tier_2_Rate__c ,
+IF(Tier__c=3, Price_Plan__r.Tier_3_Rate__c ,
+IF(Tier__c=4, Price_Plan__r.Tier_4_Rate__c ,Price_Plan__r.Tier_5_Rate__c)))),
+IF( ISPICKVAL( Price_Plan__r.Payment_Plan__c ,&quot;Top 15&quot;),
+IF( CONTAINS(Country_Name__c, &quot;ROW&quot;), Price_Plan__r.ROW_Rate__c ,
+IF( CONTAINS(Country_Name__c, &quot;Brazil&quot;), Price_Plan__r.ROW_Rate__c ,
+IF( CONTAINS(Country_Name__c, &quot;Russia&quot;), Price_Plan__r.ROW_Rate__c ,
+IF( CONTAINS(Country_Name__c, &quot;New Zealand&quot;), Price_Plan__r.ROW_Rate__c , Price_Plan__r.Top_15_Rate__c )))),
+IF( ISPICKVAL( Price_Plan__r.Payment_Plan__c ,&quot;Equal Usage&quot;), Price_Plan__r.Usage_Rate__c ,
+ (Price_Plan__r.Fixed_Price__c/19))
+)
+
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Rate</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>4</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

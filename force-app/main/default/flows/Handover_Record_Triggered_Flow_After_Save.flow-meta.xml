@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <description>send alert &quot;Handover Was Created by SM&quot;</description>
+        <name>HCSM_Handover_Was_Created_by_SM</name>
+        <label>HCSM - Handover_Was_Created_by_SM</label>
+        <locationX>680</locationX>
+        <locationY>383</locationY>
+        <actionName>Product_Implementation__c.Handover_Was_Created_by_SM</actionName>
+        <actionType>emailAlert</actionType>
+        <connector>
+            <targetReference>Rule_AGP_Acc_Growth_Potential_Low_Medium_High</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>Product_Implementation__c.Handover_Was_Created_by_SM</nameSegment>
+    </actionCalls>
+    <apiVersion>54.0</apiVersion>
+    <decisions>
+        <name>Next_Rule</name>
+        <label>Next Rule</label>
+        <locationX>510</locationX>
+        <locationY>1158</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Next_Rule1</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Id</leftValueReference>
+                <operator>EqualTo</operator>
+            </conditions>
+            <label>Next Rule</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>if &apos; Account Growth Potential&apos; = Low/Medium/High - execute &apos;Acc Growth Potential = Low/Medium/High&apos; outcome</description>
+        <name>Rule_AGP_Acc_Growth_Potential_Low_Medium_High</name>
+        <label>*Rule (AGP)* - Acc Growth Potential = Low/Medium/High</label>
+        <locationX>415</locationX>
+        <locationY>589</locationY>
+        <defaultConnector>
+            <targetReference>Rule_PISC_PIS_Change</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Acc_Growth_Potential_Low_Medium_High</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Account_Growth_Potential__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Low</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Account_Growth_Potential__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Medium</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Account_Growth_Potential__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>High</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>AGP_Create_Task</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>Acc Growth Potential = Low/Medium/High</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>If Handover has been created by SW Sales Internal or SW Sales Internal - STRAT - execute Handover created by SM outcome</description>
+        <name>Rule_HCSM_Handover_created_by_SM</name>
+        <label>*Rule (HCSM)* - Handover created by SM</label>
+        <locationX>415</locationX>
+        <locationY>383</locationY>
+        <defaultConnector>
+            <targetReference>Rule_AGP_Acc_Growth_Potential_Low_Medium_High</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Handover_created_by_SM</name>
+            <conditionLogic>1 AND (2 OR 3)</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Id</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record__Prior.Id</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.CreatedBy.Profile.Name</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>SW Sales Internal</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.CreatedBy.Profile.Name</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>SW Sales Internal - STRAT</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>HCSM_Handover_Was_Created_by_SM</targetReference>
+            </connector>
+            <label>Handover created by SM</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>If &apos;SIM&apos; changed - execute &apos;PIS Change&apos; outcome</description>
+        <name>Rule_PISC_PIS_Change</name>
+        <label>*Rule (PISC)* - PIS Change</label>
+        <locationX>413</locationX>
+        <locationY>772</locationY>
+        <defaultConnector>
+            <targetReference>Rule_SE_SIM_Email</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>PIS_Change</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.SIM__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Create_Account_Team_member_for_PI_Object</targetReference>
+            </connector>
+            <label>PIS Change</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>If the record is new or &apos;SIM&apos; changed and Opportunity is not blank and &apos;SIM&apos; is not blank  - execute &apos;SIM Email&apos; outcome</description>
+        <name>Rule_SE_SIM_Email</name>
+        <label>*Rule (SE)* - SIM Email</label>
+        <locationX>408</locationX>
+        <locationY>931</locationY>
+        <defaultConnector>
+            <targetReference>Next_Rule</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>SIM_Email</name>
+            <conditionLogic>(1 OR 2) AND 3 AND 4</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Id</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record__Prior.Id</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.SIM__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Opportunity__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.SIM__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>SE_Populate_SIM_email_on_Opportunity</targetReference>
+            </connector>
+            <label>SIM Email</label>
+        </rules>
+    </decisions>
+    <formulas>
+        <name>fr_Description</name>
+        <dataType>String</dataType>
+        <expression>&quot;https://similarweb.lightning.force.com/&quot; &amp; {!$Record.Id}</expression>
+    </formulas>
+    <formulas>
+        <description>&quot;Upsell Potential - &quot; &amp; TEXT([Product_Implementation__c].Account_Growth_Potential__c) &amp; &quot; Submitted&quot;</description>
+        <name>fr_Subject</name>
+        <dataType>String</dataType>
+        <expression>&quot;Upsell Potential - &quot; &amp; TEXT({!$Record.Account_Growth_Potential__c}) &amp; &quot; Submitted&quot;</expression>
+    </formulas>
+    <interviewLabel>Handover - Record Triggered Flow - After Save {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Handover - Record Triggered Flow - After Save</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordCreates>
+        <description>Create a task</description>
+        <name>AGP_Create_Task</name>
+        <label>AGP - Create Task</label>
+        <locationX>664</locationX>
+        <locationY>578</locationY>
+        <connector>
+            <targetReference>Rule_PISC_PIS_Change</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Description</field>
+            <value>
+                <elementReference>fr_Description</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>OwnerId</field>
+            <value>
+                <elementReference>$Record.Account__r.OwnerId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Subject</field>
+            <value>
+                <elementReference>fr_Subject</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>WhatId</field>
+            <value>
+                <elementReference>$Record.Account__c</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Task</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordUpdates>
+        <description>Populate &apos;SIM&apos; email on Opportunity</description>
+        <name>SE_Populate_SIM_email_on_Opportunity</name>
+        <label>SE - Populate SIM email on Opportunity</label>
+        <locationX>615</locationX>
+        <locationY>931</locationY>
+        <connector>
+            <targetReference>Next_Rule</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Opportunity__r.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>SIM_Email__c</field>
+            <value>
+                <elementReference>$Record.SIM__r.Email</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Opportunity</object>
+    </recordUpdates>
+    <start>
+        <locationX>410</locationX>
+        <locationY>48</locationY>
+        <connector>
+            <targetReference>Rule_HCSM_Handover_created_by_SM</targetReference>
+        </connector>
+        <object>Product_Implementation__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <subflows>
+        <description>Run flow &apos;Create Account Team member for PI Object&apos;</description>
+        <name>Create_Account_Team_member_for_PI_Object</name>
+        <label>Create_Account_Team_member_for_PI_Object</label>
+        <locationX>666</locationX>
+        <locationY>759</locationY>
+        <connector>
+            <targetReference>Rule_SE_SIM_Email</targetReference>
+        </connector>
+        <flowName>Create_Account_Team_member_for_PI_Object</flowName>
+        <inputAssignments>
+            <name>VarPIId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </subflows>
+</Flow>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MIR_Aging_Contacts_LATAM</fullName>
+    <columns>CONTACT.CREATED_DATE</columns>
+    <columns>CORE.USERS.FIRST_NAME</columns>
+    <columns>Business_Unit__c</columns>
+    <columns>MQL__c</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CONTACT.FIRST_NAME</columns>
+    <columns>CONTACT.LAST_NAME</columns>
+    <columns>Website__c</columns>
+    <columns>CONTACT.TITLE</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>Original_Lead_Source__c</columns>
+    <columns>CONTACT.ADDRESS2_COUNTRY</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>Open</value>
+    </filters>
+    <filters>
+        <field>Nurtured_by_Marketing__c</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>SYS_Owner_Role__c</field>
+        <operation>contains</operation>
+        <value>MIR</value>
+    </filters>
+    <filters>
+        <field>CONTACT.CREATED_DATE</field>
+        <operation>equals</operation>
+        <value>LAST_N_DAYS:120</value>
+    </filters>
+    <filters>
+        <field>CONTACT.LAST_ACTIVITY</field>
+        <operation>notEqual</operation>
+        <value>LAST_90_DAYS</value>
+    </filters>
+    <filters>
+        <field>CONTACT.CREATED_DATE</field>
+        <operation>notEqual</operation>
+        <value>LAST_N_DAYS:60</value>
+    </filters>
+    <filters>
+        <field>Pro_User_Type__c</field>
+        <operation>notEqual</operation>
+        <value>User,Admin</value>
+    </filters>
+    <filters>
+        <field>CONTACT.LEAD_SOURCE</field>
+        <operation>notEqual</operation>
+        <value>ContactForm,SDR Outbound,Tradeshow,Webinar,InvitationRegisterRequest</value>
+    </filters>
+    <filters>
+        <field>Original_Lead_Source__c</field>
+        <operation>notEqual</operation>
+        <value>ContactForm,SDR Outbound,Tradeshow,Webinar,InvitationRegisterRequest</value>
+    </filters>
+    <label>MIR - Aging Contacts - LATAM</label>
+</ListView>

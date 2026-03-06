@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Compact_For_Lightning_Page</fullName>
+    <fields>Name</fields>
+    <fields>OwnerId</fields>
+    <fields>BillingAddress</fields>
+    <fields>fr_ARR__c</fields>
+    <fields>Status__c</fields>
+    <fields>Account_Catalyst_Health_Score_FR_Color__c</fields>
+    <fields>Website</fields>
+    <fields>SW_Industry__c</fields>
+    <fields>Business_Unit__c</fields>
+    <label>Compact For Lightning Page</label>
+</CompactLayout>

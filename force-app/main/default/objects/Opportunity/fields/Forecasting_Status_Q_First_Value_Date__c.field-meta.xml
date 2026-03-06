@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Forecasting_Status_Q_First_Value_Date__c</fullName>
+    <description>MIS-5588 will populate when SW_Forecasting_Status_First_Value__c if filled</description>
+    <externalId>false</externalId>
+    <label>Forecasting Status Q First Value Date</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Date</type>
+</CustomField>

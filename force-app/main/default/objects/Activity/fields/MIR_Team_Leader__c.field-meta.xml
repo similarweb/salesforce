@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MIR_Team_Leader__c</fullName>
+    <description>Use for filter MIR dashboards.
+Filter by owner manager.
+MIS-3359</description>
+    <externalId>false</externalId>
+    <formula>CASE( Owner:User.Manager.FirstName ,
+&quot;Rachel&quot;,DATE(2021,4,4) ,
+&quot;Omri&quot;, DATE (2021,5,5),
+&quot;Ryan&quot;, DATE(2021, 9, 9),
+&quot;Kyle&quot;, DATE(2021, 8, 8),
+&quot;Hadas&quot;, DATE(2021, 11, 11),
+&quot;Manuela&quot;, DATE(2021, 12, 12),
+&quot;Matt&quot;, DATE(2022, 1, 1),
+&quot;Shannon&quot;, DATE(2022, 2, 2),
+&quot;Joshua&quot;, DATE(2022,3,3),
+&quot;Shoshana&quot;, DATE(2022,4,4),
+&quot;Christofer&quot;, DATE(2022,5,5),
+&quot;Ohad&quot;, DATE(2023,1,1),
+&quot;Ido&quot;, DATE(2023,2,2),
+&quot;Gavin&quot;, DATE(2023,5,5),
+&quot;Yonat&quot;, DATE(2023,6,6),
+&quot;Eitan&quot;, DATE(2023,3,3),
+&quot;Naoya&quot;, DATE (2023,7,7),
+
+
+DATE(2020,1,1)
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>SDR/MIR Team Leader</label>
+    <required>false</required>
+    <type>Date</type>
+</CustomField>

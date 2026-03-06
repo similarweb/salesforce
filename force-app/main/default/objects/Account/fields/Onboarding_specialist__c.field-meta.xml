@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Onboarding_specialist__c</fullName>
+    <externalId>false</externalId>
+    <label>Onboarding specialist</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Harriet Shakked</fullName>
+                <default>false</default>
+                <label>Harriet Shakked</label>
+            </value>
+            <value>
+                <fullName>Audrey Jackson</fullName>
+                <default>false</default>
+                <label>Audrey Jackson</label>
+            </value>
+            <value>
+                <fullName>Merav Shaviv</fullName>
+                <default>false</default>
+                <label>Merav Shaviv</label>
+            </value>
+            <value>
+                <fullName>Marie Concannon</fullName>
+                <default>false</default>
+                <label>Marie Concannon</label>
+            </value>
+            <value>
+                <fullName>TBD</fullName>
+                <default>false</default>
+                <label>TBD</label>
+            </value>
+            <value>
+                <fullName>No Onboarding</fullName>
+                <default>false</default>
+                <label>No Onboarding</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

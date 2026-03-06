@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Shanni_s_view</fullName>
+    <columns>OPPORTUNITY.NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>OPPORTUNITY.STAGE_NAME</columns>
+    <columns>Wolves_Platform__c</columns>
+    <columns>Wolves_Potential_DAU__c</columns>
+    <columns>Wolves_Yesterday_DAU__c</columns>
+    <columns>OPPORTUNITY.PROBABILITY</columns>
+    <columns>Wolves_Source_ID_SGAdmin__c</columns>
+    <columns>Wolves_Link_to_Product__c</columns>
+    <columns>CORE.USERS.FULL_NAME</columns>
+    <columns>Biz_Dev_Owner__c</columns>
+    <columns>OPPORTUNITY.TYPE</columns>
+    <columns>Wolves_Tracking_Method__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Biz_Dev_Owner__c</field>
+        <operation>equals</operation>
+        <value>shanni navon</value>
+    </filters>
+    <label>Shanni&apos;s view</label>
+</ListView>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Subsidiary_for_document__c</fullName>
+    <externalId>false</externalId>
+    <formula>CASE( Subsidiary__c,
+&quot;Parent Company : SimilarWeb Inc&quot;,&quot;Similarweb Inc&quot;,
+
+&quot;Parent Company : SimilarWeb UK : Similarweb FR&quot;,&quot;SimilarWeb France SAS &quot;,
+
+&quot;Parent Company : SimilarWeb IL&quot;,&quot;Similarweb Ltd. &quot;,
+
+&quot;Parent Company : SimilarWeb AU&quot;,&quot;Similarweb Australia Pty Ltd&quot;,
+
+&quot;Parent Company : SimilarWeb JP&quot;,&quot;SimilarWeb Japan K.K. &quot;,
+
+&quot;Parent Company : SimilarWeb UK&quot;,&quot;Similarweb UK Ltd. &quot;,
+
+&quot;Parent Company : SimilarWeb DE&quot;,&quot;Similarweb Germany GmbH &quot;,
+
+&quot;Parent Company : Similarweb SGD&quot;,&quot;Similarweb SG Pte Ltd &quot;,
+
+null
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Subsidiary for document</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

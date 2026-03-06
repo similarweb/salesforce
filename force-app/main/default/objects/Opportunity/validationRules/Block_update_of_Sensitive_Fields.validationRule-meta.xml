@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Block_update_of_Sensitive_Fields</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+
+  $Profile.Name &lt;&gt; &quot;System Administrator&quot;,
+  $Profile.Name &lt;&gt; &quot;Integration User - API Only&quot;,
+  $Profile.Name &lt;&gt; &quot;Integration User&quot;,
+  $Profile.Name &lt;&gt; &quot;SW Billing&quot;,
+  $Profile.Name &lt;&gt; &quot;SW Billing Extended&quot;,
+  $Profile.Name &lt;&gt; &quot;SW SalesOps Extended&quot;,
+  $Profile.Name &lt;&gt; &quot;SW SalesOps&quot;,
+  RecordType.DeveloperName &lt;&gt; &quot;Wolves&quot;,
+
+  IsClosed = TRUE,
+  PRIORVALUE(IsClosed) = TRUE,
+
+  OR(
+    ISCHANGED(ForecastCategoryName),
+ISCHANGED(Assigned_CSM_Name__c),
+ISCHANGED(Account_AM__c),
+    ISCHANGED(Similarweb_Forecasting_status__c),
+    ISCHANGED(Amount),
+    ISCHANGED(CloseDate),
+    ISCHANGED(Cycle_Price__c),
+    ISCHANGED(Cycle__c),
+    ISCHANGED(Cycle_Price_Local__c),
+    ISCHANGED(Max_ARR__c),
+    ISCHANGED(Type),
+    ISCHANGED(RecordTypeId)
+  ),
+				
+				!UpdatedByNextStageFlow__c
+)</errorConditionFormula>
+    <errorMessage>Opportunity cannot be modified once closed</errorMessage>
+</ValidationRule>

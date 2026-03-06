@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Country_to_study__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Please list all countries for which analysis is expected</inlineHelpText>
+    <label>Countries or regions to study</label>
+    <length>3200</length>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>4</visibleLines>
+</CustomField>

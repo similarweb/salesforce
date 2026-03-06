@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>60.0</apiVersion>
+    <isExposed>true</isExposed>
+    <targets>
+        <target>lightning__FlowScreen</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__FlowScreen">
+            <property name="title" type="String" label="Section Title" description="The title text for the section header" required="true"/>
+            <property name="helpText" type="String" label="Help Text" description="Optional help text to display below the header"/>
+            <property name="isWarning" type="Boolean" label="Is Warning" description="Display help text as a warning in red" default="false"/>
+            <property name="hideTitle" type="Boolean" label="Hide Title" description="Hide the title and show only help text" default="false"/>
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

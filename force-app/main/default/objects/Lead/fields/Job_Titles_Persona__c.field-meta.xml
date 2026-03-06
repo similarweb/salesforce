@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Job_Titles_Persona__c</fullName>
+    <description>MIS-4062</description>
+    <externalId>false</externalId>
+    <formula>IF(
+  AND(
+    ISBLANK(Title),
+    Contains(Current_Registration_Type__c, &quot;Digital Marketing&quot;)
+  ),
+  &apos;DMI Nurture Flow&apos;,
+  IF(
+    Contains(Current_Registration_Type__c, &quot;Sales&quot;),
+    &apos;Sales Nurture Flow&apos;,
+    IF(
+      AND(
+        Contains(Current_Registration_Type__c, &quot;Digital Marketing&quot;),
+        Contains(&quot;:finance director:finance manager:investor:portfolio manager:portfolio analyst:investment analyst:investment associate:investment manager:trader:general partner (gp):managing partner:venture partner:principle (investment fund):&quot;,&quot;:&quot;&amp;Lower(Title)&amp;&quot;:&quot;)
+      ),
+      &apos;Investors Nurture Flow&apos;,
+      IF(
+        and(
+          Contains(Current_Registration_Type__c, &quot;Digital Marketing&quot;),
+          Contains(&quot;:analyst:budget analyst:business analyst:business systems analyst:data analyst:financial analyst:marketing operations analyst:marketing research analyst:operations analyst:product analyst:title analyst:director of corporate development:vice president (vp) of corporate development:director of ecommerce:vice president (vp) of ecommerce:chief brand officer (cbo):chief business officer (cbo):chief corporate development officer (ccdo):chief creative officer (cco):chief customer officer (cco):chief data officer (cdo):chief digital officer (cdo):chief executive officer (ceo):chief financial officer (cfo):chief growth officer (cgo):chief information officer (cio):chief insights officer (cio):chief marketing officer (cmo):chief operating officer (coo):chief product officer (cpo):chief sales officer (cso):chief strategy officer (cso):chief technology officer (cto):head of marketing:marketing executive:senior vice president (svp) of marketing:senior vice president (svp) of product marketing:vice president (vp) of marketing:vice president (vp) of product marketing:business head:business owner:co-founder/founder:digital transformation:financial planner:research assistant:researcher:senior vice president (svp) of insights:senior vice president (svp) of technology:vice president (vp) of digital:vice president (vp) of insights:vice president (vp) of technology:vice president (vp) of insights:senior vice president (svp) of product management:vice president (vp) of product management:senior vice president (svp) of business development:senior vice president (svp) of sales:vice president (vp) of business development:vice president (vp) of sales:brand strategist:director of consumer market insights (cmi):director of insights:director of strategy:market development manager:market researcher:strategy manager:vice president (vp) of consumer market insights (cmi):vice president (vp) of strategy:&quot;, &quot;:&quot;&amp;Lower(Title)&amp;&quot;:&quot;)
+        ),
+        &apos;MR Nurture Flow&apos;,
+        IF(
+          Contains(Current_Registration_Type__c, &quot;Digital Marketing&quot;),
+          &apos;DMI Nurture Flow&apos;,
+          &apos;&apos;
+        )
+      )
+    )
+  )
+)</formula>
+    <label>Job Titles Persona</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Competitor_product_mandatory</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+OR( 
+ISPICKVAL(Competition__c , &apos;Evaluating a competitor&apos;), 
+ISPICKVAL(Competition__c , &apos;Currently using a competitor&apos;), 
+ISPICKVAL(Competition__c , &apos;Will replace SW with a competitor&apos;) 
+),
+ISCHANGED(Competition__c),
+ISBLANK(Competitor_Product__c),
+RecordType.DeveloperName&lt;&gt;&quot;Rank_Ranger&quot;,
+RecordType.DeveloperName&lt;&gt;&quot;Acquired_Company&quot;,
+$Profile.Name &lt;&gt; &apos;SW SalesOps Extended&apos;
+)</errorConditionFormula>
+    <errorDisplayField>Competitor_Product__c</errorDisplayField>
+    <errorMessage>Please specify a competitor</errorMessage>
+</ValidationRule>

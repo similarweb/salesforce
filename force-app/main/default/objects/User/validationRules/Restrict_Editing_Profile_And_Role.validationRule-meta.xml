@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Restrict_Editing_Profile_And_Role</fullName>
+    <active>true</active>
+    <errorConditionFormula>and(
+  $Profile.Name &lt;&gt; &apos;System Administrator&apos;,
+   $User.Alias  &lt;&gt; &apos;auser&apos;,
+  or(
+    ISCHANGED(UserRoleId),
+    ISCHANGED(ProfileId),
+    ISCHANGED(IsActive)
+  )
+)</errorConditionFormula>
+    <errorMessage>Please contact MIS for assistance.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Accessibility_lead_list_16_5_18</fullName>
+    <columns>Projects_Wolves__c</columns>
+    <columns>LEAD.STATUS</columns>
+    <columns>Wolves_App_Name__c</columns>
+    <columns>Wolves_Link_to_App__c</columns>
+    <columns>Wolves_Rating_Count__c</columns>
+    <columns>Minimum_Installs__c</columns>
+    <columns>LEAD.COMPANY</columns>
+    <columns>LEAD.CREATED_DATE</columns>
+    <columns>Wolves_Quality_Score__c</columns>
+    <columns>Wolves_Tracking_Method__c</columns>
+    <columns>Wolves_App_Category__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CORE.USERS.ALIAS</field>
+        <operation>equals</operation>
+        <value>hvata</value>
+    </filters>
+    <filters>
+        <field>LEAD.CONVERTED</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>Projects_Wolves__c</field>
+        <operation>includes</operation>
+        <value>Accessibility Q1 2018</value>
+    </filters>
+    <filters>
+        <field>LEAD.STATUS</field>
+        <operation>equals</operation>
+        <value>Open</value>
+    </filters>
+    <label>Accessibility project 21.5.18</label>
+</ListView>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Survey_Language__c</fullName>
+    <externalId>false</externalId>
+    <label>Survey Language</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>English Survey</fullName>
+                <default>false</default>
+                <label>English Survey</label>
+            </value>
+            <value>
+                <fullName>English - ROW Survey</fullName>
+                <default>false</default>
+                <label>English - ROW Survey</label>
+            </value>
+            <value>
+                <fullName>English - US Survey</fullName>
+                <default>false</default>
+                <label>English - US Survey</label>
+            </value>
+            <value>
+                <fullName>French Survey</fullName>
+                <default>false</default>
+                <label>French Survey</label>
+            </value>
+            <value>
+                <fullName>Japanese Survey</fullName>
+                <default>false</default>
+                <label>Japanese Survey</label>
+            </value>
+            <value>
+                <fullName>Null</fullName>
+                <default>true</default>
+                <label>Null</label>
+            </value>
+            <value>
+                <fullName>Survey Sent</fullName>
+                <default>false</default>
+                <label>Survey Sent</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

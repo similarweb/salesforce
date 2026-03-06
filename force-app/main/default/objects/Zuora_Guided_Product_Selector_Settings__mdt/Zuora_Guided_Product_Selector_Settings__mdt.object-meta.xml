@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>Zuora Guided Product Selector Setting</label>
+    <pluralLabel>Zuora Guided Product Selector Setting</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sys_Alert_Trigger__c</fullName>
+    <externalId>false</externalId>
+    <label>Sys Alert Trigger</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>2nd Alert</fullName>
+                <default>false</default>
+                <label>2nd Alert</label>
+            </value>
+            <value>
+                <fullName>3rd Alert</fullName>
+                <default>false</default>
+                <label>3rd Alert</label>
+            </value>
+            <value>
+                <fullName>4th Alert</fullName>
+                <default>false</default>
+                <label>4th Alert</label>
+            </value>
+            <value>
+                <fullName>5th Alert</fullName>
+                <default>false</default>
+                <label>5th Alert</label>
+            </value>
+            <value>
+                <fullName>6th Alert</fullName>
+                <default>false</default>
+                <label>6th Alert</label>
+            </value>
+            <value>
+                <fullName>7th Alert</fullName>
+                <default>false</default>
+                <label>7th Alert</label>
+            </value>
+            <value>
+                <fullName>8th Alert</fullName>
+                <default>false</default>
+                <label>8th Alert</label>
+            </value>
+            <value>
+                <fullName>9th Alert</fullName>
+                <default>false</default>
+                <label>9th Alert</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

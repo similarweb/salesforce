@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Russia_MIR_MQL_Leads</fullName>
+    <booleanFilter>1 AND 2 AND 3 AND 4 AND 5 AND 6 AND 7 and 8 and 9</booleanFilter>
+    <columns>Department__c</columns>
+    <columns>MQL_date__c</columns>
+    <columns>Pro_User_Type__c</columns>
+    <columns>FULL_NAME</columns>
+    <columns>LEAD.COMPANY</columns>
+    <columns>SW_Industry__c</columns>
+    <columns>LEAD.COUNTRY</columns>
+    <columns>LEAD.TITLE</columns>
+    <columns>LEAD.STATUS</columns>
+    <columns>LEAD.EMAIL</columns>
+    <columns>LEAD.PHONE</columns>
+    <columns>LEAD.LAST_ACTIVITY</columns>
+    <columns>Business_Unit__c</columns>
+    <columns>SW_Fit_Score__c</columns>
+    <columns>LEAD.EMAIL_OPT_OUT</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>LEAD.CONVERTED</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>SYS_Owner_Role__c</field>
+        <operation>contains</operation>
+        <value>MIR,IM,ROW</value>
+    </filters>
+    <filters>
+        <field>LEAD.LEAD_SOURCE</field>
+        <operation>notContain</operation>
+        <value>Tradeshow,Webinar,Linkedin,Facebook</value>
+    </filters>
+    <filters>
+        <field>LEAD.STATUS</field>
+        <operation>notContain</operation>
+        <value>Unqualified,Standby</value>
+    </filters>
+    <filters>
+        <field>Neglected_MQL__c</field>
+        <operation>equals</operation>
+        <value>neglected</value>
+    </filters>
+    <filters>
+        <field>MQL__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <filters>
+        <field>Most_Recent_Cadence_Next_Due_Date__c</field>
+        <operation>equals</operation>
+    </filters>
+    <filters>
+        <field>SYS_Owner_Role__c</field>
+        <operation>notContain</operation>
+        <value>Inside Sales,CSM,Japan,Gaprise,reseller,panel</value>
+    </filters>
+    <filters>
+        <field>LEAD.COUNTRY</field>
+        <operation>contains</operation>
+        <value>Azerbajan,Belarus,Kazakhstan,Kyrgyzstan,Armenia,Moldova,Russia,Tajikistan,Uzbekistan,Ukraine</value>
+    </filters>
+    <label>Russia MIR MQL Leads</label>
+</ListView>

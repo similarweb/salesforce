@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Related_Meeting_Created_By_Email__c</fullName>
+    <description>Used in &quot;Opportunity PB&quot; in criteria node: &quot;Meeting Created By Manager Email&quot;. 
+Indicates the Email from the related &quot;Meeting&quot; of the Opp.</description>
+    <externalId>false</externalId>
+    <label>Related Meeting Created By Email</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Email</type>
+    <unique>false</unique>
+</CustomField>

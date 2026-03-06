@@ -1,0 +1,75 @@
+/* Container for the two-column layout */
+.accordion-container {
+    display: flex;
+    justify-content: space-between;
+    background: white;
+}
+
+/* Left and Right columns - width evenly distributed */
+.left-column, .right-column {
+    width: 48%;
+}
+.accordion-container ul {
+    padding-left: 20px; /* Ensure some padding for the list */
+    list-style-type: disc; /* Add bullet points */
+}
+
+.accordion-container ul li {
+    white-space: normal;    /* Allow text to wrap normally */
+    word-wrap: break-word;  /* Break long words if necessary */
+    overflow-wrap: break-word; /* Handle very long words in modern browsers */
+    margin-bottom: 8px;     /* Add space between list items */
+    line-height: 1.5;       /* Improve readability */
+    max-width: 100%;        /* Ensure it takes full width for wrapping */
+}
+
+/* Styling for the big headline (h1) */
+.header h1 {
+    font-size: 1.3em; /* Larger font size for emphasis */
+    font-weight: bold; /* Bold for prominence */
+    display: inline-block;
+    margin-bottom: 0;
+}
+.custom-accordion lightning-accordion-section::part(summary) {
+    font-size: 0.8em;
+}
+.slds-accordion__summary-content {
+    font-size: 20px !important;
+    color: red !important; /* Example of custom color */
+}
+
+/* Underline for big headline */
+.header hr {
+    margin: 2px 0; /* Reduces vertical margin to 2px */
+    height: 1px; /* Makes the line thinner */
+    background-color: #ccc; /* Light grey color for the line */
+    border: none; /* Removes any default borders */
+}
+
+/* Styling for sub-headlines (h2) */
+.sub-header h2 {
+    font-size: 1.0em; /* Slightly smaller font size */
+    font-weight: 600; /* Semi-bold for sub-headlines */
+    display: inline-block;
+    margin-bottom: 0;
+}
+
+/* Underline for sub-headlines */
+.sub-header hr {
+    margin: 2px 0; /* Reduces vertical margin to 2px */
+    height: 1px; /* Makes the line thinner */
+    background-color: #ccc; /* Light grey color for the line */
+    border: none; /* Removes any default borders */
+    /*border: 1px solid #555; !* Thinner underline for h2 *!*/
+}
+.highlighted {
+    background-color: #f4f6f9; /* A light background color to indicate more values */
+    border-left: 4px solid #0070d2; /* Add a blue left border to visually distinguish */
+    padding-left: 10px; /* Add some padding to the content inside */
+    margin-top: 10px; /* Add spacing between sections */
+}
+
+/* Hover effect for highlighted accordion sections */
+.highlighted:hover {
+    background-color: #e1e8f0; /* Slightly darker shade on hover */
+}

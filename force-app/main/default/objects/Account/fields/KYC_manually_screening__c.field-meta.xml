@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>KYC_manually_screening__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>temp fields to run kyc process manually</description>
+    <externalId>false</externalId>
+    <label>KYC manually screening</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

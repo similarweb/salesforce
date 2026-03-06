@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Prevent_Legal_requests_updating_quotes</fullName>
+    <active>true</active>
+    <description>MQ-1216 Prevent Legal requests from updating quotes that were sent to Zuora</description>
+    <errorConditionFormula>AND(
+ISNEW(),
+RecordType.DeveloperName = &quot;Legal_Services&quot;,
+NOT(ISNULL(Quote__c)),
+OR(
+ISPICKVAL(Quote__r.zqu_Quote_Status__c, &quot;Sent To Zuora&quot;),
+ISPICKVAL(Quote__r.zqu_Quote_Status__c, &quot;Quote Pending Renewal Date&quot;),
+ISPICKVAL(Quote__r.zqu_Quote_Status__c, &quot;Contract Signed&quot;),
+ISPICKVAL(Quote__r.zqu_Quote_Status__c, &quot;Contract Signed Manually&quot;),
+ISPICKVAL(Quote__r.zqu_Quote_Status__c, &quot;Cancelled&quot;),
+ISPICKVAL(Quote__r.zqu_Quote_Status__c, &quot;Ready for Billing&quot;),
+ISPICKVAL(Quote__r.zqu_Quote_Status__c, &quot;Processed Directly in Zuora&quot;),
+ISPICKVAL(Quote__r.zqu_Quote_Status__c, &quot;Voided&quot;)
+)
+)</errorConditionFormula>
+    <errorDisplayField>Status__c</errorDisplayField>
+    <errorMessage>The Legal request is related to a locked quote, please submit/ complete the request without a related quote</errorMessage>
+</ValidationRule>

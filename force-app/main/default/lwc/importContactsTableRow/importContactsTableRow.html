@@ -1,0 +1,132 @@
+<template>
+    <div class="table_row">
+        <div class="slds-grid">
+            <div class="input slds-var-m-horizontal_xx-small slds-align_absolute-center ">
+                <div class="slds-form-element__control">
+                    <input class="slds-input" name="AccountId" value={fields.AccountId} type="text" onchange={handleChange} onblur={handleUpsert} maxlength={charLimits.Account} title={validMessages.AccountId.message}></input>
+                </div>
+            </div>
+            <div class="input slds-var-m-horizontal_xx-small slds-align_absolute-center">
+                <div class="slds-form-element__control">
+                    <input class="slds-input" name="Email" value={fields.Email} type="email" onchange={handleChange} onblur={handleUpsert} maxlength={charLimits.Email} title={validMessages.Email.message}></input>
+                </div>
+            </div>
+            <div class="input slds-var-m-horizontal_xx-small slds-align_absolute-center">
+                <div class="slds-form-element__control">
+                    <input class="slds-input"  name="FirstName" value={fields.FirstName} type="text" onchange={handleChange} onblur={handleUpsert} pattern="[a-zA-Z0-9]*" maxlength={charLimits.FirstName} title={validMessages.FirstName.message}></input>
+                </div>
+            </div>
+            <div class="input slds-var-m-horizontal_xx-small slds-align_absolute-center">
+                <div class="slds-form-element__control">
+                    <input class="slds-input" name="LastName" value={fields.LastName} type="text" onchange={handleChange} onblur={handleUpsert} pattern="[a-zA-Z0-9]*" maxlength={charLimits.LastName} title={validMessages.LastName.message}></input>
+                </div>
+            </div>
+            <div class="input slds-var-m-horizontal_xx-small slds-align_absolute-center">
+                <div class="slds-form-element__control">
+                    <input class="slds-input" name="Title" value={fields.Title} type="text" onchange={handleChange} onblur={handleUpsert} pattern="[a-zA-Z0-9]*" maxlength={charLimits.Title} title={validMessages.Title.message}></input>
+                </div>
+            </div>
+            <div class="input slds-var-m-horizontal_xx-small slds-align_absolute-center">
+                <lightning-combobox
+                    class="picklistDepartment"
+                    name="Department"
+                    value={fields.Department}
+                    options={picklistOptionsN.DepartmentOptions}
+                    onchange={handleUpsert}
+                    onblur={handleUpsert}
+                    variant = "label-hidden"
+                    title={validMessages.Department.message}>
+                </lightning-combobox>
+            </div>
+            <div class="input slds-var-m-horizontal_xx-small slds-align_absolute-center">
+                <lightning-combobox
+                    class="picklistOriginalLeadSource"
+                    name="OriginalLeadSource"
+                    value={fields.OriginalLeadSource}
+                    options={picklistOptionsN.LeadSourceOptions}
+                    onchange={handleUpsert}
+                    onblur={handleUpsert}
+                    variant = "label-hidden"
+                    title={validMessages.OriginalLeadSource.message}></lightning-combobox>
+            </div>
+            <div class="input slds-var-m-horizontal_xx-small slds-align_absolute-center">
+                <div class="slds-form-element__control">
+                    <input class="slds-input" name="Phone" value={fields.Phone} type="text" onchange={handleChange} onblur={handleUpsert} pattern="[0-9]*" maxlength={charLimits.Phone} title={validMessages.Phone.message}></input>
+                </div>
+            </div>
+            <div class="input slds-var-m-horizontal_xx-small slds-align_absolute-center">
+                <div class="slds-form-element__control">
+                    <input class="slds-input" name="Mobile" value={fields.Mobile} type="text" onchange={handleChange} onblur={handleUpsert} pattern="[0-9]*" maxlength={charLimits.Mobile} title={validMessages.Mobile.message}></input>
+                </div>
+            </div>
+            <div class="input slds-var-m-horizontal_xx-small slds-align_absolute-center">
+                <div class="slds-form-element__control">
+                    <input class="slds-input" name="otherPhone" value={fields.otherPhone} type="text" onchange={handleChange} onblur={handleUpsert} pattern="[0-9]*" maxlength={charLimits.OtherPhone} title={validMessages.otherPhone.message}></input>
+                </div>
+            </div>
+            <div class="input slds-var-m-horizontal_xx-small slds-align_absolute-center">
+                <lightning-combobox
+                    class="picklistCountry"
+                    name="Country"
+                    value={fields.Country}
+                    options={picklistOptionsN.CountryPicklistOptions}
+                    onchange={handleUpsert}
+                    onblur={handleUpsert}
+                    variant = "label-hidden"
+                    title={validMessages.Country.message}></lightning-combobox>
+            </div>
+            <div class="input slds-var-m-horizontal_xx-small slds-align_absolute-center">
+                <lightning-combobox
+                        class="picklistState"
+                        name="State"
+                        value={fields.State}
+                        options={stateOptions}
+                        onchange={handleUpsert}
+                        onblur={handleUpsert}
+                        variant = "label-hidden"
+                        title={validMessages.Country.message}></lightning-combobox>
+            </div>
+            <div class="input slds-var-m-horizontal_xx-small slds-align_absolute-center">
+                <div class="slds-form-element__control">
+                    <input class="slds-input" name="City" value={fields.City} type="text" onchange={handleChange} onblur={handleUpsert} pattern="[0-9]*" maxlength={charLimits.OtherPhone} title={validMessages.City.message}></input>
+                </div>
+            </div>
+            <div class="input slds-var-m-horizontal_xx-small slds-align_absolute-center">
+                <div class="slds-form-element__control">
+                    <input class="slds-input" name="linkedInProfile" value={fields.linkedInProfile} type="text" onchange={handleChange} onblur={handleUpsert} pattern="[a-zA-Z0-9]*" maxlength={charLimits.LinkedInProfile} title={validMessages.linkedInProfile.message}></input>
+                </div>
+            </div>
+            <div class="input slds-var-m-horizontal_xx-small slds-align_absolute-center">
+                <div class="slds-form-element__control">
+                    <input class="slds-input" name="ContactId" value={fields.ContactId} type="text" onchange={handleChange} onblur={handleUpsert} pattern="[a-zA-Z0-9]*" maxlength={charLimits.Contact} title={validMessages.ContactId.message}></input>
+                </div>
+            </div>
+            <div class="table_us__cell slds-var-m-horizontal_xx-small slds-align_absolute-center">
+                <div class="slds-form-element__control">
+                    <template if:true={fields.UploadStatus}>
+                        <span class="tool" data-tip={fields.UploadStatus} tabindex="0">
+                            <lightning-icon icon-name="utility:info_alt" size="small" alternative-text="Info"
+                            variant="error"></lightning-icon>
+                        </span>
+                    </template>
+                    <template if:false={fields.UploadStatus}>
+                        <lightning-icon icon-name="utility:info_alt" size="small" alternative-text="Info"
+                            variant="success"></lightning-icon>
+                    </template>
+                </div>
+            </div>
+            <div class="table_us__cell slds-var-m-horizontal_xx-small slds-align_absolute-center">
+                <div class="slds-form-element__control">
+                    <lightning-button-icon 
+                        icon-name="utility:clear" 
+                        size="large"  
+                        variant="bare" 
+                        alternative-text="ClearRow" 
+                        title="ClearRow"
+                        onclick={clearRow}>
+                    </lightning-button-icon>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

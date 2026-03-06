@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Industry__c</fullName>
+    <description>MIS-269</description>
+    <externalId>false</externalId>
+    <label>Industry</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>payments</fullName>
+                <default>false</default>
+                <label>payments</label>
+            </value>
+            <value>
+                <fullName>b2b saas</fullName>
+                <default>false</default>
+                <label>b2b saas</label>
+            </value>
+            <value>
+                <fullName>logistics</fullName>
+                <default>false</default>
+                <label>logistics</label>
+            </value>
+            <value>
+                <fullName>adtech</fullName>
+                <default>false</default>
+                <label>adtech</label>
+            </value>
+            <value>
+                <fullName>ecommerce</fullName>
+                <default>false</default>
+                <label>ecommerce</label>
+            </value>
+            <value>
+                <fullName>CPG</fullName>
+                <default>false</default>
+                <label>CPG</label>
+            </value>
+            <value>
+                <fullName>Automotive</fullName>
+                <default>false</default>
+                <label>Automotive</label>
+            </value>
+            <value>
+                <fullName>Travel</fullName>
+                <default>false</default>
+                <label>Travel</label>
+            </value>
+            <value>
+                <fullName>Financial Services</fullName>
+                <default>false</default>
+                <label>Financial Services</label>
+            </value>
+            <value>
+                <fullName>Publishers &amp; Media</fullName>
+                <default>false</default>
+                <label>Publishers &amp; Media</label>
+            </value>
+            <value>
+                <fullName>Classifieds</fullName>
+                <default>false</default>
+                <label>Classifieds</label>
+            </value>
+            <value>
+                <fullName>Consulting &amp; Market Research</fullName>
+                <default>false</default>
+                <label>Consulting &amp; Market Research</label>
+            </value>
+            <value>
+                <fullName>B2C Internet Services</fullName>
+                <default>false</default>
+                <label>B2C Internet Services</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

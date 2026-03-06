@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Product_sold_validation_at_25_percent</fullName>
+    <active>false</active>
+    <description>Deactivated in 25/04/2022 - Approved by Lola.</description>
+    <errorConditionFormula>AND(
+NOT(ISNEW()),
+ISCHANGED(StageName),
+
+NOT(ISPICKVAL(Type,&quot;Feature Update&quot;)) ,
+Probability &gt;= 0.25,
+RecordTypeId &lt;&gt; &apos;012b0000000cfCa&apos;, /*Panel Acquisition*/
+RecordTypeId &lt;&gt; &apos;01267000000Qgu1&apos;, /*Rank Ranger*/
+$Profile.Id &lt;&gt; &apos;00eb0000000oBvcAAE&apos;,
+$Profile.Name &lt;&gt; &quot;SW SalesOps Extended&quot;,
+$Profile.Name &lt;&gt; &quot;SW SalesOps&quot;,
+RecordType.DeveloperName &lt;&gt; &quot;Partnership&quot;,
+
+isblank(text(Product_Sold__c )),
+
+        
+NOT(ISCHANGED(Related_Meeting__c)),
+NOT(ISCHANGED(SalesLoft1__Most_Recent_Cadence_Name__c)),
+NOT(ISCHANGED(Account_owner_changed__c)),
+NOT(ISCHANGED(DocuSign_Envelope_Status__c)),
+NOT(ISCHANGED(Legal_Request_Status__c)),
+NOT(ISCHANGED(Quote_Request_Status__c)),
+NOT(ISCHANGED(Supplier_Questionnaire_Request_Status__c)),
+ISBLANK(text( Product_Sold__c ))
+
+
+)</errorConditionFormula>
+    <errorMessage>Please make sure to populate the Product Sold field in order to proceed</errorMessage>
+</ValidationRule>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Fields_Required_for_Matching_Logic</fullName>
+    <active>false</active>
+    <description>Territory must have the required fields for the matching logic,
+Strategic Pod OR Industry and Sub Division</description>
+    <errorConditionFormula>ISBLANK(TEXT(Strategic_Pod__c))
+&amp;&amp;
+(
+ISBLANK( TEXT(SW_Industry__c) )
+||
+ISBLANK( Sub_Division__c ) 
+)</errorConditionFormula>
+    <errorMessage>Please populate Strategic Pod OR SW Industry and Sub Division</errorMessage>
+</ValidationRule>

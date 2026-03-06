@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Account_Catalyst_Health_Score_FR_Color__c</fullName>
+    <description>MIS-6521</description>
+    <externalId>false</externalId>
+    <formula>TEXT(Account_Catalyst_Health_Score__c)&amp;&quot; &quot;&amp;
+IF( 
+				Account_Catalyst_Health_Score__c &gt; 8, IMAGE(&quot;/servlet/servlet.FileDownload?file=0150O000004xFo5&quot;, &quot;green&quot;, 16, 50 ),
+				IF(
+							Account_Catalyst_Health_Score__c &gt; 4, IMAGE(&quot;/servlet/servlet.FileDownload?file=0150O000004xWeC&quot;, &quot;yellow&quot;, 16, 50 ),
+							IF(
+											Account_Catalyst_Health_Score__c &gt; 0, IMAGE(&quot;/servlet/servlet.FileDownload?file=0150O000004xFpH&quot;, &quot;red&quot; , 16, 50), NULL
+											)
+							)
+				)</formula>
+    <label>Account Catalyst Health Score</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

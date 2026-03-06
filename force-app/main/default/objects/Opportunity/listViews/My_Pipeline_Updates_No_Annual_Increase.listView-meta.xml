@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>My_Pipeline_Updates_No_Annual_Increase</fullName>
+    <columns>Age__c</columns>
+    <columns>OPPORTUNITY.NAME</columns>
+    <columns>ARR__c</columns>
+    <columns>OPPORTUNITY.FORECAST_CATEGORY</columns>
+    <columns>OPPORTUNITY.CLOSE_DATE</columns>
+    <columns>OPPORTUNITY.STAGE_NAME</columns>
+    <columns>Next_Steps__c</columns>
+    <columns>Identify_Pain__c</columns>
+    <columns>Metrics__c</columns>
+    <columns>Decision_Criteria__c</columns>
+    <columns>Decision_Process__c</columns>
+    <columns>Champion__c</columns>
+    <columns>Economic_Buyer__c</columns>
+    <columns>Competitor_Product__c</columns>
+    <columns>OPPORTUNITY.RECORDTYPE</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+        <field>OPPORTUNITY.STAGE_NAME</field>
+        <operation>notContain</operation>
+        <value>Closed Won,Closed Lost</value>
+    </filters>
+    <filters>
+        <field>OPPORTUNITY.CLOSE_DATE</field>
+        <operation>equals</operation>
+        <value>NEXT_N_DAYS:120</value>
+    </filters>
+    <filters>
+        <field>OPPORTUNITY.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Opportunity.Enterprise</value>
+    </filters>
+    <filters>
+        <field>OPPORTUNITY.NAME</field>
+        <operation>notContain</operation>
+        <value>Annual</value>
+    </filters>
+    <label>My Pipeline Updates (No Annual Increase)</label>
+</ListView>

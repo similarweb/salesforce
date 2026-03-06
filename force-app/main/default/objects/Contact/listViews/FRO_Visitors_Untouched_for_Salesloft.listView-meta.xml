@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FRO_Visitors_Untouched_for_Salesloft</fullName>
+    <columns>Account_Owner__c</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>fr_Last_Pro_Visit_Date__c</columns>
+    <columns>Status__c</columns>
+    <columns>fr_Pro_User_Type__c</columns>
+    <columns>FULL_NAME</columns>
+    <columns>CONTACT.TITLE</columns>
+    <columns>Account.SW_Industry__c</columns>
+    <columns>Website__c</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>CONTACT.ADDRESS2_COUNTRY</columns>
+    <columns>SalesLoft1__Most_Recent_Cadence_Name__c</columns>
+    <columns>Most_Recent_Cadence_Entry_Date__c</columns>
+    <columns>CONTACT.LAST_ACTIVITY</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>fr_Last_Pro_Visit_Date__c</field>
+        <operation>equals</operation>
+        <value>LAST_N_DAYS:14</value>
+    </filters>
+    <filters>
+        <field>Owner_Role__c</field>
+        <operation>contains</operation>
+        <value>UK - STRAT CSM,UK - ENT CSM</value>
+    </filters>
+    <filters>
+        <field>Status__c</field>
+        <operation>notEqual</operation>
+        <value>Replied,Unqualified,SDR Prospecting</value>
+    </filters>
+    <filters>
+        <field>fr_Pro_User_Type__c</field>
+        <operation>equals</operation>
+        <value>Demo</value>
+    </filters>
+    <filters>
+        <field>fr_Pro_User_Type__c</field>
+        <operation>notContain</operation>
+        <value>Admin,user</value>
+    </filters>
+    <label>FRO Visitors Untouched for Salesloft</label>
+</ListView>

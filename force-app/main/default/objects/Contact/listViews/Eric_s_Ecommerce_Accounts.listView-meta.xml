@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Eric_s_Ecommerce_Accounts</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CONTACT.TITLE</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.LAST_ACTIVITY</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>Original_Lead_Source__c</columns>
+    <columns>CONTACT.CREATED_DATE</columns>
+    <columns>Status__c</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>Pro_User_Type__c</columns>
+    <columns>CONTACT.EMAIL_OPT_OUT</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>ACCOUNT.ACCOUNT_ID</field>
+        <operation>equals</operation>
+        <value>001b000000tjVoU,001b000000d23lG,001b00000147tTn,001b000000tkw8i,0010O00001rhek9,001b000000a1BYO,001b000000aWtqg,001b000003hy499,001b000003sLYJa,0010O00001zvzxY,001b000000jI9Cz,001b000000wG6h5,001b000003jVCJU</value>
+    </filters>
+    <filters>
+        <field>Status__c</field>
+        <operation>notEqual</operation>
+        <value>Unqualified</value>
+    </filters>
+    <filters>
+        <field>Pro_User_Type__c</field>
+        <operation>notEqual</operation>
+        <value>User,Admin</value>
+    </filters>
+    <filters>
+        <field>CONTACT.LAST_ACTIVITY</field>
+        <operation>notEqual</operation>
+        <value>LAST_N_DAYS:14</value>
+    </filters>
+    <label>Eric&apos;s Ecommerce Accounts</label>
+</ListView>

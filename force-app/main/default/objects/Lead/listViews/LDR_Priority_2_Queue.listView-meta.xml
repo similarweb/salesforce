@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LDR_Priority_2_Queue</fullName>
+    <booleanFilter>1 AND 2 AND 3 AND 4 AND 7 AND 9 AND ((6 AND 8) OR 5)</booleanFilter>
+    <columns>Strategic_Employee__c</columns>
+    <columns>Verified__c</columns>
+    <columns>Unverified_Reason__c</columns>
+    <columns>Enrichment_Source__c</columns>
+    <columns>LEAD.EMAIL</columns>
+    <columns>FULL_NAME</columns>
+    <columns>LEAD.COMPANY</columns>
+    <columns>Polygraph_Company_Domain__c</columns>
+    <columns>LEAD.TITLE</columns>
+    <columns>Employees_Min__c</columns>
+    <columns>Employees_Max__c</columns>
+    <columns>LEAD.URL</columns>
+    <columns>Business_Unit__c</columns>
+    <columns>Strategic_Region__c</columns>
+    <columns>SW_Industry__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>LEAD.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Lead.Default</value>
+    </filters>
+    <filters>
+        <field>Orchestration_Journey__c</field>
+        <operation>equals</operation>
+        <value>LDR</value>
+    </filters>
+    <filters>
+        <field>CORE.USERS.LAST_NAME</field>
+        <operation>equals</operation>
+        <value>Kaiser</value>
+    </filters>
+    <filters>
+        <field>LEAD.CONVERTED</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>Business_Unit__c</field>
+        <operation>equals</operation>
+        <value>Strategic</value>
+    </filters>
+    <filters>
+        <field>Business_Unit__c</field>
+        <operation>equals</operation>
+        <value>Enterprise,Inside Sales</value>
+    </filters>
+    <filters>
+        <field>Last_Contact_Us_Form_Subject__c</field>
+        <operation>equals</operation>
+    </filters>
+    <filters>
+        <field>Country_Tier__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <filters>
+        <field>LEAD.LEAD_SOURCE</field>
+        <operation>notContain</operation>
+        <value>Calendly</value>
+    </filters>
+    <label>LDR Priority 2 - Queue</label>
+</ListView>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Contract_Wording_Action__c</fullName>
+    <description>MQ-1799
+This picklist will help to build wording for the contract.</description>
+    <externalId>false</externalId>
+    <label>Contract Wording Action</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Summary of Named Users</fullName>
+                <default>false</default>
+                <label>Summary of Named Users</label>
+            </value>
+            <value>
+                <fullName>Summary of Data Credits</fullName>
+                <default>false</default>
+                <label>Summary of Data Credits</label>
+            </value>
+            <value>
+                <fullName>Quantity</fullName>
+                <default>false</default>
+                <label>Quantity</label>
+            </value>
+            <value>
+                <fullName>Contract wording</fullName>
+                <default>false</default>
+                <label>Contract wording</label>
+            </value>
+            <value>
+                <fullName>Product Name</fullName>
+                <default>false</default>
+                <label>Product Name</label>
+            </value>
+            <value>
+                <fullName>Summary of Attributes</fullName>
+                <default>false</default>
+                <label>Summary of Attributes</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

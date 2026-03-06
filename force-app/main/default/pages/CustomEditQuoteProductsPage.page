@@ -1,0 +1,662 @@
+<apex:page id="EditQuoteProducts"
+           sideBar="false"
+           tabStyle="zqu__Quote__c"
+           standardController="zqu__Quote__c"
+           extensions="CustomEditQuoteProductsController,CustomCpqSelectProductController"
+           lightningStylesheets="true">
+    <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/design-system/2.5.0/styles/salesforce-lightning-design-system.min.css" />
+    </head>
+    <apex:includeScript value="{!$Site.BaseUrl}/lightning/lightning.out.js?v=2"/>
+    <apex:includeLightning />
+    <apex:variable value="{!zqu__Quote__c.Id}" var="quoteId"/>
+    <apex:outputPanel id="compositionId">
+        <apex:composition template="zqu__QuoteWizardTemplateNoForm">
+        <apex:define name="PageBody">
+            <div id="SelectValuesDiv"></div>
+            <apex:form >
+                    <apex:actionFunction action="{!navigateBack}" name="onNavigateBack" />
+                    <apex:actionFunction action="{!redirectToRecordPage}" name="onRedirectToRecordPage" />
+                    <!-- <apex:actionFunction action="{!removeOriginalProducts}" name="onRemoveOriginalProducts" reRender=""/> -->
+                    <apex:actionFunction action="{!checkIfOriginalProductsHaveChanged}" name="onSubmitButton" reRender=""/>
+                    <apex:outputField value="{!zqu__Quote__c.RecordTypeId}" rendered="false"/>
+                    <apex:outputField value="{!zqu__Quote__c.zqu__QuoteBusinessType__c}" rendered="false"/>
+                    <apex:outputField value="{!zqu__Quote__c.Migrating_to_New_Soultion__c}" rendered="false"/>
+                    <apex:outputField value="{!zqu__Quote__c.payment_frequency1__c}" rendered="false"/>
+                    <apex:outputField value="{!zqu__Quote__c.zqu__InitialTerm__c}" rendered="false"/>
+                    <apex:outputField value="{!zqu__Quote__c.QuoteRegion__c}" rendered="false"/>
+                    <apex:pageMessages rendered="{!zqu__Quote__c.QuoteRegion__c == 'Error - Please check the Sold To country'}"></apex:pageMessages>
+
+                    <zqu:EditQuoteProduct editQuoteProductOptions="{!editProductOptions}" rendered="{!zqu__Quote__c.QuoteRegion__c != 'Error - Please check the Sold To country'}"/>
+                    <!-- <zqu:EditQuoteProduct editQuoteProductOptions="{!editProductOptions}"/> -->
+                    <script>
+                        debugger;
+                        // Select the node that will be observed for mutations
+                        var targetNode = document.querySelectorAll('div.panelStatusOriginal, div.panelStatusUpdated, div.panelStatusAdded');
+
+                        // Options for the observer (which mutations to observe)
+                        var config = {
+                            attributes: true,
+                            childList: true,
+                            subtree: true
+                        };
+
+                        // Callback function to execute when mutations are observed
+                        var callback = function(mutationsList, observer6) {
+                            debugger;
+                            for(var mutation of mutationsList) {
+                                if (mutation.type == 'childList') {
+                                    console.log('A child node has been added or removed.');
+                                }
+                                else if (mutation.type == 'attributes') {
+                                    console.log('The ' + mutation.attributeName + ' attribute was modified.');
+                                }
+                            }
+                        };
+
+                        // Create an observer instance linked to the callback function
+                        if(targetNode[0]){
+                            var observer6 = new MutationObserver(callback);
+
+                            // Start observing the target node for configured mutations
+                            observer6.observe(targetNode[0], config);
+                        }
+
+                        // Later, you can stop observing
+                        // observer.disconnect();
+
+                        var globalId;
+                        var quoteId = '{!quoteId}';
+                        var msQuantity = 0;
+
+                        // Get a reference to the button
+                        var saveButton = null;
+
+                        var parentDiv = document.querySelector('.productSelectorFooter');
+
+                        var saveButton = null;
+
+                        // Iterate over child nodes of the parent div
+                        if(parentDiv){
+                            for (let child of parentDiv.childNodes) {
+                                if ((child.tagName === 'BUTTON' || child.tagName === 'BUTTTON') && child.getAttribute('data-id') === 'saveButton') {
+                                    saveButton = child;
+                                    break;
+                                }
+                            }
+                            //Create a callback for the MutationObserver
+                            var callback = function(mutationsList, observer1) {
+                                for(let mutation of mutationsList) {
+                                    if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+                                        // Check if "disabled" class is NOT present
+                                        if (!saveButton.classList.contains('disabled')) {
+                                            attachButton();
+                                        }
+                                    }
+                                }
+                            };
+
+                            // Create an instance of the observer with the callback
+                            var observer1 = new MutationObserver(callback);
+
+                            observer1.observe(saveButton, {
+                                attributes: true
+                            });
+                        }
+
+
+
+                        document.addEventListener('blur', function(event) {
+                            // Check if the blurred element was our desired input
+                            if (event && event.target && (event.target.closest('td.QUANTITY input, td.EFFECTIVE_PRICE input, td.SPECIFIC_BILLING_PERIOD input, td.PERIOD select, td.zqu__billingperiodalignment__c select')
+                                || event.target.getAttribute('data-id') === 'saveButton')){
+                                setTimeout(function() {
+                                    attachButton();
+                                }, 200); // 2000 milliseconds = 2 seconds
+                            }
+                        }, true);
+
+
+                        function createButtons(validIds) {
+                            var trElements = document.querySelectorAll('tr.odd');  // Removed [data-id]
+
+                            trElements.forEach(function (tr) {
+                                var id = tr.getAttribute('data-id');
+
+                                if (!id) {
+                                    // If data-id is null, try to get it from the div.panelStatusOriginal
+                                    var divElement = tr.querySelector('div.panelStatusOriginal, div.panelStatusUpdated, div.panelStatusAdded');
+
+                                    if (divElement && divElement.id) {
+                                        id = divElement.id.replace('_status', '');
+                                    }
+                                }
+
+                                if (id && validIds.hasOwnProperty(id)) {
+                                    // Check if a button with class 'myButton' already exists in the row
+                                    var existingButton = tr.querySelector('.myButton');
+                                    if (existingButton) {
+                                        // If a button already exists, remove it
+                                        existingButton.remove();
+                                    }
+
+                                    var btn = document.createElement('BUTTON');
+                                    btn.innerHTML = 'Select Values';
+                                    btn.className = 'slds-button slds-button_brand myButton'; // Adding SLDS classes
+                                    btn.style.display = 'block';
+                                    btn.style.margin = '0 auto';
+                                    btn.setAttribute('data-id', validIds[id]);
+
+                                    btn.addEventListener('click', function() {
+                                        debugger;
+                                        event.preventDefault();
+                                        let trElement = event.target.closest('tr.odd');
+                                        if (trElement) {
+                                            // Fetch the QUANTITY value
+                                            let quantityTd = trElement.querySelector('td.QUANTITY');
+
+                                            if (quantityTd) {
+                                                let quantityValue = quantityTd.textContent.trim();
+                                                let quantityNumber = parseInt(quantityTd.textContent.trim());
+                                                msQuantity = quantityNumber;
+                                            }
+                                        }
+                                        var recordId = this.getAttribute('data-id');
+                                        showModal(recordId);
+                                    });
+                                    var targetTd = tr.querySelector('.quantity_allowed__c');
+                                    if (targetTd) {
+                                        targetTd.appendChild(btn);
+                                    }
+
+                                    // td.appendChild(btn);
+                                    // tr.appendChild(td);
+                                }
+                            });
+                        }
+
+                        function showModal(recordId) {
+                            let modalCmp = $A.getComponent(globalId);
+                            modalCmp.set("v.recordId", recordId);
+                            modalCmp.set("v.isOpen", true);
+                            modalCmp.set("v.quantity", msQuantity);
+                            modalCmp.startTheFlow(); // This now calls the exposed Aura action
+                        }
+
+                        attachButton();
+
+                        function attachButton(){
+                            var trElements = document.querySelectorAll('tr.odd[data-id]');
+                            var idsToCheck = [];
+
+                            trElements.forEach(function (tr) {
+                                idsToCheck.push(tr.getAttribute('data-id'));
+                            });
+                            debugger;
+
+                            var divExtractedIds = extractIDsFromDivs();
+
+                            Visualforce.remoting.Manager.invokeAction(
+                                '{!$RemoteAction.CustomCpqSelectProductController.checkValidIds}',
+                                idsToCheck,
+                                divExtractedIds,
+                                quoteId,
+                                function (result, event) {
+                                    if (event.status) {
+                                        var validIds = result;
+                                        createButtons(validIds);
+                                    } else {
+                                        console.log(event.message);
+                                    }
+                                }
+                            );
+                        }
+                        // Get IDs from the rows and call the remote action to check valid IDs
+
+                        createMyModalComponent();
+
+                        function refreshMyModalComponent() {
+                            // Destroy the existing component
+                            var oldComponent = $A.getComponent(globalId);
+                            if (oldComponent) {
+                                oldComponent.destroy();
+                            }
+
+                            // Re-create the component
+                            createMyModalComponent();
+                        }
+
+                        function getQuantityValue(){
+
+                        }
+
+                        // Create the Lightning component
+                        function createMyModalComponent() {
+                            $Lightning.use("c:MyModalApp", function() {
+                                $Lightning.createComponent("c:MyModal",
+                                    {
+                                        onClose: refreshMyModalComponent,
+                                    },
+                                    "SelectValuesDiv",
+                                    function(cmp, status, errorMessage) {
+                                        globalId = cmp.getGlobalId();
+                                    });
+                            });
+                        }
+
+                        function extractIDsFromDivs() {
+                            var divElements = document.querySelectorAll('div.panelStatusOriginal, div.panelStatusUpdated, div.panelStatusAdded');
+                            var extractedIds = [];
+
+                            divElements.forEach(function (div) {
+                                var id = div.id.replace('_status', '');
+                                extractedIds.push(id);
+                            });
+
+                            return extractedIds;
+                        }
+
+
+                        billingPeriodCheck(false);
+
+                        console.log("Quote fields check!");
+                        console.log("{!zqu__Quote__c.QuoteRegion__c}");
+                        console.log("{!zqu__Quote__c.Product_Compatibility_Amendment__c}");
+                        console.log("{!zqu__Quote__c.Product_Compatibility__c}");
+                        console.log("{!zqu__Quote__c.Product_Type_Amendment__c}");
+                        console.log("{!zqu__Quote__c.New_solution_use_case__c}");
+                        Visualforce.remoting.timeout = 120000;
+
+                        backButtonLogic();
+                        setErrorMessage();
+                        /* if ({!deleteOriginal}) {
+                            removeOriginalProductsOnAmend();
+                        } */
+                        var IS_ZUORA_SUBMIT_ALLOWED = false;
+                        var spanList = document.querySelectorAll('[data-id=nextButton]');
+                        if (spanList && spanList.length > 0 && spanList[0].innerText.toLowerCase() == 'submit') {
+                            var saveOnClickFunction = spanList[0].onclick;
+                            spanList[0].onclick = submitButtonClick;
+                        }
+
+                        function billingPeriodCheck(stop){
+                            let timerId = setInterval(() => {
+                                let fieldName = 'td.SPECIFIC_BILLING_PERIOD.editableCell.displayedText'
+                                const rowsList = document.querySelectorAll(fieldName);
+                                for(const rowValue of rowsList){
+                                    if(rowValue.outerText != "{!zqu__Quote__c.zqu__InitialTerm__c}"){
+                                        rowValue.textContent = "{!zqu__Quote__c.zqu__InitialTerm__c}";
+                                        rowsChanged = true;
+                                    }
+                                }
+                            }, 500);
+                            if(stop){
+                                clearInterval(timerId);
+                            }
+                        }
+
+                        function submitButtonClick(){
+                            if (IS_ZUORA_SUBMIT_ALLOWED) {
+                                IS_ZUORA_SUBMIT_ALLOWED = false;
+                                return;
+                            }
+                            event.stopImmediatePropagation(); // in order to prevent default Zuora "Submit" button logic
+                            clickSaveButtonAndValidationAfter();
+                        }
+
+                        function clickSaveButtonAndValidationAfter(){
+                            billingPeriodCheck(true);
+                            var spanList = document.querySelectorAll('[data-id=saveButton]');
+                            var saveButtonEl;
+                            if (spanList && spanList.length > 0) {
+                                saveButtonEl = spanList[0];
+                                saveButtonEl.click();
+                            }
+                            if (!saveButtonEl) {
+                                return;
+                            }
+                            var spanElToListen;
+                            for (const child_i of saveButtonEl.childNodes) {
+                                if (child_i.classList && [...child_i.classList].includes('running') && [...child_i.classList].includes('hidden')) {
+                                    spanElToListen = child_i;
+                                    break;
+                                }
+                            }
+                            if (!spanElToListen) {
+                                return;
+                            }
+                            var observer2 = new MutationObserver(callback)
+                                    .observe(spanElToListen, {attributes: true, attributeOldValue: true});
+
+                            function callback(mutations, observer2) {
+                                var target = mutations[0].target;
+                                mutations.forEach(function(mutation) {
+                                    if (mutation.type == "attributes" && mutation.attributeName == 'style') {
+                                        var sectionDivEl = mutation.target;
+                                        if(sectionDivEl.style.display == 'none') {
+                                            observer2.disconnect();
+                                            runZuoraRulesValidation();
+                                        }
+                                    }
+                                });
+                            }
+                        }
+
+                        function runZuoraRulesValidation(){
+                            console.log('runZuoraRulesValidation: ');
+                            setLoadingOnZuoraButtons(true);
+                            var spanList = document.querySelectorAll('[data-id=nextButton]');
+                            if (spanList && spanList.length > 0 && spanList[0].innerText.toLowerCase() == 'submit') {
+                                var saveOnClickFunction = spanList[0].onclick;
+                                spanList[0].onclick = submitButtonClick;
+                            }
+                            Visualforce.remoting.Manager.invokeAction(
+                                '{!$RemoteAction.CustomEditQuoteProductsController.validateQuote}',
+                                '{!thisQuote}',
+                                function(result, event){
+                                    console.log('result: '+result);
+                                    console.log('event: '+event);
+                                    console.log('event.status: '+event.status);
+                                    setLoadingOnZuoraButtons(false);
+                                    if (event.status) {
+                                        if (result.length > 0) {
+                                            showAlertMessage(result);
+                                            addAlertMessageToRulesEngineLogs(result);
+                                        } else {
+                                            //IS_ZUORA_SUBMIT_ALLOWED = true;
+                                            //spanList[0].click();
+                                            onSubmitButton();
+                                            onRedirectToRecordPage();
+                                        }
+                                    } else if (event.type === 'exception') {
+                                        /* document.getElementById("responseErrors").innerHTML =
+                                            event.message + "<br/>\n<pre>" + event.where + "</pre>"; */
+                                    } else {
+                                        /* document.getElementById("responseErrors").innerHTML = event.message; */
+                                    }
+                                }
+                            );
+
+                            function setLoadingOnZuoraButtons(isLoading){
+                                var zuoraButtonArray = getZuoraButtonArray();
+                                for (const zuoraButton of zuoraButtonArray) {
+                                    if (zuoraButton.dataset.id == 'calculateButton') {
+                                        setSpinnerVisibilityOnCalculateButton(zuoraButton,isLoading);
+                                    } else {
+                                        if (isLoading) {
+                                            zuoraButton.classList.add('disabled');
+                                        } else {
+                                            zuoraButton.classList.remove('disabled');
+                                        }
+                                    }
+                                }
+
+                                function getZuoraButtonArray(){
+                                    var zuoraButtonArray = document.querySelectorAll('[data-id=cancelButton],[data-id=backButton],[data-id=calculateButton],[data-id=saveButton],[data-id=nextButton]');
+                                    return zuoraButtonArray;
+                                }
+
+                                function setSpinnerVisibilityOnCalculateButton(calculatedButton, isLoading){
+                                    var spanList = calculatedButton.getElementsByTagName('span');
+                                    for (const childSpan_i of spanList) {
+                                        if (childSpan_i.classList.contains('not-running')) {
+                                            if (isLoading) {
+                                                childSpan_i.style.display = 'none';
+                                            } else {
+                                                childSpan_i.style.display = 'block';
+                                            }
+                                        } else if (childSpan_i.classList.contains('running') && childSpan_i.classList.contains('hidden')){
+                                            if (isLoading) {
+                                                childSpan_i.style.display = 'inline';
+                                            } else {
+                                                childSpan_i.style.display = 'none';
+                                            }
+                                        }
+                                    }
+
+                                }
+                            }
+
+                            function showAlertMessage(validationErrorMessageArray){
+                                var alertifyWarningMessage='';
+                                alertifyWarningMessage += getStandartWarningMessage();
+                                alertifyWarningMessage += getHtmlWrappedAlertMessageRaw(validationErrorMessageArray);
+                                alertify.alert(alertifyWarningMessage);
+
+                                function getStandartWarningMessage(){
+                                    return 'There are validation errors that prevent your quote from being saved.';
+                                }
+
+                                function getHtmlWrappedAlertMessageRaw(validationErrorMessageArray){
+                                    var htmlWrappedWarningMessage = '';
+                                    htmlWrappedWarningMessage += '<ul class = "ul.scrollableNotification">';
+                                    for (const validationErrorMessage of validationErrorMessageArray) {
+                                        htmlWrappedWarningMessage += '<div class="rule-log type-ERROR action-VALIDATION">';
+                                        htmlWrappedWarningMessage += validationErrorMessage;
+                                        htmlWrappedWarningMessage += '</div>';
+                                        htmlWrappedWarningMessage += '<br>';
+                                    }
+                                    htmlWrappedWarningMessage += '</ul>';
+                                    htmlWrappedWarningMessage += '<p></p>';
+                                    return htmlWrappedWarningMessage;
+                                }
+                            }
+
+                            function addAlertMessageToRulesEngineLogs(validationErrorMessageArray){
+                                var rulesEngineLogElement = document.getElementById('rulesEngineLogDetailInfo');
+                                if (rulesEngineLogElement) {
+                                    var rulesEngineLogWarningMessageArray = [];
+                                    if (rulesEngineLogElement.hasChildNodes()) {
+                                        markLogElementsAsOld(rulesEngineLogElement.childNodes);
+                                        rulesEngineLogWarningMessageArray.push(getSeparator(rulesEngineLogElement));
+                                    }
+                                    rulesEngineLogWarningMessageArray = rulesEngineLogWarningMessageArray.concat(getHtmlWrappedRuleEngineLogWarningMessageArray(validationErrorMessageArray));
+                                    for (const rulesEngineLogWarningMessage_i of rulesEngineLogWarningMessageArray) {
+                                        rulesEngineLogElement.appendChild(rulesEngineLogWarningMessage_i);
+                                    }
+                                }
+
+                                function markLogElementsAsOld(elementNodeList){
+                                    for (const elementNode_i of elementNodeList) {
+                                        if (elementNode_i.classList) {
+                                            elementNode_i.classList.add('old');
+                                        }
+                                    }
+                                }
+
+                                function getSeparator(rulesEngineLogElement){
+                                    var separator = document.createElement("span");
+                                    separator.classList.add('RuleSeparator');
+                                    separator.appendChild(document.createElement("hr"));
+                                    return separator;
+                                }
+
+                                function getHtmlWrappedRuleEngineLogWarningMessageArray(validationErrorMessageArray){
+                                    var rulesEngineLogWarningMessageArray = [];
+                                    for (const validationErrorMessage of validationErrorMessageArray) {
+                                        var ruleLogMessage = document.createElement("li");
+                                        ruleLogMessage.classList.add('rule-log');
+                                        ruleLogMessage.classList.add('type-ERROR');
+                                        ruleLogMessage.classList.add('action-VALIDATION"');
+                                        ruleLogMessage.innerHTML = validationErrorMessage
+                                        rulesEngineLogWarningMessageArray.push(ruleLogMessage);
+                                    }
+                                    return rulesEngineLogWarningMessageArray;
+                                }
+                            }
+                        }
+
+                        function backButtonLogic(){
+                            console.log("Quote fields check!");
+                            showZuoraButtonFooter();
+                            var backButtonSpanList = document.querySelectorAll('[data-id=backButton]');
+                            var backButtonEl;
+                            var defaultBackOnClickFunction;
+                            if (backButtonSpanList && backButtonSpanList.length > 0) {
+                                backButtonEl = backButtonSpanList[0];
+                                defaultBackOnClickFunction = backButtonEl.onclick;
+                                backButtonEl.onclick = onNavigateBack;
+                            }
+                            var flowElSpanList = document.querySelectorAll('[data-id=allFlows]');
+                            if (flowElSpanList && flowElSpanList.length > 0) {
+                                var flowEl = flowElSpanList[0];
+                                var observer3 = new MutationObserver(function(mutations,observer3) {
+                                mutations.forEach(
+                                    function(mutation) {
+                                        console.log('mutation fired');
+                                        if (mutation.type == "attributes" && mutation.attributeName == 'style') {
+                                            var sectionDivEl = mutation.target;
+                                            if(sectionDivEl.style.display = 'none') {
+                                                backButtonEl.onclick = defaultBackOnClickFunction;
+                                                showTopBarSection();
+                                                showCancelButton();
+                                                showNextButton();
+                                                showSaveButton();
+                                                observer3.disconnect();
+                                            }
+                                        }
+                                    });
+                                });
+                                observer3.observe(flowEl, {
+                                    attributes: true //configure it to listen to attribute changes
+                                });
+                            }
+
+                            function showZuoraButtonFooter(){
+                                var allProductsSpanList = document.querySelectorAll('[data-id=allProducts]');
+                                if (allProductsSpanList && allProductsSpanList.length > 0) {
+                                    var allProductsSectionEl = allProductsSpanList[0];
+                                    allProductsSectionEl.style.display="";
+                                    hideTopBarSection();
+                                    hideCancelButton();
+                                    hideSaveButton();
+                                    hideNextButton();
+                                }
+                            }
+
+                            function showTopBarSection(){
+                                var topBarHtmlList = document.getElementsByClassName('topBar');
+                                if (topBarHtmlList && topBarHtmlList.length > 0) {
+                                    var topBarEl = topBarHtmlList[0];
+                                    topBarEl.style.display = "";
+                                }
+                            }
+
+                            function hideTopBarSection(){
+                                var topBarHtmlList = document.getElementsByClassName('topBar');
+                                if (topBarHtmlList && topBarHtmlList.length > 0) {
+                                    var topBarEl = topBarHtmlList[0];
+                                    topBarEl.style.display = 'none';
+                                }
+                            }
+
+                            function showCancelButton(){
+                                showZuoraButton('cancelButton');
+                            }
+
+                            function hideCancelButton(){
+                                hideZuoraButton('cancelButton');
+                            }
+
+                            function showSaveButton(){
+                                showZuoraButton('saveButton');
+                            }
+
+                            function hideSaveButton(){
+                                hideZuoraButton('saveButton');
+                            }
+
+                            function showNextButton(){
+                                showZuoraButton('nextButton');
+                            }
+
+                            function hideNextButton(){
+                                hideZuoraButton('nextButton');
+                            }
+
+                            function showZuoraButton(dataId){
+                                var buttonSpanList = document.querySelectorAll('[data-id=' + dataId + ']');
+                                if (buttonSpanList && buttonSpanList.length > 0) {
+                                    var backButtonEl = buttonSpanList[0];
+                                    backButtonEl.style.display="";
+                                }
+                            }
+
+                            function hideZuoraButton(dataId){
+                                var buttonSpanList = document.querySelectorAll('[data-id=' + dataId + ']');
+                                if (buttonSpanList && buttonSpanList.length > 0) {
+                                    var backButtonEl = buttonSpanList[0];
+                                    backButtonEl.style.display="none";
+                                }
+                            }
+                        }
+
+                        function removeOriginalProductsOnAmend(){
+                            let productSelectorPanelSpanArr = document.querySelectorAll('[id=productSelectorPanelIdSpan]');
+                            let removeButtonSelectorQuery='';
+                            for (const productSelectorPanelSpan_i of productSelectorPanelSpanArr) {
+                                let productSelectorId = productSelectorPanelSpan_i.innerText;
+                                let productSelectorTypeId = productSelectorId + '_status';
+                                let productSelector = document.getElementById(productSelectorTypeId);
+                                if (productSelector && productSelector.innerText == 'ORIGINAL') {
+                                    let removeButtonId = productSelectorId + '_removeProduct';
+                                    removeButtonSelectorQuery+='li[id = "' + removeButtonId + '"],';
+                                }
+                            }
+                            removeButtonSelectorQuery = removeButtonSelectorQuery.slice(0, -1);
+                            console.log(removeButtonSelectorQuery);
+                            let removeButtonNodeArr = document.querySelectorAll(removeButtonSelectorQuery);
+                            for (const removeButtonNode_i of removeButtonNodeArr) {
+                                removeButtonNode_i.click();
+                            }
+                        }
+
+                        function insertParam(key, value)
+                        {
+                            key = encodeURI(key); value = encodeURI(value);
+
+                            var kvp = document.location.search.substr(1).split('&');
+
+                            var i=kvp.length; var x; while(i--)
+                            {
+                                x = kvp[i].split('=');
+
+                                if (x[0]==key)
+                                {
+                                    x[1] = value;
+                                    kvp[i] = x.join('=');
+                                    break;
+                                }
+                            }
+
+                            if(i<0) {kvp[kvp.length] = [key,value].join('=');}
+                            document.location.search = kvp.join('&');
+                        }
+
+                        function setErrorMessage(){
+                            // if(document.getElementById('EditQuoteProducts:j_id0:j_id27:j_id35:EditQuoteProduct:j_id47:j_id48:j_id84:showmsg:j_id85:j_id86:0:j_id87:j_id88:j_id90') != null){
+                            //     document.getElementById('EditQuoteProducts:j_id0:j_id27:j_id35:EditQuoteProduct:j_id47:j_id48:j_id84:showmsg:j_id85:j_id86:0:j_id87:j_id88:j_id90').textContent = 'We are no longer selling the requested products, please contact the salesops team at';
+                            //     const element = document.getElementById('EditQuoteProducts:j_id0:j_id27:j_id35:EditQuoteProduct:j_id47:j_id48:j_id84:showmsg:j_id85:j_id86:0:j_id87:j_id88:j_id90').innerHTML;
+                            //     document.getElementById('EditQuoteProducts:j_id0:j_id27:j_id35:EditQuoteProduct:j_id47:j_id48:j_id84:showmsg:j_id85:j_id86:0:j_id87:j_id88:j_id90').innerHTML = element + '<a style="font-size: 10.5px;" href="mailto:salesops@similarweb.com">salesops@similarweb.com</a>';
+                            // }
+
+                            if(document.getElementsByClassName('messageText')[0] != null){
+                                if('{!zqu__Quote__c.QuoteRegion__c}' == 'Error - Please check the Sold To country'){
+                                    document.getElementsByClassName('messageText')[0].innerHTML = 'The Bill to / Sold to contact is missing from the quote, please make sure that the information in the Billing account is correct - if it needs updating please reach out to <a style="font-size: 10.5px;" href="mailto:billing@similarweb.com">billing@similarweb.com</a>. For any further assistance please reach out to <a style="font-size: 10.5px;" href="mailto:salesops@similarweb.com">salesops@similarweb.com</a>.';
+                                    // let element = document.getElementsByClassName('messageText')[0].innerHTML;
+                                    // element = element + '<a style="font-size: 10.5px;" href="mailto:billing@similarweb.com">billing@similarweb.com</a>.';
+                                    // document.getElementsByClassName('messageText')[0].innerHTML = element + ' For any further assistance please reach out to <a style="font-size: 10.5px;" href="mailto:salesops@similarweb.com">salesops@similarweb.com</a>.';
+                                } else {
+                                    document.getElementsByClassName('messageText')[0].innerHTML = 'We are no longer selling the requested products, please contact the salesops team at <a style="font-size: 10.5px;" href="mailto:salesops@similarweb.com">salesops@similarweb.com</a>.';
+                                    // const element = document.getElementsByClassName('messageText')[0].innerHTML;
+                                    // document.getElementsByClassName('messageText')[0].innerHTML = element + '';
+                                }
+                            }
+                        }
+                    </script>
+                </apex:form>
+        </apex:define>
+    </apex:composition>
+    </apex:outputPanel>
+
+</apex:page>

@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Case_Type__c</fullName>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Case Type</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Quote</fullName>
+                <default>true</default>
+                <label>Quote</label>
+            </value>
+            <value>
+                <fullName>Opportunity</fullName>
+                <default>false</default>
+                <label>Opportunity</label>
+            </value>
+            <value>
+                <fullName>Extension (Temporary, Permanent, Trial)</fullName>
+                <default>false</default>
+                <label>Extension (Temporary, Permanent, Trial)</label>
+            </value>
+            <value>
+                <fullName>Non-Standard/Custom Contract</fullName>
+                <default>false</default>
+                <label>Non-Standard/Custom Contract</label>
+            </value>
+            <value>
+                <fullName>Review Contract Redlines</fullName>
+                <default>false</default>
+                <label>Review Contract Redlines</label>
+            </value>
+            <value>
+                <fullName>Customer Paper [NDA/MSA/Service Order]</fullName>
+                <default>false</default>
+                <label>Customer Paper [NDA/MSA/Service Order]</label>
+            </value>
+            <value>
+                <fullName>Similarweb MSA</fullName>
+                <default>false</default>
+                <label>Similarweb MSA</label>
+            </value>
+            <value>
+                <fullName>Signature(s)</fullName>
+                <default>false</default>
+                <label>Signature(s)</label>
+            </value>
+            <value>
+                <fullName>Amendment [Amend a Signed Contract]</fullName>
+                <default>false</default>
+                <label>Amendment [Amend a Signed Contract]</label>
+            </value>
+            <value>
+                <fullName>DDQ (Due Diligence / Security Questionnaire)</fullName>
+                <default>false</default>
+                <label>DDQ (Due Diligence / Security Questionnaire)</label>
+            </value>
+            <value>
+                <fullName>Company Documents (e.g. SOC 2, SOC 3, COI, Bank Letter)</fullName>
+                <default>false</default>
+                <label>Company Documents (e.g. SOC 2, SOC 3, COI, Bank Letter)</label>
+            </value>
+            <value>
+                <fullName>Customer Access</fullName>
+                <default>false</default>
+                <label>Customer Access</label>
+            </value>
+            <value>
+                <fullName>Update Customer Information</fullName>
+                <default>false</default>
+                <label>Update Customer Information</label>
+            </value>
+            <value>
+                <fullName>Customer Invoice(s)/Collections</fullName>
+                <default>false</default>
+                <label>Customer Invoice(s)/Collections</label>
+            </value>
+            <value>
+                <fullName>Customer Vendor Form</fullName>
+                <default>false</default>
+                <label>Customer Vendor Form</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Opp Review: One-Time Product</fullName>
+                <default>false</default>
+                <label>Opp Review: One-Time Product</label>
+            </value>
+            <value>
+                <fullName>Contract Signed Manually - Quote for Deal Desk Review</fullName>
+                <default>false</default>
+                <label>Contract Signed Manually - Quote for Deal Desk Review</label>
+            </value>
+            <value>
+                <fullName>Salesops Ticket Form</fullName>
+                <default>false</default>
+                <label>Salesops Ticket Form</label>
+            </value>
+            <value>
+                <fullName>User Management</fullName>
+                <default>false</default>
+                <label>User Management</label>
+            </value>
+            <value>
+                <fullName>BI Ticket</fullName>
+                <default>false</default>
+                <label>BI Ticket</label>
+            </value>
+            <value>
+                <fullName>NT Cancellation</fullName>
+                <default>false</default>
+                <label>NT Cancellation</label>
+            </value>
+            <value>
+                <fullName>Direct Email</fullName>
+                <default>false</default>
+                <label>Direct Email</label>
+            </value>
+            <value>
+                <fullName>Payment Processor</fullName>
+                <default>false</default>
+                <label>Payment Processor</label>
+            </value>
+            <value>
+                <fullName>Invoicing Portals</fullName>
+                <default>false</default>
+                <label>Invoicing Portals</label>
+            </value>
+            <value>
+                <fullName>Internal Billing Case</fullName>
+                <default>false</default>
+                <label>Internal Billing Case</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

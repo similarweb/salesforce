@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Guidelines_for_success__c</fullName>
+    <externalId>false</externalId>
+    <formula>If (RecordType.DeveloperName=&quot;Onboarding&quot; ,&quot;1. Remember to update the Product Implementation object&quot;+BR()+&quot;2. Use the following resources as explained below:&quot;,
+If (RecordType.DeveloperName=&quot;QBR_Reminder&quot; ,&quot;Leverage QBRs to grow our impact on our customer&apos;s business by refining their goals with SW, understand changes in their priorities, and optimize their utilization. Use our QBR guidelines in the link below, and schedule the next QBR by the end of this one&quot;,
+If (RecordType.DeveloperName=&quot;Renewal_Tasks&quot; , &quot;Remember to update the opp stages as the renewal discussions progress&quot; , &quot;&quot;
+  ) 
+ ) 
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Guidelines for success</label>
+    <required>false</required>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Copy_of_TASH_ENT</fullName>
+    <columns>LEAD.CREATED_DATE</columns>
+    <columns>ROE_Sub_Division__c</columns>
+    <columns>FULL_NAME</columns>
+    <columns>LEAD.EMAIL</columns>
+    <columns>LEAD.COMPANY</columns>
+    <columns>LEAD.STATE</columns>
+    <columns>LEAD.STATUS</columns>
+    <columns>LEAD.UNREAD</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>LEAD.COUNTRY</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CORE.USERS.FIRST_NAME</field>
+        <operation>contains</operation>
+        <value>Natascha</value>
+    </filters>
+    <filters>
+        <field>Employees_Min__c</field>
+        <operation>greaterOrEqual</operation>
+        <value>11</value>
+    </filters>
+    <filters>
+        <field>LEAD.CREATED_DATE</field>
+        <operation>greaterOrEqual</operation>
+        <value>4/1/2022 12:00 AM</value>
+    </filters>
+    <filters>
+        <field>LEAD.CONVERTED</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>ROE_Division__c</field>
+        <operation>contains</operation>
+        <value>ENT</value>
+    </filters>
+    <filters>
+        <field>LEAD.STATUS</field>
+        <operation>notContain</operation>
+        <value>Replied,Unqualified,SDR Prospecting</value>
+    </filters>
+    <filters>
+        <field>SW_Industry__c</field>
+        <operation>notContain</operation>
+        <value>Education</value>
+    </filters>
+    <label>Copy of TASH ENT</label>
+</ListView>

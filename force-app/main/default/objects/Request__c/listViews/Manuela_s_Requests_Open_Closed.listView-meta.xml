@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Manuela_s_Requests_Open_Closed</fullName>
+    <booleanFilter>1 and (2 or 3)</booleanFilter>
+    <columns>NAME</columns>
+    <columns>Request_Type__c</columns>
+    <columns>Opportunity__c</columns>
+    <columns>Account__c</columns>
+    <columns>Requester__c</columns>
+    <columns>Status__c</columns>
+    <columns>CREATED_DATE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Recipient__c</field>
+        <operation>contains</operation>
+        <value>Manuela S</value>
+    </filters>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>Submitted,Completed,In Process,Pending Action,Sent to customer,Qualifying,Testing,Building Presentation,Cancelled,On Hold,Actively Working</value>
+    </filters>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+    </filters>
+    <label>Manuela&apos;s Requests - Open &amp; Closed</label>
+</ListView>

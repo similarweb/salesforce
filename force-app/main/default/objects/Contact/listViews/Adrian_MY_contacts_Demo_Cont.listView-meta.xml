@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Adrian_MY_contacts_Demo_Cont</fullName>
+    <columns>Account.Base_Product__c</columns>
+    <columns>fr_Pro_User_Type__c</columns>
+    <columns>FULL_NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>CONTACT.TITLE</columns>
+    <columns>CORE.USERS.FIRST_NAME</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Account.Status__c</field>
+        <operation>equals</operation>
+        <value>Active,Part Of Another Subscription</value>
+    </filters>
+    <filters>
+        <field>fr_Pro_User_Type__c</field>
+        <operation>equals</operation>
+        <value>,Demo,Unregistered,Inactive</value>
+    </filters>
+    <filters>
+        <field>CONTACT.EMAIL_OPT_OUT</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>CORE.USERS.FIRST_NAME</field>
+        <operation>contains</operation>
+        <value>Adrian</value>
+    </filters>
+    <filters>
+        <field>CORE.USERS.LAST_NAME</field>
+        <operation>contains</operation>
+        <value>Burrell</value>
+    </filters>
+    <label>Adrian MY contacts (Demo &amp; Cont)</label>
+</ListView>

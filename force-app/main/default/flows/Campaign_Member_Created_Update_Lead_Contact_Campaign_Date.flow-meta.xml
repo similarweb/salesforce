@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>55.0</apiVersion>
+    <decisions>
+        <name>Lead_or_Contact</name>
+        <label>Lead or Contact?</label>
+        <locationX>182</locationX>
+        <locationY>335</locationY>
+        <defaultConnector>
+            <targetReference>Update_Campaign_Member_fields_Contact</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Contact</defaultConnectorLabel>
+        <rules>
+            <name>Lead</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.LeadId</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Campaign_Member_fields_Lead</targetReference>
+            </connector>
+            <label>Lead</label>
+        </rules>
+    </decisions>
+    <description>MIS-2754 - update Campaign UTM fields from Lead or Contact 
+Migrated from:
+Process Builder - Campaign Member - Alerts and Automations</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>Campaign_Name_UTM_Contact</name>
+        <dataType>String</dataType>
+        <expression>IF(
+ISBLANK({!$Record.Contact.Campaign_Name_UTM__c}),
+{!$Record.Campaign_Name_UTM__c},
+{!$Record.Contact.Campaign_Name_UTM__c}
+)</expression>
+    </formulas>
+    <formulas>
+        <name>Campaign_Name_UTM_Lead</name>
+        <dataType>String</dataType>
+        <expression>IF(
+ISBLANK({!$Record.Lead.Campaign_Name_UTM__c}),
+{!$Record.Campaign_Name_UTM__c},
+{!$Record.Lead.Campaign_Name_UTM__c}
+)</expression>
+    </formulas>
+    <formulas>
+        <name>External_Campaign_Id_Contact</name>
+        <dataType>String</dataType>
+        <expression>IF(
+ISBLANK({!$Record.Contact.External_Campaign_ID__c}),
+{!$Record.External_Campaign_Id__c},
+{!$Record.Contact.External_Campaign_ID__c}
+)</expression>
+    </formulas>
+    <formulas>
+        <name>External_Campaign_Id_Lead</name>
+        <dataType>String</dataType>
+        <expression>IF(
+ISBLANK({!$Record.Lead.External_Campaign_ID__c}),
+{!$Record.External_Campaign_Id__c},
+{!$Record.Lead.External_Campaign_ID__c}
+)</expression>
+    </formulas>
+    <interviewLabel>Campaign Member Created - Update Lead/Contact Campaign Date {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Campaign Member Created - Update Lead/Contact Campaign Date</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Update_Campaign_Member_fields_Contact</name>
+        <label>Update Campaign Member fields - Contact</label>
+        <locationX>314</locationX>
+        <locationY>455</locationY>
+        <connector>
+            <targetReference>Update_Contact_Campaign_Date</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Campaign_Source_UTM__c</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>li</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Campaign_Medium_UTM__c</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>ppc</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Campaign_Content_UTM__c</field>
+            <value>
+                <elementReference>$Record.Contact.Campaign_Content_UTM__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Campaign_Medium_UTM__c</field>
+            <value>
+                <elementReference>$Record.Contact.Campaign_Medium_UTM__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Campaign_Name_UTM__c</field>
+            <value>
+                <elementReference>Campaign_Name_UTM_Contact</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Campaign_Source_UTM__c</field>
+            <value>
+                <elementReference>$Record.Contact.Campaign_Source_UTM__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Campaign_Term_UTM__c</field>
+            <value>
+                <elementReference>$Record.Contact.Campaign_Term_UTM__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>External_Campaign_Id__c</field>
+            <value>
+                <elementReference>External_Campaign_Id_Contact</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Campaign_Member_fields_Lead</name>
+        <label>Update Campaign Member fields - Lead</label>
+        <locationX>50</locationX>
+        <locationY>455</locationY>
+        <connector>
+            <targetReference>Update_Lead_Campaign_Date</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Campaign_Source_UTM__c</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>li</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Campaign_Medium_UTM__c</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>ppc</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Campaign_Content_UTM__c</field>
+            <value>
+                <elementReference>$Record.Lead.Campaign_Content_UTM__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Campaign_Medium_UTM__c</field>
+            <value>
+                <elementReference>$Record.Lead.Campaign_Medium_UTM__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Campaign_Name_UTM__c</field>
+            <value>
+                <elementReference>Campaign_Name_UTM_Lead</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Campaign_Source_UTM__c</field>
+            <value>
+                <elementReference>$Record.Lead.Campaign_Source_UTM__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Campaign_Term_UTM__c</field>
+            <value>
+                <elementReference>$Record.Lead.Campaign_Term_UTM__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>External_Campaign_Id__c</field>
+            <value>
+                <elementReference>External_Campaign_Id_Lead</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Contact_Campaign_Date</name>
+        <label>Update Contact Campaign Date</label>
+        <locationX>314</locationX>
+        <locationY>575</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.ContactId</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Campaign_Date__c</field>
+            <value>
+                <elementReference>$Flow.CurrentDate</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Contact</object>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Lead_Campaign_Date</name>
+        <label>Update Lead Campaign Date</label>
+        <locationX>50</locationX>
+        <locationY>575</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.LeadId</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Campaign_Date__c</field>
+            <value>
+                <elementReference>$Flow.CurrentDate</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Lead</object>
+    </recordUpdates>
+    <start>
+        <locationX>56</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Lead_or_Contact</targetReference>
+        </connector>
+        <filterLogic>or</filterLogic>
+        <filters>
+            <field>ContactId</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>LeadId</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <object>CampaignMember</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Obsolete</status>
+</Flow>

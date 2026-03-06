@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Prospecting_Status__c</fullName>
+    <externalId>false</externalId>
+    <label>Prospecting Status</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Day 1 (Email and Call)</fullName>
+                <default>false</default>
+                <label>Day 1 (Email and Call)</label>
+            </value>
+            <value>
+                <fullName>Day 2 (Call)</fullName>
+                <default>false</default>
+                <label>Day 2 (Call)</label>
+            </value>
+            <value>
+                <fullName>Day 3 (Email and Call)</fullName>
+                <default>false</default>
+                <label>Day 3 (Email and Call)</label>
+            </value>
+            <value>
+                <fullName>Day 4 (Call)</fullName>
+                <default>false</default>
+                <label>Day 4 (Call)</label>
+            </value>
+            <value>
+                <fullName>Day 5 (Email and Call)</fullName>
+                <default>false</default>
+                <label>Day 5 (Email and Call)</label>
+            </value>
+            <value>
+                <fullName>SDR In Contact</fullName>
+                <default>false</default>
+                <label>SDR In Contact</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

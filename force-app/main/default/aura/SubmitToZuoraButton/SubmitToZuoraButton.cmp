@@ -1,0 +1,26 @@
+<aura:component extends="c:GenericQuoteButton" controller="ZuoraSubmitQuoteController">
+    <aura:attribute name="recordId" type="String" />
+    <aura:attribute name="submitMode" type="String" required="true"/>
+    <aura:attribute name="isDisabled" type="Boolean" default="false"/>
+    <aura:attribute name="localIsDisabled" type="Boolean" default="false"/>
+    <aura:attribute name="isPending" type="Boolean" default="false"/>
+    <aura:attribute name="isPassed" type="Boolean" default="false"/>
+    <aura:attribute name="emailCofirmationValidation" type="Boolean" default="false"/>
+    <aura:attribute name="isOpenModal" type="Boolean" default="false"/>
+    <aura:attribute name="actionType" type="String" default="Submit"/>
+
+    <aura:registerEvent name="ApplicationRefresgEvent" type="c:ApplicationRefresgEvent"/>
+    <aura:handler name="confirmEvent" event="c:ConfirmSubmitEvent" action="{!c.handleConfirmSubmitEvent}"/>
+
+    <!-- <lightning:button variant="brand" disabled="{!v.isDisabled}" label="Submit To Zuora" onclick="{!c.onButtonClick}"/> -->
+    <button disabled="{!or(v.isDisabled, v.localIsDisabled)}"
+            class="{! 'slds-button slds-button_brand ff ' + if(and(v.isDisabled,v.isPending),'pendingButton',if(and(v.isDisabled,v.isPassed),'passedButton',if(v.isDisabled,'disabledButton','enabledButton')))}"
+            onclick="{!c.onButtonClick}">
+            Submit To Zuora
+    </button>
+
+    <c:ConfirmSubmitModal isOpenModal="{!v.isOpenModal}"
+                          recordId="{!v.recordId}"
+                          actionType="{!v.actionType}"
+                          />
+</aura:component>

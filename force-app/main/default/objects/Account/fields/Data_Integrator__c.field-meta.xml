@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Data_Integrator__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This field indicates whether an account integrates the data they buy from SW in their own product - relevant for active accounts only</description>
+    <externalId>false</externalId>
+    <label>OEM Partner</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

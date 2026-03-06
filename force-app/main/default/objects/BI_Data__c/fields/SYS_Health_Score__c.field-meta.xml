@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SYS_Health_Score__c</fullName>
+    <externalId>false</externalId>
+    <label>SYS Health Score</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Good Health</fullName>
+                <default>false</default>
+                <label>Good Health</label>
+            </value>
+            <value>
+                <fullName>More Users Required</fullName>
+                <default>false</default>
+                <label>More Users Required</label>
+            </value>
+            <value>
+                <fullName>Critical Engagement</fullName>
+                <default>false</default>
+                <label>Critical Engagement</label>
+            </value>
+            <value>
+                <fullName>More Depth Required</fullName>
+                <default>false</default>
+                <label>More Depth Required</label>
+            </value>
+            <value>
+                <fullName>Advisory Services or Data Feed</fullName>
+                <default>false</default>
+                <label>Advisory Services or Data Feed</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

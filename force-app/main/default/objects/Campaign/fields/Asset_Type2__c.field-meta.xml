@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Asset_Type2__c</fullName>
+    <description>MIS-4271</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Specify the activity’s sub-category</inlineHelpText>
+    <label>Asset Type2</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Event - External</fullName>
+                <default>false</default>
+                <label>Event - External</label>
+            </value>
+            <value>
+                <fullName>Event - Innovation Days</fullName>
+                <default>false</default>
+                <label>Event - Innovation Days</label>
+            </value>
+            <value>
+                <fullName>Event - Owned</fullName>
+                <default>false</default>
+                <label>Event - Owned</label>
+            </value>
+            <value>
+                <fullName>Event - Online</fullName>
+                <default>false</default>
+                <label>Event - Online</label>
+            </value>
+            <value>
+                <fullName>Content - Report</fullName>
+                <default>false</default>
+                <label>Content - Report</label>
+            </value>
+            <value>
+                <fullName>Content - Case Study</fullName>
+                <default>false</default>
+                <label>Content - Case Study</label>
+            </value>
+            <value>
+                <fullName>Content - Infographic</fullName>
+                <default>false</default>
+                <label>Content - Infographic</label>
+            </value>
+            <value>
+                <fullName>Content - Blog Post</fullName>
+                <default>false</default>
+                <label>Content - Blog Post</label>
+            </value>
+            <value>
+                <fullName>Content - Video</fullName>
+                <default>false</default>
+                <label>Content - Video</label>
+            </value>
+            <value>
+                <fullName>Content - Landing Page</fullName>
+                <default>false</default>
+                <label>Content - Landing Page</label>
+            </value>
+            <value>
+                <fullName>Email - One-off</fullName>
+                <default>false</default>
+                <label>Email - One-off</label>
+            </value>
+            <value>
+                <fullName>Email - Automated Cadence</fullName>
+                <default>false</default>
+                <label>Email - Automated Cadence</label>
+            </value>
+            <value>
+                <fullName>Email - Triggered</fullName>
+                <default>false</default>
+                <label>Email - Triggered</label>
+            </value>
+            <value>
+                <fullName>Email - Newsletter</fullName>
+                <default>false</default>
+                <label>Email - Newsletter</label>
+            </value>
+            <value>
+                <fullName>Chat Bot - One-off</fullName>
+                <default>false</default>
+                <label>Chat Bot - One-off</label>
+            </value>
+            <value>
+                <fullName>Chat Bot - Automated</fullName>
+                <default>false</default>
+                <label>Chat Bot - Automated</label>
+            </value>
+            <value>
+                <fullName>Webinar - Recording</fullName>
+                <default>false</default>
+                <label>Webinar - Recording</label>
+            </value>
+            <value>
+                <fullName>Webinar - Internal</fullName>
+                <default>false</default>
+                <label>Webinar - Internal</label>
+            </value>
+            <value>
+                <fullName>Webinar - External</fullName>
+                <default>false</default>
+                <label>Webinar - External</label>
+            </value>
+            <value>
+                <fullName>Lead List</fullName>
+                <default>false</default>
+                <label>Lead List</label>
+            </value>
+            <value>
+                <fullName>Survey - Feedback</fullName>
+                <default>false</default>
+                <label>Survey - Feedback</label>
+            </value>
+            <value>
+                <fullName>Survey - Satisfaction</fullName>
+                <default>false</default>
+                <label>Survey - Satisfaction</label>
+            </value>
+            <value>
+                <fullName>Survey - NPS</fullName>
+                <default>false</default>
+                <label>Survey - NPS</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>WhatsApp - Marketing</fullName>
+                <default>false</default>
+                <label>WhatsApp - Marketing</label>
+            </value>
+            <value>
+                <fullName>WhatsApp - Utility</fullName>
+                <default>false</default>
+                <label>WhatsApp - Utility</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,12 @@
+<aura:component implements="force:hasRecordId,force:lightningQuickAction" access="global" controller = "GenerateProposalsButtonController">
+    <aura:attribute name="isLoading" type="Boolean" required="false"/>    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <div class="slds-is-relative">
+                    
+        <aura:if isTrue="{!v.isLoading}">  
+            <div style="height: 100px;"> 
+                <lightning:spinner variant="brand" alternativeText="Loading" size="large" />
+            </div>
+        </aura:if>
+    </div>
+</aura:component>

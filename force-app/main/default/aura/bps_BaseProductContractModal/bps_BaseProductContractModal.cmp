@@ -1,0 +1,74 @@
+<aura:component controller="BaseProductSettingController">
+    <aura:attribute name="selectedRow" type="Object"/>
+    <aura:attribute name="newLabel" type="String"/>
+    <aura:attribute name="valuesListRaw" type="String"/>
+    <aura:attribute name="mode" type="String" required="true"/>
+    <aura:attribute name="isShown" type="Boolean" required="true"/>
+    <aura:attribute name="isLoading" type="Boolean" default="false"/>
+    <aura:attribute name="shownAddValuesModal" type="Boolean" default="false"/>
+    <aura:attribute name="shownEditValuesModal" type="Boolean" default="false"/>
+
+    <aura:attribute name="columns" type="List"/>
+    <aura:attribute name="data" type="Object[]"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:registerEvent name="BaseProductValueSelectedEvent" type="c:bps_BaseProductValueSelected"/>    
+
+    <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+        <div class="slds-modal__container">
+            <header class="slds-modal__header">
+                <lightning:button disabled="{!v.isLoading}" class="slds-modal__close" onclick="{!c.onCancelClick}" variant="bare">
+                    <lightning:icon iconName="utility:close" alternativeText="Close" size="small" />
+                </lightning:button>
+                <aura:if isTrue="{!v.shownAddValuesModal}">
+                    <h2 id="modal-heading-01" class="slds-modal__title slds-hyphenate">Add values</h2>
+                    <aura:set attribute="else">
+                        <aura:if isTrue="{!v.shownEditValuesModal}">
+                            <h2 id="modal-heading-01" class="slds-modal__title slds-hyphenate">Edit values</h2>                    
+                            <aura:set attribute="else">
+                                <h2 id="modal-heading-01" class="slds-modal__title slds-hyphenate">Base Product Contract</h2>                    
+                            </aura:set>
+                        </aura:if>         
+                    </aura:set>
+                </aura:if>                
+            </header>
+            <div class="slds-modal__content slds-p-around_medium slds-is-relative" id="modal-content-id-1">
+                <aura:if isTrue="{!v.isLoading}">
+                    <lightning:spinner alternativeText="" size="large" />
+                </aura:if>
+                <aura:if isTrue="{!v.shownAddValuesModal}">
+                    <lightning:textarea value="{!v.valuesListRaw}" name="input" label="Picklist values" placeholder="Enter values, with each value separated by a new line..."/>
+                    <aura:set attribute="else">
+                        <aura:if isTrue="{!v.shownEditValuesModal}">
+                            <lightning:input placeholder="{!'Old label - ' + v.selectedRow.label}" name="input2" label="New Label" value="{!v.newLabel}"/>                
+                            <aura:set attribute="else">
+                                <lightning:datatable aura:id="datatable"         
+                                            keyField="Value__c"
+                                            onrowaction="{!c.handleRowAction}"
+                                            data="{!v.data}"
+                                            columns="{!v.columns}"                                 
+                                            hideCheckboxColumn="true"/>
+                            </aura:set>
+                        </aura:if>
+                    </aura:set>
+                </aura:if>
+                
+            </div>
+            <footer class="slds-modal__footer">
+                <button onclick="{!c.onCancelClick}" disabled="{!v.isLoading}" class="slds-button slds-button_neutral">Cancel</button>
+                <aura:if isTrue="{!v.shownAddValuesModal}">
+                    <button onclick="{!c.onSaveClick}" disabled="{!v.isLoading}" class="slds-button slds-button_brand">Save</button>
+                    <aura:set attribute="else">       
+                        <aura:if isTrue="{!v.shownEditValuesModal}">
+                            <button onclick="{!c.onSaveEditedValuesClick}" disabled="{!v.isLoading}" class="slds-button slds-button_brand">Save changes</button>
+                            <aura:set attribute="else">
+                                <button onclick="{!c.onAddValuesClick}" disabled="{!v.isLoading}" class="slds-button slds-button_brand">Add values</button>
+                            </aura:set>
+                        </aura:if>                                         
+                    </aura:set>
+                </aura:if>                
+            </footer>
+        </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open"></div>
+</aura:component>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Accounts_with_meeting_Opp_my_Territory</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>ACCOUNT.LAST_ACTIVITY</columns>
+    <columns>Account_Owner_formula__c</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>Last_Enrichment_Date__c</columns>
+    <columns>Sub_Division__c</columns>
+    <columns>Employees_Min__c</columns>
+    <columns>Industry_Cluster__c</columns>
+    <columns>SW_Industry__c</columns>
+    <columns>Industry_Subtype__c</columns>
+    <columns>TAM__c</columns>
+    <columns>fr_Past_Meeting_Opp__c</columns>
+    <columns>Number_of_Contacts__c</columns>
+    <columns>sw_connector_Total_Monthly_Visits__c</columns>
+    <columns>Stage__c</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+        <field>Stage__c</field>
+        <operation>equals</operation>
+        <value>Pending Meeting,Pre Pipeline,Early Stage Pipeline,Deal in Closing Pipeline</value>
+    </filters>
+    <label>Territory&apos;s Open Meeting/Opp&gt;Multithread</label>
+</ListView>

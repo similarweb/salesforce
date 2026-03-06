@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Description_for_Fixing_Failure__c</fullName>
+    <description>In case the status is changed from Failure to another status</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Please describe the actions taken to resolve the problem.</inlineHelpText>
+    <label>Description for Fixing Failure</label>
+    <length>32768</length>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Html</type>
+    <visibleLines>25</visibleLines>
+</CustomField>

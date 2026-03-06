@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sub_Division__c</fullName>
+    <description>Works with Custom Metadata - &quot;User Sub Motion&quot; - Make sure to update the metadata if the values in this field are changed</description>
+    <externalId>false</externalId>
+    <label>Owner Sub Division</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>true</sorted>
+            <value>
+                <fullName>Agencies &amp; Consultancies</fullName>
+                <default>false</default>
+                <label>Agencies &amp; Consultancies</label>
+            </value>
+            <value>
+                <fullName>AGO</fullName>
+                <default>false</default>
+                <label>AGO</label>
+            </value>
+            <value>
+                <fullName>ANZ Enterprise</fullName>
+                <default>false</default>
+                <label>ANZ Enterprise</label>
+            </value>
+            <value>
+                <fullName>ANZ Inside Sales</fullName>
+                <default>false</default>
+                <label>ANZ Inside Sales</label>
+            </value>
+            <value>
+                <fullName>APAC Strategic</fullName>
+                <default>false</default>
+                <label>APAC Strategic</label>
+            </value>
+            <value>
+                <fullName>EMEA Enterprise</fullName>
+                <default>false</default>
+                <label>EMEA Enterprise</label>
+            </value>
+            <value>
+                <fullName>EMEA Inside Sales B2B</fullName>
+                <default>false</default>
+                <label>EMEA Inside Sales B2B</label>
+            </value>
+            <value>
+                <fullName>EMEA Inside Sales B2C</fullName>
+                <default>false</default>
+                <label>EMEA Inside Sales B2C</label>
+            </value>
+            <value>
+                <fullName>EMEA Inside Sales ENT</fullName>
+                <default>false</default>
+                <label>EMEA Inside Sales ENT</label>
+            </value>
+            <value>
+                <fullName>EMEA Mid Market</fullName>
+                <default>false</default>
+                <label>EMEA Mid Market</label>
+            </value>
+            <value>
+                <fullName>GCR Enterprise</fullName>
+                <default>false</default>
+                <label>GCR Enterprise</label>
+            </value>
+            <value>
+                <fullName>GCR Inside Sales</fullName>
+                <default>false</default>
+                <label>GCR Inside Sales</label>
+            </value>
+            <value>
+                <fullName>Go To Market</fullName>
+                <default>false</default>
+                <label>Go To Market</label>
+            </value>
+            <value>
+                <fullName>India Inside Sales</fullName>
+                <default>false</default>
+                <label>India Inside Sales</label>
+            </value>
+            <value>
+                <fullName>Investors</fullName>
+                <default>false</default>
+                <label>Investors</label>
+            </value>
+            <value>
+                <fullName>JPKR Enterprise</fullName>
+                <default>false</default>
+                <label>JPKR Enterprise</label>
+            </value>
+            <value>
+                <fullName>JPKR Inside Sales</fullName>
+                <default>false</default>
+                <label>JPKR Inside Sales</label>
+            </value>
+            <value>
+                <fullName>LATAM Inside Sales</fullName>
+                <default>false</default>
+                <label>LATAM Inside Sales</label>
+            </value>
+            <value>
+                <fullName>LLM &amp; AI</fullName>
+                <default>false</default>
+                <label>LLM &amp; AI</label>
+            </value>
+            <value>
+                <fullName>Meta/MSFT</fullName>
+                <default>false</default>
+                <label>Meta/MSFT</label>
+            </value>
+            <value>
+                <fullName>NA Enterprise</fullName>
+                <default>false</default>
+                <label>NA Enterprise</label>
+            </value>
+            <value>
+                <fullName>NA Inside Sales</fullName>
+                <default>false</default>
+                <label>NA Inside Sales</label>
+            </value>
+            <value>
+                <fullName>OEM</fullName>
+                <default>false</default>
+                <label>OEM</label>
+            </value>
+            <value>
+                <fullName>Reseller - Brazil - 108</fullName>
+                <default>false</default>
+                <label>Reseller - Brazil - 108</label>
+            </value>
+            <value>
+                <fullName>Reseller - Brazil - Alpha</fullName>
+                <default>false</default>
+                <label>Reseller - Brazil - Alpha</label>
+            </value>
+            <value>
+                <fullName>Reseller - Vietnam - AMS JSC</fullName>
+                <default>false</default>
+                <label>Reseller - Vietnam - AMS JSC</label>
+            </value>
+            <value>
+                <fullName>SEA Enterprise</fullName>
+                <default>false</default>
+                <label>SEA Enterprise</label>
+            </value>
+            <value>
+                <fullName>SEA Inside Sales</fullName>
+                <default>false</default>
+                <label>SEA Inside Sales</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

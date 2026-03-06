@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Datasets_Products__c</fullName>
+    <externalId>false</externalId>
+    <label>Investor Datasets Products</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Referrals - Payments</fullName>
+                <default>false</default>
+                <label>Referrals - Payments</label>
+            </value>
+            <value>
+                <fullName>Referrals - B2B logins</fullName>
+                <default>false</default>
+                <label>Referrals - B2B logins</label>
+            </value>
+            <value>
+                <fullName>Referrals - Applicant Tracking</fullName>
+                <default>false</default>
+                <label>Referrals - Applicant Tracking Growth</label>
+            </value>
+            <value>
+                <fullName>Referrals - Shipping</fullName>
+                <default>false</default>
+                <label>Referrals - Shipping</label>
+            </value>
+            <value>
+                <fullName>Referrals - Social</fullName>
+                <default>false</default>
+                <label>Referrals - Social</label>
+            </value>
+            <value>
+                <fullName>Referrals - OTA/Metasearch</fullName>
+                <default>false</default>
+                <label>Referrals - Metasearch</label>
+            </value>
+            <value>
+                <fullName>Referrals - Financial marketplacses</fullName>
+                <default>false</default>
+                <label>Referrals - Consumer Financial Marketplaces</label>
+            </value>
+            <value>
+                <fullName>Search - Robinhood</fullName>
+                <default>false</default>
+                <label>Search - Retail Trading</label>
+            </value>
+            <value>
+                <fullName>Search - Amazon</fullName>
+                <default>false</default>
+                <label>Search - Amazon</label>
+            </value>
+            <value>
+                <fullName>Search - Google</fullName>
+                <default>false</default>
+                <label>Search - Google</label>
+            </value>
+            <value>
+                <fullName>Top products - Retail</fullName>
+                <default>false</default>
+                <label>Top products - Retail</label>
+            </value>
+            <value>
+                <fullName>Traffic - Top Sites</fullName>
+                <default>false</default>
+                <label>Traffic - Top Sites</label>
+            </value>
+            <value>
+                <fullName>Search- Youtube</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Search- Youtube</label>
+            </value>
+            <value>
+                <fullName>Top products - Amazon</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Top products - Amazon</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,219 @@
+<aura:component controller="ButtonsController" implements="force:appHostable,flexipage:availableForAllPageTypes,force:hasSObjectName,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes" access="global">
+	<aura:attribute name="dynamicComponentsByAuraId" type="Object" />
+	<aura:attribute name="sObjectType" type="String" default="{!v.sObjectName}"/>
+	<aura:attribute name="isOpen" type="Boolean" default="false"/>
+	<aura:attribute name="paymentMethod" type="String" default=""/>
+	<aura:attribute name="zuoraVisualforceUrl" type="String" />
+	<aura:attribute name="quoteRecordTypeAmendId" default="012b0000000QNK7AAO" type="String"/>
+	<aura:attribute name="record" type="Object"/>
+	<aura:attribute name="error" type="String"/>
+	<aura:attribute name="quoteStatus" type="String"/>
+	<aura:attribute name="subscriptionType" type="String"/>
+	<aura:attribute name="documentType" type="String"/>
+	<aura:attribute name="paymentFrequency" type="String"/>
+	<aura:attribute name="paymentLink" type="String"/>
+	<aura:attribute name="recordTypeId" type="String"/>
+	<aura:attribute name="quoteBusinessType" type="String"/>
+	<aura:attribute name="isMsaSentToZuoraEnabled" type="Boolean" default="false"/>
+	<aura:attribute name="isLegalFlowEnabled" type="Boolean" default="false"/>
+	<aura:attribute name="stepList" type="List"/>
+	<aura:attribute name="isQuoteApprovalEnabled" type="Boolean"/>
+	<aura:attribute name="isDiscountApprove" type="Boolean" default="true"/>
+	<aura:handler name="newQuoteEvent" event="c:newQuoteEvent" action="{!c.newQuote}"/>
+	<aura:attribute name="flowMode" type="String"/>
+	<aura:attribute name="amendRenewalMode" type="Boolean" default="false"/>
+	<aura:attribute name="isHitwiseAccount" type="Boolean" default="false"/>
+	<aura:attribute name="isNewSubFromExistingAcc" type="Boolean" default="false"/>
+	<aura:attribute name="isContractSignedManually" type="Boolean" default="false"/>
+	<aura:attribute name="isDeltaZero" type="Boolean"/>
+	<aura:attribute name="isBalanceZero" type="Boolean"/>
+    <aura:attribute name="isARenewal7day" type="Boolean"/>
+    <aura:attribute name="isSalesOps" type="Boolean"/>
+	<aura:attribute name="isASproductExist" type="Boolean" default="false"/>
+	<aura:attribute name="isSubTotalCalculated" type="Boolean" default="false"/>
+	<aura:attribute name="isNewAmendProfiles" type="Boolean"/>
+	<aura:attribute name="isTrialQuote" type="Boolean"/>
+	<aura:attribute name="isDeltaMrrOrSubGreaterThanZero" type="Boolean" default="false"/>
+	<aura:attribute name="isLoaded" type="Boolean" default="false"/>
+	<aura:attribute name="hitwiseLink" type="String"/>
+	<aura:attribute name="isCustomerRequestsToPayImmediately" type="Boolean" default="false"/>
+	<aura:attribute name="isRenewalByClientConfirmation" type="Boolean" default="false"/>
+	<aura:attribute name="isGreenLane" type="Boolean" default="false"/>
+	<aura:attribute name="isContactsProduct" type="Boolean" default="false"/>
+	<aura:attribute name="isExceptionalProduct" type="Boolean" default="false"/>
+	<aura:attribute name="isReady" type="Boolean" required="true" default="true" />
+
+	<aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+	{!v.body}
+	<lightning:empApi aura:id="empApi"/>
+	<aura:attribute name="channel" type="String" default="/event/Quote_is_changed__e"/>
+	<aura:attribute name="amendChannel" type="String" default="/event/Amend_quote_is_changed__e"/>
+	<aura:attribute name="subscription" type="Map"/>
+
+					  
+	<aura:if isTrue="{!(v.sObjectType=='Account')}">
+		<lightning:button onclick="{!c.reassignSDR}" iconName="action:follow" label="Reassign SDR" iconPosition="right"/>
+		<lightning:button onclick="{!c.reassignCSM}" iconName="action:follow" label="Reassign Inside CSM" iconPosition="right"/>
+		<lightning:button onclick="{!c.reassignSales}" iconName="action:follow" label="Reassign Sales" iconPosition="right"/>
+	</aura:if>
+	<aura:if isTrue="{!(v.sObjectType=='Lead')}">
+		<lightning:button onclick="{!c.reassignSDRLeads}" iconName="action:follow" label="Reassign SDR" iconPosition="right"/>
+	</aura:if>
+	<aura:if isTrue="{!(v.sObjectType=='zqu__Quote__c')&amp;&amp;v.isLoaded}">
+		<!-- <lightning:button onclick="{!c.finilaizeQuote}" iconName="action:follow" label="Finalize Quote" iconPosition="right"/> -->
+		<div class="quoteRecord">
+			<aura:if isTrue="{!v.isReady}">
+				<aura:if isTrue="{!notequals(v.quoteStatus,'Cancelled')}">
+				
+					<aura:if isTrue="{!equals(v.subscriptionType,'Amend Subscription')}">
+						<aura:if isTrue="{!v.isTrialQuote}">
+							<c:AmendTrialQuoteButtonLayoutComponent quoteStatus="{!v.quoteStatus}"
+													subscriptionType="{!v.subscriptionType}"
+													paymentMethod="{!v.paymentMethod}"
+													zuoraVisualforceUrl="{!v.zuoraVisualforceUrl}"
+													documentType="{!v.documentType}"
+													quoteRecordId="{!v.recordId}"
+													flowMode = "{!v.flowMode}"
+													isDiscountApprove="{!v.isDiscountApprove}"
+													paymentFrequency="{!v.paymentFrequency}"
+													paymentLink="{!v.paymentLink}"
+													hitwiseLink="{!v.hitwiseLink}"
+													recordTypeId = "{!v.recordTypeId}"
+													amendRenewalMode="{!v.amendRenewalMode}"
+													isMsaSentToZuoraEnabled="{!v.isMsaSentToZuoraEnabled}"
+													quoteBusinessType="{!v.quoteBusinessType}"
+													stepList="{!v.stepList}"
+													isContractSignedManually="{!v.isContractSignedManually}"
+													isARenewal7day="{!v.isARenewal7day}"      
+													isSalesOps="{!v.isSalesOps}"
+													isNewAmendProfiles="{!v.isNewAmendProfiles}"
+													isContactsProduct = "{! or(v.isContactsProduct,v.isExceptionalProduct)}"
+													/>
+					</aura:if>
+					<aura:if isTrue="{!not(v.isTrialQuote)}">
+						<c:AmendQuoteButtonsLayoutNewComponent quoteStatus="{!v.quoteStatus}"
+													subscriptionType="{!v.subscriptionType}"
+													paymentMethod="{!v.paymentMethod}"
+													zuoraVisualforceUrl="{!v.zuoraVisualforceUrl}"
+													documentType="{!v.documentType}"
+													quoteRecordId="{!v.recordId}"
+													flowMode = "{!v.flowMode}"
+													isDiscountApprove="{!v.isDiscountApprove}"
+													paymentFrequency="{!v.paymentFrequency}"
+													paymentLink="{!v.paymentLink}"
+													recordTypeId = "{!v.recordTypeId}"
+													amendRenewalMode="{!v.amendRenewalMode}"
+													isMsaSentToZuoraEnabled="{!v.isMsaSentToZuoraEnabled}"
+													isLegalFlowEnabled="{!v.isLegalFlowEnabled}"
+													quoteBusinessType="{!v.quoteBusinessType}"
+													stepList="{!v.stepList}"
+													isContractSignedManually="{!v.isContractSignedManually}"
+													isARenewal7day="{!v.isARenewal7day}"      
+													isSalesOps="{!v.isSalesOps}"
+													isNewAmendProfiles="{!v.isNewAmendProfiles}"
+													isDeltaMrrOrSubGreaterThanZero="{!v.isDeltaMrrOrSubGreaterThanZero}"
+													isCustomerRequestsToPayImmediately="{!v.isCustomerRequestsToPayImmediately}"
+													isRenewalByClientConfirmation="{!v.isRenewalByClientConfirmation}"
+													hitwiseLink="{!v.hitwiseLink}"
+													isASproductExist = "{!v.isASproductExist}"
+													isSubTotalCalculated = "{!v.isSubTotalCalculated}"
+													isGreenLane = "{!v.isGreenLane}"
+												    isContactsProduct = "{!or(v.isContactsProduct,v.isExceptionalProduct)}"
+													/>
+					</aura:if>
+					
+				</aura:if>
+				<aura:if isTrue="{!equals(v.subscriptionType,'New Subscription')}">
+					<aura:if isTrue="{!v.isTrialQuote}">
+						<c:NewSubTrialQuoteComponent quoteStatus="{!v.quoteStatus}"
+															subscriptionType="{!v.subscriptionType}"
+															paymentMethod="{!v.paymentMethod}"
+															zuoraVisualforceUrl="{!v.zuoraVisualforceUrl}"
+															documentType="{!v.documentType}"
+															quoteRecordId="{!v.recordId}"
+															flowMode = "{!v.flowMode}"
+															isDiscountApprove="{!v.isDiscountApprove}"
+															paymentFrequency="{!v.paymentFrequency}"
+															paymentLink="{!v.paymentLink}"
+															recordTypeId = "{!v.recordTypeId}"
+															isQuoteApprovalEnabled = "{!v.isQuoteApprovalEnabled}"
+															stepList="{!v.stepList}"
+															isMsaSentToZuoraEnabled="{!v.isMsaSentToZuoraEnabled}"
+															isHitwiseAccount="{!v.isHitwiseAccount}"
+															isNewSubFromExistingAcc="{!v.isNewSubFromExistingAcc}"
+															isContractSignedManually="{!v.isContractSignedManually}"
+															hitwiseLink="{!v.hitwiseLink}"
+															/>
+					</aura:if>
+					<aura:if isTrue="{!not(v.isTrialQuote)}">
+						<!-- <c:NewSubQuoteButtonLayoutComponent quoteStatus="{!v.quoteStatus}"
+															subscriptionType="{!v.subscriptionType}"
+															paymentMethod="{!v.paymentMethod}"
+															zuoraVisualforceUrl="{!v.zuoraVisualforceUrl}"
+															documentType="{!v.documentType}"
+															quoteRecordId="{!v.recordId}"
+															flowMode = "{!v.flowMode}"
+															isDiscountApprove="{!v.isDiscountApprove}"
+															paymentFrequency="{!v.paymentFrequency}"
+															paymentLink="{!v.paymentLink}"
+															recordTypeId = "{!v.recordTypeId}"
+															isQuoteApprovalEnabled = "{!v.isQuoteApprovalEnabled}"
+															stepList="{!v.stepList}"
+															isMsaSentToZuoraEnabled="{!v.isMsaSentToZuoraEnabled}"
+															isHitwiseAccount="{!v.isHitwiseAccount}"
+															isNewSubFromExistingAcc="{!v.isNewSubFromExistingAcc}"
+															isContractSignedManually="{!v.isContractSignedManually}"
+															hitwiseLink="{!v.hitwiseLink}"
+															/> -->
+						<c:NewSubQuoteButtonLayoutNewComponent quoteStatus="{!v.quoteStatus}"
+															subscriptionType="{!v.subscriptionType}"
+															paymentMethod="{!v.paymentMethod}"
+															zuoraVisualforceUrl="{!v.zuoraVisualforceUrl}"
+															documentType="{!v.documentType}"
+															quoteRecordId="{!v.recordId}"
+															flowMode = "{!v.flowMode}"
+															isDiscountApprove="{!v.isDiscountApprove}"
+															paymentFrequency="{!v.paymentFrequency}"
+															paymentLink="{!v.paymentLink}"
+															recordTypeId = "{!v.recordTypeId}"
+															isQuoteApprovalEnabled = "{!v.isQuoteApprovalEnabled}"
+															stepList="{!v.stepList}"
+															isMsaSentToZuoraEnabled="{!v.isMsaSentToZuoraEnabled}"
+															isLegalFlowEnabled="{!v.isLegalFlowEnabled}"
+															isHitwiseAccount="{!v.isHitwiseAccount}"
+															isNewSubFromExistingAcc="{!v.isNewSubFromExistingAcc}"
+															isContractSignedManually="{!v.isContractSignedManually}"
+															hitwiseLink="{!v.hitwiseLink}"
+															isASproductExist = "{!v.isASproductExist}"
+															isGreenLane = "{!v.isGreenLane}"
+															/>
+					</aura:if>
+					
+				</aura:if>
+				<aura:if isTrue="{!equals(v.subscriptionType,'Cancel Subscription')}">
+					<c:CancellQuoteButtonLayoutComponent quoteStatus="{!v.quoteStatus}"
+														subscriptionType="{!v.subscriptionType}"
+														quoteRecordId="{!v.recordId}"
+														isDeltaZero="{!v.isDeltaZero}"
+														isMsaSentToZuoraEnabled="{!v.isMsaSentToZuoraEnabled}"
+														recordTypeId = "{!v.recordTypeId}"
+														stepList="{!v.stepList}"
+														isBalanceZero="{!v.isBalanceZero}"
+														/>
+				</aura:if>
+			</aura:if>
+			<aura:set attribute="else">
+				<div class="soccer-text">
+					<span class="soccer-icon">⏳</span>
+					Please Wait For The Calculations To Complete
+				</div>
+			</aura:set>
+		</aura:if>
+		</div>
+	</aura:if>
+	<aura:if isTrue="{!(v.sObjectType=='Opportunity')}">
+		<lightning:button onclick="{!c.newQuote}" iconName="action:follow" label="New Quote" iconPosition="right"/>
+		<c:zuoraModal isOpen="{!v.isOpen}" paymentMethod="{!v.paymentMethod}"/>
+	</aura:if>
+	<lightning:spinner class="slds-hide spinner-margin" variant="brand" aura:id="request_spinner" />
+</aura:component>

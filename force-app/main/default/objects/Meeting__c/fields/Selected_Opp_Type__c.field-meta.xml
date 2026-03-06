@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Selected_Opp_Type__c</fullName>
+    <description>MIS-8454 - Used for passing selected type from Meeting Completed flow to Meeting trigger flow</description>
+    <externalId>false</externalId>
+    <label>Selected Opp Type</label>
+    <length>255</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

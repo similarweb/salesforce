@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Gideon_s_View</fullName>
+    <booleanFilter>1 OR 2</booleanFilter>
+    <columns>OPPORTUNITY.NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>Wolves_Potential_DAU__c</columns>
+    <columns>Wolves_Source_ID_SGAdmin__c</columns>
+    <columns>OPPORTUNITY.PROBABILITY</columns>
+    <columns>OPPORTUNITY.STAGE_NAME</columns>
+    <columns>Wolves_Link_to_Product__c</columns>
+    <columns>Wolves_Evaluation_Doc__c</columns>
+    <columns>Wolves_Link_to_PP__c</columns>
+    <columns>Biz_Dev_Owner__c</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Biz_Dev_Owner__c</field>
+        <operation>equals</operation>
+        <value>Gideon Berger</value>
+    </filters>
+    <filters>
+        <field>CORE.USERS.ALIAS</field>
+        <operation>equals</operation>
+        <value>Gideon Berger</value>
+    </filters>
+    <label>Gideon&apos;s View</label>
+</ListView>

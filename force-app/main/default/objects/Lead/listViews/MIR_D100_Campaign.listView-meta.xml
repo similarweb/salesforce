@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MIR_D100_Campaign</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>LEAD.EMAIL</columns>
+    <columns>LEAD.COMPANY</columns>
+    <columns>LEAD.STATUS</columns>
+    <columns>LEAD.CREATED_DATE</columns>
+    <columns>LEAD.LEAD_SOURCE</columns>
+    <columns>Owner_Email__c</columns>
+    <columns>LEAD.LAST_ACTIVITY</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+        <field>Form_Location_URL__c</field>
+        <operation>contains</operation>
+        <value>digital-100</value>
+    </filters>
+    <filters>
+        <field>Email_address_domain_type__c</field>
+        <operation>notEqual</operation>
+        <value>Private</value>
+    </filters>
+    <filters>
+        <field>SW_Fit_Score__c</field>
+        <operation>equals</operation>
+        <value>A,B,C</value>
+    </filters>
+    <label>MIR D100 Campaign</label>
+</ListView>

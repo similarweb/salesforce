@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Po_number</fullName>
+    <active>true</active>
+    <description>MQ-2126</description>
+    <errorConditionFormula>and (ISchanged (Do_customer_have_PO__c),ISPICKVAL( Do_customer_have_PO__c , &quot;Yes&quot;), isblank( Po_Number__c ))</errorConditionFormula>
+    <errorDisplayField>Po_Number__c</errorDisplayField>
+    <errorMessage>must enter a PO number</errorMessage>
+</ValidationRule>

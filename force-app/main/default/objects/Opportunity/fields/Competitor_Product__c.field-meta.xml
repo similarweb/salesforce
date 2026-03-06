@@ -1,0 +1,545 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Competitor_Product__c</fullName>
+    <externalId>false</externalId>
+    <label>Competitor Product</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <controllingField>Competition__c</controllingField>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Adbeat</fullName>
+                <default>false</default>
+                <label>Adbeat</label>
+            </value>
+            <value>
+                <fullName>AdClarity</fullName>
+                <default>false</default>
+                <label>AdClarity</label>
+            </value>
+            <value>
+                <fullName>Adthena</fullName>
+                <default>false</default>
+                <label>Adthena</label>
+            </value>
+            <value>
+                <fullName>Ahrefs</fullName>
+                <default>false</default>
+                <label>Ahrefs</label>
+            </value>
+            <value>
+                <fullName>Alexa</fullName>
+                <default>false</default>
+                <label>Alexa</label>
+            </value>
+            <value>
+                <fullName>Apollo.io</fullName>
+                <default>false</default>
+                <label>Apollo.io</label>
+            </value>
+            <value>
+                <fullName>AppAnnie</fullName>
+                <default>false</default>
+                <label>AppAnnie</label>
+            </value>
+            <value>
+                <fullName>Apptopia</fullName>
+                <default>false</default>
+                <label>Apptopia</label>
+            </value>
+            <value>
+                <fullName>Brightedge</fullName>
+                <default>false</default>
+                <label>Brightedge</label>
+            </value>
+            <value>
+                <fullName>Builtwith</fullName>
+                <default>false</default>
+                <label>Builtwith</label>
+            </value>
+            <value>
+                <fullName>Capital IQ</fullName>
+                <default>false</default>
+                <label>Capital IQ</label>
+            </value>
+            <value>
+                <fullName>Charm.io</fullName>
+                <default>false</default>
+                <label>Charm.io</label>
+            </value>
+            <value>
+                <fullName>Clavis</fullName>
+                <default>false</default>
+                <label>Clavis</label>
+            </value>
+            <value>
+                <fullName>Clearbit</fullName>
+                <default>false</default>
+                <label>Clearbit</label>
+            </value>
+            <value>
+                <fullName>Cognism</fullName>
+                <default>false</default>
+                <label>Cognism</label>
+            </value>
+            <value>
+                <fullName>Comscore</fullName>
+                <default>false</default>
+                <label>Comscore</label>
+            </value>
+            <value>
+                <fullName>Conductor</fullName>
+                <default>false</default>
+                <label>Conductor</label>
+            </value>
+            <value>
+                <fullName>Crunchbase</fullName>
+                <default>false</default>
+                <label>Crunchbase</label>
+            </value>
+            <value>
+                <fullName>DataHawks</fullName>
+                <default>false</default>
+                <label>DataHawks</label>
+            </value>
+            <value>
+                <fullName>Datafox</fullName>
+                <default>false</default>
+                <label>Datafox</label>
+            </value>
+            <value>
+                <fullName>Values Dockpit</fullName>
+                <default>false</default>
+                <label>Dockpit (Values)</label>
+            </value>
+            <value>
+                <fullName>Earnest Research</fullName>
+                <default>false</default>
+                <label>Earnest Research</label>
+            </value>
+            <value>
+                <fullName>Edge by Ascential</fullName>
+                <default>false</default>
+                <label>Edge by Ascential</label>
+            </value>
+            <value>
+                <fullName>EtailInsights</fullName>
+                <default>false</default>
+                <label>EtailInsights</label>
+            </value>
+            <value>
+                <fullName>Junglescout</fullName>
+                <default>false</default>
+                <label>Junglescout</label>
+            </value>
+            <value>
+                <fullName>Insideview</fullName>
+                <default>false</default>
+                <label>Insideview</label>
+            </value>
+            <value>
+                <fullName>Lusha</fullName>
+                <default>false</default>
+                <label>Lusha</label>
+            </value>
+            <value>
+                <fullName>MarketBeyond</fullName>
+                <default>false</default>
+                <label>MarketBeyond</label>
+            </value>
+            <value>
+                <fullName>Mixdata</fullName>
+                <default>false</default>
+                <label>Mixdata</label>
+            </value>
+            <value>
+                <fullName>Moat</fullName>
+                <default>false</default>
+                <label>Moat</label>
+            </value>
+            <value>
+                <fullName>Morning Consult</fullName>
+                <default>false</default>
+                <label>Morning Consult</label>
+            </value>
+            <value>
+                <fullName>Moz</fullName>
+                <default>false</default>
+                <label>Moz</label>
+            </value>
+            <value>
+                <fullName>MScience</fullName>
+                <default>false</default>
+                <label>MScience</label>
+            </value>
+            <value>
+                <fullName>Nielsen</fullName>
+                <default>false</default>
+                <label>Nielsen</label>
+            </value>
+            <value>
+                <fullName>OneClickRetail</fullName>
+                <default>false</default>
+                <label>OneClickRetail</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Pathmatics</fullName>
+                <default>false</default>
+                <label>Pathmatics</label>
+            </value>
+            <value>
+                <fullName>PipeCandy / Etailinsights</fullName>
+                <default>false</default>
+                <label>PipeCandy / Etailinsights</label>
+            </value>
+            <value>
+                <fullName>Pitchbook</fullName>
+                <default>false</default>
+                <label>Pitchbook</label>
+            </value>
+            <value>
+                <fullName>Profitero</fullName>
+                <default>false</default>
+                <label>Profitero</label>
+            </value>
+            <value>
+                <fullName>Red Volcano</fullName>
+                <default>false</default>
+                <label>Red Volcano</label>
+            </value>
+            <value>
+                <fullName>Sales Optimize</fullName>
+                <default>false</default>
+                <label>Sales Optimize</label>
+            </value>
+            <value>
+                <fullName>Searchmetrics</fullName>
+                <default>false</default>
+                <label>Searchmetrics</label>
+            </value>
+            <value>
+                <fullName>Second Measure</fullName>
+                <default>false</default>
+                <label>Second Measure</label>
+            </value>
+            <value>
+                <fullName>Sellics</fullName>
+                <default>false</default>
+                <label>Sellics</label>
+            </value>
+            <value>
+                <fullName>SEMRush</fullName>
+                <default>false</default>
+                <label>SEMRush</label>
+            </value>
+            <value>
+                <fullName>Sensor Tower</fullName>
+                <default>false</default>
+                <label>Sensor Tower</label>
+            </value>
+            <value>
+                <fullName>SimilarTech</fullName>
+                <default>false</default>
+                <label>SimilarTech</label>
+            </value>
+            <value>
+                <fullName>Sistrix</fullName>
+                <default>false</default>
+                <label>Sistrix</label>
+            </value>
+            <value>
+                <fullName>Sotreleads</fullName>
+                <default>false</default>
+                <label>Sotreleads</label>
+            </value>
+            <value>
+                <fullName>Spyfu</fullName>
+                <default>false</default>
+                <label>Spyfu</label>
+            </value>
+            <value>
+                <fullName>Stackline</fullName>
+                <default>false</default>
+                <label>Stackline</label>
+            </value>
+            <value>
+                <fullName>TAMI</fullName>
+                <default>false</default>
+                <label>TAMI</label>
+            </value>
+            <value>
+                <fullName>Thinknum</fullName>
+                <default>false</default>
+                <label>Thinknum</label>
+            </value>
+            <value>
+                <fullName>Unknown</fullName>
+                <default>false</default>
+                <label>Unknown</label>
+            </value>
+            <value>
+                <fullName>Verto</fullName>
+                <default>false</default>
+                <label>Verto</label>
+            </value>
+            <value>
+                <fullName>Yipit</fullName>
+                <default>false</default>
+                <label>Yipit</label>
+            </value>
+            <value>
+                <fullName>Zoominfo</fullName>
+                <default>false</default>
+                <label>Zoominfo</label>
+            </value>
+            <value>
+                <fullName>7Park Data</fullName>
+                <default>false</default>
+                <label>7Park Data</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Not using a competitor</controllingFieldValue>
+            <controllingFieldValue>Unknown</controllingFieldValue>
+            <valueName>Unknown</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Evaluating a competitor</controllingFieldValue>
+            <controllingFieldValue>Currently using a competitor</controllingFieldValue>
+            <controllingFieldValue>Will replace SW with a competitor</controllingFieldValue>
+            <valueName>Adbeat</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Evaluating a competitor</controllingFieldValue>
+            <controllingFieldValue>Currently using a competitor</controllingFieldValue>
+            <controllingFieldValue>Will replace SW with a competitor</controllingFieldValue>
+            <valueName>AdClarity</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Evaluating a competitor</controllingFieldValue>
+            <controllingFieldValue>Currently using a competitor</controllingFieldValue>
+            <controllingFieldValue>Will replace SW with a competitor</controllingFieldValue>
+            <valueName>Ahrefs</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Evaluating a competitor</controllingFieldValue>
+            <controllingFieldValue>Currently using a competitor</controllingFieldValue>
+            <controllingFieldValue>Will replace SW with a competitor</controllingFieldValue>
+            <valueName>Alexa</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Evaluating a competitor</controllingFieldValue>
+            <controllingFieldValue>Currently using a competitor</controllingFieldValue>
+            <controllingFieldValue>Will replace SW with a competitor</controllingFieldValue>
+            <valueName>AppAnnie</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Evaluating a competitor</controllingFieldValue>
+            <controllingFieldValue>Currently using a competitor</controllingFieldValue>
+            <controllingFieldValue>Will replace SW with a competitor</controllingFieldValue>
+            <valueName>Apptopia</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Evaluating a competitor</controllingFieldValue>
+            <controllingFieldValue>Currently using a competitor</controllingFieldValue>
+            <controllingFieldValue>Will replace SW with a competitor</controllingFieldValue>
+            <valueName>Brightedge</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Evaluating a competitor</controllingFieldValue>
+            <controllingFieldValue>Currently using a competitor</controllingFieldValue>
+            <controllingFieldValue>Will replace SW with a competitor</controllingFieldValue>
+            <valueName>Builtwith</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Evaluating a competitor</controllingFieldValue>
+            <controllingFieldValue>Currently using a competitor</controllingFieldValue>
+            <controllingFieldValue>Will replace SW with a competitor</controllingFieldValue>
+            <valueName>Capital IQ</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Evaluating a competitor</controllingFieldValue>
+            <controllingFieldValue>Currently using a competitor</controllingFieldValue>
+            <controllingFieldValue>Will replace SW with a competitor</controllingFieldValue>
+            <valueName>Clavis</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Evaluating a competitor</controllingFieldValue>
+            <controllingFieldValue>Currently using a competitor</controllingFieldValue>
+            <controllingFieldValue>Will replace SW with a competitor</controllingFieldValue>
+            <valueName>Clearbit</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Evaluating a competitor</controllingFieldValue>
+            <controllingFieldValue>Currently using a competitor</controllingFieldValue>
+            <controllingFieldValue>Will replace SW with a competitor</controllingFieldValue>
+            <valueName>Comscore</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Evaluating a competitor</controllingFieldValue>
+            <controllingFieldValue>Currently using a competitor</controllingFieldValue>
+            <controllingFieldValue>Will replace SW with a competitor</controllingFieldValue>
+            <valueName>Conductor</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Evaluating a competitor</controllingFieldValue>
+            <controllingFieldValue>Currently using a competitor</controllingFieldValue>
+            <controllingFieldValue>Will replace SW with a competitor</controllingFieldValue>
+            <valueName>Crunchbase</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Evaluating a competitor</controllingFieldValue>
+            <controllingFieldValue>Currently using a competitor</controllingFieldValue>
+            <controllingFieldValue>Will replace SW with a competitor</controllingFieldValue>
+            <valueName>Datafox</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Evaluating a competitor</controllingFieldValue>
+            <controllingFieldValue>Currently using a competitor</controllingFieldValue>
+            <controllingFieldValue>Will replace SW with a competitor</controllingFieldValue>
+            <valueName>Values Dockpit</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Evaluating a competitor</controllingFieldValue>
+            <controllingFieldValue>Currently using a competitor</controllingFieldValue>
+            <controllingFieldValue>Will replace SW with a competitor</controllingFieldValue>
+            <valueName>Edge by Ascential</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Evaluating a competitor</controllingFieldValue>
+            <controllingFieldValue>Currently using a competitor</controllingFieldValue>
+            <controllingFieldValue>Will replace SW with a competitor</controllingFieldValue>
+            <valueName>Insideview</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Evaluating a competitor</controllingFieldValue>
+            <controllingFieldValue>Currently using a competitor</controllingFieldValue>
+            <controllingFieldValue>Will replace SW with a competitor</controllingFieldValue>
+            <valueName>MarketBeyond</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Evaluating a competitor</controllingFieldValue>
+            <controllingFieldValue>Currently using a competitor</controllingFieldValue>
+            <controllingFieldValue>Will replace SW with a competitor</controllingFieldValue>
+            <valueName>Moat</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Evaluating a competitor</controllingFieldValue>
+            <controllingFieldValue>Currently using a competitor</controllingFieldValue>
+            <controllingFieldValue>Will replace SW with a competitor</controllingFieldValue>
+            <valueName>Moz</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Evaluating a competitor</controllingFieldValue>
+            <controllingFieldValue>Currently using a competitor</controllingFieldValue>
+            <controllingFieldValue>Will replace SW with a competitor</controllingFieldValue>
+            <valueName>MScience</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Evaluating a competitor</controllingFieldValue>
+            <controllingFieldValue>Currently using a competitor</controllingFieldValue>
+            <controllingFieldValue>Will replace SW with a competitor</controllingFieldValue>
+            <valueName>Nielsen</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Evaluating a competitor</controllingFieldValue>
+            <controllingFieldValue>Currently using a competitor</controllingFieldValue>
+            <controllingFieldValue>Will replace SW with a competitor</controllingFieldValue>
+            <valueName>OneClickRetail</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Evaluating a competitor</controllingFieldValue>
+            <controllingFieldValue>Currently using a competitor</controllingFieldValue>
+            <controllingFieldValue>Will replace SW with a competitor</controllingFieldValue>
+            <valueName>Other</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Evaluating a competitor</controllingFieldValue>
+            <controllingFieldValue>Currently using a competitor</controllingFieldValue>
+            <controllingFieldValue>Will replace SW with a competitor</controllingFieldValue>
+            <valueName>Pathmatics</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Evaluating a competitor</controllingFieldValue>
+            <controllingFieldValue>Currently using a competitor</controllingFieldValue>
+            <controllingFieldValue>Will replace SW with a competitor</controllingFieldValue>
+            <valueName>Pitchbook</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Evaluating a competitor</controllingFieldValue>
+            <controllingFieldValue>Currently using a competitor</controllingFieldValue>
+            <controllingFieldValue>Will replace SW with a competitor</controllingFieldValue>
+            <valueName>Profitero</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Evaluating a competitor</controllingFieldValue>
+            <controllingFieldValue>Currently using a competitor</controllingFieldValue>
+            <controllingFieldValue>Will replace SW with a competitor</controllingFieldValue>
+            <valueName>Searchmetrics</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Evaluating a competitor</controllingFieldValue>
+            <controllingFieldValue>Currently using a competitor</controllingFieldValue>
+            <controllingFieldValue>Will replace SW with a competitor</controllingFieldValue>
+            <valueName>SEMRush</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Evaluating a competitor</controllingFieldValue>
+            <controllingFieldValue>Currently using a competitor</controllingFieldValue>
+            <controllingFieldValue>Will replace SW with a competitor</controllingFieldValue>
+            <valueName>Sensor Tower</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Evaluating a competitor</controllingFieldValue>
+            <controllingFieldValue>Currently using a competitor</controllingFieldValue>
+            <controllingFieldValue>Will replace SW with a competitor</controllingFieldValue>
+            <valueName>SimilarTech</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Evaluating a competitor</controllingFieldValue>
+            <controllingFieldValue>Currently using a competitor</controllingFieldValue>
+            <controllingFieldValue>Will replace SW with a competitor</controllingFieldValue>
+            <valueName>Sistrix</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Evaluating a competitor</controllingFieldValue>
+            <controllingFieldValue>Currently using a competitor</controllingFieldValue>
+            <controllingFieldValue>Will replace SW with a competitor</controllingFieldValue>
+            <valueName>Spyfu</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Evaluating a competitor</controllingFieldValue>
+            <controllingFieldValue>Currently using a competitor</controllingFieldValue>
+            <controllingFieldValue>Will replace SW with a competitor</controllingFieldValue>
+            <valueName>Thinknum</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Evaluating a competitor</controllingFieldValue>
+            <controllingFieldValue>Currently using a competitor</controllingFieldValue>
+            <controllingFieldValue>Will replace SW with a competitor</controllingFieldValue>
+            <valueName>Verto</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Evaluating a competitor</controllingFieldValue>
+            <controllingFieldValue>Currently using a competitor</controllingFieldValue>
+            <controllingFieldValue>Will replace SW with a competitor</controllingFieldValue>
+            <valueName>Zoominfo</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Evaluating a competitor</controllingFieldValue>
+            <controllingFieldValue>Currently using a competitor</controllingFieldValue>
+            <controllingFieldValue>Will replace SW with a competitor</controllingFieldValue>
+            <valueName>7Park Data</valueName>
+        </valueSettings>
+    </valueSet>
+    <visibleLines>5</visibleLines>
+</CustomField>

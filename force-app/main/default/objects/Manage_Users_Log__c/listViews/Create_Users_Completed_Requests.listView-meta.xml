@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Create_Users_Completed_Requests</fullName>
+    <columns>NAME</columns>
+    <columns>Action__c</columns>
+    <columns>User__c</columns>
+    <columns>Profile_Name__c</columns>
+    <columns>Role_Name__c</columns>
+    <columns>Approved_By__c</columns>
+    <columns>Source_User_to_Duplicate__c</columns>
+    <columns>CREATEDBY_USER</columns>
+    <columns>LAST_UPDATE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>Completed</value>
+    </filters>
+    <filters>
+        <field>Action__c</field>
+        <operation>equals</operation>
+        <value>Create,Update,Role Update</value>
+    </filters>
+    <label>Create/Update Users - Completed Requests</label>
+</ListView>

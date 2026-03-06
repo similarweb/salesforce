@@ -1,0 +1,24 @@
+<aura:component controller = "GenerateProposalsButtonController">
+    <aura:attribute name="quoteRecordId" type="String" required="true"/>
+    <aura:attribute name="isLoading" type="Boolean" required="false"/>
+    <aura:attribute name="isDisabled" type="Boolean" default="false"/>
+    <aura:attribute name="isPassed" type="Boolean" default="false"/>
+
+    <aura:if isTrue="{!v.isLoading}">
+        <lightning:spinner alternativeText="Loading" size="medium" />
+    </aura:if>
+
+    <!-- <lightning:button onclick="{!c.generateProposalButtonClick}" iconName="standard:proposition" label="Generate Proposalas" iconPosition="right"/> -->
+    <!-- <div onclick="{!c.generateProposalButtonClick}" style="cursor: pointer;">
+        <lightning:icon title="Generate Proposalas" iconName="action:update" size="xx-small" alternativeText="Generate Proposalas"/>
+    </div> -->
+    <!-- <lightning:button disabled="{!v.isDisabled}" variant="brand" label="Generate Proposalas" onclick="{!c.generateProposalButtonClick}"/> -->
+    <button style="border-color: black;"  
+            class="{! 'slds-button slds-button_brand ff ' + if(and(v.isDisabled,v.isPending),'pendingButton',if(and(not(v.isDisabled),v.isPassed),'passedGenerateProposalButton',if(v.isPassed, 'passedButton',if(v.isDisabled,'disabledButton','enabledButton'))))}"
+            onclick="{!c.generateProposalButtonClick}"
+            disabled="{!v.isDisabled}">
+            Generate Proposal
+    </button>
+    <!-- disabled="{!v.isDisabled}" -->
+    <!-- border-width: 10px; -->
+</aura:component>

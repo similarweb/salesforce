@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>what_has_made_your_experience_delightful__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>We are thrilled to hear SimilarWeb is meeting your expectations! Can you share what has made your experience particularly delightful?</inlineHelpText>
+    <label>What has made your experience delightful</label>
+    <length>32768</length>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>3</visibleLines>
+</CustomField>

@@ -1,0 +1,5 @@
+<design:component >
+    <design:attribute name="staticResourceName" label="Static resource name" description="Name of the static resource, where image is stored" required="true"/>
+    <design:attribute name="width" label="Width (%)" min="0" max="100" description="Witdh of the image (%)"/>
+    <!-- <design:attribute name="height" label="Height (%)" min="0" max="100" description="Height of the image (%)"/> -->
+</design:component>

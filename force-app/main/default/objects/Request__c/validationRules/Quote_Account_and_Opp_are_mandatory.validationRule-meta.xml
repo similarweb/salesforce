@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Quote_Account_and_Opp_are_mandatory</fullName>
+    <active>false</active>
+    <description>MQ-1057 If Legal request created from request type is Order Form/License Agreement /Amendment, then  - Quote, Account and Opp are mandatory</description>
+    <errorConditionFormula>AND(
+
+RecordType.DeveloperName = &quot;Legal_Services&quot;,
+	
+OR( 	
+ISPICKVAL( Request_Type__c , &quot;Legal Services&quot; ),
+ISPICKVAL( Request_Type__c , &quot;Order Form/License Agreement&quot; ),
+ISPICKVAL( Request_Type__c , &quot;Amendment&quot; )
+),
+OR(
+
+ISBLANK(Quote__c),
+ISBLANK(Account__c) ,
+ISBLANK(Opportunity__c)
+)
+
+)</errorConditionFormula>
+    <errorMessage>Quote, Account and Opportunity are mandatory if the Request type is Order Form/License Agreement or Amendment</errorMessage>
+</ValidationRule>

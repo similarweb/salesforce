@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Closed_Lost_Reason_More_details__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>What would have helped you close the deal?</inlineHelpText>
+    <label>Closed Lost Reason - More details</label>
+    <length>3200</length>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>LongTextArea</type>
+    <visibleLines>3</visibleLines>
+</CustomField>

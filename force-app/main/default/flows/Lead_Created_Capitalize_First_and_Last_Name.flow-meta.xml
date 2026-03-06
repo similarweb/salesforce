@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>55.0</apiVersion>
+    <assignments>
+        <name>Update_First_Last_Name</name>
+        <label>Update First + Last Name</label>
+        <locationX>176</locationX>
+        <locationY>311</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.FirstName</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Capitalize_First_Name</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.LastName</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Capitalize_Last_Name</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <description>Migrated from Workflow: &quot;Capitalize First and Last Name Lead&quot;</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>Capitalize_First_Name</name>
+        <dataType>String</dataType>
+        <expression>UPPER(LEFT({!$Record.FirstName},1)) +  RIGHT({!$Record.FirstName},LEN({!$Record.FirstName}) - 1)</expression>
+    </formulas>
+    <formulas>
+        <name>Capitalize_Last_Name</name>
+        <dataType>String</dataType>
+        <expression>UPPER(LEFT({!$Record.LastName},1)) + RIGHT({!$Record.LastName},LEN({!$Record.LastName}) - 1)</expression>
+    </formulas>
+    <interviewLabel>Lead Created - Capitalize First and Last Name {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Lead Created - Capitalize First and Last Name</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Update_First_Last_Name</targetReference>
+        </connector>
+        <object>Lead</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Active</status>
+    <triggerOrder>400</triggerOrder>
+</Flow>

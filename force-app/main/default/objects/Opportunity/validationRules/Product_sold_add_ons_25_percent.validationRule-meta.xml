@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Product_sold_add_ons_25_percent</fullName>
+    <active>false</active>
+    <description>MIS-4518</description>
+    <errorConditionFormula>AND(
+NOT(ISNEW()),
+ISCHANGED(StageName),
+
+NOT(ISPICKVAL(Type,&quot;Feature Update&quot;)) ,
+Probability &gt;= 0.25,
+RecordTypeId &lt;&gt; &apos;012b0000000cfCa&apos;, /*Panel Acquisition*/
+RecordType.DeveloperName &lt;&gt; &quot;Rank_Ranger&quot;,
+$Profile.Id &lt;&gt; &apos;00eb0000000oBvcAAE&apos;,
+$Profile.Name &lt;&gt; &quot;SW SalesOps Extended&quot;,
+$Profile.Name &lt;&gt; &quot;SW SalesOps&quot;,
+RecordType.DeveloperName &lt;&gt; &quot;Partnership&quot;,
+RecordType.DeveloperName &lt;&gt; &quot;Acquired_Company&quot;,
+
+isblank(Product_Sold_Add_Ons__c ),
+
+        
+NOT(ISCHANGED(Related_Meeting__c)), 
+NOT(ISCHANGED(SalesLoft1__Most_Recent_Cadence_Name__c)),
+NOT(ISCHANGED(Account_owner_changed__c)),
+NOT(ISCHANGED(DocuSign_Envelope_Status__c)),
+NOT(ISCHANGED(Legal_Request_Status__c)),
+NOT(ISCHANGED(Quote_Request_Status__c)),
+NOT(ISCHANGED(Supplier_Questionnaire_Request_Status__c)),
+ISBLANK(Product_Sold_Add_Ons__c ),
+				MEDPIC_Next_Stage__c = false
+
+
+)</errorConditionFormula>
+    <errorMessage>Please make sure to populate the &quot;Product Sold - Add Ons&quot; field in order to proceed</errorMessage>
+</ValidationRule>

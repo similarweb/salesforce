@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Strategic_Region</fullName>
+    <active>true</active>
+    <description>MIS-1803, MIS-3740</description>
+    <errorConditionFormula>$Profile.Name &lt;&gt; &apos;System Administrator&apos; &amp;&amp;
+$Profile.Name &lt;&gt; &apos;SW SalesOps&apos; &amp;&amp;
+$Profile.Name &lt;&gt; &apos;SW SalesOps Extended&apos; &amp;&amp;
+$Profile.Name &lt;&gt; &apos;Integration User&apos; &amp;&amp;
+$Profile.Name &lt;&gt; &apos;Integration User No DF&apos; &amp;&amp;
+$Profile.Name &lt;&gt; &apos;Infer API&apos; &amp;&amp;
+NOT (ISNEW ())
+&amp;&amp;
+(
+ISPICKVAL(Business_Unit__c ,&apos;Strategic&apos;) &amp;&amp;  ISBLANK( TEXT( Strategic_Region__c ) ) 
+)
+||
+(
+NOT(ISPICKVAL(Business_Unit__c ,&apos;Strategic&apos;)) &amp;&amp; NOT (ISBLANK( TEXT(Strategic_Region__c)))
+)</errorConditionFormula>
+    <errorMessage>If the Business Unit is Strategic, then Strategic Region must be populated, and Strategic Region values should only be added to Strategic Accounts.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SBD_Type__c</fullName>
+    <externalId>false</externalId>
+    <label>SBD - Type</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Type</controllingField>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>SBD - Data Acquisition</fullName>
+                <default>false</default>
+                <label>SBD - Data Acquisition</label>
+            </value>
+            <value>
+                <fullName>SBD - Learning Set</fullName>
+                <default>false</default>
+                <label>SBD - Learning Set</label>
+            </value>
+            <value>
+                <fullName>SBD - Marketing Partnership</fullName>
+                <default>false</default>
+                <label>SBD - Marketing Partnership</label>
+            </value>
+            <value>
+                <fullName>SBD - Corp Dev</fullName>
+                <default>false</default>
+                <label>SBD - Corp Dev</label>
+            </value>
+            <value>
+                <fullName>SBD - Inbound Product Integration</fullName>
+                <default>false</default>
+                <label>SBD - Inbound Product Integration</label>
+            </value>
+            <value>
+                <fullName>SBD - Outbound Product Integration</fullName>
+                <default>false</default>
+                <label>SBD - Outbound Product Integration</label>
+            </value>
+            <value>
+                <fullName>None</fullName>
+                <default>true</default>
+                <label>None</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Partnership - Accessibility</controllingFieldValue>
+            <controllingFieldValue>Upsell</controllingFieldValue>
+            <controllingFieldValue>Partnership</controllingFieldValue>
+            <controllingFieldValue>New Sale</controllingFieldValue>
+            <controllingFieldValue>Renewal</controllingFieldValue>
+            <controllingFieldValue>Monthly Cancellation</controllingFieldValue>
+            <controllingFieldValue>Feature Update</controllingFieldValue>
+            <controllingFieldValue>M&amp;A</controllingFieldValue>
+            <valueName>None</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

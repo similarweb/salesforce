@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>53.0</apiVersion>
+    <assignments>
+        <name>Update_sub_header</name>
+        <label>Update sub header</label>
+        <locationX>646</locationX>
+        <locationY>564</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Sub_Header__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Aub_header.Sub_header__c</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <interviewLabel>Email Subscriptions - before save flow {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Email Subscriptions - before save flow</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Get_Aub_header</name>
+        <label>Get Aub header</label>
+        <locationX>634</locationX>
+        <locationY>347</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Update_sub_header</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Label</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Name</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>SFMC_Email_subscription__mdt</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <start>
+        <locationX>504</locationX>
+        <locationY>48</locationY>
+        <connector>
+            <targetReference>Get_Aub_header</targetReference>
+        </connector>
+        <object>Email_Subscription__c</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

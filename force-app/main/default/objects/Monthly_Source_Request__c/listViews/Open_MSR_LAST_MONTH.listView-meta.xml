@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Open_MSR_LAST_MONTH</fullName>
+    <columns>Source__c</columns>
+    <columns>Monthly_Partner_Request__c</columns>
+    <columns>NAME</columns>
+    <columns>Status__c</columns>
+    <columns>SUN_AVG_Data_Units__c</columns>
+    <columns>Monthly_Source_Payment__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>Open,Calculated</value>
+    </filters>
+    <filters>
+        <field>CREATED_DATE</field>
+        <operation>equals</operation>
+        <value>LAST_MONTH</value>
+    </filters>
+    <label>Monthly Source Request - Last Month</label>
+</ListView>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Budget_Indication__c</fullName>
+    <description>MIS-6753</description>
+    <externalId>false</externalId>
+    <label>Budget Indication</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Negotiable</fullName>
+                <default>false</default>
+                <label>Negotiable</label>
+            </value>
+            <value>
+                <fullName>Not discussed / Can’t tell yet</fullName>
+                <default>false</default>
+                <label>Not discussed / Can’t tell yet</label>
+            </value>
+            <value>
+                <fullName>No Budget</fullName>
+                <default>false</default>
+                <label>No Budget</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

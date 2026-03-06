@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Complexity_field_in_DDQ_be_mandatory</fullName>
+    <active>true</active>
+    <description>MIS-2092
+When a user modifies a ddq request and has the title of Information Security Director or General Counsel the Complexity field will be mandatory</description>
+    <errorConditionFormula>AND (  ISBLANK( text(Complexity__c) ) , not (isnew()), OR ( $User.Title =&quot;General Counsel&quot;,$User.Title =&quot;Information Security Director&quot;), RecordType.DeveloperName =&quot;Supplier_Questionnaires&quot;,
+ ISPICKVAL( Status__c , &apos;In Process&apos;) )</errorConditionFormula>
+    <errorDisplayField>Complexity__c</errorDisplayField>
+    <errorMessage>Please fill the Complexity</errorMessage>
+</ValidationRule>

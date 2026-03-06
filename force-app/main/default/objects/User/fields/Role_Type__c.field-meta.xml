@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Role_Type__c</fullName>
+    <description>MIS-6829 - Works with Custom Metadata - &quot;User Sub Motion&quot; - Make sure to update the metadata if the values in this field are changed</description>
+    <externalId>false</externalId>
+    <label>Role Type</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>true</sorted>
+            <value>
+                <fullName>AM</fullName>
+                <default>false</default>
+                <label>AM</label>
+            </value>
+            <value>
+                <fullName>AM TL</fullName>
+                <default>false</default>
+                <label>AM TL</label>
+            </value>
+            <value>
+                <fullName>AS</fullName>
+                <default>false</default>
+                <label>AS</label>
+            </value>
+            <value>
+                <fullName>AS TL</fullName>
+                <default>false</default>
+                <label>AS TL</label>
+            </value>
+            <value>
+                <fullName>CP</fullName>
+                <default>false</default>
+                <label>CP</label>
+            </value>
+            <value>
+                <fullName>CSM</fullName>
+                <default>false</default>
+                <label>CSM</label>
+            </value>
+            <value>
+                <fullName>CSS</fullName>
+                <default>false</default>
+                <label>CSS</label>
+            </value>
+            <value>
+                <fullName>CS TL</fullName>
+                <default>false</default>
+                <label>CS TL</label>
+            </value>
+            <value>
+                <fullName>E2E</fullName>
+                <default>false</default>
+                <label>E2E</label>
+            </value>
+            <value>
+                <fullName>GM</fullName>
+                <default>false</default>
+                <label>GM</label>
+            </value>
+            <value>
+                <fullName>MS</fullName>
+                <default>false</default>
+                <label>MS</label>
+            </value>
+            <value>
+                <fullName>MS TL</fullName>
+                <default>false</default>
+                <label>MS TL</label>
+            </value>
+            <value>
+                <fullName>NT CS</fullName>
+                <default>false</default>
+                <label>NT CS</label>
+            </value>
+            <value>
+                <fullName>Onboarding</fullName>
+                <default>false</default>
+                <label>Onboarding</label>
+            </value>
+            <value>
+                <fullName>Onboarding TL</fullName>
+                <default>false</default>
+                <label>Onboarding TL</label>
+            </value>
+            <value>
+                <fullName>SA</fullName>
+                <default>false</default>
+                <label>SA</label>
+            </value>
+            <value>
+                <fullName>SA TL</fullName>
+                <default>false</default>
+                <label>SA TL</label>
+            </value>
+            <value>
+                <fullName>SDR</fullName>
+                <default>false</default>
+                <label>SDR</label>
+            </value>
+            <value>
+                <fullName>SDR TL</fullName>
+                <default>false</default>
+                <label>SDR TL</label>
+            </value>
+            <value>
+                <fullName>SM</fullName>
+                <default>false</default>
+                <label>SM</label>
+            </value>
+            <value>
+                <fullName>SM TL</fullName>
+                <default>false</default>
+                <label>SM TL</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

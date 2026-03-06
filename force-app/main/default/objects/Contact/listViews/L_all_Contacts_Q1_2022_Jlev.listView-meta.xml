@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>L_all_Contacts_Q1_2022_Jlev</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>CONTACT.TITLE</columns>
+    <columns>zqu__County__c</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>CONTACT.LAST_ACTIVITY</columns>
+    <columns>CONTACT.CREATED_DATE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>SW_Industry__c</field>
+        <operation>equals</operation>
+        <value>Agency</value>
+    </filters>
+    <filters>
+        <field>CONTACT.CREATED_DATE</field>
+        <operation>greaterOrEqual</operation>
+        <value>1/1/2019 12:00 AM</value>
+    </filters>
+    <filters>
+        <field>Account.fr_Past_Meeting_Opp__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <filters>
+        <field>Account_Status__c</field>
+        <operation>notContain</operation>
+        <value>Active,Part of</value>
+    </filters>
+    <filters>
+        <field>Account.Strategic_Pod__c</field>
+        <operation>notEqual</operation>
+        <value>Agencies-consultancies Pod 3,Agencies-Pod 1,Agencies-Pod 2</value>
+    </filters>
+    <filters>
+        <field>zqu__County__c</field>
+        <operation>equals</operation>
+        <value>United Kingdom</value>
+    </filters>
+    <filters>
+        <field>Account.Stage__c</field>
+        <operation>notEqual</operation>
+        <value>Pending Meeting,Pre Pipeline,Early Stage Pipeline,Deal in Closing Pipeline,Paying Account</value>
+    </filters>
+    <label>L + all Contacts Q1 2022 Jlev</label>
+</ListView>

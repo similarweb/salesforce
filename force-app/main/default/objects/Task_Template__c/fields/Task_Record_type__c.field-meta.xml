@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Task_Record_type__c</fullName>
+    <externalId>false</externalId>
+    <label>Task Record type</label>
+    <required>true</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Insights/Nurturing</fullName>
+                <default>false</default>
+                <label>Insights/Nurturing</label>
+            </value>
+            <value>
+                <fullName>Utilization/Engagement</fullName>
+                <default>false</default>
+                <label>Utilization/Engagement</label>
+            </value>
+            <value>
+                <fullName>Insights/Utilization</fullName>
+                <default>false</default>
+                <label>Insights/Utilization</label>
+            </value>
+            <value>
+                <fullName>QBR</fullName>
+                <default>false</default>
+                <label>QBR</label>
+            </value>
+            <value>
+                <fullName>Renewal Tasks</fullName>
+                <default>false</default>
+                <label>Renewal Tasks</label>
+            </value>
+            <value>
+                <fullName>Onboarding Task</fullName>
+                <default>false</default>
+                <label>Onboarding Task</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Status_Unqualified</fullName>
+    <active>false</active>
+    <description>MIS-2095 -only managers and sales ops can change status from Unqualified</description>
+    <errorConditionFormula>text( PRIORVALUE(Status__c)) = &quot;Unqualified&quot; &amp;&amp;  ISCHANGED(Status__c) &amp;&amp;  and(
+$Profile.Name &lt;&gt; &quot;SW SalesOps Extended&quot;,
+$Profile.Name &lt;&gt; &quot;SW SalesOps&quot;,
+$Profile.Name &lt;&gt; &quot;Integration User&quot;,
+$Profile.Name &lt;&gt; &quot;Integration User No DF&quot;,
+$Profile.Name &lt;&gt; &quot;System Administrator&quot;,
+$User.Id&lt;&gt;Owner.ManagerId )</errorConditionFormula>
+    <errorMessage>The contact is unqualified, Please contact Your manager or Salesops to change the status</errorMessage>
+</ValidationRule>

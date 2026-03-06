@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>second_touchpoint_in_the_renewal_process__c</fullName>
+    <description>MIS-7131</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Include the timing, communication method, key messages, and any feedback received</inlineHelpText>
+    <label>2nd touchpoint in the renewal process</label>
+    <length>32768</length>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>LongTextArea</type>
+    <visibleLines>6</visibleLines>
+</CustomField>

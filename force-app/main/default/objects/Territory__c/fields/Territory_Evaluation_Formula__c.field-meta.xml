@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Territory_Evaluation_Formula__c</fullName>
+    <description>matched against the same field in Account object
+
+Sub_Division__c
+ /* +&quot;:&quot;+text(SW_Industry__c)+&quot;:&quot;+text(Industry_Subtype__c) */</description>
+    <externalId>false</externalId>
+    <formula>IF(INCLUDES(Sub_Division__c, &quot;NA Enterprise&quot;), &quot;NA Enterprise;&quot;, &quot;&quot;) &amp;
+IF(INCLUDES(Sub_Division__c, &quot;NA Inside Sales&quot;), &quot;NA Inside Sales;&quot;, &quot;&quot;) &amp;
+IF(INCLUDES(Sub_Division__c, &quot;LATAM Inside Sales&quot;), &quot;LATAM Inside Sales;&quot;, &quot;&quot;) &amp;
+IF(INCLUDES(Sub_Division__c, &quot;UK Enterprise&quot;), &quot;UK Enterprise;&quot;, &quot;&quot;) &amp;
+IF(INCLUDES(Sub_Division__c, &quot;EMEA Inside Sales B2B Hybrid&quot;), &quot;EMEA Inside Sales B2B Hybrid;&quot;, &quot;&quot;) &amp;
+IF(INCLUDES(Sub_Division__c, &quot;EMEA Inside Sales Russia&quot;), &quot;EMEA Inside Sales Russia;&quot;, &quot;&quot;) &amp;
+IF(INCLUDES(Sub_Division__c, &quot;EMEA Inside Sales SMB&quot;), &quot;EMEA Inside Sales SMB;&quot;, &quot;&quot;) &amp;
+IF(INCLUDES(Sub_Division__c, &quot;EMEA Inside Sales ENT&quot;), &quot;EMEA Inside Sales ENT;&quot;, &quot;&quot;) &amp;
+IF(INCLUDES(Sub_Division__c, &quot;Agencies Independent EMEA&quot;), &quot;Agencies Independent EMEA;&quot;, &quot;&quot;) &amp;
+IF(INCLUDES(Sub_Division__c, &quot;APAC Inside Sales SMB&quot;), &quot;APAC Inside Sales SMB;&quot;, &quot;&quot;) &amp;
+IF(INCLUDES(Sub_Division__c, &quot;APAC Inside Sales ENT&quot;), &quot;APAC Inside Sales ENT;&quot;, &quot;&quot;) &amp;
+IF(INCLUDES(Sub_Division__c, &quot;APAC China SMB&quot;), &quot;APAC China SMB;&quot;, &quot;&quot;) &amp;
+IF(INCLUDES(Sub_Division__c, &quot;APAC China ENT&quot;), &quot;APAC China ENT;&quot;, &quot;&quot;) &amp;
+IF(INCLUDES(Sub_Division__c, &quot;APAC Japan Enterprise&quot;), &quot;APAC Japan Enterprise;&quot;, &quot;&quot;) &amp;
+IF(INCLUDES(Sub_Division__c, &quot;APAC Japan SMB&quot;), &quot;APAC Japan SMB;&quot;, &quot;&quot;) &amp;
+IF(INCLUDES(Sub_Division__c, &quot;NA Inside Sales B2B&quot;), &quot;NA Inside Sales B2B;&quot;, &quot;&quot;) &amp;
+IF(INCLUDES(Sub_Division__c, &quot;France Enterprise&quot;), &quot;France Enterprise;&quot;, &quot;&quot;) &amp;
+IF(INCLUDES(Sub_Division__c, &quot;Investors&quot;), &quot;Investors;&quot;, &quot;&quot;) &amp;
+IF(INCLUDES(Sub_Division__c, &quot;OEM&quot;), &quot;OEM;&quot;, &quot;&quot;) &amp;
+IF(INCLUDES(Sub_Division__c, &quot;UK Enterprise&quot;), &quot;UK Enterprise;&quot;, &quot;&quot;) &amp;
+IF(INCLUDES(Sub_Division__c, &quot;Dach Enterprise&quot;), &quot;Dach Enterprise;&quot;, &quot;&quot;)
+
+/* +&quot;:&quot;+text(SW_Industry__c)+&quot;:&quot;+text(Industry_Subtype__c) */</formula>
+    <label>Territory Evaluation Formula</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

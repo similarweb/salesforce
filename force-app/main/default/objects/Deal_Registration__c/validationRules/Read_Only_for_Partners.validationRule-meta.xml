@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Read_Only_for_Partners</fullName>
+    <active>true</active>
+    <description>DR read only to partners when status=Rejected/Approved/Pending Sales Approval</description>
+    <errorConditionFormula>OR(
+   AND(
+       $Profile.Name  = &apos;Reseller Community&apos;, 
+       OR(           
+          ISPICKVAL(Status__c, &apos;Approved&apos;), 
+          ISPICKVAL(Status__c, &apos;Rejected&apos;),
+          ISPICKVAL(Status__c, &apos;Pending Sales Approval&apos;)
+         )
+      ),
+
+
+   AND(
+       $Profile.Name  = &apos;Reseller Community&apos;, 
+       ISCHANGED(Status__c),
+       OR( 
+          TEXT(PRIORVALUE(Status__c)) = &apos;Approved&apos;, 
+          TEXT(PRIORVALUE(Status__c)) = &apos;Rejected&apos;,
+          TEXT(PRIORVALUE(Status__c)) = &apos;Pending Sales Approval&apos;
+         )
+      )
+  )</errorConditionFormula>
+    <errorMessage>You are not allowed to edit records when the Status is Approved/Rejected/Pending Sales Approval</errorMessage>
+</ValidationRule>

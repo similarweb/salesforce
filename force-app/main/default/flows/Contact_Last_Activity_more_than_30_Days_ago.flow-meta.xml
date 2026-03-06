@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>49.0</apiVersion>
+    <decisions>
+        <name>Which_Status</name>
+        <label>Which Status</label>
+        <locationX>314</locationX>
+        <locationY>252</locationY>
+        <defaultConnector>
+            <targetReference>Update_Status_Automated_Education</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Replied</defaultConnectorLabel>
+        <rules>
+            <name>SDR_Prospecting</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>SDR Prospecting</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Status_to_Nurture</targetReference>
+            </connector>
+            <label>SDR Prospecting</label>
+        </rules>
+        <rules>
+            <name>Dormant</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Owner_Division__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>MIR</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Status_to_Dormant</targetReference>
+            </connector>
+            <label>Dormant</label>
+        </rules>
+    </decisions>
+    <description>MIS-4278 - Added Owner division MIR
+11-8-22 Added Status SDR Prospecting
+
+Updates Contact Status for Leads with Last Activity more than 30 days ago - Weekly</description>
+    <environments>Default</environments>
+    <interviewLabel>Contact Last Activity more than 30 Days ago {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Contact Last Activity more than 30 Days ago</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Update_Status_Automated_Education</name>
+        <label>Update Status Automated Education</label>
+        <locationX>578</locationX>
+        <locationY>360</locationY>
+        <inputAssignments>
+            <field>Status__c</field>
+            <value>
+                <stringValue>Automated Education</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Status_to_Dormant</name>
+        <label>Update Status to Dormant</label>
+        <locationX>314</locationX>
+        <locationY>360</locationY>
+        <inputAssignments>
+            <field>Status__c</field>
+            <value>
+                <stringValue>Dormant</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Status_to_Nurture</name>
+        <label>Update Status to Nurture</label>
+        <locationX>50</locationX>
+        <locationY>360</locationY>
+        <inputAssignments>
+            <field>Status__c</field>
+            <value>
+                <stringValue>Nurture</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>188</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Which_Status</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Last_activity_for_Replied_automation__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <object>Contact</object>
+        <schedule>
+            <frequency>Daily</frequency>
+            <startDate>2023-08-07</startDate>
+            <startTime>06:00:00.000Z</startTime>
+        </schedule>
+        <triggerType>Scheduled</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

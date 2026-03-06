@@ -1,0 +1,37 @@
+<aura:component controller="JourneyController" implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes" access="global">
+    <aura:attribute name="journeyList" type="Object[]"/>
+    <aura:attribute name="journeyName" type="String"/>
+    <aura:attribute name="columns" type="List"/>
+    <aura:attribute name="sortedDir" type="String" default="asc"/>
+    <aura:attribute name="journeyPathSettingList" type="Object[]"/>
+    <aura:attribute name="loaded" type="Boolean" default="true"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:handler name="change" value="{!v.journeyName}" action="{!c.journeyNameChange}"/>
+    <aura:registerEvent name="JourneyPathSettingEvent" type="c:JourneyPathSettingEvent"/>
+    
+    <div class="c-container">
+        
+        <lightning:select label="Journeys" value="{!v.journeyName}">
+            <aura:iteration items="{!v.journeyList}" var="journey">
+                <option value="{!journey}">{!journey}</option>
+            </aura:iteration>
+        </lightning:select> 
+        
+        <aura:if isTrue="{! v.loaded }">
+            <lightning:datatable
+                                 aura:id="datatable"         
+                                 keyField="Id"
+                                 data="{!v.journeyPathSettingList }"
+                                 columns="{!v.columns }"
+                                 defaultSortDirection="{!v.sortedDir}" 
+                                 onsort="{!c.updateColumnSorting}"
+                                 onsave="{!c.handleSaveClick}"
+                                 />
+            <aura:set attribute="else">
+                <lightning:spinner alternativeText="Loading" />
+            </aura:set>
+        </aura:if>
+        
+    </div>
+    
+</aura:component>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>dsfs_SendWithDocuSign</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <linkType>url</linkType>
+    <masterLabel>Send With DocuSign*</masterLabel>
+    <openType>replace</openType>
+    <protected>false</protected>
+    <url>{!URLFOR(&quot;/apex/dsfs__DocuSign_CreateEnvelope&quot;,null, [sId=Opportunity.Id,ecId=&quot;a690X000000204nQAA&quot;])}</url>
+</WebLink>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Latest_Zuora_Account_ID__c</fullName>
+    <description>Should be populated with the latest ID from the billing account object
+26/01/21 - will be in use for yaypay sync</description>
+    <externalId>false</externalId>
+    <label>Latest Zuora Account ID</label>
+    <length>40</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>mql_status__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(
+      OR(AND(TEXT(SW_Fit_Score__c)=&apos;A&apos;,BI_Data__r.Intent_Score__c &gt;=4),AND(TEXT(SW_Fit_Score__c)=&apos;B&apos;,BI_Data__r.Intent_Score__c &gt;=7),AND(TEXT(SW_Fit_Score__c)=&apos;C&apos;,BI_Data__r.Intent_Score__c &gt;=7)),&apos;Hard MQL&apos;,
+      IF(OR(TEXT(SW_Fit_Score__c) = &apos;A&apos;,AND(TEXT(SW_Fit_Score__c)=&apos;B&apos;,BI_Data__r.Intent_Score__c &gt;=4),AND(TEXT(SW_Fit_Score__c)=&apos;D&apos;,BI_Data__r.Intent_Score__c &gt;=7)),&apos;Soft MQL&apos;,
+      IF(OR(TEXT(SW_Fit_Score__c) = &apos;B&apos;,TEXT(SW_Fit_Score__c) = &apos;C&apos;),&apos;Reserve&apos;,
+      IF(OR(AND(TEXT(SW_Fit_Score__c)=&apos;E&apos;,BI_Data__r.Intent_Score__c &gt;=7)),&apos;Unverified MQL&apos;,
+      &apos;Nurture&apos;
+      ))))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>MQL Status</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

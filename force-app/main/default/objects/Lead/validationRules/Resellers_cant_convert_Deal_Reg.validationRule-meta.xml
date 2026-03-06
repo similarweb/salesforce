@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Resellers_cant_convert_Deal_Reg</fullName>
+    <active>true</active>
+    <description>prevent resellers from converting Leads with record type - Deal Registration</description>
+    <errorConditionFormula>AND(
+  RecordType.Name = &apos;Deal Registration&apos;,
+  IsConverted,
+  $User.ProfileId = &apos;00eb0000000ZOE2&apos;
+  )</errorConditionFormula>
+    <errorMessage>You can&apos;t convert Deal Registration Leads</errorMessage>
+</ValidationRule>

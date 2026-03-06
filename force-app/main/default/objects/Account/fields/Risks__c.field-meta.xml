@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Risks__c</fullName>
+    <description>MIS-4519</description>
+    <externalId>false</externalId>
+    <label>Risks</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Client Gap - Client did not agree to Annual payment</fullName>
+                <default>false</default>
+                <label>Client Gap - Client did not agree to Annual payment</label>
+            </value>
+            <value>
+                <fullName>Client Gap - Client did not agree to Legal terms</fullName>
+                <default>false</default>
+                <label>Client Gap - Client did not agree to Legal terms</label>
+            </value>
+            <value>
+                <fullName>Client Gap - Company Reorg/M&amp;A/Closing</fullName>
+                <default>false</default>
+                <label>Client Gap - Company Reorg/M&amp;A/Closing</label>
+            </value>
+            <value>
+                <fullName>Client Gap - Getting data from SW competitor</fullName>
+                <default>false</default>
+                <label>Client Gap - Getting data from SW competitor</label>
+            </value>
+            <value>
+                <fullName>Client Gap - Insufficient Budget</fullName>
+                <default>false</default>
+                <label>Client Gap - Insufficient Budget</label>
+            </value>
+            <value>
+                <fullName>Client Gap - Receiving data from Agency/Third Party</fullName>
+                <default>false</default>
+                <label>Client Gap - Receiving data from Agency/Third Party</label>
+            </value>
+            <value>
+                <fullName>Client Gap - Unresponsive/Lost stakeholder</fullName>
+                <default>false</default>
+                <label>Client Gap - Unresponsive/Lost stakeholder</label>
+            </value>
+            <value>
+                <fullName>Integration / Tech</fullName>
+                <default>false</default>
+                <label>Integration / Tech</label>
+            </value>
+            <value>
+                <fullName>Low panel Value</fullName>
+                <default>false</default>
+                <label>Low panel Value</label>
+            </value>
+            <value>
+                <fullName>Merged with/rolled into another opp/account</fullName>
+                <default>false</default>
+                <label>Merged with/rolled into another opp/account</label>
+            </value>
+            <value>
+                <fullName>Relationship - No relationship with decision making authority</fullName>
+                <default>false</default>
+                <label>Relationship - No relationship with decision making authority</label>
+            </value>
+            <value>
+                <fullName>Relationship - We tried selling to the wrong department</fullName>
+                <default>false</default>
+                <label>Relationship - We tried selling to the wrong department</label>
+            </value>
+            <value>
+                <fullName>Solution Gap - Data Accuracy Discrepancies</fullName>
+                <default>false</default>
+                <label>Solution Gap - Data Accuracy Discrepancies</label>
+            </value>
+            <value>
+                <fullName>Not known risks</fullName>
+                <default>false</default>
+                <label>Not known risks</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

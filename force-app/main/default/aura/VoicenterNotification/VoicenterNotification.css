@@ -1,0 +1,19 @@
+.THIS:first-child {
+    display: block;
+    padding: 15px 15px 5px 15px;
+    font-size: 14px;
+    font-weight: bold;
+}
+.THIS:nth-child(2) {
+    display: block;
+    padding: 0 15px;
+    font-size: 17px;
+    font-weight: 300;
+    color: #000;
+}
+.THIS:nth-child(3) {
+    display: block;
+    padding: 0 15px;
+    font-size: 12px;
+    font-weight: bold;
+}

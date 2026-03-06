@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Require_Logo_Rights_Upon_Winning</fullName>
+    <active>false</active>
+    <errorConditionFormula>ISPICKVAL(StageName , &quot;Closed Won&quot;)&amp;&amp;LEN(TEXT( Logo_Rights__c ))&lt;3&amp;&amp;
+ISCHANGED(StageName )
+&amp;&amp; RecordType.DeveloperName&lt;&gt;&quot;Wolves&quot;</errorConditionFormula>
+    <errorDisplayField>Logo_Rights__c</errorDisplayField>
+    <errorMessage>Logo Rights required upon marking an opportunity as Closed Won.</errorMessage>
+</ValidationRule>

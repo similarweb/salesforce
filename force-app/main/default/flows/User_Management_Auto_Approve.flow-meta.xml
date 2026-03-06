@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>60.0</apiVersion>
+    <description>MIS-5268</description>
+    <environments>Default</environments>
+    <interviewLabel>User Management - Auto Approve {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>User Management - Auto Approve</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <description>Approve all open Request (Create / Update)</description>
+        <name>Auto_Approve_Open_Requests</name>
+        <label>Auto Approve Open Requests</label>
+        <locationX>176</locationX>
+        <locationY>134</locationY>
+        <filterLogic>1 AND 2 AND (3 OR 4)</filterLogic>
+        <filters>
+            <field>Status__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Open</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Approved__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Action__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Create</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Action__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Update</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Approved__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <object>Manage_Users_Log__c</object>
+    </recordUpdates>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Auto_Approve_Open_Requests</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+</Flow>

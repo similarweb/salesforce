@@ -1,0 +1,68 @@
+<aura:component>
+
+    <aura:attribute name="baseProductFullName" type="String"/>
+    <aura:attribute name="dynamicAddonsValues" type="Object[]"/>
+    <aura:attribute name="valuesListRaw" type="String"/>
+    <aura:attribute name="isLoading" type="Boolean"/>
+    <aura:attribute name="shownAddValuesModal" type="Boolean" default="false"/>
+    <aura:attribute name="myPicklistValues" type="Object"/>
+
+    <aura:handler name="change" value="{!v.dynamicAddonsValues}" action="{!c.onAddonsListChange}"/>
+
+    <aura:if isTrue="{!v.shownAddValuesModal}">
+        <c:bps_AddPicklistValuesModal mode ="Dynamic addon"
+                                      controllingFieldValue = "{!v.baseProductFullName}"
+                                      isShown = "{!v.shownAddValuesModal}"
+                                      valuesListRaw = "{!v.valuesListRaw}"
+                                      parent = "{!this}"
+                                      showPostfixHelpText = "true"
+                                      myPicklistValues="{!v.myPicklistValues}"/>
+    </aura:if>
+
+    <lightning:layout multipleRows="true" class="hh">
+
+        <lightning:layoutItem size="12" class="slds-theme_shade rounded-borders_no-bottom ">
+            <lightning:layout multipleRows="true" class="buttonL">
+                <lightning:layoutItem size="8">
+                    <div class="slds-p-around_medium slds-page-header__title">
+                        Base Customize Features
+                    </div>
+                </lightning:layoutItem>
+
+                <lightning:layoutItem size="4" class="buttonItem">
+                    <lightning:buttonIcon disabled="{!v.isLoading}" iconName="utility:edit"  alternativeText="Edit value" onclick="{!c.onAddValuesClick}" class="ovrbtn"/>
+                    <!--<lightning:button onclick="{!c.onAddValuesClick}" variant="brand" label="Edit values" title="Edit values" /> -->
+                </lightning:layoutItem>
+            </lightning:layout>
+
+
+        </lightning:layoutItem>
+
+        <lightning:layoutItem size="12" class="rounded-borders">
+
+            <div class="slds-theme_default slds-p-around_small slds-text-heading_medium rounded-borders ovr slds-is-relative">
+                <aura:if isTrue="{!v.isLoading}">
+                    <div class="sz">
+                        <lightning:spinner alternativeText="" size="large" />
+                    </div>
+                    <aura:set attribute="else">
+                        <aura:iteration items="{!v.dynamicAddonsValues}" var="picklitVal">
+                            <lightning:layoutItem size="12" class="{!join(' '
+                                                                , 'slds-p-bottom_small'
+                                                                , 'hover-color-change') }">
+                                <div class="slds-p-top--xx-small slds-p-left--xx-small">
+                                    <div class="slds-p-left_small row-other-part"
+                                         data-value="{!picklitVal}"
+                                         data-index="{!_index}">
+                                        {!picklitVal}
+                                    </div>
+                                </div>
+                            </lightning:layoutItem>
+                        </aura:iteration>
+                    </aura:set>
+                </aura:if>
+            </div>
+
+        </lightning:layoutItem>
+    </lightning:layout>
+</aura:component>

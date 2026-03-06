@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lock_requests_from_edit_Billing_Request</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+  NOT(ISNEW()),
+  NOW() &gt; (CreatedDate + (1 / 2880)),
+  RecordType.DeveloperName = &quot;Vendor_Form&quot;,
+  $Profile.Name &lt;&gt; &apos;System Administrator&apos;,
+  $Profile.Name &lt;&gt; &apos;SW SalesOps&apos;,
+  $Profile.Name &lt;&gt; &apos;SW SalesOps Extended&apos;,
+  $Profile.Name &lt;&gt; &apos;SW Billing&apos;,
+				 $User.Id &lt;&gt; &apos;0056700000CC7v7AAD&apos;,
+				
+  $User.SYSFullID__c &lt;&gt; &apos;0056700000AkJRjAAN&apos;, /*integrationsystems@similarweb.com*/
+  NOT(ISCHANGED(Ticket_number_in_Zendesk__c))
+)</errorConditionFormula>
+    <errorMessage>You can&apos;t edit this record.</errorMessage>
+</ValidationRule>

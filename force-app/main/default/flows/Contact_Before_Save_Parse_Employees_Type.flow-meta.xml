@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>52.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <name>Assign_Employees_Min_Max</name>
+        <label>Assign Employees Min &amp; Max</label>
+        <locationX>50</locationX>
+        <locationY>551</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Employees_Min__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>fr_EmployeesMin</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Employees_Max__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>fr_EmployeesMax</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <name>Clear_Employees_Min_Max</name>
+        <label>Clear Employees Min &amp; Max</label>
+        <locationX>314</locationX>
+        <locationY>551</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Employees_Min__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>var_NullNumber</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Employees_Max__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>var_NullNumber</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.SI_Employees_Type__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue></stringValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <decisions>
+        <name>Check_Format</name>
+        <label>Check Format</label>
+        <locationX>182</locationX>
+        <locationY>335</locationY>
+        <defaultConnector>
+            <targetReference>Clear_Employees_Min_Max</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Invalid or Null</defaultConnectorLabel>
+        <rules>
+            <name>Valid_Format</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>fr_IsValidFormat</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Employees_Min_Max</targetReference>
+            </connector>
+            <label>Valid Format</label>
+        </rules>
+    </decisions>
+    <description>Parses SI_Employees_Type__c (format: &quot;number-number&quot;) and stores the left value in Employees_Min__c and the right value in Employees_Max__c. If the value is null or not in the expected format, both fields are set to null.</description>
+    <environments>Default</environments>
+    <formulas>
+        <description>Extracts the number after the dash from SI_Employees_Type__c</description>
+        <name>fr_EmployeesMax</name>
+        <dataType>Number</dataType>
+        <expression>VALUE(MID({!$Record.SI_Employees_Type__c}, FIND(&quot;-&quot;, {!$Record.SI_Employees_Type__c}) + 1, LEN({!$Record.SI_Employees_Type__c})))</expression>
+        <scale>0</scale>
+    </formulas>
+    <formulas>
+        <description>Extracts the number before the dash from SI_Employees_Type__c</description>
+        <name>fr_EmployeesMin</name>
+        <dataType>Number</dataType>
+        <expression>VALUE(LEFT({!$Record.SI_Employees_Type__c}, FIND(&quot;-&quot;, {!$Record.SI_Employees_Type__c}) - 1))</expression>
+        <scale>0</scale>
+    </formulas>
+    <formulas>
+        <description>Checks if SI_Employees_Type__c is in valid &quot;number-number&quot; format: not blank, contains a dash not at start or end, and left value is not greater than right value</description>
+        <name>fr_IsValidFormat</name>
+        <dataType>Boolean</dataType>
+        <expression>AND(
+  NOT(ISBLANK({!$Record.SI_Employees_Type__c})),
+  FIND(&quot;-&quot;, {!$Record.SI_Employees_Type__c}) &gt; 1,
+  FIND(&quot;-&quot;, {!$Record.SI_Employees_Type__c}) &lt; LEN({!$Record.SI_Employees_Type__c}),
+  VALUE(LEFT({!$Record.SI_Employees_Type__c}, FIND(&quot;-&quot;, {!$Record.SI_Employees_Type__c}) - 1)) &lt;= VALUE(MID({!$Record.SI_Employees_Type__c}, FIND(&quot;-&quot;, {!$Record.SI_Employees_Type__c}) + 1, LEN({!$Record.SI_Employees_Type__c})))
+)</expression>
+    </formulas>
+    <interviewLabel>Contact Before Save - Parse Employees Type {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Contact Before Save - Parse Employees Type</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>56</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Check_Format</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>SI_Employees_Type__c</field>
+            <operator>IsChanged</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <object>Contact</object>
+        <recordTriggerType>Update</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Obsolete</status>
+    <variables>
+        <name>var_NullNumber</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>0</scale>
+    </variables>
+</Flow>

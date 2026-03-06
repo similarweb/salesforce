@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Projects_Completion__c</fullName>
+    <externalId>false</externalId>
+    <formula>( IF( ISBLANK( Short_Term_Projects_Decision_Makers__c ) , 0, 1) +IF( ISBLANK( Short_Term_Projects_KPI_Measured__c ) , 0, 1) +IF( ISBLANK( Short_Term_Projects_Names__c ) , 0, 1) +IF( ISPICKVAL( Short_Term_Projects_Time_Frame__c,&quot;&quot;) , 0, 1) +IF( ISBLANK( Future_Projects_Budget_Approval_Status__c ) , 0, 1) +IF( ISBLANK( Future_Projects_Decision_Makers__c ) , 0, 1) +IF( ISBLANK( Future_Projects_KPIs_Measured__c ) , 0, 1) +IF( ISBLANK( Future_Projects_Names__c ) , 0, 1) +IF( ISPICKVAL( Future_Projects_Time_Frames__c, &quot;&quot; ) , 0, 1) 
+)/9</formula>
+    <label>Projects Completion %</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <type>Percent</type>
+</CustomField>

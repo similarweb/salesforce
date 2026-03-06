@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Post_to_Chatter_New_Member_Created</name>
+        <label>Post to Chatter - New Member Created</label>
+        <locationX>50</locationX>
+        <locationY>575</locationY>
+        <actionName>chatterPost</actionName>
+        <actionType>chatterPost</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>text</name>
+            <value>
+                <elementReference>New_Territory_Member_Text</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>subjectNameOrId</name>
+            <value>
+                <elementReference>$Record.Territory__c</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>chatterPost</nameSegment>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </actionCalls>
+    <actionCalls>
+        <name>Post_to_Chatter_Territory_Member_Updated</name>
+        <label>Post to Chatter - Territory Member Updated</label>
+        <locationX>314</locationX>
+        <locationY>575</locationY>
+        <actionName>chatterPost</actionName>
+        <actionType>chatterPost</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>text</name>
+            <value>
+                <elementReference>Territory_Member_Updated_Text</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>subjectNameOrId</name>
+            <value>
+                <elementReference>$Record.Territory__c</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>chatterPost</nameSegment>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </actionCalls>
+    <apiVersion>55.0</apiVersion>
+    <decisions>
+        <name>New_Record_or_Changed</name>
+        <label>New Record or Changed?</label>
+        <locationX>182</locationX>
+        <locationY>455</locationY>
+        <defaultConnector>
+            <targetReference>Post_to_Chatter_Territory_Member_Updated</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Changed</defaultConnectorLabel>
+        <rules>
+            <name>New</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record__Prior.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Post_to_Chatter_New_Member_Created</targetReference>
+            </connector>
+            <label>New</label>
+        </rules>
+    </decisions>
+    <description>Mark Territory parent Re-evaluate checkbox to the re-evaluation batch after an Update</description>
+    <environments>Default</environments>
+    <interviewLabel>Territory Member - Re-Evaluate {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Territory Member - Re-Evaluate (New / Update)</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Territory_Re_Evaluate_True</name>
+        <label>Territory Re-Evaluate = True</label>
+        <locationX>182</locationX>
+        <locationY>335</locationY>
+        <connector>
+            <targetReference>New_Record_or_Changed</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Territory__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Re_evaluate__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Re_evaluate__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <object>Territory__c</object>
+    </recordUpdates>
+    <start>
+        <locationX>56</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Territory_Re_Evaluate_True</targetReference>
+        </connector>
+        <filterFormula>OR(
+  isnew(),
+  ischanged({!$Record.Name__c}),
+  ischanged({!$Record.Territory_Member_Role__c}),
+{!$Record.Territory__r.Re_evaluate__c}=false
+)</filterFormula>
+        <object>Territory_Member__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <textTemplates>
+        <name>New_Territory_Member_Text</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>New Territory Member: @[{!$Record.Name__c}] was added to the Territory. 
+Role: {!$Record.Territory_Member_Role__c}
+
+CC: @[{!$Record.Territory__r.OwnerId}]</text>
+    </textTemplates>
+    <textTemplates>
+        <name>Territory_Member_Updated_Text</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>Territory Member: @[{!$Record.Name__c}] was updated.
+Role: {!$Record.Territory_Member_Role__c}
+
+CC: @[{!$Record.Territory__r.OwnerId}]</text>
+    </textTemplates>
+</Flow>

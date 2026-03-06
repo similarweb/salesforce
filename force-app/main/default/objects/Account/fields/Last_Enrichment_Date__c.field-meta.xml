@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Last_Enrichment_Date__c</fullName>
+    <description>When one of the enricment fields were updated by the Enrichment team (defined in Permission Set). the Date will be updated with TODAY(). MIS - 1995</description>
+    <externalId>false</externalId>
+    <label>Last Enrichment Date</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Date</type>
+</CustomField>

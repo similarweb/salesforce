@@ -1,0 +1,27 @@
+.THIS {
+    background: #3571a9;
+    width:100%;
+    /*padding: 0px 16px;*/
+}
+
+.THIS#logo {
+    float: left;
+}
+
+/*.THIS img {
+    width: 150px;
+    height: 50px;
+}*/
+
+.THIS.header-buttons{
+    float:right;
+}
+
+.THIS .logo_img {
+    height: 60px;
+    /*background-color: white;*/
+}
+
+.THIS .header-button {
+    margin: 13px 20px;
+}

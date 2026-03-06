@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Priority_1_MIR_Contacts</fullName>
+    <booleanFilter>1 AND 2 AND 3 AND 4 AND 5 and 6 and 7 and 8 and 9</booleanFilter>
+    <columns>FULL_NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>Department__c</columns>
+    <columns>SW_Industry__c</columns>
+    <columns>CONTACT.TITLE</columns>
+    <columns>CONTACT.ADDRESS2_COUNTRY</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.EMAIL_OPT_OUT</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>MQL__c</columns>
+    <columns>Employees_Min__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CONTACT.LEAD_SOURCE</field>
+        <operation>notContain</operation>
+        <value>ContactForm,Facebook,Tradeshow,Webinar,LinkedIn - Paid,Facebook - Paid,Investors - Paid,Deal Registration</value>
+    </filters>
+    <filters>
+        <field>Status__c</field>
+        <operation>notEqual</operation>
+        <value>Nurture,Unqualified,SDR Prospecting,Sales Prospecting,MIR Prospecting,Replied,Test</value>
+    </filters>
+    <filters>
+        <field>CONTACT.CREATED_DATE</field>
+        <operation>greaterOrEqual</operation>
+        <value>LAST_N_MONTHS:4</value>
+    </filters>
+    <filters>
+        <field>Nurtured_by_Marketing__c</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>Employees_Min__c</field>
+        <operation>greaterOrEqual</operation>
+        <value>10</value>
+    </filters>
+    <filters>
+        <field>CORE.USERS.LAST_NAME</field>
+        <operation>contains</operation>
+        <value>Didio,Muller,Koplen,Felsen,Glueckstern,Fox,Eviston,Ashur,Richter</value>
+    </filters>
+    <filters>
+        <field>MQL__c</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>SW_Fit_Score__c</field>
+        <operation>equals</operation>
+        <value>A</value>
+    </filters>
+    <filters>
+        <field>Most_Recent_Cadence_Cadence_ID__c</field>
+        <operation>equals</operation>
+    </filters>
+    <label>Priority 1 - MIR Contacts</label>
+</ListView>

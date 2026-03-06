@@ -1,0 +1,7 @@
+<aura:component implements="force:lightningQuickActionWithoutHeader,force:hasRecordId" controller="SendToZuoraController">
+    <aura:attribute name="isLoading" type="Boolean" default="false"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <div class="slds-is-relative" style="height: 100px;"> 
+        <lightning:spinner variant="brand" alternativeText="Loading" size="large" />
+    </div>
+</aura:component>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>First_Name_LDR_Compare__c</fullName>
+    <externalId>false</externalId>
+    <formula>If(Upper(Polygraph_First_Name__c)=Upper(First_Name_Registration__c),true,false)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>First Name LDR Compare</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

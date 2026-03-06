@@ -1,0 +1,576 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Email_to_Account_Owner</name>
+        <label>Email to Account Owner</label>
+        <locationX>578</locationX>
+        <locationY>971</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>Email_Body_For_Contacts</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailAddressesArray</name>
+            <value>
+                <elementReference>Email_Recipients</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>sendRichBody</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <elementReference>Email_Subject_For_Contacts</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+    </actionCalls>
+    <actionCalls>
+        <name>Email_to_Lead_Owner</name>
+        <label>Email to Lead Owner</label>
+        <locationX>50</locationX>
+        <locationY>755</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>Email_Body_For_Leads</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailAddressesArray</name>
+            <value>
+                <elementReference>Email_Recipients</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>sendRichBody</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <elementReference>Email_Subject_For_Leads</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+    </actionCalls>
+    <apiVersion>62.0</apiVersion>
+    <assignments>
+        <description>MIS-5303</description>
+        <name>Assign_Email_Recipients</name>
+        <label>Assign Email Recipients</label>
+        <locationX>578</locationX>
+        <locationY>755</locationY>
+        <assignmentItems>
+            <assignToReference>Email_Recipients</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>$Record.Contact.Account.Owner.Email</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Email_Recipients</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>Get_Account_SDR.User.Email</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Email_Recipients</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>Get_Account_SDR.Account.Territory__r.Owner:User.Email</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Get_Most_Recent_Opportunity</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Lead_Owner_Email</name>
+        <label>Assign Lead Owner Email</label>
+        <locationX>50</locationX>
+        <locationY>647</locationY>
+        <assignmentItems>
+            <assignToReference>Email_Recipients</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>$Record.Lead.Owner:User.Email</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Email_to_Lead_Owner</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <description>MIS-6096</description>
+        <name>Contact_has_Opted_Out_from_Emails</name>
+        <label>Contact has Opted Out from Emails?</label>
+        <locationX>710</locationX>
+        <locationY>539</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Contact_Didn_t_Opt_Out</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Contact_Email_Opt_Out</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Account_SDR</targetReference>
+            </connector>
+            <label>Contact Didn&apos;t Opt Out</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-6096</description>
+        <name>Lead_has_Opted_Out_from_Emails</name>
+        <label>Lead has Opted Out from Emails?</label>
+        <locationX>182</locationX>
+        <locationY>539</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Lead_Didn_t_Opt_Out</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Lead_Email_Opt_Out</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Lead_Owner_Email</targetReference>
+            </connector>
+            <label>Lead Didn&apos;t Opt Out</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Lead_or_Contact</name>
+        <label>Lead or Contact?</label>
+        <locationX>446</locationX>
+        <locationY>431</locationY>
+        <defaultConnector>
+            <targetReference>Contact_has_Opted_Out_from_Emails</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Contact</defaultConnectorLabel>
+        <rules>
+            <name>Lead</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.ContactId</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Lead_has_Opted_Out_from_Emails</targetReference>
+            </connector>
+            <label>Lead</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Send_Notification_to_Lead_Contact_Owner</name>
+        <label>Send Notification to Lead/Contact Owner?</label>
+        <locationX>776</locationX>
+        <locationY>323</locationY>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>Registered_Attended</name>
+            <conditionLogic>1 AND 2 AND 3 AND 4 AND 8 AND 12 AND 13 AND (5 OR 6 OR 7) AND 9 AND 10 AND 11 AND 14</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Campaign.Type</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Email</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Owner_Division_Formula</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Integration</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Owner_Role_Formula</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Internal</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Owner_Name_Formula</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Website Incomplete Leads</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record__Prior.Status</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Converted__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record__Prior.Converted__c</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Contact_Lead_Owner_Email__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record__Prior.Contact_Lead_Owner_Email__c</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Age_In_Days</leftValueReference>
+                <operator>LessThanOrEqualTo</operator>
+                <rightValue>
+                    <numberValue>7.0</numberValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Owner_Division_Formula</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Marketing</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Owner_Name_Formula</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Marina Remizova</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Owner_Name_Formula</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Naomi Lebowski</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Sent</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Opened</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Contact_Lead_Owner_Division__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>MIR</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Lead_or_Contact</targetReference>
+            </connector>
+            <label>Registered/Attended</label>
+        </rules>
+    </decisions>
+    <description>MIS-6997
+MIS-6264
+MIS-6096
+MIS-5399
+MIS-5303
+Last - MIS-3988
+MIS-3041
+MIS-2475
+MIS-2130</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>Age_In_Days</name>
+        <dataType>Number</dataType>
+        <expression>{!$Flow.CurrentDate} - DATEVALUE({!$Record.CreatedDate})</expression>
+        <scale>0</scale>
+    </formulas>
+    <formulas>
+        <description>MIS-6096</description>
+        <name>Contact_Email_Opt_Out</name>
+        <dataType>Boolean</dataType>
+        <expression>{!$Record.Contact.HasOptedOutOfEmail}</expression>
+    </formulas>
+    <formulas>
+        <name>Email_Subject_For_Contacts</name>
+        <dataType>String</dataType>
+        <expression>{!$Record.Contact.Email} &amp; &quot; has &quot; &amp; TEXT({!$Record.Status}) &amp; &quot; to the: &quot; &amp; TEXT({!$Record.Campaign.Type}) &amp; &quot;: &quot; &amp;{!$Record.Campaign_Name__c}</expression>
+    </formulas>
+    <formulas>
+        <name>Email_Subject_For_Leads</name>
+        <dataType>String</dataType>
+        <expression>{!$Record.Lead.Email} &amp; &quot; has &quot; &amp; TEXT({!$Record.Status}) &amp; &quot; to the: &quot; &amp; TEXT({!$Record.Campaign.Type}) &amp; &quot;: &quot; &amp;{!$Record.Campaign_Name__c}</expression>
+    </formulas>
+    <formulas>
+        <name>fr_Campaign_Owner</name>
+        <dataType>String</dataType>
+        <expression>if(isblank({!$Record.Campaign.Campaign_Owner_Name__c}), {!$Record.Campaign.Owner.FirstName} + &quot; &quot; + {!$Record.Campaign.Owner.LastName}, {!$Record.Campaign.Campaign_Owner_Name__c})</expression>
+    </formulas>
+    <formulas>
+        <description>MIS-6264</description>
+        <name>FR_Form_File_Name_Text</name>
+        <dataType>String</dataType>
+        <expression>IF(ISBLANK({!$Record.Form_File_Name__c}),NULL ,&quot;Form File Name: &quot;)</expression>
+    </formulas>
+    <formulas>
+        <description>MIS-6997</description>
+        <name>FR_Form_File_Name_Value</name>
+        <dataType>String</dataType>
+        <expression>IF(ISBLANK({!$Record.Form_File_Name__c}),NULL , {!$Record.Form_File_Name__c})</expression>
+    </formulas>
+    <formulas>
+        <description>MIS-6264</description>
+        <name>FR_Form_File_URL_Text</name>
+        <dataType>String</dataType>
+        <expression>IF(ISBLANK({!$Record.Form_File_URL__c}),NULL ,&quot;Form File URL: &quot;)</expression>
+    </formulas>
+    <formulas>
+        <description>MIS-6997</description>
+        <name>FR_Form_File_URL_Value</name>
+        <dataType>String</dataType>
+        <expression>IF(ISBLANK({!$Record.Form_File_URL__c}),NULL , {!$Record.Form_File_URL__c})</expression>
+    </formulas>
+    <formulas>
+        <description>MIS-6096</description>
+        <name>Lead_Email_Opt_Out</name>
+        <dataType>Boolean</dataType>
+        <expression>{!$Record.Lead.HasOptedOutOfEmail}</expression>
+    </formulas>
+    <formulas>
+        <name>Link_To_Account_Formula</name>
+        <dataType>String</dataType>
+        <expression>LEFT($Api.Enterprise_Server_URL_510, FIND( &apos;/services&apos;, $Api.Enterprise_Server_URL_510)) &amp; {!$Record.Contact.AccountId}</expression>
+    </formulas>
+    <formulas>
+        <name>Link_To_Campaign_Formula</name>
+        <dataType>String</dataType>
+        <expression>LEFT($Api.Enterprise_Server_URL_510, FIND( &apos;/services&apos;, $Api.Enterprise_Server_URL_510)) &amp; {!$Record.CampaignId}</expression>
+    </formulas>
+    <formulas>
+        <name>Link_To_Campaign_Member_Formula</name>
+        <dataType>String</dataType>
+        <expression>LEFT($Api.Enterprise_Server_URL_510, FIND( &apos;/services&apos;, $Api.Enterprise_Server_URL_510)) &amp; {!$Record.Id}</expression>
+    </formulas>
+    <formulas>
+        <name>Link_To_Contact_Formula</name>
+        <dataType>String</dataType>
+        <expression>LEFT($Api.Enterprise_Server_URL_510, FIND( &apos;/services&apos;, $Api.Enterprise_Server_URL_510)) &amp; {!$Record.ContactId}</expression>
+    </formulas>
+    <formulas>
+        <name>Link_To_Lead_Formula</name>
+        <dataType>String</dataType>
+        <expression>LEFT($Api.Enterprise_Server_URL_510, FIND( &apos;/services&apos;, $Api.Enterprise_Server_URL_510)) &amp; {!$Record.LeadId}</expression>
+    </formulas>
+    <formulas>
+        <name>Link_To_Opportunity_Formula</name>
+        <dataType>String</dataType>
+        <expression>IF
+(
+ISBLANK({!Get_Most_Recent_Opportunity.Id}),
+&quot;No Opportunity related&quot;,
+LEFT({!$Api.Enterprise_Server_URL_510}, FIND( &apos;/services&apos;, {!$Api.Enterprise_Server_URL_510})) &amp; {!Get_Most_Recent_Opportunity.Id}
+)</expression>
+    </formulas>
+    <formulas>
+        <name>Most_Recent_Meeting_Formula</name>
+        <dataType>String</dataType>
+        <expression>IF
+(
+ISBLANK({!$Record.Contact.Most_Recent_Meeting_Created_Date__c}),
+&quot;No Meetings created&quot;,
+TEXT({!$Record.Contact.Most_Recent_Meeting_Created_Date__c})
+)</expression>
+    </formulas>
+    <formulas>
+        <name>Owner_Division_Formula</name>
+        <dataType>String</dataType>
+        <expression>IF
+(
+ISBLANK({!$Record.ContactId}),
+{!$Record.Lead.Owner:User.Division},
+{!$Record.Contact.Account.Owner.Division}
+)</expression>
+    </formulas>
+    <formulas>
+        <name>Owner_Name_Formula</name>
+        <dataType>String</dataType>
+        <expression>IF
+(
+ISBLANK({!$Record.ContactId}),
+IF(BEGINS({!$Record.Lead.OwnerId}, &apos;005&apos;), {!$Record.Lead.Owner:User.FirstName}+&quot; &quot;+{!$Record.Lead.Owner:User.LastName},
+{!$Record.Lead.Owner:Group.Name}),
+{!$Record.Contact.Owner.FirstName}+&quot; &quot;+{!$Record.Contact.Owner.LastName}
+)</expression>
+    </formulas>
+    <formulas>
+        <name>Owner_Role_Formula</name>
+        <dataType>String</dataType>
+        <expression>IF
+(
+ISBLANK({!$Record.ContactId}),
+{!$Record.Lead.Owner:User.SysRoleName__c},
+{!$Record.Contact.Account.Owner.SysRoleName__c}
+)</expression>
+    </formulas>
+    <formulas>
+        <name>Parent_Campaign_Formula</name>
+        <dataType>String</dataType>
+        <expression>IF(ISBLANK({!$Record.Campaign.ParentId}),&quot;No Parent Campaign&quot;, {!$Record.Campaign.Parent.Name})</expression>
+    </formulas>
+    <interviewLabel>Campaign Members Alerts {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Campaign Members Alerts</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <description>MIS-5303</description>
+        <name>Get_Account_SDR</name>
+        <label>Get Account SDR</label>
+        <locationX>578</locationX>
+        <locationY>647</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Assign_Email_Recipients</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>AccountId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Contact.AccountId</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>TeamMemberRole</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>SDR</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>AccountTeamMember</object>
+        <sortField>CreatedDate</sortField>
+        <sortOrder>Desc</sortOrder>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Most_Recent_Opportunity</name>
+        <label>Get Most Recent Opportunity</label>
+        <locationX>578</locationX>
+        <locationY>863</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Email_to_Account_Owner</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>ContactId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.ContactId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Opportunity</object>
+        <sortField>CreatedDate</sortField>
+        <sortOrder>Desc</sortOrder>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <start>
+        <locationX>650</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Send_Notification_to_Lead_Contact_Owner</targetReference>
+        </connector>
+        <filterLogic>(1 OR 2) AND 3</filterLogic>
+        <filters>
+            <field>ContactId</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>LeadId</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Skip_Automation__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <object>CampaignMember</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <textTemplates>
+        <name>Email_Body_For_Contacts</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>&lt;p&gt;&lt;span style=&quot;color: rgb(68, 68, 68); background-color: rgb(255, 255, 255);&quot;&gt;{!$Record.Contact.Email} has &lt;/span&gt;&lt;strong style=&quot;color: rgb(247, 15, 15); background-color: rgb(255, 255, 255);&quot;&gt;{!$Record.Status}&lt;/strong&gt;&lt;strong style=&quot;color: rgb(18, 89, 241); background-color: rgb(255, 255, 255);&quot;&gt; -&lt;/strong&gt;&lt;strong style=&quot;color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);&quot;&gt; &lt;/strong&gt;&lt;span style=&quot;color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);&quot;&gt;the/at&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 1, 2); background-color: rgb(255, 255, 255);&quot;&gt; {!$Record.Campaign.Type} : {!$Record.Campaign.Name} &lt;/span&gt;&lt;strong style=&quot;color: rgb(255, 0, 0);&quot;&gt;Please reach out as soon as possible&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-size: 14px;&quot;&gt;Contact Details:&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;Account Name: &lt;a href=&quot;{!Link_To_Account_Formula}&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot; style=&quot;color: rgb(52, 109, 255);&quot;&gt;&lt;strong&gt;{!$Record.Contact.Account.Name}&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-family: var(--lwc-fontFamily,-apple-system, BlinkMacSystemFont, &apos;Segoe UI&apos;, Roboto, Helvetica, Arial, sans-serif, &apos;Apple Color Emoji&apos;, &apos;Segoe UI Emoji&apos;, &apos;Segoe UI Symbol&apos;); font-size: var(--lwc-fontSize3,0.8125rem);&quot;&gt;Account Country: {!$Record.Contact.Account.BillingCountry}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(68, 68, 68); background-color: rgb(255, 255, 255);&quot;&gt;Contact Name: &lt;/span&gt;&lt;a href=&quot;{!Link_To_Contact_Formula}&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot; style=&quot;color: rgb(44, 87, 244); background-color: rgb(255, 255, 255);&quot;&gt;&lt;strong&gt;{!$Record.Contact.FirstName} {!$Record.Contact.LastName}&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;Contact Email: {!$Record.Contact.Email}&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(68, 68, 68); background-color: rgb(255, 255, 255);&quot;&gt;Department: {!$Record.Contact.Department__c}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(68, 68, 68); background-color: rgb(255, 255, 255);&quot;&gt;Title: {!$Record.Contact.Title}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;Campaign Name:&lt;/strong&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt; &lt;/span&gt;&lt;a href=&quot;{!Link_To_Campaign_Formula}&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot; style=&quot;background-color: rgb(255, 255, 255); color: rgb(54, 100, 247);&quot;&gt;&lt;strong&gt;{!$Record.Campaign.Name}&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Details and Follow-up information:&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Description&lt;/strong&gt;: {!$Record.Campaign.Description}&lt;/p&gt;&lt;p&gt;&lt;strong&gt;SalesLoft Cadence Link:&lt;/strong&gt;{!$Record.Campaign.Salesloft_Cadence_Link__c}&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Campaign Owner Name&lt;/strong&gt; (for questions): {!fr_Campaign_Owner}&lt;/p&gt;&lt;p&gt;&lt;strong&gt;{!FR_Form_File_Name_Text}&lt;/strong&gt;{!FR_Form_File_Name_Value}&lt;/p&gt;&lt;p&gt;&lt;strong&gt;{!FR_Form_File_URL_Text}&lt;/strong&gt;{!FR_Form_File_URL_Value}&lt;/p&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <name>Email_Body_For_Leads</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>&lt;p&gt;{!$Record.Lead.Email} has &lt;strong style=&quot;color: rgb(247, 15, 15);&quot;&gt;{!$Record.Status} &lt;/strong&gt;&lt;strong style=&quot;color: rgb(0, 0, 0);&quot;&gt;- &lt;/strong&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;the/&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 1, 2);&quot;&gt;at {!$Record.Campaign.Type} : {!$Record.Campaign.Name} &lt;/span&gt;&lt;strong style=&quot;color: rgb(255, 0, 0);&quot;&gt;Please reach out as soon as possible&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;﻿Lead Details:&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;Company Name: {!$Record.Lead.Company}&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;Country: {!$Record.Lead.Country}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;Lead Name: &lt;/span&gt;&lt;a href=&quot;{!Link_To_Lead_Formula}&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot; style=&quot;background-color: rgb(255, 255, 255); color: rgb(63, 86, 253);&quot;&gt;&lt;strong&gt;{!$Record.Lead.FirstName} {!$Record.Lead.LastName}&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;Lead Email: {!$Record.Email}&lt;/p&gt;&lt;p&gt;Department: {!$Record.Lead.Department__c}&lt;/p&gt;&lt;p&gt;Title: {!$Record.Lead.Title}&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;background-color: var(--lwc-colorBackgroundInput,rgb(255, 255, 255));&quot;&gt;Campaign&lt;/strong&gt;&lt;strong style=&quot;background-color: rgb(255, 255, 255); color: rgb(68, 68, 68);&quot;&gt; Name &lt;/strong&gt;&lt;a href=&quot;{!Link_To_Campaign_Formula}&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot; style=&quot;background-color: rgb(255, 255, 255); color: rgb(19, 103, 250);&quot;&gt;&lt;strong&gt;{!$Record.Campaign.Name}&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Details and Follow-up information:&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Description&lt;/strong&gt;: {!$Record.Campaign.Description}&lt;/p&gt;&lt;p&gt;&lt;strong&gt;SalesLoft Cadence Link:&lt;/strong&gt; {!$Record.Campaign.Salesloft_Cadence_Link__c}&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Campaign Owner Name&lt;/strong&gt; (for questions): {!fr_Campaign_Owner}&lt;/p&gt;&lt;p&gt;&lt;strong&gt;{!FR_Form_File_Name_Text}&lt;/strong&gt;{!FR_Form_File_Name_Value}&lt;/p&gt;&lt;p&gt;&lt;strong&gt;{!FR_Form_File_URL_Text}&lt;/strong&gt;{!FR_Form_File_URL_Value}&lt;/p&gt;</text>
+    </textTemplates>
+    <variables>
+        <name>Email_Recipients</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

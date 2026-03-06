@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>P_P_Type__c</fullName>
+    <externalId>false</externalId>
+    <label>P&amp;P Type</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Add-On</fullName>
+                <default>false</default>
+                <label>Add-On</label>
+            </value>
+            <value>
+                <fullName>Base</fullName>
+                <default>false</default>
+                <label>Base</label>
+            </value>
+            <value>
+                <fullName>Meter</fullName>
+                <default>false</default>
+                <label>Meter</label>
+            </value>
+            <value>
+                <fullName>Price</fullName>
+                <default>false</default>
+                <label>Price</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

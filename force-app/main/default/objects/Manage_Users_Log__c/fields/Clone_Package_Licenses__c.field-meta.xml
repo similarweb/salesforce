@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Clone_Package_Licenses__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>MIS-5035 Determine whether to duplicate all Package License from an existing User.</description>
+    <externalId>false</externalId>
+    <label>Clone Package Licenses</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

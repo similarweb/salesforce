@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Rate_or_Monthly_DAU_Required</fullName>
+    <active>true</active>
+    <description>Rate must have a &quot;Rate&quot; or a &quot;Fixed Monthly DAU&quot; in order for the monthly/fixed calculation to work.</description>
+    <errorConditionFormula>ISBLANK(Rate__c) &amp;&amp;
+ISBLANK(Fixed_Monthly_DAU__c)</errorConditionFormula>
+    <errorMessage>Make sure the &quot;Rate&quot; or the &quot;Fixed Monthly DAU&quot; are not blank!</errorMessage>
+</ValidationRule>

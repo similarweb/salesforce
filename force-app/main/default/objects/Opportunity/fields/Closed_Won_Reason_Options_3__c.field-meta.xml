@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Closed_Won_Reason_Options_3__c</fullName>
+    <externalId>false</externalId>
+    <label>Closed Won Reason - Options #3</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Closed_Won_Reason_3__c</controllingField>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Custom Dashboards</fullName>
+                <default>false</default>
+                <label>Custom Dashboards</label>
+            </value>
+            <value>
+                <fullName>Unique Visitors</fullName>
+                <default>false</default>
+                <label>Unique Visitors</label>
+            </value>
+            <value>
+                <fullName>MW Traffic Sources</fullName>
+                <default>false</default>
+                <label>MW Traffic Sources</label>
+            </value>
+            <value>
+                <fullName>Popular Pages</fullName>
+                <default>false</default>
+                <label>Popular Pages</label>
+            </value>
+            <value>
+                <fullName>Industry Analysis/Custom Categories</fullName>
+                <default>false</default>
+                <label>Industry Analysis/Custom Categories</label>
+            </value>
+            <value>
+                <fullName>Keyword Analysis</fullName>
+                <default>false</default>
+                <label>Keyword Analysis</label>
+            </value>
+            <value>
+                <fullName>App Engagement</fullName>
+                <default>false</default>
+                <label>App Engagement</label>
+            </value>
+            <value>
+                <fullName>UI/UX</fullName>
+                <default>false</default>
+                <label>UI/UX</label>
+            </value>
+            <value>
+                <fullName>Folder Analysis</fullName>
+                <default>false</default>
+                <label>Folder Analysis</label>
+            </value>
+            <value>
+                <fullName>Conversion Analysis</fullName>
+                <default>false</default>
+                <label>Conversion Analysis</label>
+            </value>
+            <value>
+                <fullName>Countries</fullName>
+                <default>false</default>
+                <label>Countries</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>API</fullName>
+                <default>false</default>
+                <label>API</label>
+            </value>
+            <value>
+                <fullName>Additional Users</fullName>
+                <default>false</default>
+                <label>Additional Users</label>
+            </value>
+            <value>
+                <fullName>Migrated to Solutions</fullName>
+                <default>false</default>
+                <label>Migrated to Solutions</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Feature</controllingFieldValue>
+            <valueName>Custom Dashboards</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Feature</controllingFieldValue>
+            <valueName>Unique Visitors</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Feature</controllingFieldValue>
+            <valueName>MW Traffic Sources</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Feature</controllingFieldValue>
+            <valueName>Popular Pages</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Feature</controllingFieldValue>
+            <valueName>Industry Analysis/Custom Categories</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Feature</controllingFieldValue>
+            <valueName>Keyword Analysis</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Feature</controllingFieldValue>
+            <valueName>App Engagement</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Feature</controllingFieldValue>
+            <valueName>UI/UX</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Feature</controllingFieldValue>
+            <valueName>Folder Analysis</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Feature</controllingFieldValue>
+            <valueName>Conversion Analysis</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Feature</controllingFieldValue>
+            <valueName>Countries</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Feature</controllingFieldValue>
+            <valueName>Other</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Feature</controllingFieldValue>
+            <valueName>API</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Feature</controllingFieldValue>
+            <valueName>Additional Users</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

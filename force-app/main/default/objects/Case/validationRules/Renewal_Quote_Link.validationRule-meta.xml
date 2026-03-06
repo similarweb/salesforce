@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Renewal_Quote_Link</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+    NOT(ISBLANK(Renewal_Quote_Link__c)),
+    OR(
+        ISNEW(),
+        ISCHANGED(Renewal_Quote_Link__c)
+    ),  
+    OR(
+        TEXT(Renewal_Quote_Link__r.zqu__QuoteBusinessType__c) != &quot;Renewal (with/without upsell)&quot;,
+        CASE(TEXT(Renewal_Quote_Link__r.zqu_Quote_Status__c),
+            &quot;Approved By Billing&quot;, 0,
+            &quot;New Amendment&quot;, 0,
+            &quot;Pending Legal Or Billing request&quot;, 0,
+            &quot;Pending Rep To Adjust Quote&quot;, 0,
+            &quot;Terms Approved&quot;, 0,
+            1 
+        ) = 1
+    )
+)</errorConditionFormula>
+    <errorDisplayField>Renewal_Quote_Link__c</errorDisplayField>
+    <errorMessage>Invalid Renewal Quote: to link a Quote, it must have a Business Type of &apos;Renewal (with/without upsell)&apos; and one of the following Statuses: Approved By Billing, New Amendment, Pending Legal/Billing, Pending Rep To Adjust, or Terms Approved.</errorMessage>
+</ValidationRule>

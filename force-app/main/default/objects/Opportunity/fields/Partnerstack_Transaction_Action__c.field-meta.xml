@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Partnerstack_Transaction_Action__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Indicate if we created transaction on Partnerstack for this opportunity</description>
+    <externalId>false</externalId>
+    <label>Partnerstack Transaction Action</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

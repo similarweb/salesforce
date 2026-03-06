@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Nick_Call_View</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>LEAD.EMAIL</columns>
+    <columns>LEAD.COMPANY</columns>
+    <columns>LEAD.PHONE</columns>
+    <columns>LEAD.MOBILE_PHONE</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+        <field>LEAD.PHONE</field>
+        <operation>notEqual</operation>
+    </filters>
+    <filters>
+        <field>LEAD.MOBILE_PHONE</field>
+        <operation>notEqual</operation>
+    </filters>
+    <filters>
+        <field>LEAD.LEAD_SOURCE</field>
+        <operation>equals</operation>
+        <value>Pro</value>
+    </filters>
+    <filters>
+        <field>LEAD.EMAIL</field>
+        <operation>notContain</operation>
+        <value>Gmail</value>
+    </filters>
+    <filters>
+        <field>SW_Fit_Score__c</field>
+        <operation>equals</operation>
+        <value>A,B,C</value>
+    </filters>
+    <filters>
+        <field>MIR_Status__c</field>
+        <operation>notEqual</operation>
+        <value>Fake Data,Low Traffic,Not a Good Fit: Use Case / Persona / Industry,Not Ready / Bad Timing / No Interest,Unverified: No Website / No LinkedIn</value>
+    </filters>
+    <filters>
+        <field>LEAD.CREATED_DATE</field>
+        <operation>equals</operation>
+        <value>LAST_90_DAYS</value>
+    </filters>
+    <label>Nick Call View</label>
+</ListView>

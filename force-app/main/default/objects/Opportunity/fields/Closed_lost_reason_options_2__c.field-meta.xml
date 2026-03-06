@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Closed_lost_reason_options_2__c</fullName>
+    <externalId>false</externalId>
+    <label>Closed lost reason - options #2</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Closed_Lost_Reason_2__c</controllingField>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Insufficient budget</fullName>
+                <default>false</default>
+                <label>Insufficient budget</label>
+            </value>
+            <value>
+                <fullName>No decision making authority</fullName>
+                <default>false</default>
+                <label>No decision making authority</label>
+            </value>
+            <value>
+                <fullName>Lack of need</fullName>
+                <default>false</default>
+                <label>Lack of need</label>
+            </value>
+            <value>
+                <fullName>Poor timing</fullName>
+                <default>false</default>
+                <label>Poor timing</label>
+            </value>
+            <value>
+                <fullName>Insufficient customer or prospect onboarding / training / education</fullName>
+                <default>false</default>
+                <label>Insufficient customer or prospect onboarding / training / education</label>
+            </value>
+            <value>
+                <fullName>New CSM or AE account owner</fullName>
+                <default>false</default>
+                <label>New CSM or AE account owner</label>
+            </value>
+            <value>
+                <fullName>Unresponsive / lost stakeholder</fullName>
+                <default>false</default>
+                <label>Unresponsive / lost stakeholder</label>
+            </value>
+            <value>
+                <fullName>Company reorg / merger / acquisition</fullName>
+                <default>false</default>
+                <label>Company reorg / merger / acquisition</label>
+            </value>
+            <value>
+                <fullName>No one to use the platform</fullName>
+                <default>false</default>
+                <label>No one to use the platform</label>
+            </value>
+            <value>
+                <fullName>Legal issues</fullName>
+                <default>false</default>
+                <label>Legal issues</label>
+            </value>
+            <value>
+                <fullName>Payment terms / annual commitment</fullName>
+                <default>false</default>
+                <label>Payment terms / annual commitment</label>
+            </value>
+            <value>
+                <fullName>Missing feature / data / granularity</fullName>
+                <default>false</default>
+                <label>Missing feature / data / granularity</label>
+            </value>
+            <value>
+                <fullName>Data accuracy</fullName>
+                <default>false</default>
+                <label>Data accuracy</label>
+            </value>
+            <value>
+                <fullName>Poor product fit for use case</fullName>
+                <default>false</default>
+                <label>Poor product fit for use case</label>
+            </value>
+            <value>
+                <fullName>Poor SW package fit for use case</fullName>
+                <default>false</default>
+                <label>Poor SW package fit for use case</label>
+            </value>
+            <value>
+                <fullName>Price</fullName>
+                <default>false</default>
+                <label>Price</label>
+            </value>
+            <value>
+                <fullName>Existing relationship / integration</fullName>
+                <default>false</default>
+                <label>Existing relationship / integration</label>
+            </value>
+            <value>
+                <fullName>Agency replacement</fullName>
+                <default>false</default>
+                <label>Agency replacement</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>BANT</controllingFieldValue>
+            <controllingFieldValue>Service / Relationship</controllingFieldValue>
+            <controllingFieldValue>Company Structure / Human Resources</controllingFieldValue>
+            <controllingFieldValue>Commercial Terms</controllingFieldValue>
+            <controllingFieldValue>Product</controllingFieldValue>
+            <controllingFieldValue>Competition</controllingFieldValue>
+            <valueName>Other</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>BANT</controllingFieldValue>
+            <valueName>Insufficient budget</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>BANT</controllingFieldValue>
+            <valueName>No decision making authority</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>BANT</controllingFieldValue>
+            <valueName>Lack of need</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>BANT</controllingFieldValue>
+            <valueName>Poor timing</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Service / Relationship</controllingFieldValue>
+            <valueName>Insufficient customer or prospect onboarding / training / education</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Service / Relationship</controllingFieldValue>
+            <valueName>New CSM or AE account owner</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Service / Relationship</controllingFieldValue>
+            <valueName>Unresponsive / lost stakeholder</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Company Structure / Human Resources</controllingFieldValue>
+            <valueName>Company reorg / merger / acquisition</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Company Structure / Human Resources</controllingFieldValue>
+            <valueName>No one to use the platform</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Commercial Terms</controllingFieldValue>
+            <valueName>Legal issues</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Commercial Terms</controllingFieldValue>
+            <valueName>Payment terms / annual commitment</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Product</controllingFieldValue>
+            <controllingFieldValue>Competition</controllingFieldValue>
+            <valueName>Missing feature / data / granularity</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Product</controllingFieldValue>
+            <controllingFieldValue>Competition</controllingFieldValue>
+            <valueName>Data accuracy</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Product</controllingFieldValue>
+            <valueName>Poor product fit for use case</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Product</controllingFieldValue>
+            <valueName>Poor SW package fit for use case</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Competition</controllingFieldValue>
+            <valueName>Price</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Competition</controllingFieldValue>
+            <valueName>Existing relationship / integration</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Competition</controllingFieldValue>
+            <valueName>Agency replacement</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

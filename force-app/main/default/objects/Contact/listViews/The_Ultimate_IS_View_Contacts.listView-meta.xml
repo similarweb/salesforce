@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>The_Ultimate_IS_View_Contacts</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>FULL_NAME</columns>
+    <columns>CONTACT.TITLE</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.ADDRESS2_COUNTRY</columns>
+    <columns>SW_Industry__c</columns>
+    <columns>Status__c</columns>
+    <columns>Business_Unit__c</columns>
+    <columns>CONTACT.CREATED_DATE</columns>
+    <columns>MQL_date__c</columns>
+    <columns>CONTACT.LEAD_SOURCE</columns>
+    <columns>Website__c</columns>
+    <columns>CONTACT.LAST_ACTIVITY</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+        <field>MQL__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <filters>
+        <field>Pro_User_Type__c</field>
+        <operation>notEqual</operation>
+        <value>User,Admin</value>
+    </filters>
+    <filters>
+        <field>Status__c</field>
+        <operation>notEqual</operation>
+        <value>Unqualified</value>
+    </filters>
+    <filters>
+        <field>CONTACT.LAST_ACTIVITY</field>
+        <operation>notEqual</operation>
+        <value>NEXT_N_DAYS:15,LAST_N_DAYS:30</value>
+    </filters>
+    <filters>
+        <field>Business_Unit__c</field>
+        <operation>notEqual</operation>
+        <value>panel acquisition,strategic</value>
+    </filters>
+    <label>The Ultimate IS View - Contacts</label>
+</ListView>

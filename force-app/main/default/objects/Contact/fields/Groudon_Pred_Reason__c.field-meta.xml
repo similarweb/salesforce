@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Groudon_Pred_Reason__c</fullName>
+    <description>Data is populated through Groudon, on lead creation or any new activity that triggers Groudon: combined text field for demo and firmo
+MIS-7760
+MIS-7946 - Only demographic pred reason is relevant from converted lead.
+
+
+Enrichment: New field from Groudon</description>
+    <externalId>false</externalId>
+    <label>Groudon Pred Reason</label>
+    <length>32768</length>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>LongTextArea</type>
+    <visibleLines>3</visibleLines>
+</CustomField>

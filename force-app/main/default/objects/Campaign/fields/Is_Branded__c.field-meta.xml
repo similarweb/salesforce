@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Is_Branded__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>In case the Campaign is &quot;Branded&quot; (like &quot;Digital 100&quot;) this should be checked.</description>
+    <externalId>false</externalId>
+    <label>Is Branded</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

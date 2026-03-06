@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Fee_is_required_for_some_Currencies</fullName>
+    <active>true</active>
+    <description>Fee field is mandatory if the user selects EUR / GBP / AUD / JPY in the Currency field</description>
+    <errorConditionFormula>AND(
+
+ISPICKVAL(Request_Type__c , &quot;Vendor Form request&quot;),
+ISBLANK ( Fee__c ),
+
+OR(
+ISPICKVAL( Currency__c , &apos;EUR&apos;),
+ISPICKVAL( Currency__c , &apos;GBP&apos;),
+ISPICKVAL( Currency__c , &apos;AUD&apos;),
+ISPICKVAL( Currency__c , &apos;JPY&apos;)
+)
+
+)</errorConditionFormula>
+    <errorDisplayField>Fee__c</errorDisplayField>
+    <errorMessage>Please populate the &quot;Fee&quot; field for Currencies EUR / GBP / AUD / JPY</errorMessage>
+</ValidationRule>

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Deliverable_Type__c</fullName>
+    <externalId>false</externalId>
+    <label>Deliverable Type</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Actionable Insights Deck</fullName>
+                <default>false</default>
+                <label>Actionable Insights Deck</label>
+            </value>
+            <value>
+                <fullName>Advanced Analysis (ex:Excel)</fullName>
+                <default>false</default>
+                <label>Advanced Analysis (ex:Excel)</label>
+            </value>
+            <value>
+                <fullName>Custom Dashboard</fullName>
+                <default>false</default>
+                <label>Custom Dashboard</label>
+            </value>
+            <value>
+                <fullName>Custom Use Case Deck</fullName>
+                <default>false</default>
+                <label>Custom Use Case Deck</label>
+            </value>
+            <value>
+                <fullName>Digital Insights Analysis</fullName>
+                <default>false</default>
+                <label>Digital Insights Analysis</label>
+            </value>
+            <value>
+                <fullName>In-Person Meeting</fullName>
+                <default>false</default>
+                <label>In-Person Meeting</label>
+            </value>
+            <value>
+                <fullName>Insight Email</fullName>
+                <default>false</default>
+                <label>Insight Email</label>
+            </value>
+            <value>
+                <fullName>Join a Call</fullName>
+                <default>false</default>
+                <label>Join a Call</label>
+            </value>
+            <value>
+                <fullName>Strategic Insights Deck</fullName>
+                <default>false</default>
+                <label>Strategic Insights Deck</label>
+            </value>
+            <value>
+                <fullName>One-Time</fullName>
+                <default>false</default>
+                <label>One-Time</label>
+            </value>
+            <value>
+                <fullName>Recurring</fullName>
+                <default>false</default>
+                <label>Recurring</label>
+            </value>
+            <value>
+                <fullName>Presentation</fullName>
+                <default>false</default>
+                <label>Presentation</label>
+            </value>
+            <value>
+                <fullName>Excel File</fullName>
+                <default>false</default>
+                <label>Excel File</label>
+            </value>
+            <value>
+                <fullName>QBR Deck</fullName>
+                <default>false</default>
+                <label>Long Deck</label>
+            </value>
+            <value>
+                <fullName>General Insights Presentation</fullName>
+                <default>false</default>
+                <label>General Insights Presentation</label>
+            </value>
+            <value>
+                <fullName>Mini-Deck</fullName>
+                <default>false</default>
+                <label>Short Deck</label>
+            </value>
+            <value>
+                <fullName>PRO Dashboards</fullName>
+                <default>false</default>
+                <label>PRO Dashboards</label>
+            </value>
+            <value>
+                <fullName>Training</fullName>
+                <default>false</default>
+                <label>Training</label>
+            </value>
+            <value>
+                <fullName>Webinar</fullName>
+                <default>false</default>
+                <label>Webinar</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

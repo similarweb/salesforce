@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Feature_Type__c</fullName>
+    <externalId>false</externalId>
+    <label>Feature Type</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Additional Users</fullName>
+                <default>false</default>
+                <label>Additional Users</label>
+            </value>
+            <value>
+                <fullName>500 Table Results</fullName>
+                <default>false</default>
+                <label>500 Table Results</label>
+            </value>
+            <value>
+                <fullName>Unlimited Table Results</fullName>
+                <default>false</default>
+                <label>Unlimited Table Results</label>
+            </value>
+            <value>
+                <fullName>12 Months Historical Data</fullName>
+                <default>false</default>
+                <label>12 Months Historical Data</label>
+            </value>
+            <value>
+                <fullName>13 Months Historical Data</fullName>
+                <default>false</default>
+                <label>13 Months Historical Data</label>
+            </value>
+            <value>
+                <fullName>15 Months Historical Data</fullName>
+                <default>false</default>
+                <label>15 Months Historical Data</label>
+            </value>
+            <value>
+                <fullName>25 Months Historical Data</fullName>
+                <default>false</default>
+                <label>25 Months Historical Data</label>
+            </value>
+            <value>
+                <fullName>37 Months Historical Data</fullName>
+                <default>false</default>
+                <label>37 Months Historical Data</label>
+            </value>
+            <value>
+                <fullName>Individual Country Filters</fullName>
+                <default>false</default>
+                <label>Individual Country Filters</label>
+            </value>
+            <value>
+                <fullName>Country Filter Clusters</fullName>
+                <default>false</default>
+                <label>Country Filter Clusters</label>
+            </value>
+            <value>
+                <fullName>US State Filter</fullName>
+                <default>false</default>
+                <label>US State Filter</label>
+            </value>
+            <value>
+                <fullName>WorldWide Data</fullName>
+                <default>false</default>
+                <label>WorldWide Data</label>
+            </value>
+            <value>
+                <fullName>Popular Pages &amp; Leading Folders</fullName>
+                <default>false</default>
+                <label>Popular Pages &amp; Leading Folders</label>
+            </value>
+            <value>
+                <fullName>App Engagement</fullName>
+                <default>false</default>
+                <label>App Engagement</label>
+            </value>
+            <value>
+                <fullName>Monthly API Hits</fullName>
+                <default>false</default>
+                <label>Monthly API Hits</label>
+            </value>
+            <value>
+                <fullName>One Time API Hits</fullName>
+                <default>false</default>
+                <label>One Time API Hits</label>
+            </value>
+            <value>
+                <fullName>Lead Generator</fullName>
+                <default>false</default>
+                <label>Lead Generator</label>
+            </value>
+            <value>
+                <fullName>Funnel Analysis</fullName>
+                <default>false</default>
+                <label>Funnel Analysis</label>
+            </value>
+            <value>
+                <fullName>Marketing Channels</fullName>
+                <default>false</default>
+                <label>Marketing Channels</label>
+            </value>
+            <value>
+                <fullName>Search and Display Ads Module</fullName>
+                <default>false</default>
+                <label>Search and Display Ads Module</label>
+            </value>
+            <value>
+                <fullName>Digital Insights</fullName>
+                <default>false</default>
+                <label>Digital Insights</label>
+            </value>
+            <value>
+                <fullName>YoY Increase</fullName>
+                <default>false</default>
+                <label>YoY Increase</label>
+            </value>
+            <value>
+                <fullName>SIM Services</fullName>
+                <default>false</default>
+                <label>SIM Services</label>
+            </value>
+            <value>
+                <fullName>Solution Transition</fullName>
+                <default>false</default>
+                <label>Solution Transition</label>
+            </value>
+            <value>
+                <fullName>Investors</fullName>
+                <default>false</default>
+                <label>Investors</label>
+            </value>
+            <value>
+                <fullName>Marketing</fullName>
+                <default>false</default>
+                <label>Marketing</label>
+            </value>
+            <value>
+                <fullName>Research</fullName>
+                <default>false</default>
+                <label>Research</label>
+            </value>
+            <value>
+                <fullName>Sales</fullName>
+                <default>false</default>
+                <label>Sales</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Average_Visits_On_Desktop_100K__c</fullName>
+    <description>MIS-7797</description>
+    <externalId>false</externalId>
+    <inlineHelpText>For the examined domains in the required country, do they have more than 100k average monthly visits on desktop?</inlineHelpText>
+    <label>Average Visits On Desktop &gt; 100K</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>Yes_No</valueSetName>
+    </valueSet>
+</CustomField>

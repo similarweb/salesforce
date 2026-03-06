@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Fro_Leads_w_out_Activity_Yonni</fullName>
+    <columns>CORE.USERS.FIRST_NAME</columns>
+    <columns>FULL_NAME</columns>
+    <columns>LEAD.COMPANY</columns>
+    <columns>LEAD.EMAIL</columns>
+    <columns>LEAD.LEAD_SOURCE</columns>
+    <columns>LEAD.COUNTRY</columns>
+    <columns>Last_Pro_Visit_Date__c</columns>
+    <columns>LEAD.LAST_ACTIVITY</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Last_Pro_Visit_Date__c</field>
+        <operation>equals</operation>
+        <value>LAST_N_DAYS:7</value>
+    </filters>
+    <filters>
+        <field>LEAD.CONVERTED</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>LEAD.LAST_ACTIVITY</field>
+        <operation>notEqual</operation>
+        <value>LAST_90_DAYS</value>
+    </filters>
+    <filters>
+        <field>MQL__c</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>CORE.USERS.ALIAS</field>
+        <operation>equals</operation>
+        <value>yonniB</value>
+    </filters>
+    <label>Fro Leads w/out Activity - Yonni</label>
+</ListView>

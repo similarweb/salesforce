@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SM_Opp_Management</fullName>
+    <columns>OPPORTUNITY.NAME</columns>
+    <columns>OPPORTUNITY.FORECAST_CATEGORY</columns>
+    <columns>ARR__c</columns>
+    <columns>Next_Steps__c</columns>
+    <columns>OPPORTUNITY.PROBABILITY</columns>
+    <columns>X25_Date_Time__c</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+        <field>OPPORTUNITY.STAGE_NAME</field>
+        <operation>notEqual</operation>
+        <value>Closed Won,Closed Lost</value>
+    </filters>
+    <filters>
+        <field>OPPORTUNITY.TYPE</field>
+        <operation>equals</operation>
+        <value>New Sale</value>
+    </filters>
+    <filters>
+        <field>OPPORTUNITY.CLOSE_DATE</field>
+        <operation>equals</operation>
+        <value>NEXT_QUARTER</value>
+    </filters>
+    <label>SM Opp Management</label>
+</ListView>

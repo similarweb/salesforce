@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Survey_different_pricing__c</fullName>
+    <description>Q1: It’s too expensive for me</description>
+    <externalId>false</externalId>
+    <inlineHelpText>I would reconsider cancelling if:</inlineHelpText>
+    <label>Survey - different pricing</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>If I could pay for specific features</fullName>
+                <default>false</default>
+                <label>If I could pay for specific features</label>
+            </value>
+            <value>
+                <fullName>I receive a discount</fullName>
+                <default>false</default>
+                <label>I receive a discount</label>
+            </value>
+            <value>
+                <fullName>I wouldn&apos;t. I simply don&apos;t feel I am getting value for money</fullName>
+                <default>false</default>
+                <label>I wouldn&apos;t. I simply don&apos;t feel I am getting value for money</label>
+            </value>
+            <value>
+                <fullName>Another reason</fullName>
+                <default>false</default>
+                <label>Another reason</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

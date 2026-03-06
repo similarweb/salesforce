@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Mark_SDR_Calls</fullName>
+    <booleanFilter>(1 OR 2) AND 3 AND 4 and 5 and 6</booleanFilter>
+    <columns>fr_Pro_User_Type__c</columns>
+    <columns>FULL_NAME</columns>
+    <columns>CONTACT.TITLE</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.PHONE3</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>Phone_Number_Verified__c</columns>
+    <columns>CONTACT.LAST_ACTIVITY</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CONTACT.PHONE1</field>
+        <operation>notEqual</operation>
+    </filters>
+    <filters>
+        <field>CONTACT.PHONE3</field>
+        <operation>notEqual</operation>
+    </filters>
+    <filters>
+        <field>CONTACT.LAST_ACTIVITY</field>
+        <operation>notEqual</operation>
+        <value>THIS_MONTH</value>
+    </filters>
+    <filters>
+        <field>CONTACT.PHONE1</field>
+        <operation>notContain</operation>
+        <value>0367,error,1000</value>
+    </filters>
+    <filters>
+        <field>fr_Pro_User_Type__c</field>
+        <operation>notEqual</operation>
+        <value>admin,user</value>
+    </filters>
+    <label>Amazon Alex Miro SDR Calls</label>
+</ListView>

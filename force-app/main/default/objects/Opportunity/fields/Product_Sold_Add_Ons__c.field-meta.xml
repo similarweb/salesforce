@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Product_Sold_Add_Ons__c</fullName>
+    <description>MIS-4518</description>
+    <externalId>false</externalId>
+    <label>Product Sold - Add Ons</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>true</sorted>
+            <value>
+                <fullName>3.0 Unlimited Users Campaign</fullName>
+                <default>false</default>
+                <label>3.0 Unlimited Users Campaign</label>
+            </value>
+            <value>
+                <fullName>42matters</fullName>
+                <default>false</default>
+                <label>42matters</label>
+            </value>
+            <value>
+                <fullName>61 Months of Historical Data - Batch API Only</fullName>
+                <default>false</default>
+                <label>61 Months of Historical Data - Batch API Only</label>
+            </value>
+            <value>
+                <fullName>Additional Data Credits</fullName>
+                <default>false</default>
+                <label>Additional Data Credits</label>
+            </value>
+            <value>
+                <fullName>Additional Monthly Data Credits</fullName>
+                <default>false</default>
+                <label>Additional Monthly Data Credits</label>
+            </value>
+            <value>
+                <fullName>Additional Users</fullName>
+                <default>false</default>
+                <label>Additional Users</label>
+            </value>
+            <value>
+                <fullName>Admetricks</fullName>
+                <default>false</default>
+                <label>Admetricks</label>
+            </value>
+            <value>
+                <fullName>Advanced Sharing</fullName>
+                <default>false</default>
+                <label>Advanced Sharing</label>
+            </value>
+            <value>
+                <fullName>Advisory Services</fullName>
+                <default>false</default>
+                <label>Advisory Services</label>
+            </value>
+            <value>
+                <fullName>Advisory Services - One Time</fullName>
+                <default>false</default>
+                <label>Advisory Services - One Time</label>
+            </value>
+            <value>
+                <fullName>Advisory Services - Recurring</fullName>
+                <default>false</default>
+                <label>Advisory Services - Recurring</label>
+            </value>
+            <value>
+                <fullName>AI Traffic</fullName>
+                <default>false</default>
+                <label>AI Traffic</label>
+            </value>
+            <value>
+                <fullName>App Intelligence</fullName>
+                <default>false</default>
+                <label>App Intelligence</label>
+            </value>
+            <value>
+                <fullName>Contacts (SI)</fullName>
+                <default>false</default>
+                <label>Contacts (SI)</label>
+            </value>
+            <value>
+                <fullName>Funnel Analysis / eCommerce Conversion</fullName>
+                <default>false</default>
+                <label>Conversion Analysis</label>
+            </value>
+            <value>
+                <fullName>Country Filter (Cluster)</fullName>
+                <default>false</default>
+                <label>Country Filter (Cluster)</label>
+            </value>
+            <value>
+                <fullName>Country Filter (country)</fullName>
+                <default>false</default>
+                <label>Country Filter (country)</label>
+            </value>
+            <value>
+                <fullName>Country Filter (WW)</fullName>
+                <default>false</default>
+                <label>Country Filter (WW)</label>
+            </value>
+            <value>
+                <fullName>Custom Industries</fullName>
+                <default>false</default>
+                <label>Custom Industries</label>
+            </value>
+            <value>
+                <fullName>Data Feeds</fullName>
+                <default>false</default>
+                <label>Data Feeds</label>
+            </value>
+            <value>
+                <fullName>Faster API</fullName>
+                <default>false</default>
+                <label>Faster API</label>
+            </value>
+            <value>
+                <fullName>Global User Pass</fullName>
+                <default>false</default>
+                <label>Global User Pass</label>
+            </value>
+            <value>
+                <fullName>Historical data</fullName>
+                <default>false</default>
+                <label>Historical data</label>
+            </value>
+            <value>
+                <fullName>Intent Topics (SI)</fullName>
+                <default>false</default>
+                <label>Intent Topics (SI)</label>
+            </value>
+            <value>
+                <fullName>Managed Services</fullName>
+                <default>false</default>
+                <label>Managed Services</label>
+            </value>
+            <value>
+                <fullName>Marketing Channels (SI)</fullName>
+                <default>false</default>
+                <label>Marketing Channels (SI)</label>
+            </value>
+            <value>
+                <fullName>Market Research</fullName>
+                <default>false</default>
+                <label>Market Research</label>
+            </value>
+            <value>
+                <fullName>Newslever</fullName>
+                <default>false</default>
+                <label>Newslever</label>
+            </value>
+            <value>
+                <fullName>No Add-Ons</fullName>
+                <default>false</default>
+                <label>No Add-Ons</label>
+            </value>
+            <value>
+                <fullName>One-Time Data Credits</fullName>
+                <default>false</default>
+                <label>One-Time Data Credits</label>
+            </value>
+            <value>
+                <fullName>Popular Pages</fullName>
+                <default>false</default>
+                <label>Popular Pages</label>
+            </value>
+            <value>
+                <fullName>Product Tracking - Rank Ranger API</fullName>
+                <default>false</default>
+                <label>Product Tracking - Rank Ranger API</label>
+            </value>
+            <value>
+                <fullName>Product Tracking - Rank Ranger UI</fullName>
+                <default>false</default>
+                <label>Product Tracking - Rank Ranger UI</label>
+            </value>
+            <value>
+                <fullName>Recurring Services</fullName>
+                <default>false</default>
+                <label>Recurring Services</label>
+            </value>
+            <value>
+                <fullName>Search Tracker</fullName>
+                <default>false</default>
+                <label>Search Tracker</label>
+            </value>
+            <value>
+                <fullName>Segments</fullName>
+                <default>false</default>
+                <label>Segments</label>
+            </value>
+            <value>
+                <fullName>Shopper Additional Historical Data</fullName>
+                <default>false</default>
+                <label>Shopper Additional Historical Data</label>
+            </value>
+            <value>
+                <fullName>Shopper Intelligence (as Add-On)</fullName>
+                <default>false</default>
+                <label>Shopper Intelligence (as Add-On)</label>
+            </value>
+            <value>
+                <fullName>Site Audit</fullName>
+                <default>false</default>
+                <label>Site Audit</label>
+            </value>
+            <value>
+                <fullName>Stock Intelligence Platform</fullName>
+                <default>false</default>
+                <label>Stock Intelligence Platform</label>
+            </value>
+            <value>
+                <fullName>Technographics</fullName>
+                <default>false</default>
+                <label>Technographics</label>
+            </value>
+            <value>
+                <fullName>Training Services - One Time</fullName>
+                <default>false</default>
+                <label>Training Services - One Time</label>
+            </value>
+            <value>
+                <fullName>Unlock 1 New Region (EMEA/America/APAC)</fullName>
+                <default>false</default>
+                <label>Unlock 1 New Region (EMEA/America/APAC)</label>
+            </value>
+            <value>
+                <fullName>Unlock Global Market (All Regions)</fullName>
+                <default>false</default>
+                <label>Unlock Global Market (All Regions)</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

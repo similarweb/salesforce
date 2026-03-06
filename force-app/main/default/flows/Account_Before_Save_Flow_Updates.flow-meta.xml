@@ -1,0 +1,3012 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>50.0</apiVersion>
+    <assignments>
+        <description>MIS-4583</description>
+        <name>Add_1_to_CSM_Counter</name>
+        <label>Add 1 to CSM Counter</label>
+        <locationX>1139</locationX>
+        <locationY>7535</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Number_of_CSM_Owners__c</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <numberValue>1.0</numberValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>OF_OPEN_OPPS_CHANGED</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Add_LLM_suffix</name>
+        <label>Add LLM suffix</label>
+        <locationX>1249</locationX>
+        <locationY>10535</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Name</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>NameWithLLMSuffix</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>LLM_AI_changed_to_False</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Add_OEM_suffix</name>
+        <label>Add OEM suffix</label>
+        <locationX>1249</locationX>
+        <locationY>9443</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Name</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>NameWithOEMSuffix</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Data_Integrator_changed</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>MIS-8066</description>
+        <name>Assign_Date_Expired</name>
+        <label>Assign Date Expired</label>
+        <locationX>1007</locationX>
+        <locationY>4643</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Date_Last_Expired__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Flow.CurrentDate</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Status_Update_for_SMWb_Connector</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Employees_MinMax_by_Max</name>
+        <label>Assign Employees MinMax by Max</label>
+        <locationX>1073</locationX>
+        <locationY>2519</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Employees_Min__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>MinByMaxFormula</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Employees_Max__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>MaxByMaxFormula</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Populate_Billing_Name</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Employees_MinMax_by_Min</name>
+        <label>Assign Employees MinMax by Min</label>
+        <locationX>1337</locationX>
+        <locationY>2519</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Employees_Min__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>MinByMinFormula</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Employees_Max__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>MaxByMinFormula</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Populate_Billing_Name</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_NT_Historical</name>
+        <label>Assign NT Historical</label>
+        <locationX>1205</locationX>
+        <locationY>503</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.No_Touch_Account_Historical__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Rule_PRT_Change_to_Partnership_RT</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>MIS-7391 SI Connector in SFDC</description>
+        <name>Enrich_with_Similarweb_data_False</name>
+        <label>Enrich with Similarweb data = False</label>
+        <locationX>1271</locationX>
+        <locationY>4943</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.sw_connector__swEnrichWithSW__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Rule_OOLL_Opt_Out_Logo_Rights</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>MIS-7391 SI Connector in SFDC</description>
+        <name>Enrich_with_Similarweb_data_True</name>
+        <label>Enrich with Similarweb data = True</label>
+        <locationX>1007</locationX>
+        <locationY>4943</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.sw_connector__swEnrichWithSW__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Rule_OOLL_Opt_Out_Logo_Rights</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Next_Renewal_Date</name>
+        <label>Next Renewal Date</label>
+        <locationX>1205</locationX>
+        <locationY>8927</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Subscription_Renewal_Date__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>fr_Next_Renewal_Date</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Owner_changed_to_OEM_or_Data_Integrator_to_True</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Populate_the_field</name>
+        <label>Populate the field</label>
+        <locationX>1205</locationX>
+        <locationY>1211</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Domain_Routing_Group__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Business_Unit__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Account_Expired_Canceled</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>PRT_Update_RT_to_Partnership</name>
+        <label>PRT - Update RT to Partnership</label>
+        <locationX>1205</locationX>
+        <locationY>911</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.RecordTypeId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>PRT_Get_Partnership_RT.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Populate</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Remove_LLM_suffix</name>
+        <label>Remove LLM suffix</label>
+        <locationX>1051</locationX>
+        <locationY>11135</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Name</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>NameWithRemovedLLMSuffix</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Merge_or_Split_populated</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Remove_OEM_suffix</name>
+        <label>Remove OEM suffix</label>
+        <locationX>1051</locationX>
+        <locationY>9935</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Name</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>NameWithRemovedOEMSuffix</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Owner_changed_to_LLM_AI_or_LLM_AI_to_True</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>MIS-4583</description>
+        <name>Reset_Number_of_CSMs</name>
+        <label>Reset Number of CSMs</label>
+        <locationX>1403</locationX>
+        <locationY>7643</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Number_of_CSM_Owners__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <numberValue>0.0</numberValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>OF_OPEN_OPPS_CHANGED</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Set_Data_Integrator_to_True</name>
+        <label>Set Data Integrator to True</label>
+        <locationX>1161</locationX>
+        <locationY>9227</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Data_Integrator__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Has_OEM_suffix</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Set_LLM_AI_fields</name>
+        <label>Set LLM &amp; AI fields</label>
+        <locationX>1183</locationX>
+        <locationY>10919</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Strategic_Pod__c</assignToReference>
+            <operator>Assign</operator>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Strategic_Region__c</assignToReference>
+            <operator>Assign</operator>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Business_Unit__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>LLMBusinessUnitCalc</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Has_LLM_suffix</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Set_LLM_AI_to_True</name>
+        <label>Set LLM &amp; AI to True</label>
+        <locationX>1161</locationX>
+        <locationY>10319</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.LLM_AI_Account__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Strategic_Pod__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>LLM &amp; AI</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Strategic_Region__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>LLM &amp; AI</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Business_Unit__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Strategic</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Has_LLM_AI_suffix</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Set_Merge_or_Split_timestamp</name>
+        <label>Set Merge or Split timestamp</label>
+        <locationX>1205</locationX>
+        <locationY>11519</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Merge_or_Split_Timestamp__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Flow.CurrentDateTime</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Get_Closed_Opps</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Set_RT_to_Wolves</name>
+        <label>Set RT to &quot;Wolves&quot;</label>
+        <locationX>1205</locationX>
+        <locationY>2219</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.RecordTypeId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>012b0000000cfIJAAY</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Number_of_Employees_MinMax</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Update_Account_Name</name>
+        <label>Update Account Name</label>
+        <locationX>1051</locationX>
+        <locationY>1619</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Name</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Remove_No_Touch</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Logo_Rights</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Update_Billing_Name</name>
+        <label>Update Billing Name</label>
+        <locationX>1205</locationX>
+        <locationY>2819</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Billing_Name__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Name</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Populate_Quip_Template_by_Industry</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Update_Dynamic_Template_URL</name>
+        <label>Update Dynamic Template URL</label>
+        <locationX>1205</locationX>
+        <locationY>3227</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Quip_Dynamic_Template_URL__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Template_URL.Template_URL__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Rule_AD_Populate_AccountDomain</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Update_Logo_Rights</name>
+        <label>Update Logo Rights</label>
+        <locationX>1183</locationX>
+        <locationY>1811</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Logo_Rights__c</assignToReference>
+            <operator>Assign</operator>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.No_Touch_Account__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Number_of_Payments_to_0</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Update_New_Billing_Name</name>
+        <label>Update New Billing Name</label>
+        <locationX>314</locationX>
+        <locationY>12359</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Billing_Name__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Billing_Account_Name.Name</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <name>Update_Number_Of_Open_Opps_Changed_Today_true</name>
+        <label>Update Number Of Open Opps Changed Today = true</label>
+        <locationX>1205</locationX>
+        <locationY>8027</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Number_Of_Open_Opps_Changed_Today__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>SSP_Self_Service_Pitched_ISCHANGED</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>MIS-4926</description>
+        <name>Update_Number_of_Payments_to_0</name>
+        <label>Update Number of Payments to 0</label>
+        <locationX>1183</locationX>
+        <locationY>1919</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Number_of_Payments__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <numberValue>0.0</numberValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>BU_Wolves_Bus_Dev</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Update_Stage_Deal_in_Closing_Pipeline</name>
+        <label>Update Stage Deal in Closing Pipeline</label>
+        <locationX>1106</locationX>
+        <locationY>11927</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Stage__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Deal in Closing Pipeline</stringValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <name>Update_Stage_Early_Stage_Pipeline</name>
+        <label>Update Stage Early Stage Pipeline</label>
+        <locationX>2162</locationX>
+        <locationY>11927</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Stage__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Early Stage Pipeline</stringValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <name>Update_Stage_New</name>
+        <label>Update Stage New</label>
+        <locationX>842</locationX>
+        <locationY>11927</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Stage__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>New</stringValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <name>Update_Stage_Ongoing_Outbound</name>
+        <label>Update Stage Ongoing Outbound</label>
+        <locationX>1370</locationX>
+        <locationY>11927</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Stage__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Ongoing Outbound</stringValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <name>Update_Stage_Paying_Account</name>
+        <label>Update Stage Paying Account</label>
+        <locationX>446</locationX>
+        <locationY>12035</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Stage__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Paying Account</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Get_Billing_Account_Name</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Update_Stage_Pending_Meeting</name>
+        <label>Update Stage Pending Meeting</label>
+        <locationX>1634</locationX>
+        <locationY>11927</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Stage__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Pending Meeting</stringValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <name>Update_Stage_Pre_Pipeline</name>
+        <label>Update Stage Pre Pipeline</label>
+        <locationX>1898</locationX>
+        <locationY>11927</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Stage__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Pre Pipeline</stringValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <name>Update_Stage_Trial_NT_One_time</name>
+        <label>Update Stage Trial / NT / One-time</label>
+        <locationX>50</locationX>
+        <locationY>12035</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Stage__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Trial / NT / One-time</stringValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <decisions>
+        <description>MIS-7301 - Added status = blank</description>
+        <name>Account_Expired_Canceled</name>
+        <label>Account Expired/Canceled</label>
+        <locationX>1337</locationX>
+        <locationY>1403</locationY>
+        <defaultConnector>
+            <targetReference>BU_Wolves_Bus_Dev</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>False Account Expired/Canceled</defaultConnectorLabel>
+        <rules>
+            <name>True_Account_Expired_Canceled</name>
+            <conditionLogic>1 AND (2 OR 3)</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>Existing_Account.Status__c</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Expired</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+            </conditions>
+            <connector>
+                <targetReference>Account_is_NT</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>True Account Expired/Canceled</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-6771</description>
+        <name>Account_is_NT</name>
+        <label>Account is NT?</label>
+        <locationX>1183</locationX>
+        <locationY>1511</locationY>
+        <defaultConnector>
+            <targetReference>Update_Logo_Rights</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>No_Touch_True</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.No_Touch_Account__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Name</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <stringValue>- No Touch</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Account_Name</targetReference>
+            </connector>
+            <label>No Touch = True</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Account_Status_Change</name>
+        <label>Account Status Change</label>
+        <locationX>1337</locationX>
+        <locationY>4319</locationY>
+        <defaultConnector>
+            <targetReference>Rule_OOLL_Opt_Out_Logo_Rights</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Status_is_changed</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>SCD_Update_Last_Account_Status_Change_Date</targetReference>
+            </connector>
+            <label>Status is changed</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>BU_Wolves_Bus_Dev</name>
+        <label>BU = Wolves/Bus Dev</label>
+        <locationX>1337</locationX>
+        <locationY>2111</locationY>
+        <defaultConnector>
+            <targetReference>Number_of_Employees_MinMax</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>False BU = Wolves/Bus Dev</defaultConnectorLabel>
+        <rules>
+            <name>True_BU_Wolves_Bus_Dev</name>
+            <conditionLogic>((1 OR 2) AND 3) OR 4</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Business_Unit__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Panel Acquisition</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Business_Unit__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Panel_Acquisition</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Business_Unit__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>Existing_Account.Business_Unit__c</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.SYS_Record_Type_Conversion__c</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <stringValue>Panel Acquisition</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_RT_to_Wolves</targetReference>
+            </connector>
+            <label>True BU = Wolves/Bus Dev</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Data_Integrator_changed</name>
+        <label>Data Integrator changed?</label>
+        <locationX>1337</locationX>
+        <locationY>9719</locationY>
+        <defaultConnector>
+            <targetReference>Owner_changed_to_LLM_AI_or_LLM_AI_to_True</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>To_False</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Data_Integrator__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Data_Integrator__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Has_OEM_suffix1</targetReference>
+            </connector>
+            <label>To False</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Has_LLM_AI_suffix</name>
+        <label>Has LLM &amp; AI suffix?</label>
+        <locationX>1161</locationX>
+        <locationY>10427</locationY>
+        <defaultConnector>
+            <targetReference>Add_LLM_suffix</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Has_LLM_AI_suffix</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Name</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <stringValue> - LLM</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>LLM_AI_changed_to_False</targetReference>
+            </connector>
+            <label>Yes, Has LLM &amp; AI suffix</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Has_LLM_suffix</name>
+        <label>Has LLM suffix?</label>
+        <locationX>1183</locationX>
+        <locationY>11027</locationY>
+        <defaultConnector>
+            <targetReference>Merge_or_Split_populated</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Has_LLM_suffix</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Name</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <stringValue>- LLM</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Remove_LLM_suffix</targetReference>
+            </connector>
+            <label>Yes, Has LLM suffix</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Has_OEM_suffix</name>
+        <label>Has OEM suffix?</label>
+        <locationX>1161</locationX>
+        <locationY>9335</locationY>
+        <defaultConnector>
+            <targetReference>Add_OEM_suffix</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Has_OEM_suffix</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Name</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <stringValue>- OEM</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Data_Integrator_changed</targetReference>
+            </connector>
+            <label>Yes, Has OEM suffix</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Has_OEM_suffix1</name>
+        <label>Has OEM suffix?</label>
+        <locationX>1183</locationX>
+        <locationY>9827</locationY>
+        <defaultConnector>
+            <targetReference>Owner_changed_to_LLM_AI_or_LLM_AI_to_True</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Copy_1_of_Yes_Has_OEM_suffix</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Name</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <stringValue>- OEM</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Remove_OEM_suffix</targetReference>
+            </connector>
+            <label>Yes, Has OEM suffix</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>LLM_AI_changed_to_False</name>
+        <label>LLM &amp; AI changed to False?</label>
+        <locationX>1337</locationX>
+        <locationY>10811</locationY>
+        <defaultConnector>
+            <targetReference>Merge_or_Split_populated</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes_LLM_AI_changed_to_False</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.LLM_AI_Account__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.LLM_AI_Account__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_LLM_AI_fields</targetReference>
+            </connector>
+            <label>Yes, LLM &amp; AI changed to False</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Merge_or_Split_populated</name>
+        <label>Merge or Split populated?</label>
+        <locationX>1337</locationX>
+        <locationY>11411</locationY>
+        <defaultConnector>
+            <targetReference>Get_Closed_Opps</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Merge_or_Split_populated</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record__Prior.Merge_or_Split__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Merge_or_Split__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_Merge_or_Split_timestamp</targetReference>
+            </connector>
+            <label>Yes, Merge or Split populated</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>NT_Account_True</name>
+        <label>NT Account True</label>
+        <locationX>1337</locationX>
+        <locationY>395</locationY>
+        <defaultConnector>
+            <targetReference>Rule_PRT_Change_to_Partnership_RT</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>NT_Account</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.No_Touch_Account__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_NT_Historical</targetReference>
+            </connector>
+            <label>NT Account</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Number_of_Employees_MinMax</name>
+        <label>Number of Employees MinMax</label>
+        <locationX>1337</locationX>
+        <locationY>2411</locationY>
+        <defaultConnector>
+            <targetReference>Populate_Billing_Name</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Employee_Max_changed_No_Min</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Employees_Min__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <numberValue>0.0</numberValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Employees_Max__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Employees_MinMax_by_Max</targetReference>
+            </connector>
+            <label>Employee Max changed - No Min</label>
+        </rules>
+        <rules>
+            <name>Employee_MinMax_Changed</name>
+            <conditionLogic>1 AND (2 OR 3)</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Employees_Min__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Employees_Max__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Employees_MinMax_by_Min</targetReference>
+            </connector>
+            <label>Employee MinMax Changed</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>OF_OPEN_OPPS_CHANGED</name>
+        <label># OF OPEN OPPS CHANGED</label>
+        <locationX>1337</locationX>
+        <locationY>7919</locationY>
+        <defaultConnector>
+            <targetReference>SSP_Self_Service_Pitched_ISCHANGED</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>of_open_opps_changed_true</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Number_of_Open_Opps__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Number_Of_Open_Opps_Changed_Today_true</targetReference>
+            </connector>
+            <label># of open opps changed - true</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Owner_changed_to_LLM_AI_or_LLM_AI_to_True</name>
+        <label>Owner changed to LLM &amp; AI or LLM &amp; AI to True?</label>
+        <locationX>1337</locationX>
+        <locationY>10211</locationY>
+        <defaultConnector>
+            <targetReference>LLM_AI_changed_to_False</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Owner_changed_to_LLM_AI_or_LLM_AI_to_True</name>
+            <conditionLogic>(1 AND 2) OR (3 AND 4)</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.OwnerId</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Owner.Sub_Division__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>LLM &amp; AI</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.LLM_AI_Account__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.LLM_AI_Account__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_LLM_AI_to_True</targetReference>
+            </connector>
+            <label>Yes, Owner changed to LLM &amp; AI or LLM &amp; AI to True</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Owner_changed_to_OEM_or_Data_Integrator_to_True</name>
+        <label>Owner changed to OEM or Data Integrator to True?</label>
+        <locationX>1337</locationX>
+        <locationY>9119</locationY>
+        <defaultConnector>
+            <targetReference>Data_Integrator_changed</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Owner_changed_to_OEM</name>
+            <conditionLogic>(1 AND 2) OR (3 AND 4)</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.OwnerId</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Owner.UserRole.Name</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <stringValue>OEM</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Data_Integrator__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Data_Integrator__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_Data_Integrator_to_True</targetReference>
+            </connector>
+            <label>Yes, Owner changed to OEM</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-3929</description>
+        <name>Paying_Type</name>
+        <label>Paying Type</label>
+        <locationX>248</locationX>
+        <locationY>11927</locationY>
+        <defaultConnector>
+            <targetReference>Update_Stage_Paying_Account</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Paying Account</defaultConnectorLabel>
+        <rules>
+            <name>Trial_NT_One_time</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.BI_Data__r.CARR__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <numberValue>0.0</numberValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Stage_Trial_NT_One_time</targetReference>
+            </connector>
+            <label>Trial / NT / One-time</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Populate</name>
+        <label>Populate</label>
+        <locationX>1337</locationX>
+        <locationY>1103</locationY>
+        <defaultConnector>
+            <targetReference>Account_Expired_Canceled</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>False Populate</defaultConnectorLabel>
+        <rules>
+            <name>True_Populate</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Business_Unit__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>Existing_Account.Business_Unit__c</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Populate_the_field</targetReference>
+            </connector>
+            <label>True Populate</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Populate_Billing_Name</name>
+        <label>Populate Billing Name</label>
+        <locationX>1337</locationX>
+        <locationY>2711</locationY>
+        <defaultConnector>
+            <targetReference>Populate_Quip_Template_by_Industry</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Billing Name not Null</defaultConnectorLabel>
+        <rules>
+            <name>Billing_Name_Empty</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Billing_Name__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Billing_Name</targetReference>
+            </connector>
+            <label>Billing Name Null</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Populate_Quip_Template_by_Industry</name>
+        <label>Populate Quip Template by Industry</label>
+        <locationX>1337</locationX>
+        <locationY>3011</locationY>
+        <defaultConnector>
+            <targetReference>Rule_AD_Populate_AccountDomain</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>SW_Industry_changed</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.SW_Industry__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Template_URL</targetReference>
+            </connector>
+            <label>SW Industry changed</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-4583</description>
+        <name>Rule_AC_Account_Churns</name>
+        <label>*Rule (AC)* - Account Churns?</label>
+        <locationX>1535</locationX>
+        <locationY>7535</locationY>
+        <defaultConnector>
+            <targetReference>OF_OPEN_OPPS_CHANGED</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Account_Churns</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Expired</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Reset_Number_of_CSMs</targetReference>
+            </connector>
+            <label>Account Churns</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Rule_AD_Populate_AccountDomain</name>
+        <label>*Rule(AD)* - Populate AccountDomain</label>
+        <locationX>1337</locationX>
+        <locationY>3419</locationY>
+        <defaultConnector>
+            <targetReference>Rule_DU_Domain_Update</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Website_is_changed_or_is_new</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Website</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record__Prior.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>AD_Populate_Account_Domain</targetReference>
+            </connector>
+            <label>Website is changed or is new</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Rule_AR_Account_Routed</name>
+        <label>*Rule(AR)* - Account Routed</label>
+        <locationX>1337</locationX>
+        <locationY>6419</locationY>
+        <defaultConnector>
+            <targetReference>Rule_OD_Update_Owner_Division_field</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Routed_True</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Routed__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>AC_Updated_Routed</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>Routed = True</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Rule_BUW_BU_was_Changed_After_Insertion</name>
+        <label>*Rule(BUW)* - BU was Changed After Insertion</label>
+        <locationX>1337</locationX>
+        <locationY>5819</locationY>
+        <defaultConnector>
+            <targetReference>Rule_OC_Owner_Changed</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>BU_was_Changed_After_Insertion</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Business_Unit__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.LastModifiedBy.Alias</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>sfadmin</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>BUW_Update_BU_was_Changed</targetReference>
+            </connector>
+            <label>BU was Changed After Insertion</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-5956</description>
+        <name>Rule_CPOI_Client_Purchase_Order_PO_ISCHANGED</name>
+        <label>*Rule (CPOI)* - Client Purchase Order (PO) ISCHANGED?</label>
+        <locationX>1337</locationX>
+        <locationY>8519</locationY>
+        <defaultConnector>
+            <targetReference>Subscription_Renewal_Date</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>PO_ISCHANGED</name>
+            <conditionLogic>1 AND (2 OR 3)</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.The_Client_Works_with_Purchase_Order_PO__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.The_Client_Works_with_Purchase_Order_PO__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>ISNEW</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_PO_Timestamp</targetReference>
+            </connector>
+            <label>PO ISCHANGED</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Rule_DU_Domain_Update</name>
+        <label>*Rule(DU)* - Domain Update</label>
+        <locationX>1337</locationX>
+        <locationY>3719</locationY>
+        <defaultConnector>
+            <targetReference>Rule_PLR_Populate_Prior_Logo_Rights</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>New_or_Domain_is_changed</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record__Prior.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.AccountDomain__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>DU_Update_Domain</targetReference>
+            </connector>
+            <label>New or Domain is changed</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Rule_OC_Owner_Changed</name>
+        <label>*Rule(OC)* - Owner Changed</label>
+        <locationX>1337</locationX>
+        <locationY>6119</locationY>
+        <defaultConnector>
+            <targetReference>Rule_AR_Account_Routed</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Owner_is_changed</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.OwnerId</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>OC_Account_Re_assigned_Date</targetReference>
+            </connector>
+            <label>Owner is changed</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Rule_OD_Update_Owner_Division_field</name>
+        <label>*Rule(OD)* - Update Owner Division field</label>
+        <locationX>1337</locationX>
+        <locationY>6719</locationY>
+        <defaultConnector>
+            <targetReference>Rule_RRT_Record_Type_Conversion_Rank_Ranger</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Owner_is_changed_OR_Owner_Division_update_Owner_Division</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.OwnerId</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Owner_Division_update__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record.Owner.Division</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>OD_Update_Owner_Division_field</targetReference>
+            </connector>
+            <label>Owner is changed OR Owner Division update  &lt;&gt; Owner Division</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-4583</description>
+        <name>RULE_OiC_Owner_is_CSM</name>
+        <label>*RULE (OiC)* - Owner is CSM?</label>
+        <locationX>1337</locationX>
+        <locationY>7427</locationY>
+        <defaultConnector>
+            <targetReference>Rule_AC_Account_Churns</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Owner_is_CSM</name>
+            <conditionLogic>(1 OR 2) AND 3 AND 4 AND NOT(5)</conditionLogic>
+            <conditions>
+                <leftValueReference>ISNEW</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.OwnerId</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Owner.UserRole.Name</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <stringValue>CSM</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Active</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Owner.UserRole.Name</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <stringValue>Manager</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Add_1_to_CSM_Counter</targetReference>
+            </connector>
+            <label>Owner is CSM</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Rule_OOLL_Opt_Out_Logo_Rights</name>
+        <label>*Rule(OOLL)* - Opt Out Logo Rights</label>
+        <locationX>1337</locationX>
+        <locationY>5219</locationY>
+        <defaultConnector>
+            <targetReference>Rule_SME_Populate_SDR_Manager_Email</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Opt_Out_Logo_Rights_true</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Logo_Rights_Opt_Out__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>OOLL_Update_Logo_Rights</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>Opt Out Logo Rights = true</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Populate Prior Logo Rights</description>
+        <name>Rule_PLR_Populate_Prior_Logo_Rights</name>
+        <label>*Rule(PLR)* - Populate Prior Logo Rights</label>
+        <locationX>1337</locationX>
+        <locationY>4019</locationY>
+        <defaultConnector>
+            <targetReference>Account_Status_Change</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Logo_Rights_is_changed</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Logo_Rights__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Logo_Rights__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>PLR_Populate_Prior_Logo_Rights</targetReference>
+            </connector>
+            <label>Logo Rights is changed</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-1191: Check if the Account is converted from Lead with Partnership RT
+
+New Account &amp;&amp; Lead RT = Partnership &amp;&amp; Account RT &lt;&gt; Partnership</description>
+        <name>Rule_PRT_Change_to_Partnership_RT</name>
+        <label>*Rule (PRT)* - Change to Partnership RT?</label>
+        <locationX>1337</locationX>
+        <locationY>695</locationY>
+        <defaultConnector>
+            <targetReference>Populate</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>Partnership_RT</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record__Prior.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.SYS_Record_Type_Conversion__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Partnership</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Partnership</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>PRT_Get_Partnership_RT</targetReference>
+            </connector>
+            <label>Partnership RT</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Rule_RRT_Record_Type_Conversion_Rank_Ranger</name>
+        <label>*Rule(RRT)* - Record Type (Conversion) = Rank Ranger</label>
+        <locationX>1337</locationX>
+        <locationY>7019</locationY>
+        <defaultConnector>
+            <targetReference>RULE_OiC_Owner_is_CSM</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Record_Type_Conversion_Rank_Ranger</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record__Prior.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.SYS_Record_Type_Conversion__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Rank Ranger</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>RRT_Get_Rank_Ranger_RT_ID</targetReference>
+            </connector>
+            <label>Record Type (Conversion) = Rank Ranger</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Rule_SME_Populate_SDR_Manager_Email</name>
+        <label>*Rule(SME)* - Populate SDR Manager Email</label>
+        <locationX>1337</locationX>
+        <locationY>5519</locationY>
+        <defaultConnector>
+            <targetReference>Rule_BUW_BU_was_Changed_After_Insertion</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Is_new_or_SDR_manager_email_is_blank</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record__Prior.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.SDR_Manager_Email__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>SME_Populate_SDR_Manager_Email</targetReference>
+            </connector>
+            <label>Is new or SDR manager email is blank</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-4658</description>
+        <name>SSP_Self_Service_Pitched_ISCHANGED</name>
+        <label>*(SSP)* - Self-Service Pitched ISCHANGED?</label>
+        <locationX>1337</locationX>
+        <locationY>8219</locationY>
+        <defaultConnector>
+            <targetReference>Rule_CPOI_Client_Purchase_Order_PO_ISCHANGED</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Self_Service_Pitched_ISCHANGED</name>
+            <conditionLogic>(1 AND 2) OR 3</conditionLogic>
+            <conditions>
+                <leftValueReference>ISNEW</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Self_Service_Pitched__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Self_Service_Pitched__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Self_Service_Pitched_By</targetReference>
+            </connector>
+            <label>Self-Service Pitched ISCHANGED</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-8066</description>
+        <name>Status_Changed_From_Active</name>
+        <label>Status Changed From Active</label>
+        <locationX>1139</locationX>
+        <locationY>4535</locationY>
+        <defaultConnector>
+            <targetReference>Status_Update_for_SMWb_Connector</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Status_Active</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Active</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record__Prior.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Active</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Date_Expired</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>Status &lt;&gt; Active</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-7391 SI Connector in SFDC</description>
+        <name>Status_Update_for_SMWb_Connector</name>
+        <label>Status Update for SMWb Connector</label>
+        <locationX>1139</locationX>
+        <locationY>4835</locationY>
+        <defaultConnector>
+            <targetReference>Enrich_with_Similarweb_data_False</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Status &lt;&gt; Active</defaultConnectorLabel>
+        <rules>
+            <name>New_Status_Active</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Active</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Enrich_with_Similarweb_data_True</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>New Status = Active</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-6863
+MIS-7541 Removed the outcome to set Subscription Renewal Date to Null</description>
+        <name>Subscription_Renewal_Date</name>
+        <label>Subscription Renewal Date</label>
+        <locationX>1337</locationX>
+        <locationY>8819</locationY>
+        <defaultConnector>
+            <targetReference>Owner_changed_to_OEM_or_Data_Integrator_to_True</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Account_Next_renewal_date</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Active</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.No_Touch_Account__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Next_Renewal_Date</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>Account.Next renewal date</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Update_Billing_Name1</name>
+        <label>Update Billing Name?</label>
+        <locationX>446</locationX>
+        <locationY>12251</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Update_Billing_name_from_Billing_Account</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Billing_Account_Name.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_New_Billing_Name</targetReference>
+            </connector>
+            <label>Update Billing name from Billing Account</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Update_Stage</name>
+        <label>Update Stage</label>
+        <locationX>1337</locationX>
+        <locationY>11819</locationY>
+        <defaultConnectorLabel>False</defaultConnectorLabel>
+        <rules>
+            <name>True_Paying_Account</name>
+            <conditionLogic>1 AND 2 AND (3 OR 4 OR 5 OR 6) AND 7</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.RecordTypeId</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.RecordType.Name</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Default</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Active</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Cancelled</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Part Of Another Subscription</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Suspended</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>Existing_Account.Status__c</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Paying_Type</targetReference>
+            </connector>
+            <label>True Paying Account</label>
+        </rules>
+        <rules>
+            <name>True_New</name>
+            <conditionLogic>1 AND 2 AND 3 AND 4 AND (5 OR 6) AND (7 OR 8)</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.RecordTypeId</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.RecordType.Name</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Default</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Number_of_Open_Opps__c</leftValueReference>
+                <operator>LessThan</operator>
+                <rightValue>
+                    <numberValue>1.0</numberValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Number_Of_Open_Meetings__c</leftValueReference>
+                <operator>LessThan</operator>
+                <rightValue>
+                    <numberValue>1.0</numberValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.LastActivityDate</leftValueReference>
+                <operator>LessThan</operator>
+                <rightValue>
+                    <elementReference>TODAY_90Formula</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.LastActivityDate</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Expired</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Stage_New</targetReference>
+            </connector>
+            <label>True New</label>
+        </rules>
+        <rules>
+            <name>True_Deal_in_Closing_Pipeline</name>
+            <conditionLogic>1 AND 2 AND ((3 AND 4 AND 7) OR 8) AND (5 OR 6)</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.RecordTypeId</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.RecordType.Name</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Default</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Number_of_Open_Opps__c</leftValueReference>
+                <operator>GreaterThanOrEqualTo</operator>
+                <rightValue>
+                    <numberValue>1.0</numberValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.MAX_Probability__c</leftValueReference>
+                <operator>LessThan</operator>
+                <rightValue>
+                    <numberValue>100.0</numberValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Expired</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.MAX_Probability__c</leftValueReference>
+                <operator>GreaterThan</operator>
+                <rightValue>
+                    <numberValue>50.0</numberValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_Closed_Opps</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Stage_Deal_in_Closing_Pipeline</targetReference>
+            </connector>
+            <label>True Deal in Closing Pipeline</label>
+        </rules>
+        <rules>
+            <name>True_Ongoing_Outbound</name>
+            <conditionLogic>1 AND 2 AND 3 AND 4 AND 5 AND 6 AND (7 OR 8)</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Stage__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Ongoing Outbound</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.RecordTypeId</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.RecordType.Name</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Default</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Number_of_Open_Opps__c</leftValueReference>
+                <operator>LessThan</operator>
+                <rightValue>
+                    <numberValue>1.0</numberValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Number_Of_Open_Meetings__c</leftValueReference>
+                <operator>LessThan</operator>
+                <rightValue>
+                    <numberValue>1.0</numberValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.LastActivityDate</leftValueReference>
+                <operator>GreaterThanOrEqualTo</operator>
+                <rightValue>
+                    <elementReference>TODAY_90Formula</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Expired</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Stage_Ongoing_Outbound</targetReference>
+            </connector>
+            <label>True Ongoing Outbound</label>
+        </rules>
+        <rules>
+            <name>True_Pending_Meeting</name>
+            <conditionLogic>1 AND 2 AND 3 AND 4 AND (5 OR 6)</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.RecordTypeId</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.RecordType.Name</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Default</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Number_of_Open_Opps__c</leftValueReference>
+                <operator>LessThan</operator>
+                <rightValue>
+                    <numberValue>1.0</numberValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Number_Of_Open_Meetings__c</leftValueReference>
+                <operator>GreaterThanOrEqualTo</operator>
+                <rightValue>
+                    <numberValue>1.0</numberValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Expired</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Stage_Pending_Meeting</targetReference>
+            </connector>
+            <label>True Pending Meeting</label>
+        </rules>
+        <rules>
+            <name>True_Pre_Pipeline</name>
+            <conditionLogic>1 AND 2 AND 3 AND 4 AND (5 OR 6)</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.RecordTypeId</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.RecordType.Name</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Default</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Number_of_Open_Opps__c</leftValueReference>
+                <operator>GreaterThanOrEqualTo</operator>
+                <rightValue>
+                    <numberValue>1.0</numberValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.MAX_Probability__c</leftValueReference>
+                <operator>LessThanOrEqualTo</operator>
+                <rightValue>
+                    <numberValue>10.0</numberValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Expired</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Stage_Pre_Pipeline</targetReference>
+            </connector>
+            <label>True Pre Pipeline</label>
+        </rules>
+        <rules>
+            <name>True_Early_Stage_Pipeline</name>
+            <conditionLogic>1 AND 2 AND 3 AND 4 AND (5 OR 6)</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.RecordTypeId</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.RecordType.Name</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Default</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Number_of_Open_Opps__c</leftValueReference>
+                <operator>GreaterThanOrEqualTo</operator>
+                <rightValue>
+                    <numberValue>1.0</numberValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.MAX_Probability__c</leftValueReference>
+                <operator>LessThanOrEqualTo</operator>
+                <rightValue>
+                    <numberValue>50.0</numberValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Expired</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Stage_Early_Stage_Pipeline</targetReference>
+            </connector>
+            <label>True Early Stage Pipeline</label>
+        </rules>
+    </decisions>
+    <description>MIS-8035 - Added Split/Merge timestamp
+MIS-8393 - Added LLM &amp; AI logic
+MIS-8066  - assign date expierd
+MIS-7229 - Added OEM suffix handling
+MIS-7541 - Subscription Renewal Date Changes
+MIS-7391 SI Connector in SFDC-&gt; status update for smwb connector
+MIS-7190 - Data Quality Controls: Contact owner &lt;&gt; Account owner
+MIS-7301 - Added status = blank on Account Expired / NT logic
+MIS-6912 - Removed Enrichment Process
+MIS-6863 - Subscription Renewal Date 
+MIS-6771 - Remove &quot;No Touch&quot;
+MIS-6331 - Add User to Enrichment Request
+MIS-5956 - PO Timestamp and User
+MIS-4926
+MIS-4658
+MIS-4583
+Last - MIS-3929
+MIS-3008
+MIS-1208 - Button on the account level to flag needed enrichment
+MIS-1460
+Update Quip Dynamic Template URL by SW industry</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>fr_AccountDomain</name>
+        <dataType>String</dataType>
+        <expression>IF(CONTAINS({!$Record.Website}, &quot;gmail&quot;),&quot;&quot;,
+
+LOWER(IF(AND(NOT(ISNULL({!$Record.Website})), NOT(ISBLANK({!$Record.Website}))), IF(FIND(&quot;www.&quot;, {!$Record.Website}) &gt; 0 , SUBSTITUTE({!$Record.Website}, LEFT({!$Record.Website}, FIND(&quot;.&quot;, {!$Record.Website})), NULL), {!$Record.Website}), NULL))
+
+)</expression>
+    </formulas>
+    <formulas>
+        <name>fr_Domain</name>
+        <dataType>String</dataType>
+        <expression>LEFT({!$Record.AccountDomain__c},FIND(&quot;.&quot;,{!$Record.AccountDomain__c})-1)</expression>
+    </formulas>
+    <formulas>
+        <name>fr_Next_Renewal_Date</name>
+        <dataType>Date</dataType>
+        <expression>IF(ISBLANK({!$Record.fr_NextRenewalDate__c}),{!$Record.BI_Data__r.Next_Renewal_Date__c},{!$Record.fr_NextRenewalDate__c})</expression>
+    </formulas>
+    <formulas>
+        <name>fr_NOW</name>
+        <dataType>DateTime</dataType>
+        <expression>NOW()</expression>
+    </formulas>
+    <formulas>
+        <name>fr_SDRManagerEmail</name>
+        <dataType>String</dataType>
+        <expression>{!$Record.SDR_Name__r.Manager.Email}</expression>
+    </formulas>
+    <formulas>
+        <name>ISNEW</name>
+        <dataType>Boolean</dataType>
+        <expression>ISNEW()</expression>
+    </formulas>
+    <formulas>
+        <name>LLMBusinessUnitCalc</name>
+        <dataType>String</dataType>
+        <expression>IF({!$Record.Employees_Min__c} &lt; 1001, &apos;Inside Sales&apos;, &apos;Enterprise&apos;)</expression>
+    </formulas>
+    <formulas>
+        <name>MaxByMaxFormula</name>
+        <dataType>Number</dataType>
+        <expression>IF(
+  AND(
+    {!$Record.Employees_Max__c}&gt;= 1,
+    {!$Record.Employees_Max__c}&lt;= 10
+  ),
+  10,
+  IF(
+    AND(
+      {!$Record.Employees_Max__c}&gt;= 11,
+      {!$Record.Employees_Max__c}&lt;= 50
+    ),
+    50,
+    IF(
+      AND(
+        {!$Record.Employees_Max__c}&gt;= 51,
+        {!$Record.Employees_Max__c}&lt;= 200
+      ),
+      200,
+      IF(
+        AND(
+          {!$Record.Employees_Max__c}&gt;= 201,
+          {!$Record.Employees_Max__c}&lt;= 500
+        ),
+        500,
+        IF(
+          AND(
+            {!$Record.Employees_Max__c}&gt;= 501,
+            {!$Record.Employees_Max__c}&lt;= 1000
+          ),
+          1000,
+          IF(
+            AND(
+              {!$Record.Employees_Max__c}&gt;= 1001,
+              {!$Record.Employees_Max__c}&lt;= 5000
+            ),
+            5000,
+            IF(
+              {!$Record.Employees_Max__c}&gt; 5000,
+              10000,
+              0
+            )
+          )
+        )
+      )
+    )
+  )
+)</expression>
+        <scale>0</scale>
+    </formulas>
+    <formulas>
+        <name>MaxByMinFormula</name>
+        <dataType>Number</dataType>
+        <expression>IF(
+  AND(
+    {!$Record.Employees_Min__c}&gt;= 1,
+    {!$Record.Employees_Min__c}&lt;= 10
+  ),
+  10,
+  IF(
+    AND(
+      {!$Record.Employees_Min__c}&gt;= 11,
+      {!$Record.Employees_Min__c}&lt;= 50
+    ),
+    50,
+    IF(
+      AND(
+        {!$Record.Employees_Min__c}&gt;= 51,
+        {!$Record.Employees_Min__c}&lt;= 200
+      ),
+      200,
+      IF(
+        AND(
+          {!$Record.Employees_Min__c}&gt;= 201,
+          {!$Record.Employees_Min__c}&lt;= 500
+        ),
+        500,
+        IF(
+          AND(
+            {!$Record.Employees_Min__c}&gt;= 501,
+            {!$Record.Employees_Min__c}&lt;= 1000
+          ),
+          1000,
+          IF(
+            AND(
+              {!$Record.Employees_Min__c}&gt;= 1001,
+              {!$Record.Employees_Min__c}&lt;= 5000
+            ),
+            5000,
+            IF(
+              {!$Record.Employees_Min__c}&gt; 5000,
+              10000,
+              0
+            )
+          )
+        )
+      )
+    )
+  )
+)</expression>
+        <scale>0</scale>
+    </formulas>
+    <formulas>
+        <name>MinByMaxFormula</name>
+        <dataType>Number</dataType>
+        <expression>IF(
+  AND(
+    {!$Record.Employees_Max__c}&gt;= 1,
+    {!$Record.Employees_Max__c}&lt;= 10
+  ),
+  1,
+  IF(
+    AND(
+      {!$Record.Employees_Max__c}&gt;= 11,
+      {!$Record.Employees_Max__c}&lt;= 50
+    ),
+    11,
+    IF(
+      AND(
+        {!$Record.Employees_Max__c}&gt;= 51,
+        {!$Record.Employees_Max__c}&lt;= 200
+      ),
+      51,
+      IF(
+        AND(
+          {!$Record.Employees_Max__c}&gt;= 201,
+          {!$Record.Employees_Max__c}&lt;= 500
+        ),
+        201,
+        IF(
+          AND(
+            {!$Record.Employees_Max__c}&gt;= 501,
+            {!$Record.Employees_Max__c}&lt;= 1000
+          ),
+          501,
+          IF(
+            AND(
+              {!$Record.Employees_Max__c}&gt;= 1001,
+              {!$Record.Employees_Max__c}&lt;= 5000
+            ),
+            1001,
+            IF(
+              {!$Record.Employees_Max__c}&gt; 5000,
+              5001,
+              0
+            )
+          )
+        )
+      )
+    )
+  )
+)</expression>
+        <scale>0</scale>
+    </formulas>
+    <formulas>
+        <name>MinByMinFormula</name>
+        <dataType>Number</dataType>
+        <expression>IF(
+  AND(
+    {!$Record.Employees_Min__c}&gt;= 1,
+    {!$Record.Employees_Min__c}&lt;= 10
+  ),
+  1,
+  IF(
+    AND(
+      {!$Record.Employees_Min__c}&gt;= 11,
+      {!$Record.Employees_Min__c}&lt;= 50
+    ),
+    11,
+    IF(
+      AND(
+        {!$Record.Employees_Min__c}&gt;= 51,
+        {!$Record.Employees_Min__c}&lt;= 200
+      ),
+      51,
+      IF(
+        AND(
+          {!$Record.Employees_Min__c}&gt;= 201,
+          {!$Record.Employees_Min__c}&lt;= 500
+        ),
+        201,
+        IF(
+          AND(
+            {!$Record.Employees_Min__c}&gt;= 501,
+            {!$Record.Employees_Min__c}&lt;= 1000
+          ),
+          501,
+          IF(
+            AND(
+              {!$Record.Employees_Min__c}&gt;= 1001,
+              {!$Record.Employees_Min__c}&lt;= 5000
+            ),
+            1001,
+            IF(
+              {!$Record.Employees_Min__c}&gt; 5000,
+              5001,
+              0
+            )
+          )
+        )
+      )
+    )
+  )
+)</expression>
+        <scale>0</scale>
+    </formulas>
+    <formulas>
+        <name>NameWithLLMSuffix</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+    {!$Record.Name},
+    255 - LEN(&quot; - LLM&quot;)
+) &amp; &quot; - LLM&quot;</expression>
+    </formulas>
+    <formulas>
+        <name>NameWithOEMSuffix</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+    {!$Record.Name},
+    255 - LEN(&quot; - OEM&quot;)
+) &amp; &quot; - OEM&quot;</expression>
+    </formulas>
+    <formulas>
+        <name>NameWithRemovedLLMSuffix</name>
+        <dataType>String</dataType>
+        <expression>IF(
+    RIGHT(TRIM({!$Record.Name}), 6) = &quot; - LLM&quot;,
+    LEFT(TRIM({!$Record.Name}), LEN(TRIM({!$Record.Name})) - 6),
+    TRIM({!$Record.Name})
+)</expression>
+    </formulas>
+    <formulas>
+        <name>NameWithRemovedOEMSuffix</name>
+        <dataType>String</dataType>
+        <expression>IF(
+    RIGHT(TRIM({!$Record.Name}), 6) = &quot; - OEM&quot;,
+    LEFT(TRIM({!$Record.Name}), LEN(TRIM({!$Record.Name})) - 6),
+    TRIM({!$Record.Name})
+)</expression>
+    </formulas>
+    <formulas>
+        <description>MIS-5956</description>
+        <name>PO_Timestamp_and_User</name>
+        <dataType>String</dataType>
+        <expression>TEXT({!fr_NOW})&amp;&apos; - by &apos;&amp;{!$Record.LastModifiedBy.FirstName}&amp;&apos; &apos;&amp;{!$Record.LastModifiedBy.LastName}</expression>
+    </formulas>
+    <formulas>
+        <description>MIS-6771</description>
+        <name>Remove_No_Touch</name>
+        <dataType>String</dataType>
+        <expression>SUBSTITUTE({!$Record.Name}, &quot; - No Touch&quot;, &quot;&quot;)</expression>
+    </formulas>
+    <formulas>
+        <name>TODAY_365</name>
+        <dataType>Date</dataType>
+        <expression>TODAY()-365</expression>
+    </formulas>
+    <formulas>
+        <name>TODAY_90Formula</name>
+        <dataType>Date</dataType>
+        <expression>TODAY()-90</expression>
+    </formulas>
+    <formulas>
+        <description>MIS-4658</description>
+        <name>User_Full_Name</name>
+        <dataType>String</dataType>
+        <expression>{!$User.FirstName}+&quot; &quot;+{!$User.LastName}</expression>
+    </formulas>
+    <interviewLabel>Account Before Save Flow Updates {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Account Before Save Flow Updates</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Existing_Account</name>
+        <label>Existing Account</label>
+        <locationX>1337</locationX>
+        <locationY>287</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>NT_Account_True</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Account</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Billing_Account_Name</name>
+        <label>Get Billing Account Name</label>
+        <locationX>446</locationX>
+        <locationY>12143</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Update_Billing_Name1</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Zuora__Account__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Zuora__MRR__c</field>
+            <operator>GreaterThan</operator>
+            <value>
+                <numberValue>0.0</numberValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Zuora__CustomerAccount__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Closed_Opps</name>
+        <label>Get Closed Opps</label>
+        <locationX>1337</locationX>
+        <locationY>11711</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Update_Stage</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>AccountId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>CloseDate</field>
+            <operator>GreaterThanOrEqualTo</operator>
+            <value>
+                <elementReference>TODAY_90Formula</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>StageName</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Closed Won</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>Opportunity</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Template_URL</name>
+        <label>Get Template URL</label>
+        <locationX>1205</locationX>
+        <locationY>3119</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Update_Dynamic_Template_URL</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Value__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.SW_Industry__c</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Quip_Dynamic_Template_URL__mdt</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>PRT_Get_Partnership_RT</name>
+        <label>PRT - Get Partnership RT</label>
+        <locationX>1205</locationX>
+        <locationY>803</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>PRT_Update_RT_to_Partnership</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>DeveloperName</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Partnership</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>SobjectType</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Account</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>RecordType</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>RRT_Get_Rank_Ranger_RT_ID</name>
+        <label>RRT - Get Rank Ranger RT ID</label>
+        <locationX>1205</locationX>
+        <locationY>7127</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>RRT_Update_Record_Type_To_Rank_Ranger</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>DeveloperName</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Rank_Ranger</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>SobjectType</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Account</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>RecordType</object>
+        <queriedFields>Id</queriedFields>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <name>AC_Updated_Routed</name>
+        <label>AC - Updated Routed</label>
+        <locationX>1205</locationX>
+        <locationY>6527</locationY>
+        <connector>
+            <targetReference>Rule_OD_Update_Owner_Division_field</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Routed__c</field>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>AD_Populate_Account_Domain</name>
+        <label>AD - Populate Account Domain</label>
+        <locationX>1205</locationX>
+        <locationY>3527</locationY>
+        <connector>
+            <targetReference>Rule_DU_Domain_Update</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>AccountDomain__c</field>
+            <value>
+                <elementReference>fr_AccountDomain</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>BUW_Update_BU_was_Changed</name>
+        <label>BUW - Update BU was Changed</label>
+        <locationX>1205</locationX>
+        <locationY>5927</locationY>
+        <connector>
+            <targetReference>Rule_OC_Owner_Changed</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>BU_was_Changed_After_Insertion__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>DU_Update_Domain</name>
+        <label>DU - Update Domain</label>
+        <locationX>1205</locationX>
+        <locationY>3827</locationY>
+        <connector>
+            <targetReference>Rule_PLR_Populate_Prior_Logo_Rights</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Domain__c</field>
+            <value>
+                <elementReference>fr_Domain</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>MIS-7190 Data Quality Controls: Contact owner &lt;&gt; Account owner</description>
+        <name>OC_Account_Re_assigned_Date</name>
+        <label>OC - Account Re-assigned Date</label>
+        <locationX>1205</locationX>
+        <locationY>6227</locationY>
+        <connector>
+            <targetReference>Rule_AR_Account_Routed</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Account_Re_assigned_Date__c</field>
+            <value>
+                <elementReference>fr_NOW</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Owner_Change_Date__c</field>
+            <value>
+                <elementReference>$Flow.CurrentDate</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>OD_Update_Owner_Division_field</name>
+        <label>OD - Update Owner Division field</label>
+        <locationX>1205</locationX>
+        <locationY>6827</locationY>
+        <connector>
+            <targetReference>Rule_RRT_Record_Type_Conversion_Rank_Ranger</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Owner_Division_update__c</field>
+            <value>
+                <elementReference>$Record.Owner.Division</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>OOLL_Update_Logo_Rights</name>
+        <label>OOLL - Update Logo Rights</label>
+        <locationX>1205</locationX>
+        <locationY>5327</locationY>
+        <connector>
+            <targetReference>Rule_SME_Populate_SDR_Manager_Email</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Logo_Rights__c</field>
+            <value>
+                <stringValue>No name/logo rights</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>PLR_Populate_Prior_Logo_Rights</name>
+        <label>PLR - Populate Prior Logo Rights</label>
+        <locationX>1205</locationX>
+        <locationY>4127</locationY>
+        <connector>
+            <targetReference>Account_Status_Change</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>SYS_Prior_Logo_Rights__c</field>
+            <value>
+                <elementReference>$Record__Prior.Logo_Rights__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>RRT_Update_Record_Type_To_Rank_Ranger</name>
+        <label>RRT - Update Record Type To Rank Ranger</label>
+        <locationX>1205</locationX>
+        <locationY>7235</locationY>
+        <connector>
+            <targetReference>RULE_OiC_Owner_is_CSM</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>RecordTypeId</field>
+            <value>
+                <elementReference>RRT_Get_Rank_Ranger_RT_ID.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>SCD_Update_Last_Account_Status_Change_Date</name>
+        <label>SCD - Update Last Account Status Change Date</label>
+        <locationX>1139</locationX>
+        <locationY>4427</locationY>
+        <connector>
+            <targetReference>Status_Changed_From_Active</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Last_Status_update_date__c</field>
+            <value>
+                <elementReference>fr_NOW</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>SME_Populate_SDR_Manager_Email</name>
+        <label>SME - Populate SDR Manager Email</label>
+        <locationX>1205</locationX>
+        <locationY>5627</locationY>
+        <connector>
+            <targetReference>Rule_BUW_BU_was_Changed_After_Insertion</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>SDR_Manager_Email__c</field>
+            <value>
+                <elementReference>fr_SDRManagerEmail</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>MIS-5956</description>
+        <name>Update_PO_Timestamp</name>
+        <label>Update PO Timestamp</label>
+        <locationX>1205</locationX>
+        <locationY>8627</locationY>
+        <connector>
+            <targetReference>Subscription_Renewal_Date</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>PO_Checkbox_Timestamp_and_User__c</field>
+            <value>
+                <elementReference>PO_Timestamp_and_User</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>MIS-4658</description>
+        <name>Update_Self_Service_Pitched_By</name>
+        <label>Update Self-Service Pitched By</label>
+        <locationX>1205</locationX>
+        <locationY>8327</locationY>
+        <connector>
+            <targetReference>Rule_CPOI_Client_Purchase_Order_PO_ISCHANGED</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Self_Service_Pitched_By__c</field>
+            <value>
+                <elementReference>User_Full_Name</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>1211</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Existing_Account</targetReference>
+        </connector>
+        <object>Account</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AVG_Data_Date__c</fullName>
+    <description>BI needs a Date field to use for the query to which MDR to pull. So they can populate the &quot;AVG Data Units&quot; number field. Since the &quot;Created Date&quot; cannot be modified, and there will be cases where we need data fixes, we created this help date field.</description>
+    <externalId>false</externalId>
+    <label>AVG Data Date</label>
+    <length>80</length>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

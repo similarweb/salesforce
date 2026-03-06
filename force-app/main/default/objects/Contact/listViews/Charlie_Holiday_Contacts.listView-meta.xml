@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Charlie_Holiday_Contacts</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>CONTACT.TITLE</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>CONTACT.LAST_ACTIVITY</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Account_Owner__c</field>
+        <operation>contains</operation>
+        <value>Charlie Ross,Jay Imus,Brian Rosa</value>
+    </filters>
+    <filters>
+        <field>SW_Industry__c</field>
+        <operation>contains</operation>
+        <value>CPG,Retail</value>
+    </filters>
+    <filters>
+        <field>CONTACT.TITLE</field>
+        <operation>contains</operation>
+        <value>Director,CDO,CMO,Senior</value>
+    </filters>
+    <filters>
+        <field>ACCOUNT.NAME</field>
+        <operation>notContain</operation>
+        <value>Apple,Mars,Kroger,3M,Avis,Proctor &amp; Gamble The,Walmart</value>
+    </filters>
+    <filters>
+        <field>fr_Pro_User_Type__c</field>
+        <operation>notEqual</operation>
+        <value>User,Admin</value>
+    </filters>
+    <filters>
+        <field>CONTACT.TITLE</field>
+        <operation>notContain</operation>
+        <value>Business Development,Investment,Information,IT,HR,Field,Media,Fraud,Risk,Commercial,Recruiter,Accountant,Finance,Transformation,Design,Project,Public Relations,Operations,Sales,Creative,Coordinator,Merchandising,Clinical,Communications</value>
+    </filters>
+    <label>Charlie Holiday Contacts</label>
+</ListView>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Department_Single__c</fullName>
+    <description>New Single Select Picklist field for the relevant &quot;Department&quot; of the Campaign. MIS - 1928</description>
+    <externalId>false</externalId>
+    <inlineHelpText>The department you work at in Similarweb</inlineHelpText>
+    <label>Department</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Demand Generation</fullName>
+                <default>false</default>
+                <label>Demand Generation</label>
+            </value>
+            <value>
+                <fullName>Field Marketing</fullName>
+                <default>false</default>
+                <label>Field Marketing</label>
+            </value>
+            <value>
+                <fullName>Product Marketing</fullName>
+                <default>false</default>
+                <label>Product Marketing</label>
+            </value>
+            <value>
+                <fullName>Marketing Operations</fullName>
+                <default>false</default>
+                <label>Marketing Operations</label>
+            </value>
+            <value>
+                <fullName>Global Marketing</fullName>
+                <default>false</default>
+                <label>Global Marketing</label>
+            </value>
+            <value>
+                <fullName>Corporate Marketing</fullName>
+                <default>false</default>
+                <label>Corporate Marketing</label>
+            </value>
+            <value>
+                <fullName>GTM</fullName>
+                <default>false</default>
+                <label>GTM</label>
+            </value>
+            <value>
+                <fullName>Customer Experience</fullName>
+                <default>false</default>
+                <label>Customer Experience</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>NAL</fullName>
+                <default>false</default>
+                <label>NAL</label>
+            </value>
+            <value>
+                <fullName>Brand Marketing</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Brand Marketing</label>
+            </value>
+            <value>
+                <fullName>Education</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Education</label>
+            </value>
+            <value>
+                <fullName>Integrated Marketing</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Integrated Marketing</label>
+            </value>
+            <value>
+                <fullName>Marketing</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Marketing</label>
+            </value>
+            <value>
+                <fullName>Sales</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Sales</label>
+            </value>
+            <value>
+                <fullName>Sales Development</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Sales Development</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

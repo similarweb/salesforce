@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MIR_Priority_2_Contacts</fullName>
+    <columns>MQL__c</columns>
+    <columns>FULL_NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>SW_Industry__c</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>Website__c</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.EMAIL_OPT_OUT</columns>
+    <columns>Status__c</columns>
+    <columns>CONTACT.TITLE</columns>
+    <columns>CORE.USERS.FIRST_NAME</columns>
+    <columns>Original_Lead_Source__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>Open</value>
+    </filters>
+    <filters>
+        <field>Nurtured_by_Marketing__c</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>SYS_Owner_Role__c</field>
+        <operation>contains</operation>
+        <value>MIR</value>
+    </filters>
+    <filters>
+        <field>Business_Unit__c</field>
+        <operation>equals</operation>
+        <value>Inside Sales</value>
+    </filters>
+    <filters>
+        <field>Lead_Creation_Date__c</field>
+        <operation>equals</operation>
+        <value>LAST_N_DAYS:30</value>
+    </filters>
+    <filters>
+        <field>Pro_User_Type__c</field>
+        <operation>notEqual</operation>
+        <value>User,Admin</value>
+    </filters>
+    <filters>
+        <field>CONTACT.LEAD_SOURCE</field>
+        <operation>notContain</operation>
+        <value>ContactForm,SDR Outbound,Tradeshow,Webinar,InvitationRegisterRequest,proadd</value>
+    </filters>
+    <filters>
+        <field>Original_Lead_Source__c</field>
+        <operation>notContain</operation>
+        <value>ContactForm,SDR Outbound,Tradeshow,Webinar,InvitationRegisterRequest,proadd</value>
+    </filters>
+    <label>Z (Old) MIR - Priority 2 - Contacts</label>
+</ListView>

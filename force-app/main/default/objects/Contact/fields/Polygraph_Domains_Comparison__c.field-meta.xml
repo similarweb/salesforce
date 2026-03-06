@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Polygraph_Domains_Comparison__c</fullName>
+    <externalId>false</externalId>
+    <label>Polygraph Domains Comparison</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>same</fullName>
+                <default>false</default>
+                <label>same</label>
+            </value>
+            <value>
+                <fullName>different</fullName>
+                <default>false</default>
+                <label>different</label>
+            </value>
+            <value>
+                <fullName>no_domain</fullName>
+                <default>false</default>
+                <label>no_domain</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

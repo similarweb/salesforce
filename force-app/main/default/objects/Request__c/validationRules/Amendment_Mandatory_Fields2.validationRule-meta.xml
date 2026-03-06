@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Amendment_Mandatory_Fields2</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+ISNEW(),
+ISPICKVAL(Change_of_Payment_Terms__c , &apos;Yes&apos;),
+OR(
+ISBLANK(TEXT(Payment_Terms__c )),
+ISBLANK(TEXT(Effect_Date_of_New_Features__c ))
+))</errorConditionFormula>
+    <errorMessage>Please populate Payment Terms and Effect Date of New Features</errorMessage>
+</ValidationRule>

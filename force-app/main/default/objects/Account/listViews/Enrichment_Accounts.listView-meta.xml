@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Enrichment_Accounts</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>Status__c</columns>
+    <columns>Website_Domain__c</columns>
+    <columns>Employees_Min__c</columns>
+    <columns>Employees_Max__c</columns>
+    <columns>Business_Unit__c</columns>
+    <columns>SW_Industry__c</columns>
+    <columns>Industry_Subtype__c</columns>
+    <columns>Enrichment_Source__c</columns>
+    <columns>CORE.USERS.LAST_NAME</columns>
+    <columns>Owner_Division__c</columns>
+    <columns>X18_Characters_ID__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>ACCOUNT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Account.Current_25_10_16</value>
+    </filters>
+    <label>Enrichment Accounts</label>
+</ListView>

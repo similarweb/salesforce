@@ -1,0 +1,26 @@
+<aura:component controller="BaseProductSettingController">
+    <aura:attribute name="controllingFieldValue" type="String"/>
+    <aura:attribute name="valuesListRaw" type="String"/>
+    <aura:attribute name="mode" type="String" required="true"/>
+    <aura:attribute name="isShown" type="Boolean" required="true"/>
+    <aura:attribute name="isLoading" type="Boolean" default="false"/>
+
+    <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+        <div class="slds-modal__container">
+            <header class="slds-modal__header">
+                <lightning:button class="slds-modal__close" onclick="{!c.onCancelClick}" variant="bare">
+                    <lightning:icon iconName="utility:close" alternativeText="Close" size="small" />
+                </lightning:button>
+                <h2 id="modal-heading-01" class="slds-modal__title slds-hyphenate">Add values</h2>            
+            </header>
+            <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                <lightning:textarea value="{!v.valuesListRaw}" name="input" label="Picklist values" placeholder="Enter values, with each value separated by a new line..."/>
+            </div>
+            <footer class="slds-modal__footer">
+                <button onclick="{!c.onCancelClick}" disabled="{!v.isLoading}" class="slds-button slds-button_neutral">Cancel</button>
+                <button onclick="{!c.onSaveClick}" disabled="{!v.isLoading}" class="slds-button slds-button_brand">Save</button>
+            </footer>
+        </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open"></div>
+</aura:component>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>brazil_accounts1</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>fr_ARR__c</columns>
+    <columns>ACCOUNT.ADDRESS1_STATE</columns>
+    <columns>ACCOUNT.PHONE1</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>Maturity_Score__c</columns>
+    <columns>SalesLoft1__Active_Account__c</columns>
+    <columns>fr_Next_Renewal_Date__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>ACCOUNT.ADDRESS1_COUNTRY</field>
+        <operation>equals</operation>
+        <value>brazil</value>
+    </filters>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>Expired,Suspended</value>
+    </filters>
+    <label>brazil accounts</label>
+</ListView>

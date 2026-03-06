@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Usage_Line_Item_Compact_Layout</fullName>
+    <fields>Opportunity__c</fields>
+    <fields>Monthly_DAU_MAU__c</fields>
+    <label>Usage Line Item Compact Layout</label>
+</CompactLayout>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AlignedPkg__aligned_room__c</fullName>
+    <deprecated>false</deprecated>
+    <description>The Aligned App room URL</description>
+    <externalId>false</externalId>
+    <label>Aligned Room</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Url</type>
+</CustomField>

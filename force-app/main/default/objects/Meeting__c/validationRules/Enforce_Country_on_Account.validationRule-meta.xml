@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Enforce_Country_on_Account</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+NOT(ISCHANGED( BI_Data__c )),
+NOT(ISNEW()),
+NOT(ISBLANK(Account__c)),
+ISBLANK(Account__r.BillingCountry),
+NOT(CONTAINS($User.FirstName, &apos;Integration&apos;)),
+NOT(CONTAINS($User.LastName, &apos;Integration&apos;)),
+$Profile.Name &lt;&gt; &apos;System Administrator&apos;,
+$Profile.Name &lt;&gt; &apos;SW SalesOps&apos;,
+$Profile.Name &lt;&gt; &apos;SW SalesOps Extended&apos;,
+$Profile.Name &lt;&gt; &apos;Integration User&apos;,
+$Profile.Name &lt;&gt; &apos;Integration User No DF&apos;,
+$Profile.Name &lt;&gt; &apos;SW Consultants&apos;
+)</errorConditionFormula>
+    <errorMessage>To proceed you must first populate the Country field on the related account</errorMessage>
+</ValidationRule>

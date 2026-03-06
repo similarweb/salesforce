@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Adjusted_ARR__c</fullName>
+    <description>MIS-7858</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Manual ARR correction for closed-won opportunities. Editable by Deal Desk only.</inlineHelpText>
+    <label>Adjusted ARR</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Currency</type>
+</CustomField>

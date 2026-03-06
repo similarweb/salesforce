@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Wolves_Potential__c</fullName>
+    <externalId>false</externalId>
+    <label>Potential</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>10K DAU - 50K DAU</fullName>
+                <default>false</default>
+                <label>10K DAU - 50K DAU</label>
+            </value>
+            <value>
+                <fullName>50K DAU - 100K DAU</fullName>
+                <default>false</default>
+                <label>50K DAU - 100K DAU</label>
+            </value>
+            <value>
+                <fullName>100K DAU - 500K DAU</fullName>
+                <default>false</default>
+                <label>100K DAU - 500K DAU</label>
+            </value>
+            <value>
+                <fullName>500K DAU - 1M DAU</fullName>
+                <default>false</default>
+                <label>500K DAU - 1M DAU</label>
+            </value>
+            <value>
+                <fullName>1M DAU - 5M DAU</fullName>
+                <default>false</default>
+                <label>1M DAU - 5M DAU</label>
+            </value>
+            <value>
+                <fullName>5M DAU - 10M DAU</fullName>
+                <default>false</default>
+                <label>5M DAU - 10M DAU</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>My_Hot_MQL_Leads_Inside_Sales</fullName>
+    <booleanFilter>1 AND 2 AND 3 AND (4 OR 5)</booleanFilter>
+    <columns>MQL_date__c</columns>
+    <columns>LEAD.FIRST_NAME</columns>
+    <columns>LEAD.LAST_NAME</columns>
+    <columns>LEAD.EMAIL</columns>
+    <columns>LEAD.TITLE</columns>
+    <columns>LEAD.COMPANY</columns>
+    <columns>LEAD.LEAD_SOURCE</columns>
+    <columns>LEAD.LAST_ACTIVITY</columns>
+    <columns>SW_Industry__c</columns>
+    <columns>LEAD.COUNTRY</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+        <field>LEAD.CONVERTED</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>MQL__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <filters>
+        <field>MQL_date__c</field>
+        <operation>equals</operation>
+        <value>LAST_N_DAYS:3</value>
+    </filters>
+    <filters>
+        <field>LEAD.LAST_ACTIVITY</field>
+        <operation>equals</operation>
+    </filters>
+    <filters>
+        <field>LEAD.LAST_ACTIVITY</field>
+        <operation>notEqual</operation>
+        <value>LAST_N_DAYS:3</value>
+    </filters>
+    <label>My &quot;Hot&quot; MQL Leads - Inside Sales</label>
+</ListView>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>56.0</apiVersion>
+    <description>If Owner and CreatedBy is Chili Piper user - execute flow 
+Migrated from workflow rule &apos;Owner and creator is Chili Piper Integration&apos;</description>
+    <environments>Default</environments>
+    <interviewLabel>Lead - Time-Dependent - Owner and Creator is ChiliPiper {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Lead - Time-Dependent - Owner and Creator is ChiliPiper</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <description>005b0000002iwIAAAY = Salesforce Admin</description>
+        <name>Update_Lead_owner_to_Salesforce_Admin_and_Ready_For_Routing_to_TRUE</name>
+        <label>Update Lead owner to &apos;Salesforce Admin&apos; and &apos;Ready For Routing&apos; to TRUE</label>
+        <locationX>491</locationX>
+        <locationY>522</locationY>
+        <inputAssignments>
+            <field>OwnerId</field>
+            <value>
+                <stringValue>005b0000002iwIAAAY</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Ready_For_Routing__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>410</locationX>
+        <locationY>48</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>OwnerId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>0056700000Av2Xi</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>CreatedById</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>0056700000Av2Xi</stringValue>
+            </value>
+        </filters>
+        <object>Lead</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <scheduledPaths>
+            <name>X1_Hour_After_Lead_Created_Date</name>
+            <connector>
+                <targetReference>Update_Lead_owner_to_Salesforce_Admin_and_Ready_For_Routing_to_TRUE</targetReference>
+            </connector>
+            <label>1 Hour After Lead: Created Date</label>
+            <offsetNumber>1</offsetNumber>
+            <offsetUnit>Hours</offsetUnit>
+            <recordField>CreatedDate</recordField>
+            <timeSource>RecordField</timeSource>
+        </scheduledPaths>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

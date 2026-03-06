@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Country_for_new_Bill_sold_to</fullName>
+    <active>true</active>
+    <description>MQ-2139
+Prevents sales rep from editing the contact country  in case the contact sold to new contacts fields are checked</description>
+    <errorConditionFormula>AND(
+OR(
+$Profile.Name = &apos;System Administrator&apos;,
+$Profile.Name = &apos;SW Sales Internal&apos;,
+
+$Profile.Name = &apos;SW CSM Internal&apos;,
+$Profile.Name = &apos;SW MIR&apos;,
+$Profile.Name = &apos;SW Client Services&apos;,
+$Profile.Name = &apos;SW Consultants&apos;,
+$Profile.Name = &apos;SW CSM Internal&apos;,
+$Profile.Name = &apos;SW Legal&apos;,
+$Profile.Name = &apos;SW Product&apos;,
+$Profile.Name = &apos;SW Marketing Ops&apos;,
+$Profile.Name = &apos;SW Sales Internal - STRAT&apos;,
+$Profile.Name = &apos;SW SDR Extended&apos;,
+$Profile.Name = &apos;SW Support&apos;,
+$Profile.Name = &apos;SW View All&apos;,
+$Profile.Name = &apos;SW Wolves&apos;,
+$Profile.Name = &apos;SW SDR&apos;,
+$Profile.Name = &apos;SW Sales External&apos;,
+$Profile.Name = &apos;SW Management&apos;
+),
+
+Sold_To_New_quote__c = True,
+
+
+
+ISCHANGED(MailingCountry)
+
+)</errorConditionFormula>
+    <errorMessage>You are trying to edit  the country to a sold to that has or had an open quote on him
+Please Contact Salesops to solve this issue</errorMessage>
+</ValidationRule>

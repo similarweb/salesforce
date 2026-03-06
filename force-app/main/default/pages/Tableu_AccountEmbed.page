@@ -1,0 +1,11 @@
+<apex:page standardController="Account">
+
+<apex:iframe src="https://biportal.similarweb.io/CSMTOOLS_0/Dashboard/:embed=yes&Sf%20Account%20Id={!Account.Id}&:toolbar=no/{!$User.Email}/tableau_in_sf" 
+height="2000"  width="1100" scrolling="false" rendered="{!(Account.Status__c)<>''}" />
+
+
+<apex:iframe src="https://webi.similarweb.io/CSMTOOLS-NotPaying/SFNonPaying/:embed=yes&Sf%20Account%20Id={!Account.Id}&:toolbar=no/{!$User.Email}/tableau_in_sf" 
+height="2000"  width="1100" scrolling="false" rendered="{!(Account.Status__c)=''}" />
+
+    
+</apex:page>

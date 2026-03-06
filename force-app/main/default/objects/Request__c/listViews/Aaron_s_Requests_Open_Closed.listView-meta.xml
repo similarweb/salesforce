@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Aaron_s_Requests_Open_Closed</fullName>
+    <columns>NAME</columns>
+    <columns>Request_Type__c</columns>
+    <columns>Opportunity__c</columns>
+    <columns>Account__c</columns>
+    <columns>Requester__c</columns>
+    <columns>Status__c</columns>
+    <columns>CREATED_DATE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Recipient__c</field>
+        <operation>contains</operation>
+        <value>Aaron Friedman</value>
+    </filters>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>Submitted,In Process,Pending Action,Qualifying,Testing,Building Presentation,Actively Working</value>
+    </filters>
+    <label>Aaron&apos;s Requests - Open &amp; Closed</label>
+</ListView>

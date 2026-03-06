@@ -1,0 +1,6 @@
+<apex:page standardController="Contact">
+
+<apex:iframe src="https://biportal.similarweb.io/FreeProUserMonitoringDashboard/Dashboard/:embed=yes&Contact%20Id={!Contact.Id}&Sf%20Account%20Id={!Contact.AccountId}&:toolbar=no/{!$User.Email}/tableau_in_sf"
+height="1200"  width="1000" scrolling="false"/>
+    
+</apex:page>

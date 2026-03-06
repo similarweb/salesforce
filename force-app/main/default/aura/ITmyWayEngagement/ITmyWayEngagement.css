@@ -1,0 +1,57 @@
+.THIS .container-fluid{
+    width:100%;padding-right:15px;padding-left:15px;margin-right:auto;margin-left:auto;font-size: .75rem;
+}
+.THIS .addtinfo{
+    font-size: .65rem;
+}
+.THIS .blank{
+	padding-right: 1.5rem !important;
+}
+.THIS table{
+    margin-top: 0.25rem;
+}
+.THIS .cent{
+    text-align: center !important;
+}
+.THIS .btnsm{
+    line-height: 1rem;
+}
+.THIS td, .THIS th{
+    border: 2px solid lightgrey;
+}
+.THIS .big{
+    font-size: 1.2rem;
+}
+.THIS .vl {
+    border-right: 2px solid lightgrey;
+    height: 100%;
+    position: relative;
+}
+.THIS .row{
+    display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;
+}
+.THIS .tp{
+	z-index: 2;
+}
+.THIS .my-auto{
+    margin-top:auto!important;
+}
+.THIS hr{
+    margin-top: 0.5rem;
+    margin-left: 0.4rem;
+    margin-bottom: 0.5rem;
+}
+.THIS .col{
+    -ms-flex-preferred-size:0;flex-basis:0;-ms-flex-positive:1;flex-grow:1;max-width:100%;
+}
+.THIS .col-auto{
+    -ms-flex:0 0 auto;flex:0 0 auto;width:auto;max-width:100%;
+}
+.THIS .col-1{
+    -ms-flex:0 0 8.333333%;flex:0 0 8.333333%;max-width:8.333333%;
+}
+.THIS .pr-3{
+    z-index: 2;
+    padding-right: 0.5rem;
+    margin-left: -0.8rem;
+}

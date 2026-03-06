@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Is_Distribution_Handled__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>A technical field that helps marketing cloud distribution</description>
+    <externalId>false</externalId>
+    <label>Is Distribution Handled</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

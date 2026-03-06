@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Grants Edit access to &apos;Similarweb Forecasting status&apos; field on the Opportunity</description>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.Similarweb_Forecasting_status__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>Edit &apos;Similarweb Forecasting status&apos; field on Opportunity</label>
+</PermissionSet>

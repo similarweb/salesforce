@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>54.0</apiVersion>
+    <assignments>
+        <name>Update_to_United_States</name>
+        <label>Update to United States</label>
+        <locationX>176</locationX>
+        <locationY>311</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.MailingCountry</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>United States</stringValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <interviewLabel>Update Malling country to United States {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Update Malling country to United States</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Update_to_United_States</targetReference>
+        </connector>
+        <filterLogic>or</filterLogic>
+        <filters>
+            <field>MailingCountry</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>US</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>MailingCountry</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>USA</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>MailingCountry</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>United States of America</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>MailingCountry</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>United Staes</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>MailingCountry</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>United Staes</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>MailingCountry</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>United State</stringValue>
+            </value>
+        </filters>
+        <object>Contact</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Obsolete</status>
+    <triggerOrder>150</triggerOrder>
+</Flow>

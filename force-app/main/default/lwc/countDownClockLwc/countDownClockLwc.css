@@ -1,0 +1,95 @@
+/* Background styling for the timer */
+.timer-background {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
+    text-align: center;
+}
+
+/* Flexbox to align time units */
+.time-remaining {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Arial', sans-serif;
+    font-size: 24px;
+    color: indianred;
+    padding: 10px;
+}
+
+/* Style for time boxes (Days, Hours, Minutes, Seconds) */
+.time-box {
+    background-color: #B2BEE0;
+    border-radius: 7px;
+    padding: 9px 18px;
+    margin: 0 5px;
+    font-weight: bold;
+    color: black;
+    min-width: 60px;
+    text-align: center;
+    transition: transform 0.3s ease, background-color 0.3s ease; /* Transition for animation */
+}
+
+/* Label styling (for colon and Days label) */
+.label {
+    font-size: 16px; /* Slightly smaller font size for the label */
+    color: rgba(0, 0, 0, 0.8); /* Semi-transparent black for labels */
+    margin-left: 3px;
+    margin-right: 3px;
+    vertical-align: middle; /* Aligns the labels with the numbers */
+}
+
+/* Completion message styling */
+.complete-message {
+    font-size: 18px;
+    color: black; /* Green color for the completion message */
+    padding: 15px;
+    font-weight: bold;
+}
+
+/* Error message styling */
+.error {
+    color: #f44336; /* Red color for errors */
+    font-size: 18px;
+    padding: 10px;
+}
+
+/* Animation for seconds, minutes, and hours when they change */
+/*.time-box.seconds {*/
+/*    animation: color-change 3s infinite;*/
+/*}*/
+
+/*.time-box.minutes {*/
+/*    animation: color-change 60s infinite;*/
+/*}*/
+
+/*.time-box.hours {*/
+/*    animation: color-change 3600s infinite;*/
+/*}*/
+.funny-message p {
+    font-size: 18px;
+    color: #ffeb3b; /* Yellow text */
+    background-color: rgba(0, 0, 0, 0.8); /* Dark background */
+    padding: 10px;
+    border-radius: 8px;
+    display: inline-block;
+    animation: fadeInOut 5s ease-in-out infinite; /* Smooth fade-in and fade-out effect */
+}
+
+/* Keyframes for the color-change animation */
+@keyframes color-change {
+    0% {
+        background-color: rgba(255, 255, 255, 0.2); /* Default state */
+        transform: scale(1);
+    }
+    50% {
+        background-color: cornflowerblue; /* Red in the middle */
+        transform: scale(1.1); /* Slight zoom-in */
+    }
+    100% {
+        background-color: rgba(255, 255, 255, 0.2); /* Back to default */
+        transform: scale(1);
+    }
+
+}

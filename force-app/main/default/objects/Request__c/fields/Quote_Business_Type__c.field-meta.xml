@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Quote_Business_Type__c</fullName>
+    <externalId>false</externalId>
+    <label>Quote Business Type</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>New Sale</fullName>
+                <default>false</default>
+                <label>New Sale</label>
+            </value>
+            <value>
+                <fullName>Upsell + Renewal</fullName>
+                <default>false</default>
+                <label>Upsell + Renewal</label>
+            </value>
+            <value>
+                <fullName>Co Term Upsell</fullName>
+                <default>false</default>
+                <label>Co Term Upsell</label>
+            </value>
+            <value>
+                <fullName>Feature Update</fullName>
+                <default>false</default>
+                <label>Feature Update</label>
+            </value>
+            <value>
+                <fullName>Renewal Only</fullName>
+                <default>false</default>
+                <label>Renewal Only</label>
+            </value>
+            <value>
+                <fullName>Cancellation</fullName>
+                <default>false</default>
+                <label>Cancellation</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Original_Lead_Source__c</fullName>
+    <externalId>false</externalId>
+    <label>Original Lead Source</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>true</sorted>
+            <value>
+                <fullName>3Scale</fullName>
+                <default>false</default>
+                <label>3Scale</label>
+            </value>
+            <value>
+                <fullName>42matters</fullName>
+                <default>false</default>
+                <label>42matters</label>
+            </value>
+            <value>
+                <fullName>Admetricks</fullName>
+                <default>false</default>
+                <label>Admetricks</label>
+            </value>
+            <value>
+                <fullName>API</fullName>
+                <default>false</default>
+                <label>API</label>
+            </value>
+            <value>
+                <fullName>BI</fullName>
+                <default>false</default>
+                <label>BI</label>
+            </value>
+            <value>
+                <fullName>Blogs</fullName>
+                <default>false</default>
+                <label>Blogs</label>
+            </value>
+            <value>
+                <fullName>CompeteReferral</fullName>
+                <default>false</default>
+                <label>CompeteReferral</label>
+            </value>
+            <value>
+                <fullName>ContactForm</fullName>
+                <default>false</default>
+                <label>ContactForm</label>
+            </value>
+            <value>
+                <fullName>Deal Registration</fullName>
+                <default>false</default>
+                <label>Deal Registration</label>
+            </value>
+            <value>
+                <fullName>Direct</fullName>
+                <default>false</default>
+                <label>Direct</label>
+            </value>
+            <value>
+                <fullName>Email</fullName>
+                <default>false</default>
+                <label>Email</label>
+            </value>
+            <value>
+                <fullName>Employee Referral</fullName>
+                <default>false</default>
+                <label>Employee Referral</label>
+            </value>
+            <value>
+                <fullName>Facebook</fullName>
+                <default>false</default>
+                <label>Facebook</label>
+            </value>
+            <value>
+                <fullName>Facebook - Paid</fullName>
+                <default>false</default>
+                <label>Facebook - Paid</label>
+            </value>
+            <value>
+                <fullName>Hitwise Referral - Existed in CRM</fullName>
+                <default>false</default>
+                <label>Hitwise Referral - Existed in CRM</label>
+            </value>
+            <value>
+                <fullName>Hitwise Referral - New Account</fullName>
+                <default>false</default>
+                <label>Hitwise Referral - New Account</label>
+            </value>
+            <value>
+                <fullName>Hitwise Referral - Was in Pipeline</fullName>
+                <default>false</default>
+                <label>Hitwise Referral - Was in Pipeline</label>
+            </value>
+            <value>
+                <fullName>Hitwise Referral - Was Paying</fullName>
+                <default>false</default>
+                <label>Hitwise Referral - Was Paying</label>
+            </value>
+            <value>
+                <fullName>Internal - F2F Event</fullName>
+                <default>false</default>
+                <label>Internal - F2F Event</label>
+            </value>
+            <value>
+                <fullName>Internal - Virtual Event</fullName>
+                <default>false</default>
+                <label>Internal - Virtual Event</label>
+            </value>
+            <value>
+                <fullName>Internal - Webinars</fullName>
+                <default>false</default>
+                <label>Internal - Webinars</label>
+            </value>
+            <value>
+                <fullName>Investors - Paid</fullName>
+                <default>false</default>
+                <label>Investors - Paid</label>
+            </value>
+            <value>
+                <fullName>LinkedIn - Paid</fullName>
+                <default>false</default>
+                <label>LinkedIn - Paid</label>
+            </value>
+            <value>
+                <fullName>LinkedIn - Paid - Convo Ads</fullName>
+                <default>false</default>
+                <label>LinkedIn - Paid - Convo Ads</label>
+            </value>
+            <value>
+                <fullName>LinkedIn sales navigator</fullName>
+                <default>false</default>
+                <label>LinkedIn sales navigator</label>
+            </value>
+            <value>
+                <fullName>MIR</fullName>
+                <default>false</default>
+                <label>MIR</label>
+            </value>
+            <value>
+                <fullName>MIR Chat</fullName>
+                <default>false</default>
+                <label>MIR Chat</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Outbound - ZoomInfo</fullName>
+                <default>false</default>
+                <label>Outbound - ZoomInfo</label>
+            </value>
+            <value>
+                <fullName>Partnership - Content</fullName>
+                <default>false</default>
+                <label>Partnership - Content</label>
+            </value>
+            <value>
+                <fullName>Partnership - F2F Event</fullName>
+                <default>false</default>
+                <label>Partnership - F2F Event</label>
+            </value>
+            <value>
+                <fullName>Partnership - Virtual Event</fullName>
+                <default>false</default>
+                <label>Partnership - Virtual Event</label>
+            </value>
+            <value>
+                <fullName>Partnership - Webinars</fullName>
+                <default>false</default>
+                <label>Partnership - Webinars</label>
+            </value>
+            <value>
+                <fullName>Partnerstack - Affiliates</fullName>
+                <default>false</default>
+                <label>Partnerstack - Affiliates</label>
+            </value>
+            <value>
+                <fullName>Partnerstack - Referrals</fullName>
+                <default>false</default>
+                <label>Partnerstack - Referrals</label>
+            </value>
+            <value>
+                <fullName>Pro</fullName>
+                <default>false</default>
+                <label>Pro</label>
+            </value>
+            <value>
+                <fullName>Proaddmanually - invite</fullName>
+                <default>false</default>
+                <label>Proaddmanually - invite</label>
+            </value>
+            <value>
+                <fullName>Rank Ranger - Free Trial / Email</fullName>
+                <default>false</default>
+                <label>Rank Ranger - Free Trial / Email</label>
+            </value>
+            <value>
+                <fullName>Sales Outbound</fullName>
+                <default>false</default>
+                <label>Sales Outbound</label>
+            </value>
+            <value>
+                <fullName>SDR Outbound</fullName>
+                <default>false</default>
+                <label>SDR Outbound</label>
+            </value>
+            <value>
+                <fullName>SEM</fullName>
+                <default>false</default>
+                <label>SEM</label>
+            </value>
+            <value>
+                <fullName>SimilarTech - ContactForm</fullName>
+                <default>false</default>
+                <label>SimilarTech - ContactForm</label>
+            </value>
+            <value>
+                <fullName>SimilarTech - Trial</fullName>
+                <default>false</default>
+                <label>SimilarTech - Trial</label>
+            </value>
+            <value>
+                <fullName>SI Outbound</fullName>
+                <default>false</default>
+                <label>SI Outbound</label>
+            </value>
+            <value>
+                <fullName>SMWB Sales Intelligence</fullName>
+                <default>false</default>
+                <label>SMWB Sales Intelligence</label>
+            </value>
+            <value>
+                <fullName>SocialMedia</fullName>
+                <default>false</default>
+                <label>SocialMedia</label>
+            </value>
+            <value>
+                <fullName>Test LinkedIn Outbound - Sales navigator</fullName>
+                <default>false</default>
+                <label>Test LinkedIn Outbound - Sales navigator</label>
+            </value>
+            <value>
+                <fullName>Tradeshow</fullName>
+                <default>false</default>
+                <label>Tradeshow</label>
+            </value>
+            <value>
+                <fullName>Virtuous B2B</fullName>
+                <default>false</default>
+                <label>Virtuous B2B</label>
+            </value>
+            <value>
+                <fullName>Webinar</fullName>
+                <default>false</default>
+                <label>Webinar</label>
+            </value>
+            <value>
+                <fullName>Webinar On Demand</fullName>
+                <default>false</default>
+                <label>Webinar On Demand</label>
+            </value>
+            <value>
+                <fullName>White Paper</fullName>
+                <default>false</default>
+                <label>White Paper</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

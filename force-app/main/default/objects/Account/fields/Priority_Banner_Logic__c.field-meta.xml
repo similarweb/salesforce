@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Priority_Banner_Logic__c</fullName>
+    <description>MIS-4756</description>
+    <externalId>false</externalId>
+    <formula>IF(
+    AND(CONTAINS(TEXT(Strategic_Pod__c),&quot;NAL&quot;), NAL_Priority__c = TRUE, CONTAINS(TEXT(Enrichment_Source__c),&quot;Enrichment Team&quot;), Unqualified_account_flag__c = FALSE), &quot;NAL&apos;S TOP Priority Enriched&quot;,
+        IF(AND(CONTAINS(TEXT(Strategic_Pod__c),&quot;NAL&quot;), NAL_Priority__c = TRUE, OR(NOT(CONTAINS(TEXT(Enrichment_Source__c),&quot;Enrichment Team&quot;)),TEXT(Enrichment_Source__c)=&quot;&quot;), Unqualified_account_flag__c = FALSE), &quot;NAL&apos;S TOP Priority Not Enriched&quot;,
+            IF(AND(TEXT(Strategic_Pod__c)&lt;&gt;&quot;&quot;, CONTAINS(TEXT(Enrichment_Source__c),&quot;Enrichment Team&quot;), Unqualified_account_flag__c = FALSE), &quot;Priority Enriched&quot;,
+                IF(AND(TEXT(Strategic_Pod__c)&lt;&gt;&quot;&quot;, OR(NOT(CONTAINS(TEXT(Enrichment_Source__c),&quot;Enrichment Team&quot;)),TEXT(Enrichment_Source__c)=&quot;&quot;), Unqualified_account_flag__c = FALSE), &quot;Priority Not Enriched&quot;,
+&quot;&quot;))))</formula>
+    <label>Priority Banner Logic</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

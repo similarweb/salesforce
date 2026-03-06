@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Only_specific_profiles_can_edit_fields</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+    OR(
+       ISCHANGED(Primary_Solution__c),
+       ISCHANGED(Secondary_Solution__c)
+      ), 
+       $User.Id  &lt;&gt; Owner.Id,   
+       $Profile.Id &lt;&gt; &apos;00e0O0000016TUV&apos;, 
+       $Profile.Id &lt;&gt; &apos;00e0O0000016Suc&apos;, 
+       $Profile.Id &lt;&gt; &apos;00eb0000000oBvc&apos;, 
+       $Profile.Id &lt;&gt; &apos;00e0O0000016Sb5&apos;, 
+       $Profile.Id &lt;&gt; &apos;00eb0000000dZwn&apos;, 
+       $Profile.Id &lt;&gt; &apos;00eb0000000dZws&apos;, 
+       $Profile.Id &lt;&gt; &apos;00e0O000001BCym&apos;, 
+       $Profile.Id &lt;&gt; &apos;00eb00000011gwf&apos;,
+       $Profile.Name &lt;&gt; &apos;SW Management&apos; 
+   )</errorConditionFormula>
+    <errorDisplayField>Primary_Solution__c</errorDisplayField>
+    <errorMessage>You do not have permissions to edit Solution fields.</errorMessage>
+</ValidationRule>

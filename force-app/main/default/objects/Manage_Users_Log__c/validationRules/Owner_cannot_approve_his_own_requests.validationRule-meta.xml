@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Owner_cannot_approve_his_own_requests</fullName>
+    <active>true</active>
+    <description>The request need to be approved by another person who created the request.</description>
+    <errorConditionFormula>ISCHANGED( Approved__c ) 
+&amp;&amp;
+Approved__c
+&amp;&amp;
+$User.Id =  CreatedById</errorConditionFormula>
+    <errorDisplayField>Approved__c</errorDisplayField>
+    <errorMessage>It is not possible to approve your own request. Kindly seek assistance from someone else who has the necessary approval authority.</errorMessage>
+</ValidationRule>

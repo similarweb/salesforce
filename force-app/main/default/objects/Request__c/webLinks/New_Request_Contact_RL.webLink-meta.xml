@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>New_Request_Contact_RL</fullName>
+    <availability>online</availability>
+    <displayType>massActionButton</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>New Request (abs)</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <requireRowSelection>false</requireRowSelection>
+    <url>var oppnum = &quot;{!Contact.SYS_Number_of_Open_Opps__c}&quot;; 
+
+if( oppnum != &quot;0&quot;) 
+{alert (&quot;Please create the request from the open opportunity.&quot;); 
+} 
+else 
+{ 
+
+var AccountID = &quot;{!Contact.SYS_Account_ID__c}&quot;; 
+var UserName = &quot;{!$User.FirstName}+ +{!$User.LastName}&quot;; 
+var UserEmail = &quot;{!$User.Email}&quot;; 
+var UserID = &quot;{!$User.Id}&quot;; 
+var UserRoleID = &quot;{!$UserRole.Id}&quot;; 
+var ContactID = &quot;{!Contact.Id}&quot;; 
+
+
+var url = &quot;/flow/Request?VarAccountID=&quot;+AccountID+&quot;&amp;VarUserName=&quot;+UserName ; 
+url= url + &quot;&amp;VarUserEmail=&quot;+UserEmail+&quot;&amp;VarUserID=&quot;+UserID ; 
+url= url + &quot;&amp;VarContactID=&quot;+ContactID+&quot;&amp;VarUserRoleID=&quot;+UserRoleID ; 
+url= url + &quot;&amp;retURL=/&quot;+ContactID ; 
+
+
+window.parent.location= url; 
+}</url>
+</WebLink>

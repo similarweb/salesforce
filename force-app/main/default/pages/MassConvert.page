@@ -1,0 +1,3 @@
+<apex:page standardController="MassLeadConvert__c" extensions="MassConvertController" recordSetVar="MassLeadConvert__c" action="{!ConvertLeads}">
+
+</apex:page>

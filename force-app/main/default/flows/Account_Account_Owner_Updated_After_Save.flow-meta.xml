@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Account_Owner_Change</name>
+        <label>Account Owner Change</label>
+        <locationX>527</locationX>
+        <locationY>559</locationY>
+        <actionName>Account.Account_Owner_Change</actionName>
+        <actionType>emailAlert</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>Account.Account_Owner_Change</nameSegment>
+    </actionCalls>
+    <apiVersion>56.0</apiVersion>
+    <decisions>
+        <name>Check_profile_SW_SalesOps_Extended_OR_SW_SalesOps</name>
+        <label>Check profile - SW SalesOps Extended OR SW SalesOps</label>
+        <locationX>211</locationX>
+        <locationY>374</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>SW_SalesOps_Extended_OR_SW_SalesOps</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>$User.SYSProfileName__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>SW SalesOps Extended</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$User.SYSProfileName__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>SW SalesOps</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Account_Owner_Change</targetReference>
+            </connector>
+            <label>SW SalesOps Extended OR SW SalesOps</label>
+        </rules>
+    </decisions>
+    <description>12 May 2025 Excluded owner changes by Dora from the flow</description>
+    <environments>Default</environments>
+    <interviewLabel>Account- Record Triggered Flow - After Save {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Account Owner Updated SalesOps Alerts - After Save</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>410</locationX>
+        <locationY>48</locationY>
+        <connector>
+            <targetReference>Check_profile_SW_SalesOps_Extended_OR_SW_SalesOps</targetReference>
+        </connector>
+        <filterLogic>1 AND 2 AND 4 AND NOT 3</filterLogic>
+        <filters>
+            <field>OwnerId</field>
+            <operator>IsChanged</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>SYS_Sync_Project_del__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Owner_Email__c</field>
+            <operator>Contains</operator>
+            <value>
+                <stringValue>marketingsfdc@similarweb.com</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>LastModifiedById</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>0056700000CDVobAAH</stringValue>
+            </value>
+        </filters>
+        <object>Account</object>
+        <recordTriggerType>Update</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Obsolete</status>
+</Flow>

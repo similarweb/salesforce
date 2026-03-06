@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>No_secondary_solution_without_primary</fullName>
+    <active>false</active>
+    <description>Secondary solution can be populated only if Primary solution is populated</description>
+    <errorConditionFormula>AND( 
+    ISBLANK(TEXT(Primary_Solution__c)), 
+    NOT(ISBLANK(TEXT(Secondary_Solution__c))) 
+   )</errorConditionFormula>
+    <errorDisplayField>Secondary_Solution__c</errorDisplayField>
+    <errorMessage>Secondary Solution can be populated only if Primary Solution is populated</errorMessage>
+</ValidationRule>

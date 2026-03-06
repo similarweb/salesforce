@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>GM_Confirmation_Attachment__c</fullName>
+    <description>MIS-775</description>
+    <externalId>false</externalId>
+    <inlineHelpText>All other churn protection requests outside of the above list - must go through approval process (to be detailed) - no later of the last day of the original renewal month. In addition, please add the GM&apos;s approval</inlineHelpText>
+    <label>GM Confirmation Attachment</label>
+    <length>32768</length>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Html</type>
+    <visibleLines>25</visibleLines>
+</CustomField>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Last_Active_Session_PRO_Date__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>&quot;Active Session&quot; means that the lead performed at least 3 actions in PRO within a time frame of 2 hours.
+The purpose of this field is to distinguish between leads who tried Pro and ones who did absolutely nothing</inlineHelpText>
+    <label>Last Active Session PRO Date</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Date</type>
+</CustomField>

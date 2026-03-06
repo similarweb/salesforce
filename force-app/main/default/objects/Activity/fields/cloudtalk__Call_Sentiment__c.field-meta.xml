@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cloudtalk__Call_Sentiment__c</fullName>
+    <deprecated>false</deprecated>
+    <externalId>false</externalId>
+    <label>Call Sentiment</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Contact - Bad Fit</fullName>
+                <default>false</default>
+                <label>Contact - Bad Fit</label>
+            </value>
+            <value>
+                <fullName>Demo Scheduled</fullName>
+                <default>false</default>
+                <label>Demo Scheduled</label>
+            </value>
+            <value>
+                <fullName>Interested</fullName>
+                <default>false</default>
+                <label>Interested</label>
+            </value>
+            <value>
+                <fullName>No Interest</fullName>
+                <default>false</default>
+                <label>No Interest</label>
+            </value>
+            <value>
+                <fullName>Rescheduling</fullName>
+                <default>false</default>
+                <label>Rescheduling</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Rate__c</fullName>
+    <description>The actual Rate we pay for each data unit as agreed in the Contract</description>
+    <externalId>false</externalId>
+    <label>Rate</label>
+    <precision>7</precision>
+    <required>false</required>
+    <scale>4</scale>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

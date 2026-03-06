@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Auto_Message__c</fullName>
+    <externalId>false</externalId>
+    <label>Auto-Message</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Acquire: Ad-Tech Solution</fullName>
+                <default>false</default>
+                <label>Acquire: Ad-Tech Solution</label>
+            </value>
+            <value>
+                <fullName>Acquire: Agency Solution</fullName>
+                <default>false</default>
+                <label>Acquire: Agency Solution</label>
+            </value>
+            <value>
+                <fullName>Acquire: Business Strategy Page</fullName>
+                <default>false</default>
+                <label>Acquire: Business Strategy Page</label>
+            </value>
+            <value>
+                <fullName>Acquire: E-Commerce Industry</fullName>
+                <default>false</default>
+                <label>Acquire: E-Commerce Industry</label>
+            </value>
+            <value>
+                <fullName>Acquire: Insights per page</fullName>
+                <default>false</default>
+                <label>Acquire: Insights per page</label>
+            </value>
+            <value>
+                <fullName>Acquire: Insurance Industry</fullName>
+                <default>false</default>
+                <label>Acquire: Insurance Industry</label>
+            </value>
+            <value>
+                <fullName>Acquire: Knowledgebase</fullName>
+                <default>false</default>
+                <label>Acquire: Knowledgebase</label>
+            </value>
+            <value>
+                <fullName>Acquire: Multiple Visits to Pricing Page</fullName>
+                <default>false</default>
+                <label>Acquire: Multiple Visits to Pricing Page</label>
+            </value>
+            <value>
+                <fullName>Acquire: New Pricing Message</fullName>
+                <default>false</default>
+                <label>Acquire: New Pricing Message</label>
+            </value>
+            <value>
+                <fullName>Acquire: Our Data</fullName>
+                <default>false</default>
+                <label>Acquire: Our Data</label>
+            </value>
+            <value>
+                <fullName>Acquire: Overnight Pricing Page</fullName>
+                <default>false</default>
+                <label>Acquire: Overnight Pricing Page</label>
+            </value>
+            <value>
+                <fullName>Acquire: PRO Product Lite</fullName>
+                <default>false</default>
+                <label>Acquire: PRO Product Lite</label>
+            </value>
+            <value>
+                <fullName>Acquire: Publisher Solution</fullName>
+                <default>false</default>
+                <label>Acquire: Publisher Solution</label>
+            </value>
+            <value>
+                <fullName>Acquire: Travel Industry</fullName>
+                <default>false</default>
+                <label>Acquire: Travel Industry</label>
+            </value>
+            <value>
+                <fullName>Acquire: Weekend Pricing Page</fullName>
+                <default>false</default>
+                <label>Acquire: Weekend Pricing Page</label>
+            </value>
+            <value>
+                <fullName>Engage: First Login SDR</fullName>
+                <default>false</default>
+                <label>Engage: First Login SDR</label>
+            </value>
+            <value>
+                <fullName>Engage: SDR-FRO More than 10 days</fullName>
+                <default>false</default>
+                <label>Engage: SDR-FRO More than 10 days</label>
+            </value>
+            <value>
+                <fullName>Engage: Weekend First Login SDR</fullName>
+                <default>false</default>
+                <label>Engage: Weekend First Login SDR</label>
+            </value>
+            <value>
+                <fullName>None</fullName>
+                <default>false</default>
+                <label>None</label>
+            </value>
+            <value>
+                <fullName>FRO Overviews Message</fullName>
+                <default>false</default>
+                <label>FRO Overviews Message</label>
+            </value>
+            <value>
+                <fullName>SDR FRO More than 5 days</fullName>
+                <default>false</default>
+                <label>SDR FRO More than 5 days</label>
+            </value>
+            <value>
+                <fullName>1st visitor pricing message</fullName>
+                <default>false</default>
+                <label>1st visitor pricing message</label>
+            </value>
+            <value>
+                <fullName>Industry Message</fullName>
+                <default>false</default>
+                <label>Industry Message</label>
+            </value>
+            <value>
+                <fullName>Acquire_Ad-Tech_Solution Overnight</fullName>
+                <default>false</default>
+                <label>Acquire_Ad-Tech_Solution Overnight</label>
+            </value>
+            <value>
+                <fullName>Acquire_Agency_Solution Overnight</fullName>
+                <default>false</default>
+                <label>Acquire_Agency_Solution Overnight</label>
+            </value>
+            <value>
+                <fullName>Acquire_Business_Strategy_Page Overnight</fullName>
+                <default>false</default>
+                <label>Acquire_Business_Strategy_Page Overnight</label>
+            </value>
+            <value>
+                <fullName>Acquire_E-Commerce_Industry Overnight</fullName>
+                <default>false</default>
+                <label>Acquire_E-Commerce_Industry Overnight</label>
+            </value>
+            <value>
+                <fullName>Acquire_Insights_per_page Overnight</fullName>
+                <default>false</default>
+                <label>Acquire_Insights_per_page Overnight</label>
+            </value>
+            <value>
+                <fullName>Acquire_Insurance_Industry Overnight</fullName>
+                <default>false</default>
+                <label>Acquire_Insurance_Industry Overnight</label>
+            </value>
+            <value>
+                <fullName>Acquire_Knowledgebase Overnight</fullName>
+                <default>false</default>
+                <label>Acquire_Knowledgebase Overnight</label>
+            </value>
+            <value>
+                <fullName>Acquire_Multiple_Visits_to_Pricing_Page Overnight</fullName>
+                <default>false</default>
+                <label>Acquire_Multiple_Visits_to_Pricing_Page Overnight</label>
+            </value>
+            <value>
+                <fullName>Acquire_Our_Data Overnight</fullName>
+                <default>false</default>
+                <label>Acquire_Our_Data Overnight</label>
+            </value>
+            <value>
+                <fullName>Acquire_PRO_Product_Lite Overnight</fullName>
+                <default>false</default>
+                <label>Acquire_PRO_Product_Lite Overnight</label>
+            </value>
+            <value>
+                <fullName>Acquire_Publisher_Solution Overnight</fullName>
+                <default>false</default>
+                <label>Acquire_Publisher_Solution Overnight</label>
+            </value>
+            <value>
+                <fullName>Acquire_Travel_Industry Overnight</fullName>
+                <default>false</default>
+                <label>Acquire_Travel_Industry Overnight</label>
+            </value>
+            <value>
+                <fullName>Engage_First_Login_SDR Overnight</fullName>
+                <default>false</default>
+                <label>Engage_First_Login_SDR Overnight</label>
+            </value>
+            <value>
+                <fullName>Engage_SDR-FRO_More_than_10_days Overnight</fullName>
+                <default>false</default>
+                <label>Engage_SDR-FRO_More_than_10_days Overnight</label>
+            </value>
+            <value>
+                <fullName>Travel Industry Solution Page - Weekend</fullName>
+                <default>false</default>
+                <label>Travel Industry Solution Page - Weekend</label>
+            </value>
+            <value>
+                <fullName>Multiple Visits to Pricing Page - Weekend</fullName>
+                <default>false</default>
+                <label>Multiple Visits to Pricing Page - Weekend</label>
+            </value>
+            <value>
+                <fullName>E-commerce Industry Solution Page - Weekend</fullName>
+                <default>false</default>
+                <label>E-commerce Industry Solution Page - Weekend</label>
+            </value>
+            <value>
+                <fullName>Insurance Industry - Weekend</fullName>
+                <default>false</default>
+                <label>Insurance Industry - Weekend</label>
+            </value>
+            <value>
+                <fullName>Agency Solution Page - Weekend</fullName>
+                <default>false</default>
+                <label>Agency Solution Page - Weekend</label>
+            </value>
+            <value>
+                <fullName>Ad-Tech Solution - Weekend</fullName>
+                <default>false</default>
+                <label>Ad-Tech Solution - Weekend</label>
+            </value>
+            <value>
+                <fullName>Publishers Solution - Weekend</fullName>
+                <default>false</default>
+                <label>Publishers Solution - Weekend</label>
+            </value>
+            <value>
+                <fullName>Business Strategy Page - Weekend</fullName>
+                <default>false</default>
+                <label>Business Strategy Page - Weekend</label>
+            </value>
+            <value>
+                <fullName>Knowledgebase - Weekend</fullName>
+                <default>false</default>
+                <label>Knowledgebase - Weekend</label>
+            </value>
+            <value>
+                <fullName>Insights Page Message - Weekend</fullName>
+                <default>false</default>
+                <label>Insights Page Message - Weekend</label>
+            </value>
+            <value>
+                <fullName>PRO Product Page- Lite Weekend</fullName>
+                <default>false</default>
+                <label>PRO Product Page- Lite Weekend</label>
+            </value>
+            <value>
+                <fullName>Our Data - Weekend</fullName>
+                <default>false</default>
+                <label>Our Data - Weekend</label>
+            </value>
+            <value>
+                <fullName>Multiple Demo Logins- SDR</fullName>
+                <default>false</default>
+                <label>Multiple Demo Logins- SDR</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>10</visibleLines>
+</CustomField>

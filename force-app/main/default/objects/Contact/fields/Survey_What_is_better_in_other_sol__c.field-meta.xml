@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Survey_What_is_better_in_other_sol__c</fullName>
+    <description>Q1: I found a different solution that meets my needs</description>
+    <externalId>false</externalId>
+    <inlineHelpText>What is better about the other solution?</inlineHelpText>
+    <label>Survey - What is better in other sol.?</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>It is cheaper while still meeting my needs</fullName>
+                <default>false</default>
+                <label>It is cheaper while still meeting my needs</label>
+            </value>
+            <value>
+                <fullName>It has a particular feature I need</fullName>
+                <default>false</default>
+                <label>It has a particular feature I need</label>
+            </value>
+            <value>
+                <fullName>It has better data accuracy or quality</fullName>
+                <default>false</default>
+                <label>It has better data accuracy or quality</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

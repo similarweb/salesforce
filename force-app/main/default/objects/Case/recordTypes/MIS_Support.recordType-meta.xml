@@ -1,0 +1,894 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MIS_Support</fullName>
+    <active>true</active>
+    <businessProcess>MIS GTM</businessProcess>
+    <compactLayoutAssignment>MIS_Support</compactLayoutAssignment>
+    <label>MIS Support</label>
+    <picklistValues>
+        <picklist>Applicable_Quote__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Approval_In_Progress__c</picklist>
+        <values>
+            <fullName>Approved</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Rejected</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Waiting for approval</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Case_Resolution__c</picklist>
+        <values>
+            <fullName>Bug</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Create New Item</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>General Question %26 Education</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Jira Created</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mass Update</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No Action Item</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Permissions</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reports and dashboard</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Requester Didn%27t Respond</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Update %26 Assistance</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Case_Sub_Type__c</picklist>
+        <values>
+            <fullName>Accounts%3A Data Quality</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Accounts%3A ROE%2C Territories %26 Ownership</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Advisory Services %28%2B SOW%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Amend Address</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Amend Currency</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Amend Customer Name</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Amend License Fees</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Amend Multiple Terms</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Amend Payment Frequency</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Amend Payment Terms</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Amendment - Commercial Redlines</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Amendment - T%26C Redlines</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Approval Process</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>BI Ticket</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Billing Inquiries</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bug</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Change Payment Method  - Mid Term</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Chargebacks</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Clone</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Collections</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Collections Inquiries</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Company Address Change - Country</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Company Name%2FAddress Change - Open Balance</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Contacts</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Contract</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Contract Auto-Renewal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Contract Signed Manually</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Create Renewal Opp</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Custom Invoice Structure</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Custom Payment Terms</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Custom T%26Cs</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Customer MSA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Customer NDA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Customer Routing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Customer Service Order</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cycle%2FPrice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Data Enrichment for Lead %2F Contact %2F Account</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Deal Registration %28Resellers Only%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Debooking</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DocuSign Issue%28s%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Documents Request</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Dual Language Contract</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Email Alerts</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Gateway status</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>General Question</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Inquiry</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Integration</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Internal Escalation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Invoice Changes</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Invoice Corrections</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Leads</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MSA Redlines</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Maintenance</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Meeting Processes</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Merge Subscriptions</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Multi Subscription</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Multi-Year Opt Out</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NDA Redlines</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NT Cancellation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NT Cancellation - Automation Error</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New Item</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>OEM Language</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ORA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>One-Time Product%28s%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Opportunity Process</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PO Language</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Payment Inquiries</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Permanent</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Permissions</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Portal Notifications</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Portal Registrations</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pricing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Process Proforma Invoice Quote</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Product Language Customization</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Q2C</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Quote Approval</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Quote Metrics</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Quote Processing - Sent to Zuora</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reassignment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Remittance Advice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reopen Opp</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Replace Contract %28Multiple Contracts Signed%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reports %26 Dashboards</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Request</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Routing %26 Round Robin</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Service Order - Commercial Redlines</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Service Order - T%26C Redlines</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Spam</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Special Commercial Offer %28e%2Eg%2E Publicity Discount%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Stair-Step %28i%2Ee%2E Ramp Up%29 Pricing Deal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Subsidiary Change - Outside SWMB Policy</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Suggestions and Improvements</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Support with Billing %26 Legal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Suspension</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sync Issues</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tax Language</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Temporary</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Term %3E 3 Years</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Termination</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Third Party Payor</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Trial</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Unsupported %5BQ2C%5D Products</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Update</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Update Stage</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>User %26 Tool Management</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>User Provisioning</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Validation Error</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vendor Forms</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Visibility</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Waterfall</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Zuora Integration</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>c</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>DDQ_Type__c</picklist>
+        <values>
+            <fullName>Data Privacy%2FCompliance</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Data Privacy%2FCompliance%2FInformation Security</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Information Security</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Did_we_complete_a_DDQ_for_this_client__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Did_we_try_to_send_the_SMWB_templates__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Do_we_have_a_signed_NDA_in_place__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No%2C but there is a contract in place with a confidentiality provision</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes%2C and it was uploaded to the Case attachments</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Extension_Type__c</picklist>
+        <values>
+            <fullName>Permanent Renewal Date Change</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Temporary Extension</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Trial Extension</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Forecasting_hierarchy_updated__c</picklist>
+        <values>
+            <fullName>Forecasting aligned by MIS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No need on this user</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ticket sent to MIS</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Group__c</picklist>
+        <values>
+            <fullName>Billing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Billing APAC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Billing INT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Billing US</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Is_it_a_portal_or_an_attachment__c</picklist>
+        <values>
+            <fullName>Attachment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Portal</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Is_this_a_Paid_Extension__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Multi_Factor_Authentication__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Origin</picklist>
+        <values>
+            <fullName>Email</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Phone</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Web</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Priority</picklist>
+        <values>
+            <fullName>High</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Low</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Medium</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Urgent</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Reason</picklist>
+        <values>
+            <fullName>Complex functionality</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Existing problem</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Instructions not clear</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New problem</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>User didn%27t attend training</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Records_transferred__c</picklist>
+        <values>
+            <fullName>Manager asked for records receiver</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No need on this user</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Records transferred</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>SFDC_direct_manager_field_updated__c</picklist>
+        <values>
+            <fullName>No need on this user</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SFDC fields updated</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>SFDC_user_created_deactivated_updated__c</picklist>
+        <values>
+            <fullName>Creation - IT asked for email address</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Creation - SFDC request sent to MIS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Deactivation - OFB automation worked</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Deactivation -%C2%A0 SFDC request sent to MIS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No need for this user</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Update - Ticket opened to MIS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>User Change Completed</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Security_Kit_Shared__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Tools_granted_deactivated__c</picklist>
+        <values>
+            <fullName>List</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No tools on this user</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tools aligned with new role</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tools deactivated %2B checkbox</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tools granted %2B checkbox</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Type</picklist>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Q2C</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Salesforce</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>cloudtalk__PotentialLiability__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>cloudtalk__Product__c</picklist>
+        <values>
+            <fullName>GC1020</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>GC1040</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>GC1060</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>GC3020</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>GC3040</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>GC3060</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>GC5020</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>GC5040</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>GC5060</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>cloudtalk__SLAViolation__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

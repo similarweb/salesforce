@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Should_Retry__c</fullName>
+    <externalId>false</externalId>
+    <formula>AND(ISPICKVAL(Log_Type__c, &quot;Error&quot;), Retry_Number__c &lt; Max_Number_Of_Retries__c)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Should Retry</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

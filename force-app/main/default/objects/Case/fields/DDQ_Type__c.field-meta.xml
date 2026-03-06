@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DDQ_Type__c</fullName>
+    <externalId>false</externalId>
+    <label>DDQ Type</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Data Privacy/Compliance</fullName>
+                <default>false</default>
+                <label>Data Privacy/Compliance</label>
+            </value>
+            <value>
+                <fullName>Data Privacy/Compliance/Information Security</fullName>
+                <default>false</default>
+                <label>Data Privacy/Compliance/Information Security</label>
+            </value>
+            <value>
+                <fullName>Information Security</fullName>
+                <default>false</default>
+                <label>Information Security</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Setup_Fee_Activation_Date__c</fullName>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Setup Fee Activation Date</label>
+    <required>false</required>
+    <type>Date</type>
+</CustomField>

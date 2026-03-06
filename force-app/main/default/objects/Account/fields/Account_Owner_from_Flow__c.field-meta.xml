@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Account_Owner_from_Flow__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Since there is an issue with placing the &quot;OwnerId&quot; standard field in screen Flow and use it in LEX page (SF known issue), we use a temp custom lookup field. This is only to capture the User in the Flow that will be the new Account Owner - MIS-1426</description>
+    <externalId>false</externalId>
+    <label>Account Owner from Flow</label>
+    <referenceTo>User</referenceTo>
+    <relationshipName>Accounts3</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Lookup</type>
+</CustomField>

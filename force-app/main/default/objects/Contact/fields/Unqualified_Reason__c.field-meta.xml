@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Unqualified_Reason__c</fullName>
+    <externalId>false</externalId>
+    <label>Unqualified Reason</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Country we can&apos;t sell to</fullName>
+                <default>false</default>
+                <label>Country we can&apos;t sell to</label>
+            </value>
+            <value>
+                <fullName>Existence unverifiable</fullName>
+                <default>false</default>
+                <label>Existence unverifiable</label>
+            </value>
+            <value>
+                <fullName>Fake name</fullName>
+                <default>false</default>
+                <label>Fake name</label>
+            </value>
+            <value>
+                <fullName>Fake phone number</fullName>
+                <default>false</default>
+                <label>Fake phone number</label>
+            </value>
+            <value>
+                <fullName>Invalid email</fullName>
+                <default>false</default>
+                <label>Invalid email</label>
+            </value>
+            <value>
+                <fullName>Lead requests removal from database</fullName>
+                <default>false</default>
+                <label>Lead requests removal from database</label>
+            </value>
+            <value>
+                <fullName>No longer with company</fullName>
+                <default>false</default>
+                <label>No longer with company</label>
+            </value>
+            <value>
+                <fullName>Not a business</fullName>
+                <default>false</default>
+                <label>Not a business</label>
+            </value>
+            <value>
+                <fullName>Frenemy</fullName>
+                <default>false</default>
+                <label>Frenemy</label>
+            </value>
+            <value>
+                <fullName>Internal employee</fullName>
+                <default>false</default>
+                <label>Internal employee</label>
+            </value>
+            <value>
+                <fullName>Irrelevant role</fullName>
+                <default>false</default>
+                <label>Irrelevant role</label>
+            </value>
+            <value>
+                <fullName>Student/Intern</fullName>
+                <default>false</default>
+                <label>Student/Intern</label>
+            </value>
+            <value>
+                <fullName>No need we can deliver now and in the future</fullName>
+                <default>false</default>
+                <label>No need we can deliver now and in the future</label>
+            </value>
+            <value>
+                <fullName>Less than 10 employees</fullName>
+                <default>false</default>
+                <label>Less than 10 employees</label>
+            </value>
+            <value>
+                <fullName>Ex trialist</fullName>
+                <default>false</default>
+                <label>Ex trialist</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

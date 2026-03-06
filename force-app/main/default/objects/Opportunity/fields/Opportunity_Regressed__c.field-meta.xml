@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Opportunity_Regressed__c</fullName>
+    <externalId>false</externalId>
+    <formula>(NOT(ISNULL(X50_Date_Time__c))&amp;&amp;Probability &lt; 0.5)
+||
+(NOT(ISNULL(X60_Date_Time__c))&amp;&amp;Probability &lt; 0.6)
+||
+(NOT(ISNULL(X80_Date_Time__c))&amp;&amp;Probability &lt; 0.8)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Opportunity Regressed</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

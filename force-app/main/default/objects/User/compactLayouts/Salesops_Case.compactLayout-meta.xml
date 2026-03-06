@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Salesops_Case</fullName>
+    <fields>Name</fields>
+    <fields>UserRoleId</fields>
+    <fields>Id</fields>
+    <fields>IsActive</fields>
+    <fields>ManagerId</fields>
+    <fields>Title</fields>
+    <fields>Division</fields>
+    <fields>Sub_Division__c</fields>
+    <fields>Department</fields>
+    <fields>ProfileId</fields>
+    <label>Salesops Case</label>
+</CompactLayout>

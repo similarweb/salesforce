@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Wolves_Accounts_Status_Null</fullName>
+    <booleanFilter>1 AND 2</booleanFilter>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CORE.USERS.FIRST_NAME</columns>
+    <columns>CORE.USERS.LAST_NAME</columns>
+    <columns>Wolves_Status__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>ACCOUNT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Account.Wolves</value>
+    </filters>
+    <filters>
+        <field>Wolves_Status__c</field>
+        <operation>equals</operation>
+    </filters>
+    <label>Wolves Accounts - Status Null</label>
+    <sharedTo>
+        <role>Panel_Acquisition</role>
+    </sharedTo>
+</ListView>

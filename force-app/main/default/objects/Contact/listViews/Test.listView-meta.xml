@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Test</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>CONTACT.TITLE</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>Open_Activity_Count__c</columns>
+    <columns>ACCOUNT.LAST_ACTIVITY</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Website_Domain__c</field>
+        <operation>equals</operation>
+        <value>beiersdorf.com,Dyson.com,electroluxgroup.com,electrolux.com,henkel.com,Logitech.com,maxingvest.de,nestle.com,rb.com,reckitt.com,bosch.com,unilever.com,continental.com,pirelli.com,nespresso.com</value>
+    </filters>
+    <filters>
+        <field>CONTACT.ADDRESS2_COUNTRY_CODE</field>
+        <operation>equals</operation>
+        <value>DE</value>
+    </filters>
+    <filters>
+        <field>fr_Pro_User_Type__c</field>
+        <operation>notEqual</operation>
+        <value>User,Admin</value>
+    </filters>
+    <filters>
+        <field>Status__c</field>
+        <operation>notEqual</operation>
+        <value>Unqualified</value>
+    </filters>
+    <label>Jack&apos;s CPG 1 contacts</label>
+</ListView>

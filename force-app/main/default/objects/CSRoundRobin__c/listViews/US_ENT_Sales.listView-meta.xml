@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>US_ENT_Sales</fullName>
+    <columns>NAME</columns>
+    <columns>Bucket__c</columns>
+    <columns>Active__c</columns>
+    <columns>Order__c</columns>
+    <columns>UserID__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Bucket__c</field>
+        <operation>equals</operation>
+        <value>ENTUS</value>
+    </filters>
+    <label>US ENT Sales</label>
+</ListView>

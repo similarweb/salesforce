@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NonEditable_Churn_Protection_Fields</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+
+OR(
+ISCHANGED ( Status__c ),
+ISCHANGED ( Resolution_Date__c ),
+
+AND(
+ISNEW(),
+OR(
+NOT(ISPICKVAL(Status__c ,&apos;Submitted&apos;)),
+NOT(ISBLANK(Resolution_Date__c))
+)
+)
+
+),
+
+
+  NOT(CONTAINS($User.Username, &apos;liord@similarweb.com&apos;)),
+  NOT(CONTAINS($User.Username, &apos;daniel.gelbshtein@similarweb.com&apos;)),
+  NOT(CONTAINS($User.Username, &apos;laura.or@similarweb.com&apos;)),
+  NOT(CONTAINS($User.Username, &apos;inbal.spiegel@similarweb.com&apos;)),
+$Profile.Name != &apos;System Administrator&apos;,
+RecordType.DeveloperName = &apos;Churn_Protection&apos;
+
+)</errorConditionFormula>
+    <errorMessage>&apos;Status&apos; and &apos;Resolution Date&apos; fields can be edited only by RevOps team</errorMessage>
+</ValidationRule>

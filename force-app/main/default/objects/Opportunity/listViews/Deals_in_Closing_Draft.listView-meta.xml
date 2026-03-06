@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Deals_in_Closing_Draft</fullName>
+    <columns>CORE.USERS.FULL_NAME</columns>
+    <columns>OPPORTUNITY.NAME</columns>
+    <columns>OPPORTUNITY.STAGE_NAME</columns>
+    <columns>OPPORTUNITY.CLOSE_DATE</columns>
+    <columns>ARR__c</columns>
+    <columns>Max_ARR__c</columns>
+    <columns>OPPORTUNITY.TYPE</columns>
+    <columns>SFF_Commit__c</columns>
+    <columns>OPPORTUNITY.FORECAST_CATEGORY</columns>
+    <columns>Legal_Request_Status__c</columns>
+    <columns>Wolves_Next_Steps_Action_Items__c</columns>
+    <columns>EVP_Finance_Countersign__c</columns>
+    <columns>Supplier_Questionnaire_Request_Status__c</columns>
+    <columns>Quote_Request_Status__c</columns>
+    <columns>Opportunity_Division__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>OPPORTUNITY.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Opportunity.Renewal</value>
+    </filters>
+    <filters>
+        <field>OPPORTUNITY.CLOSE_DATE</field>
+        <operation>equals</operation>
+        <value>THIS_QUARTER</value>
+    </filters>
+    <filters>
+        <field>OPPORTUNITY.PROBABILITY</field>
+        <operation>equals</operation>
+        <value>10,25,50,60,80,100</value>
+    </filters>
+    <filters>
+        <field>OPPORTUNITY.TYPE</field>
+        <operation>equals</operation>
+        <value>Renewal</value>
+    </filters>
+    <filters>
+        <field>Opportunity_Division__c</field>
+        <operation>equals</operation>
+        <value>Inside CSM - ROW</value>
+    </filters>
+    <label>Deals in Closing - Draft</label>
+</ListView>

@@ -1,0 +1,204 @@
+<template>
+    <div class="style-injector"></div>
+    <div class="accordion-container" style="display: flex; justify-content: space-between;">
+        <!-- Left Column: Usage Summary -->
+        <div class="left-column" style="width: 48%;">
+            <!-- Big headline with underline -->
+            <div class="header" style="margin-bottom: 0;">
+                <h1>Usage Summary</h1>
+                <hr />
+            </div>
+
+            <!-- Trial Actions Section with underline -->
+            <div class="sub-header" style="margin-top: 0;">
+                <h2><strong>Trial Actions</strong></h2>
+            </div>
+
+            <!-- Total number of sessions/logins and actions -->
+            <div class="row">
+                <p>Total number of sessions/logins: <span>{biData.totalLogins}</span></p>
+            </div>
+            <div class="row" style="margin-bottom: 20px;">
+                <p>Total number of actions: <span>{biData.totalActions}</span></p>
+            </div>
+
+            <!-- New Sub-header: Trial Assets -->
+            <div class="sub-header" style="margin-top: 20px;">
+                <h2><strong>Trial Assets</strong></h2>
+            </div>
+
+            <!-- Key-Value Pairs for Trial Assets -->
+            <div class="row">
+                <p>Dashboard Created: <span>{biData.dashboardsCreated}</span></p>
+            </div>
+            <div class="row">
+                <p>Keyword Lists Created: <span>{biData.Intent_Num_of_Keyword_Lists}</span></p>
+            </div>
+            <div class="row">
+                <p>PNG/PDF Downloads: <span>{biData.pdfPngDownloads}</span></p>
+            </div>
+            <div class="row" style="margin-bottom: 20px;">
+                <p>Invited Users: <span>{biData.invitedUsers}</span></p>
+            </div>
+
+            <!-- New Sub-header: Purchase Intent -->
+            <div class="sub-header">
+                <h2><strong>Purchase Intent</strong></h2>
+            </div>
+
+            <!-- Pricing Page Visit -->
+            <div class="row">
+                <lightning-accordion allow-multiple-sections-open active-section-name={openSections.pricingPageVisit}>
+                    <lightning-accordion-section name="pricingPageVisit" label="Pricing Page Visits">
+                        <ul>
+                            <template for:each={biData.pricingPageVisit} for:item="item">
+                                <li key={item}>{item}</li>
+                            </template>
+                        </ul>
+                    </lightning-accordion-section>
+                </lightning-accordion>
+            </div>
+
+            <!-- Hooks -->
+            <div class="row">
+                <lightning-accordion allow-multiple-sections-open active-section-name={openSections.hooks}>
+                    <lightning-accordion-section name="hooks" label="Hooks">
+                        <ul>
+                            <template for:each={biData.hooks} for:item="item">
+                                <li key={item}>{item}</li>
+                            </template>
+                        </ul>
+                    </lightning-accordion-section>
+                </lightning-accordion>
+            </div>
+
+            <!-- Handraises -->
+            <div class="row">
+                <lightning-accordion allow-multiple-sections-open active-section-name={openSections.handraises}>
+                    <lightning-accordion-section name="handraises" label="Handraises">
+                        <ul>
+                            <template for:each={biData.handraises} for:item="item">
+                                <li key={item}>{item}</li>
+                            </template>
+                        </ul>
+                    </lightning-accordion-section>
+                </lightning-accordion>
+            </div>
+            <div class="row">
+                <lightning-accordion allow-multiple-sections-open active-section-name={openSections.campaignMembers}>
+                    <lightning-accordion-section name="campaignMembers" label="Last 3 Campaigns">
+                        <ul>
+                            <template for:each={biData.campaignMembers} for:item="item">
+                                <li key={item}>{item}</li>
+                            </template>
+                        </ul>
+                    </lightning-accordion-section>
+                </lightning-accordion>
+            </div>
+
+            <!-- Premium Center Visits -->
+            <div class="row">
+                <p>Premium Center Visits: <span>{biData.premiumCenterVisits}</span></p>
+            </div>
+
+            <!-- Mini Sites Visits -->
+            <div class="row">
+                <p>Mini Sites Visits: <span>{biData.miniSitesVisits}</span></p>
+            </div>
+
+            <div class="row">
+                <p>Package Page Visits: <span>{biData.intent_num_of_package_page_visits}</span></p>
+            </div>
+        </div>
+
+        <!-- Right Column: Usage Details -->
+        <div class="right-column" style="width: 48%;">
+            <!-- Big headline with underline for "Usage Details" -->
+            <div class="header" style="margin-bottom: 0;">
+                <h1>Usage Details</h1>
+                <hr />
+            </div>
+
+            <!-- Top Trial Sections -->
+            <div class="row">
+                <lightning-accordion allow-multiple-sections-open active-section-name={openSections.topTrialSections}>
+                    <lightning-accordion-section name="topTrialSections" label="Trial Sections">
+                        <ul>
+                            <template for:each={biData.topTrialSections} for:item="item">
+                                <li key={item}>{item}</li>
+                            </template>
+                        </ul>
+                    </lightning-accordion-section>
+                </lightning-accordion>
+            </div>
+
+            <!-- Latest Domains & Comparisons -->
+            <div class="row">
+                <lightning-accordion allow-multiple-sections-open active-section-name={openSections.latestDomainsComparisons}>
+                    <lightning-accordion-section name="latestDomainsComparisons" label="Domains & Comparisons">
+                        <ul>
+                            <template for:each={biData.latestDomainsComparisons} for:item="item">
+                                <li key={item}>{item}</li>
+                            </template>
+                        </ul>
+                    </lightning-accordion-section>
+                </lightning-accordion>
+            </div>
+
+            <!-- Industries -->
+            <div class="row">
+                <lightning-accordion allow-multiple-sections-open active-section-name={openSections.Industries}>
+                    <lightning-accordion-section name="latestDomainsComparisons" label="Industries">
+                        <ul>
+                            <template for:each={biData.Industries} for:item="item">
+                                <li key={item}>{item}</li>
+                            </template>
+                        </ul>
+                    </lightning-accordion-section>
+                </lightning-accordion>
+            </div>
+
+            <!-- Latest Keywords -->
+            <div class="row">
+                <lightning-accordion allow-multiple-sections-open active-section-name={openSections.latestKeywords}>
+                    <lightning-accordion-section name="latestKeywords" label="Keywords">
+                        <ul>
+                            <template for:each={biData.latestKeywords} for:item="item">
+                                <li key={item}>{item}</li>
+                            </template>
+                        </ul>
+                    </lightning-accordion-section>
+                </lightning-accordion>
+            </div>
+
+            <!-- Latest Mini Sites Visited -->
+            <div class="row">
+                <lightning-accordion allow-multiple-sections-open active-section-name={openSections.latestMiniSitesVisited}>
+                    <lightning-accordion-section name="latestMiniSitesVisited" label="Mini Sites Visited">
+                        <ul>
+                            <template for:each={biData.latestMiniSitesVisited} for:item="item">
+                                <li key={item}>{item}</li>
+                            </template>
+                        </ul>
+                    </lightning-accordion-section>
+                </lightning-accordion>
+            </div>
+            <!-- New Sub-header: SI Trial Assets -->
+            <div class="sub-header" style="margin-top: 20px;">
+                <h2><strong>SI Trial Assets</strong></h2>
+            </div>
+            <div class="row">
+                <p>SI Advanced Searches: <span>{biData.SI_Advanced_Searches}</span></p>
+            </div>
+            <div class="row" >
+                <p>SI Company Signals (SI): <span>{biData.SI_Company_Signals}</span></p>
+            </div>
+            <div class="row">
+                <p>SI Sales Signals: <span>{biData.SI_Sales_Signals}</span></p>
+            </div>
+            <div class="row" >
+                <p>SI Saved Searches: <span>{biData.SI_Saved_Searches}</span></p>
+            </div>
+        </div>
+    </div>
+</template>

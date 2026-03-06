@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Strategic_Pod__c</fullName>
+    <description>MIS-2871</description>
+    <externalId>false</externalId>
+    <label>Strategic Pod</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>Strategic_Pod</valueSetName>
+    </valueSet>
+</CustomField>

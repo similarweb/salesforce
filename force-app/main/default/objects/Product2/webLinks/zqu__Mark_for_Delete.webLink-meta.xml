@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>zqu__Mark_for_Delete</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <height>600</height>
+    <linkType>page</linkType>
+    <masterLabel>Mark for Delete</masterLabel>
+    <openType>sidebar</openType>
+    <page>zqu__MarkForDeleteVFP</page>
+    <protected>false</protected>
+</WebLink>

@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Closed_Lost_Reason__c</fullName>
+    <externalId>false</externalId>
+    <label>old Closed Lost Reason</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Client Gap - Client did not agree to Annual payment</fullName>
+                <default>false</default>
+                <label>Client Gap - Client did not agree to Annual payment</label>
+            </value>
+            <value>
+                <fullName>Client Gap - Client did not agree to Legal terms</fullName>
+                <default>false</default>
+                <label>Client Gap - Client did not agree to Legal terms</label>
+            </value>
+            <value>
+                <fullName>Client Gap - Company Reorg/M&amp;A/Closing</fullName>
+                <default>false</default>
+                <label>Client Gap - Company Reorg/M&amp;A/Closing</label>
+            </value>
+            <value>
+                <fullName>Client Gap - Customer refused annual price increase</fullName>
+                <default>false</default>
+                <label>Client Gap - Customer refused annual price increase</label>
+            </value>
+            <value>
+                <fullName>Client Gap - Getting data from SW competitor</fullName>
+                <default>false</default>
+                <label>Client Gap - Getting data from SW competitor</label>
+            </value>
+            <value>
+                <fullName>Client Gap - Insufficient Budget</fullName>
+                <default>false</default>
+                <label>Client Gap - Insufficient Budget</label>
+            </value>
+            <value>
+                <fullName>Client Gap - Receiving data from Agency/Third Party</fullName>
+                <default>false</default>
+                <label>Client Gap - Receiving data from Agency/Third Party</label>
+            </value>
+            <value>
+                <fullName>Client Gap - SimilarWeb chose not to sell or renew (Frenemy, Competitor)</fullName>
+                <default>false</default>
+                <label>Client Gap - SimilarWeb chose not to sell or renew (Frenemy, Competitor)</label>
+            </value>
+            <value>
+                <fullName>Client Gap - Unresponsive/Lost stakeholder</fullName>
+                <default>false</default>
+                <label>Client Gap - Unresponsive/Lost stakeholder</label>
+            </value>
+            <value>
+                <fullName>Integration / Tech</fullName>
+                <default>false</default>
+                <label>Integration / Tech</label>
+            </value>
+            <value>
+                <fullName>Legal</fullName>
+                <default>false</default>
+                <label>Legal</label>
+            </value>
+            <value>
+                <fullName>Low panel Value</fullName>
+                <default>false</default>
+                <label>Low panel Value</label>
+            </value>
+            <value>
+                <fullName>Merged with/rolled into another opp/account</fullName>
+                <default>false</default>
+                <label>Merged with/rolled into another opp/account</label>
+            </value>
+            <value>
+                <fullName>No response from the partner</fullName>
+                <default>false</default>
+                <label>No response from the partner</label>
+            </value>
+            <value>
+                <fullName>Not for-analyzed</fullName>
+                <default>false</default>
+                <label>Not for-analyzed</label>
+            </value>
+            <value>
+                <fullName>Payment</fullName>
+                <default>false</default>
+                <label>Payment</label>
+            </value>
+            <value>
+                <fullName>Privacy</fullName>
+                <default>false</default>
+                <label>Privacy</label>
+            </value>
+            <value>
+                <fullName>Relationship - Insufficient touchpoints/onboarding/education</fullName>
+                <default>false</default>
+                <label>Relationship - Insufficient touchpoints/onboarding/education</label>
+            </value>
+            <value>
+                <fullName>Relationship - No need for upsell offering</fullName>
+                <default>false</default>
+                <label>Relationship - No need for upsell offering</label>
+            </value>
+            <value>
+                <fullName>Relationship - No relationship with decision making authority</fullName>
+                <default>false</default>
+                <label>Relationship - No relationship with decision making authority</label>
+            </value>
+            <value>
+                <fullName>Relationship - Not the right time for the customer (they were interested)</fullName>
+                <default>false</default>
+                <label>Relationship - Not the right time for the customer (they were interested)</label>
+            </value>
+            <value>
+                <fullName>Relationship - We started the renewal process too late</fullName>
+                <default>false</default>
+                <label>Relationship - We started the renewal process too late</label>
+            </value>
+            <value>
+                <fullName>Relationship - We tried selling to the wrong department</fullName>
+                <default>false</default>
+                <label>Relationship - We tried selling to the wrong department</label>
+            </value>
+            <value>
+                <fullName>Relationship - Working with few/wrong teams for company’s use case(s)</fullName>
+                <default>false</default>
+                <label>Relationship - Working with few/wrong teams for company’s use case(s)</label>
+            </value>
+            <value>
+                <fullName>Service / Relationship</fullName>
+                <default>false</default>
+                <label>Service / Relationship</label>
+            </value>
+            <value>
+                <fullName>Solution Gap - Data Accuracy Discrepancies</fullName>
+                <default>false</default>
+                <label>Solution Gap - Data Accuracy Discrepancies</label>
+            </value>
+            <value>
+                <fullName>Solution Gap - Missing Coverage (country / platform)</fullName>
+                <default>false</default>
+                <label>Solution Gap - Missing Coverage (country / platform)</label>
+            </value>
+            <value>
+                <fullName>Solution Gap - Missing Feature / Granularity</fullName>
+                <default>false</default>
+                <label>Solution Gap - Missing Feature / Granularity</label>
+            </value>
+            <value>
+                <fullName>Solution Gap - Pricing and packaging unfit for use case</fullName>
+                <default>false</default>
+                <label>Solution Gap - Pricing and packaging unfit for use case</label>
+            </value>
+            <value>
+                <fullName>Solution Gap - Pricing of upsell offering was too high</fullName>
+                <default>false</default>
+                <label>Solution Gap - Pricing of upsell offering was too high</label>
+            </value>
+            <value>
+                <fullName>Solution Gap - Product or features unfit for use case</fullName>
+                <default>false</default>
+                <label>Solution Gap - Product or features unfit for use case</label>
+            </value>
+            <value>
+                <fullName>Solution Gap - Removal of Popular Pages</fullName>
+                <default>false</default>
+                <label>Solution Gap - Removal of Popular Pages</label>
+            </value>
+            <value>
+                <fullName>Client Gap - Customer Churned</fullName>
+                <default>false</default>
+                <label>Client Gap - Customer Churned</label>
+            </value>
+            <value>
+                <fullName>Internal - Merged with/rolled into another opp/account</fullName>
+                <default>false</default>
+                <label>Internal - Merged with/rolled into another opp/account</label>
+            </value>
+            <value>
+                <fullName>Client Gap - Covid-19 Impact (please select a second reason)</fullName>
+                <default>false</default>
+                <label>Client Gap - Covid-19 Impact (please select a second reason)</label>
+            </value>
+            <value>
+                <fullName>Solution Gap - Client opted for a &apos;no touch&apos; offering (please select a second reason)</fullName>
+                <default>false</default>
+                <label>Solution Gap - Client opted for a &apos;no touch&apos; offering (please select a second reason)</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>7</visibleLines>
+</CustomField>

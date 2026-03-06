@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Purchase_highest_yearly__c</fullName>
+    <description>The highest priced yearly plan the lead checked</description>
+    <externalId>false</externalId>
+    <label>Purchase page - highest priced yearly</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Basic Web Yearly (100167)</fullName>
+                <default>false</default>
+                <label>Basic Web Yearly (100167)</label>
+            </value>
+            <value>
+                <fullName>Advanced Web Yearly (100165)</fullName>
+                <default>false</default>
+                <label>Advanced Web Yearly (100165)</label>
+            </value>
+            <value>
+                <fullName>Ultimate Web Yearly (100187)</fullName>
+                <default>false</default>
+                <label>Ultimate Web Yearly (100187)</label>
+            </value>
+            <value>
+                <fullName>Basic Mobile Yearly (100171)</fullName>
+                <default>false</default>
+                <label>Basic Mobile Yearly (100171)</label>
+            </value>
+            <value>
+                <fullName>Advanced Mobile Yearly (100107)</fullName>
+                <default>false</default>
+                <label>Advanced Mobile Yearly (100107)</label>
+            </value>
+            <value>
+                <fullName>Ultimate Mobile Yearly (100151)</fullName>
+                <default>false</default>
+                <label>Ultimate Mobile Yearly (100151)</label>
+            </value>
+            <value>
+                <fullName>Basic Mobile and Web Yearly (100175)</fullName>
+                <default>false</default>
+                <label>Basic Mobile and Web Yearly (100175)</label>
+            </value>
+            <value>
+                <fullName>Advanced Mobile and Web Yearly (100129)</fullName>
+                <default>false</default>
+                <label>Advanced Mobile and Web Yearly (100129)</label>
+            </value>
+            <value>
+                <fullName>Ultimate Mobile and Web Yearly (100193)</fullName>
+                <default>false</default>
+                <label>Ultimate Mobile and Web Yearly (100193)</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

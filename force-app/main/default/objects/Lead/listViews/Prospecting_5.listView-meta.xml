@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Prospecting_5</fullName>
+    <columns>LEAD.FIRST_NAME</columns>
+    <columns>LEAD.LAST_NAME</columns>
+    <columns>LEAD.COUNTRY</columns>
+    <columns>LEAD.COMPANY</columns>
+    <columns>LEAD.STATE</columns>
+    <columns>LEAD.EMAIL</columns>
+    <columns>LEAD.STATUS</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+        <field>Lead_Quality_Score__c</field>
+        <operation>greaterOrEqual</operation>
+        <value>175</value>
+    </filters>
+    <filters>
+        <field>LEAD.STATUS</field>
+        <operation>equals</operation>
+        <value>SDR Prospecting</value>
+    </filters>
+    <filters>
+        <field>Prospecting_Status__c</field>
+        <operation>notEqual</operation>
+    </filters>
+    <label>SMB SDR Open to Stage 1</label>
+</ListView>

@@ -1,0 +1,379 @@
+<aura:component implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" 
+                controller="OppClosedLostFlowController">
+    
+    <aura:attribute name="recordId" type="String" access="public" />
+    <aura:attribute name="opportunity" type="Object" />
+    <aura:attribute name="fieldDetails" type="Map" />
+    <aura:attribute name="isShowCSA" type="Boolean" />
+    
+    <aura:attribute name="canBeShown" type="Boolean" default="true"/>
+    <aura:attribute name="detailsHeader" type="String" default="Opportunity Details" />
+    <aura:attribute name="screenHeader" type="String" default="New Closed Lost Screen" />
+    <aura:attribute name="fieldRequiredMessage" type="String" default="This field is required" />
+    
+    <aura:attribute name="selectedClosedReasons" type="List" default="[]"/>
+    <aura:attribute name="selectedSolutionFit" type="List"  default="[]"/>
+    
+    <aura:attribute name="formattedRenewalDate" type="String" />
+    <aura:attribute name="isLEX" type="Boolean"/>
+    <aura:attribute name="isProcessing" type="Boolean" default="false"/>
+    <aura:attribute name="showConfirmationModal" type="Boolean" default="false"/>
+    <aura:attribute name="showCancelationModel" type="Boolean" default="false"/>
+    <aura:attribute name="showOtherCompetitorProduct" type="Boolean" default="false"/>
+    <aura:attribute name="closedLostReasonHasError" type="Boolean" default="false"/>
+    
+    <aura:attribute name="newAccSWIndustry" type="String" />
+    <aura:attribute name="newCycle" type="String" />
+    <aura:attribute name="newCyclePrice" type="String" />
+    <aura:attribute name="selectedCopetitorProducts" type="List" default="[]"/>
+    <aura:attribute name="selectedCompProduct" type="String" />
+    
+    <aura:attribute name="Spinner" type="boolean" default="false"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <aura:handler event="aura:waiting" action="{!c.showSpinner}"/>
+    <aura:handler event="aura:doneWaiting" action="{!c.hideSpinner}"/>
+    
+    <aura:if isTrue = "{! !v.canBeShown}">
+        <div class="slds-text-heading_medium slds-m-vertical_small">Sorry, this page is not available for this opportunity</div>
+    </aura:if>
+    
+    <aura:if isTrue="{!v.Spinner}">
+        <div aura:id="spinnerId" class="slds-spinner_container">
+            <div class="slds-spinner--brand  slds-spinner slds-spinner--large slds-is-relative" role="alert">
+                <span class="slds-assistive-text">Loading</span>
+                <div class="slds-spinner__dot-a"></div>
+                <div class="slds-spinner__dot-b"></div>
+            </div>
+        </div>
+    </aura:if>
+    
+    <aura:if isTrue = "{!v.canBeShown}">
+        <table width="100%">
+            <tr>
+                <td colspan="3">
+                    <div class="slds-text-heading_medium slds-m-vertical_small">{!v.screenHeader} - <span style="color:red">{!v.opportunity.Type}</span></div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3" class="data-block">
+                    <div class="details-container slds-m-bottom_small">
+                        <div class="slds-text-heading_medium details header section-header"><a href="{! '/' + v.recordId}">{!v.detailsHeader}</a></div>
+                        <div class="details "><span class="section-header">Account name: </span><a href="{!'/'+v.opportunity.AccountId}">{!v.opportunity.Account.Name}</a></div>
+                        <div class="details "> <span class="section-header">SW Industry: </span><!-- {!v.opportunity.Account.SW_Industry__c } -->
+                            <!-- <aura:if isTrue="{! !empty(v.opportunity.Account.SW_Industry__c)}"> -->
+                            {!v.opportunity.Account.SW_Industry__c }
+                            <!-- <aura:set attribute="else">
+                                 <lightning:select name="select" value="{!v.newAccSWIndustry}" aura:id="accIndustry"
+                                      required="true" messageWhenValueMissing="{!v.fieldRequiredMessage}" class="input-field">
+                                    <aura:iteration items="{!v.fieldDetails.Account.SW_Industry__c}" var="val">
+                                        <option value="{!val.value}" text="{!val.label}"></option>
+                                    </aura:iteration>
+                                </lightning:select> 
+                            </aura:set>
+                        </aura:if> -->
+                        </div>
+                        <div class="details "><span class="section-header">Type: </span>{!v.opportunity.Type}</div>
+                        <div class="details "><span class="section-header">Cycle: </span><!-- {!v.opportunity.Cycle__c}-->
+                            <aura:if isTrue="{! v.opportunity.Cycle__c != null}">
+                                {!v.opportunity.Cycle__c }
+                                <aura:set attribute="else">
+                                    <lightning:select name="select" value="{!v.newCycle}" aura:id="cycle"
+                                                      required="true" messageWhenValueMissing="{!v.fieldRequiredMessage}" class="input-field">
+                                        <aura:iteration items="{!v.fieldDetails.Opportunity.Cycle__c}" var="val">
+                                            <option value="{!val.value}" text="{!val.label}"></option>
+                                        </aura:iteration>
+                                    </lightning:select>
+                                </aura:set>
+                            </aura:if> 
+                        </div>
+                        <div class="details "><span class="section-header">Cycle Price: </span>
+                            <aura:if isTrue="{! v.opportunity.Cycle_Price__c != null}">
+                                <ui:outputCurrency value="{!v.opportunity.Cycle_Price__c}" format="$##,##,###,###"/>
+                                <aura:set attribute="else">
+                                    <lightning:input type="number" name="cycle" value="{!v.newCyclePrice}" aura:id="cyclePrice" 
+                                                     formatter="currency" step="0.001" />
+                                </aura:set>
+                            </aura:if> 
+                        </div>
+                        <aura:if isTrue="{!v.opportunity.Type == 'Renewal'}">
+                            <div class="details "><span class="section-header">Original Renewal Date: </span>{!v.formattedRenewalDate}</div>
+                        </aura:if>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <!--
+                <td rowspan="2" width="30%" style="vertical-align:top" class="data-block">
+                    <div class="cell-content">
+                        <div class="section-header">Solution fit</div>
+                        
+                        <div aura:id="reasons" class="input-field">
+                            <lightning:checkboxGroup name="Checkbox Group"
+                                                     label="Which departments did we interact with?"
+                                                     options="{! v.fieldDetails.Contact.Department__c }"
+                                                     value="{! v.selectedSolutionFit }"
+                                                     required = "true"
+                                                     messageWhenValueMissing="{!v.fieldRequiredMessage}"
+                                                     aura:id="solution-fit"                                             
+                                                     /> 
+                        </div>
+                        
+                    </div>
+                </td>
+        -->
+                <td rowspan="2" style="vertical-align:top" width="30%" class="data-block">
+                    <div class="cell-content"> 
+                        <div class="section-header">Closed Lost Reasons *</div>
+                        <div class="section-details">Please select one or two of the following reasons:</div>
+                        <div aura:id="closed-reason" class="input-field slds-m-bottom_x-large">
+                            <aura:iteration items="{!v.fieldDetails.Opportunity.Closed_Lost_Reason__c}" var="reason" indexVar="ind">
+                                <div class="slds-form-element slds-m-vertical_x-small" aura:id="close-reason-chbx" >
+                                    <label class="slds-checkbox">
+                                        <ui:inputCheckbox text="{!reason.groupName + ' - ' + reason.reasonName}" 
+                                                          value="{!reason.selected}" click="{!c.handleClosedLostChange}" />
+                                        <span class="slds-checkbox--faux" />
+                                        <span class="slds-form-element__label"><span class="reason-group">{!reason.groupName}</span> - {!reason.reasonName}</span>
+                                    </label>
+                                </div>
+                            </aura:iteration>    
+                        </div>
+                        <aura:if isTrue="{!v.closedLostReasonHasError}">
+                            <div class="slds-form-element__help slds-text-color_error" >{!v.fieldRequiredMessage}</div>
+                        </aura:if>
+                        
+                        <!-- <div class="section-subheader">Additional Notes * </div> -->
+                        <div  class="slds-m-top_x-large">
+                            <lightning:textarea aura:id="additional-notes" label="More Details" value="{!v.opportunity.Closed_Lost_Reason_More_details__c}"
+                                                required="true" messageWhenValueMissing="{!v.fieldRequiredMessage}" class="input-field"/>
+                            
+                            
+                        </div>
+                    </div>
+                </td>
+                <td style="vertical-align:top" width="35%" class="data-block">
+                    <div class="cell-content"> 
+                        
+                        <div  class="slds-m-top_x-large">                            
+                            
+                            <lightning:select name="select" label="Will the opp be relevant again? If so, when? " value="{!v.opportunity.Opp_will_be_relevant__c}"
+                                              required="true" messageWhenValueMissing="{!v.fieldRequiredMessage}" aura:id="relevance" class="input-field">
+                                <aura:iteration items="{!v.fieldDetails.Opportunity.Opp_Will_be_Relevant__c }" var="val">
+                                    <option value="{!val.value}" text="{!val.label}"></option>
+                                </aura:iteration>
+                            </lightning:select>
+                            
+                            <lightning:select name="select" label="Primary Use Case" value="{!v.opportunity.Primary_Use_Case__c}"
+                                              required="true" messageWhenValueMissing="{!v.fieldRequiredMessage}" aura:id="primarySolution" class="input-field">
+                                <option value="" text=""></option>
+                                <aura:iteration items="{!v.fieldDetails.Opportunity.Primary_Use_Case__c }" var="val">
+                                    <option value="{!val.value}" text="{!val.label}"></option>
+                                </aura:iteration>
+                            </lightning:select>
+                            
+                            <lightning:select name="select" label="Secondary Use Case" value="{!v.opportunity.Secondary_Use_Case__c}"
+                                              aura:id="secondarySolution" class="input-field">
+                                <option value="" text=""></option>
+                                <aura:iteration items="{!v.fieldDetails.Opportunity.Secondary_Use_Case__c }" var="val">
+                                    <option value="{!val.value}" text="{!val.label}"></option>
+                                </aura:iteration>
+                            </lightning:select>
+                        </div>
+                    </div>
+                    
+                </td>
+                <td  width="35%" class="data-block">
+                    
+                    <div class="cell-content">
+                        <div class="section-header">Product, Features and Coverage Feedback</div>
+                        <!-- Are there features or data missing from the platform? -->
+                        {!v.opportunity.Missing_Data_or_Feature__c}
+                        <lightning:select name="select" label="Missing Data or Feature from Platform" value="{!v.opportunity.Missing_Data_or_Feature__c}" class="input-field"
+                                          required="true" messageWhenValueMissing="{!v.fieldRequiredMessage}" aura:id="missing-platf"><!-- {!v.opportunity.Type != 'New Sale'} -->
+                            <option value="" text=""></option>
+                            <aura:iteration items="{!v.fieldDetails.Opportunity.Missing_Data_or_Feature__c}" var="val">
+                                <option value="{!val.value}" text="{!val.label}"></option>
+                            </aura:iteration>
+                        </lightning:select>
+                        <!-- Please specify what feature or data is missing -->
+                        <lightning:input value="{!v.opportunity.Missing_coverage_or_feature__c}" label="Please specify missing coverage or feature" class="input-field"
+                                         aura:id="missing-cover" messageWhenValueMissing="{!v.fieldRequiredMessage}" />
+                        <aura:If isTrue="{!v.isShowCSA}">
+                            <lightning:select name="select" label="CSA Satisfaction Score" value="{!v.opportunity.CSA_Satisfaction_Score__c}"
+                                              aura:id="CSASatisfactionScore" class="input-field" required="true" messageWhenValueMissing="{!v.fieldRequiredMessage}">
+                                <option value="" text=""></option>
+                                <aura:iteration items="{!v.fieldDetails.Opportunity.CSA_Satisfaction_Score__c }" var="val">
+                                    <option value="{!val.value}" text="{!val.label}"></option>
+                                </aura:iteration>
+                            </lightning:select>
+                        </aura:If>
+
+                    </div>
+                    
+                    
+                </td>
+            </tr>
+            <tr>
+                <td style="vertical-align:top;" width="35%" class="data-block">
+                    <div class="cell-content">
+                        <div class="section-header">Competition</div>
+                        <lightning:select name="select" label="Using a competitor? " value="{!v.opportunity.Competition__c}"
+                                          aura:id="using-compet" class="input-field" required="true" messageWhenValueMissing="{!v.fieldRequiredMessage}">
+                            <option value="" text=""></option>
+                            <aura:iteration items="{!v.fieldDetails.Opportunity.Competition__c}" var="val">
+                                <option value="{!val.value}" text="{!val.label}"></option>
+                            </aura:iteration>
+                        </lightning:select>
+                        
+                        <div class="slds-form-element" role="group" aria-labelledby="picklist-group-label">
+                            <label class="slds-form-element__label" for="select-01">Competitor product</label>
+                            <div class="slds-form-element__control">
+                                <div class="slds-dueling-list">
+                                    <div class="slds-assistive-text" id="drag-live-region" aria-live="assertive"></div>
+                                    <div class="slds-assistive-text" id="option-drag-label">Press space bar when on an item, to move it within the list. CMD plus left and right arrow keys, to move items between lists.</div>
+                                    <div class="slds-dueling-list__column">
+                                        <!--<span class="slds-form-element__label" id="label-2">Second Category</span>-->
+                                        <div class="slds-dueling-list__options" aura:id="competitor-first-col">
+                                            <ul aria-describedby="option-drag-label" aria-labelledby="label-1" aria-multiselectable="true" class="slds-listbox slds-listbox_vertical" role="listbox">
+                                                <aura:iteration items="{!v.fieldDetails.Opportunity.Competitor_Product__c}" var="val">
+                                                    <li role="presentation" class="slds-listbox__item" onclick="{!c.setSelectedCompetitorProd}" id="{!val.value}">
+                                                        <div class="slds-listbox__option slds-listbox__option_plain slds-media slds-media_small slds-media_inline" aria-selected="false" id="{!val.value}" role="option" tabindex="0">
+                                                            <span class="slds-media__body">
+                                                                <span class="slds-truncate" title="Option 1" id="{!val.value}">{!val.label}</span>
+                                                            </span>
+                                                        </div>
+                                                    </li>
+                                                </aura:iteration>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="slds-dueling-list__column">
+                                        <lightning:buttonIcon iconName="utility:right" variant="bare" onclick="{! c.addCompetitorProduct }" alternativeText="Settings" />
+                                        
+                                        <lightning:buttonIcon iconName="utility:left" variant="bare" onclick="{! c.delCompetitorProduct }" alternativeText="Settings" />
+                                    </div>
+                                    <div class="slds-dueling-list__column">
+                                        <!--<span class="slds-form-element__label" id="label-2">Second Category</span>-->
+                                        <div class="slds-dueling-list__options" aura:id="competitor-second-col">
+                                            <ul aria-describedby="option-drag-label" aria-labelledby="label-2" aria-multiselectable="true" class="slds-listbox slds-listbox_vertical" role="listbox">
+                                                <aura:iteration items="{!v.selectedCopetitorProducts}" var="val">
+                                                    <li role="presentation" class="slds-listbox__item" id="{!val.value}" onclick="{!c.setSelectedCompetitorProd}">
+                                                        <div class="slds-listbox__option slds-listbox__option_plain slds-media slds-media_small slds-media_inline" aria-selected="false"  id="{!val.value}" role="option" tabindex="0">
+                                                            <span class="slds-media__body">
+                                                                <span class="slds-truncate" title="Option 4"  id="{!val.value}">{!val.label}</span>
+                                                            </span>
+                                                        </div>
+                                                    </li>
+                                                </aura:iteration>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <aura:if isTrue="{!v.showOtherCompetitorProduct}">
+                            <lightning:input value="{!v.opportunity.Other_Competitors__c }" label="Other" class="input-field"
+                                             aura:id="other-comp" />
+                        </aura:if>
+                        
+                        <lightning:select name="select" label="Deal lost to a competitor" value="{!v.opportunity.Deal_Lost_To_a_Competitor__c}" 
+                                          aura:id="lost-to-comp" class="input-field">
+                            <aura:iteration items="{!v.fieldDetails.Opportunity.Deal_Lost_To_a_Competitor__c}" var="val">
+                                <option value="{!val.value}" text="{!val.label}"></option>
+                            </aura:iteration>
+                        </lightning:select>
+                    </div>
+                </td>  
+                <td style="vertical-align:top;"  width="35%" class="data-block">
+                    <div class="cell-content">
+                        <div class="section-header">Data Quality and Accuracy Feedback</div>
+                        <!-- Are there issues with the data we show?-->
+                        <lightning:select name="select" label="Issues with Data We Show" value="{!v.opportunity.Issues_with_Data_We_Show__c}" aura:id="data-issues" 
+                                          required="{!v.opportunity.Type != 'New Sale'}" messageWhenValueMissing="{!v.fieldRequiredMessage}">
+                            <aura:iteration items="{!v.fieldDetails.Opportunity.Issues_with_Data_We_Show__c }" var="val">
+                                <option value="{!val.value}" text="{!val.label}"></option>
+                            </aura:iteration>
+                        </lightning:select>
+                        
+                        <lightning:select name="select" label="Please specify section in PRO with data accuracy issues" value="{!v.opportunity.Section_in_PRO_w_accuracy_issues__c }" aura:id="section-issues" 
+                                          messageWhenValueMissing="{!v.fieldRequiredMessage}">
+                            <option value="" text=""></option>
+                            <aura:iteration items="{!v.fieldDetails.Opportunity.Section_in_PRO_w_accuracy_issues__c }" var="val">
+                                <option value="{!val.value}" text="{!val.label}"></option>
+                            </aura:iteration>
+                        </lightning:select>
+                        
+                        <!--
+                        <lightning:input value="{!v.opportunity.Section_in_PRO_w_accuracy_issues__c }" label="Please specify section in PRO with data accuracy issues"
+                                         aura:id="section-issues" messageWhenValueMissing="{!v.fieldRequiredMessage}" 
+                                         class="input-field"/>
+-->
+                        <lightning:input value="{!v.opportunity.Country_that_had_issues__c }" label="Please specify the country that had issues"
+                                         aura:id="country-issues" messageWhenValueMissing="{!v.fieldRequiredMessage}" 
+                                         class="input-field"/>
+
+
+                        
+                    </div>
+                </td>
+                
+                
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <lightning:button label="Cancel" title="Cancel" onclick="{! c.showCancelationModal }" class="slds-m-around_small "/>
+                    <lightning:button label="Submit" title="Submit" disabled="{!v.isProcessing}" onclick="{! c.openSubmitModal }" variant="brand" class="slds-m-around_small submit"/>
+                </td>
+            </tr>
+        </table>
+    </aura:if>
+    
+    <aura:if isTrue="{!v.showConfirmationModal}">
+        <div class="demo-only" style="height: 640px;">
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                    <header class="slds-modal__header">
+                        <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close">
+                            <lightning:buttonIcon iconName="utility:close" onclick="{!c.closeSubmitModal}" />
+                            <span class="slds-assistive-text">Close</span>
+                        </button>
+                    </header>
+                    
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                        Are you sure you want to close the opportunity?
+                    </div>
+                    <footer class="slds-modal__footer">
+                        <button class="slds-button slds-button_neutral" onclick="{!c.closeSubmitModal}" style="float: left;" >Cancel</button>
+                        <button class="slds-button slds-button_brand" disabled="{!v.isProcessing}" onclick="{! c.submit }" >Submit</button>
+                    </footer>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </div>
+    </aura:if>
+    <aura:if isTrue="{!v.showCancelationModel}">
+        <div class="demo-only" style="height: 640px;">
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                    <header class="slds-modal__header">
+                        <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close">
+                            <lightning:buttonIcon iconName="utility:close" onclick="{!c.noCancelation}" />
+                            <span class="slds-assistive-text">Close</span>
+                        </button>
+                    </header>
+                    
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                        Are you sure you want to cancel the process? Please note that new information will not be saved
+                    </div>
+                    <footer class="slds-modal__footer">
+                        <button class="slds-button slds-button_neutral" style="float: left;" onclick="{!c.noCancelation}">No</button>
+                        <button class="slds-button slds-button_brand" onclick="{! c.cancelFlow }" >Yes</button>
+                    </footer>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </div>
+    </aura:if>
+</aura:component>

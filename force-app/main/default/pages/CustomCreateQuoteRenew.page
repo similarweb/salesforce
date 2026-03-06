@@ -1,0 +1,718 @@
+<apex:page standardController="zqu__Quote__c" tabStyle="zqu__Quote__c" sidebar="false" extensions="CreateQuotePageController">
+    <apex:composition template="zqu__QuoteWizardTemplateNoForm" >
+        <apex:define name="PageBody" >
+
+            <zqu:CreateQuote subscriptionId="{!$CurrentPage.parameters.subscriptionId}"
+                             billingAccountId="{!$CurrentPage.parameters.billingAccountId}"
+                             opportunityId="{!$CurrentPage.parameters.oppId}"
+                             crmAccountId="{!$CurrentPage.parameters.crmAccountId}"
+                             renderBackButton="true"
+                             title="Create Quote" />
+            <script>
+                Date.prototype.addDays = function(days) {
+                    var date = new Date(this.valueOf());
+                    date.setDate(date.getDate() + days);
+                    return date;
+                }
+                Date.prototype.addMonths = function(months) {
+                    var date = new Date(this.valueOf());
+                    date.setDate(date.getMonth() + months);
+                    return date;
+                }
+
+                var relatedSubscriptionApexNextRenewalDateTimeRaw = '{!subscription.Zuora__NextRenewalDate__c}';
+                var relatedSubscriptionApexNextRenewalDateTime = new Date(relatedSubscriptionApexNextRenewalDateTimeRaw);
+                setQuoteField('zqu__TermStartDate__c', getFormattedDate(relatedSubscriptionApexNextRenewalDateTime));
+                var customerAcceptanceFieldNode = document.querySelector('[data-id=customerAcceptanceInput]');
+                if (customerAcceptanceFieldNode) {
+                    customerAcceptanceFieldNode.value = getFormattedDate(relatedSubscriptionApexNextRenewalDateTime);
+                }
+                var serviceActivationFieldNode = document.querySelector('[data-id=serviceActivationInput]');
+                if (serviceActivationFieldNode) {
+                    serviceActivationFieldNode.value = getFormattedDate(relatedSubscriptionApexNextRenewalDateTime);
+                }
+                /* var startDateFieldNode = document.querySelector('[data-id=contractEffectiveInput]');
+                if (startDateFieldNode) {
+                    startDateFieldNode.value = getFormattedDate(new Date());
+                } */
+
+
+                listenStartDateField();
+                addHelpTextToCurrency();
+                setDefaultValues();
+                removeCurrencyNoneValue();
+
+                function addHelpTextToCurrency(){
+                    var fieldName = 'zqu__Currency__c';
+                    var currencyInputEl = getCurrncyInputField();
+                    if (!currencyInputEl) {
+                        return;
+                    }
+                    //return;
+                    Visualforce.remoting.Manager.invokeAction(
+                    '{!$RemoteAction.CreateQuotePageController.getHelpText}', 
+                    fieldName,
+                        function(result, event){
+                            if (event.status) {
+                                debugger;
+                                var parentEl = currencyInputEl.parentNode;
+                                var spanElArr = parentEl.getElementsByTagName('span');
+                                if(!spanElArr || spanElArr.length < 1){
+                                    return;
+                                }
+                                var spanParentEl = spanElArr[0];
+                                var spanParentElChildArr=[];
+                                for (const child_i of spanParentEl.childNodes) {
+                                    spanParentElChildArr.push(child_i);
+                                    spanParentEl.removeChild(child_i);
+                                }
+                                var spanEl = document.createElement('span');
+                                spanEl.classList.add('helpButton');
+                                spanEl.id = fieldName + '-_help';
+                                for (const child_i of spanParentElChildArr) {
+                                    spanEl.appendChild(child_i);
+                                }
+                                //spanEl.appendChild(currencyInputEl);
+
+                                var imgEl = document.createElement('img');
+                                var orgUrl = '{!orgUrl}';
+                                imgEl.src = orgUrl + '/img/s.gif';
+                                imgEl.classList.add('helpOrb');
+                                spanEl.appendChild(imgEl);
+
+                                var scriptEl = document.createElement('script');
+                                scriptEl.innerHTML = 'sfdcPage.setHelp("' + fieldName + '", "' + result + '");';
+                                spanEl.appendChild(scriptEl);
+                                spanParentEl.appendChild(spanEl);
+
+                                correctCurrencySpanStyling(spanParentEl);
+                                correctLabelStyling(spanParentElChildArr[0]);
+                            } else if (event.type === 'exception') {
+                                /* document.getElementById("responseErrors").innerHTML = 
+                                    event.message + "<br/>\n<pre>" + event.where + "</pre>"; */
+                            } else {
+                                /* document.getElementById("responseErrors").innerHTML = event.message; */
+                            }
+                        }
+                    );
+
+                    function getCurrncyInputField(){
+                        var currencySpanList = document.querySelectorAll('[data-id=customRenderedCurrency]');
+                        if(currencySpanList != undefined &&  currencySpanList.length > 0){
+                            for (const currencySpanChld of currencySpanList[0].childNodes) {
+                                if(currencySpanChld.tagName.toLowerCase() == 'select'){
+                                    return currencySpanChld;
+                                }
+                            }
+                        } else {
+                            return;
+                        }
+                    }
+
+                    function correctCurrencySpanStyling(spanEl){
+                        spanEl.style["padding-right"] = "18px";
+                    }
+                    function correctLabelStyling(labelEl){
+                        labelEl.setAttribute("style", "");
+                    }
+                }
+
+                function listenStartDateField(){
+                    var startDateSpanList = document.querySelectorAll('[data-field-name=zqu__StartDate__c]');
+                    if(startDateSpanList != undefined &&  startDateSpanList.length > 0){
+                        var selectValue = getQuoteFieldValue(startDateSpanList);
+                        displayOrNotPicklist(selectValue);
+                        var startDateNode =  getQuoteFileNode(startDateSpanList);
+                        if (!startDateNode) {
+                            return;
+                        }
+                        getQuoteFileNode(startDateSpanList).onchange = function(){ 
+                            selectValue = event.target.value;
+                            displayOrNotPicklist(selectValue); 
+                            if (selectValue) {
+                                var startDate = new Date(selectValue);   
+                                setQuoteField('zqu__ValidUntil__c', getFormattedDate(startDate.addDays(7)));
+                            }
+                        };    
+                        function displayOrNotPicklist(selectValue){
+                            if (selectValue != undefined) {
+                                setQuoteField('zqu__Service_Activation_Date__c', selectValue);
+                                setQuoteField('zqu__Customer_Acceptance_Date__c', selectValue);
+                            }
+                        }
+                    }
+                }
+
+                function setDefaultValues(){
+                    setQuoteFieldNew('zqu__InitialTerm__c',12);
+                    setQuoteFieldNew('zqu__RenewalTerm__c',12);
+                }
+
+                function removeCurrencyNoneValue(){
+                    var currencySpanList = document.querySelectorAll('[data-id=customRenderedCurrency]');
+                    if(currencySpanList != undefined &&  currencySpanList.length > 0){
+                        var currencySelectEl;
+                        for (const currencySpanChld of currencySpanList[0].childNodes) {
+                            if(currencySpanChld.tagName.toLowerCase() == 'select'){
+                                currencySelectEl = currencySpanChld;
+                                break;
+                            }
+                        }
+                        if (currencySelectEl) {
+                            for (const option_i of currencySelectEl.childNodes) {
+                                if (!option_i.tagName || option_i.tagName.toLowerCase() != 'option') {
+                                    continue;
+                                }
+                                var value = option_i.value;
+                                if (value == '') {
+                                    currencySelectEl.removeChild(option_i);
+                                }
+                            }
+                        }
+                    }
+                }
+
+                function getQuoteFieldValue(spanList){
+                    if (spanList[0].parentNode.childNodes[0].tagName && spanList[0].parentNode.childNodes[0].tagName.toLowerCase() == 'span' && spanList[0].parentNode.childNodes[0].classList.contains('dateOnlyInput')) {
+                        return spanList[0].parentNode.childNodes[0].childNodes[0].value;
+                    } else if (spanList[0].parentNode.childNodes[0].tagName && spanList[0].parentNode.childNodes[0].tagName.toLowerCase() == 'input' && spanList[0].parentNode.childNodes[0].type == 'checkbox') {
+                        if (spanList[0].parentNode.childNodes[0].checked) {
+                            return spanList[0].parentNode.childNodes[0].checked;
+                        } else {
+                            return false;
+                        }
+                    } else if (spanList[0].parentNode.childNodes[0].tagName && spanList[0].parentNode.childNodes[0].tagName.toLowerCase() == 'select') {
+                        return spanList[0].parentNode.childNodes[0].value;
+                    } else {
+                        return '';
+                    }                
+                }
+
+                function getQuoteFileNode(spanList){
+                    if (spanList[0].parentNode.childNodes[0].tagName && spanList[0].parentNode.childNodes[0].tagName.toLowerCase() == 'span' && spanList[0].parentNode.childNodes[0].classList.contains('dateOnlyInput')) {
+                        return spanList[0].parentNode.childNodes[0].childNodes[0];
+                    } else if (spanList[0].parentNode.childNodes[0].tagName && spanList[0].parentNode.childNodes[0].tagName.toLowerCase() == 'input' && spanList[0].parentNode.childNodes[0].type == 'checkbox') {
+                        /* if (spanList[0].parentNode.childNodes[0].checked) { */
+                            return spanList[0].parentNode.childNodes[0];
+                        /* } else {
+                            return false;
+                        } */
+                    } else if (spanList[0].parentNode.childNodes[0].tagName && spanList[0].parentNode.childNodes[0].tagName.toLowerCase() == 'select') {
+                        return spanList[0].parentNode.childNodes[0];
+                    } else {
+                        return undefined;
+                    }
+                }
+
+                function getQuoteFieldData(fieldName){
+                    var spanList = document.querySelectorAll('[data-field-name=' + fieldName + ']');
+                    if(spanList != undefined &&  spanList.length > 0){
+                        if (spanList[0].parentNode.childNodes[0].tagName && spanList[0].parentNode.childNodes[0].tagName.toLowerCase() == 'span' && spanList[0].parentNode.childNodes[0].classList.contains('dateOnlyInput')) {
+                            return;// spanList[0].parentNode.childNodes[0].childNodes[0];
+                        } else if (spanList[0].parentNode.childNodes[0].tagName && spanList[0].parentNode.childNodes[0].tagName.toLowerCase() == 'input' && spanList[0].parentNode.childNodes[0].type == 'checkbox') {
+                            return;// spanList[0].parentNode.childNodes[0];
+                        } else if (spanList[0].parentNode.childNodes[0].tagName && spanList[0].parentNode.childNodes[0].tagName.toLowerCase() == 'select') {
+                            var thNode = spanList[0].parentNode;
+                            var tdNode;
+                            var indexOfThNode = Array.from(thNode.parentNode.childNodes).indexOf(thNode);
+                            if (indexOfTdNode > 0) {
+                                var indexOfTdNode = indexOfThNode + 1;
+                                tdNode = thNode.parentNode.childNodes[indexOfTdNode];
+                            }
+                            if (thNode && tdNode) {
+                                var quoteFieldData = [];
+                                quoteFieldData.push(thNode);
+                                quoteFieldData.push(tdNode);
+                                return quoteFieldData;
+                            } else {
+                                return;
+                            }
+                        } else {
+                            return undefined;
+                        }
+                    }
+                }
+
+                function setQuoteField(fieldName, fieldValue){
+                    var spanList = document.querySelectorAll('[data-field-name=' + fieldName + ']');
+                    if (!spanList || spanList.length < 1) {
+                        return;
+                    }
+                    if (spanList[0].parentNode.childNodes[0].tagName && spanList[0].parentNode.childNodes[0].tagName.toLowerCase() == 'span' && spanList[0].parentNode.childNodes[0].classList.contains('dateOnlyInput')) {
+                        spanList[0].parentNode.childNodes[0].childNodes[0].value = fieldValue;   
+                    } else if (spanList[0].parentNode.childNodes[0].tagName && spanList[0].parentNode.childNodes[0].tagName.toLowerCase() == 'input' && spanList[0].parentNode.childNodes[0].type == 'checkbox') {
+                        if(fieldValue){
+                            spanList[0].parentNode.childNodes[0].setAttribute('checked',undefined);
+                        } else {
+                            spanList[0].parentNode.childNodes[0].removeAttribute('checked');
+                        }
+                    } else if (spanList[0].parentNode.childNodes[0].tagName && spanList[0].parentNode.childNodes[0].tagName.toLowerCase() == 'select') {
+                        spanList[0].parentNode.childNodes[0].value = fieldValue;
+                    } else {
+                        var inputNode;
+                        for (const child_i of spanList[0].parentNode.childNodes) {
+                            if (child_i.tagName && child_i.tagName.toLowerCase() == 'input') {
+                                inputNode = child_i;
+                                break;
+                            }
+                        }
+                        if (inputNode) {
+                            inputNode.value = fieldValue;
+                        }
+                    }              
+                }
+
+                function setQuoteFieldNew(fieldName, fieldValue){
+                    var spanList = document.querySelectorAll('[data-field-name=' + fieldName + ']');
+                    if (!spanList || spanList.length < 1) {
+                        return;
+                    }
+                    var parent = spanList[0].parentNode;
+                    var selectElArr = parent.getElementsByTagName('select');
+                    if (selectElArr && selectElArr.length > 0) {
+                        var selectEl = selectElArr[0];
+                        selectEl.value = fieldValue;
+                    } else {
+                        selectElArr = parent.getElementsByTagName('input');
+                        if (selectElArr && selectElArr.length > 0) {
+                            var selectEl = selectElArr[0];
+                            selectEl.value = fieldValue;
+                        }
+                    }
+                }
+
+                function getFormattedDate(date) {
+                    let year = date.getFullYear();
+                    let month = (1 + date.getMonth()).toString().padStart(2, '0');
+                    let day = date.getDate().toString().padStart(2, '0');
+                
+                    return month + '/' + day + '/' + year;
+                }
+
+                function changeDisplayOfField(dataFieldNameString , isDisplayed, saveValue,hidePartially){
+                    /* var spanList = document.querySelectorAll('[data-field-name='+ dataFieldNameString + ']');
+                    if(spanList != undefined &&  spanList.length > 0){
+                        var selectedSpan = spanList[0];
+                        var childList = selectedSpan.parentNode.childNodes;
+                    }
+                    if(isDisplayed){
+                        if(childList != undefined &&  childList.length > 0){
+                            childList[0].style.display='inline-block';
+                            var tdNode = selectedSpan.parentNode;
+                            var trNode = tdNode.parentNode;
+                            var indexOfTdNode = Array.from(trNode.childNodes).indexOf(tdNode);
+                            if (indexOfTdNode > 0) {
+                                var indexOfThNode = indexOfTdNode - 1;
+                                debugger;
+                                if (!hidePartially) {
+                                    trNode.childNodes[indexOfTdNode].style.display='';
+                                    trNode.childNodes[indexOfThNode].style.display='';    
+                                } else {
+                                    trNode.childNodes[indexOfThNode].childNodes[0].style.display='';
+                                }
+                            }
+                        }
+                    }
+                    else {
+                        if(childList != undefined &&  childList.length > 0){
+                            if (!saveValue) {
+                                if (childList[0].tagName.toLowerCase() == 'span' && childList[0].classList.contains('dateOnlyInput')) {
+                                    childList[0].childNodes[0].value = '';   
+                                } else if (childList[0].tagName.toLowerCase() == 'input' && childList[0].type == 'checkbox') {
+                                    childList[0].removeAttribute('checked');
+                                } else  {
+                                    childList[0].value='';
+                                }
+                            }
+                            childList[0].style.display='none';
+                            //selectedSpan.parentNode.parentNode.childNodes[Array.from(selectedSpan.parentNode.parentNode.childNodes).indexOf(selectedSpan.parentNode) - 1].childNodes[0].style.display='none';
+                            var tdNode = selectedSpan.parentNode;
+                            var trNode = tdNode.parentNode;
+                            var indexOfTdNode = Array.from(trNode.childNodes).indexOf(tdNode);
+                            if (indexOfTdNode > 0) {
+                                debugger;
+                                var indexOfThNode = indexOfTdNode - 1;
+                                if (!hidePartially) {
+                                    trNode.childNodes[indexOfTdNode].style.display='none';
+                                    trNode.childNodes[indexOfThNode].style.display='none';   
+                                } else {
+                                    trNode.childNodes[indexOfThNode].childNodes[0].style.display='none';
+                                }
+                            }
+                        }
+                    } */
+                }
+
+                function changeDisableOfField(dataFieldNameString , isDisplayed){
+                    var spanList = document.querySelectorAll('[data-field-name='+ dataFieldNameString + ']');
+                    if(spanList != undefined &&  spanList.length > 0){
+                        var selectedSpan = spanList[0];
+                        var childList = selectedSpan.parentNode.childNodes;
+                    }
+                    if(isDisplayed){
+                        if(childList != undefined &&  childList.length > 0){
+                            childList[0].disabled=false;
+                        }
+                    }
+                    else {
+                        if(childList != undefined &&  childList.length > 0){
+                            childList[0].disabled=true;
+                        }
+                    }
+                }
+
+                function changeDisplayOfSection(dataSectionNameString , isDisplayed){
+                    /* sectionSpanList = document.querySelectorAll('[data-section-name='+ dataSectionNameString + ']');
+                    if (sectionSpanList!= undefined && sectionSpanList.length > 0) {
+                        var sectionDivEl = sectionSpanList[0];
+                        if (!sectionDivEl) {
+                            return;
+                        }
+                        var sectionBeforeBufferEl = getSectionBeforeBuffer(sectionDivEl);
+                        if (isDisplayed) {
+                            sectionDivEl.style.display = 'inherit';
+                            sectionBeforeBufferEl.style.display = 'inherit';
+                        } else {
+                            sectionDivEl.style.display = 'none';
+                            sectionBeforeBufferEl.style.display = 'none';
+                        }
+                    } */
+                }
+
+                function getSectionBeforeBuffer(sectionDiv){
+                    var sectionDivParent = sectionDiv.parentNode;
+                    var indexOfSectionBeforeBuffer = Array.from(sectionDivParent.childNodes).indexOf(sectionDiv) - 1;
+                    var sectionBeforeBuffer = sectionDivParent.childNodes[indexOfSectionBeforeBuffer];
+                    return sectionBeforeBuffer;
+                }
+
+                function findElementByContainingPharse(tagName, targetOfSearch, phraseToSearch){
+                    var xpath = "//" + tagName + "[contains(" + targetOfSearch +",'"+ phraseToSearch +"')]";
+                    var matchingElement = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+                    return matchingElement;
+                }
+
+                function hideBaseProductPicklist(){
+                    var baseProductSpanList = document.querySelectorAll('[data-field-name=Base_Product_Test__c]');
+                    if(baseProductSpanList != undefined &&  baseProductSpanList.length > 0){
+                        changeDisplayOfField('Base_Product_Test__c',false);
+                    }
+                }
+
+                function hideCustomerTypePicklist(){
+                    changeDisplayOfField('Customer_Type__c',false,true);
+                }
+
+                function addHelpTextToLookups(){
+                    addHelpTextToLookup('Bill to Contact', 'zqu__BillToContact__c');
+                    addHelpTextToLookup('Admin User', 'zqu__SoldToContact__c');
+
+                    function addHelpTextToLookup(lookupLabel,fieldName) {
+                        var lookupLabelElement = findElementByContainingPharse('label', 'text()',lookupLabel);
+                        Visualforce.remoting.Manager.invokeAction(
+                        '{!$RemoteAction.CreateQuotePageController.getHelpText}', 
+                        fieldName,
+                            function(result, event){
+                                if (event.status) {
+                                    var parentEl = lookupLabelElement.parentNode;
+                                    parentEl.removeChild(lookupLabelElement);
+                                    var spanEl = document.createElement('span');
+                                    spanEl.classList.add('helpButton');
+                                    spanEl.id = fieldName + '-_help';
+                                    spanEl.appendChild(lookupLabelElement);
+
+                                    var imgEl = document.createElement('img');
+                                    var orgUrl = '{!orgUrl}';
+                                    imgEl.src = orgUrl + '/img/s.gif';
+                                    imgEl.classList.add('helpOrb');
+                                    spanEl.appendChild(imgEl);
+
+                                    var scriptEl = document.createElement('script');
+                                    scriptEl.innerHTML = 'sfdcPage.setHelp("' + fieldName + '", "' + result + '");';
+                                    spanEl.appendChild(scriptEl);
+                                    parentEl.appendChild(spanEl);
+                                } else if (event.type === 'exception') {
+                                    /* document.getElementById("responseErrors").innerHTML = 
+                                        event.message + "<br/>\n<pre>" + event.where + "</pre>"; */
+                                } else {
+                                    /* document.getElementById("responseErrors").innerHTML = event.message; */
+                                }
+                            }
+                        );
+                    }
+                }
+
+                function setMandatoryOfCertificateId(isMandatory){
+                    var certificateIdSpanList = document.querySelectorAll('[data-field-name=zqu__Certificate_ID__c]');
+                    if(certificateIdSpanList != undefined && certificateIdSpanList.length > 0){
+                        var certificateIdSelectEl = certificateIdSpanList[0];
+                        if (isMandatory) {
+                            setFieldAsRequired(certificateIdSelectEl);
+                            setNameOfInputElementInSessionStorage(certificateIdSelectEl);
+                        } else {
+                            setFieldAsNotRequired(certificateIdSelectEl);
+                            storeNameOfInputElementInSessionStorage(certificateIdSelectEl);
+                            clearNameOfInputElement(certificateIdSelectEl);
+                        }
+                    }
+                }
+
+                function setQuoteCurrencyUsdOnly (isUsdOnly){
+                    var currencySpanList = document.querySelectorAll('[data-id=customRenderedCurrency]');
+                    if(currencySpanList != undefined &&  currencySpanList.length > 0){
+                        var currencySelectEl;
+                        for (const currencySpanChld of currencySpanList[0].childNodes) {
+                            if(currencySpanChld.tagName.toLowerCase() == 'select'){
+                                currencySelectEl = currencySpanChld;
+                                break;
+                            }
+                        }
+                        if (currencySelectEl) {
+                            for (const option_i of currencySelectEl.childNodes) {
+                                if (!option_i.tagName || option_i.tagName.toLowerCase() != 'option') {
+                                    continue;
+                                }
+                                var value = option_i.value;
+                                if (value == 'USD') {
+                                    continue;
+                                }
+                                if (!value || isUsdOnly) {
+                                    option_i.style.display = 'none';
+                                } else {
+                                    option_i.style.display = 'inherit';
+                                }
+                            }
+                        }
+                    }
+                }
+
+                function setQuoteCurrencyDisability(isDisable){
+                    var currencySpanList = document.querySelectorAll('[data-id=customRenderedCurrency]');
+                    if(currencySpanList != undefined &&  currencySpanList.length > 0){
+                        var currencySelectEl;
+                        for (const currencySpanChld of currencySpanList[0].childNodes) {
+                            if(currencySpanChld.tagName.toLowerCase() == 'select'){
+                                currencySelectEl = currencySpanChld;
+                                break;
+                            }
+                        }
+                        if (currencySelectEl) {
+                            if (isDisable) {
+                                currencySelectEl.disabled=true;
+                            } else {
+                                currencySelectEl.disabled="";
+                            }
+                        }
+                    }
+                }
+
+                function setFieldAsRequired(spanElement){
+                    var parent = spanElement.parentNode;
+                    var inputNode;
+                    for (const node_i of spanElement.parentNode.childNodes) {
+                        if (node_i.tagName && node_i.tagName.toLowerCase() == 'input') {
+                            inputNode = node_i;
+                        }
+                    }
+                    if (!inputNode) {
+                        return;
+                    }
+                    parent.removeChild(inputNode);
+                    var requiredInput = document.createElement("div");
+                    requiredInput.classList.add('requiredInput');
+                    var requiredBlock = document.createElement("div");
+                    requiredBlock.classList.add('requiredBlock');
+                    requiredInput.appendChild(requiredBlock);
+                    requiredInput.appendChild(inputNode);
+                    parent.appendChild(requiredInput);
+                }
+
+                function setFieldDatasetMode(spanElement, mode){
+                    var parent = spanElement.parentNode;
+                    var inputNode;
+                    for (const node_i of spanElement.parentNode.childNodes) {
+                        if (node_i.tagName && node_i.tagName.toLowerCase() == 'input') {
+                            inputNode = node_i;
+                        }
+                    }
+                    if (!inputNode) {
+                        return;
+                    }
+                    inputNode.dataset.mode = mode;
+                }
+
+                function setFieldAsNotRequired(spanElement){
+                    var parent = spanElement.parentNode;
+                    var requiredInput;
+                    for (const node_i of spanElement.parentNode.childNodes) {
+                        if (node_i.tagName && node_i.tagName.toLowerCase() == 'div') {
+                            requiredInput = node_i;
+                        }
+                    }
+                    if (!requiredInput) {
+                        return;
+                    }
+                    var inputNode;
+                    for (const node_i of requiredInput.childNodes) {
+                        if (node_i.tagName && node_i.tagName.toLowerCase() == 'input') {
+                            inputNode = node_i;
+                        }
+                    }
+                    if (!inputNode) {
+                        return;
+                    }
+                    parent.removeChild(requiredInput);
+                    parent.appendChild(inputNode);
+                }
+
+                function setQuoteFieldLabel(node, labelToSet){
+                    var parentTrNode = node.parentNode.parentNode;
+                    var indexOfValueTd = Array.from(parentTrNode.childNodes).indexOf(node.parentNode);
+                    var labelNode = parentTrNode.childNodes[indexOfValueTd - 1].childNodes[0];
+                    labelNode.innerText = labelToSet;
+                }
+
+                function setSpanDatasetFieldname(node, fieldNameToSet){
+                    node.dataset.fieldName = fieldNameToSet;
+                }
+
+                function storeNameOfInputElementInSessionStorage(spanElement){
+                    var inputNode;
+                    for (const node_i of spanElement.parentNode.childNodes) {
+                        if (node_i.tagName && node_i.tagName.toLowerCase() == 'input') {
+                            inputNode = node_i;
+                        }
+                    }
+                    if (!inputNode) {
+                        return;
+                    }
+                    if (inputNode.tagName.toLowerCase() == 'div') {
+                        inputNode = inputNode.childNodes[1];
+                    }
+                    sessionStorage.setItem("nameOfCertificateIfInput", inputNode.name);
+                }
+
+                function clearNameOfInputElement(spanElement){
+                    var inputNode;
+                    for (const node_i of spanElement.parentNode.childNodes) {
+                        if (node_i.tagName && node_i.tagName.toLowerCase() == 'input') {
+                            inputNode = node_i;
+                        }
+                    }
+                    if (!inputNode) {
+                        return;
+                    }
+                    if (inputNode.tagName.toLowerCase() == 'div') {
+                        inputNode = inputNode.childNodes[1];
+                    }
+                    inputNode.name = "";
+                }
+
+                function setNameOfInputElementInSessionStorage(spanElement){
+                    var inputNode;
+                    for (const node_i of spanElement.parentNode.childNodes) {
+                        if (node_i.tagName && node_i.tagName.toLowerCase() == 'input') {
+                            inputNode = node_i;
+                        }
+                    }
+                    if (!inputNode) {
+                        return;
+                    }
+                    if (inputNode.tagName.toLowerCase() == 'div') {
+                        inputNode = inputNode.childNodes[1];
+                    }
+                    inputNode.name = sessionStorage.getItem("nameOfCertificateIfInput");
+                }
+
+                function getSoldToIdInputFromLabelElement(soldToLabelElement){
+                    var parentTrNode = soldToLabelElement.parentNode.parentNode;
+                    if (!parentTrNode) {
+                        return '';
+                    }
+                    var indexOfLabel = Array.from(parentTrNode.childNodes).indexOf(soldToLabelElement.parentNode);
+                    if (indexOfLabel < 0) {
+                        return '';
+                    }
+                    var soldToNode = parentTrNode.childNodes[indexOfLabel + 1];
+                    if (!soldToNode) {
+                        return '';
+                    }
+                    var soldToNodeDivEl = soldToNode.querySelector('div[id]');
+                    if (!soldToNodeDivEl) {
+                        return;
+                    }
+                    var idInput = soldToNodeDivEl.querySelector('[id*="targetId"]');
+                    return idInput;
+                }
+
+                function showMessage(el, mode, message){
+                    var messageContainer = document.getElementById('certificateIdValidationMessage');
+                    if (!messageContainer) {
+                        var messageContainer = document.createElement("div");
+                        messageContainer.id = 'certificateIdValidationMessage'
+                    }
+                    messageContainer.innerHTML = message;
+                    if (mode == 'success') {
+                        messageContainer.setAttribute('style', 'color:green !important');
+                    } else if(mode == 'warning') {
+                        messageContainer.setAttribute('style', 'color:red !important');
+                    }
+                    var elParent = el.parentNode;
+                    var indexOfEl = Array.from(elParent.childNodes).indexOf(el); 
+                    elParent.insertBefore(messageContainer,el);
+                }
+
+                function clearMessage(){
+                    var messageContainer = document.getElementById('certificateIdValidationMessage');
+                    if (messageContainer) {
+                        messageContainer.remove();
+                    }
+                }
+
+                function removePicklistValue(picklistNode,valueApiName){
+                    if (!picklistNode) {
+                        return;
+                    }
+                    for (const child_i of picklistNode.childNodes) {
+                        if (child_i.innerText && child_i.innerText.toLowerCase() == valueApiName) {
+                            picklistNode.removeChild(child_i);
+                        }
+                    }
+                }
+
+                function renamePicklistValue(picklistNode,oldValueApiName, newValueApiName){
+                    /* var observer = new MutationObserver(callback)
+                        .observe(elem, {attributes: true, attributeOldValue: true});
+
+                    function callback(mutations, observer) {
+                        var target = mutations[0].target;
+                        observer.disconnect();
+                        mutations.forEach(function(mutation) {
+                            target.setAttribute(mutation.attributeName, mutation.oldValue);
+                        });
+                        observer.observe(target, {attributes: true, attributeOldValue: true});
+                    } */
+                    for (const child_i of picklistNode.childNodes) {
+                        if (child_i.innerText && child_i.innerText.toLowerCase() == oldValueApiName) {
+                            child_i.label = newValueApiName;
+
+                            /* var observer = new MutationObserver(callback)
+                                .observe(child_i, {attributes: true, attributeOldValue: true});
+
+                            function callback(mutations, observer) {
+                                var target = mutations[0].target;
+                                observer.disconnect();
+                                mutations.forEach(function(mutation) {
+                                    //if (mutation.attributeName == 'label') {
+                                        target.setAttribute(mutation.attributeName, mutation.oldValue);
+                                    //}
+                                });
+                                observer.observe(child_i, {attributes: true, attributeOldValue: true});
+                            } */
+                        }
+                    }
+                }
+            </script>            
+        </apex:define>
+    </apex:composition>
+</apex:page>

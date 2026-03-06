@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Create_Onboarding_Project</fullName>
+    <availability>online</availability>
+    <description>var SpecialistName = &quot;{!Account.Onboarding_specialist__c}&quot;;
+var isproject = &quot;{!Account.Onboarding_Account__c}&quot;;
+
+if( SpecialistName.length &lt; 5) 
+{alert (&quot;Please select an Onboarding Specialist before creating an onboarding project&quot;); 
+} 
+else
+
+{ 
+if( isproject == true )
+{alert (&quot;Account already has an onboarding project&quot;);
+
+var AccountID = &quot;{!Account.Id}&quot;; 
+var SpecialistName = &quot;{!Account.Onboarding_specialist__c}&quot;; 
+
+var url = &quot;/flow/Onboarding_Creation?VarAccountID=&quot;+AccountID; 
+url= url +&quot;&amp;VarSpecialistName=&quot;+SpecialistName+&quot;&amp;retURL=/&quot;+AccountID; 
+window.parent.location= url; 
+}
+
+else {
+
+var AccountID = &quot;{!Account.Id}&quot;; 
+var SpecialistName = &quot;{!Account.Onboarding_specialist__c}&quot;; 
+
+
+var url = &quot;/flow/Onboarding_Creation?VarAccountID=&quot;+AccountID; 
+url= url +&quot;&amp;VarSpecialistName=&quot;+SpecialistName+&quot;&amp;retURL=/&quot;+AccountID; 
+ 
+
+
+window.parent.location= url; 
+}}</description>
+    <displayType>button</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>Create Onboarding Project</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <url>var SpecialistName = &quot;{!Account.Onboarding_specialist__c}&quot;;
+var isproject = &quot;{!Account.Onboarding_Account__c}&quot;;
+
+if( SpecialistName.length &lt; 6) 
+{alert (&quot;Please select an Onboarding Specialist before creating an onboarding project&quot;); 
+} 
+
+else
+
+{ 
+
+var AccountID = &quot;{!Account.Id}&quot;; 
+var SpecialistName = &quot;{!Account.Onboarding_specialist__c}&quot;; 
+
+var url = &quot;/flow/Onboarding_Creation?VarAccountID=&quot;+AccountID; 
+url= url +&quot;&amp;VarSpecialistName=&quot;+SpecialistName+&quot;&amp;retURL=/&quot;+AccountID; 
+window.parent.location= url;
+}</url>
+</WebLink>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CSM_cannot_change_opp_type</fullName>
+    <active>true</active>
+    <description>ISPICKVAL(Type, &quot;Feature Update&quot;)</description>
+    <errorConditionFormula>CONTAINS( Owner.UserRole.Name , &quot;CSM&quot;) &amp;&amp;
+ISCHANGED( Type ) &amp;&amp;
+NOT(ISPICKVAL(Type, &apos;Upsell&apos;)) &amp;&amp;
+NOT(ISPICKVAL(Type, &apos;Feature Update&apos;)) &amp;&amp;
+($Profile.Name !=&quot;System Administrator&quot; ) &amp;&amp;
+($Profile.Name !=&quot;SW SalesOps Extended&quot; ) &amp;&amp;
+($Profile.Name !=&quot;SW SalesOps&quot;) &amp;&amp;
+RecordType.DeveloperName&lt;&gt;&quot;Wolves&quot;  &amp;&amp; 
+RecordType.DeveloperName&lt;&gt;&quot;Rank_Ranger&quot; &amp;&amp;
+RecordType.DeveloperName&lt;&gt;&quot;Acquired_Company&quot;</errorConditionFormula>
+    <errorDisplayField>Type</errorDisplayField>
+    <errorMessage>It is not possible to change the type of opportunity. Please contact salesops@similarweb.com for assistance.</errorMessage>
+</ValidationRule>

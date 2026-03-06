@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>George_Marketing_Trial_Leads</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>LEAD.EMAIL</columns>
+    <columns>LEAD.COMPANY</columns>
+    <columns>LEAD.STATUS</columns>
+    <columns>LEAD.CREATED_DATE</columns>
+    <columns>LEAD.COUNTRY</columns>
+    <columns>Role_registration__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>LEAD.STATUS</field>
+        <operation>notEqual</operation>
+        <value>Qualified,Replied,Nurture,Unqualified,SDR Prospecting,MIR Prospecting</value>
+    </filters>
+    <filters>
+        <field>SW_Fit_Score__c</field>
+        <operation>equals</operation>
+        <value>A,B,C</value>
+    </filters>
+    <filters>
+        <field>LEAD.CREATED_DATE</field>
+        <operation>greaterThan</operation>
+        <value>8/1/2022 12:00 AM</value>
+    </filters>
+    <filters>
+        <field>Owner_Email__c</field>
+        <operation>contains</operation>
+        <value>george</value>
+    </filters>
+    <filters>
+        <field>Current_Registration_Type__c</field>
+        <operation>notContain</operation>
+        <value>sales</value>
+    </filters>
+    <filters>
+        <field>LEAD.LEAD_SOURCE</field>
+        <operation>equals</operation>
+        <value>Pro</value>
+    </filters>
+    <filters>
+        <field>LEAD.CREATED_DATE</field>
+        <operation>greaterThan</operation>
+        <value>6/1/2022 12:00 AM</value>
+    </filters>
+    <filters>
+        <field>SW_Industry__c</field>
+        <operation>notEqual</operation>
+        <value>Education</value>
+    </filters>
+    <filters>
+        <field>LEAD.COMPANY</field>
+        <operation>notContain</operation>
+        <value>no</value>
+    </filters>
+    <label>George Marketing Trial Leads</label>
+</ListView>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Agencies_Leads</fullName>
+    <booleanFilter>1 AND 2 AND 3 AND 4 AND 5 AND 6 AND 7 AND 8 AND 9 and 10</booleanFilter>
+    <columns>FULL_NAME</columns>
+    <columns>LEAD.COMPANY</columns>
+    <columns>Department__c</columns>
+    <columns>SW_Industry__c</columns>
+    <columns>LEAD.TITLE</columns>
+    <columns>LEAD.COUNTRY</columns>
+    <columns>LEAD.PHONE</columns>
+    <columns>LEAD.EMAIL_OPT_OUT</columns>
+    <columns>LEAD.EMAIL</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>LEAD.CONVERTED</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>Pro_User_Type__c</field>
+        <operation>notEqual</operation>
+        <value>User,Admin</value>
+    </filters>
+    <filters>
+        <field>CORE.USERS.LAST_NAME</field>
+        <operation>contains</operation>
+        <value>Didio,Muller,Koplen,Felsen,Glueckstern,Fisch,Fox,Eviston,Ashur,Richter</value>
+    </filters>
+    <filters>
+        <field>Business_Unit__c</field>
+        <operation>equals</operation>
+        <value>Inside Sales</value>
+    </filters>
+    <filters>
+        <field>LEAD.LEAD_SOURCE</field>
+        <operation>notContain</operation>
+        <value>ContactForm,Facebook,Tradeshow,Webinar,LinkedIn - Paid,Facebook - Paid,Investors</value>
+    </filters>
+    <filters>
+        <field>LEAD.STATUS</field>
+        <operation>equals</operation>
+        <value>Open</value>
+    </filters>
+    <filters>
+        <field>Nurtured_by_Marketing__c</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>SW_Industry__c</field>
+        <operation>contains</operation>
+        <value>Agency,VC and Private Equity,Hedge Funds and Asset Management,Investment Banking,Consulting and Market Research</value>
+    </filters>
+    <filters>
+        <field>LEAD.CREATED_DATE</field>
+        <operation>greaterOrEqual</operation>
+        <value>LAST_N_MONTHS:4</value>
+    </filters>
+    <filters>
+        <field>LEAD.COUNTRY</field>
+        <operation>notContain</operation>
+        <value>Azerbajan,Belarus,Kazakhstan,Kyrgyzstan,Armenia,Moldova,Russia,Tajikistan,Uzbekistan,Ukraine</value>
+    </filters>
+    <label>Agencies (Leads)</label>
+    <sharedTo>
+        <role>MIR</role>
+    </sharedTo>
+</ListView>

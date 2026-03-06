@@ -1,0 +1,18 @@
+<aura:component controller="GetOrgURL">
+    <aura:attribute name="recordId" type="String" /> 
+    <aura:attribute name="zuoraVisualforceUrl" type="String" />  
+    <aura:attribute name="isDisabled" type="Boolean" default="false"/>  
+    <aura:attribute name="orgUrl" type="String" /> 
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+    <!-- <div onclick="{!c.onButtonClick}" style="cursor: pointer;">
+        <lightning:icon title="Clone Quote" iconName="action:clone" size="xx-small" alternativeText="Clone Quote"/>
+    </div> -->
+    <!-- <lightning:button variant="brand" label="Clone Quote" onclick="{!c.onButtonClick}"/> -->
+    <button class="slds-button slds-button_brand ff + if(v.isDisabled,'disabledButton','enabledButton')"
+            onclick="{!c.onButtonClick}"
+            title="Cloning the current Quote"
+            disabled="{!v.isDisabled}">
+            Clone
+    </button>
+</aura:component>

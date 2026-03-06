@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Metrics_is_blank</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+NOT(ISNEW()),
+ISCHANGED(StageName),
+
+NOT(ISPICKVAL(Type,&quot;Feature Update&quot;)) ,
+Probability &gt;= 0.25,
+RecordTypeId &lt;&gt; &apos;012b0000000cfCa&apos;, /*Panel Acquisition*/
+$Profile.Id &lt;&gt; &apos;00eb0000000oBvcAAE&apos;,
+$Profile.Name &lt;&gt; &quot;SW SalesOps Extended&quot;,
+$Profile.Name &lt;&gt; &quot;SW SalesOps&quot;,
+NOT(CONTAINS($Profile.Name, &apos;Integration&apos;)),
+$Profile.Name &lt;&gt; &apos;System Administrator&apos;,
+RecordType.DeveloperName &lt;&gt; &quot;Rank_Ranger&quot;,
+RecordType.DeveloperName &lt;&gt; &quot;Partnership&quot;,
+RecordType.DeveloperName &lt;&gt; &quot;Acquired_Company&quot;,
+MEDPIC_Next_Stage__c = false,
+
+isblank( Metrics__c ))</errorConditionFormula>
+    <errorDisplayField>Metrics__c</errorDisplayField>
+    <errorMessage>Please Populate Metricc</errorMessage>
+</ValidationRule>

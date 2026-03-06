@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cant_be_100_without_IO_or_IO_is_No</fullName>
+    <active>true</active>
+    <errorConditionFormula>RecordType.DeveloperName = &quot;Wolves&quot; &amp;&amp;  ISPICKVAL(StageName , &quot;Live&quot;) &amp;&amp;  OR(ISPICKVAL(Wolves_IO__c, &quot;&quot;), ISPICKVAL(Wolves_IO__c, &quot;Not Signed&quot;)) &amp;&amp; 
+NOT($Profile.Id=&apos;00eb0000000oBvcAAE&apos;)</errorConditionFormula>
+    <errorDisplayField>Wolves_IO__c</errorDisplayField>
+    <errorMessage>Field IO can&apos;t be blank or &quot;Not Signed&quot; if the stage of the opportunity is Live.</errorMessage>
+</ValidationRule>

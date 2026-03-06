@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Billing_New</fullName>
+    <columns>Group__c</columns>
+    <columns>CASES.CASE_NUMBER</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CASES.SUBJECT</columns>
+    <columns>CASES.TYPE</columns>
+    <columns>Case_Sub_Type__c</columns>
+    <columns>CASES.STATUS</columns>
+    <columns>Account_ARR__c</columns>
+    <columns>Opportunity__c</columns>
+    <columns>Opp_Closed_Date__c</columns>
+    <columns>OPP_ARR__c</columns>
+    <columns>CASES.CREATED_DATE</columns>
+    <filterScope>Queue</filterScope>
+    <filters>
+        <field>CASES.STATUS</field>
+        <operation>equals</operation>
+        <value>New</value>
+    </filters>
+    <filters>
+        <field>CASES.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Case.Billing</value>
+    </filters>
+    <filters>
+        <field>CASES.EMAIL</field>
+        <operation>notEqual</operation>
+        <value>sales@tsbliving.co.nz</value>
+    </filters>
+    <label>Billing - New</label>
+    <queue>Billing_Cases</queue>
+    <sharedTo>
+        <group>Service_Billing</group>
+    </sharedTo>
+</ListView>

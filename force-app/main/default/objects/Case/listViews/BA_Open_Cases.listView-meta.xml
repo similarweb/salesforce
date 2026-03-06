@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BA_Open_Cases</fullName>
+    <booleanFilter>1 AND 2</booleanFilter>
+    <columns>CASES.CREATED_DATE</columns>
+    <columns>Requester__c</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CASES.CASE_NUMBER</columns>
+    <columns>CASES.SUBJECT</columns>
+    <columns>CASES.TYPE</columns>
+    <columns>CASES.STATUS</columns>
+    <columns>OWNER_NAME</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Requester__c</field>
+        <operation>equals</operation>
+        <value>Daniel Gelbshtein,Maya Gorovitz,Laura Or</value>
+    </filters>
+    <filters>
+        <field>CASES.STATUS</field>
+        <operation>notEqual</operation>
+        <value>Completed,Merged,Cancelled,Closed</value>
+    </filters>
+    <label>BA Open Cases</label>
+</ListView>

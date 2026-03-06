@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Similarweb_template_2__c</fullName>
+    <description>MIS-1681</description>
+    <externalId>false</externalId>
+    <formula>&apos;To see the SW template, please ensure a signed NDA is uploaded to the request.&apos; +  
+ HYPERLINK(&apos;https://drive.google.com/drive/folders/15p5qbYtzLoNvYBQaU0EGU7VbpURHbn7i&apos;, &apos;NDA Templates is found here.&apos;)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Make sure you saved a copy of the document before editing it</inlineHelpText>
+    <label>Similarweb template</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,1793 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Quote_Request</fullName>
+    <active>false</active>
+    <label>Quote Request</label>
+    <picklistValues>
+        <picklist>AS_Closed_Lost_Reason__c</picklist>
+        <values>
+            <fullName>Budget</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Competition</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Data quality</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mobile web</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Not Feasible</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>AS_Deal_Type__c</picklist>
+        <values>
+            <fullName>Feature Update</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New Sale</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Renewal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Upsell</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>A_Signed_NDA__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Account_Type__c</picklist>
+        <values>
+            <fullName>Accounts %3E%2425K ARR</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Code Red</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>VIP Club %28%2B%2460K ARR%29</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Additional_Tax_documents_required__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Advisory_Services_Consultants__c</picklist>
+        <values>
+            <fullName>Ben Fernando</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Advisory_Services_Data_Engineer__c</picklist>
+        <values>
+            <fullName>Dana Mishor</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Nimrod Fischer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Omri Tal</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Applicable_Quote__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Are_we_a_New_Vendor_Existing_Vendor__c</picklist>
+        <values>
+            <fullName>Existing Vendor</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New Vendor</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Average_Visits_On_Desktop_100K__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Cancellation_Reason_PickList__c</picklist>
+        <values>
+            <fullName>Client Need Expired</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Duplicate Request</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Invalid Request</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Resource Issue</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SM Declined %28Must give reason below%29</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Category__c</picklist>
+        <values>
+            <fullName>Audience Behavior</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Brand%2FCategory Conversion</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Data Enrichment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Folder Analysis</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Market Landscape</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Onsite Search</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Prospecting</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Raw Data</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Site Conversion</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Top_Keywords_Conversion</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Top_Products</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Traffic Pulse</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Change_of_Payment_Terms__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Charge_Customer_For_Extension__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Churn_Protection_Reason__c</picklist>
+        <values>
+            <fullName>Accounts transition to NT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other - All other churn protection requests outside of this list - must go through special approval process</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Complexity__c</picklist>
+        <values>
+            <fullName>High complex - 3 weeks</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Low complex - 1 week</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Medium complex - 2 weeks</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Contract_Exceptions__c</picklist>
+        <values>
+            <fullName>Assignment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Audit</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Governing Law</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Indemnity</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>License Scope</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Limitation of Liability</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Logo Rights</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Payment Terms</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SLA</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Contract_attached_to_the_opportunity__c</picklist>
+        <values>
+            <fullName>There is no contract yet</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>This is a CC or Wire account</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Criteria__c</picklist>
+        <values>
+            <fullName>Customer elects churn to NT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Downsold to NT Annual</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Push to NT</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Currency__c</picklist>
+        <values>
+            <fullName>AUD</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EUR</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>GBP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>JPY</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>USD</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Custom_Standard__c</picklist>
+        <values>
+            <fullName>Custom</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Standard</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Customer_Payment_Method__c</picklist>
+        <values>
+            <fullName>Credit Card</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other %28Contract%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Wire Transfer</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>DaaS_Product__c</picklist>
+        <values>
+            <fullName>API%28Questions%2C Inquiry%2C Demo%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Flexible%2FCustom Dataset Feed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>General</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>One time - dataset delivery</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Predefined Dataset Feed</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Data_Feed_Type__c</picklist>
+        <values>
+            <fullName>Apps</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>GGS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Keywords</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Lead enrichment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Technographics</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Website</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Data_Granularity__c</picklist>
+        <values>
+            <fullName>7-days</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Daily</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Monthly</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Weekly</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Datasets_Products__c</picklist>
+        <values>
+            <fullName>Referrals - Applicant Tracking</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Referrals - B2B logins</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Referrals - Financial marketplacses</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Referrals - OTA%2FMetasearch</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Referrals - Payments</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Referrals - Shipping</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Referrals - Social</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Search - Amazon</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Search - Google</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Search - Robinhood</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Top products - Retail</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Deliverable_Type__c</picklist>
+        <values>
+            <fullName>Actionable Insights Deck</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Advanced Analysis %28ex%3AExcel%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Custom Dashboard</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Custom Use Case Deck</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Digital Insights Analysis</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>In-Person Meeting</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Insight Email</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Join a Call</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>One-Time</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Recurring</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Strategic Insights Deck</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Deliverable__c</picklist>
+        <values>
+            <fullName>LOA to existing business</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NDA review</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New Business Contract</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Delivery_Status__c</picklist>
+        <values>
+            <fullName>Delivered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>In progress</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Submitted</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Desired_Outcome__c</picklist>
+        <values>
+            <fullName>Any sort of response%21 %28lead or client has gone cold%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Build a Rapport %28current or advanced negotiation stages%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Create a new opportunity</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Expansion %28get this circulating among a larger audience%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Increased Usage</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Present a QBR or Deck</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Schedule a demo</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Did_we_try_to_send_the_SW_template__c</picklist>
+        <values>
+            <fullName>Not yet</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>The template is not applicable to the client</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes%2C pending client review</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes%2C the client had accepted it</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes%2C the client pushed back</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Does_the_customer_have_a_Vendor_Portal__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Does_this_customer_have_a_PRO_subscripti__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Effect_Date_of_New_Features__c</picklist>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Renewal Date</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Upon Signature</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Escalations__c</picklist>
+        <values>
+            <fullName>Commercial</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Data</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Product</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Expected_Impact__c</picklist>
+        <values>
+            <fullName>Improve engagement%2Frelationship</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New sale support</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Prevent churn</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Upsell</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>General_Feedback_Rate__c</picklist>
+        <values>
+            <fullName>1</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>10</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>2</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>4</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>5</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>6</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>7</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>8</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>9</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Have_we_tried_pushing_back__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>How_Well_do_They_Know_PRO__c</picklist>
+        <values>
+            <fullName>0</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>1</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>2</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>4</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>5</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Industry__c</picklist>
+        <values>
+            <fullName>Agency</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Automotive %26 Transportation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Banking %26 insurance</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CPG%2C Food %26 Beverages</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Consulting %26 Market Research</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Education</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Financial services</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Gambling %2F Gaming</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Investors</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Media %26 Entertainment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pharma %26 Healthcare</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Real Estate</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Recruitment %26 Jobs</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Retail %2F eCommerce</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Software %26 Internet</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Telecom %26 Hardware</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Travel %26 Hospitality</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Motion__c</picklist>
+        <values>
+            <fullName>Post-Sales</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pre-Sales</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Opportunity_Type__c</picklist>
+        <values>
+            <fullName>Both</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Co-term Upsell</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Renewal</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Package__c</picklist>
+        <values>
+            <fullName>API</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Advanced</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>App Engagement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Basic</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Benchmarking</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Custom Reports</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Enterprise Trial</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Essentials</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Market Intelligence</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Raw Data</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Trackers</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ultimate</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Payment_Frequency__c</picklist>
+        <values>
+            <fullName>2 years</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3 years</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Annual</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Quarterly</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Semi-Annual</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Payment_Terms__c</picklist>
+        <values>
+            <fullName>30</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>45</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>60</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>90</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Payment_Type__c</picklist>
+        <values>
+            <fullName>Due Upon Receipt</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Net 15</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Net 30</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Net 45</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Net 60</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Platform_For_Web_Data__c</picklist>
+        <values>
+            <fullName>Desktop</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MobileWeb</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Total Traffic</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Platform__c</picklist>
+        <values>
+            <fullName>App Store</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Google Pay</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Pod__c</picklist>
+        <values>
+            <fullName>CPG</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Services</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>VAP</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Priority__c</picklist>
+        <values>
+            <fullName>P0 %28Contingent on a deal for current month%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>P1 %28High Urgency%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>P2 %28Risk Account%2FProspect%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>P3 %28When You Have Time%29</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Qualification_Score__c</picklist>
+        <values>
+            <fullName>1</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>2</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>4</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>5</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Quarter__c</picklist>
+        <values>
+            <fullName>Q1</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Q2</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Q3</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Q4</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Quote_Business_Type__c</picklist>
+        <values>
+            <fullName>Cancellation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Co Term Upsell</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Feature Update</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New Sale</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Renewal Only</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Upsell %2B Renewal</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Recipient_Picklist__c</picklist>
+        <values>
+            <fullName>Antonello Musina</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>David Kaplansky</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Deekla Schechter</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ed Lavery</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Jamie Drayton</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Jeff Ding</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Maria Pashi</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pedro Herrera</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sacha Jabes</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tomas Seliokas</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Regularity__c</picklist>
+        <values>
+            <fullName>One time</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Recurring Monthly</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Recurring Quarterly</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Rejected_reason__c</picklist>
+        <values>
+            <fullName>Duplicated Request</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Insufficient information on pricing%2C features or terms</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No address on sold to and bill to contacts</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Requester did not provide contract</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Request_Reason__c</picklist>
+        <values>
+            <fullName>Client request</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Custom report%2Fwebinar session</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Showcase new data to a client</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Use case walkthrough</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Request_Requires_DL_DI_Involvement__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Request_Stage_SE_funnel__c</picklist>
+        <values>
+            <fullName>Actively Working</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cancelled</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Completed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pending Action</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Qualifying</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Submitted</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Request_Type__c</picklist>
+        <values>
+            <fullName>Legal Services</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Product Consultant</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Strategic Consultant</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Request_Types__c</picklist>
+        <values>
+            <fullName>Consulting</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Consumer Journey</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Requested_Service__c</picklist>
+        <values>
+            <fullName>Delivery</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Feasibility</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Feasibility %2B Sample</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pricing clarification</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Technical Question</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Signed_contract__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Status__c</picklist>
+        <values>
+            <fullName>Completed %28sent to billing%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pending update from Billing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pending update from Legal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pending update from requester</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Rejected</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Submitted</fullName>
+            <default>true</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Stocks_to_be_tested__c</picklist>
+        <values>
+            <fullName>BOX</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CRM</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NFLX</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NOW</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>OKTA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SHOP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TEAM</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>WORK</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZEN</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZM</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Subsidiary__c</picklist>
+        <values>
+            <fullName>Parent Company %3A SimilarWeb AU</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SimilarWeb Australia Pty Ltd</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SimilarWeb France SAS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SimilarWeb Germany GmbH</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SimilarWeb Inc</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SimilarWeb Japan K%2EK</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SimilarWeb Ltd</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SimilarWeb UK Ltd</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Task_Type__c</picklist>
+        <values>
+            <fullName>Problem</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Question</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Task</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Them_Us__c</picklist>
+        <values>
+            <fullName>Them</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Us</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Transitioned_by__c</picklist>
+        <values>
+            <fullName>AM</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>AM%2BCSM</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CSM</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Type_of_Extension__c</picklist>
+        <values>
+            <fullName>Permanent Renewal date change</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Temporary Extension</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Type_of_Feed__c</picklist>
+        <values>
+            <fullName>Global Growth Sites</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Google Keywords</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>OSS %28use Amazon%2Ecom%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Page Shares %28Amazon%2Ecom%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Product Views and Purchases %28Amazon%2Ecom%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ticker Tracker</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Video Tracker %28YouTube%2Ecom%29</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Type_of_Paper__c</picklist>
+        <values>
+            <fullName>Customer Template</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SimilarWeb Template</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Use_Case_Tracking__c</picklist>
+        <values>
+            <fullName>Analyze Your Competition%3A One Sit</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Analyze Your Competiton%3A Comparing Multiple</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Determine Investment Decisions</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Generate%2C Convert%2C and Engage Customers</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Optimize Your Distribution Channel</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Optimize Your Traffic Acquisition%3A Affiliates</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Optimize Your Traffic Acquisition%3A Display</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Optimize Your Traffic Acquisition%3A PPC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Optimize Your Traffic Acquisition%3A SEO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Optimize Your Traffic Acquisition%3A Social</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Research Any Market</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Understand Your Audience</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Use_Cases_Persona__c</picklist>
+        <values>
+            <fullName>Affiliates</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Competitive analysis - apps</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Competitive analysis - websites</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Content Marketing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>General digital marketing analysis</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Investing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Lead discovery%2F qualification</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Media Buying</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mobile app user acquisition</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PPC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Partnership opportunities</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SEO</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>User_Device_Level_Data_Required__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>User_Type__c</picklist>
+        <values>
+            <fullName>Existing User</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New User</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Non-Active User</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Watermark_signature_included_in_the_fina__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>What_do_you_need_to_update__c</picklist>
+        <values>
+            <fullName>Address change</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Admin User Update</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bill To Update</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Claim or feature issue</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Company name change</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Missing product</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New Billing contact details</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Payment method</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Payment terms</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Resend Invoice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Subsidiary change</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Withholding tax</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Withholding_Tax_Needed__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Year__c</picklist>
+        <values>
+            <fullName>2021</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>2022</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>2023</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Zendesk_Ticket_Status__c</picklist>
+        <values>
+            <fullName>Completed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>In process</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Submitted</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

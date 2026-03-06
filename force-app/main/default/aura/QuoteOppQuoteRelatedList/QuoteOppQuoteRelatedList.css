@@ -1,0 +1,17 @@
+.THIS .wrappedText{
+    white-space:normal!important;
+}
+.THIS .crDate{
+    width: 86px !important; 
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+.THIS .nameFix{
+    width: 200px !important;
+}
+.THIS .dealPrFix{
+    width: 140px !important;
+}
+.THIS.slds-table_cell-buffer tr>th:last-child{
+    padding: 0 !important;
+}

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Missing_Data_or_Feature__c</fullName>
+    <externalId>false</externalId>
+    <label>Missing Data or Feature from Platform</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>No data or features are missing for client</fullName>
+                <default>false</default>
+                <label>No data or features are missing for client</label>
+            </value>
+            <value>
+                <fullName>Missing coverage (country data or platform data)</fullName>
+                <default>false</default>
+                <label>Missing coverage (country data or platform data)</label>
+            </value>
+            <value>
+                <fullName>Missing feature or granularity</fullName>
+                <default>false</default>
+                <label>Missing feature or granularity</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

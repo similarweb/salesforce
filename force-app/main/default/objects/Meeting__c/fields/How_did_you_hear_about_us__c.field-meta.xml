@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>How_did_you_hear_about_us__c</fullName>
+    <externalId>false</externalId>
+    <label>How did you hear about us?</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Online search</fullName>
+                <default>false</default>
+                <label>Online search</label>
+            </value>
+            <value>
+                <fullName>Was a customer in the past</fullName>
+                <default>false</default>
+                <label>Was a customer in the past</label>
+            </value>
+            <value>
+                <fullName>Have been using Similarweb’s free tools</fullName>
+                <default>false</default>
+                <label>Have been using Similarweb’s free tools</label>
+            </value>
+            <value>
+                <fullName>A friend/colleague’s recommendation</fullName>
+                <default>false</default>
+                <label>A friend/colleague’s recommendation</label>
+            </value>
+            <value>
+                <fullName>Blog</fullName>
+                <default>false</default>
+                <label>Blog</label>
+            </value>
+            <value>
+                <fullName>Webinar</fullName>
+                <default>false</default>
+                <label>Webinar</label>
+            </value>
+            <value>
+                <fullName>Social</fullName>
+                <default>false</default>
+                <label>Social</label>
+            </value>
+            <value>
+                <fullName>Advertisement</fullName>
+                <default>false</default>
+                <label>Advertisement</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>3</visibleLines>
+</CustomField>

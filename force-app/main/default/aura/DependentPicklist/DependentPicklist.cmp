@@ -1,0 +1,34 @@
+<aura:component controller="DependentPicklistLghtn" implements="lightning:availableForFlowScreens,flexipage:availableForAllPageTypes" access="global">
+	<aura:attribute name="sobjectName" type="String" access="global"/>
+	<aura:attribute name="parentField" type="String" access="global"/>
+	<aura:attribute name="dependentField" type="String" access="global"/>
+	
+    <aura:attribute name="parentLabel" type="String" access="global"/>
+    <aura:attribute name="dependentLabel" type="String" access="global"/>
+    
+	<aura:attribute name="parentValue" type="String" access="global"/>
+	<aura:attribute name="dependentValue" type="String" access="global"/>    
+    
+	<aura:attribute name="parentIsRequired" type="Boolean" access="global" default="false"/>    
+	<aura:attribute name="dependentIsRequired" type="Boolean" access="global" default="false"/>
+    
+    <aura:attribute name="dependencyList" type="Object[]" />
+	 
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}"/>
+    <!-- <aura:handler name="change" action="{!c.changeDependent}" value="{!v.dependentValue}"/> -->
+    	
+	<div class="slds-form-element">
+        <label class="slds-form-element__label">{!v.parentLabel}<aura:if isTrue="{!v.parentIsRequired}"><abbr class="slds-required" title="required">*</abbr></aura:if></label>
+        <div class="slds-form-element__control">
+        	<ui:inputSelect aura:id="parentField" required="{!v.parentIsRequired}" value="{!v.parentValue}" change="{!c.changeParent}" />
+        </div>
+    </div>
+
+	<div class="slds-form-element" >
+        <label class="slds-form-element__label">{!v.dependentLabel}<aura:if isTrue="{!v.dependentIsRequired}"><abbr class="slds-required" title="required">*</abbr></aura:if></label>
+        <div class="slds-form-element__control">
+        	<ui:inputSelect aura:id="dependentField" required="{!v.dependentIsRequired}" value="{!v.dependentValue}" /> 
+        </div>
+    </div> 
+    
+</aura:component>

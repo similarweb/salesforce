@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cancellation_Reason_Required</fullName>
+    <active>true</active>
+    <description>When cancelling a &quot;Request&quot; and the reason is &quot;Other&quot;, the User must specify in the &quot;Cancelation Details&quot; field.</description>
+    <errorConditionFormula>ISPICKVAL( Status__c , &quot;Cancelled&quot;)&amp;&amp; 
+ISBLANK(Cancellation_Reason__c) &amp;&amp; 
+ISPICKVAL(Cancellation_Reason_PickList__c,&apos;Other&apos;) &amp;&amp;
+NOT($Profile.Id=&apos;00eb0000000oBvcAAE&apos;) &amp;&amp;
+RecordType.DeveloperName &lt;&gt; &apos;Solution_Implementation&apos; &amp;&amp;
+RecordType.DeveloperName &lt;&gt; &apos;Solution_Engineering&apos; &amp;&amp;
+RecordType.DeveloperName &lt;&gt; &apos;Supplier_Questionnaires&apos; &amp;&amp;
+RecordType.DeveloperName &lt;&gt; &apos;Technical_Solutions&apos; &amp;&amp;
+RecordType.DeveloperName &lt;&gt; &apos;Advisory_Services_Request&apos;</errorConditionFormula>
+    <errorDisplayField>Cancellation_Reason__c</errorDisplayField>
+    <errorMessage>When choosing &quot;Other&quot; please specify the Cancellation Reason in the &quot;Cancellation Details&quot; field.</errorMessage>
+</ValidationRule>

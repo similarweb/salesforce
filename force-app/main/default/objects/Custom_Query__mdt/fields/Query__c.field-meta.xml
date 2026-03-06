@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Query__c</fullName>
+    <description>The query or a part of it.</description>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <inlineHelpText>The query or a part of it.</inlineHelpText>
+    <label>Query</label>
+    <required>true</required>
+    <type>TextArea</type>
+</CustomField>

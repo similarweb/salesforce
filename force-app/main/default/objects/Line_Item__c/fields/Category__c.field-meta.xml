@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Category__c</fullName>
+    <externalId>false</externalId>
+    <label>Category</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Site Conversion</fullName>
+                <default>false</default>
+                <label>Site Conversion</label>
+            </value>
+            <value>
+                <fullName>Brand/Category Conversion</fullName>
+                <default>false</default>
+                <label>Brand/Category Conversion</label>
+            </value>
+            <value>
+                <fullName>Market Landscape</fullName>
+                <default>false</default>
+                <label>Market Landscape</label>
+            </value>
+            <value>
+                <fullName>Folder Analysis</fullName>
+                <default>false</default>
+                <label>Folder Analysis</label>
+            </value>
+            <value>
+                <fullName>Raw Data</fullName>
+                <default>false</default>
+                <label>Raw Data</label>
+            </value>
+            <value>
+                <fullName>Top_Keywords_Conversion</fullName>
+                <default>false</default>
+                <label>Top Keywords Conversion</label>
+            </value>
+            <value>
+                <fullName>Data Enrichment</fullName>
+                <default>false</default>
+                <label>Data Enrichment</label>
+            </value>
+            <value>
+                <fullName>Top_Products</fullName>
+                <default>false</default>
+                <label>Top Products</label>
+            </value>
+            <value>
+                <fullName>Audience Behavior</fullName>
+                <default>false</default>
+                <label>Audience Behavior</label>
+            </value>
+            <value>
+                <fullName>Onsite Search</fullName>
+                <default>false</default>
+                <label>Onsite Search</label>
+            </value>
+            <value>
+                <fullName>Prospecting</fullName>
+                <default>false</default>
+                <label>Prospecting</label>
+            </value>
+            <value>
+                <fullName>Traffic Pulse</fullName>
+                <default>false</default>
+                <label>Traffic Pulse</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

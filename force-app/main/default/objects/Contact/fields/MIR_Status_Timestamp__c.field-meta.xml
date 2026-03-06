@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MIR_Status_Timestamp__c</fullName>
+    <description>Shows the last time the MIR Status was changed</description>
+    <externalId>false</externalId>
+    <label>MIR Status Timestamp</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>DateTime</type>
+</CustomField>

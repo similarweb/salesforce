@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Permitted_Metrics_Data_Feeds__c</fullName>
+    <description>MIS-2133</description>
+    <externalId>false</externalId>
+    <label>Permitted Metrics - Data Feeds</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Pro Engagement Data (Global Growth)</fullName>
+                <default>false</default>
+                <label>Pro Engagement Data (Global Growth)</label>
+            </value>
+            <value>
+                <fullName>Product Views and Purchases (PVP)</fullName>
+                <default>false</default>
+                <label>Product Views and Purchases (PVP)</label>
+            </value>
+            <value>
+                <fullName>On Site Search Keywords (OSS)</fullName>
+                <default>false</default>
+                <label>On Site Search Keywords (OSS)</label>
+            </value>
+            <value>
+                <fullName>Google Search Keywords (GS KW)</fullName>
+                <default>false</default>
+                <label>Google Search Keywords (GS KW)</label>
+            </value>
+            <value>
+                <fullName>Videos</fullName>
+                <default>false</default>
+                <label>Videos</label>
+            </value>
+            <value>
+                <fullName>YouTube OSS KW DF</fullName>
+                <default>false</default>
+                <label>YouTube OSS KW DF</label>
+            </value>
+            <value>
+                <fullName>OSS Ticker Tracker</fullName>
+                <default>false</default>
+                <label>OSS Ticker Tracker</label>
+            </value>
+            <value>
+                <fullName>Page Shares</fullName>
+                <default>false</default>
+                <label>Page Shares</label>
+            </value>
+            <value>
+                <fullName>Site Traffic</fullName>
+                <default>false</default>
+                <label>Site Traffic</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

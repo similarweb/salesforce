@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>II__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Investors Intelligence  - MIS 2073
+MIS-3513 - Label changed</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Investors Intelligence</inlineHelpText>
+    <label>Stock Intelligence</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

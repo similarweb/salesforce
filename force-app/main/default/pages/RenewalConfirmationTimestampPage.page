@@ -1,0 +1,78 @@
+<apex:page standardController="zqu__Quote__c"  showHeader="false" applyHtmlTag="false" applyBodyTag="false" language="en" renderAs="pdf">
+    <apex:pageBlock title="Renewal Confirmation Timestamp">
+        <table>
+            <tr>
+                <td>
+                    <apex:outputLabel value="Submitted Quote For Renewal Timestamp: "/>
+                </td>
+                <td>
+                    <apex:outputField value="{!zqu__Quote__c.Submitted_Quote_For_Renewal_Timestamp__c}"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <apex:outputLabel value="Name Renewal by client confirmation: "/>
+                </td>
+                <td>
+                    <apex:outputField value="{!zqu__Quote__c.Name_Renewal_by_client_confirmation__c}"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <apex:outputLabel value="Email Renewal by client confirmation: "/>
+                </td>
+                <td>
+                    <apex:outputField value="{!zqu__Quote__c.Email_Renewal_by_client_confirmation__c}"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <apex:outputLabel value="Email Sent for Renewal Timestamp: "/>
+                </td>
+                <td>
+                    <apex:outputField value="{!zqu__Quote__c.Email_Sent_for_Renewal_Timestamp__c}"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <apex:outputLabel value="Renewal Email was sent to customer: "/>
+                </td>
+                <td>
+                    <apex:outputField value="{!zqu__Quote__c.Renewal_Email_Sent__c}"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <apex:outputLabel value="Contract Base package: "/>
+                </td>
+                <td>
+                    <apex:outputField value="{!zqu__Quote__c.Contract_Base_package__c}"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <apex:outputLabel value="Amendment Renewal Prodcuts: "/>
+                </td>
+                <td>
+                    <apex:outputField value="{!zqu__Quote__c.Amendment_Renewal_Prodcuts__c}"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <apex:outputLabel value="Subscription Term Start Date: "/>
+                </td>
+                <td>
+                    <apex:outputField value="{!zqu__Quote__c.zqu__SubscriptionTermStartDate__c}"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <apex:outputLabel value="Initial Term: "/>
+                </td>
+                <td>
+                    <apex:outputField value="{!zqu__Quote__c.zqu__InitialTerm__c}"/>
+                </td>
+            </tr>
+        </table>
+    </apex:pageBlock>
+</apex:page>

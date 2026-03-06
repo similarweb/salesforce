@@ -1,0 +1,3478 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>51.0</apiVersion>
+    <assignments>
+        <name>Assign_Recipient_Manager_s_Email</name>
+        <label>Assign Recipient Manager&apos;s Email</label>
+        <locationX>699</locationX>
+        <locationY>10643</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Recipient_Manager_s_Email__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Recipient__r.Manager.Email</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Rule_DER_Data_Escalation_Request</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>0056700000CCuvG = Valentin Vasquez
+MIS-3015</description>
+        <name>CRT_Set_Valentin_Vasquez_as_an_owner</name>
+        <label>CRT - Set Valentin Vasquez as an owner</label>
+        <locationX>314</locationX>
+        <locationY>2369</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.OwnerId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>0056700000CCuvG</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Recipient__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_User.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Recipient_Email__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_User.Email</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Requester__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Requester</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Requester_Email__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>RequesterEmail</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Requester_Manager_Email__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>RequesterManagerEmail</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Unassigned_Request__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Rule_LQE_Legal_Quote_Owner_Email</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>ElseRequestFieldUpdates</name>
+        <label>Else Request Field Updates</label>
+        <locationX>842</locationX>
+        <locationY>2369</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.OwnerId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_User.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Recipient__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_User.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Recipient_Email__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_User.Email</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Requester_Email__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>RequesterEmail</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Requester_Manager_Email__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>RequesterManagerEmail</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Unassigned_Request__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Requester__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Requester</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Rule_LQE_Legal_Quote_Owner_Email</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>RequestFieldsUpdate</name>
+        <label>Request Fields Update</label>
+        <locationX>50</locationX>
+        <locationY>1511</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.OwnerId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_User.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Recipient__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_User.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Recipient_Email__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_User.Email</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Requester__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Opportunity__r.OwnerId</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Requester_Email__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Opportunity__r.Owner.Email</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Requester_Manager_Email__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Opportunity__r.Owner.Manager.Email</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Status__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Submitted</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Unassigned_Request__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Rule_LQE_Legal_Quote_Owner_Email</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>RequestFieldsUpdate_0</name>
+        <label>Request recipient and email</label>
+        <locationX>479</locationX>
+        <locationY>719</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Recipient__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_User.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Recipient_Email__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_User.Email</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Is_requester_Found</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>RequestFieldsUpdate_0_0</name>
+        <label>Request recipient and email</label>
+        <locationX>479</locationX>
+        <locationY>1019</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Recipient__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_User.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Recipient_Email__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_User_0.Email__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>IsActiveUserFound</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>UnassignedRequestTRUE</name>
+        <label>Unassigned Request = TRUE</label>
+        <locationX>1216</locationX>
+        <locationY>1511</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Unassigned_Request__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Rule_LQE_Legal_Quote_Owner_Email</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Update_ASR_Fields</name>
+        <label>Update ASR Fields</label>
+        <locationX>578</locationX>
+        <locationY>2369</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.OwnerId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_User.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Recipient__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_User.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Recipient_Email__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_User.Email</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Unassigned_Request__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Rule_LQE_Legal_Quote_Owner_Email</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <name>ASRRequestChanged</name>
+        <label>ASR Request Changed</label>
+        <locationX>578</locationX>
+        <locationY>1511</locationY>
+        <defaultConnector>
+            <targetReference>AssignRecipientRequester</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>False ASR Request Changed</defaultConnectorLabel>
+        <rules>
+            <name>TrueASRRequestChanged</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record__Prior.Recipient_Picklist__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record.Recipient_Picklist__c</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Advisory_Services_Request</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Opportunity__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Current_User_Manager</targetReference>
+            </connector>
+            <label>True ASR Request Changed</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>ASRRequestCreated</name>
+        <label>ASR Request Created</label>
+        <locationX>314</locationX>
+        <locationY>1403</locationY>
+        <defaultConnector>
+            <targetReference>ASRRequestChanged</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>False ASR Request Created</defaultConnectorLabel>
+        <rules>
+            <name>TrueASRRequestCreated</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record__Prior.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Advisory_Services_Request</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Opportunity__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>RequestFieldsUpdate</targetReference>
+            </connector>
+            <label>True ASR Request Created</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>AssignRecipientRequester</name>
+        <label>Assign Recipient/Requester</label>
+        <locationX>732</locationX>
+        <locationY>1619</locationY>
+        <defaultConnector>
+            <targetReference>LegalResubmitted</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>False Assign Recipient/Requester</defaultConnectorLabel>
+        <rules>
+            <name>TrueAssignRecipientRequester</name>
+            <conditionLogic>1 AND 2 AND 3 AND 9 AND 10 AND ((4 AND 5 AND 6) OR (7 AND 8))</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Recipient_Picklist__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Solution Consultants (Queue)</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Supplier_Questionnaires</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Advisory_Services_Request</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record__Prior.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Legal_Services</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Quote_Request</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record__Prior.Recipient_Picklist__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record.Recipient_Picklist__c</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Recipient_Picklist__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Legal</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Quote_Request</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Vendor_Form</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Current_User_Manager</targetReference>
+            </connector>
+            <label>True Assign Recipient/Requester</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Changed_to_Legal</name>
+        <label>Changed to Legal</label>
+        <locationX>1051</locationX>
+        <locationY>611</locationY>
+        <defaultConnector>
+            <targetReference>IsActiveUserFound</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>Changed_to_Legal_0</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Recipient_Picklist__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Recipient_Picklist__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Legal</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Changed_recipient_to_legal_and_populate_Recipient_Email</targetReference>
+            </connector>
+            <label>Changed to Legal</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-1639 check if the record type is ddq and populates the recipient email by user or by request email custom metadata type</description>
+        <name>Is_DDQ</name>
+        <label>Is DDQ</label>
+        <locationX>831</locationX>
+        <locationY>503</locationY>
+        <defaultConnector>
+            <targetReference>Changed_to_Legal</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes_DDQ</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Supplier_Questionnaires</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>IsUserFound_0</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Is_requester_Found</name>
+        <label>Is requester Found?</label>
+        <locationX>611</locationX>
+        <locationY>911</locationY>
+        <defaultConnector>
+            <targetReference>IsActiveUserFound</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>Yes_0_0</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_User_0.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>RequestFieldsUpdate_0_0</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>IsActiveUserFound</name>
+        <label>Is Active User Found?</label>
+        <locationX>831</locationX>
+        <locationY>1295</locationY>
+        <defaultConnector>
+            <targetReference>Send_Alert</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>Yes</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_User.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_User.IsActive</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>ASRRequestCreated</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>IsUserFound_0</name>
+        <label>Is User Found?</label>
+        <locationX>611</locationX>
+        <locationY>611</locationY>
+        <defaultConnector>
+            <targetReference>Is_requester_Found</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>Yes_0</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_User.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_User.IsActive</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>RequestFieldsUpdate_0</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>LegalResubmitted</name>
+        <label>Legal - Resubmitted</label>
+        <locationX>864</locationX>
+        <locationY>1727</locationY>
+        <defaultConnector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Rule_LQE_Legal_Quote_Owner_Email</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>False Legal - Resubmitted</defaultConnectorLabel>
+        <rules>
+            <name>TrueLegalResubmitted</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Legal_Services</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record__Prior.Status__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record.Status__c</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Resubmitted</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record__Prior.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Current_User_Manager</targetReference>
+            </connector>
+            <label>True Legal - Resubmitted</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-6886</description>
+        <name>New_Search_Intelligence_Deal_Support_not_Submitted</name>
+        <label>New Search Intelligence Deal Support not Submitted</label>
+        <locationX>831</locationX>
+        <locationY>11135</locationY>
+        <defaultConnector>
+            <targetReference>Next_Rule</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>SIDS_not_Submitted</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>fr_ISNEW</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Search_Intelligence_Deal_Support</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Submitted</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Status_to_Submitted</targetReference>
+            </connector>
+            <label>SIDS not Submitted</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Next_Rule</name>
+        <label>Next Rule</label>
+        <locationX>831</locationX>
+        <locationY>11435</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Next_Rule1</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Description__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Next rule</stringValue>
+                </rightValue>
+            </conditions>
+            <label>Next Rule1</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-4963</description>
+        <name>Rule_ABDL_Approve_by_BizOps_DDQ_or_Legal</name>
+        <label>*Rule (ABDL)* - Approve by BizOps - DDQ or Legal</label>
+        <locationX>831</locationX>
+        <locationY>10235</locationY>
+        <defaultConnector>
+            <targetReference>Update_Recipient_Manager_s_Email</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>ABDL_DDQ</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Approved_as_an_Exception__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Approved_as_an_Exception__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Supplier_Questionnaires</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>ABDL_DDQ_Update_Recipient</targetReference>
+            </connector>
+            <label>ABDL - DDQ</label>
+        </rules>
+        <rules>
+            <name>ABDL_Legal</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Approved_as_an_Exception__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Approved_as_an_Exception__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Legal_Services</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>ABDL_Legal_Update_Recipient_Fields</targetReference>
+            </connector>
+            <label>ABDL - Legal</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>If record type is ASR and Status is changed and Status = Closed Won/ Completed / Initiated - Future deliveries remaining - execute &apos;ASR = Closed Won, Completed, Initiated&apos; outcome</description>
+        <name>Rule_ASC_ASR_Request_moved_to_Closed_Won_Completed_Initiated</name>
+        <label>*Rule (ASC)* - ASR Request moved to Closed Won, Completed, Initiated</label>
+        <locationX>831</locationX>
+        <locationY>4445</locationY>
+        <defaultConnector>
+            <targetReference>Rule_ASSC_AS_Request_Status_Changed</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>ASR_Closed_Won_Completed_Initiated</name>
+            <conditionLogic>1 AND 2 AND (3 OR 4 OR 5)</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Advisory_Services_Request</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Closed Won</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Completed</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Initiated - Future deliveries remaining</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>ASC_Update_Probability</targetReference>
+            </connector>
+            <label>ASR = Closed Won, Completed, Initiated</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>If record type is ASR and Status is changed and Status = Closed Won/ Completed / Initiated - Future deliveries remaining - execute &apos;ASR = Closed Won, Completed, Initiated&apos; outcome</description>
+        <name>Rule_ASSC_AS_Request_Status_Changed</name>
+        <label>*Rule (ASSC)* - AS Request Status Changed</label>
+        <locationX>831</locationX>
+        <locationY>4745</locationY>
+        <defaultConnector>
+            <targetReference>Rule_SC_Status_Changed</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>AS_Request_Status_Changed</name>
+            <conditionLogic>1 AND 2 AND (3 OR 4 OR 5)</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Advisory_Services_Request</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Closed Won</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Completed</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Initiated - Future deliveries remaining</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>ASSC_Update_Request_Close_Date</targetReference>
+            </connector>
+            <label>AS Request Status Changed</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Check if the Record type is Sales Intelligence Deal Support to assign Valentin Vasquez as an owner
+MIS-3015</description>
+        <name>Rule_CRT_Check_record_type</name>
+        <label>*Rule(CRT)* - Check record type</label>
+        <locationX>578</locationX>
+        <locationY>2261</locationY>
+        <defaultConnector>
+            <targetReference>ElseRequestFieldUpdates</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Sales_Intelligence_Deal_Support</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>SI_Product_Expert</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>CRT_Set_Valentin_Vasquez_as_an_owner</targetReference>
+            </connector>
+            <label>Sales Intelligence Deal Support</label>
+        </rules>
+        <rules>
+            <name>Advisory_Services_Request</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Advisory_Services_Request</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_ASR_Fields</targetReference>
+            </connector>
+            <label>Advisory Services Request</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>If record type is CSA and &apos;Request Type&apos; = Growth/ Standard/ Premium and record is new or &apos;Status&apos; is changed and &apos;Status&apos; = Completed - execute &apos;(CSA) Status = Completed&apos; outcome</description>
+        <name>Rule_CSAC_CSA_Status_Completed</name>
+        <label>*Rule (CSAC)* - (CSA) Status = Completed</label>
+        <locationX>831</locationX>
+        <locationY>4145</locationY>
+        <defaultConnector>
+            <targetReference>Rule_ASC_ASR_Request_moved_to_Closed_Won_Completed_Initiated</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>CSA_Status_Completed</name>
+            <conditionLogic>1 AND (2 OR 3 OR 4) AND (5 OR 6) AND 7</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Solution_Implementation</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Request_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Growth</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Request_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Standard</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Request_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Premium</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>fr_ISNEW</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Completed</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>CSAC_Onboarding_Completed_Date</targetReference>
+            </connector>
+            <label>(CSA) Status = Completed</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>If record type is CSA/CSS and &apos;Request Type&apos; = Growth/ Standard/ Premium and record is new or &apos;Status&apos; is changed and &apos;Status&apos; = In Process - execute &apos;(CSA) Status = In Process&apos; outcome</description>
+        <name>Rule_CSAIP_CSA_CSS_Status_In_Process</name>
+        <label>*Rule (CSAIP)* - (CSA/CSS) Status = In Process</label>
+        <locationX>831</locationX>
+        <locationY>3845</locationY>
+        <defaultConnector>
+            <targetReference>Rule_CSAC_CSA_Status_Completed</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>CSA_Status_In_Process</name>
+            <conditionLogic>(1 OR 8) AND (2 OR 3 OR 4) AND (5 OR 6) AND 7</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Solution_Implementation</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Request_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Growth</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Request_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Standard</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Request_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Premium</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>fr_ISNEW</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>In Process</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Client_Success_Strategist</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>CSAIP_Update_Onboarding_Start_Date</targetReference>
+            </connector>
+            <label>(CSA) Status = In Process</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>If Status = Pending Requestor - execute &apos;Status =  Pending Requestor&apos; outcome</description>
+        <name>Rule_DDC_Set_Date_Delivered_to_Customer</name>
+        <label>*Rule (DDC)* - Set &quot;Date Delivered to Customer&quot;</label>
+        <locationX>831</locationX>
+        <locationY>7127</locationY>
+        <defaultConnector>
+            <targetReference>Rule_TNDDQ_Threshold_OR_New_DDQ</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Status_Pending_Requestor</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Pending Requestor</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>DDC_Set_Date_Delivered_to_Customer</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>Status =  Pending Requestor</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-5318</description>
+        <name>Rule_DER_Data_Escalation_Request</name>
+        <label>*Rule (DER)* - Data Escalation Request</label>
+        <locationX>831</locationX>
+        <locationY>10835</locationY>
+        <defaultConnector>
+            <targetReference>New_Search_Intelligence_Deal_Support_not_Submitted</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>DER_New_or_Account_ISCHANGED</name>
+            <conditionLogic>(1 OR 2) AND 3</conditionLogic>
+            <conditions>
+                <leftValueReference>fr_ISNEW</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Account__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Data_Escalation</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Account_CSM</targetReference>
+            </connector>
+            <label>DER - New or Account ISCHANGED</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>If record type is Legal and Status is changed and Status = Pending Action - execute &apos;Legal - Pending Action&apos; outcome</description>
+        <name>Rule_LPA_Legal_Pending_Action</name>
+        <label>*Rule (LPA)* - Legal - Pending Action</label>
+        <locationX>831</locationX>
+        <locationY>9335</locationY>
+        <defaultConnector>
+            <targetReference>Rule_Onboarding_request_Onboarding_Request_Status_In_Process</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Legal_Pending_Action</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Legal_Services</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Pending Action</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>LPA_Owner_Requester_CreatedBy</targetReference>
+            </connector>
+            <label>Legal - Pending Action</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>If the record type is Legal and Quote is not blank and record is new or Quote is changed - execute &apos;Populate Quote Owner Email&apos; outcome</description>
+        <name>Rule_LQE_Legal_Quote_Owner_Email</name>
+        <label>*Rule (LQE)* - Legal - Quote Owner Email</label>
+        <locationX>831</locationX>
+        <locationY>2729</locationY>
+        <defaultConnector>
+            <targetReference>Rule_SYSE_Update_SYS_Owner_Manager_Email</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Populate_Quote_Owner_Email</name>
+            <conditionLogic>1 AND 2 AND (3 OR 4)</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Legal_Services</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Quote__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+            </conditions>
+            <conditions>
+                <leftValueReference>fr_ISNEW</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Quote__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>LQE_Get_Quote_Owner</targetReference>
+            </connector>
+            <label>Populate Quote Owner Email</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>If record type is Legal and Status is changed and Status = Cancelled and Quote is not blank - execute &apos;Legal Request Cancelled&apos; outcome</description>
+        <name>Rule_LRC_Legal_Request_Cancelled</name>
+        <label>*Rule (LRC)* - Legal Request Cancelled</label>
+        <locationX>831</locationX>
+        <locationY>9035</locationY>
+        <defaultConnector>
+            <targetReference>Rule_LPA_Legal_Pending_Action</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Legal_Request_Cancelled</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Legal_Services</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Cancelled</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Quote__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+            </conditions>
+            <connector>
+                <targetReference>LRC_Update_Applicable_Quote</targetReference>
+            </connector>
+            <label>Legal Request Cancelled</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>If record is new and record type is Billing Form - execute &apos;NEW Billing Forms&apos; outcome</description>
+        <name>Rule_NBF_NEW_Billing_Forms</name>
+        <label>*Rule (NBF)* - NEW Billing Forms</label>
+        <locationX>831</locationX>
+        <locationY>3437</locationY>
+        <defaultConnector>
+            <targetReference>Rule_CSAIP_CSA_CSS_Status_In_Process</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>NEW_Billing_Forms</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>fr_ISNEW</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Vendor_Form</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>NBF_Get_Current_User_Manager_Email</targetReference>
+            </connector>
+            <label>NEW Billing Forms</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>If record is new and record type is Quote request - execute &apos;New Quote Request&apos; outcome</description>
+        <name>Rule_NQR_New_Quote_Request</name>
+        <label>*Rule (NQR)* - New Quote Request</label>
+        <locationX>831</locationX>
+        <locationY>5819</locationY>
+        <defaultConnector>
+            <targetReference>Rule_RCL_Recepient_is_changed_from_Legal</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>New_Quote_Request</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>fr_ISNEW</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Quote_Request</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>NQR_Get_Current_User_Manager_Email</targetReference>
+            </connector>
+            <label>New Quote Request</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>If record type is Onboarding Request and &apos;Request Type&apos; contains onbprading and record is new or &apos;Status&apos; is changed and &apos;Status&apos; = Completed MIS-4200</description>
+        <name>Rule_Onboarding_Request_Onboarding_Request_Status_Completed</name>
+        <label>*Rule (Onboarding Request)* - (Onboarding_Request) Status = Completed</label>
+        <locationX>831</locationX>
+        <locationY>9935</locationY>
+        <defaultConnector>
+            <targetReference>Rule_ABDL_Approve_by_BizOps_DDQ_or_Legal</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Onboarding_Request_Status_Completed</name>
+            <conditionLogic>1 AND (2 OR 3 OR 4) AND (5 OR 6) AND 7</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Onboarding_Request</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Request_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Premier Onboarding*</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Request_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Premier Plus Onboarding</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Request_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Signature Onboarding</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>fr_ISNEW</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Completed</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_onboarding_complete_date_to_today</targetReference>
+            </connector>
+            <label>(Onboarding Request) Status = Completed</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>If record type is Onboarding Request and &apos;Request Type&apos; contians is onboarding and record is new or &apos;Status&apos; is changed and &apos;Status&apos; = In Process MIS-4200</description>
+        <name>Rule_Onboarding_request_Onboarding_Request_Status_In_Process</name>
+        <label>*Rule (Onboarding request)* - (Onboarding_Request) Status = In Process</label>
+        <locationX>831</locationX>
+        <locationY>9635</locationY>
+        <defaultConnector>
+            <targetReference>Rule_Onboarding_Request_Onboarding_Request_Status_Completed</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Onboarding_request_in_progress</name>
+            <conditionLogic>1 AND (2 OR 3 OR 4) AND (5 OR 6) AND 7</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Onboarding_Request</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Request_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Premier Onboarding*</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Request_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Premier Plus Onboarding</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Request_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Signature Onboarding</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>fr_ISNEW</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>In Process</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_onboarding_start_date</targetReference>
+            </connector>
+            <label>Onboarding request in progress</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>If record is new or related Opportunity is changed and Opportunity is not blank - execute &apos;Opportunity is set&apos; outcome</description>
+        <name>Rule_OS_Opportunity_is_set</name>
+        <label>*Rule (OS)* - Opportunity is set</label>
+        <locationX>831</locationX>
+        <locationY>5411</locationY>
+        <defaultConnector>
+            <targetReference>Rule_NQR_New_Quote_Request</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Opportunity_is_set</name>
+            <conditionLogic>(1 OR 2) AND 3</conditionLogic>
+            <conditions>
+                <leftValueReference>fr_ISNEW</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Opportunity__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Opportunity__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+            </conditions>
+            <connector>
+                <targetReference>OS_Get_Account</targetReference>
+            </connector>
+            <label>Opportunity is set</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>If Recipient is changed and Recipient is not blank and Prior Recipient equal Legal and record type is Legal = execute &apos;Recipient is changed from Legal&apos; outcome</description>
+        <name>Rule_RCL_Recepient_is_changed_from_Legal</name>
+        <label>*Rule (RCL)* - Recepient is changed from Legal</label>
+        <locationX>831</locationX>
+        <locationY>6227</locationY>
+        <defaultConnector>
+            <targetReference>Rule_TNLR_Threshold_OR_New_Legal_Request</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Recipient_is_changed_from_Legal</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Recipient_Picklist__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Recipient_Picklist__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Legal</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record__Prior.Recipient_Picklist__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Legal</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Legal_Services</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>RCL_Update_Status_to_In_Process</targetReference>
+            </connector>
+            <label>Recipient is changed from Legal</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>If record is DDQ and Status = Resubmitted - execute &apos;DDQ Resubmitted&apos; outcome</description>
+        <name>Rule_RDDQ_DDQ_Resubmitted</name>
+        <label>*Rule (RDDQ)* - DDQ Resubmitted</label>
+        <locationX>831</locationX>
+        <locationY>8135</locationY>
+        <defaultConnector>
+            <targetReference>Rule_TA_SW_Template_Yes_the_client_had_accepted_it</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>DDQ_Resubmitted</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Supplier_Questionnaires</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Resubmitted</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>RDDQ_Update_Recipient</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>DDQ Resubmitted</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>If &apos;Request type&apos; = Extensions request and Status is changed or &apos;Request Type&apos; = Extensions request and Status is changed and Status does not equal Approved/ Rejected/ Recall - execute &apos;Status Changed&apos; outcome</description>
+        <name>Rule_SC_Status_Changed</name>
+        <label>*Rule (SC)* - Status Changed</label>
+        <locationX>831</locationX>
+        <locationY>5045</locationY>
+        <defaultConnector>
+            <targetReference>Rule_OS_Opportunity_is_set</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Status_Changed_Detailed</name>
+            <conditionLogic>(1 AND 2) OR (3 AND 4 AND 5 AND 6 AND 7)</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Request_Type__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Extensions request</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Request_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Extensions request</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Approved</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Rejected</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Recall</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>SC_Update_Status_Change_TimeStamp</targetReference>
+            </connector>
+            <label>Status Changed - detailed</label>
+        </rules>
+        <rules>
+            <name>Status_Change_Coounter</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>SCC_Update_Status_Change_Counter</targetReference>
+            </connector>
+            <label>Status Change Coounter</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>If record is new or Status is changed and Status Completed or Cancelled</description>
+        <name>Rule_SCCC_Status_Changed_to_Completed_Cancelled</name>
+        <label>*Rule (SCCC)* - Status Changed to Completed/Cancelled</label>
+        <locationX>831</locationX>
+        <locationY>6827</locationY>
+        <defaultConnector>
+            <targetReference>Rule_DDC_Set_Date_Delivered_to_Customer</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Status_Changed_to_Completed_Cancelled</name>
+            <conditionLogic>(1 OR 2) AND (3 OR 4 OR 5)</conditionLogic>
+            <conditions>
+                <leftValueReference>fr_ISNEW</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Completed</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Cancelled</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Cancelled - Not Relevant</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>SCCC_Completed_Cancelled_TimeStamp</targetReference>
+            </connector>
+            <label>Status Changed to Completed/Cancelled</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>If Status = Pending Requestor and record type is DDQ - execute &apos;Supplier Sent to Customer&apos; outcome</description>
+        <name>Rule_SSC_Supplier_Sent_to_Customer</name>
+        <label>*Rule (SSC)* - Supplier Sent to Customer</label>
+        <locationX>831</locationX>
+        <locationY>7835</locationY>
+        <defaultConnector>
+            <targetReference>Rule_RDDQ_DDQ_Resubmitted</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Supplier_Sent_to_Customer</name>
+            <conditionLogic>1 AND 2</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Pending Requestor</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Supplier_Questionnaires</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>SSC_update_OnwerId</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>Supplier Sent to Customer</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>If record is new or Owner Id is changed - execute &apos;SYS Owner Manager Email&apos; outcome</description>
+        <name>Rule_SYSE_Update_SYS_Owner_Manager_Email</name>
+        <label>*Rule (SYSE)* - Update SYS Owner Manager Email</label>
+        <locationX>831</locationX>
+        <locationY>3137</locationY>
+        <defaultConnector>
+            <targetReference>Rule_NBF_NEW_Billing_Forms</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>SYS_Owner_Manager_Email</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>fr_ISNEW</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.OwnerId</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>SYSE_Update_SYS_Owner_Manager_Email</targetReference>
+            </connector>
+            <label>SYS Owner Manager Email</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>If record is new or Did we try to send the SW template is changed and record type is DDQ and Did we try to send the SW template = Yes, the client had accepted it - execute &apos;SW Template = Yes, the client had accepted it&apos;</description>
+        <name>Rule_TA_SW_Template_Yes_the_client_had_accepted_it</name>
+        <label>*Rule (TA)* - SW Template = Yes, the client had accepted it</label>
+        <locationX>831</locationX>
+        <locationY>8435</locationY>
+        <defaultConnector>
+            <targetReference>Rule_TPC_SW_Template_Yes_pending_client_review</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>SW_Template_Yes_the_client_had_accepted_it</name>
+            <conditionLogic>(1 OR 2) AND 3 AND 4</conditionLogic>
+            <conditions>
+                <leftValueReference>fr_ISNEW</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Did_we_try_to_send_the_SW_template__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Supplier_Questionnaires</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Did_we_try_to_send_the_SW_template__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Yes, the client had accepted it</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>TA_Update_Request_Status_to_Completed</targetReference>
+            </connector>
+            <label>SW Template = Yes, the client had accepted it</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-4963 - Threshold Logic
+If record type is DDQ and record is new - execute &apos;New DDQ&apos; outcome</description>
+        <name>Rule_TNDDQ_Threshold_OR_New_DDQ</name>
+        <label>*Rule (TNDDQ)* - Threshold OR New DDQ</label>
+        <locationX>831</locationX>
+        <locationY>7427</locationY>
+        <defaultConnector>
+            <targetReference>Rule_SSC_Supplier_Sent_to_Customer</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>TNDDQ_DDQ_Under_Threshold_with_Reason</name>
+            <conditionLogic>(1 AND 2 AND ((3 AND 4 AND 9) OR 5)) AND ((6 AND NOT 7) OR (7 AND 8))</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Low_ARR_Deal_Reason_for_Exception__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Supplier_Questionnaires</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Did_we_try_to_send_the_SW_template__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Did_we_try_to_send_the_SW_template__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Yes, the client pushed back</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>fr_ISNEW</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Opportunity__r.ARR__c</leftValueReference>
+                <operator>LessThan</operator>
+                <rightValue>
+                    <numberValue>50000.0</numberValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Account__r.Stage__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Paying Account</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Account_Opportunity_Highest_ARR</leftValueReference>
+                <operator>LessThan</operator>
+                <rightValue>
+                    <numberValue>50000.0</numberValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Approved_as_an_Exception__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>TNDDQ_Threshold_Get_Current_User_Manager_Email</targetReference>
+            </connector>
+            <label>TNDDQ - DDQ Under Threshold with Reason</label>
+        </rules>
+        <rules>
+            <name>TNDDQ_New_DDQ</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Supplier_Questionnaires</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>fr_ISNEW</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>NDDQ_Get_Current_User_Manager_Email</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>TNDDQ - New DDQ</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-5317 - Update logic to run on Opp ARR and &apos;Type of paper&apos;
+MIS-4963 - Threshold Logic
+If record is new and record type is Legal  - execute &apos;New Legal Request&apos; outcome</description>
+        <name>Rule_TNLR_Threshold_OR_New_Legal_Request</name>
+        <label>*Rule (TNLR)* - Threshold OR New Legal Request</label>
+        <locationX>831</locationX>
+        <locationY>6527</locationY>
+        <defaultConnector>
+            <targetReference>Rule_SCCC_Status_Changed_to_Completed_Cancelled</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>TNLR_Legal_Under_Threshold</name>
+            <conditionLogic>(1 AND 3 AND (4 OR (NOT (2) AND 9))) AND ((2 AND NOT (6) AND (5 OR (11 AND 12))) OR (2 AND 6 AND (7 OR (11 AND 12))) OR (NOT (2) AND (8 OR (10 AND 12))))</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Low_ARR_Deal_Reason_for_Exception__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Quote__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Legal_Services</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>fr_ISNEW</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Account_Opportunity_Highest_ARR</leftValueReference>
+                <operator>LessThan</operator>
+                <rightValue>
+                    <numberValue>30000.0</numberValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Account__r.Stage__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Paying Account</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Account_Opportunity_Highest_ARR</leftValueReference>
+                <operator>LessThan</operator>
+                <rightValue>
+                    <numberValue>30000.0</numberValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Opportunity_Quote_Highest_ARR</leftValueReference>
+                <operator>LessThan</operator>
+                <rightValue>
+                    <numberValue>30000.0</numberValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Quote__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Opportunity_Quote_Highest_ARR</leftValueReference>
+                <operator>LessThan</operator>
+                <rightValue>
+                    <numberValue>50000.0</numberValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Account_Opportunity_Highest_ARR</leftValueReference>
+                <operator>LessThan</operator>
+                <rightValue>
+                    <numberValue>50000.0</numberValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Type_of_Paper__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Customer Template</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>TNLR_Populate_request_s_fields</targetReference>
+            </connector>
+            <label>TNLR - Legal Under Threshold</label>
+        </rules>
+        <rules>
+            <name>TNLR_New_Legal_Request</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>fr_ISNEW</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Legal_Services</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>NLR_Populate_request_s_fields</targetReference>
+            </connector>
+            <label>TNLR - New Legal Request</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>If record is new or Did we try to send the SW template is changed and record type is DDQ and Did we try to send the SW template = Yes, pending client review - execute &apos;SW Template = Yes, pending client review&apos; outcome</description>
+        <name>Rule_TPC_SW_Template_Yes_pending_client_review</name>
+        <label>*Rule (TPC)* - SW Template = Yes, pending client review</label>
+        <locationX>831</locationX>
+        <locationY>8735</locationY>
+        <defaultConnector>
+            <targetReference>Rule_LRC_Legal_Request_Cancelled</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>SW_Template_Yes_pending_client_review</name>
+            <conditionLogic>(1 OR 2) AND 3 AND 4</conditionLogic>
+            <conditions>
+                <leftValueReference>fr_ISNEW</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Did_we_try_to_send_the_SW_template__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Supplier_Questionnaires</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Did_we_try_to_send_the_SW_template__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Yes, pending client review</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>TPC_Update_Request_Status_to_Pending_Client</targetReference>
+            </connector>
+            <label>SW Template = Yes, pending client review</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Send_Alert</name>
+        <label>Send Alert?</label>
+        <locationX>1348</locationX>
+        <locationY>1403</locationY>
+        <defaultConnector>
+            <targetReference>Rule_LQE_Legal_Quote_Owner_Email</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Don&apos;t Send</defaultConnectorLabel>
+        <rules>
+            <name>Send</name>
+            <conditionLogic>(1 OR (2 AND 3)) AND 4 AND 5 AND 6 AND 7 AND 8 AND 9</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Legal_Services</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Legal_Services</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record__Prior.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Quote_Request</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Supplier_Questionnaires</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Vendor_Form</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Recipient_Picklist__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Solution Consultants (Queue)</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Recipient_Picklist__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Managers (M)</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_User.IsActive</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>UnassignedRequestTRUE</targetReference>
+            </connector>
+            <label>Send</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Update_Recipient_Manager_s_Email</name>
+        <label>Update Recipient Manager&apos;s Email</label>
+        <locationX>831</locationX>
+        <locationY>10535</locationY>
+        <defaultConnector>
+            <targetReference>Rule_DER_Data_Escalation_Request</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>New_Request</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>fr_ISNEW</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.RecordType.Name</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>DaaS request</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Recipient_Manager_s_Email</targetReference>
+            </connector>
+            <label>New Request</label>
+        </rules>
+    </decisions>
+    <description>MIS-8242 Requester fields should NOT update by the Recipient change
+MIS-7996 AS request routing update -&gt; RecepientName
+MIS-7372 - Advisory Services Routing
+MIS-7248 - Update recipients for Advisory Services
+MIS-6886 - New Record Type - Search Intelligence Deal Support
+MIS-5847 - Updated logic to check the highest between Quote and Opp for Legal Request
+MIS-5317 - Update logic to run on Opp ARR and &apos;Type of paper&apos;
+MIS-5318 - Added Data Escalation record type
+MIS - 5291 recipient manager email
+Last - MIS-4963 - DDQ/Legal Threshold Logic
+MIS-4680 - Send alert to inactive users as well
+MIS-3657 - Add Status Change Counter
+MIS-3051 (*Rule (TPC)* - SW Template = Yes, pending client review) added Status Change TimeStamp population
+MIS-3015
+MIS-1639 - populate requester email for ddq
+Excluded &apos;Managers (M)&apos;
+Excluded &apos;Solution Consultants (Queue)&apos;
+Added &apos;Send_Alert&apos; decision
+MIS-8500 Update AS recipient routing</description>
+    <environments>Default</environments>
+    <formulas>
+        <description>MIS-5317</description>
+        <name>Account_Opportunity_Highest_ARR</name>
+        <dataType>Currency</dataType>
+        <expression>IF({!$Record.Account__r.BI_Data__r.ARR__c}&gt;={!$Record.Opportunity__r.ARR__c}, {!$Record.Account__r.BI_Data__r.ARR__c}, {!$Record.Opportunity__r.ARR__c})</expression>
+        <scale>0</scale>
+    </formulas>
+    <formulas>
+        <description>Account Billing Address for Legal request</description>
+        <name>fr_AccountBillingAddress</name>
+        <dataType>String</dataType>
+        <expression>IF(NOT(ISBLANK({!$Record.Account__c} ) ) , &quot;Country: &quot;&amp; {!$Record.Account__r.BillingCountry} &amp; BR()&amp; &quot;State: &quot;&amp;{!$Record.Account__r.BillingState} &amp; BR() &amp; &quot;City: &quot;&amp; {!$Record.Account__r.BillingCity} &amp; BR() &amp; &quot;Street: &quot;&amp; {!$Record.Account__r.BillingStreet} &amp; BR()&amp; &quot;Zip/Postal code: &quot;&amp; {!$Record.Account__r.BillingPostalCode},&quot;&quot;)</expression>
+    </formulas>
+    <formulas>
+        <description>ISNEW()</description>
+        <name>fr_ISNEW</name>
+        <dataType>Boolean</dataType>
+        <expression>ISNEW()</expression>
+    </formulas>
+    <formulas>
+        <description>Formula = NOW()</description>
+        <name>fr_NOW</name>
+        <dataType>DateTime</dataType>
+        <expression>NOW()</expression>
+    </formulas>
+    <formulas>
+        <description>MIS-4963</description>
+        <name>fr_Omer_Pizem_Email</name>
+        <dataType>String</dataType>
+        <expression>IF( CONTAINS({!$Api.Enterprise_Server_URL_500}, &apos;similarweb.my.salesforce.com&apos;), &apos;omer.pizem@similarweb.com&apos;, &apos;omer.pizem@similarweb.com&apos;+&apos;.invalid&apos;)</expression>
+    </formulas>
+    <formulas>
+        <name>fr_OpportunityType</name>
+        <dataType>String</dataType>
+        <expression>IF(NOT(ISBLANK({!$Record.Opportunity__c})) , TEXT({!$Record.Opportunity__r.Type}) ,&quot; &quot;)</expression>
+    </formulas>
+    <formulas>
+        <description>MIS-4963</description>
+        <name>fr_Quote_Contract_Current_Annual_Amount</name>
+        <dataType>Number</dataType>
+        <expression>ROUND({!$Record.Quote__r.Contract_CMRR__c} * 12 + {!$Record.Quote__r.zqu__Previewed_Delta_MRR__c} * 12, 0)</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <description>Recipient Email for new quote request</description>
+        <name>fr_Recipient_Email</name>
+        <dataType>String</dataType>
+        <expression>IF( CONTAINS({!$Api.Enterprise_Server_URL_500}, &apos;similarweb.my.salesforce.com&apos;), &apos;salesops@similarweb.com&apos;, &apos;salesops@similarweb.com&apos;+&apos;.invalid&apos;)</expression>
+    </formulas>
+    <formulas>
+        <name>fr_RecipientEmail_legal</name>
+        <dataType>String</dataType>
+        <expression>IF( CONTAINS({!$Api.Enterprise_Server_URL_500}, &apos;similarweb.my.salesforce.com&apos;), &apos;legal@similarweb.com&apos;, &apos;legal@similarweb.com&apos;+&apos;.invalid&apos;)</expression>
+    </formulas>
+    <formulas>
+        <name>fr_RecipientEmailForLegal</name>
+        <dataType>String</dataType>
+        <expression>IF( CONTAINS({!$Api.Enterprise_Server_URL_500}, &apos;similarweb.my.salesforce.com&apos;), &apos;legal@similarweb.com&apos;, &apos;legal@similarweb.com&apos;+&apos;.invalid&apos;)</expression>
+    </formulas>
+    <formulas>
+        <name>fr_RenewalDate_legal</name>
+        <dataType>Date</dataType>
+        <expression>IF(NOT(ISBLANK({!$Record.Opportunity__c})) , {!$Record.Opportunity__r.Original_Renewal_Date__c} ,null )</expression>
+    </formulas>
+    <formulas>
+        <description>takes the current value and add 1</description>
+        <name>fr_Status_Change_Counter_plus_one</name>
+        <dataType>Number</dataType>
+        <expression>if(
+isblank({!$Record__Prior.Status_Change_Counter__c}),
+1,
+{!$Record__Prior.Status_Change_Counter__c} + 1
+)</expression>
+        <scale>0</scale>
+    </formulas>
+    <formulas>
+        <description>Formula = TODAY()</description>
+        <name>fr_TODAY</name>
+        <dataType>Date</dataType>
+        <expression>TODAY()</expression>
+    </formulas>
+    <formulas>
+        <description>MIS-5847</description>
+        <name>Opportunity_Quote_Highest_ARR</name>
+        <dataType>Number</dataType>
+        <expression>IF(ROUND({!$Record.Quote__r.Contract_CMRR__c} * 12 + {!$Record.Quote__r.zqu__Previewed_Delta_MRR__c} * 12, 0) &gt;= {!$Record.Opportunity__r.ARR__c}, ROUND({!$Record.Quote__r.Contract_CMRR__c} * 12 + {!$Record.Quote__r.zqu__Previewed_Delta_MRR__c} * 12, 0), {!$Record.Opportunity__r.ARR__c})</expression>
+        <scale>0</scale>
+    </formulas>
+    <formulas>
+        <description>MIS-7248</description>
+        <name>RecepientName</name>
+        <dataType>String</dataType>
+        <expression>IF(
+     {!$Record.RecordType.DeveloperName} = &apos;Advisory_Services_Request&apos;,
+     IF(
+          OR(
+               CONTAINS({!$Record.Account__r.Owner.Division}, &quot;NA&quot;),
+               CONTAINS({!$Record.Account__r.Owner.Division}, &quot;LATAM&quot;),
+               CONTAINS({!$Record.Account__r.Owner.Division}, &quot;Reseller - Brazil - Alpha&quot;),
+               CONTAINS({!$Record.Account__r.Owner.Division}, &quot;Reseller - Brazil - 108&quot;)
+          ),
+          &quot;Ben parkes&quot;,
+          IF(
+               CONTAINS({!$Record.Account__r.Owner.Division}, &quot;Agencies Strategic&quot;),
+               &quot;Nicolas Bureau&quot;,
+               IF(
+                    CONTAINS({!$Record.Account__r.Owner.Division}, &quot;Investors&quot;),
+                    &quot;Gavin Davidson&quot;,
+                   IF(
+                    CONTAINS({!$Record.Account__r.Owner.Division}, &quot;OEM&quot;),
+                    &quot;Aaron Wong&quot;,
+                    &quot;Varvara Blazhko&quot;
+                    )
+               )
+           )
+          ),
+          IF(
+               FIND(&quot;(&quot;, TEXT({!$Record.Recipient_Picklist__c}))!=0, 
+               LEFT(TEXT({!$Record.Recipient_Picklist__c}), FIND(&quot;(&quot;, TEXT({!$Record.Recipient_Picklist__c}))-2),
+               TEXT({!$Record.Recipient_Picklist__c})
+          )
+)</expression>
+    </formulas>
+    <formulas>
+        <name>Requester</name>
+        <dataType>String</dataType>
+        <expression>IF(
+ISBLANK({!$Record.CreatedById}), 
+{!$User.Id}, 
+{!$Record.CreatedById}
+)</expression>
+    </formulas>
+    <formulas>
+        <name>RequesterEmail</name>
+        <dataType>String</dataType>
+        <expression>IF(
+ISBLANK({!$Record.CreatedById}), 
+{!$User.Email}, 
+{!$Record.CreatedBy.Email}
+)</expression>
+    </formulas>
+    <formulas>
+        <name>RequesterManagerEmail</name>
+        <dataType>String</dataType>
+        <expression>IF(
+ISBLANK({!$Record.CreatedById}),
+{!Get_Current_User_Manager.Email},
+{!$Record.CreatedBy.Manager.Email}
+)</expression>
+    </formulas>
+    <formulas>
+        <name>test10</name>
+        <dataType>String</dataType>
+        <expression>{!$Record.Requester__r.Id}</expression>
+    </formulas>
+    <formulas>
+        <name>test11</name>
+        <dataType>String</dataType>
+        <expression>IF(
+ISBLANK({!$Record.OwnerId}), 
+{!$User.Id}, 
+{!$Record.Requester__c}
+)</expression>
+    </formulas>
+    <formulas>
+        <name>test4</name>
+        <dataType>String</dataType>
+        <expression>{!$Record.CreatedBy.Id}</expression>
+    </formulas>
+    <interviewLabel>Request - Owner and Requester Population {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Request - Record Triggered Flow - Before Save</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Get_Current_User_Manager</name>
+        <label>Get Current User Manager</label>
+        <locationX>578</locationX>
+        <locationY>2153</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Rule_CRT_Check_record_type</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$User.ManagerId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>User</object>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>Email</queriedFields>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_User</name>
+        <label>Get User</label>
+        <locationX>831</locationX>
+        <locationY>287</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Get_User_0</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Name</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>RecepientName</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>User</object>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>Email</queriedFields>
+        <queriedFields>IsActive</queriedFields>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_User_0</name>
+        <label>Get User</label>
+        <locationX>831</locationX>
+        <locationY>395</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Is_DDQ</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Label</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>RecepientName</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Request_email__mdt</object>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>Email__c</queriedFields>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <description>Get Quote Owner</description>
+        <name>LQE_Get_Quote_Owner</name>
+        <label>LQE - Get Quote Owner</label>
+        <locationX>699</locationX>
+        <locationY>2837</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>LQE_Update_Quote_Owner_Email</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Quote__r.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>zqu__Quote__c</object>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>OwnerId</queriedFields>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <description>Get Current User Manager Email</description>
+        <name>NBF_Get_Current_User_Manager_Email</name>
+        <label>NBF - Get Current User Manager Email</label>
+        <locationX>699</locationX>
+        <locationY>3545</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>NBF_Assign_Requester_on_Billing_Forms</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$User.ManagerId</elementReference>
+            </value>
+        </filters>
+        <object>User</object>
+        <outputAssignments>
+            <assignToReference>varCurrUserManagerEmail</assignToReference>
+            <field>Email</field>
+        </outputAssignments>
+    </recordLookups>
+    <recordLookups>
+        <description>Get Current User Manager Email</description>
+        <name>NDDQ_Get_Current_User_Manager_Email</name>
+        <label>NDDQ - Get Current User Manager Email</label>
+        <locationX>831</locationX>
+        <locationY>7535</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>NDDQ_Recipient_Requester</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$User.ManagerId</elementReference>
+            </value>
+        </filters>
+        <object>User</object>
+        <outputAssignments>
+            <assignToReference>varCurrUserManagerEmail</assignToReference>
+            <field>Email</field>
+        </outputAssignments>
+    </recordLookups>
+    <recordLookups>
+        <description>Get Current User Manager Email</description>
+        <name>NQR_Get_Current_User_Manager_Email</name>
+        <label>NQR - Get Current User Manager Email</label>
+        <locationX>699</locationX>
+        <locationY>5927</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>NQR_Populate_Requester_and_Email</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$User.ManagerId</elementReference>
+            </value>
+        </filters>
+        <object>User</object>
+        <outputAssignments>
+            <assignToReference>varCurrUserManagerEmail</assignToReference>
+            <field>Email</field>
+        </outputAssignments>
+    </recordLookups>
+    <recordLookups>
+        <description>Get Account</description>
+        <name>OS_Get_Account</name>
+        <label>OS - Get Account</label>
+        <locationX>699</locationX>
+        <locationY>5519</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>OS_Update_Account_on_Request</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Opportunity__r.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Opportunity</object>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>AccountId</queriedFields>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <description>Get Current User Manager Email</description>
+        <name>TNDDQ_Threshold_Get_Current_User_Manager_Email</name>
+        <label>TNDDQ - Threshold Get Current User Manager Email</label>
+        <locationX>567</locationX>
+        <locationY>7535</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>TNDDQ_Threshold_Recipient_Requester_Status</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$User.ManagerId</elementReference>
+            </value>
+        </filters>
+        <object>User</object>
+        <outputAssignments>
+            <assignToReference>varCurrUserManagerEmail</assignToReference>
+            <field>Email</field>
+        </outputAssignments>
+    </recordLookups>
+    <recordUpdates>
+        <description>MIS-4963
+Update Recipient &amp; Requester and Owner Id 
+David Kaplansky = 005b0000003opkrAAA</description>
+        <name>ABDL_DDQ_Update_Recipient</name>
+        <label>ABDL DDQ- Update Recipient</label>
+        <locationX>567</locationX>
+        <locationY>10343</locationY>
+        <connector>
+            <targetReference>Update_Recipient_Manager_s_Email</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>OwnerId</field>
+            <value>
+                <stringValue>005b0000003opkrAAA</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Recipient_Picklist__c</field>
+            <value>
+                <stringValue>David Kaplansky</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Recipient__c</field>
+            <value>
+                <stringValue>005b0000003opkrAAA</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Status__c</field>
+            <value>
+                <stringValue>Submitted</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>MIS-4963</description>
+        <name>ABDL_Legal_Update_Recipient_Fields</name>
+        <label>ABDL Legal - Update Recipient Fields</label>
+        <locationX>831</locationX>
+        <locationY>10343</locationY>
+        <connector>
+            <targetReference>Update_Recipient_Manager_s_Email</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>OwnerId</field>
+            <value>
+                <stringValue>00G0X000007QGDh</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Recipient_Email__c</field>
+            <value>
+                <elementReference>fr_RecipientEmail_legal</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Recipient_Picklist__c</field>
+            <value>
+                <stringValue>Legal</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Status__c</field>
+            <value>
+                <stringValue>Submitted</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>Update Probability (%)</description>
+        <name>ASC_Update_Probability</name>
+        <label>ASC - Update Probability (%)</label>
+        <locationX>699</locationX>
+        <locationY>4553</locationY>
+        <connector>
+            <targetReference>Rule_ASSC_AS_Request_Status_Changed</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Probability__c</field>
+            <value>
+                <numberValue>100.0</numberValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>ASSC_Update_Request_Close_Date</name>
+        <label>ASSC - Update Request Close Date</label>
+        <locationX>699</locationX>
+        <locationY>4853</locationY>
+        <connector>
+            <targetReference>Rule_SC_Status_Changed</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Request_Close_Date__c</field>
+            <value>
+                <elementReference>fr_NOW</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Changed_recipient_to_legal_and_populate_Recipient_Email</name>
+        <label>Changed recipient to legal and populate Recipient Email</label>
+        <locationX>919</locationX>
+        <locationY>719</locationY>
+        <connector>
+            <targetReference>IsActiveUserFound</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>OwnerId</field>
+            <value>
+                <stringValue>00G0X000007QGDh</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Recipient_Email__c</field>
+            <value>
+                <elementReference>fr_RecipientEmailForLegal</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>Onboarding Completed Date</description>
+        <name>CSAC_Onboarding_Completed_Date</name>
+        <label>CSAC - Onboarding Completed Date</label>
+        <locationX>699</locationX>
+        <locationY>4253</locationY>
+        <connector>
+            <targetReference>Rule_ASC_ASR_Request_moved_to_Closed_Won_Completed_Initiated</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Onboarding_Completed_Date__c</field>
+            <value>
+                <elementReference>fr_TODAY</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>Update Onboarding Start Date</description>
+        <name>CSAIP_Update_Onboarding_Start_Date</name>
+        <label>CSAIP - Update Onboarding Start Date</label>
+        <locationX>699</locationX>
+        <locationY>3953</locationY>
+        <connector>
+            <targetReference>Rule_CSAC_CSA_Status_Completed</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Onboarding_Start_Date__c</field>
+            <value>
+                <elementReference>fr_TODAY</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>Set &quot;Date Delivered to Customer&quot;</description>
+        <name>DDC_Set_Date_Delivered_to_Customer</name>
+        <label>DDC - Set &quot;Date Delivered to Customer&quot;</label>
+        <locationX>699</locationX>
+        <locationY>7235</locationY>
+        <connector>
+            <targetReference>Rule_TNDDQ_Threshold_OR_New_DDQ</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Delivered_to_Customer_TimeStamp__c</field>
+            <value>
+                <elementReference>fr_TODAY</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>Update Owner/Requester = CreatedBy</description>
+        <name>LPA_Owner_Requester_CreatedBy</name>
+        <label>LPA - Owner/Requester = CreatedBy</label>
+        <locationX>699</locationX>
+        <locationY>9443</locationY>
+        <connector>
+            <targetReference>Rule_Onboarding_request_Onboarding_Request_Status_In_Process</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>OwnerId</field>
+            <value>
+                <elementReference>$Record.CreatedById</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Recipient__c</field>
+            <value>
+                <elementReference>$Record.CreatedById</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>Update Quote Owner Email</description>
+        <name>LQE_Update_Quote_Owner_Email</name>
+        <label>LQE - Update Quote Owner Email</label>
+        <locationX>699</locationX>
+        <locationY>2945</locationY>
+        <connector>
+            <targetReference>Rule_SYSE_Update_SYS_Owner_Manager_Email</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Quote_Owner_Email__c</field>
+            <value>
+                <elementReference>LQE_Get_Quote_Owner.Owner:User.Email</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>Update Applicable Quote</description>
+        <name>LRC_Update_Applicable_Quote</name>
+        <label>LRC - Update Applicable Quote</label>
+        <locationX>699</locationX>
+        <locationY>9143</locationY>
+        <connector>
+            <targetReference>Rule_LPA_Legal_Pending_Action</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Applicable_Quote__c</field>
+            <value>
+                <stringValue>No</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>Assign Requester / Requester manager email / Requester email on Billing Forms</description>
+        <name>NBF_Assign_Requester_on_Billing_Forms</name>
+        <label>NBF - Assign Requester on Billing Forms</label>
+        <locationX>699</locationX>
+        <locationY>3653</locationY>
+        <connector>
+            <targetReference>Rule_CSAIP_CSA_CSS_Status_In_Process</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>OwnerId</field>
+            <value>
+                <elementReference>Requester</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Requester_Email__c</field>
+            <value>
+                <elementReference>RequesterEmail</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Requester_Manager_Email__c</field>
+            <value>
+                <elementReference>varCurrUserManagerEmail</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Requester__c</field>
+            <value>
+                <elementReference>Requester</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>Update Recipient &amp; Requester and Owner Id 
+David Kaplansky = 005b0000003opkrAAA</description>
+        <name>NDDQ_Recipient_Requester</name>
+        <label>NDDQ - Recipient &amp; Requester</label>
+        <locationX>831</locationX>
+        <locationY>7643</locationY>
+        <connector>
+            <targetReference>Rule_SSC_Supplier_Sent_to_Customer</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>OwnerId</field>
+            <value>
+                <stringValue>005b0000003opkrAAA</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Recipient__c</field>
+            <value>
+                <stringValue>005b0000003opkrAAA</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Requester_Email__c</field>
+            <value>
+                <elementReference>RequesterEmail</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Requester_Manager_Email__c</field>
+            <value>
+                <elementReference>varCurrUserManagerEmail</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Requester__c</field>
+            <value>
+                <elementReference>Requester</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>Populate request fields ( Account Billing Address/ Opp type / Owner Id / Recipient email / Recipient picklist / Renewal date / Requester email</description>
+        <name>NLR_Populate_request_s_fields</name>
+        <label>NLR - Populate request&apos;s fields</label>
+        <locationX>831</locationX>
+        <locationY>6635</locationY>
+        <connector>
+            <targetReference>Rule_SCCC_Status_Changed_to_Completed_Cancelled</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Account_Billing_Address__c</field>
+            <value>
+                <elementReference>fr_AccountBillingAddress</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Opportunity_Type__c</field>
+            <value>
+                <elementReference>fr_OpportunityType</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>OwnerId</field>
+            <value>
+                <stringValue>00G0X000007QGDh</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Recipient_Email__c</field>
+            <value>
+                <elementReference>fr_RecipientEmail_legal</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Recipient_Picklist__c</field>
+            <value>
+                <stringValue>Legal</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Renewal_Date__c</field>
+            <value>
+                <elementReference>fr_RenewalDate_legal</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Requester_Email__c</field>
+            <value>
+                <elementReference>RequesterEmail</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Requester__c</field>
+            <value>
+                <elementReference>Requester</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>Populate Requester and Email</description>
+        <name>NQR_Populate_Requester_and_Email</name>
+        <label>NQR- Populate Requester and Email</label>
+        <locationX>699</locationX>
+        <locationY>6035</locationY>
+        <connector>
+            <targetReference>Rule_RCL_Recepient_is_changed_from_Legal</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Recipient_Email__c</field>
+            <value>
+                <elementReference>fr_Recipient_Email</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Requester_Email__c</field>
+            <value>
+                <elementReference>RequesterEmail</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Requester_Manager_Email__c</field>
+            <value>
+                <elementReference>varCurrUserManagerEmail</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Requester__c</field>
+            <value>
+                <elementReference>Requester</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>Update Account on Request</description>
+        <name>OS_Update_Account_on_Request</name>
+        <label>OS - Update Account on Request</label>
+        <locationX>699</locationX>
+        <locationY>5627</locationY>
+        <connector>
+            <targetReference>Rule_NQR_New_Quote_Request</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Account__c</field>
+            <value>
+                <elementReference>OS_Get_Account.AccountId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>Update Status to &quot;In Process&quot;</description>
+        <name>RCL_Update_Status_to_In_Process</name>
+        <label>RCL - Update Status to &quot;In Process&quot;</label>
+        <locationX>699</locationX>
+        <locationY>6335</locationY>
+        <connector>
+            <targetReference>Rule_TNLR_Threshold_OR_New_Legal_Request</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Status__c</field>
+            <value>
+                <stringValue>In Process</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>Update Recipient
+David Kaplansky = 005b0000003opkrAAA</description>
+        <name>RDDQ_Update_Recipient</name>
+        <label>RDDQ - Update Recipient</label>
+        <locationX>699</locationX>
+        <locationY>8243</locationY>
+        <connector>
+            <targetReference>Rule_TA_SW_Template_Yes_the_client_had_accepted_it</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>OwnerId</field>
+            <value>
+                <stringValue>005b0000003opkrAAA</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Recipient__c</field>
+            <value>
+                <stringValue>005b0000003opkrAAA</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>Update Status Change TimeStamp</description>
+        <name>SC_Update_Status_Change_TimeStamp</name>
+        <label>SC - Update Status Change TimeStamp</label>
+        <locationX>567</locationX>
+        <locationY>5153</locationY>
+        <connector>
+            <isGoTo>true</isGoTo>
+            <targetReference>SCC_Update_Status_Change_Counter</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Status_Change_TimeStamp__c</field>
+            <value>
+                <elementReference>fr_NOW</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>Update Status Change Counter (Add 1)</description>
+        <name>SCC_Update_Status_Change_Counter</name>
+        <label>SCC - Update Status Change Counter</label>
+        <locationX>831</locationX>
+        <locationY>5153</locationY>
+        <connector>
+            <targetReference>Rule_OS_Opportunity_is_set</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Status_Change_Counter__c</field>
+            <value>
+                <elementReference>fr_Status_Change_Counter_plus_one</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>Update Completed/Cancelled TimeStamp</description>
+        <name>SCCC_Completed_Cancelled_TimeStamp</name>
+        <label>SCCC - Completed/Cancelled TimeStamp</label>
+        <locationX>699</locationX>
+        <locationY>6935</locationY>
+        <connector>
+            <targetReference>Rule_DDC_Set_Date_Delivered_to_Customer</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Completed_Cancelled_TimeStamp__c</field>
+            <value>
+                <elementReference>fr_NOW</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>Update OnwerId</description>
+        <name>SSC_update_OnwerId</name>
+        <label>SSC - update OnwerId</label>
+        <locationX>699</locationX>
+        <locationY>7943</locationY>
+        <connector>
+            <targetReference>Rule_RDDQ_DDQ_Resubmitted</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>OwnerId</field>
+            <value>
+                <elementReference>$Record.Requester__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Recipient__c</field>
+            <value>
+                <elementReference>$Record.Requester__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>Update SYS Owner Manager Email</description>
+        <name>SYSE_Update_SYS_Owner_Manager_Email</name>
+        <label>SYSE - Update SYS Owner Manager Email</label>
+        <locationX>699</locationX>
+        <locationY>3245</locationY>
+        <connector>
+            <targetReference>Rule_NBF_NEW_Billing_Forms</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>SYS_Owners_Manager_Email__c</field>
+            <value>
+                <elementReference>$Record.Owner:User.Manager.Email</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>Update Request Status to Completed</description>
+        <name>TA_Update_Request_Status_to_Completed</name>
+        <label>TA - Update Request Status to Completed</label>
+        <locationX>699</locationX>
+        <locationY>8543</locationY>
+        <connector>
+            <targetReference>Rule_TPC_SW_Template_Yes_pending_client_review</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Status__c</field>
+            <value>
+                <stringValue>Completed</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>Update Recipient &amp; Requester and Owner Id 
+Omer Pizem = 0056700000CCrEsAAL</description>
+        <name>TNDDQ_Threshold_Recipient_Requester_Status</name>
+        <label>TNDDQ - Threshold Recipient, Requester &amp; Status</label>
+        <locationX>567</locationX>
+        <locationY>7643</locationY>
+        <connector>
+            <targetReference>Rule_SSC_Supplier_Sent_to_Customer</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>OwnerId</field>
+            <value>
+                <stringValue>0056700000CCrEsAAL</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Recipient_Picklist__c</field>
+            <value>
+                <stringValue>Omer Pizem</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Recipient__c</field>
+            <value>
+                <stringValue>0056700000CCrEsAAL</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Requester_Email__c</field>
+            <value>
+                <elementReference>RequesterEmail</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Requester_Manager_Email__c</field>
+            <value>
+                <elementReference>varCurrUserManagerEmail</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Requester__c</field>
+            <value>
+                <elementReference>Requester</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Status__c</field>
+            <value>
+                <stringValue>Pending Threshold Review</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>Populate request fields ( Account Billing Address/ Opp type / Owner Id / Recipient email / Recipient picklist / Renewal date / Requester email</description>
+        <name>TNLR_Populate_request_s_fields</name>
+        <label>TNLR - Populate request&apos;s fields</label>
+        <locationX>567</locationX>
+        <locationY>6635</locationY>
+        <connector>
+            <targetReference>Rule_SCCC_Status_Changed_to_Completed_Cancelled</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Account_Billing_Address__c</field>
+            <value>
+                <elementReference>fr_AccountBillingAddress</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Opportunity_Type__c</field>
+            <value>
+                <elementReference>fr_OpportunityType</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>OwnerId</field>
+            <value>
+                <stringValue>0056700000CCrEsAAL</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Recipient_Email__c</field>
+            <value>
+                <elementReference>fr_Omer_Pizem_Email</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Recipient_Picklist__c</field>
+            <value>
+                <stringValue>Omer Pizem</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Recipient__c</field>
+            <value>
+                <stringValue>0056700000CCrEsAAL</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Renewal_Date__c</field>
+            <value>
+                <elementReference>fr_RenewalDate_legal</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Requester_Email__c</field>
+            <value>
+                <elementReference>RequesterEmail</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Requester__c</field>
+            <value>
+                <elementReference>Requester</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Status__c</field>
+            <value>
+                <stringValue>Pending Threshold Review</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>TPC_Update_Request_Status_to_Pending_Client</name>
+        <label>TPC - Update Request Status to Pending Client</label>
+        <locationX>699</locationX>
+        <locationY>8843</locationY>
+        <connector>
+            <targetReference>Rule_LRC_Legal_Request_Cancelled</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Status_Change_TimeStamp__c</field>
+            <value>
+                <elementReference>fr_NOW</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Status__c</field>
+            <value>
+                <stringValue>Pending Client</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>MIS-5318</description>
+        <name>Update_Account_CSM</name>
+        <label>Update Account CSM</label>
+        <locationX>699</locationX>
+        <locationY>10943</locationY>
+        <connector>
+            <targetReference>New_Search_Intelligence_Deal_Support_not_Submitted</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Assigned_CSM__c</field>
+            <value>
+                <elementReference>$Record.Account__r.Assigned_CSA_Name__r.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>MIS-4200</description>
+        <name>Update_onboarding_complete_date_to_today</name>
+        <label>Update onboarding complete date to today</label>
+        <locationX>699</locationX>
+        <locationY>10043</locationY>
+        <connector>
+            <targetReference>Rule_ABDL_Approve_by_BizOps_DDQ_or_Legal</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Onboarding_Completed_Date__c</field>
+            <value>
+                <elementReference>fr_TODAY</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_onboarding_start_date</name>
+        <label>Update onboarding start date to today</label>
+        <locationX>699</locationX>
+        <locationY>9743</locationY>
+        <connector>
+            <targetReference>Rule_Onboarding_Request_Onboarding_Request_Status_Completed</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Onboarding_Start_Date__c</field>
+            <value>
+                <elementReference>fr_TODAY</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>MIS-6886</description>
+        <name>Update_Status_to_Submitted</name>
+        <label>Update Status to Submitted</label>
+        <locationX>699</locationX>
+        <locationY>11243</locationY>
+        <connector>
+            <targetReference>Next_Rule</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Status__c</field>
+            <value>
+                <stringValue>Submitted</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>705</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_User</targetReference>
+        </connector>
+        <object>Request__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>varCurrUserManagerEmail</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Regiones__c</fullName>
+    <externalId>false</externalId>
+    <label>Regiones</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>I-Tarapacá</fullName>
+                <default>false</default>
+                <label>I-Tarapacá</label>
+            </value>
+            <value>
+                <fullName>II-Antofagasta</fullName>
+                <default>false</default>
+                <label>II-Antofagasta</label>
+            </value>
+            <value>
+                <fullName>III-Atacama</fullName>
+                <default>false</default>
+                <label>III-Atacama</label>
+            </value>
+            <value>
+                <fullName>IV-Coquimbo</fullName>
+                <default>false</default>
+                <label>IV-Coquimbo</label>
+            </value>
+            <value>
+                <fullName>IX-La Araucanía</fullName>
+                <default>false</default>
+                <label>IX-La Araucanía</label>
+            </value>
+            <value>
+                <fullName>Región Metropolitana</fullName>
+                <default>false</default>
+                <label>Región Metropolitana</label>
+            </value>
+            <value>
+                <fullName>V-Valparaíso</fullName>
+                <default>false</default>
+                <label>V-Valparaíso</label>
+            </value>
+            <value>
+                <fullName>VI-O&apos;Higgins</fullName>
+                <default>false</default>
+                <label>VI-O&apos;Higgins</label>
+            </value>
+            <value>
+                <fullName>VII-Biobio</fullName>
+                <default>false</default>
+                <label>VII-Biobio</label>
+            </value>
+            <value>
+                <fullName>VII-Maule</fullName>
+                <default>false</default>
+                <label>VII-Maule</label>
+            </value>
+            <value>
+                <fullName>X-Los Lagos</fullName>
+                <default>false</default>
+                <label>X-Los Lagos</label>
+            </value>
+            <value>
+                <fullName>XI-Aysén</fullName>
+                <default>false</default>
+                <label>XI-Aysén</label>
+            </value>
+            <value>
+                <fullName>XII-Magallanes</fullName>
+                <default>false</default>
+                <label>XII-Magallanes</label>
+            </value>
+            <value>
+                <fullName>XIV-Los Ríos</fullName>
+                <default>false</default>
+                <label>XIV-Los Ríos</label>
+            </value>
+            <value>
+                <fullName>XV-Arica Parinacota</fullName>
+                <default>false</default>
+                <label>XV-Arica Parinacota</label>
+            </value>
+            <value>
+                <fullName>XVI-Ñuble</fullName>
+                <default>false</default>
+                <label>XVI-Ñuble</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

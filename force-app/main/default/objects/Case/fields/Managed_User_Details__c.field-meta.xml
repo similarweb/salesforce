@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Managed_User_Details__c</fullName>
+    <externalId>false</externalId>
+    <formula>&apos;Role: &apos; +  Managed_User__r.UserRole.Name + BR()+
+&apos;Profile: &apos;+  Managed_User__r.SYSProfileName__c   + BR()+
+ &apos;Manager: &apos;+   Managed_User__r.Manager_Name__c    + BR()+
+
+ &apos;ID: &apos; +  Managed_User__r.Id</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Managed User Details</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

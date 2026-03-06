@@ -1,0 +1,167 @@
+<aura:component controller="InferredSolutionController" implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes,force:appHostable" access="global">
+    <aura:attribute name="data" type="Object[]"/>
+    <aura:attribute name="columns" type="List"/>
+    <aura:attribute name="loaded" type="Boolean" default="false"/>
+    <aura:attribute name="isModalOpen" type="boolean" default="false"/>
+    <aura:attribute name="isConditionEnabled" type="boolean" default="false"/>
+    <aura:attribute name="recordCreateModalBody" type="Object[]"/>
+    <aura:attribute name="picklistFieldMap" type="Object"/>
+    <aura:attribute name="fieldMetadataList" type="Object[]"/>
+    <aura:attribute name="newRecord" type="Object"/>
+    <aura:attribute name="editedRecord" type="Object"/>
+    <aura:attribute name="newColumn" type="String"/>
+    <aura:attribute name="modalHeader" type="String"/>
+    <aura:attribute name="currentObject" type="String" default="Lead"/>
+    <aura:attribute name="columnToRemove" type="String"/>
+    <aura:attribute name="defaultValue" type="String"/>
+    <aura:attribute name="additionalCondition" type="String"/>
+    <aura:attribute name="additionalConditionCheckMessage" type="String"/>
+    <aura:attribute name="isBatchRunning" type="Boolean"/>
+    <aura:attribute name="modalMode" type="String"/>
+    <aura:attribute name="sortedBy" type="String"/>    
+    <aura:attribute name="sortedDirection" type="String" default="asc"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>    
+    <aura:handler name="change" value="{!v.currentObject}" action="{!c.doInit}"/>
+    <aura:handler name="change" value="{!v.additionalCondition}" action="{!c.resetCondition}"/>
+    
+    <div class="c-container">
+        <aura:if isTrue="{! not(v.loaded) }">
+            <div class="slds-page-header">
+                <p class="slds-page-header__title slds-truncate" title="">Inferred Solution Setting</p>
+                <!--<span class="slds-badge">Select field mapping setting for contact parsing</span>-->
+                <div class="slds-grid">
+                    <div>
+                        <lightning:select name="Object" label="Object" value="{!v.currentObject}">
+                            <option value="Lead">Lead</option>
+                            <option value="Contact">Contact</option>                        
+                        </lightning:select>
+                    </div>
+                    <div class="slds-col_bump-left slds-align-bottom">
+                        <div class="slds-grid">
+                            <lightning:button variant="brand" label="Recalculate index" title="Recalculate index" onclick="{!c.reindexData}" />
+                            <lightning:button variant="brand" label="Apply logic to all existing records" title="Apply logic to all objects" onclick="{!c.openModel}" />
+                            <lightning:button variant="brand" label="Set default value" title="Set default value" onclick="{!c.openModel}" />
+                            <lightning:button variant="brand" label="Add line" title="Create record" onclick="{!c.openModel}" />
+                            <lightning:button variant="brand" label="Create column" title="Create column" onclick="{!c.openModel}" />
+                            <lightning:button variant="brand" label="Remove column" title="Remove column" onclick="{!c.openModel}" />
+                        </div>
+                    </div>
+                </div>
+                
+            </div>            
+            <lightning:datatable
+                                 aura:id="datatable"         
+                                 keyField="Id"
+                                 data="{!v.data}"
+                                 columns="{!v.columns}"
+                                 onsave="{!c.handleSaveClick}"
+                                 onrowaction="{!c.handleRowAction}"                                 
+                                 hideCheckboxColumn="true"
+                                 sortedBy="{!v.sortedBy}"
+                                 sortedDirection="{!v.sortedDirection}"
+                                 onsort="{!c.updateColumnSorting}"
+                                 />
+            <aura:if isTrue="{!v.isModalOpen}">
+                <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                    <div class="slds-modal__container">
+                        <!-- ###### MODAL BOX HEADER Start ######-->
+                        <header class="slds-modal__header">
+                            <lightning:buttonIcon iconName="utility:close"
+                                                  onclick="{! c.closeModel }"
+                                                  alternativeText="close"
+                                                  variant="bare-inverse"
+                                                  class="slds-modal__close"/>
+                            <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate"><aura:unescapedHtml value="{!v.modalHeader}" /></h2>
+                            <h3 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">
+                                <aura:if isTrue="{!v.modalMode == 'runBatch'}">                                              
+                                    <aura:if isTrue="{!v.isBatchRunning}">
+                                        {!'Status - Running'}
+                                        <aura:set attribute="else">
+                                            {!'Status - Not running'}
+                                        </aura:set>
+                                    </aura:if>                                                             
+                                </aura:if>
+                            </h3>
+                            <h3 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">
+                                <aura:if isTrue="{!not(empty(v.additionalConditionCheckMessage))}">                                                                                  
+                                    {!v.additionalConditionCheckMessage}
+                                </aura:if>
+                            </h3>
+                        </header>
+                        <!--###### MODAL BOX BODY Part Start######-->
+                        <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                            <aura:if isTrue="{!or(v.modalMode == 'createRecord',v.modalMode == 'editRecord')}">
+                                {!v.recordCreateModalBody}
+                            </aura:if>
+                            <aura:if isTrue="{!v.modalMode == 'removeColumn'}">
+                                <lightning:select name="select1" label="Choose column to remove" value="{!v.columnToRemove}">
+                                    <aura:iteration items="{!v.fieldMetadataList}" var="field_i">
+                                        <aura:if isTrue="{!field_i.fieldName != 'Inferred_Solution__c'}">
+                                            <option value="{!field_i.fieldName}">{!field_i.label}</option>
+                                        </aura:if>
+                                    </aura:iteration>
+                                </lightning:select>                                
+                            </aura:if>
+                            <aura:if isTrue="{!v.modalMode == 'createColumn'}">
+                                <lightning:input name="input2" label="New Column" value="{!v.newColumn}"/>                
+                            </aura:if>
+                            <aura:if isTrue="{!v.modalMode == 'setDefaultValue'}">
+                                <lightning:select name="defVal" label="Set default value" value="{!v.defaultValue}">                                    
+                                    <aura:iteration items="{!v.picklistFieldMap.inferred_solution__c}" var="item">
+                                        <option value="{!item.value}">{!item.label}</option>
+                                    </aura:iteration>
+                                </lightning:select>       
+                            </aura:if>
+                            <aura:if isTrue="{!v.modalMode == 'runBatch'}">
+                                Do you want to run batch?
+                                <br/><br/>          
+                                <aura:if isTrue="{!v.isConditionEnabled}">
+                                    <lightning:input readonly="true" name="input3" label="Additional condition" value="{!v.additionalCondition}"/>
+                                </aura:if>
+                            </aura:if>
+                            <aura:if isTrue="{!v.modalMode == 'setCondition'}">
+                                <lightning:input name="input3" label="Additional condition" value="{!v.additionalCondition}"/>
+                            </aura:if>
+                        </div>
+                        <!--###### MODAL BOX FOOTER Part Start ######-->
+                        <footer class="slds-modal__footer">
+                            <lightning:button variant="neutral" 
+                                              label="Cancel"
+                                              title="Cancel"
+                                              onclick="{! c.closeModel }"/>
+                            <aura:if isTrue="{!v.modalMode == 'runBatch'}">
+                                <lightning:button variant="brand" 
+                                                  label="Set Condition"
+                                                  title="Set Condition"
+                                                  onclick="{!c.openModel}"/>
+                                <!--
+                                <lightning:button variant="brand" 
+                                                  label="Check Condition"
+                                                  title="Check Condition"
+                                                  onclick="{! c.checkCondition }"
+                                                  disabled="{!empty(v.additionalCondition)}"/>-->
+                                
+                                <lightning:button variant="brand" 
+                                                  label="Run batch"
+                                                  title="Run batch"
+                                                  onclick="{! c.runBatch }"/>
+                                                             
+                                <aura:set attribute="else">                                    
+                                    <lightning:button variant="brand" 
+                                                      label="Save"
+                                                      title="Save"
+                                                      onclick="{! c.saveModal }"/>
+                                </aura:set>      
+                            </aura:if>
+                            
+                        </footer>
+                    </div>
+                </section>
+                <div class="slds-backdrop slds-backdrop_open"></div>
+            </aura:if>
+            <aura:set attribute="else">
+                <lightning:spinner alternativeText="Loading" />
+            </aura:set>
+        </aura:if>
+    </div>    
+</aura:component>

@@ -1,0 +1,5 @@
+<apex:page standardController="Account" extensions="AssignmentButtonHandler" action="{!ManualAccAssignment}">
+
+
+
+</apex:page>

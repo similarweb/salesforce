@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Only_Sales_Can_Edit_Pending_Threshold</fullName>
+    <active>true</active>
+    <description>MIS-4963</description>
+    <errorConditionFormula>ISPICKVAL(PRIORVALUE(Status__c), &apos;Pending Threshold Review&apos;) &amp;&amp;
+ ((ISCHANGED(Status__c) &amp;&amp; 
+			NOT(ISPICKVAL(Status__c, &apos;Cancelled&apos;))) ||
+	  ISCHANGED(Recipient_Picklist__c) ||
+	  ISCHANGED(Recipient__c) ||
+	  ISCHANGED(OwnerId) 
+	 	) &amp;&amp;
+		    (RecordType.DeveloperName =&apos;Supplier_Questionnaires&apos; /* DDQ */ ||
+		    	RecordType.DeveloperName =&apos;Legal_Services&apos; /* Legal */) &amp;&amp;
+	        	   (
+			       			$Profile.Name &lt;&gt;&apos;SW Billing&apos; &amp;&amp;
+			        		$Profile.Name &lt;&gt;&apos;SW Billing Extended&apos; &amp;&amp;
+				        	$Profile.Name &lt;&gt;&apos;SW Legal&apos; &amp;&amp;
+			         	$Profile.Name &lt;&gt;&apos;SW SalesOps&apos; &amp;&amp;
+				        	$Profile.Name &lt;&gt;&apos;SW SalesOps Extended&apos; &amp;&amp;
+			        		$Profile.Name &lt;&gt;&apos;System Administrator&apos; &amp;&amp;
+													$User.Id &lt;&gt; &apos;005b0000000lqbnAAA&apos; /*Automated Process*/ &amp;&amp;
+             $User.Id &lt;&gt; &apos;005b0000000lqbn&apos; /*Automated Process*/
+					      		)</errorConditionFormula>
+    <errorMessage>Only Sales Profiles can edit Legal/DDQ Requests with the status &quot;Pending Threshold Review&quot;, please contact SalesOps to review this request</errorMessage>
+</ValidationRule>

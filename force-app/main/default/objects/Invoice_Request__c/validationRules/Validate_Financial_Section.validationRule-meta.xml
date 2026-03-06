@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Validate_Financial_Section</fullName>
+    <active>true</active>
+    <errorConditionFormula>(IsNew() &amp;&amp; Not  $User.Financial_Invoice_Management__c &amp;&amp; 
+(
+ Not IsBlank (Paid_Date__c ) ||
+ Estimated_Start_Date__c != Today()+7 ||
+ Not IsPickVal (Status__c,&quot;New&quot;) 
+ 
+
+)
+)
+||
+(
+IsChanged (Paid_Date__c) ||
+IsChanged (Estimated_Start_Date__c) ||
+(IsChanged (Status__c) &amp;&amp; Not IsPickVal (Status__c,&quot;Invoice Sent&quot;) )
+)
+&amp;&amp; Not  $User.Financial_Invoice_Management__c &amp;&amp; 
+NOT($Profile.Id=&apos;00eb0000000oBvcAAE&apos;)</errorConditionFormula>
+    <errorMessage>You are not authorized to make changes to fields in the Financial section</errorMessage>
+</ValidationRule>

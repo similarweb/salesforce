@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>P_and_G_Amy</fullName>
+    <booleanFilter>(1 OR  2 OR 4) and 3 AND 6 AND 5</booleanFilter>
+    <columns>FULL_NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CONTACT.TITLE</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>Pro_User_Type__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>ACCOUNT.NAME</field>
+        <operation>contains</operation>
+        <value>Procter &amp; Gamble</value>
+    </filters>
+    <filters>
+        <field>Website__c</field>
+        <operation>equals</operation>
+        <value>pg.com</value>
+    </filters>
+    <filters>
+        <field>Pro_User_Type__c</field>
+        <operation>notEqual</operation>
+        <value>User,Admin</value>
+    </filters>
+    <filters>
+        <field>ACCOUNT.NAME</field>
+        <operation>contains</operation>
+        <value>Procter</value>
+    </filters>
+    <filters>
+        <field>Account_Status__c</field>
+        <operation>notEqual</operation>
+        <value>Active</value>
+    </filters>
+    <label>P and G Amy</label>
+</ListView>

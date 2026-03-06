@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Force_close_button_use</fullName>
+    <active>true</active>
+    <description>Force users to close opps via the buttons.
+** Changed the logic to &quot;Toggle&quot;. Meaning when Closing the Opp from the Flow it will change the SYS Close Flow CB**</description>
+    <errorConditionFormula>ISCHANGED( StageName ) &amp;&amp; 
+NOT(ISCHANGED(SYS_CloseFlow__c)) &amp;&amp;
+(ISPICKVAL(StageName , &quot;Closed Won&quot;) ||
+ ISPICKVAL(StageName , &quot;Closed Lost&quot;))
+&amp;&amp; $Profile.Name &lt;&gt; &quot;SW SalesOps Extended&quot; 
+&amp;&amp; $Profile.Name &lt;&gt; &quot;SW SalesOps&quot;
+&amp;&amp; $Profile.Name &lt;&gt; &quot;System Administrator&quot; 
+&amp;&amp; RecordType.DeveloperName&lt;&gt;&quot;Wolves&quot;</errorConditionFormula>
+    <errorMessage>Please use Opportunity Won/Opportunity Lost buttons.</errorMessage>
+</ValidationRule>

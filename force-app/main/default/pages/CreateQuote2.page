@@ -1,0 +1,46 @@
+<!-- Custom CreateQuote Page for Zuora created by Victoria Khanchevskaya-->
+<apex:page standardController="zqu__Quote__c" tabStyle="zqu__Quote__c" sidebar="false">
+    
+	<apex:composition template="zqu__QuoteWizardTemplateNoForm" >
+		<apex:define name="PageBody" >
+            <zqu:CreateQuote subscriptionId="{!$CurrentPage.parameters.subscriptionId}"
+                             billingAccountId="{!$CurrentPage.parameters.billingAccountId}"
+                             opportunityId="{!$CurrentPage.parameters.oppId}"
+                             crmAccountId="{!$CurrentPage.parameters.crmAccountId}"
+                             renderBackButton="true"
+                             title="test title" />
+            
+            <script>
+            //Checking Legacy or new Solution field and block New Solution picklist if Legacy
+            var legacySpanList = document.querySelectorAll('[data-field-name=Legacy_or_New_solution_deal__c]');
+            if(legacySpanList != undefined &&  legacySpanList.length > 0){
+                var legacySpan = legacySpanList[0];
+                var legacyChildList = legacySpan.parentNode.childNodes;
+                var selectValue = legacyChildList[0].getElementsByTagName('select')[0].value;
+                disableSelect(selectValue);
+                legacyChildList[0].onchange = function(){ 
+                    selectValue = event.target.value;
+                    disableSelect(selectValue);                    
+                };    
+                function disableSelect(selectValue){
+                    var solutionSpanList = document.querySelectorAll('[data-field-name=New_solution_use_case__c]');
+                    if(solutionSpanList != undefined &&  solutionSpanList.length > 0){
+                        var solutionSpan = solutionSpanList[0];
+                        var solutionChildList = solutionSpan.parentNode.childNodes;
+                    }
+                    if(selectValue != undefined && selectValue == "Legacy"){
+                        if(solutionChildList != undefined &&  solutionChildList.length > 0){
+                            solutionChildList[0].disabled = true;
+                        }
+                    }
+                    else {
+                        if(solutionChildList != undefined &&  solutionChildList.length > 0){
+                            solutionChildList[0].disabled = false;
+                        }
+                    }
+                }                    
+            }
+            </script>            
+        </apex:define>
+    </apex:composition>
+</apex:page>

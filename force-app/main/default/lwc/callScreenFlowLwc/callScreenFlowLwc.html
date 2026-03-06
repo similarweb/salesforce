@@ -1,0 +1,51 @@
+<template>
+    <!-- Only show the button if autoLaunch is false -->
+    <template if:false={autoLaunch}>
+        <div class={alignmentClass}>
+            <lightning-button
+                    label={label}
+                    class= {combinedButtonClass}
+                    variant={variant}
+                    icon-name={iconName}
+                    icon-position={iconPosition}
+                    onclick={handleClick}>
+            </lightning-button>
+        </div>
+    </template>
+
+    <!-- Inline Flow Rendering -->
+    <template if:true={shouldRunFlow}>
+        <div class="slds-m-top_medium">
+            <lightning-flow
+                    flow-api-name={flowApiName}
+                    flow-input-variables={flowInputVariables}
+                    onstatuschange={handleFlowStatusChange}>
+            </lightning-flow>
+        </div>
+    </template>
+
+    <!-- Modal Flow Rendering -->
+    <template if:true={isModalOpen}>
+        <section class={computedModalClass} role="dialog">
+            <div class="slds-modal__container" >
+                <header class="slds-modal__header">
+                    <h2 class="slds-modal__title">{modalName}</h2>
+                    <button class="slds-button slds-modal__close" onclick={closeModal}>
+                        <lightning-icon icon-name="utility:close" size="small"></lightning-icon>
+                    </button>
+                </header>
+                <div class="slds-modal__content slds-p-around_medium">
+                    <lightning-flow
+                            flow-api-name={flowApiName}
+                            flow-input-variables={flowInputVariables}
+                            onstatuschange={handleFlowStatusChange}>
+                    </lightning-flow>
+                </div>
+<!--                <footer class="slds-modal__footer">-->
+<!--                    <lightning-button label="Cancel" onclick={closeModal}></lightning-button>-->
+<!--                </footer>-->
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+</template>

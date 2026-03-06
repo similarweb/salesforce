@@ -1,0 +1,5 @@
+<apex:page standardController="Lead">
+<apex:iframe src="https://biportal.similarweb.io/FreeProUserMonitoringDashboard/Dashboard/:embed=yes&Lead%20Id={!Lead.Id}&:toolbar=no/{!$User.Email}/tableau_in_sf"
+ scrolling="false" height="1200"  width="1000"/><!---->
+    
+</apex:page>

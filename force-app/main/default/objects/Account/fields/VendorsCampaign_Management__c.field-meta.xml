@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VendorsCampaign_Management__c</fullName>
+    <externalId>false</externalId>
+    <label>Campaign Management</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Kenshoo</fullName>
+                <default>false</default>
+                <label>Kenshoo</label>
+            </value>
+            <value>
+                <fullName>Marin Software</fullName>
+                <default>false</default>
+                <label>Marin Software</label>
+            </value>
+            <value>
+                <fullName>Adcore</fullName>
+                <default>false</default>
+                <label>Adcore</label>
+            </value>
+            <value>
+                <fullName>SearchForce</fullName>
+                <default>false</default>
+                <label>SearchForce</label>
+            </value>
+            <value>
+                <fullName>Wordstream</fullName>
+                <default>false</default>
+                <label>Wordstream</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

@@ -1,0 +1,129 @@
+<aura:component controller="FileUploadController">
+
+    <aura:attribute name="accept" type="List" default="['.jpg','.pdf', '.png', '.doc', '.docx', '.docm', '.dot','.dotm','.dotx']"/>
+    <aura:attribute name="multiple" type="Boolean" default="true"/>
+    <aura:attribute name="isFinalContract" type="Boolean" default="false"/>
+    <aura:attribute name="disabled" type="Boolean" default="false"/>
+    <aura:attribute name="oppId" type="string" required="true"/>
+    <aura:attribute name="quoteId" type="string" required="true"/>
+    <aura:attribute name="showModal" type="boolean" required="true"/>
+    <aura:attribute name="signatureDateMode" type="boolean"/>
+    <aura:attribute name="dateAttr" type="Date"/>
+    <aura:attribute name="uploadedFiles" type="String"/>
+    <aura:attribute name="currStep" type="Integer" default="1"/>
+    <aura:attribute name="filesJson" type="String"/>
+    <aura:attribute name="longTextValue" type="String" />
+    <aura:attribute name="userProfileName" type="String" />
+    <aura:attribute name="isTextAreaFilled" type="Boolean" default="false" />
+    <aura:attribute name="isTextAreaRequired" type="Boolean" default="false" />
+
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
+    <aura:registerEvent name="refresh" type="c:ApplicationRefresgEvent"/>
+
+
+    
+
+    <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+        <div class="slds-modal__container">
+            <header class="slds-modal__header">
+                <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick="{!c.onCloseButtonClick}">  
+                    <lightning:icon iconName="utility:close" alternativeText="Close" title="Close" />
+                    <span class="slds-assistive-text">Close</span>
+                </button>
+        <h2 id="modal-heading-01" class="slds-modal__title slds-hyphenate">Upload file</h2>
+        </header>
+        <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1" style="min-height: 200px;">
+            <aura:renderIf isTrue="{!equals(v.currStep,1)}">
+                <lightning:select aura:id="isFinSelect" name="select1" label="Are you uploading the signed version of the contract?" value="{!v.isFinalContract}">
+                    <option value="true">Yes</option>
+                    <option value="false">No</option>
+                </lightning:select>
+<!--                <aura:if isTrue="{!v.isTextAreaRequired}">-->
+<!--&lt;!&ndash;                <lightning:textarea name="inputLongText" label="What is the reason for uploading a contract into the quote?" value="{!v.longTextValue}" aura:id="longTextField" onchange="{!c.handleTextAreaChange}" />&ndash;&gt;-->
+<!--                </aura:if>-->
+                <aura:if isTrue="{!v.isFinalContract}">
+                    <aura:if isTrue="{!equals(v.signatureDateMode,true)}"> <!-- and() expression in one aura:if doesnt work ¯\_(ツ)_/¯-->
+                        <lightning:input type="date" name="input1" label="Please input the customer’s last signature date" value="{!v.dateAttr}"/>
+                    </aura:if>
+                </aura:if>
+                <div class="slds-p-top_small slds-float_right">
+                    <lightning:button  disabled="{!
+                                            if(
+                                                not(v.isTextAreaRequired),
+                                                false,
+                                                or(
+                                                    and(
+                                                        and(
+                                                            empty(v.dateAttr),
+                                                            equals(v.signatureDateMode, true)
+                                                        ),
+                                                        v.isFinalContract
+                                                    ),
+                                                    and(
+                                                        not(v.isTextAreaFilled),
+                                                        not(
+                                                            or(
+                                                                equals(v.userProfileName, 'SW Legal'),
+                                                                equals(v.userProfileName, 'SW Billing')
+                                                            )
+                                                        )
+                                                    )
+                                                )
+                                            )
+                                        }"
+                                          variant="brand"
+                                          label="Upload"
+                                          title="Upload"
+                                          onclick="{! c.onUploadButtonClick }"/>
+                </div>
+            </aura:renderIf>
+            <aura:if isTrue="{!equals(v.currStep,2)}">
+                <lightning:fileUpload  name="fileUploader"
+                            label= "Document Upload"
+                            multiple="{!v.multiple}"
+                            accept="{!v.accept}"
+                            disabled="false"
+                            recordId="{!v.quoteId}"
+                            onuploadfinished="{! c.onUploadFinished }"
+                            class="slds-file-selector_images"/>
+            </aura:if>
+            <!-- <aura:if isTrue="{!v.signatureDateMode}">
+                <lightning:select aura:id="isFinSelect" name="select1" label="Are you uploding the final version of the contract?" value="{!v.isFinalContract}">
+                    <option value="true">Yes</option>
+                    <option value="false">No</option>
+                </lightning:select>
+                <aura:if isTrue="{!v.isFinalContract}">
+                    <lightning:input type="date" name="input1" label="Please add the contract signature date" value="{!v.dateAttr}"/>
+                </aura:if>
+                <div style="margin:auto;">
+                    <lightning:fileUpload  name="fileUploader"
+                                label= "Document Upload"
+                                multiple="{!v.multiple}"
+                                accept="{!v.accept}"
+                                disabled="{!and(empty(v.dateAttr),equals(v.isFinalContract,true))}"
+                                recordId="{!v.quoteId}"
+                                onuploadfinished="{! c.onUploadFinished }"
+                                class="slds-file-selector_images"/>
+                </div>
+                <aura:set attribute="else">
+                    <lightning:select aura:id="isFinSelect" name="select1" label="Are you uploding the final version of the contract?" value="{!v.isFinalContract}">
+                        <option value="true">Yes</option>
+                        <option value="false">No</option>
+                    </lightning:select>
+                    <lightning:fileUpload  name="fileUploader"
+                                label= "Document Upload"
+                                multiple="{!v.multiple}"
+                                accept="{!v.accept}"
+                                disabled="false"
+                                recordId="{!v.quoteId}"
+                                onuploadfinished="{! c.onUploadFinished }"
+                                class="slds-file-selector_images"/>
+                </aura:set>
+            </aura:if> -->
+        
+        </div>
+        </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+
+</aura:component>

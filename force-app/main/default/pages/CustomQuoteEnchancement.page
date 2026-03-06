@@ -1,0 +1,55 @@
+<apex:page standardController="zqu__Quote__c" showHeader="true" tabStyle="zqu__Quote__c" sidebar="false">
+  <style>
+    .tertiaryPalette {
+      background-color: #E1EBE7 !important;
+    }
+    
+    .apexp .bPageBlock.apexDefaultPageBlock .pbBody .pbSubheader {
+        border-top: 0 none;
+        color: black;
+    }   
+    
+    .bPageBlock .pbTitle {
+      width: 45%; !important; 
+    } 
+  </style>
+
+  
+  
+  <apex:composition template="zqu__QuoteWizardTemplateNoForm">
+  	<apex:define name="PageBody" > 
+        <zqu:SelectBillingAccount title="Select Billing Account"  
+            subTitle="Select Billing Account"
+            opportunityId="{!$CurrentPage.parameters.oppid}"
+            crmAccountId="{!$CurrentPage.parameters.crmAccountId}"
+            existingQuoteId="{!$CurrentPage.parameters.id}"/>
+  	</apex:define>
+  </apex:composition>
+
+  <script>
+    run();
+    function run(){
+      var as=document.getElementsByTagName('strong');
+      var element;
+      for(var i=0;i<as.length;i++){
+          if(as[i].innerHTML.includes('Renew an existing subscription')){
+              element=as[i];
+              break;
+            }
+      }
+
+      let trEl = element.closest('tr');
+      console.log(trEl);
+
+      let observer = new MutationObserver(mutationRecords => {
+        trEl.style.display = 'none';
+      });
+
+      // наблюдать за всем, кроме атрибутов
+      observer.observe(trEl, { attributes: true });
+      
+      //trEl.style.display = 'none';
+    }
+    // window.onload = run;
+  </script>
+</apex:page>

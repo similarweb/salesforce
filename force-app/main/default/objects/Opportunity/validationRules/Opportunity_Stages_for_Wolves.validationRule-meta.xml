@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Opportunity_Stages_for_Wolves</fullName>
+    <active>false</active>
+    <description>If a stage is moving backwards, it can go to any previous stage. The validation only applies when moving forwards.
+
+**Deactivated due to lack of usage. We only create the &quot;Wolves&quot; Opp for BI to send the data to the relevant Contact. The VR blocks Yael**</description>
+    <errorConditionFormula>AND( 
+RecordType.DeveloperName = &quot;Wolves&quot;, 
+(CASE( StageName , 
+&quot;Not Relevant&quot;,1, 
+&quot;Cold Opportunity&quot;,1, 
+&quot;Prospecting&quot;,2, 
+&quot;NDA&quot;,3, 
+&quot;Evaluation&quot;,4, 
+&quot;Mobile - Negotiations&quot;,5, 
+&quot;Desktop - UFF Tech call&quot;,5, 
+&quot;IO&quot;,6, 
+&quot;Mobile - SDK Implementation&quot;,7, 
+&quot;Desktop - UFF Development&quot;,7, 
+&quot;QA&quot;,8,0) 
+&gt; 
+(CASE(PRIORVALUE(StageName) , 
+&quot;Not Relevant&quot;,1, 
+&quot;Cold Opportunity&quot;,1, 
+&quot;Prospecting&quot;,2, 
+&quot;NDA&quot;,3, 
+&quot;Evaluation&quot;,4, 
+&quot;Mobile - Negotiations&quot;,5, 
+&quot;Desktop - UFF Tech call&quot;,5, 
+&quot;IO&quot;,6, 
+&quot;Mobile - SDK Implementation&quot;,7, 
+&quot;Desktop - UFF Development&quot;,7, 
+&quot;QA&quot;,8,0)) + 1)) &amp;&amp; 
+NOT($Profile.Id=&apos;00eb0000000oBvcAAE&apos;)</errorConditionFormula>
+    <errorDisplayField>StageName</errorDisplayField>
+    <errorMessage>You can go forward only to the next Stage</errorMessage>
+</ValidationRule>

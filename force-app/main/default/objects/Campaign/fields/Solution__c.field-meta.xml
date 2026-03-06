@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Solution__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>If you promote multiple SW Solutions, select “Cross”</inlineHelpText>
+    <label>Primary Solution</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Cross</fullName>
+                <default>false</default>
+                <label>Cross</label>
+            </value>
+            <value>
+                <fullName>Web Intelligence</fullName>
+                <default>false</default>
+                <label>Web Intelligence</label>
+            </value>
+            <value>
+                <fullName>Search Intelligence</fullName>
+                <default>false</default>
+                <label>Search Intelligence</label>
+            </value>
+            <value>
+                <fullName>Stock Intelligence</fullName>
+                <default>false</default>
+                <label>Stock Intelligence</label>
+            </value>
+            <value>
+                <fullName>Sales Intelligence</fullName>
+                <default>false</default>
+                <label>Sales Intelligence</label>
+            </value>
+            <value>
+                <fullName>Shopper Intelligence</fullName>
+                <default>false</default>
+                <label>Shopper Intelligence</label>
+            </value>
+            <value>
+                <fullName>DaaS</fullName>
+                <default>false</default>
+                <label>DaaS</label>
+            </value>
+            <value>
+                <fullName>App Intelligence</fullName>
+                <default>false</default>
+                <label>App Intelligence</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

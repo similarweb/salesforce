@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Territory_Member_Role__c</fullName>
+    <externalId>false</externalId>
+    <label>Territory Member Role</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Manager</fullName>
+                <default>false</default>
+                <label>Manager</label>
+            </value>
+            <value>
+                <fullName>Sales Manager</fullName>
+                <default>false</default>
+                <label>Sales Manager</label>
+            </value>
+            <value>
+                <fullName>Account Manager</fullName>
+                <default>false</default>
+                <label>Account Manager</label>
+            </value>
+            <value>
+                <fullName>SDR</fullName>
+                <default>false</default>
+                <label>SDR</label>
+            </value>
+            <value>
+                <fullName>CSS</fullName>
+                <default>false</default>
+                <label>CSS</label>
+            </value>
+            <value>
+                <fullName>CSA</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>CSA</label>
+            </value>
+            <value>
+                <fullName>SE</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>SE</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

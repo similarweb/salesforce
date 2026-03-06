@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>JP_parent_name__c</fullName>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>JP parent name</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Gaprise Collections</fullName>
+                <default>true</default>
+                <label>Gaprise Collections</label>
+            </value>
+            <value>
+                <fullName>Gaprise Direct Contract USD</fullName>
+                <default>false</default>
+                <label>Gaprise Direct Contract USD</label>
+            </value>
+            <value>
+                <fullName>Gaprise inc.</fullName>
+                <default>false</default>
+                <label>Gaprise inc.</label>
+            </value>
+            <value>
+                <fullName>SW Japan Direct Account</fullName>
+                <default>false</default>
+                <label>SW Japan Direct Account</label>
+            </value>
+            <value>
+                <fullName>Gaprise Direct Contract JPY</fullName>
+                <default>false</default>
+                <label>Gaprise Direct Contract JPY</label>
+            </value>
+            <value>
+                <fullName>SW Japan Direct Account JPY</fullName>
+                <default>false</default>
+                <label>SW Japan Direct Account JPY</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

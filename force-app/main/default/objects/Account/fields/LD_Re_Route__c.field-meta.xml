@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LD_Re_Route__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>The LD Convert and Reroute fields are the one&apos;s LeanData will populate, and then map to the Account that is auto-created. LD Convert is used when the Existing Lead (the lead that the new lead matched to) is supposed to be converted to a Contact on the newly created account. LD Re-route is used when the Existing Lead should be turned into it&apos;s own separate Account (because the countries were not an exact match).</description>
+    <externalId>false</externalId>
+    <inlineHelpText>The Reroute fields are the one&apos;s LeanData will populate, and then map to the Account that is auto-created.LD Re-route is used when the Existing Lead should be turned into it&apos;s own separate Account (because the countries were not an exact match).</inlineHelpText>
+    <label>LD Re-Route</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

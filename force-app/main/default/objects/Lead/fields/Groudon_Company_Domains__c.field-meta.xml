@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Groudon_Company_Domains__c</fullName>
+    <description>MIS-7697
+Data is populated through Groudon, from SI, on lead creation or any new activity that triggers Groudon</description>
+    <externalId>false</externalId>
+    <label>Groudon Company Domains</label>
+    <length>255</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

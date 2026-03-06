@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>X42Matters</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>LEAD.EMAIL</columns>
+    <columns>Business_Unit__c</columns>
+    <columns>LEAD.LEAD_SOURCE</columns>
+    <columns>LEAD.COMPANY</columns>
+    <columns>LEAD.STATUS</columns>
+    <columns>LEAD.CREATED_DATE</columns>
+    <columns>Lead_Owner_formula__c</columns>
+    <columns>Ready_For_Routing__c</columns>
+    <columns>Interested_in__c</columns>
+    <columns>Actionable_Date__c</columns>
+    <columns>LEAD.CONVERTED</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>LEAD.CREATED_DATE</field>
+        <operation>equals</operation>
+        <value>TODAY</value>
+    </filters>
+    <filters>
+        <field>Lead_Owner_formula__c</field>
+        <operation>contains</operation>
+        <value>42,Klay</value>
+    </filters>
+    <label>42Matters</label>
+</ListView>

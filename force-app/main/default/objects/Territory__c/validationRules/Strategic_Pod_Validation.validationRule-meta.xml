@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Strategic_Pod_Validation</fullName>
+    <active>false</active>
+    <description>MIS-2834: If the Strategic Pod is not null -&gt; Subtype, Industry &amp; Industry_Sub_Type must be null</description>
+    <errorConditionFormula>OR(
+AND(
+ISBLANK(TEXT(Strategic_Pod__c)),
+OR(
+ISBLANK(Industry_Subtype__c),
+ISBLANK(TEXT(SW_Industry__c)),
+ISBLANK(Sub_Division__c)
+)
+),
+AND(
+NOT(ISBLANK(TEXT(Strategic_Pod__c))),
+BEGINS(TEXT(Strategic_Pod__c), &quot;NAL&quot;),
+ISBLANK(Sub_Division__c)
+),
+AND(
+NOT(ISBLANK(TEXT(Strategic_Pod__c))),
+NOT(BEGINS(TEXT(Strategic_Pod__c), &quot;NAL&quot;)),
+OR(
+NOT(ISBLANK(Industry_Subtype__c)),
+NOT(ISBLANK(TEXT(SW_Industry__c))),
+NOT(ISBLANK(Sub_Division__c))
+)
+),
+AND(
+OR(
+NOT(ISBLANK(Industry_Subtype__c)),
+NOT(ISBLANK(TEXT(SW_Industry__c)))
+),
+NOT(ISBLANK(TEXT(Strategic_Pod__c)))
+)
+)</errorConditionFormula>
+    <errorMessage>When Strategic Pod is populated Start with NAL value you must enter Sub Division otherwise the other fields must be blank (Industry &amp; Sub Division &amp; Sub Type)</errorMessage>
+</ValidationRule>

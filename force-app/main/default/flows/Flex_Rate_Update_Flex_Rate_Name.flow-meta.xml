@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>58.0</apiVersion>
+    <assignments>
+        <name>Assign_Flex_Rate_Name</name>
+        <label>Assign Flex Rate Name</label>
+        <locationX>176</locationX>
+        <locationY>287</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Name</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Flex_Rate_Name_Formula</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <environments>Default</environments>
+    <formulas>
+        <name>Flex_Rate_Name_Formula</name>
+        <dataType>String</dataType>
+        <expression>{!$Record.Rate__r.Source__r.Name} + &quot;/&quot; + TEXT({!$Record.Rate__r.Country_Tier__c}) + &quot;/&quot; + TEXT({!$Record.Max_DAU_Range__c})</expression>
+    </formulas>
+    <interviewLabel>Flex Rate - Update Flex Rate Name {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Flex Rate - Update Flex Rate Name</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Assign_Flex_Rate_Name</targetReference>
+        </connector>
+        <object>Flex_Rate__c</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

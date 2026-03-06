@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>medpic_Customer_s_Success_Metrics_Known__c</fullName>
+    <description>MIS-6998</description>
+    <externalId>false</externalId>
+    <label>Customer&apos;s Success Metrics Known</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>Next_Stage</valueSetName>
+    </valueSet>
+</CustomField>

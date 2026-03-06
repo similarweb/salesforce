@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Inferred_Solution__c</fullName>
+    <externalId>false</externalId>
+    <label>Inferred Solution</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Sales</fullName>
+                <default>false</default>
+                <label>Sales</label>
+            </value>
+            <value>
+                <fullName>Investors</fullName>
+                <default>false</default>
+                <label>Investors</label>
+            </value>
+            <value>
+                <fullName>Research</fullName>
+                <default>false</default>
+                <label>Research</label>
+            </value>
+            <value>
+                <fullName>Marketing</fullName>
+                <default>false</default>
+                <label>Marketing</label>
+            </value>
+            <value>
+                <fullName>NULL</fullName>
+                <default>false</default>
+                <label>NULL</label>
+            </value>
+            <value>
+                <fullName>Sales (SI)</fullName>
+                <default>false</default>
+                <label>Sales (SI)</label>
+            </value>
+            <value>
+                <fullName>Agency (MI)</fullName>
+                <default>false</default>
+                <label>Agency (MI)</label>
+            </value>
+            <value>
+                <fullName>Investors (II)</fullName>
+                <default>false</default>
+                <label>Investors (II)</label>
+            </value>
+            <value>
+                <fullName>Publishers &amp; Media</fullName>
+                <default>false</default>
+                <label>Publishers &amp; Media</label>
+            </value>
+            <value>
+                <fullName>AI / PI</fullName>
+                <default>false</default>
+                <label>AI / PI</label>
+            </value>
+            <value>
+                <fullName>Marketing (MI)</fullName>
+                <default>false</default>
+                <label>Marketing (MI)</label>
+            </value>
+            <value>
+                <fullName>Transactional</fullName>
+                <default>false</default>
+                <label>Transactional</label>
+            </value>
+            <value>
+                <fullName>Shopper</fullName>
+                <default>false</default>
+                <label>Shopper</label>
+            </value>
+            <value>
+                <fullName>Agency</fullName>
+                <default>false</default>
+                <label>Agency</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

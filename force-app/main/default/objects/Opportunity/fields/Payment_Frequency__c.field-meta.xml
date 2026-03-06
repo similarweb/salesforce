@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Payment_Frequency__c</fullName>
+    <externalId>false</externalId>
+    <label>Payment Frequency</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Annual</fullName>
+                <default>false</default>
+                <label>Annual</label>
+            </value>
+            <value>
+                <fullName>Every 2 Years</fullName>
+                <default>false</default>
+                <label>Every 2 Years</label>
+            </value>
+            <value>
+                <fullName>Every 3 years</fullName>
+                <default>false</default>
+                <label>Every 3 years</label>
+            </value>
+            <value>
+                <fullName>Full Term</fullName>
+                <default>false</default>
+                <label>Full Term</label>
+            </value>
+            <value>
+                <fullName>Monthly</fullName>
+                <default>false</default>
+                <label>Monthly</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other (Non - Standard)</label>
+            </value>
+            <value>
+                <fullName>Quarterly</fullName>
+                <default>false</default>
+                <label>Quarterly</label>
+            </value>
+            <value>
+                <fullName>Semi-Annual</fullName>
+                <default>false</default>
+                <label>Semi-Annual</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

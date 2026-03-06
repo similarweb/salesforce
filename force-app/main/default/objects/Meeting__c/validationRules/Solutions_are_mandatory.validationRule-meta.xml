@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Solutions_are_mandatory</fullName>
+    <active>false</active>
+    <description>Primary and Secondary Solutions are mandatory upon creation</description>
+    <errorConditionFormula>AND( 
+ISNEW(), 
+ISBLANK(TEXT(Primary_Solution__c)),
+OR( 
+RecordType.DeveloperName = &apos;SDR&apos;, 
+RecordType.DeveloperName = &apos;AE&apos;, 
+RecordType.DeveloperName = &apos;Chat&apos;, 
+RecordType.DeveloperName = &apos;Inside_Sales&apos;, 
+RecordType.DeveloperName = &apos;MIR_Handover&apos; 
+)
+)</errorConditionFormula>
+    <errorDisplayField>Primary_Solution__c</errorDisplayField>
+    <errorMessage>Primary Solution and Secondary Solution cannot be empty. Please populate fields to proceed further.</errorMessage>
+</ValidationRule>

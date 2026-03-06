@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Orchestration_Journey_Status__c</fullName>
+    <externalId>false</externalId>
+    <label>Orchestration Journey Status</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+                <label>In Progress</label>
+            </value>
+            <value>
+                <fullName>Completed</fullName>
+                <default>false</default>
+                <label>Completed</label>
+            </value>
+            <value>
+                <fullName>Recycle bin</fullName>
+                <default>false</default>
+                <label>Recycle bin</label>
+            </value>
+            <value>
+                <fullName>Completed - Nurturing</fullName>
+                <default>false</default>
+                <label>Completed - Nurturing</label>
+            </value>
+            <value>
+                <fullName>Excluded</fullName>
+                <default>false</default>
+                <label>Excluded</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

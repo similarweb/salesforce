@@ -1,0 +1,22 @@
+<aura:component implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global">
+    
+    <aura:attribute name="record" type="Object"/>
+    <aura:attribute name="filteredFields" type="Object"/>
+    <aura:attribute name="isSelfSaving" type="Boolean" default="false"/>
+    <aura:attribute name="error" type="String"/>
+    <aura:attribute name="recordId" type="String" />
+    <aura:attribute name="isRefreshAllowed" type="Boolean" default="false" />
+    <!-- MQ-1371 -->
+    <!-- <force:recordData aura:id="recordLoader" 
+                      recordId="{!v.recordId}"
+                      layoutType ="FULL"
+                      mode="EDIT" 
+                      targetRecord="{!v.record}"
+                      targetFields="{!v.filteredFields}"
+                      targetError="{!v.error}"
+                      recordUpdated="{!c.recordUpdated}"/> -->
+    
+    <!-- <lightning:empApi aura:id="empApi" /> 
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>	 -->
+    {!v.error}
+</aura:component>

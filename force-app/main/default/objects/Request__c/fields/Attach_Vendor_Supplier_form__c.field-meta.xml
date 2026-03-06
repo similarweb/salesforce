@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Attach_Vendor_Supplier_form__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>#1113520</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Vendor/ Supplier form is attached to the Opportunity/ Account</inlineHelpText>
+    <label>Vendor/ Supplier form attached</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

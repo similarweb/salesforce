@@ -1,0 +1,145 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #f7f9fb;
+    padding: 2rem;
+    color: #2f3a4c;
+}
+
+.container {
+    max-width: 750px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    padding: 24px;
+}
+
+select {
+    width: 100%;
+    padding: 10px 12px;
+    font-size: 1rem;
+    border: 1px solid #e0e6ed;
+    border-radius: 8px;
+}
+
+.section-heading {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #6b7c93;
+    margin: 16px 0 8px;
+}
+
+.item {
+    margin-bottom: 16px;
+}
+
+.item label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #e9eef6;
+    padding: 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background 0.2s ease;
+}
+
+.item label:hover {
+    background: #dbe5f1;
+}
+
+.child-table {
+    width: calc(100% - 24px);
+    margin-top: 10px;
+    margin-left: 24px;
+    border-collapse: collapse;
+    border: 1px solid #e0e6ed;
+    border-left: 4px solid #FF7A00;
+    border-radius: 8px;
+    display: table;
+    animation: fadeIn 0.3s ease-in;
+    background: #ffffff;
+}
+
+.child-table th {
+    background: #f5f8fc;
+    padding: 10px;
+    text-align: left;
+    font-weight: 600;
+    color: #2f3a4c;
+}
+
+.child-table td {
+    padding: 10px;
+    border-top: 1px solid #e0e6ed;
+}
+
+.child-table select {
+    width: 100%;
+    padding: 6px 8px;
+    font-size: 0.85rem;
+    border-radius: 6px;
+    border: 1px solid #e0e6ed;
+}
+
+.save-btn-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+.save-btn {
+    background-color: #ff7a00;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 6px 14px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s ease;
+}
+
+.save-btn:hover {
+    background-color: #e96d00;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+:host {
+    --slds-c-popover-position-zindex: 9999;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    cursor: help;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 160px;
+    background-color: #2f3a4c;
+    color: #fff;
+    text-align: center;
+    padding: 6px;
+    border-radius: 6px;
+    font-size: 12px; /* smaller font */
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}

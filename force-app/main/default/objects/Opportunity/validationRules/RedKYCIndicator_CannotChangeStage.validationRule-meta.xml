@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RedKYCIndicator_CannotChangeStage</fullName>
+    <active>true</active>
+    <description>MIS-1352</description>
+    <errorConditionFormula>AND(
+    ISCHANGED(  StageName  ),
+
+    Probability &gt; 0.6,
+    
+    OR(
+         Account.KYC_indicator__c =  &apos;⛔&apos;,
+         Account.KYC_indicator__c =  &apos;🔴&apos;
+    )
+   
+)</errorConditionFormula>
+    <errorMessage>This Account was flagged by Legal and can not be worked further on. Please don’t proceed with the deal / quote until Legal team will clear this Account. You will get an email with the updated status</errorMessage>
+</ValidationRule>

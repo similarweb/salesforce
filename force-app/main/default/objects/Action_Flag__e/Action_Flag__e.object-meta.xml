@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Holds a Flagged_Record_Id and Procrss_Name as an indicator for batch processes.</description>
+    <eventType>HighVolume</eventType>
+    <label>Action Flag</label>
+    <pluralLabel>Action Flags</pluralLabel>
+    <publishBehavior>PublishImmediately</publishBehavior>
+</CustomObject>

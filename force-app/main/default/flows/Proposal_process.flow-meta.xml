@@ -1,0 +1,849 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <apiVersion>55.0</apiVersion>
+    <assignments>
+        <name>Digital_Marketing_Ultimate1</name>
+        <label>Digital Marketing - Ultimate</label>
+        <locationX>50</locationX>
+        <locationY>518</locationY>
+        <assignmentItems>
+            <assignToReference>templatecode</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>1</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Proposal_publish</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Digital_Research</name>
+        <label>Digital Research</label>
+        <locationX>842</locationX>
+        <locationY>518</locationY>
+        <assignmentItems>
+            <assignToReference>templatecode</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>4</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Proposal_publish</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Digital_Suite1</name>
+        <label>Digital Suite</label>
+        <locationX>314</locationX>
+        <locationY>518</locationY>
+        <assignmentItems>
+            <assignToReference>templatecode</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>2</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Proposal_publish</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Intelligence_Suite2</name>
+        <label>Intelligence Suite</label>
+        <locationX>578</locationX>
+        <locationY>518</locationY>
+        <assignmentItems>
+            <assignToReference>templatecode</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>3</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Proposal_publish</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Sales_Intelligence_Pro1</name>
+        <label>Sales Intelligence Pro</label>
+        <locationX>1106</locationX>
+        <locationY>518</locationY>
+        <assignmentItems>
+            <assignToReference>templatecode</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>5</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Proposal_publish</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Sales_Solution_Lead_Enrichment1</name>
+        <label>Sales Solution - Lead Enrichment</label>
+        <locationX>1370</locationX>
+        <locationY>518</locationY>
+        <assignmentItems>
+            <assignToReference>templatecode</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>6</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Proposal_publish</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Shopper_Intelligence1</name>
+        <label>Shopper Intelligence</label>
+        <locationX>1634</locationX>
+        <locationY>518</locationY>
+        <assignmentItems>
+            <assignToReference>templatecode</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>7</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Proposal_publish</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <name>Template_Assignment</name>
+        <label>Template Assignment</label>
+        <locationX>974</locationX>
+        <locationY>398</locationY>
+        <defaultConnector>
+            <targetReference>Proposal_publish</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Digital_Marketing_Ultimate</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Product_Sold</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Digital Marketing - Ultimate</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Digital_Marketing_Ultimate1</targetReference>
+            </connector>
+            <label>Digital Marketing - Ultimate</label>
+        </rules>
+        <rules>
+            <name>Digital_Suite</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Product_Sold</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <stringValue>Digital Suite</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Digital_Suite1</targetReference>
+            </connector>
+            <label>Digital Suite</label>
+        </rules>
+        <rules>
+            <name>Intelligence_Suite</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Product_Sold</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <stringValue>Intelligence Suite</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Intelligence_Suite2</targetReference>
+            </connector>
+            <label>Intelligence Suite</label>
+        </rules>
+        <rules>
+            <name>Research</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Product_Sold</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <stringValue>Research</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Digital_Research</targetReference>
+            </connector>
+            <label>Research</label>
+        </rules>
+        <rules>
+            <name>Sales_Intelligence_Pro</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Product_Sold</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <stringValue>Sales Intelligence Pro</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Sales_Intelligence_Pro1</targetReference>
+            </connector>
+            <label>Sales Intelligence Pro</label>
+        </rules>
+        <rules>
+            <name>Sales_Solution_Lead_Enrichment</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Product_Sold</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <stringValue>Sales Solution - Lead Enrichment</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Sales_Solution_Lead_Enrichment1</targetReference>
+            </connector>
+            <label>Sales Solution - Lead Enrichment</label>
+        </rules>
+        <rules>
+            <name>Shopper_Intelligence</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Product_Sold</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <stringValue>Shopper Intelligence </stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Shopper_Intelligence1</targetReference>
+            </connector>
+            <label>Shopper Intelligence</label>
+        </rules>
+    </decisions>
+    <dynamicChoiceSets>
+        <name>Currency</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>Currency__c</picklistField>
+        <picklistObject>Opportunity</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>Cycleterm</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>Cycle__c</picklistField>
+        <picklistObject>Opportunity</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>PrimaryUseCase</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>Primary_Use_Case__c</picklistField>
+        <picklistObject>Opportunity</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>Productsold</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>Product_Sold__c</picklistField>
+        <picklistObject>Opportunity</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>Secondary</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>Secondary_Base_Product_Option__c</picklistField>
+        <picklistObject>Opportunity</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>SecondaryUseCase</name>
+        <dataType>Multipicklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>Secondary_Use_Case__c</picklistField>
+        <picklistObject>Opportunity</picklistObject>
+    </dynamicChoiceSets>
+    <environments>Default</environments>
+    <formulas>
+        <name>Currencytext</name>
+        <dataType>String</dataType>
+        <expression>IF (OR({!Currency_choise} = &apos;AUD&apos;, {!Currency_choise} = &apos;USD&apos;), &apos;$&apos;, 
+if({!Currency_choise} = &apos;EUR&apos;,&apos;€&apos;,
+if({!Currency_choise} = &apos;GBP&apos;,&apos;£&apos;,
+if({!Currency_choise} = &apos;JPY&apos;,&apos;¥&apos;,&apos;&apos;))))</expression>
+    </formulas>
+    <formulas>
+        <name>Cycle_time_frame</name>
+        <dataType>String</dataType>
+        <expression>IF(  {!Cycle_term} = &quot;Annually&quot;,&quot;1 Year&quot;,
+IF(  {!Cycle_term} = &quot;2 Years&quot;, &quot;2 Years&quot;,
+IF( {!Cycle_term} = &quot;3 Years&quot;, &quot;3 Years&quot;,
+&quot;&quot;)))</expression>
+    </formulas>
+    <formulas>
+        <name>Cycleprice</name>
+        <dataType>Currency</dataType>
+        <expression>if( or (ISBlank ({!Discount_Precent}),{!Discount_Precent}=0), {!Cycle_price}, {!Cycle_price} - {!Cycle_price} *{!Discount_Precent}/100)</expression>
+        <scale>0</scale>
+    </formulas>
+    <formulas>
+        <name>Cycleprice2</name>
+        <dataType>Currency</dataType>
+        <expression>if( or (ISBlank ({!Discount_Precent}),{!Discount_Precent}=0), {!Cycle_Secondary_Base_Product_Option},  {!Cycle_Secondary_Base_Product_Option} - ( {!Cycle_Secondary_Base_Product_Option} *{!Discount_Precent}/100)
+)</expression>
+        <scale>0</scale>
+    </formulas>
+    <formulas>
+        <name>CyclePrice3</name>
+        <dataType>Currency</dataType>
+        <expression>if( or (ISBlank ({!Discount_Precent}),{!Discount_Precent}=0), {!Cycle_Third_Base_Product_Option}, {!Cycle_Third_Base_Product_Option} - ( {!Cycle_Third_Base_Product_Option} *{!Discount_Precent}/100)
+)</expression>
+        <scale>0</scale>
+    </formulas>
+    <formulas>
+        <name>Cyclepricemultiyear</name>
+        <dataType>Currency</dataType>
+        <expression>IF(  {!Cycle_term} = &quot;Annually&quot;,{!Cycle_price},
+IF(  {!Cycle_term} = &quot;2 Years&quot;, {!Cycle_price}*2,
+IF( {!Cycle_term} = &quot;3 Years&quot;, {!Cycle_price}*3,
+{!Cycle_price})))</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <name>Cyclepricemultiyear2</name>
+        <dataType>Currency</dataType>
+        <expression>IF(  {!Cycle_term} = &quot;Annually&quot;, {!Cycle_Secondary_Base_Product_Option},
+IF(  {!Cycle_term} = &quot;2 Years&quot;, {!Cycle_Secondary_Base_Product_Option}*2,
+IF( {!Cycle_term} = &quot;3 Years&quot;, {!Cycle_Secondary_Base_Product_Option}*3,
+{!Cycle_Secondary_Base_Product_Option})))</expression>
+        <scale>0</scale>
+    </formulas>
+    <formulas>
+        <name>Cyclepricemultiyear3</name>
+        <dataType>Currency</dataType>
+        <expression>IF(  {!Cycle_term} = &quot;Annually&quot;,{!Cycle_Third_Base_Product_Option},
+IF(  {!Cycle_term} = &quot;2 Years&quot;, {!Cycle_Third_Base_Product_Option}*2,
+IF( {!Cycle_term} = &quot;3 Years&quot;, {!Cycle_Third_Base_Product_Option}*3,
+{!Cycle_Third_Base_Product_Option})))</expression>
+        <scale>0</scale>
+    </formulas>
+    <formulas>
+        <name>DiscountAmount</name>
+        <dataType>Currency</dataType>
+        <expression>{!Cyclepricemultiyear} * ({!Discount_Precent}/100)</expression>
+        <scale>0</scale>
+    </formulas>
+    <formulas>
+        <name>DiscountAmount2</name>
+        <dataType>Currency</dataType>
+        <expression>{!Cyclepricemultiyear2}* ({!Discount_Precent}/100)</expression>
+        <scale>0</scale>
+    </formulas>
+    <formulas>
+        <name>Discountamount3</name>
+        <dataType>Currency</dataType>
+        <expression>{!Cyclepricemultiyear3}* ({!Discount_Precent}/100)</expression>
+        <scale>0</scale>
+    </formulas>
+    <formulas>
+        <name>FullName</name>
+        <dataType>String</dataType>
+        <expression>{!Get_opportunity.Owner.FirstName} &amp; &quot; &quot; &amp; {!Get_opportunity.Owner.LastName}</expression>
+    </formulas>
+    <formulas>
+        <name>twoweeks</name>
+        <dataType>Date</dataType>
+        <expression>{!$Flow.CurrentDate} + 14</expression>
+    </formulas>
+    <interviewLabel>Proposal process {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Proposal process</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>Flow</processType>
+    <recordCreates>
+        <name>Create_Proposal</name>
+        <label>Create Proposal</label>
+        <locationX>974</locationX>
+        <locationY>854</locationY>
+        <connector>
+            <targetReference>Confirmation</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Base_Product__c</field>
+            <value>
+                <elementReference>Product_Sold</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Cycle_Price__c</field>
+            <value>
+                <elementReference>Cycle_price</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Cycle__c</field>
+            <value>
+                <elementReference>Cycle_term</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Cycle_price_secondary_product__c</field>
+            <value>
+                <elementReference>Cycle_Secondary_Base_Product_Option</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Cycle_price_third_product__c</field>
+            <value>
+                <elementReference>Cycle_Third_Base_Product_Option</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Discount_percent__c</field>
+            <value>
+                <elementReference>Discount_Precent</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Opportunity__c</field>
+            <value>
+                <elementReference>Get_opportunity.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Primary_Use_Case__c</field>
+            <value>
+                <elementReference>Primary_Use_case</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Secondary_Base_Product_Option__c</field>
+            <value>
+                <elementReference>Secondary_Base_Product_Option</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Secondary_Use_Case__c</field>
+            <value>
+                <elementReference>Secondary_Use_Case</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Third_Base_Product_Option__c</field>
+            <value>
+                <elementReference>Third_Base_Product_Option</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Proposal__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordCreates>
+        <name>Proposal_publish</name>
+        <label>Proposal publish</label>
+        <locationX>974</locationX>
+        <locationY>734</locationY>
+        <connector>
+            <targetReference>Create_Proposal</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>ARR2__c</field>
+            <value>
+                <elementReference>Cycle_Secondary_Base_Product_Option</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>ARR3__c</field>
+            <value>
+                <elementReference>Cycle_Third_Base_Product_Option</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>ARR__c</field>
+            <value>
+                <elementReference>Cycle_price</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Account_Name__c</field>
+            <value>
+                <elementReference>Get_opportunity.Account.Name</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Currency__c</field>
+            <value>
+                <elementReference>Currencytext</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Cycle_Price__c</field>
+            <value>
+                <elementReference>Cycleprice</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Cycle__c</field>
+            <value>
+                <elementReference>Cycle_time_frame</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Cycle_price_2__c</field>
+            <value>
+                <elementReference>Cycleprice2</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Cycle_price_3__c</field>
+            <value>
+                <elementReference>CyclePrice3</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Discount_Amount_cycle_2__c</field>
+            <value>
+                <elementReference>DiscountAmount2</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Discount_Amount_cycle_3__c</field>
+            <value>
+                <elementReference>Discountamount3</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Discount_amount__c</field>
+            <value>
+                <elementReference>DiscountAmount</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Opportunity_Owner_Email__c</field>
+            <value>
+                <elementReference>Get_opportunity.Owner.Email</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Opportunity_Owner__c</field>
+            <value>
+                <elementReference>FullName</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Primary_use_case__c</field>
+            <value>
+                <elementReference>Primary_Use_case</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Product_sold_Base_product__c</field>
+            <value>
+                <elementReference>Product_Sold</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Proposal_after_2_weeks__c</field>
+            <value>
+                <elementReference>twoweeks</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Proposal_send_date__c</field>
+            <value>
+                <elementReference>$Flow.CurrentDate</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Secondary_Base_Product_Option__c</field>
+            <value>
+                <elementReference>Secondary_Base_Product_Option</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Secondary_use_case__c</field>
+            <value>
+                <elementReference>Secondary_Use_Case</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Template_ID__c</field>
+            <value>
+                <elementReference>templatecode</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Third_Base_Product_Option__c</field>
+            <value>
+                <elementReference>Third_Base_Product_Option</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Proposal_Process__e</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordLookups>
+        <name>Get_opportunity</name>
+        <label>Get opportunity</label>
+        <locationX>974</locationX>
+        <locationY>158</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Proposal_Screen</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>recordId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Opportunity</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <screens>
+        <name>Confirmation</name>
+        <label>Confirmation</label>
+        <locationX>974</locationX>
+        <locationY>974</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <fields>
+            <name>Confirmationpage</name>
+            <fieldText>&lt;p&gt;Thank You&lt;/p&gt;&lt;p&gt;An email with the Proposal slide is being sent to your email.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;If the email didn&apos;t arrive please contact Salesops&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>false</showHeader>
+    </screens>
+    <screens>
+        <name>Proposal_Screen</name>
+        <label>Proposal Screen</label>
+        <locationX>974</locationX>
+        <locationY>278</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>Template_Assignment</targetReference>
+        </connector>
+        <fields>
+            <name>Products_Sold</name>
+            <fieldText>Products Sold</fieldText>
+            <fieldType>RegionContainer</fieldType>
+            <fields>
+                <name>Products_Sold_Column1</name>
+                <fieldType>Region</fieldType>
+                <fields>
+                    <name>Currency_choise</name>
+                    <choiceReferences>Currency</choiceReferences>
+                    <dataType>String</dataType>
+                    <defaultValue>
+                        <elementReference>Get_opportunity.Currency__c</elementReference>
+                    </defaultValue>
+                    <fieldText>Currency</fieldText>
+                    <fieldType>DropdownBox</fieldType>
+                    <isRequired>true</isRequired>
+                </fields>
+                <fields>
+                    <name>Product_Sold</name>
+                    <choiceReferences>Secondary</choiceReferences>
+                    <dataType>String</dataType>
+                    <defaultValue>
+                        <elementReference>Get_opportunity.Product_Sold__c</elementReference>
+                    </defaultValue>
+                    <fieldText>Product Sold</fieldText>
+                    <fieldType>DropdownBox</fieldType>
+                    <isRequired>true</isRequired>
+                </fields>
+                <fields>
+                    <name>Cycle_price</name>
+                    <dataType>Currency</dataType>
+                    <defaultValue>
+                        <elementReference>Get_opportunity.Cycle_Price__c</elementReference>
+                    </defaultValue>
+                    <fieldText>Cycle - Product Sold</fieldText>
+                    <fieldType>InputField</fieldType>
+                    <isRequired>true</isRequired>
+                    <scale>0</scale>
+                </fields>
+                <fields>
+                    <name>Secondary_Base_Product_Option</name>
+                    <choiceReferences>Secondary</choiceReferences>
+                    <dataType>String</dataType>
+                    <fieldText>Secondary Base Product Option</fieldText>
+                    <fieldType>DropdownBox</fieldType>
+                    <isRequired>false</isRequired>
+                </fields>
+                <fields>
+                    <name>Cycle_Secondary_Base_Product_Option</name>
+                    <dataType>Currency</dataType>
+                    <fieldText>Cycle - Secondary Base Product Option</fieldText>
+                    <fieldType>InputField</fieldType>
+                    <isRequired>false</isRequired>
+                    <scale>0</scale>
+                </fields>
+                <fields>
+                    <name>Third_Base_Product_Option</name>
+                    <choiceReferences>Secondary</choiceReferences>
+                    <dataType>String</dataType>
+                    <fieldText>Third  Base Product Option</fieldText>
+                    <fieldType>DropdownBox</fieldType>
+                    <isRequired>false</isRequired>
+                </fields>
+                <fields>
+                    <name>Cycle_Third_Base_Product_Option</name>
+                    <dataType>Currency</dataType>
+                    <fieldText>Cycle - Third Base Product Option</fieldText>
+                    <fieldType>InputField</fieldType>
+                    <isRequired>false</isRequired>
+                    <scale>0</scale>
+                </fields>
+                <inputParameters>
+                    <name>width</name>
+                    <value>
+                        <stringValue>12</stringValue>
+                    </value>
+                </inputParameters>
+                <isRequired>false</isRequired>
+            </fields>
+            <isRequired>false</isRequired>
+            <regionContainerType>SectionWithHeader</regionContainerType>
+        </fields>
+        <fields>
+            <name>Use_Case</name>
+            <fieldText>Use Cases</fieldText>
+            <fieldType>RegionContainer</fieldType>
+            <fields>
+                <name>Use_Case_Column1</name>
+                <fieldType>Region</fieldType>
+                <fields>
+                    <name>Primary_Use_case</name>
+                    <choiceReferences>PrimaryUseCase</choiceReferences>
+                    <dataType>String</dataType>
+                    <defaultValue>
+                        <elementReference>Get_opportunity.Primary_Use_Case__c</elementReference>
+                    </defaultValue>
+                    <fieldText>Primary Use case</fieldText>
+                    <fieldType>DropdownBox</fieldType>
+                    <isRequired>true</isRequired>
+                </fields>
+                <fields>
+                    <name>Secondary_Use_Case</name>
+                    <choiceReferences>SecondaryUseCase</choiceReferences>
+                    <dataType>String</dataType>
+                    <defaultValue>
+                        <elementReference>Get_opportunity.Secondary_Use_Case__c</elementReference>
+                    </defaultValue>
+                    <fieldText>Secondary Use Case</fieldText>
+                    <fieldType>MultiSelectPicklist</fieldType>
+                    <isRequired>false</isRequired>
+                </fields>
+                <inputParameters>
+                    <name>width</name>
+                    <value>
+                        <stringValue>12</stringValue>
+                    </value>
+                </inputParameters>
+                <isRequired>false</isRequired>
+            </fields>
+            <isRequired>false</isRequired>
+            <regionContainerType>SectionWithHeader</regionContainerType>
+        </fields>
+        <fields>
+            <name>Cycle</name>
+            <fieldText>Cycle</fieldText>
+            <fieldType>RegionContainer</fieldType>
+            <fields>
+                <name>Cycle_Column1</name>
+                <fieldType>Region</fieldType>
+                <fields>
+                    <name>Discount_Precent</name>
+                    <dataType>Number</dataType>
+                    <defaultValue>
+                        <elementReference>Get_opportunity.Proposal_Discount__c</elementReference>
+                    </defaultValue>
+                    <fieldText>Discount Precent</fieldText>
+                    <fieldType>InputField</fieldType>
+                    <isRequired>false</isRequired>
+                    <scale>0</scale>
+                </fields>
+                <fields>
+                    <name>Cycle_term</name>
+                    <choiceReferences>Cycleterm</choiceReferences>
+                    <dataType>String</dataType>
+                    <defaultValue>
+                        <stringValue>3 Years</stringValue>
+                    </defaultValue>
+                    <fieldText>Cycle term</fieldText>
+                    <fieldType>DropdownBox</fieldType>
+                    <isRequired>true</isRequired>
+                </fields>
+                <inputParameters>
+                    <name>width</name>
+                    <value>
+                        <stringValue>12</stringValue>
+                    </value>
+                </inputParameters>
+                <isRequired>false</isRequired>
+            </fields>
+            <isRequired>false</isRequired>
+            <regionContainerType>SectionWithHeader</regionContainerType>
+        </fields>
+        <nextOrFinishButtonLabel>Submit Proposal</nextOrFinishButtonLabel>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <start>
+        <locationX>848</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_opportunity</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>recordId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>templatecode</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

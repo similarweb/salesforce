@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Subtype__c</fullName>
+    <externalId>false</externalId>
+    <label>Subtype</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Type__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Customer Kickoff call</fullName>
+                <default>false</default>
+                <label>Customer Kickoff call</label>
+            </value>
+            <value>
+                <fullName>QBR Call</fullName>
+                <default>false</default>
+                <label>QBR Call</label>
+            </value>
+            <value>
+                <fullName>Renewal call</fullName>
+                <default>false</default>
+                <label>Renewal call</label>
+            </value>
+            <value>
+                <fullName>Onboarding call</fullName>
+                <default>false</default>
+                <label>Onboarding call</label>
+            </value>
+            <value>
+                <fullName>Message Sent</fullName>
+                <default>false</default>
+                <label>Message Sent</label>
+            </value>
+            <value>
+                <fullName>Message Opened</fullName>
+                <default>false</default>
+                <label>Message Opened</label>
+            </value>
+            <value>
+                <fullName>Link Clicked in Message</fullName>
+                <default>false</default>
+                <label>Link Clicked in Message</label>
+            </value>
+            <value>
+                <fullName>Attachment Opened in Message</fullName>
+                <default>false</default>
+                <label>Attachment Opened in Message</label>
+            </value>
+            <value>
+                <fullName>Presentation Viewed in Message</fullName>
+                <default>false</default>
+                <label>Presentation Viewed in Message</label>
+            </value>
+            <value>
+                <fullName>Reply</fullName>
+                <default>false</default>
+                <label>Reply</label>
+            </value>
+            <value>
+                <fullName>Prospect demo</fullName>
+                <default>false</default>
+                <label>Prospect demo</label>
+            </value>
+            <value>
+                <fullName>Decision Maker demo</fullName>
+                <default>false</default>
+                <label>Decision Maker demo</label>
+            </value>
+            <value>
+                <fullName>Customer Individual training</fullName>
+                <default>false</default>
+                <label>Customer Individual training</label>
+            </value>
+            <value>
+                <fullName>Customer Team training</fullName>
+                <default>false</default>
+                <label>Customer Team training</label>
+            </value>
+            <value>
+                <fullName>In-Person</fullName>
+                <default>false</default>
+                <label>In-Person</label>
+            </value>
+            <value>
+                <fullName>Attempt/ Left message</fullName>
+                <default>false</default>
+                <label>Attempt/ Left message</label>
+            </value>
+            <value>
+                <fullName>Prospect Qualification call</fullName>
+                <default>false</default>
+                <label>Prospect Qualification call</label>
+            </value>
+            <value>
+                <fullName>Prospect Cold call</fullName>
+                <default>false</default>
+                <label>Prospect Cold call</label>
+            </value>
+            <value>
+                <fullName>Sales Discovery call</fullName>
+                <default>false</default>
+                <label>Sales Discovery call</label>
+            </value>
+            <value>
+                <fullName>Sales Pricing call</fullName>
+                <default>false</default>
+                <label>Sales Pricing call</label>
+            </value>
+            <value>
+                <fullName>Sales Scoping call</fullName>
+                <default>false</default>
+                <label>Sales Scoping call</label>
+            </value>
+            <value>
+                <fullName>Legal call</fullName>
+                <default>false</default>
+                <label>Legal call</label>
+            </value>
+            <value>
+                <fullName>Follow-up call</fullName>
+                <default>false</default>
+                <label>Follow-up call</label>
+            </value>
+            <value>
+                <fullName>Conversation</fullName>
+                <default>false</default>
+                <label>Conversation</label>
+            </value>
+            <value>
+                <fullName>On-site QBR (CSM)</fullName>
+                <default>false</default>
+                <label>On-site QBR (CSM)</label>
+            </value>
+            <value>
+                <fullName>Executive briefing</fullName>
+                <default>false</default>
+                <label>Executive briefing</label>
+            </value>
+            <value>
+                <fullName>Commercial talks (Sale, upsell, renewal)</fullName>
+                <default>false</default>
+                <label>Commercial talks (Sale, upsell, renewal)</label>
+            </value>
+            <value>
+                <fullName>Internal</fullName>
+                <default>false</default>
+                <label>Internal</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Call</controllingFieldValue>
+            <valueName>Customer Kickoff call</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Call</controllingFieldValue>
+            <valueName>QBR Call</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Call</controllingFieldValue>
+            <valueName>Renewal call</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Call</controllingFieldValue>
+            <valueName>Onboarding call</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Demo/training</controllingFieldValue>
+            <valueName>Prospect demo</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Demo/training</controllingFieldValue>
+            <valueName>Decision Maker demo</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Demo/training</controllingFieldValue>
+            <valueName>Customer Individual training</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Demo/training</controllingFieldValue>
+            <valueName>Customer Team training</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Email</controllingFieldValue>
+            <valueName>Message Sent</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Email</controllingFieldValue>
+            <valueName>Message Opened</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Email</controllingFieldValue>
+            <valueName>Link Clicked in Message</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Email</controllingFieldValue>
+            <valueName>Attachment Opened in Message</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Email</controllingFieldValue>
+            <valueName>Presentation Viewed in Message</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Email</controllingFieldValue>
+            <valueName>Reply</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Internal</controllingFieldValue>
+            <valueName>Internal</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

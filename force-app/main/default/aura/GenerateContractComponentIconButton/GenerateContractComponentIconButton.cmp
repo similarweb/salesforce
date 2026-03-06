@@ -1,0 +1,50 @@
+<aura:component extends="c:GenericQuoteButton" controller="ZuoraContractGenerationController">
+    <aura:attribute name="recordId" type="String" />
+    <aura:attribute name="isLoading" type="Boolean" default="false"/>
+    <aura:attribute name="salesforceFileId" type="String" />
+    <aura:attribute name="zuoraFileUrl" type="String" />
+    <aura:attribute name="buttonLabel" type="String" default="Generate contract"/>
+    <aura:attribute name="isDisabled" type="Boolean" default="false"/>
+    <aura:attribute name="isPassed" type="Boolean" default="false"/>
+    <aura:attribute name="finalizeQuote" type="Boolean" default="false"/>
+    <aura:attribute name="isValidate" type="Boolean" default="true"/>
+    <aura:attribute name="isGenerateContract" type="Boolean" default="false"/>
+    <aura:attribute name="isOpenModal" type="Boolean" default="false"/>
+    <aura:attribute name="isSpinner" type="boolean" default="false"/>
+    <aura:attribute name="targetTotal" type="String" />
+    <aura:attribute name="renewalFee" type="String" />
+    <aura:attribute name="storedQuoteId" type="String" />
+    <aura:registerEvent name="ApplicationRefresgEvent" type="c:ApplicationRefresgEvent"/>
+    <lightning:navigation aura:id="navService"/>
+
+    <aura:handler name="gcEvent" event="c:GenerateContractEvent" action="{!c.handleGenerateContractEvent}"/>
+    <aura:handler name="asEvent" event="c:ASProductEvent" action="{!c.handleASProductEvent}"/>
+
+    <button disabled="{!v.isDisabled}" 
+            class="{! 'slds-button slds-button_brand ff ' + if(and(v.isDisabled,v.isPending),'pendingButton',if(and(not(v.isDisabled),v.isPassed),'passedGenerateProposalButton',if(v.isPassed, 'passedButton',if(v.isDisabled,'disabledButton','enabledButton'))))}"
+            onclick="{!c.onButtonClick}">
+        {!v.buttonLabel}
+    </button>
+    <!-- if(equals(v.buttonLabel,'Proforma Invoice'),false,v.isDisabled) -->
+    <aura:if isTrue="{!v.isLoading}">
+        <!-- <lightning:spinner alternativeText="Loading" size="large" /> -->
+        <c:testSpinner/>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </aura:if>
+
+    <aura:if isTrue="{!v.isSpinner}">
+        <lightning:spinner alternativeText="Loading" size="large"/>
+    </aura:if>
+
+    <c:ASProductModal
+        isOpenModal="{!v.isOpenModal}"
+        recordId="{!v.recordId}"
+        isGenerateContractFlow="true"
+        targetPriceValue="{!v.targetTotal}"
+        renewalFeeValue="{!v.renewalFee}"
+    />
+    <aura:if isTrue="{!v.openNewModal}">
+    <c:MyModal aura:id="MyModalInstance" recordId="{!v.recordId}"/>
+    </aura:if>
+
+</aura:component>

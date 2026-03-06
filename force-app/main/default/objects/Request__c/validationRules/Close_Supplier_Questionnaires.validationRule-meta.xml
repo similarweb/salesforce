@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Close_Supplier_Questionnaires</fullName>
+    <active>false</active>
+    <errorConditionFormula>ISCHANGED(Status__c)&amp;&amp;
+(ISPICKVAL(Status__c, &apos;Completed&apos;) ||
+ ISPICKVAL(Status__c, &apos;Cancelled&apos;)) &amp;&amp;
+RecordType.DeveloperName = &apos;Supplier_Questionnaires&apos; &amp;&amp;
+$Profile.Name &lt;&gt; &apos;System Administrator&apos; &amp;&amp;
+$User.Id &lt;&gt; &apos;005b0000001vvML&apos;</errorConditionFormula>
+    <errorMessage>Only Avi Israel can close supplier questionnaire requests. Please seek his assistance.</errorMessage>
+</ValidationRule>

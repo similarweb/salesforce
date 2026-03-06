@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>64.0</apiVersion>
+    <assignments>
+        <name>Assign_Opp_Fields</name>
+        <label>Assign Opp Fields</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>Get_Opp_Fields.medpic_Recommended_Close_Date__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Summary_Recommended_Close_Date</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Upudate_Opp_Fields</targetReference>
+        </connector>
+    </assignments>
+    <description>Will trigger from flow: Opportunity_sc_Next_Stage
+From schduled flow: Opportunity - Scheduled - Daily Re-calculate MEDDPICC Recommended Close Date
+And from opp after save
+And from Code</description>
+    <environments>Default</environments>
+    <formulas>
+        <description>{!Summary_Recommended_Close_Date} matches the actual date stored in medpic_Recommended_Close_Date__c on the Opportunity.
+
+Problem:
+The field {!Summary_Recommended_Close_Date} contains a long text string in a fixed format, for example:
+
+Your current close date is 2025-08-21 The recommended close date is 2025-08-21 or later 🟩
+
+
+Since the date appears inside plain text, it cannot be directly compared with a Date field.
+
+Solution:
+
+Use FIND to locate the starting position of the phrase &quot;Your current close date is &quot;.
+
+Use MID to extract the next 10 characters → the date in YYYY-MM-DD format.
+
+Use DATEVALUE to convert this string into a valid Date value.
+
+Compare it against the Opportunity field medpic_Recommended_Close_Date__c.
+
+Result:
+The formula returns TRUE if the extracted date equals the recommended Close Date, and FALSE otherwise.</description>
+        <name>Close_Dates_Equal</name>
+        <dataType>Boolean</dataType>
+        <expression>IF(
+  CONTAINS({!Get_Opp_Fields.medpic_Recommended_Close_Date__c}, &quot;Your current close date is &quot;),
+  DATEVALUE(
+    MID(
+    {!Get_Opp_Fields.medpic_Recommended_Close_Date__c},
+      FIND(&quot;Your current close date is &quot;,{!Get_Opp_Fields.medpic_Recommended_Close_Date__c}) + LEN(&quot;Your current close date is &quot;),
+      10
+    )
+  ) = {!Get_Opp_Fields.CloseDate},
+  FALSE
+)</expression>
+    </formulas>
+    <formulas>
+        <name>Recommend_Close_Date_Verdict</name>
+        <dataType>String</dataType>
+        <expression>IF(
+  TEXT({!Get_Opp_Fields.StageName}) = &quot;Initial Discovery&quot;,
+  &quot;Initial Discovery&quot;,
+  IF(
+    CASE(
+      IF(
+        AND(
+          {!verdict_CloseDate_1_champion} = &quot;🟩&quot;,
+          {!verdict_CloseDate_2_Identify_Pain} = &quot;🟩&quot;,
+          {!verdict_CloseDate_3_Decision_Criteria} = &quot;🟩&quot;,
+          {!verdict_CloseDate_4_Decision_Process} = &quot;🟩&quot;,
+          {!verdict_CloseDate_5_EconomicBuyer} = &quot;🟩&quot;,
+          {!verdict_CloseDate_7_Paper_Process} = &quot;🟩&quot;
+        ),
+        IF(
+       TEXT({!Get_Opp_Fields.StageName}) = &quot;Contracts&quot;,
+          &quot;Contracts&quot;,
+          &quot;Scope Confirmation&quot;
+        ),
+        IF(
+          AND(
+            {!verdict_CloseDate_1_champion} = &quot;🟩&quot;,
+            {!verdict_CloseDate_2_Identify_Pain} = &quot;🟩&quot;,
+            {!verdict_CloseDate_3_Decision_Criteria} = &quot;🟩&quot;,
+            {!verdict_CloseDate_4_Decision_Process} = &quot;🟩&quot;,
+            {!verdict_CloseDate_5_EconomicBuyer} = &quot;🟩&quot;
+          ),
+          &quot;Solution Validation&quot;,
+          IF(
+            AND(
+              {!verdict_CloseDate_1_champion} = &quot;🟩&quot;,
+              {!verdict_CloseDate_2_Identify_Pain} = &quot;🟩&quot;,
+              {!verdict_CloseDate_3_Decision_Criteria} = &quot;🟩&quot;
+            ),
+            &quot;Sales Qualified&quot;,
+            &quot;Initial Discovery&quot;
+          )
+        )
+      ),
+      &quot;Initial Discovery&quot;, 1,
+      &quot;Sales Qualified&quot;, 2,
+      &quot;Solution Validation&quot;, 3,
+      &quot;Scope Confirmation&quot;, 4,
+      &quot;Contracts&quot;, 5,
+      0
+    )
+    &lt;=
+    CASE(
+     TEXT({!Get_Opp_Fields.StageName}),
+      &quot;Initial Discovery&quot;, 1,
+      &quot;Sales Qualified&quot;, 2,
+      &quot;Solution Validation&quot;, 3,
+      &quot;Scope Confirmation&quot;, 4,
+      &quot;Contracts&quot;, 5,
+      0
+    ),
+    IF(
+      AND(
+        {!verdict_CloseDate_1_champion} = &quot;🟩&quot;,
+        {!verdict_CloseDate_2_Identify_Pain} = &quot;🟩&quot;,
+        {!verdict_CloseDate_3_Decision_Criteria} = &quot;🟩&quot;,
+        {!verdict_CloseDate_4_Decision_Process} = &quot;🟩&quot;,
+        {!verdict_CloseDate_5_EconomicBuyer} = &quot;🟩&quot;,
+        {!verdict_CloseDate_7_Paper_Process} = &quot;🟩&quot;
+      ),
+      IF(
+    TEXT({!Get_Opp_Fields.StageName}) = &quot;Contracts&quot;,
+        &quot;Contracts&quot;,
+        &quot;Scope Confirmation&quot;
+      ),
+      IF(
+        AND(
+          {!verdict_CloseDate_1_champion} = &quot;🟩&quot;,
+          {!verdict_CloseDate_2_Identify_Pain} = &quot;🟩&quot;,
+          {!verdict_CloseDate_3_Decision_Criteria} = &quot;🟩&quot;,
+          {!verdict_CloseDate_4_Decision_Process} = &quot;🟩&quot;,
+          {!verdict_CloseDate_5_EconomicBuyer} = &quot;🟩&quot;
+        ),
+        &quot;Solution Validation&quot;,
+        IF(
+          AND(
+            {!verdict_CloseDate_1_champion} = &quot;🟩&quot;,
+            {!verdict_CloseDate_2_Identify_Pain} = &quot;🟩&quot;,
+            {!verdict_CloseDate_3_Decision_Criteria} = &quot;🟩&quot;
+          ),
+          &quot;Sales Qualified&quot;,
+          &quot;Initial Discovery&quot;
+        )
+      )
+    ),
+ TEXT({!Get_Opp_Fields.StageName})
+  )
+)</expression>
+    </formulas>
+    <formulas>
+        <name>Recommended_Close_Date</name>
+        <dataType>String</dataType>
+        <expression>IF(
+ {!Get_Opp_Fields.CloseDate} &gt;= 
+  CASE(
+    {!Recommend_Close_Date_Verdict},
+    &quot;Initial Discovery&quot;, TODAY() + 120,
+    &quot;Sales Qualified&quot;, TODAY() + 120,
+    &quot;Solution Validation&quot;, TODAY() + 60,
+    &quot;Scope Confirmation&quot;, TODAY() + 10,
+    &quot;Contracts&quot;, TODAY(),
+    TODAY()
+  ),
+  &quot;Your current close date is &quot; &amp; TEXT( {!Get_Opp_Fields.CloseDate} ) &amp; BR() &amp;
+  &quot;The recommended close date is  &quot; &amp; TEXT(
+    CASE(
+      {!Recommend_Close_Date_Verdict},
+      &quot;Initial Discovery&quot;, TODAY() + 120,
+      &quot;Sales Qualified&quot;, TODAY() + 120,
+      &quot;Solution Validation&quot;, TODAY() + 60,
+      &quot;Scope Confirmation&quot;, TODAY() + 10,
+      &quot;Contracts&quot;, TODAY(),
+      TODAY()
+    )
+  )  &amp; &quot; or later 🟩&quot;,
+  &quot;Your current close date is &quot; &amp; TEXT( {!Get_Opp_Fields.CloseDate}) &amp; BR() &amp;
+  &quot;The recommended close date is &quot; &amp; TEXT(
+    CASE(
+      {!Recommend_Close_Date_Verdict},
+      &quot;Initial Discovery&quot;, TODAY() + 120,
+      &quot;Sales Qualified&quot;, TODAY() + 120,
+      &quot;Solution Validation&quot;, TODAY() + 60,
+      &quot;Scope Confirmation&quot;, TODAY() + 10,
+      &quot;Contracts&quot;, TODAY(),
+      TODAY()
+    )
+  ) &amp; &quot; 🟥&quot;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>SMB_Recommended_Close_Date</name>
+        <dataType>String</dataType>
+        <expression>IF(
+   {!Get_Opp_Fields.CloseDate}  &gt;= 
+  CASE(
+    {!Recommend_Close_Date_Verdict},
+    &quot;Initial Discovery&quot;, TODAY() + 40,
+    &quot;Sales Qualified&quot;, TODAY() + 28,
+    &quot;Solution Validation&quot;, TODAY() +14,
+    &quot;Scope Confirmation&quot;, TODAY() + 3,
+    &quot;Contracts&quot;, TODAY(),
+    TODAY()
+  ),
+  &quot;Your current close date is &quot; &amp; TEXT( {!Get_Opp_Fields.CloseDate}) &amp; BR() &amp;
+  &quot;The recommended close date is &quot; &amp; TEXT(
+    CASE(
+      {!Recommend_Close_Date_Verdict},
+       &quot;Initial Discovery&quot;, TODAY() + 40,
+    &quot;Sales Qualified&quot;, TODAY() + 28,
+    &quot;Solution Validation&quot;, TODAY() +14,
+    &quot;Scope Confirmation&quot;, TODAY() + 3,
+      &quot;Contracts&quot;, TODAY(),
+      TODAY()
+    )
+  )&amp; &quot; or later 🟩&quot;,
+  &quot;Your current close date is &quot; &amp; TEXT( {!Get_Opp_Fields.CloseDate}) &amp; BR() &amp;
+  &quot;The recommended close date is &quot; &amp; TEXT(
+    CASE(
+      {!Recommend_Close_Date_Verdict},
+       &quot;Initial Discovery&quot;, TODAY() + 40,
+    &quot;Sales Qualified&quot;, TODAY() + 28,
+    &quot;Solution Validation&quot;, TODAY() +14,
+    &quot;Scope Confirmation&quot;, TODAY() + 3,
+      &quot;Contracts&quot;, TODAY(),
+      TODAY()
+    )
+  ) &amp; &quot; 🟥&quot;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>Summary_Recommended_Close_Date</name>
+        <dataType>String</dataType>
+        <expression>IF(
+(TEXT({!Get_Opp_Fields.Account.Business_Unit__c})=&apos;Inside Sales&apos;) 
+,{!SMB_Recommended_Close_Date},{!Recommended_Close_Date})</expression>
+    </formulas>
+    <formulas>
+        <name>verdict_CloseDate_1_champion</name>
+        <dataType>String</dataType>
+        <expression>IF(
+IF(
+AND(
+ TEXT({!Get_Opp_Fields.medpic_Champion_Influence_on_Deal__c})=&apos;Yes&apos;, 
+ TEXT({!Get_Opp_Fields.medpic_Champion_Advocating_Stakeholders__c})=&apos;Yes&apos;)
+,1, 0
+)&gt;0, &quot;🟩&quot;,&quot;🟥&quot;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>verdict_CloseDate_2_Identify_Pain</name>
+        <dataType>String</dataType>
+        <expression>IF(
+IF(TEXT({!Get_Opp_Fields.medpic_Customer_Acknowledged_Urgency__c})=&apos;Yes&apos;,1, 
+IF(TEXT({!Get_Opp_Fields.medpic_Impact_of_Challenges_Known__c})=&apos;Yes&apos;,1, 0
+))&gt;0, &quot;🟩&quot;,&quot;🟥&quot;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>verdict_CloseDate_3_Decision_Criteria</name>
+        <dataType>String</dataType>
+        <expression>IF(
+IF(
+TEXT({!Get_Opp_Fields.medpic_Positive_ROI_Success_Demonstrate__c})=&apos;Yes&apos;,1, 0
+)&gt;0, &quot;🟩&quot;,&quot;🟥&quot;)</expression>
+    </formulas>
+    <formulas>
+        <name>verdict_CloseDate_4_Decision_Process</name>
+        <dataType>String</dataType>
+        <expression>IF(
+IF(TEXT({!Get_Opp_Fields.medpic_Decision_Process_Timeline_Set__c})=&apos;Yes&apos;,1, 0
+)&gt;0, &quot;🟩&quot;,&quot;🟥&quot;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>verdict_CloseDate_5_EconomicBuyer</name>
+        <dataType>String</dataType>
+        <expression>IF(
+IF(TEXT({!Get_Opp_Fields.medpic_Decision_Maker_Identified__c})=&apos;Yes&apos;,1, 0
+)&gt;0, &quot;🟩&quot;,&quot;🟥&quot;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>verdict_CloseDate_7_Paper_Process</name>
+        <dataType>String</dataType>
+        <expression>IF(
+IF(TEXT({!Get_Opp_Fields.medpic_Confirmed_No_Roadblocks_In_Quote__c})=&apos;Yes&apos;,1, 0
+)&gt;0, &quot;🟩&quot;,&quot;🟥&quot;
+)</expression>
+    </formulas>
+    <interviewLabel>Opportunity - AL {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Opportunity - AL - MEDPIC Calculations</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Get_Opp_Fields</name>
+        <label>Get Opp Fields</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Assign_Opp_Fields</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>recordId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Opportunity</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <name>Upudate_Opp_Fields</name>
+        <label>Update Opp Fields</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <inputReference>Get_Opp_Fields</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_Opp_Fields</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>Close_Date_Changed_Manually</name>
+        <dataType>Boolean</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>Recommended_Close_Date_Value_For_Display</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+        <value>
+            <elementReference>Summary_Recommended_Close_Date</elementReference>
+        </value>
+    </variables>
+    <variables>
+        <name>recordId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

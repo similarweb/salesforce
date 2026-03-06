@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Inside_Sales_can_open_only_Inside_Sales</fullName>
+    <active>true</active>
+    <description>Inside Sales can open only Inside Sales RT</description>
+    <errorConditionFormula>AND(
+    ISNEW(),
+    RecordType.Id &lt;&gt; &apos;012b0000000cffr&apos;,
+    $User.Username &lt;&gt; &apos;marco.benatoff@similarweb.com&apos;,
+    $User.Username &lt;&gt; &apos;liyen.lee@similarweb.com&apos;,
+    CONTAINS($User.Division,&apos;SMB Sales&apos;),
+    $Profile.Id &lt;&gt; &apos;00eb0000000oBvcAAE&apos; 
+)</errorConditionFormula>
+    <errorMessage>You can only use Inside Sales Record Type</errorMessage>
+</ValidationRule>

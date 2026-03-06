@@ -1,0 +1,262 @@
+<apex:page sidebar="false" standardController="zqu__Quote__c" title="Quote details" extensions="QuotePackageDetailController">
+    <apex:form > 
+    <!-- <apex:form style="height:250px; overflow: hidden;">  -->
+        <zqu:QuoteDetail theQuoteId="{!zqu__Quote__c.Id}"/>
+        <apex:outputText value="{!zqu__Quote__c.Dynamic_Base_Product_Users__c} {!zqu__Quote__c.Dynamic_Base_Product_Historical_Data__c} {!zqu__Quote__c.Dynamic_Base_Users_Stand_Alone__c} {!zqu__Quote__c.Default_Base_Product_Addons__c} {!zqu__Quote__c.RecordType.Id} {!zqu__Quote__c.Amendment_Updated_Products__c} {!zqu__Quote__c.Amendment_New_Products__c} {!zqu__Quote__c.Amendment_Deleted_Products__c} {!zqu__Quote__c.Dynamic_Base_Product_Unlimited_results__c} {!zqu__Quote__c.Amendment_New_Updated_Products__c} {!zqu__Quote__c.Dynamic_Base_Product_API_Hits__c} {!zqu__Quote__c.Dynamic_Base_Product_Country__c} {!zqu__Quote__c.Migrating_to_New_Soultion__c} {!zqu__Quote__c.Amendment_Renewal_Prodcuts__c}" rendered="false"/>
+        <apex:outputText value="{!zqu__Quote__c.Dynamic_Base_Product_Unlimited_results__c}" rendered="false"/>
+    </apex:form>
+    <style>
+        #zqu-quoteDetailPanel .zhelpOrb{
+            right: auto;
+            width: 7px;
+            height: 7px;
+        }
+
+        .bPageBlock .detailList .data2Col {
+            width: 50%;
+        }
+    </style>
+    <script>
+        defaultZuoraPageLogic();
+        var sectionToShow = 'second_section';
+        showSpecificSectionAndHideOther(sectionToShow);
+        removeBuffers();
+        setSectionAsFirst(sectionToShow);
+        removeStandardPaddingFromBody();
+        setTimeout(() => {
+            removeStandardPaddingFromTd();    
+        }, 1000);
+        correctDynamicFieldsStyling();
+        removeHorizontalMarginFromBrandSecondary();
+        alignTextLeftInTh();
+        packageDetailLogic();
+        checkIfZuoraConflictExist();
+
+        function checkIfZuoraConflictExist(){
+            Visualforce.remoting.Manager.invokeAction(
+                '{!$RemoteAction.QuotePackageDetailController.checkIfZuoraConflictExist}',
+                '{!zqu__Quote__c.Id}',
+                function(result, event){
+                    if (!event.status) {
+                        console.log('ERROR: ' + event.message);
+                    } 
+                },
+                { escape: false }
+            );
+
+        }
+            
+        function defaultZuoraPageLogic(){
+            if(!document.getElementsByClassName){
+                document.getElementsByClassName = function(className, element){
+                    var children = (element || document).getElementsByTagName('*');
+                    var elements = new Array();
+                    for (var i=0; i<children.length; i++){
+                        var child = children[i];
+                        if((' ' + child.className + ' ').indexOf(' ' + className + ' ') > -1){
+                        elements.push(child);
+                        }
+                    } 
+                    return elements;
+                };
+            }
+            function init() {
+            var headerElements = document.getElementsByClassName('pbHeader');
+                for ( var i=0; i<headerElements.length; i++ ) {
+                    headerElements[i].style.display = 'none';
+                }
+            }
+                
+            var previousOnload = window.onload;
+                window.onload = function () {
+                if (previousOnload) {
+                    previousOnload();
+                }
+                init();
+            };   
+        }
+
+        function packageDetailLogic(){
+            removeAllFromSection(sectionToShow);
+            addDataToSectionTable(sectionToShow);
+        }
+
+        function removeAllFromSection(sectionName){
+            var sectionEl = document.querySelector('[data-section-name=' + sectionName + ']');
+            if (!sectionEl) {
+                return;
+            }
+            var tbodyArr = sectionEl.getElementsByTagName('tbody');
+            for (const tbody of tbodyArr) {
+                for (const child_i of [...tbody.childNodes]) {
+                    tbody.removeChild(child_i);
+                }
+            }
+        }
+
+        function addDataToSectionTable(sectionName){
+            var sectionEl = document.querySelector('[data-section-name=' + sectionName + ']');
+            if (!sectionEl) {
+                return;
+            }
+            var quoteDataList = JSON.parse('{!quoteDataListJson}');
+            console.log('quoteDataList ', quoteDataList);
+            var htmlQuoteDataList = [];
+            for (const quoteData_i of quoteDataList) {
+                var trEl = document.createElement('tr');
+                var firstTdEl = document.createElement('td');
+                firstTdEl.classList.add('data2Col');
+                firstTdEl.style.paddingLeft = '0px';
+            
+                if(quoteData_i.ratePlan){
+                    var spanEL = document.createElement('span');
+                    spanEL.innerHTML = quoteData_i.ratePlan;
+                    firstTdEl.appendChild(spanEL);
+                }
+                if(quoteData_i.newUpdatedProduct){
+                    var spanEL = document.createElement('span');
+                    spanEL.innerHTML = quoteData_i.newUpdatedProduct;
+                    firstTdEl.appendChild(spanEL);
+                }
+                trEl.appendChild(firstTdEl);
+            
+                if(quoteData_i.packageDetail){
+                    var secondTdEl = document.createElement('td');
+                    secondTdEl.classList.add('data2Col');
+                    secondTdEl.style.paddingLeft = '0px';
+                    var spanEL = document.createElement('span');
+                    spanEL.innerHTML = quoteData_i.packageDetail;
+                    secondTdEl.appendChild(spanEL);
+                    trEl.appendChild(secondTdEl);
+                }
+                
+                if(quoteData_i.deletedProduct){
+                            var secondTdEl = document.createElement('td');
+                            secondTdEl.classList.add('data2Col');
+                            secondTdEl.style.paddingLeft = '0px';
+                            var spanEL = document.createElement('span');
+                            spanEL.innerHTML = quoteData_i.deletedProduct;
+                            secondTdEl.appendChild(spanEL);
+                            trEl.appendChild(secondTdEl);
+                }
+                htmlQuoteDataList.push(trEl);
+            }
+            if (htmlQuoteDataList.length && htmlQuoteDataList.length > 0) {
+                for (const htmlQuoteData_i of htmlQuoteDataList[0].childNodes) {
+                    htmlQuoteData_i.classList.add('first');
+                }
+                for (const htmlQuoteData_i of htmlQuoteDataList[(htmlQuoteDataList.length -1)].childNodes) {
+                    htmlQuoteData_i.classList.add('last');
+                }
+            }
+            var tbodyArr = sectionEl.getElementsByTagName('tbody');
+            for (const tbody of tbodyArr) {
+                for (const htmlQuoteData_i of htmlQuoteDataList) {
+                    tbody.appendChild(htmlQuoteData_i);
+                }
+            }
+        }
+
+        function removeStandardPaddingFromBody() {
+            var elArr = document.getElementsByTagName('body');
+            if (!elArr || elArr.length < 1) {
+                return;
+            }
+            var bodyEl = elArr[0];
+            bodyEl.style.padding = "0px 0px 0px 0px";
+        }
+
+        function removeStandardPaddingFromTd() {
+            var elArr = document.getElementsByTagName('td');
+            for (const td_i of elArr) {
+                td_i.style.paddingLeft = "0px";
+            }
+        }
+
+        function removeHorizontalMarginFromBrandSecondary(){
+            var elArr = document.getElementsByClassName('brandSecondaryBrd')
+            if (!elArr || elArr.length < 1) {
+                return;
+            }
+            var brandSecondaryBrdDivEl = elArr[0];
+            brandSecondaryBrdDivEl.style.setProperty( 'margin-left', '0px', 'important' );
+            brandSecondaryBrdDivEl.style.setProperty( 'margin-right', '0px', 'important' );
+        }
+
+        function alignTextLeftInTh(){
+            for (const thEl_i of document.getElementsByTagName('th')) {
+                thEl_i.style.textAlign = 'left';
+            }
+        }
+
+        function correctDynamicFieldsStyling(){
+            var parentSpanArr = document.querySelectorAll('[data-id=customRenderedSubTotal],[data-id=customRenderedTax],[data-id=customRenderedTotal]')
+            for (const parentSpan_i of parentSpanArr) {
+                var spantToCorrectArr = parentSpan_i.getElementsByClassName('labelCol');
+                for (const spantToCorrect_i of spantToCorrectArr) {
+                    spantToCorrect_i.style.textAlign='left';
+                }
+                var imgToCorrectArr = parentSpan_i.getElementsByTagName('img');
+                for (const img_i of imgToCorrectArr) {
+                    if (img_i.classList.contains('zhelpOrb')) {
+                        img_i.classList.remove('zhelpOrb');
+                        img_i.classList.add('helpOrb');
+                    }
+                }
+            }
+        }
+
+        function showSpecificSectionAndHideOther(sectionNameToShow){
+            var sectionArr = document.querySelectorAll('[data-section-name]');
+            for (const sectionArr_i of sectionArr) {
+                if (sectionArr_i.dataset.sectionName != sectionNameToShow) {
+                    sectionArr_i.style.display = 'none';
+                }
+            }
+
+        }
+
+        function removeBuffers(){
+            var bufferArr = document.getElementsByClassName('buffer');
+            for (const buffer_i of bufferArr) {
+                var bufferParent = buffer_i.parentNode;
+                bufferParent.removeChild(buffer_i);
+            }
+        }
+
+        function setSectionAsFirst(sectionName){
+            var sectionEl = document.querySelector('[data-section-name=' + sectionName + ']');
+            if (!sectionEl) {
+                return;
+            }
+            var subheaderArr = sectionEl.getElementsByClassName('pbSubheader');
+            for (const subheader of subheaderArr) {
+                if (!subheader.classList.contains('first')) {
+                    subheader.classList.add('first');
+                }
+            }
+        }
+    </script>    
+     <apex:outputPanel rendered="{!recordType == 'Amendment'}">
+        <style>
+            .detailList td.first{
+                font-weight: bold;
+                color: black;
+            }
+            
+            .detailList td {
+                padding: 4px 3px 4px 8px !important;
+            }
+        </style>
+        <script>
+            //Hide default header
+            var pbSubheader = document.querySelectorAll('div.pbSubheader.brandTertiaryBgr.tertiaryPalette.first');
+            console.log(pbSubheader);
+            if (pbSubheader.length > 0) {
+                for (var i of pbSubheader) {
+                    i.style='display:none';            
+                }
+            }   
+        </script>
+    </apex:outputPanel>
+</apex:page>

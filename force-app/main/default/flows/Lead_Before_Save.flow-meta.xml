@@ -1,0 +1,3890 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>62.0</apiVersion>
+    <assignments>
+        <description>MIS-4553</description>
+        <name>Assign_Default_DMI_Nurture_Flow</name>
+        <label>Assign Default DMI Nurture Flow</label>
+        <locationX>622</locationX>
+        <locationY>11219</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Job_Titles_Persona_Calculated__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>DMI Nurture Flow</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Is_Owner_Inactive</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Assign the Default value Apps name and number</description>
+        <name>Assign_Default_value_App</name>
+        <label>Assign Default value App</label>
+        <locationX>776</locationX>
+        <locationY>14003</locationY>
+        <assignmentItems>
+            <assignToReference>Counter</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.App_Web_Form_Counter__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>formname</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Web_Form_Name__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Copy_1_of_Update_Shopper_values</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Assign the Default value Shopper name and number</description>
+        <name>Assign_Default_value_Shopper</name>
+        <label>Assign Default value Shopper</label>
+        <locationX>1040</locationX>
+        <locationY>14003</locationY>
+        <assignmentItems>
+            <assignToReference>Counter</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Shopper_Web_Form_Counter__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>formname</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Web_Form_Name__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>test_66</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>MIS-4553</description>
+        <name>Assign_DMI_Nurture_Flow</name>
+        <label>Assign DMI Nurture Flow</label>
+        <locationX>50</locationX>
+        <locationY>10661</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Job_Titles_Persona_Calculated__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>DMI Nurture Flow</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Is_Owner_Inactive</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Employees_Min_Max</name>
+        <label>Assign Employees Min &amp; Max</label>
+        <locationX>908</locationX>
+        <locationY>14819</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Employees_Min__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>fr_EmployeesMin</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Employees_Max__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>fr_EmployeesMax</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <name>Assign_Marketing_Persona_Apps</name>
+        <label>Assign Marketing_Persona = &apos;Apps&apos;</label>
+        <locationX>325</locationX>
+        <locationY>11927</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Marketing_Persona__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Apps</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Owner_is_Changed</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Marketing_Persona_by_Current_Registration_Type</name>
+        <label>Assign Marketing Persona by Current Registration Type</label>
+        <locationX>853</locationX>
+        <locationY>12251</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Marketing_Persona__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Calc_Marketing_Persona_By_current_registration_type</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Owner_is_Changed</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Marketing_Persona_Shopper</name>
+        <label>Assign Marketing_Persona = &apos;Shopper&apos;</label>
+        <locationX>61</locationX>
+        <locationY>11927</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Marketing_Persona__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Shopper</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Owner_is_Changed</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>MIS-4553</description>
+        <name>Assign_Metadata_Value_to_Persona</name>
+        <label>Assign Metadata Value to Persona</label>
+        <locationX>578</locationX>
+        <locationY>10877</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Job_Titles_Persona_Calculated__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Job_Titles_Persona_Metadata.Job_Titles_Persona__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Is_Owner_Inactive</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>MIS-4553</description>
+        <name>Assign_Null_Persona</name>
+        <label>Assign Null Persona</label>
+        <locationX>1194</locationX>
+        <locationY>10661</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Job_Titles_Persona_Calculated__c</assignToReference>
+            <operator>Assign</operator>
+        </assignmentItems>
+        <connector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Is_Owner_Inactive</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>MIS-4553</description>
+        <name>Assign_Sales_Nurture_Flow</name>
+        <label>Assign Sales Nurture Flow</label>
+        <locationX>314</locationX>
+        <locationY>10661</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Job_Titles_Persona_Calculated__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Sales Nurture Flow</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Is_Owner_Inactive</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Timestamp</name>
+        <label>Assign Timestamp</label>
+        <locationX>908</locationX>
+        <locationY>8945</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.First_A_C_Company_Timestamp__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Now_Formula</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Company_not_provided</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>MIS-4783</description>
+        <name>Assign_to_SFAdmin_and_Ready_For_Routing</name>
+        <label>Assign to SFAdmin and Ready For Routing</label>
+        <locationX>908</locationX>
+        <locationY>11519</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.OwnerId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>005b0000002iwIAAAY</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Ready_For_Routing__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Rule_MPL_Marketing_Persona_Logic</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Clear_Employees_Min_Max</name>
+        <label>Clear Employees Min &amp; Max</label>
+        <locationX>1172</locationX>
+        <locationY>14819</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Employees_Min__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>var_NullNumber</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Employees_Max__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>var_NullNumber</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.SI_Employees_Type__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue></stringValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <description>add 1 to the counter and update the name</description>
+        <name>Copy_1_of_Update_Shopper_values</name>
+        <label>Update Apps values</label>
+        <locationX>776</locationX>
+        <locationY>14111</locationY>
+        <assignmentItems>
+            <assignToReference>Counter</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <numberValue>1.0</numberValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>formname</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>{!formname}_1</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Save_Apps_Form_name</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Don_t_sync_to_SFMC</name>
+        <label>Don&apos;t sync to SFMC</label>
+        <locationX>1326</locationX>
+        <locationY>5387</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Sync_to_Sfmc__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Marketing_System_Processed_by__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>SFMC</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Is_Distribution_Handled__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Is_no_longer_Owner_Website_Incomplete_Leads</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>FC_Update_Field_First_Form_Complete_URL</name>
+        <label>FC - Update Field: First Form Complete URL</label>
+        <locationX>908</locationX>
+        <locationY>1595</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.First_Form_Complete_URL__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Form_Complete_URL__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>OwnerIsChanched</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Generate_OptOut_Timestamp</name>
+        <label>Generate OptOut Timestamp</label>
+        <locationX>842</locationX>
+        <locationY>4295</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Email_Opt_Out_Date__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Now_Formula</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Lead_Source_Change</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Owner_is_not_Incomplete_queue</name>
+        <label>Owner is not Incomplete queue</label>
+        <locationX>908</locationX>
+        <locationY>5879</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Incomplete_queue__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue></stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Is_status_changed</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Populate</name>
+        <label>Populate</label>
+        <locationX>908</locationX>
+        <locationY>3395</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Domain_Routing_Group__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Business_Unit__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Not_Isnull_Current_Registration_Type</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>SI_Enrichment_Timestamp_Update</name>
+        <label>SI Enrichment Timestamp Update</label>
+        <locationX>908</locationX>
+        <locationY>14519</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.SI_Enrichment_Timestamp__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Now_Formula</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Check_SI_Employee_Type_Format</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Sync_to_sfmc</name>
+        <label>Sync to sfmc</label>
+        <locationX>842</locationX>
+        <locationY>5279</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Sync_to_Sfmc__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Marketing_System_Processed_by__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>SFMC</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Is_Distribution_Handled__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Is_lead_Synced_to_SFMC</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>add 1 to the counter and update the name</description>
+        <name>test_66</name>
+        <label>Update Shopper values</label>
+        <locationX>1040</locationX>
+        <locationY>14111</locationY>
+        <assignmentItems>
+            <assignToReference>Counter</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <numberValue>1.0</numberValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>formname</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>{!formname}_1</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Save_Shopper_Form_name</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>TimeStamp</name>
+        <label>TimeStamp</label>
+        <locationX>1106</locationX>
+        <locationY>4403</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.UTM_Source_TimeStamp__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Now_Formula</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Lead_Source_Change</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Timestamp_status_change</name>
+        <label>Timestamp status change</label>
+        <locationX>908</locationX>
+        <locationY>6179</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Status_changed_timestamp__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Now_Formula</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Rule_FA_First_Activity</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Update_CancellationSurvey_Date</name>
+        <label>Update CancellationSurvey Date</label>
+        <locationX>908</locationX>
+        <locationY>13703</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.CancellationSurvey_Date__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>fr_TODAY</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Add_Counter</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Update_Division</name>
+        <label>Update Division</label>
+        <locationX>908</locationX>
+        <locationY>1895</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Division_Text__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Owner:User.Division</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Number_of_Employees_MinMax</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Update_Email_Address_Domain_type_details_by_Domain_type</name>
+        <label>Update Email Address Domain type details by Domain type</label>
+        <locationX>1172</locationX>
+        <locationY>8645</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Email_Address_Domain_Type_Details__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Email_address_domain_type__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>First_A_C_Company_Timestamp</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Update_Email_Address_Domain_type_details_to_Linkedin</name>
+        <label>Update Email Address Domain type details to Linkedin</label>
+        <locationX>644</locationX>
+        <locationY>8645</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Email_Address_Domain_Type_Details__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Company - LinkedIn Login</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>First_A_C_Company_Timestamp</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Update_Email_Address_Domain_type_details_to_LinkedIn_Campaign</name>
+        <label>Update Email Address Domain type details to LinkedIn Campaign</label>
+        <locationX>908</locationX>
+        <locationY>8645</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Email_Address_Domain_Type_Details__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Company - LinkedIn Integration</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>First_A_C_Company_Timestamp</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Update_Lead_Source</name>
+        <label>Update Lead Source</label>
+        <locationX>908</locationX>
+        <locationY>3095</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.LeadSource</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Pardot_Lead_Source__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Populate_the_Leads</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Update_Salesforce_Status</name>
+        <label>Update Salesforce Status</label>
+        <locationX>908</locationX>
+        <locationY>2795</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Status</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Pardot_Status__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Ischanged_Pardot_Lead_Source</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Update_SF_Status</name>
+        <label>Update SF Status</label>
+        <locationX>908</locationX>
+        <locationY>2495</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Status</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Salesloft_Status__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Pardot_Status_Change</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>MIS-4035</description>
+        <name>Update_SFMC_sync_timestamp</name>
+        <label>Update SFMC sync timestamp</label>
+        <locationX>710</locationX>
+        <locationY>5495</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Sync_to_Sfmc_timestamp__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Flow.CurrentDateTime</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Is_no_longer_Owner_Website_Incomplete_Leads</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Update_Timestamp</name>
+        <label>Update Timestamp</label>
+        <locationX>908</locationX>
+        <locationY>3695</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Current_Registration_Type_Timestamp__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Now_Formula</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Verified_Changed</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Verified_Timestamp</name>
+        <label>Verified Timestamp</label>
+        <locationX>908</locationX>
+        <locationY>3995</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Verified_Timestamp__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Now_Formula</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>OptOut_Changed</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>WhatsApp_Opt_Out_Timestamp</name>
+        <label>WhatsApp Opt Out Timestamp</label>
+        <locationX>908</locationX>
+        <locationY>13403</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.WhatsApp_Opt_Out_Date__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>fr_TODAY</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Cancellation_Reason_populated</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <description>MIS-7317 - Check if the form name in the web form name contains app or shopper and update the counter</description>
+        <name>Add_Counter</name>
+        <label>Add Counter value</label>
+        <locationX>1040</locationX>
+        <locationY>13895</locationY>
+        <defaultConnector>
+            <targetReference>SI_Enrichment_Timestamp_Update_Decision</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Add_Counter_To_APP</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Web_Form_Name__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Web_Form_Name__c</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <stringValue>App</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Default_value_App</targetReference>
+            </connector>
+            <label>Add Counter To APP</label>
+        </rules>
+        <rules>
+            <name>Add_Counter_To_Shopper</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Web_Form_Name__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Web_Form_Name__c</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <stringValue>Shopper</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Default_value_Shopper</targetReference>
+            </connector>
+            <label>Add Counter To Shopper</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-6835 CancellationSurvey_Date__c</description>
+        <name>Cancellation_Reason_populated</name>
+        <label>Cancellation Reason populated</label>
+        <locationX>1040</locationX>
+        <locationY>13595</locationY>
+        <defaultConnector>
+            <targetReference>Add_Counter</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Cancellation_Reason_is_Populated</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Cancellation_Reason__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Cancellation_Reason__c</leftValueReference>
+                <operator>IsBlank</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_CancellationSurvey_Date</targetReference>
+            </connector>
+            <label>Cancellation Reason is Populated</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Check_Department</name>
+        <label>Check Department</label>
+        <locationX>985</locationX>
+        <locationY>12143</locationY>
+        <defaultConnector>
+            <targetReference>Update_Marketing_Persona_without_Industry</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Department Is Different</defaultConnectorLabel>
+        <rules>
+            <name>Department_is_Other_Null</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Department__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Other</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Department__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Marketing_Persona_by_Current_Registration_Type</targetReference>
+            </connector>
+            <label>Department is Other\Null</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Check_Manual_Unsync</name>
+        <label>Check Manual Unsync</label>
+        <locationX>886</locationX>
+        <locationY>4787</locationY>
+        <defaultConnector>
+            <targetReference>Is_outbound</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Manual_Unsync_SFMC_true_Opt_In</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Manual_Unsync_SFMC__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.HasOptedOutOfEmail</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Sync_Manual_UnSync_False</targetReference>
+            </connector>
+            <label>Manual Unsync SFMC = true + Opt In</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Check_SI_Employee_Type_Format</name>
+        <label>Check SI Employee Type Format</label>
+        <locationX>1040</locationX>
+        <locationY>14711</locationY>
+        <defaultConnector>
+            <targetReference>Clear_Employees_Min_Max</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Invalid or Null</defaultConnectorLabel>
+        <rules>
+            <name>Valid_Format</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>fr_IsValidFormat</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Employees_Min_Max</targetReference>
+            </connector>
+            <label>Valid Format</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Takes Company name from the Website_Domain__c if the user updated is Qualified</description>
+        <name>Company_not_provided</name>
+        <label>Company = [not provided]</label>
+        <locationX>1040</locationX>
+        <locationY>9137</locationY>
+        <defaultConnector>
+            <targetReference>PPC_Timestamp</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Company_name_not_provided</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Company</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>[not provided]</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Website</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$User.CommunityNickname</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Qualified.Integration</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Company_Name_from_Website_Domain</targetReference>
+            </connector>
+            <label>Company name = [not provided]</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>current_registration_type_Shopper</name>
+        <label>current_registration_type = ‘Shopper’</label>
+        <locationX>523</locationX>
+        <locationY>11819</locationY>
+        <defaultConnector>
+            <targetReference>MPL_Get_Metadata_with_Industry</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>not Shopper Intelligence</defaultConnectorLabel>
+        <rules>
+            <name>Shopper_Value</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Current_Registration_Type__c</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <stringValue>Shopper</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Marketing_Persona_Shopper</targetReference>
+            </connector>
+            <label>Shopper</label>
+        </rules>
+        <rules>
+            <name>Apps</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Current_Registration_Type__c</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <stringValue>app-solution</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Marketing_Persona_Apps</targetReference>
+            </connector>
+            <label>Apps</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-1465</description>
+        <name>decision_RuleCHReassignedFromChiliPiper</name>
+        <label>*Rule (CH)* - Reassigned from ChiliPiper?</label>
+        <locationX>1040</locationX>
+        <locationY>1187</locationY>
+        <defaultConnector>
+            <targetReference>Rule_FC_Update_First_Form_Complete_URL</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>False</defaultConnectorLabel>
+        <rules>
+            <name>outcome_TrueReassignedFromChiliPiper</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.OwnerId</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$User.Username</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <stringValue>chilipiper.integration@similarweb.com</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>update_CHUpdatedRoutedToTrue</targetReference>
+            </connector>
+            <label>True - Reassigned from ChiliPiper</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-3589
+A field on lead and contact which codify the first time a lead is Fit Score A-C and Email Domain contains Company</description>
+        <name>First_A_C_Company_Timestamp</name>
+        <label>First A-C Company Timestamp</label>
+        <locationX>1040</locationX>
+        <locationY>8837</locationY>
+        <defaultConnector>
+            <targetReference>Company_not_provided</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Update_First_A_C_Company_Timestamp</name>
+            <conditionLogic>1 AND (2 OR 3) AND (4 OR 5 OR 6)</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.First_A_C_Company_Timestamp__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Email_address_domain_type__c</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <stringValue>Company</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Email_Address_Domain_Type_Details__c</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <stringValue>Company</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.SW_Fit_Score__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>A</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.SW_Fit_Score__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>B</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.SW_Fit_Score__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>C</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Timestamp</targetReference>
+            </connector>
+            <label>Update First A-C Company Timestamp</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Intent_Score_Feedback_updated</name>
+        <label>Intent Score Feedback - updated</label>
+        <locationX>1040</locationX>
+        <locationY>9845</locationY>
+        <defaultConnector>
+            <targetReference>SSP_Self_Service_Pitched_ISCHANGED</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Updated</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Intent_Score_Feedback__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Intent_Score_Snapshot_and_Timestamp</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>Updated</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-4035</description>
+        <name>Is_lead_Synced_to_SFMC</name>
+        <label>Is lead Synced to SFMC</label>
+        <locationX>842</locationX>
+        <locationY>5387</locationY>
+        <defaultConnector>
+            <targetReference>Is_no_longer_Owner_Website_Incomplete_Leads</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Record_was_not_synced</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record__Prior.Sync_to_Sfmc__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_SFMC_sync_timestamp</targetReference>
+            </connector>
+            <label>Record was not synced</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>SFMC-36</description>
+        <name>Is_no_longer_Owner_Website_Incomplete_Leads</name>
+        <label>Is no longer Owner Website_Incomplete_Leads?</label>
+        <locationX>1040</locationX>
+        <locationY>5771</locationY>
+        <defaultConnector>
+            <targetReference>Is_status_changed</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yep_0</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.OwnerId</leftValueReference>
+                <operator>StartsWith</operator>
+                <rightValue>
+                    <stringValue>005</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Owner_is_not_Incomplete_queue</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-6321 - Sync to SFMC logic update
+MIS-5305
+MIS-3271 - exclude all social login from syncing to SFMC
+Batch process that will run after 15 minutes from creation will handle this</description>
+        <name>Is_outbound</name>
+        <label>Sync to SFMC</label>
+        <locationX>1040</locationX>
+        <locationY>5171</locationY>
+        <defaultConnector>
+            <targetReference>Keep_synced</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Sync_to_SFMC_True</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>FR_SyncToSFMC</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Sync_to_sfmc</targetReference>
+            </connector>
+            <label>Sync to SFMC True</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-4783</description>
+        <name>Is_Owner_Inactive</name>
+        <label>Is Owner Inactive?</label>
+        <locationX>1040</locationX>
+        <locationY>11411</locationY>
+        <defaultConnector>
+            <targetReference>Rule_MPL_Marketing_Persona_Logic</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Owner_is_Inactive_Reassign_to_SF_Admin_and_ReRoute</name>
+            <conditionLogic>1 AND NOT 2 AND 3</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Owner:User.IsActive</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.OwnerId</leftValueReference>
+                <operator>StartsWith</operator>
+                <rightValue>
+                    <stringValue>00G</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.IsConverted</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_to_SFAdmin_and_Ready_For_Routing</targetReference>
+            </connector>
+            <label>Owner is Inactive - Reassign to SF Admin and ReRoute</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-2319</description>
+        <name>Is_status_changed</name>
+        <label>Is status changed</label>
+        <locationX>1040</locationX>
+        <locationY>6071</locationY>
+        <defaultConnector>
+            <targetReference>Rule_FA_First_Activity</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Status_changed</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Status</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Timestamp_status_change</targetReference>
+            </connector>
+            <label>Status changed</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Ischanged_Pardot_Lead_Source</name>
+        <label>Ischanged (Pardot Lead Source)</label>
+        <locationX>1040</locationX>
+        <locationY>2987</locationY>
+        <defaultConnector>
+            <targetReference>Populate_the_Leads</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>False Ischanged (Pardot Lead Source)</defaultConnectorLabel>
+        <rules>
+            <name>True_Ischanged_Pardot_Lead_Source</name>
+            <conditionLogic>(1 OR 2) AND 3</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record__Prior.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Pardot_Lead_Source__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record__Prior.Pardot_Lead_Source__c</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Pardot_Lead_Source__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Lead_Source</targetReference>
+            </connector>
+            <label>True Ischanged (Pardot Lead Source)</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Keep_synced</name>
+        <label>Keep synced?</label>
+        <locationX>1238</locationX>
+        <locationY>5279</locationY>
+        <defaultConnector>
+            <targetReference>Don_t_sync_to_SFMC</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Keep_synced</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.SW_Fit_Score__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>S</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Manual_Unsync_SFMC__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Student_Bypass_SFMC__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Sync_to_Sfmc__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Is_no_longer_Owner_Website_Incomplete_Leads</targetReference>
+            </connector>
+            <label>Yes, Keep synced</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-5181</description>
+        <name>Lead_Source_Change</name>
+        <label>Lead Source Change</label>
+        <locationX>1040</locationX>
+        <locationY>4679</locationY>
+        <defaultConnector>
+            <targetReference>Is_outbound</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Lead Source Not On List</defaultConnectorLabel>
+        <rules>
+            <name>Lead_Source_Changed_to_Value_from_list</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>LeadSourceValueCheck</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.LeadSource</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Check_Manual_Unsync</targetReference>
+            </connector>
+            <label>Lead Source Changed to Value from list</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-6931</description>
+        <name>Lugia_Linkedin_Profile_Update</name>
+        <label>Lugia Linkedin Profile Update?</label>
+        <locationX>1040</locationX>
+        <locationY>287</locationY>
+        <defaultConnector>
+            <targetReference>Rule_EIT_EmailOptOut_ISCHANGED_to_TRUE</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Lugia_Linkedin_Update</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Lugia_Linkedin_Profile__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Lugia_Linkedin_Profile__c</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <stringValue>/in/</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.LinkedIn_Profile__c</leftValueReference>
+                <operator>IsBlank</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Linkedin_Profile</targetReference>
+            </connector>
+            <label>Lugia Linkedin Update</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Most_Recent_UTM_Source_Changed</name>
+        <label>Most Recent UTM Source Changed</label>
+        <locationX>1238</locationX>
+        <locationY>4295</locationY>
+        <defaultConnector>
+            <targetReference>Lead_Source_Change</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>False Most Recent UTM Source Changed</defaultConnectorLabel>
+        <rules>
+            <name>True_Most_Recent_UTM_Source_Changed</name>
+            <conditionLogic>(1 OR 2) AND 3</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record__Prior.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Most_Recent_Marketing_Channel_Source__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record__Prior.Most_Recent_Marketing_Channel_Source__c</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Most_Recent_Marketing_Channel_Source__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>TimeStamp</targetReference>
+            </connector>
+            <label>True Most Recent UTM Source Changed</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Not_Isnull_Current_Registration_Type</name>
+        <label>Not Isnull Current Registration Type</label>
+        <locationX>1040</locationX>
+        <locationY>3587</locationY>
+        <defaultConnector>
+            <targetReference>Verified_Changed</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>False Not Isnull Current Registration Type</defaultConnectorLabel>
+        <rules>
+            <name>True_Not_Isnull_Current_Registration_Type</name>
+            <conditionLogic>3 AND 1 AND NOT 2</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Current_Registration_Type__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Current_Registration_Type__c</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <stringValue>Expired</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Current_Registration_Type__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record__Prior.Current_Registration_Type__c</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Timestamp</targetReference>
+            </connector>
+            <label>True Not Isnull Current Registration Type</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Number_of_Employees_MinMax</name>
+        <label>Number of Employees MinMax</label>
+        <locationX>1040</locationX>
+        <locationY>2087</locationY>
+        <defaultConnector>
+            <targetReference>Salesloft_Status_Change</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Employee_Max_changed_No_Min</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>ISNEW_Formula</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Employees_Min__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <numberValue>0.0</numberValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Employees_Max__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Employees_MinMax_by_Max</targetReference>
+            </connector>
+            <label>Employee Max changed - No Min</label>
+        </rules>
+        <rules>
+            <name>Employee_MinMax_Changed</name>
+            <conditionLogic>2 and (1 or 3)</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Employees_Min__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>ISNEW_Formula</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Employees_Max__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <isGoTo>true</isGoTo>
+                <targetReference>Update_Employees_MinMax_by_Min</targetReference>
+            </connector>
+            <label>Employee MinMax Changed</label>
+        </rules>
+        <rules>
+            <name>Qualified_Update_fields</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$User.CommunityNickname</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Qualified.Integration</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Employees_Min__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record__Prior.Employees_Min__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Employees_MinMax_by_Min</targetReference>
+            </connector>
+            <label>Qualified Update fields</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>OptOut_Changed</name>
+        <label>OptOut Changed</label>
+        <locationX>1040</locationX>
+        <locationY>4187</locationY>
+        <defaultConnector>
+            <targetReference>Most_Recent_UTM_Source_Changed</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>False OptOut Changed</defaultConnectorLabel>
+        <rules>
+            <name>True_OptOut_Changed</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.HasOptedOutOfEmail</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record__Prior.HasOptedOutOfEmail</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record__Prior.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Generate_OptOut_Timestamp</targetReference>
+            </connector>
+            <label>True OptOut Changed</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-5740</description>
+        <name>Owner_is_Changed</name>
+        <label>Owner is Changed?</label>
+        <locationX>1040</locationX>
+        <locationY>12695</locationY>
+        <defaultConnector>
+            <targetReference>WhatsApp_Opt_Out</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Changed</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.OwnerId</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Last_Owner_Assigned_Date</targetReference>
+            </connector>
+            <label>Yes - Changed</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>OwnerIsChanched</name>
+        <label>OwnerIsChanged</label>
+        <locationX>1040</locationX>
+        <locationY>1787</locationY>
+        <defaultConnector>
+            <targetReference>Number_of_Employees_MinMax</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes</name>
+            <conditionLogic>(1 AND 2 AND 3) OR 4</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Owner:User.Id</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Division_Text__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record.Owner:User.Division</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.IsConverted</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record__Prior.Id</leftValueReference>
+                <operator>EqualTo</operator>
+            </conditions>
+            <connector>
+                <targetReference>Update_Division</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Pardot_Status_Change</name>
+        <label>Pardot Status Change</label>
+        <locationX>1040</locationX>
+        <locationY>2687</locationY>
+        <defaultConnector>
+            <targetReference>Ischanged_Pardot_Lead_Source</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>False Pardot Status Change</defaultConnectorLabel>
+        <rules>
+            <name>True_Pardot_Status_Change</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Pardot_Status__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record__Prior.Pardot_Status__c</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Pardot_Status__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Salesforce_Status</targetReference>
+            </connector>
+            <label>True Pardot Status Change</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Populate_the_Leads</name>
+        <label>Populate the Leads</label>
+        <locationX>1040</locationX>
+        <locationY>3287</locationY>
+        <defaultConnector>
+            <targetReference>Not_Isnull_Current_Registration_Type</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>False Populate the Leads</defaultConnectorLabel>
+        <rules>
+            <name>True_Populate_the_Leads</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Business_Unit__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record__Prior.Business_Unit__c</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Populate</targetReference>
+            </connector>
+            <label>True Populate the Leads</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>PPC_Timestamp</name>
+        <label>PPC Timestamp</label>
+        <locationX>1040</locationX>
+        <locationY>9437</locationY>
+        <defaultConnector>
+            <targetReference>Intent_Score_Feedback_updated</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Update_PPC_Timestamp</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Campaign_Medium_UTM__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>ppc</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Campaign_Source_UTM__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>adwords</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_First_PPC_Timestamp</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>Update PPC Timestamp</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Rule_CED_Cadence_Entry_Date</name>
+        <label>*Rule(CED)* - Cadence Entry Date</label>
+        <locationX>1040</locationX>
+        <locationY>6971</locationY>
+        <defaultConnector>
+            <targetReference>Rule_FLB_First_Value_From_Form_Location_Breadcrumb</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Most_Recent_Cadence_Cadence_ID_is_changed</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Most_Recent_Cadence_Cadence_ID__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Most_Recent_Cadence_Cadence_ID__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>CED_Update_Cadence_Entry_Date</targetReference>
+            </connector>
+            <label>Most Recent Cadence - Cadence ID is changed</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-4811</description>
+        <name>Rule_EIT_EmailOptOut_ISCHANGED_to_TRUE</name>
+        <label>*Rule (EIT)* - EmailOptOut ISCHANGED to TRUE</label>
+        <locationX>1040</locationX>
+        <locationY>587</locationY>
+        <defaultConnector>
+            <targetReference>Rule_MSL_MIR_Status_Logic</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>EmailOptOut_ISCHANGED_to_TRUE</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.HasOptedOutOfEmail</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.HasOptedOutOfEmail</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.RecordTypeId</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>012b0000000UdVAAA0</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_MIR_Status_to_Unsubscribed</targetReference>
+            </connector>
+            <label>EmailOptOut ISCHANGED to TRUE</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Update Enrichment Source DateTime</description>
+        <name>Rule_ESD_Enrichment_Source_DateTime</name>
+        <label>*Rule(ESD)* - Enrichment Source DateTime</label>
+        <locationX>1040</locationX>
+        <locationY>8171</locationY>
+        <defaultConnector>
+            <targetReference>Update_Email_Address_Domain_Type_Details</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Updated_by_Qualified_integration</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Polygraph_Fields_Changed_formula</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$User.CommunityNickname</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Qualified.Integration</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>ESQ_Update_Enrichment_Source_to_Qualified</targetReference>
+            </connector>
+            <label>Updated by Qualified integration</label>
+        </rules>
+        <rules>
+            <name>Enrichment_Source_DateTime</name>
+            <conditionLogic>(1 AND 2) OR (3 AND 2)</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Enrichment_Source__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Enrichment_Source__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record__Prior.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>ESD_Update_Enrichment_Source_Date_Time</targetReference>
+            </connector>
+            <label>Enrichment Source DateTime</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Rule_FA_First_Activity</name>
+        <label>*Rule (FA)* - First Activity</label>
+        <locationX>1040</locationX>
+        <locationY>6371</locationY>
+        <defaultConnector>
+            <targetReference>Rule_ICD_Update_Initial_Contact_Date_Field</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>First_Activity</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.First_Activity__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.LastActivityDate</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.CreatedDate</leftValueReference>
+                <operator>GreaterThanOrEqualTo</operator>
+                <rightValue>
+                    <dateTimeValue>2022-08-09T21:00:00.000Z</dateTimeValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record__Prior.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>FA_Update_First_Activity</targetReference>
+            </connector>
+            <label>First Activity</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>It will be populated from the field &apos;Form_Complete_URL_c&apos; but only if it&apos;s empty.
+MIS-2044</description>
+        <name>Rule_FC_Update_First_Form_Complete_URL</name>
+        <label>*Rule (FC)* - Update First Form Complete URL?</label>
+        <locationX>1040</locationX>
+        <locationY>1487</locationY>
+        <defaultConnector>
+            <targetReference>OwnerIsChanched</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>False</defaultConnectorLabel>
+        <rules>
+            <name>Update_field</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.First_Form_Complete_URL__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Form_Complete_URL__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>FC_Update_Field_First_Form_Complete_URL</targetReference>
+            </connector>
+            <label>Update field</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Rule_FLB_First_Value_From_Form_Location_Breadcrumb</name>
+        <label>*Rule(FLB)* - First Value From &apos;Form Location Breadcrumb&apos;</label>
+        <locationX>1040</locationX>
+        <locationY>7271</locationY>
+        <defaultConnector>
+            <targetReference>Rule_FLU_First_Value_From_Form_Location_URL</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Collect_first_value_from_Form_Location_Breadcrumb</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Form_Location_Breadcrumb__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.First_Form_Location_Breadcrumb__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>FLB_First_Form_Location_Breadcrumb</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>Collect first value from &apos;Form Location Breadcrumb&apos;</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>First Value From &apos;Form Location URL&apos;</description>
+        <name>Rule_FLU_First_Value_From_Form_Location_URL</name>
+        <label>*Rule(FLU)* - First Value From &apos;Form Location URL&apos;</label>
+        <locationX>1040</locationX>
+        <locationY>7571</locationY>
+        <defaultConnector>
+            <targetReference>Rule_SDRC_Update_SDR_Chat_DateTime</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Collect_first_value_from_Form_Location_URL</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Form_Location_URL__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.First_Form_Location_URL__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>FLU_Update_First_Value_From_Form_Location_URL</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>Collect first value from &apos;Form Location URL&apos;</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-4768</description>
+        <name>Rule_FMPMI_Found_Marketing_Persona_Metadata_Industry</name>
+        <label>*Rule (FMPMI)* - Found Marketing Persona Metadata + Industry?</label>
+        <locationX>985</locationX>
+        <locationY>12035</locationY>
+        <defaultConnector>
+            <targetReference>Owner_is_Changed</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>FMPMI_Found_Metadata_with_Industry</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>MPL_Get_Metadata_with_Industry</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>MPL_Get_Metadata_with_Industry.Account_SW_Industries__c</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <elementReference>$Record.SW_Industry__c</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.SW_Industry__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Marketing_Persona_with_Industry</targetReference>
+            </connector>
+            <label>FMPMI - Found Metadata with Industry</label>
+        </rules>
+        <rules>
+            <name>FMPMI_Found_Metadata_without_Industry</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>MPL_Get_Metadata_with_Industry</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Department__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Check_Department</targetReference>
+            </connector>
+            <label>FMPMI - Found Metadata without Industry</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Rule_ICD_Update_Initial_Contact_Date_Field</name>
+        <label>*Rule(ICD)* - Update Initial Contact Date Field</label>
+        <locationX>1040</locationX>
+        <locationY>6671</locationY>
+        <defaultConnector>
+            <targetReference>Rule_CED_Cadence_Entry_Date</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Status_Contacted_and_RT_Wolves</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Status</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Contacted</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Wolves</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>ICD_Update_Initial_Contact_Date_Field</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>Status = Contacted and RT = Wolves</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-4553</description>
+        <name>Rule_JTMF_Job_Titles_Metadata_Found</name>
+        <label>*Rule (JTMF)* - Job Titles Metadata Found?</label>
+        <locationX>710</locationX>
+        <locationY>10769</locationY>
+        <defaultConnector>
+            <targetReference>Assign_Default_DMI_Nurture_Flow</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Not Found</defaultConnectorLabel>
+        <rules>
+            <name>Job_Titles_Metadata_Found</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Job_Titles_Persona_Metadata</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Metadata_Value_to_Persona</targetReference>
+            </connector>
+            <label>Job Titles Metadata Found</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-4553</description>
+        <name>Rule_JTPFC_Job_Titles_Persona_Fields_Changed</name>
+        <label>*Rule (JTPFC)* - Job Titles Persona Fields Changed?</label>
+        <locationX>1040</locationX>
+        <locationY>10445</locationY>
+        <defaultConnector>
+            <targetReference>Is_Owner_Inactive</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Persona_Fields_Changed</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Title</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Current_Registration_Type__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Rule_LTPL_Job_Titles_Persona_Logic</targetReference>
+            </connector>
+            <label>Persona Fields Changed</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-4553 (Update Lead flows if this logic is changed - Lead_Created_Before_Save &amp; Contact_Before_Save_Flow_Updates)</description>
+        <name>Rule_LTPL_Job_Titles_Persona_Logic</name>
+        <label>*Rule(LTPL)* - Job Titles Persona Logic</label>
+        <locationX>622</locationX>
+        <locationY>10553</locationY>
+        <defaultConnector>
+            <targetReference>Assign_Null_Persona</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>DMI_Nurture_Flow</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Title</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Current_Registration_Type__c</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <stringValue>Digital Marketing</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_DMI_Nurture_Flow</targetReference>
+            </connector>
+            <label>DMI Nurture Flow</label>
+        </rules>
+        <rules>
+            <name>Sales_Nurture_Flow</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Current_Registration_Type__c</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <stringValue>Sales</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Sales_Nurture_Flow</targetReference>
+            </connector>
+            <label>Sales Nurture Flow</label>
+        </rules>
+        <rules>
+            <name>Check_Metadata</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Title</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Current_Registration_Type__c</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <stringValue>Digital Marketing</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Job_Titles_Persona_Metadata</targetReference>
+            </connector>
+            <label>Check Metadata</label>
+        </rules>
+        <rules>
+            <name>Default_DMI_Nurture_Flow</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Current_Registration_Type__c</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <stringValue>Digital Marketing</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Default_DMI_Nurture_Flow</targetReference>
+            </connector>
+            <label>Default DMI Nurture Flow</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-4768</description>
+        <name>Rule_MPL_Marketing_Persona_Logic</name>
+        <label>*Rule (MPL)* - Marketing Persona Logic</label>
+        <locationX>1040</locationX>
+        <locationY>11711</locationY>
+        <defaultConnector>
+            <targetReference>Owner_is_Changed</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>MPL_Relevant_Industry</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Department__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.SW_Industry__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Current_Registration_Type__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>current_registration_type_Shopper</targetReference>
+            </connector>
+            <label>MPL - Relevant Industry</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-6072
+MIS-4977
+MIS-4811 - replace all previous logic with new logic
+MIR Status = &quot;Unqualified&quot; -&gt; Update &apos;Lead Status&apos; to &apos;Unqualified&apos;
+MIS-3094</description>
+        <name>Rule_MSL_MIR_Status_Logic</name>
+        <label>*Rule (MSL)* - MIR Status Logic</label>
+        <locationX>1040</locationX>
+        <locationY>887</locationY>
+        <defaultConnector>
+            <targetReference>decision_RuleCHReassignedFromChiliPiper</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>MSL_Lead_Status_to_SDR_Prospecting</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.MIR_Status__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.MIR_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>In Progress / Touched</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>MSL_Update_Lead_Status_to_SDR_Prospecting</targetReference>
+            </connector>
+            <label>MSL - Lead Status to SDR Prospecting</label>
+        </rules>
+        <rules>
+            <name>MSL_Lead_Status_to_Nurture</name>
+            <conditionLogic>1 AND (2 OR 3 OR 4 OR 5 OR 6 OR 7 OR 8 OR 9 OR 10)</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.MIR_Status__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.MIR_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Low Traffic</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.MIR_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Not a Good Fit: Use Case / Persona / Industry</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.MIR_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Unverified: No Website / No LinkedIn</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.MIR_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Fake Data</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.MIR_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Unreachable / No Reply</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.MIR_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>No Budget</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.MIR_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Not Ready / Bad Timing / No Interest</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.MIR_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Free Tools Sufficient / One-Time Use</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.MIR_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Touched - Abandoned</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>MSL_Update_Lead_Status_to_Nurture</targetReference>
+            </connector>
+            <label>MSL - Lead Status to Nurture</label>
+        </rules>
+        <rules>
+            <name>MSL_Lead_Status_to_Unqualified</name>
+            <conditionLogic>1 AND 2</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.MIR_Status__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.MIR_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Unsubscribed</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>MSL_Update_Lead_Status_to_Unqualified_AND_Opt_Out_AND_Do_Not_Call</targetReference>
+            </connector>
+            <label>MSL - Lead Status to Unqualified</label>
+        </rules>
+        <rules>
+            <name>MSL_All_Other_Statuses</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.MIR_Status__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_MIR_Status_Timestamp</targetReference>
+            </connector>
+            <label>MSL - All Other Statuses</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-5968</description>
+        <name>Rule_NOM_New_Owner_is_MIR</name>
+        <label>*Rule (NOM)* - New Owner is MIR?</label>
+        <locationX>886</locationX>
+        <locationY>12911</locationY>
+        <defaultConnector>
+            <targetReference>WhatsApp_Opt_Out</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>NOM_MIR</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.OwnerId</leftValueReference>
+                <operator>StartsWith</operator>
+                <rightValue>
+                    <stringValue>005</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Owner:User.Profile.Name</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>SW MIR</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Add_1_to_Owner_Count</targetReference>
+            </connector>
+            <label>NOM - MIR</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Update SDR Chat DateTime</description>
+        <name>Rule_SDRC_Update_SDR_Chat_DateTime</name>
+        <label>*Rule(SDRC)* - Update SDR Chat DateTime</label>
+        <locationX>1040</locationX>
+        <locationY>7871</locationY>
+        <defaultConnector>
+            <targetReference>Rule_ESD_Enrichment_Source_DateTime</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Update_SDR_Chat_DateTime</name>
+            <conditionLogic>(1 AND 2) OR (3 AND 1)</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.SDR_Chat__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.SDR_Chat__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record__Prior.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>SDRC_Set_Chat_DateTime</targetReference>
+            </connector>
+            <label>Update SDR Chat DateTime</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Salesloft_Status_Change</name>
+        <label>Salesloft Status Change</label>
+        <locationX>1040</locationX>
+        <locationY>2387</locationY>
+        <defaultConnector>
+            <targetReference>Pardot_Status_Change</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>False Salesloft Status Change</defaultConnectorLabel>
+        <rules>
+            <name>True_Salesloft_Status_Change</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Salesloft_Status__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record__Prior.Salesloft_Status__c</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Salesloft_Status__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_SF_Status</targetReference>
+            </connector>
+            <label>True Salesloft Status Change</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>SI_Enrichment_Timestamp_Update_Decision</name>
+        <label>SI Enrichment Timestamp Update Decision</label>
+        <locationX>1040</locationX>
+        <locationY>14411</locationY>
+        <defaultConnector>
+            <targetReference>Check_SI_Employee_Type_Format</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Has_any_relevant_SI_field_changed</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.SI_Industry__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.SI_Business_Model__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.SI_Company_Type__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.SI_Products_Services__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.SI_Employees_Type__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>SI_Enrichment_Timestamp_Update</targetReference>
+            </connector>
+            <label>Has any relevant SI field changed</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-4658</description>
+        <name>SSP_Self_Service_Pitched_ISCHANGED</name>
+        <label>*(SSP)* - Self-Service Pitched ISCHANGED?</label>
+        <locationX>1040</locationX>
+        <locationY>10145</locationY>
+        <defaultConnector>
+            <targetReference>Rule_JTPFC_Job_Titles_Persona_Fields_Changed</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Self_Service_Pitched_ISCHANGED</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Self_Service_Pitched__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Self_Service_Pitched_By</targetReference>
+            </connector>
+            <label>Self-Service Pitched ISCHANGED</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>based on Registration Type, LinkedIn campaign, and Email Address Domain Type</description>
+        <name>Update_Email_Address_Domain_Type_Details</name>
+        <label>Update Email Address Domain Type Details</label>
+        <locationX>1040</locationX>
+        <locationY>8537</locationY>
+        <defaultConnector>
+            <targetReference>First_A_C_Company_Timestamp</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Registration_LinkedIn</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Registration_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>LinkedIn</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Email_Address_Domain_type_details_to_Linkedin</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>Registration = LinkedIn</label>
+        </rules>
+        <rules>
+            <name>LinkedIn_Campaign</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Campaign_Source_UTM__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>li</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Email_Address_Domain_type_details_to_LinkedIn_Campaign</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>LinkedIn Campaign</label>
+        </rules>
+        <rules>
+            <name>Copy_from_Email_Address_domain_type</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Email_address_domain_type__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Email_Address_Domain_Type_Details__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Email_Address_Domain_type_details_by_Domain_type</targetReference>
+            </connector>
+            <label>Copy from Email Address domain type</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Verified_Changed</name>
+        <label>Verified Changed</label>
+        <locationX>1040</locationX>
+        <locationY>3887</locationY>
+        <defaultConnector>
+            <targetReference>OptOut_Changed</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>False Verified Changed</defaultConnectorLabel>
+        <rules>
+            <name>True_Verified_Changed</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Verified__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record__Prior.Verified__c</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Verified_Timestamp</targetReference>
+            </connector>
+            <label>True Verified Changed</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-6022</description>
+        <name>WhatsApp_Opt_Out</name>
+        <label>WhatsApp Opt Out</label>
+        <locationX>1040</locationX>
+        <locationY>13295</locationY>
+        <defaultConnector>
+            <targetReference>Cancellation_Reason_populated</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>TRUE_WhatsApp_Opt_Out</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.WhatsApp_Opt_Out__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>WhatsApp_Opt_Out_Timestamp</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>TRUE - WhatsApp Opt Out</label>
+        </rules>
+    </decisions>
+    <description>MIS-8389 - Added logic to calc si employee min / max + si enrichment timestamp update
+MIS-7870 - Update logic for Marketing Persona, Changed Shopper Intelligence to Shopper check
+MIS-7999 - Added Student Bypass SFMC checkbox
+MIS-7317 - Add Counter Field for Web Form Submissions on Lead/Contact
+MIS-6931 - Lugia Linkedin Profile
+MIS-6835 CancellationSurvey_Date__c
+MIS-6666 - MIR Status Last Modified By
+MIS-6321 - Sync to SFMC logic update
+MIS-6022 - WhatsApp Opt Out Timestamp
+MIS-6072 - MIR Status Updates
+MIS-6050 - Change Last Owner Assigned to Date/Time
+MIS-5968 - Count MIR Owners
+MIS-5740 - Update Last Owner Assigned date</description>
+    <environments>Default</environments>
+    <formulas>
+        <description>MIS-5968</description>
+        <name>Add_1_to_MIR_Owner_Count</name>
+        <dataType>Number</dataType>
+        <expression>IF(ISBLANK({!$Record.Number_of_Owners_MIR__c}), 1, {!$Record.Number_of_Owners_MIR__c}+1)</expression>
+        <scale>0</scale>
+    </formulas>
+    <formulas>
+        <name>Calc_Marketing_Persona_By_current_registration_type</name>
+        <dataType>String</dataType>
+        <expression>IF( 
+   CONTAINS({!$Record.Current_Registration_Type__c}, &apos;Sales&apos;) || CONTAINS({!$Record.Current_Registration_Type__c}, &apos;sales-solution&apos;),
+      &apos;Sales&apos;, IF(
+   CONTAINS({!$Record.Current_Registration_Type__c}, &apos;Digital Marketing&apos;) || CONTAINS({!$Record.Current_Registration_Type__c}, &apos;web-solution&apos;),
+      &apos;Marketing - General&apos;, IF(
+   ISNULL({!$Record.Current_Registration_Type__c}), 
+      &apos;No Persona&apos;,
+   &apos;No Persona&apos;
+)))</expression>
+    </formulas>
+    <formulas>
+        <name>CompleteRegistration</name>
+        <dataType>Boolean</dataType>
+        <expression>if( or( ISBLANK( {!$Record.Company}) ,ISBLANK( {!$Record.Website} ),ISBLANK( {!$Record.Employees_Min__c} ),ISBLANK( {!$Record.Employees_Max__c} ),ISBLANK( text({!$Record.SW_Industry__c})),ISBLANK( {!$Record.Country} )),false,true)</expression>
+    </formulas>
+    <formulas>
+        <description>Extracts the number after the dash from SI_Employees_Type__c</description>
+        <name>fr_EmployeesMax</name>
+        <dataType>Number</dataType>
+        <expression>VALUE(MID({!$Record.SI_Employees_Type__c}, FIND(&quot;-&quot;, {!$Record.SI_Employees_Type__c}) + 1, LEN({!$Record.SI_Employees_Type__c})))</expression>
+        <scale>0</scale>
+    </formulas>
+    <formulas>
+        <description>Extracts the number before the dash from SI_Employees_Type__c</description>
+        <name>fr_EmployeesMin</name>
+        <dataType>Number</dataType>
+        <expression>VALUE(LEFT({!$Record.SI_Employees_Type__c}, FIND(&quot;-&quot;, {!$Record.SI_Employees_Type__c}) - 1))</expression>
+        <scale>0</scale>
+    </formulas>
+    <formulas>
+        <name>fr_IsValidFormat</name>
+        <dataType>Boolean</dataType>
+        <expression>AND(
+  NOT(ISBLANK({!$Record.SI_Employees_Type__c})),
+  FIND(&quot;-&quot;, {!$Record.SI_Employees_Type__c}) &gt; 1,
+  FIND(&quot;-&quot;, {!$Record.SI_Employees_Type__c}) &lt; LEN({!$Record.SI_Employees_Type__c}),
+  VALUE(LEFT({!$Record.SI_Employees_Type__c}, FIND(&quot;-&quot;, {!$Record.SI_Employees_Type__c}) - 1)) &lt;= VALUE(MID({!$Record.SI_Employees_Type__c}, FIND(&quot;-&quot;, {!$Record.SI_Employees_Type__c}) + 1, LEN({!$Record.SI_Employees_Type__c})))
+)</expression>
+    </formulas>
+    <formulas>
+        <description>MIS-6321</description>
+        <name>FR_SyncToSFMC</name>
+        <dataType>Boolean</dataType>
+        <expression>AND(
+    {!sourcecontainoutbound} = False,
+    {!$Record.HasOptedOutOfEmail} = False,
+    {!$Record.Manual_Unsync_SFMC__c} = False,
+    OR(
+        {!Low_Fit_Score} = False,
+        AND(
+            NOT(REGEX(BLANKVALUE(LOWER({!$Record.Last_Contact_Us_Form_Subject__c}), &quot;&quot;), &quot;.*(support|no cu).*&quot;)),
+            NOT(REGEX(BLANKVALUE(LOWER({!$Record.Base_Product__c}), &quot;&quot;), &quot;.*(enrichment|intelligence suite).*&quot;)),
+            ISBLANK(TEXT({!$Record.Strategic_Pod__c})),
+            TEXT({!$Record.SW_Fit_Score__c}) = &apos;S&apos;,
+            TEXT({!$Record.Status}) &lt;&gt; &quot;Replied&quot;,
+            TEXT({!$Record.Status}) &lt;&gt; &quot;SDR Prospecting&quot;,
+            {!$Record.Contact_Us_Help_Timestamp__c} &gt; {!NOW_Minus_30_Days},
+            NOT(ISBLANK({!$Record.Contact_Us_Help_Timestamp__c}))
+         )
+     )
+ )</expression>
+    </formulas>
+    <formulas>
+        <name>fr_TODAY</name>
+        <dataType>Date</dataType>
+        <expression>TODAY()</expression>
+    </formulas>
+    <formulas>
+        <name>ISNEW_Formula</name>
+        <dataType>Boolean</dataType>
+        <expression>ISNEW()</expression>
+    </formulas>
+    <formulas>
+        <name>LeadSourceValueCheck</name>
+        <dataType>Boolean</dataType>
+        <expression>OR(
+    ISPICKVAL({!$Record.LeadSource}, &apos;Pro&apos;),
+    ISPICKVAL({!$Record.LeadSource}, &apos;ContactForm&apos;),
+    ISPICKVAL({!$Record.LeadSource}, &apos;Webinar&apos;),
+    ISPICKVAL({!$Record.LeadSource}, &apos;Webinar On Demand&apos;),
+    ISPICKVAL({!$Record.LeadSource}, &apos;White Paper&apos;),
+    ISPICKVAL({!$Record.LeadSource}, &apos;Partnership - Webinar&apos;),
+    ISPICKVAL({!$Record.LeadSource}, &apos;Partnership - Virtual Events&apos;),
+    ISPICKVAL({!$Record.LeadSource}, &apos;Partnership - F2F Events&apos;),
+    ISPICKVAL({!$Record.LeadSource}, &apos;Partnership - Content&apos;),
+    ISPICKVAL({!$Record.LeadSource}, &apos;Internal - Webinars&apos;),
+    ISPICKVAL({!$Record.LeadSource}, &apos;Internal - Virtual Events&apos;),
+    ISPICKVAL({!$Record.LeadSource}, &apos;Internal - F2F Event&apos;)
+)</expression>
+    </formulas>
+    <formulas>
+        <name>Lior_MQL_Counter_add_1_Formula</name>
+        <dataType>Number</dataType>
+        <expression>{!$Record.Lior_MQL_Counter__c} + 1</expression>
+        <scale>0</scale>
+    </formulas>
+    <formulas>
+        <description>MIS-4045</description>
+        <name>Low_Fit_Score</name>
+        <dataType>Boolean</dataType>
+        <expression>If( Or(ISPICKVAL({!$Record.SW_Fit_Score__c}, &quot;F&quot;),ISPICKVAL({!$Record.SW_Fit_Score__c}, &quot;S&quot;) ,ISPICKVAL({!$Record.SW_Fit_Score__c}, &quot;X&quot;)),true,false)</expression>
+    </formulas>
+    <formulas>
+        <description>MIS-4553</description>
+        <name>Lowercase_Title</name>
+        <dataType>String</dataType>
+        <expression>LOWER({!$Record.Title})</expression>
+    </formulas>
+    <formulas>
+        <name>MaxByMaxFormula</name>
+        <dataType>Number</dataType>
+        <expression>IF(
+  AND(
+    {!$Record.Employees_Max__c}&gt;= 1,
+    {!$Record.Employees_Max__c}&lt;= 10
+  ),
+  10,
+  IF(
+    AND(
+      {!$Record.Employees_Max__c}&gt;= 11,
+      {!$Record.Employees_Max__c}&lt;= 50
+    ),
+    50,
+    IF(
+      AND(
+        {!$Record.Employees_Max__c}&gt;= 51,
+        {!$Record.Employees_Max__c}&lt;= 200
+      ),
+      200,
+      IF(
+        AND(
+          {!$Record.Employees_Max__c}&gt;= 201,
+          {!$Record.Employees_Max__c}&lt;= 500
+        ),
+        500,
+        IF(
+          AND(
+            {!$Record.Employees_Max__c}&gt;= 501,
+            {!$Record.Employees_Max__c}&lt;= 1000
+          ),
+          1000,
+          IF(
+            AND(
+              {!$Record.Employees_Max__c}&gt;= 1001,
+              {!$Record.Employees_Max__c}&lt;= 5000
+            ),
+            5000,
+            IF(
+              {!$Record.Employees_Max__c}&gt; 5000,
+              10000,
+              0
+            )
+          )
+        )
+      )
+    )
+  )
+)</expression>
+        <scale>0</scale>
+    </formulas>
+    <formulas>
+        <name>MaxByMinFormula</name>
+        <dataType>Number</dataType>
+        <expression>IF(
+  AND(
+    {!$Record.Employees_Min__c}&gt;= 1,
+    {!$Record.Employees_Min__c}&lt;= 10
+  ),
+  10,
+  IF(
+    AND(
+      {!$Record.Employees_Min__c}&gt;= 11,
+      {!$Record.Employees_Min__c}&lt;= 50
+    ),
+    50,
+    IF(
+      AND(
+        {!$Record.Employees_Min__c}&gt;= 51,
+        {!$Record.Employees_Min__c}&lt;= 200
+      ),
+      200,
+      IF(
+        AND(
+          {!$Record.Employees_Min__c}&gt;= 201,
+          {!$Record.Employees_Min__c}&lt;= 500
+        ),
+        500,
+        IF(
+          AND(
+            {!$Record.Employees_Min__c}&gt;= 501,
+            {!$Record.Employees_Min__c}&lt;= 1000
+          ),
+          1000,
+          IF(
+            AND(
+              {!$Record.Employees_Min__c}&gt;= 1001,
+              {!$Record.Employees_Min__c}&lt;= 5000
+            ),
+            5000,
+            IF(
+              {!$Record.Employees_Min__c}&gt; 5000,
+              10000,
+              0
+            )
+          )
+        )
+      )
+    )
+  )
+)</expression>
+        <scale>0</scale>
+    </formulas>
+    <formulas>
+        <name>MinByMaxFormula</name>
+        <dataType>Number</dataType>
+        <expression>IF(
+  AND(
+    {!$Record.Employees_Max__c}&gt;= 1,
+    {!$Record.Employees_Max__c}&lt;= 10
+  ),
+  1,
+  IF(
+    AND(
+      {!$Record.Employees_Max__c}&gt;= 11,
+      {!$Record.Employees_Max__c}&lt;= 50
+    ),
+    11,
+    IF(
+      AND(
+        {!$Record.Employees_Max__c}&gt;= 51,
+        {!$Record.Employees_Max__c}&lt;= 200
+      ),
+      51,
+      IF(
+        AND(
+          {!$Record.Employees_Max__c}&gt;= 201,
+          {!$Record.Employees_Max__c}&lt;= 500
+        ),
+        201,
+        IF(
+          AND(
+            {!$Record.Employees_Max__c}&gt;= 501,
+            {!$Record.Employees_Max__c}&lt;= 1000
+          ),
+          501,
+          IF(
+            AND(
+              {!$Record.Employees_Max__c}&gt;= 1001,
+              {!$Record.Employees_Max__c}&lt;= 5000
+            ),
+            1001,
+            IF(
+              {!$Record.Employees_Max__c}&gt; 5000,
+              5001,
+              0
+            )
+          )
+        )
+      )
+    )
+  )
+)</expression>
+        <scale>0</scale>
+    </formulas>
+    <formulas>
+        <name>MinByMinFormula</name>
+        <dataType>Number</dataType>
+        <expression>IF(
+  AND(
+    {!$Record.Employees_Min__c}&gt;= 1,
+    {!$Record.Employees_Min__c}&lt;= 10
+  ),
+  1,
+  IF(
+    AND(
+      {!$Record.Employees_Min__c}&gt;= 11,
+      {!$Record.Employees_Min__c}&lt;= 50
+    ),
+    11,
+    IF(
+      AND(
+        {!$Record.Employees_Min__c}&gt;= 51,
+        {!$Record.Employees_Min__c}&lt;= 200
+      ),
+      51,
+      IF(
+        AND(
+          {!$Record.Employees_Min__c}&gt;= 201,
+          {!$Record.Employees_Min__c}&lt;= 500
+        ),
+        201,
+        IF(
+          AND(
+            {!$Record.Employees_Min__c}&gt;= 501,
+            {!$Record.Employees_Min__c}&lt;= 1000
+          ),
+          501,
+          IF(
+            AND(
+              {!$Record.Employees_Min__c}&gt;= 1001,
+              {!$Record.Employees_Min__c}&lt;= 5000
+            ),
+            1001,
+            IF(
+              {!$Record.Employees_Min__c}&gt; 5000,
+              5001,
+              0
+            )
+          )
+        )
+      )
+    )
+  )
+)</expression>
+        <scale>0</scale>
+    </formulas>
+    <formulas>
+        <name>Now_Formula</name>
+        <dataType>DateTime</dataType>
+        <expression>Now()</expression>
+    </formulas>
+    <formulas>
+        <description>MIS-6321</description>
+        <name>NOW_Minus_30_Days</name>
+        <dataType>DateTime</dataType>
+        <expression>NOW()-30</expression>
+    </formulas>
+    <formulas>
+        <description>Turns True if one of the following Polygraph fields has changed</description>
+        <name>Polygraph_Fields_Changed_formula</name>
+        <dataType>Boolean</dataType>
+        <expression>OR(
+  ISCHANGED({!$Record.Polygraph_Country_Name__c}),
+  ISCHANGED({!$Record.Polygraph_Country_Name__c}),
+  ISCHANGED({!$Record.Polygraph_Country_Code__c}),
+  ISCHANGED({!$Record.Polygraph_First_Name__c}),
+  ISCHANGED({!$Record.Polygraph_Last_Name__c}),
+  ISCHANGED({!$Record.Polygraph_Company_Domain__c}),
+  ISCHANGED({!$Record.Polygraph_Company_Name__c}),
+  ISCHANGED({!$Record.Polygraph_Company_Industry__c}),
+  ISCHANGED({!$Record.Polygraph_Company_Industry_Group__c}),
+  ISCHANGED({!$Record.Polygraph_Company_Sub_Industry__c}),
+  ISCHANGED({!$Record.Polygraph_Company_Employees_Estimated__c}),
+  ISCHANGED({!$Record.Polygraph_Title__c}),
+  ISCHANGED({!$Record.Polygraph_Company_Linkedin__c}),
+  ISCHANGED({!$Record.Polygraph_Department__c}),
+  ISCHANGED({!$Record.Polygraph_Seniority__c}),
+  ISCHANGED({!$Record.Polygraph_Update_Timestamp__c}),
+  ISCHANGED({!$Record.Polygraph_Role__c})
+)</expression>
+    </formulas>
+    <formulas>
+        <name>sourcecontainoutbound</name>
+        <dataType>Boolean</dataType>
+        <expression>IF(
+CONTAINS(TEXT({!$Record.LeadSource}) , &quot;Outbound&quot;) &amp;&amp; CONTAINS(TEXT({!$Record.Original_Lead_Source__c}) ,&quot;Outbound&quot;) &amp;&amp;  TEXT({!$Record.CountryCode}) &lt;&gt; &apos;US&apos;,
+ true,  
+IF( 
+(ISBLANK(TEXT({!$Record.LeadSource})) || ISBLANK(TEXT({!$Record.Original_Lead_Source__c})))&amp;&amp; (CONTAINS( text({!$Record.LeadSource}) , &quot;Outbound&quot;) || CONTAINS(TEXT({!$Record.Original_Lead_Source__c}) ,&quot;Outbound&quot;)) &amp;&amp;  text({!$Record.CountryCode}) &lt;&gt; &apos;US&apos;, true,false
+)
+
+)</expression>
+    </formulas>
+    <formulas>
+        <description>MIS-4658</description>
+        <name>User_Full_Name</name>
+        <dataType>String</dataType>
+        <expression>{!$User.FirstName}+&quot; &quot;+{!$User.LastName}</expression>
+    </formulas>
+    <formulas>
+        <name>Website_Domain_Formula</name>
+        <dataType>String</dataType>
+        <expression>If( 
+  BEGINS({!$Record.Website}, &quot;www.&quot;),
+  IF(
+    FIND(&apos;/&apos;, MID({!$Record.Website}, 5, LEN({!$Record.Website}) - 4)) &lt;&gt; 0,
+    MID({!$Record.Website}, 5, FIND(&apos;/&apos;, MID({!$Record.Website}, 5, LEN({!$Record.Website}) - 4)) - 1),
+    MID({!$Record.Website}, 5, LEN({!$Record.Website}) - 4)
+  ),
+  If(
+    BEGINS({!$Record.Website}, &quot;http://www.&quot;),
+    IF(
+      FIND(&apos;/&apos;, MID({!$Record.Website}, 12, LEN({!$Record.Website}) - 11)) &lt;&gt; 0,
+      MID({!$Record.Website}, 12, FIND(&apos;/&apos;, MID({!$Record.Website}, 12, LEN({!$Record.Website}) - 11)) - 1),
+      MID({!$Record.Website}, 12, LEN({!$Record.Website}) - 11)
+    ),
+    If(
+      BEGINS({!$Record.Website}, &quot;https://www.&quot;),
+      IF(
+        FIND(&apos;/&apos;, MID({!$Record.Website}, 13, LEN({!$Record.Website}) - 12)) &lt;&gt; 0,
+        MID({!$Record.Website}, 13, FIND(&apos;/&apos;, MID({!$Record.Website}, 13, LEN({!$Record.Website}) - 12)) - 1),
+        MID({!$Record.Website}, 13, LEN({!$Record.Website}) - 12)
+      ),
+      If(
+        BEGINS({!$Record.Website}, &quot;http://&quot;),
+        IF(
+          FIND(&apos;/&apos;, MID({!$Record.Website}, 8, LEN({!$Record.Website}) - 7)) &lt;&gt; 0,
+          MID({!$Record.Website}, 8, FIND(&apos;/&apos;, MID({!$Record.Website}, 8, LEN({!$Record.Website}) - 7)) - 1),
+          MID({!$Record.Website}, 8, LEN({!$Record.Website}) - 7)
+        ),
+        If(
+          BEGINS({!$Record.Website}, &quot;https://&quot;),
+          IF(
+            FIND(&apos;/&apos;, MID({!$Record.Website}, 9, LEN({!$Record.Website}) - 8)) &lt;&gt; 0,
+            MID({!$Record.Website}, 9, FIND(&apos;/&apos;, MID({!$Record.Website}, 9, LEN({!$Record.Website}) - 8)) - 1),
+            MID({!$Record.Website}, 9, LEN({!$Record.Website}) - 8)
+          ),
+          IF(
+            FIND(&apos;/&apos;, MID({!$Record.Website}, 1, LEN({!$Record.Website}))) &lt;&gt; 0,
+            MID({!$Record.Website}, 1, FIND(&apos;/&apos;, {!$Record.Website}) - 1),
+            {!$Record.Website}
+          )
+        )
+      )
+    )
+  )
+)</expression>
+    </formulas>
+    <interviewLabel>Lead - Before-Save {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Lead Updated - Before Save</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <description>MIS-4553</description>
+        <name>Get_Job_Titles_Persona_Metadata</name>
+        <label>Get Job Titles Persona Metadata</label>
+        <locationX>710</locationX>
+        <locationY>10661</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Rule_JTMF_Job_Titles_Metadata_Found</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Title__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Lowercase_Title</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Job_Titles_Persona__mdt</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <description>MIS-4768</description>
+        <name>MPL_Get_Metadata_with_Industry</name>
+        <label>MPL - Get Metadata with Industry</label>
+        <locationX>985</locationX>
+        <locationY>11927</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Rule_FMPMI_Found_Marketing_Persona_Metadata_Industry</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Department__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Department__c</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Marketing_Persona__mdt</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <description>MIS-5968</description>
+        <name>Add_1_to_Owner_Count</name>
+        <label>Add 1 to Owner Count</label>
+        <locationX>754</locationX>
+        <locationY>13019</locationY>
+        <connector>
+            <targetReference>WhatsApp_Opt_Out</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Number_of_Owners_MIR__c</field>
+            <value>
+                <elementReference>Add_1_to_MIR_Owner_Count</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>CED_Update_Cadence_Entry_Date</name>
+        <label>CED - Update Cadence Entry Date</label>
+        <locationX>908</locationX>
+        <locationY>7079</locationY>
+        <connector>
+            <targetReference>Rule_FLB_First_Value_From_Form_Location_Breadcrumb</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Most_Recent_Cadence_Entry_Date__c</field>
+            <value>
+                <elementReference>fr_TODAY</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>ESD_Update_Enrichment_Source_Date_Time</name>
+        <label>ESD - Update Enrichment Source Date/Time</label>
+        <locationX>1040</locationX>
+        <locationY>8279</locationY>
+        <connector>
+            <targetReference>Update_Email_Address_Domain_Type_Details</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Enrichment_Source_Time__c</field>
+            <value>
+                <elementReference>Now_Formula</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>ESQ_Update_Enrichment_Source_to_Qualified</name>
+        <label>ESQ - Update Enrichment Source to Qualified</label>
+        <locationX>776</locationX>
+        <locationY>8279</locationY>
+        <connector>
+            <isGoTo>true</isGoTo>
+            <targetReference>ESD_Update_Enrichment_Source_Date_Time</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Enrichment_Source__c</field>
+            <value>
+                <stringValue>Qualified</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>FA_Update_First_Activity</name>
+        <label>FA - Update First Activity</label>
+        <locationX>908</locationX>
+        <locationY>6479</locationY>
+        <connector>
+            <targetReference>Rule_ICD_Update_Initial_Contact_Date_Field</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>First_Activity__c</field>
+            <value>
+                <elementReference>$Record.LastActivityDate</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>FLB_First_Form_Location_Breadcrumb</name>
+        <label>FLB - First Form Location Breadcrumb</label>
+        <locationX>908</locationX>
+        <locationY>7379</locationY>
+        <connector>
+            <targetReference>Rule_FLU_First_Value_From_Form_Location_URL</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>First_Form_Location_Breadcrumb__c</field>
+            <value>
+                <elementReference>$Record.Form_Location_Breadcrumb__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>FLU_Update_First_Value_From_Form_Location_URL</name>
+        <label>FLU - Update First Value From &apos;Form Location URL&apos;</label>
+        <locationX>908</locationX>
+        <locationY>7679</locationY>
+        <connector>
+            <targetReference>Rule_SDRC_Update_SDR_Chat_DateTime</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>First_Form_Location_URL__c</field>
+            <value>
+                <elementReference>$Record.Form_Location_URL__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>ICD_Update_Initial_Contact_Date_Field</name>
+        <label>ICD - Update Initial Contact Date Field</label>
+        <locationX>908</locationX>
+        <locationY>6779</locationY>
+        <connector>
+            <targetReference>Rule_CED_Cadence_Entry_Date</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Initial_Contact_Date_Wolves__c</field>
+            <value>
+                <elementReference>fr_TODAY</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>MIS-6072
+MIS-4811</description>
+        <name>MSL_Update_Lead_Status_to_Nurture</name>
+        <label>MSL - Update Lead Status to &apos;Nurture&apos;</label>
+        <locationX>776</locationX>
+        <locationY>995</locationY>
+        <connector>
+            <targetReference>decision_RuleCHReassignedFromChiliPiper</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>MIR_Status_Last_Modified_By__c</field>
+            <value>
+                <elementReference>$User.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>MIR_Status_Timestamp__c</field>
+            <value>
+                <elementReference>Now_Formula</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Status</field>
+            <value>
+                <stringValue>Nurture</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>MIS-6072</description>
+        <name>MSL_Update_Lead_Status_to_SDR_Prospecting</name>
+        <label>MSL - Update Lead Status to &apos;SDR Prospecting&apos;</label>
+        <locationX>512</locationX>
+        <locationY>995</locationY>
+        <connector>
+            <targetReference>decision_RuleCHReassignedFromChiliPiper</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>MIR_Status_Last_Modified_By__c</field>
+            <value>
+                <elementReference>$User.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>MIR_Status_Timestamp__c</field>
+            <value>
+                <elementReference>Now_Formula</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Status</field>
+            <value>
+                <stringValue>SDR Prospecting</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>MIS-6072
+MIS-4811</description>
+        <name>MSL_Update_Lead_Status_to_Unqualified_AND_Opt_Out_AND_Do_Not_Call</name>
+        <label>MSL - Update Lead Status to &apos;Unqualified&apos; AND Opt Out AND Do Not Call</label>
+        <locationX>1040</locationX>
+        <locationY>995</locationY>
+        <connector>
+            <targetReference>decision_RuleCHReassignedFromChiliPiper</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>DoNotCall</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>HasOptedOutOfEmail</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>MIR_Status_Last_Modified_By__c</field>
+            <value>
+                <elementReference>$User.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>MIR_Status_Timestamp__c</field>
+            <value>
+                <elementReference>Now_Formula</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Manual_Unsync_SFMC__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Status</field>
+            <value>
+                <stringValue>Unqualified</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Unqualified_Reason__c</field>
+            <value>
+                <stringValue>Unqualified by a Rep</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Save_Apps_Form_name</name>
+        <label>Save Apps Form name</label>
+        <locationX>776</locationX>
+        <locationY>14219</locationY>
+        <connector>
+            <targetReference>SI_Enrichment_Timestamp_Update_Decision</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>App_Web_Form_Counter__c</field>
+            <value>
+                <elementReference>Counter</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Web_Form_Name__c</field>
+            <value>
+                <elementReference>formname</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Save_Shopper_Form_name</name>
+        <label>Save Shopper Form name</label>
+        <locationX>1040</locationX>
+        <locationY>14219</locationY>
+        <connector>
+            <targetReference>SI_Enrichment_Timestamp_Update_Decision</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Shopper_Web_Form_Counter__c</field>
+            <value>
+                <elementReference>Counter</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Web_Form_Name__c</field>
+            <value>
+                <elementReference>formname</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>SDRC_Set_Chat_DateTime</name>
+        <label>SDRC -Set Chat DateTime</label>
+        <locationX>908</locationX>
+        <locationY>7979</locationY>
+        <connector>
+            <targetReference>Rule_ESD_Enrichment_Source_DateTime</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>SDR_Chat_Date_Time__c</field>
+            <value>
+                <elementReference>Now_Formula</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>update_CHUpdatedRoutedToTrue</name>
+        <label>CH - Updated Routed to True</label>
+        <locationX>908</locationX>
+        <locationY>1295</locationY>
+        <connector>
+            <targetReference>Rule_FC_Update_First_Form_Complete_URL</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Routed__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Company_Name_from_Website_Domain</name>
+        <label>Update Company Name from Website Domain</label>
+        <locationX>908</locationX>
+        <locationY>9245</locationY>
+        <connector>
+            <targetReference>PPC_Timestamp</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Company</field>
+            <value>
+                <elementReference>Website_Domain_Formula</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Current_PPC_Timestamp</name>
+        <label>Update Current PPC Timestamp</label>
+        <locationX>908</locationX>
+        <locationY>9653</locationY>
+        <connector>
+            <targetReference>Intent_Score_Feedback_updated</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>PPC_Timestamp__c</field>
+            <value>
+                <elementReference>$Flow.CurrentDateTime</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Employees_MinMax_by_Max</name>
+        <label>Update  Employees MinMax by Max</label>
+        <locationX>644</locationX>
+        <locationY>2195</locationY>
+        <connector>
+            <targetReference>Salesloft_Status_Change</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Employees_Max__c</field>
+            <value>
+                <elementReference>MaxByMaxFormula</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Employees_Min__c</field>
+            <value>
+                <elementReference>MinByMaxFormula</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Employees_MinMax_by_Min</name>
+        <label>Update  Employees MinMax by Min</label>
+        <locationX>1172</locationX>
+        <locationY>2195</locationY>
+        <connector>
+            <targetReference>Salesloft_Status_Change</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Employees_Max__c</field>
+            <value>
+                <elementReference>MaxByMinFormula</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Employees_Min__c</field>
+            <value>
+                <elementReference>MinByMinFormula</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_First_PPC_Timestamp</name>
+        <label>Update First PPC Timestamp</label>
+        <locationX>908</locationX>
+        <locationY>9545</locationY>
+        <connector>
+            <targetReference>Update_Current_PPC_Timestamp</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>First_PPC_Timestamp__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>First_PPC_Timestamp__c</field>
+            <value>
+                <elementReference>$Flow.CurrentDateTime</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Intent_Score_Snapshot_and_Timestamp</name>
+        <label>Update Intent Score Snapshot and Timestamp</label>
+        <locationX>908</locationX>
+        <locationY>9953</locationY>
+        <connector>
+            <targetReference>SSP_Self_Service_Pitched_ISCHANGED</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Intent_Score_Feedback_Snapshot__c</field>
+            <value>
+                <elementReference>$Record.BI_Data__r.Intent_Score__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Intent_Score_Feedback_Timestamp__c</field>
+            <value>
+                <elementReference>$Flow.CurrentDate</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>MIS-6050
+MIS-5740</description>
+        <name>Update_Last_Owner_Assigned_Date</name>
+        <label>Update Last Owner Assigned Date</label>
+        <locationX>886</locationX>
+        <locationY>12803</locationY>
+        <connector>
+            <targetReference>Rule_NOM_New_Owner_is_MIR</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Last_Owner_Assigned_Date__c</field>
+            <value>
+                <elementReference>Now_Formula</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>MIS-6931</description>
+        <name>Update_Linkedin_Profile</name>
+        <label>Update Linkedin Profile</label>
+        <locationX>908</locationX>
+        <locationY>395</locationY>
+        <connector>
+            <targetReference>Rule_EIT_EmailOptOut_ISCHANGED_to_TRUE</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>LinkedIn_Profile__c</field>
+            <value>
+                <elementReference>$Record.Lugia_Linkedin_Profile__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>MIS-4768</description>
+        <name>Update_Marketing_Persona_with_Industry</name>
+        <label>Update Marketing Persona with Industry</label>
+        <locationX>589</locationX>
+        <locationY>12143</locationY>
+        <connector>
+            <targetReference>Owner_is_Changed</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Marketing_Persona__c</field>
+            <value>
+                <elementReference>MPL_Get_Metadata_with_Industry.Marketing_Persona_with_Industry__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>MIS-4768</description>
+        <name>Update_Marketing_Persona_without_Industry</name>
+        <label>Update Marketing Persona without Industry</label>
+        <locationX>1117</locationX>
+        <locationY>12251</locationY>
+        <connector>
+            <targetReference>Owner_is_Changed</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Marketing_Persona__c</field>
+            <value>
+                <elementReference>MPL_Get_Metadata_with_Industry.Marketing_Persona_without_Industry__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>MIS-6072</description>
+        <name>Update_MIR_Status_Timestamp</name>
+        <label>Update MIR Status Timestamp</label>
+        <locationX>1304</locationX>
+        <locationY>995</locationY>
+        <connector>
+            <targetReference>decision_RuleCHReassignedFromChiliPiper</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>MIR_Status_Last_Modified_By__c</field>
+            <value>
+                <elementReference>$User.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>MIR_Status_Timestamp__c</field>
+            <value>
+                <elementReference>Now_Formula</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>MIS-4811</description>
+        <name>Update_MIR_Status_to_Unsubscribed</name>
+        <label>Update MIR Status to Unsubscribed</label>
+        <locationX>908</locationX>
+        <locationY>695</locationY>
+        <connector>
+            <targetReference>Rule_MSL_MIR_Status_Logic</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>MIR_Status__c</field>
+            <value>
+                <stringValue>Unsubscribed</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>MIS-4658</description>
+        <name>Update_Self_Service_Pitched_By</name>
+        <label>Update Self-Service Pitched By</label>
+        <locationX>908</locationX>
+        <locationY>10253</locationY>
+        <connector>
+            <targetReference>Rule_JTPFC_Job_Titles_Persona_Fields_Changed</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Self_Service_Pitched_By__c</field>
+            <value>
+                <elementReference>User_Full_Name</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Sync_Manual_UnSync_False</name>
+        <label>Update Sync + Manual UnSync False</label>
+        <locationX>754</locationX>
+        <locationY>4895</locationY>
+        <connector>
+            <targetReference>Is_outbound</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Manual_Unsync_SFMC__c</field>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Sync_to_Sfmc__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>914</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Lugia_Linkedin_Profile_Update</targetReference>
+        </connector>
+        <object>Lead</object>
+        <recordTriggerType>Update</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Obsolete</status>
+    <triggerOrder>200</triggerOrder>
+    <variables>
+        <name>Counter</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <scale>2</scale>
+    </variables>
+    <variables>
+        <name>formname</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>var_NullNumber</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>0</scale>
+    </variables>
+    <variables>
+        <name>varQueueDevName</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <stringValue>Website_Incomplete_Leads</stringValue>
+        </value>
+    </variables>
+</Flow>

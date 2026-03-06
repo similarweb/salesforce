@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lynn_All_Open_Deal_Desk_Cases</fullName>
+    <columns>CASES.CREATED_DATE</columns>
+    <columns>Requester__c</columns>
+    <columns>CASES.CASE_NUMBER</columns>
+    <columns>CASES.STATUS</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CASES.TYPE</columns>
+    <columns>CASES.SUBJECT</columns>
+    <columns>Opp_Closed_Date__c</columns>
+    <columns>OPP_ARR__c</columns>
+    <columns>Due_Date__c</columns>
+    <columns>OWNER_NAME</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CASES.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Case.Deal_Desk</value>
+    </filters>
+    <filters>
+        <field>CASES.STATUS</field>
+        <operation>notEqual</operation>
+        <value>Cancelled,Completed</value>
+    </filters>
+    <filters>
+        <field>CASES.TYPE</field>
+        <operation>notEqual</operation>
+        <value>&quot;Extension (Temporary, Permanent, Trial)&quot;,Similarweb MSA,DDQ (Due Diligence / Security Questionnaire),Customer Invoice(s)/Collections,Customer Vendor Form</value>
+    </filters>
+    <label>Official - All Open Deal Desk Cases</label>
+    <sharedTo>
+        <group>Admins_Group</group>
+    </sharedTo>
+</ListView>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Plan_Details</fullName>
+    <active>false</active>
+    <errorConditionFormula>AND(IsPickVal(StageName, &quot;Closed Won&quot;))
+&amp;&amp;(ISBLANK(Plan_Details__c))
+&amp;&amp; $Profile.Name != &quot;System Administrator&quot;
+&amp;&amp; $Profile.Name != &quot;SW SalesOps Extended&quot; 
+&amp;&amp; RecordType.DeveloperName &lt;&gt; &quot;Wolves&quot;</errorConditionFormula>
+    <errorDisplayField>Plan_Details__c</errorDisplayField>
+    <errorMessage>Please update the Plan Details.</errorMessage>
+</ValidationRule>

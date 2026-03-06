@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Bank_Reachout_June_7th</fullName>
+    <booleanFilter>1 AND (2 OR 3) and 4</booleanFilter>
+    <columns>CONTACT.FIRST_NAME</columns>
+    <columns>CONTACT.LAST_NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CONTACT.TITLE</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>CONTACT.LAST_ACTIVITY</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+        <field>Status__c</field>
+        <operation>notEqual</operation>
+        <value>Nurture,Unqualified,Qualified</value>
+    </filters>
+    <filters>
+        <field>ACCOUNT.NAME</field>
+        <operation>equals</operation>
+        <value>Danske Bank Denmark,Danske Bank Sweden,ABN AMRO Bank N.V.,Hello Bank! Belgium</value>
+    </filters>
+    <filters>
+        <field>ACCOUNT.NAME</field>
+        <operation>equals</operation>
+        <value>Hello Bank! France,Nordea - Denmark,Chebanca.it</value>
+    </filters>
+    <filters>
+        <field>Prospecting_Status__c</field>
+        <operation>equals</operation>
+        <value>Attempt 2 (Call &amp; Email)</value>
+    </filters>
+    <label>Moshe Bank Reachout June 7th</label>
+</ListView>

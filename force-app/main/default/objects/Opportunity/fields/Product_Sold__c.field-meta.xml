@@ -1,0 +1,540 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Product_Sold__c</fullName>
+    <externalId>false</externalId>
+    <label>Product Sold</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Type</controllingField>
+        <restricted>true</restricted>
+        <valueSetName>Product_Sold</valueSetName>
+        <valueSettings>
+            <controllingFieldValue>Other</controllingFieldValue>
+            <controllingFieldValue>Strategic Partnership</controllingFieldValue>
+            <controllingFieldValue>Partnership - Accessibility</controllingFieldValue>
+            <controllingFieldValue>Referral</controllingFieldValue>
+            <controllingFieldValue>Partnership</controllingFieldValue>
+            <controllingFieldValue>Reseller</controllingFieldValue>
+            <controllingFieldValue>Upsell</controllingFieldValue>
+            <controllingFieldValue>New Sale</controllingFieldValue>
+            <controllingFieldValue>Renewal</controllingFieldValue>
+            <controllingFieldValue>Monthly Cancellation</controllingFieldValue>
+            <controllingFieldValue>Feature Update</controllingFieldValue>
+            <controllingFieldValue>M&amp;A</controllingFieldValue>
+            <valueName>Admetricks</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Other</controllingFieldValue>
+            <controllingFieldValue>Referral</controllingFieldValue>
+            <controllingFieldValue>Reseller</controllingFieldValue>
+            <controllingFieldValue>Marketplace</controllingFieldValue>
+            <controllingFieldValue>VAR</controllingFieldValue>
+            <controllingFieldValue>Upsell</controllingFieldValue>
+            <controllingFieldValue>New Sale</controllingFieldValue>
+            <controllingFieldValue>Renewal</controllingFieldValue>
+            <controllingFieldValue>Feature Update</controllingFieldValue>
+            <valueName>AI Traffic</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Other</controllingFieldValue>
+            <controllingFieldValue>Strategic Partnership</controllingFieldValue>
+            <controllingFieldValue>Partnership - Accessibility</controllingFieldValue>
+            <controllingFieldValue>Referral</controllingFieldValue>
+            <controllingFieldValue>Partnership</controllingFieldValue>
+            <controllingFieldValue>Reseller</controllingFieldValue>
+            <controllingFieldValue>Marketplace</controllingFieldValue>
+            <controllingFieldValue>VAR</controllingFieldValue>
+            <controllingFieldValue>Upsell</controllingFieldValue>
+            <controllingFieldValue>New Sale</controllingFieldValue>
+            <controllingFieldValue>Renewal</controllingFieldValue>
+            <controllingFieldValue>Monthly Cancellation</controllingFieldValue>
+            <controllingFieldValue>Feature Update</controllingFieldValue>
+            <controllingFieldValue>M&amp;A</controllingFieldValue>
+            <valueName>App Intelligence</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Other</controllingFieldValue>
+            <controllingFieldValue>Strategic Partnership</controllingFieldValue>
+            <controllingFieldValue>Partnership - Accessibility</controllingFieldValue>
+            <controllingFieldValue>Referral</controllingFieldValue>
+            <controllingFieldValue>Partnership</controllingFieldValue>
+            <controllingFieldValue>Reseller</controllingFieldValue>
+            <controllingFieldValue>Marketplace</controllingFieldValue>
+            <controllingFieldValue>VAR</controllingFieldValue>
+            <controllingFieldValue>Upsell</controllingFieldValue>
+            <controllingFieldValue>New Sale</controllingFieldValue>
+            <controllingFieldValue>Renewal</controllingFieldValue>
+            <controllingFieldValue>Monthly Cancellation</controllingFieldValue>
+            <controllingFieldValue>Feature Update</controllingFieldValue>
+            <controllingFieldValue>M&amp;A</controllingFieldValue>
+            <valueName>Competitive Intelligence - Business</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Other</controllingFieldValue>
+            <controllingFieldValue>Strategic Partnership</controllingFieldValue>
+            <controllingFieldValue>Partnership - Accessibility</controllingFieldValue>
+            <controllingFieldValue>Referral</controllingFieldValue>
+            <controllingFieldValue>Partnership</controllingFieldValue>
+            <controllingFieldValue>Reseller</controllingFieldValue>
+            <controllingFieldValue>Marketplace</controllingFieldValue>
+            <controllingFieldValue>VAR</controllingFieldValue>
+            <controllingFieldValue>Upsell</controllingFieldValue>
+            <controllingFieldValue>New Sale</controllingFieldValue>
+            <controllingFieldValue>Renewal</controllingFieldValue>
+            <controllingFieldValue>Monthly Cancellation</controllingFieldValue>
+            <controllingFieldValue>Feature Update</controllingFieldValue>
+            <controllingFieldValue>M&amp;A</controllingFieldValue>
+            <valueName>Competitive Intelligence-  Business for Investors</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Other</controllingFieldValue>
+            <controllingFieldValue>Strategic Partnership</controllingFieldValue>
+            <controllingFieldValue>Partnership - Accessibility</controllingFieldValue>
+            <controllingFieldValue>Referral</controllingFieldValue>
+            <controllingFieldValue>Partnership</controllingFieldValue>
+            <controllingFieldValue>Reseller</controllingFieldValue>
+            <controllingFieldValue>Marketplace</controllingFieldValue>
+            <controllingFieldValue>VAR</controllingFieldValue>
+            <controllingFieldValue>Upsell</controllingFieldValue>
+            <controllingFieldValue>New Sale</controllingFieldValue>
+            <controllingFieldValue>Renewal</controllingFieldValue>
+            <controllingFieldValue>Monthly Cancellation</controllingFieldValue>
+            <controllingFieldValue>Feature Update</controllingFieldValue>
+            <controllingFieldValue>M&amp;A</controllingFieldValue>
+            <valueName>Competitive Intelligence - Enterprise</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Other</controllingFieldValue>
+            <controllingFieldValue>Strategic Partnership</controllingFieldValue>
+            <controllingFieldValue>Partnership - Accessibility</controllingFieldValue>
+            <controllingFieldValue>Referral</controllingFieldValue>
+            <controllingFieldValue>Partnership</controllingFieldValue>
+            <controllingFieldValue>Reseller</controllingFieldValue>
+            <controllingFieldValue>Marketplace</controllingFieldValue>
+            <controllingFieldValue>VAR</controllingFieldValue>
+            <controllingFieldValue>Upsell</controllingFieldValue>
+            <controllingFieldValue>New Sale</controllingFieldValue>
+            <controllingFieldValue>Renewal</controllingFieldValue>
+            <controllingFieldValue>Monthly Cancellation</controllingFieldValue>
+            <controllingFieldValue>Feature Update</controllingFieldValue>
+            <controllingFieldValue>M&amp;A</controllingFieldValue>
+            <valueName>Competitive Intelligence - Team</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Other</controllingFieldValue>
+            <controllingFieldValue>Strategic Partnership</controllingFieldValue>
+            <controllingFieldValue>Partnership - Accessibility</controllingFieldValue>
+            <controllingFieldValue>Referral</controllingFieldValue>
+            <controllingFieldValue>Partnership</controllingFieldValue>
+            <controllingFieldValue>Reseller</controllingFieldValue>
+            <controllingFieldValue>Marketplace</controllingFieldValue>
+            <controllingFieldValue>VAR</controllingFieldValue>
+            <controllingFieldValue>Upsell</controllingFieldValue>
+            <controllingFieldValue>New Sale</controllingFieldValue>
+            <controllingFieldValue>Renewal</controllingFieldValue>
+            <controllingFieldValue>Monthly Cancellation</controllingFieldValue>
+            <controllingFieldValue>Feature Update</controllingFieldValue>
+            <controllingFieldValue>M&amp;A</controllingFieldValue>
+            <valueName>Contact Data Feature</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Other</controllingFieldValue>
+            <controllingFieldValue>Strategic Partnership</controllingFieldValue>
+            <controllingFieldValue>Partnership - Accessibility</controllingFieldValue>
+            <controllingFieldValue>Referral</controllingFieldValue>
+            <controllingFieldValue>Partnership</controllingFieldValue>
+            <controllingFieldValue>Reseller</controllingFieldValue>
+            <controllingFieldValue>Marketplace</controllingFieldValue>
+            <controllingFieldValue>Upsell</controllingFieldValue>
+            <controllingFieldValue>New Sale</controllingFieldValue>
+            <controllingFieldValue>Renewal</controllingFieldValue>
+            <controllingFieldValue>Monthly Cancellation</controllingFieldValue>
+            <controllingFieldValue>Feature Update</controllingFieldValue>
+            <controllingFieldValue>M&amp;A</controllingFieldValue>
+            <valueName>Intelligence Suite - Advanced</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Other</controllingFieldValue>
+            <controllingFieldValue>Strategic Partnership</controllingFieldValue>
+            <controllingFieldValue>Partnership - Accessibility</controllingFieldValue>
+            <controllingFieldValue>Referral</controllingFieldValue>
+            <controllingFieldValue>Partnership</controllingFieldValue>
+            <controllingFieldValue>Reseller</controllingFieldValue>
+            <controllingFieldValue>Marketplace</controllingFieldValue>
+            <controllingFieldValue>Upsell</controllingFieldValue>
+            <controllingFieldValue>New Sale</controllingFieldValue>
+            <controllingFieldValue>Renewal</controllingFieldValue>
+            <controllingFieldValue>Monthly Cancellation</controllingFieldValue>
+            <controllingFieldValue>Feature Update</controllingFieldValue>
+            <controllingFieldValue>M&amp;A</controllingFieldValue>
+            <valueName>Intelligence Suite - Essential</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Other</controllingFieldValue>
+            <controllingFieldValue>Strategic Partnership</controllingFieldValue>
+            <controllingFieldValue>Partnership - Accessibility</controllingFieldValue>
+            <controllingFieldValue>Referral</controllingFieldValue>
+            <controllingFieldValue>Partnership</controllingFieldValue>
+            <controllingFieldValue>Reseller</controllingFieldValue>
+            <controllingFieldValue>Marketplace</controllingFieldValue>
+            <controllingFieldValue>Upsell</controllingFieldValue>
+            <controllingFieldValue>New Sale</controllingFieldValue>
+            <controllingFieldValue>Renewal</controllingFieldValue>
+            <controllingFieldValue>Monthly Cancellation</controllingFieldValue>
+            <controllingFieldValue>Feature Update</controllingFieldValue>
+            <controllingFieldValue>M&amp;A</controllingFieldValue>
+            <valueName>Intelligence Suite - Ultimate</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Other</controllingFieldValue>
+            <controllingFieldValue>Strategic Partnership</controllingFieldValue>
+            <controllingFieldValue>Partnership - Accessibility</controllingFieldValue>
+            <controllingFieldValue>Referral</controllingFieldValue>
+            <controllingFieldValue>Partnership</controllingFieldValue>
+            <controllingFieldValue>Reseller</controllingFieldValue>
+            <controllingFieldValue>Marketplace</controllingFieldValue>
+            <controllingFieldValue>VAR</controllingFieldValue>
+            <controllingFieldValue>Upsell</controllingFieldValue>
+            <controllingFieldValue>New Sale</controllingFieldValue>
+            <controllingFieldValue>Renewal</controllingFieldValue>
+            <controllingFieldValue>Monthly Cancellation</controllingFieldValue>
+            <controllingFieldValue>Feature Update</controllingFieldValue>
+            <controllingFieldValue>M&amp;A</controllingFieldValue>
+            <valueName>No Touch</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Other</controllingFieldValue>
+            <controllingFieldValue>Partnership</controllingFieldValue>
+            <controllingFieldValue>Upsell</controllingFieldValue>
+            <controllingFieldValue>New Sale</controllingFieldValue>
+            <controllingFieldValue>Renewal</controllingFieldValue>
+            <controllingFieldValue>Monthly Cancellation</controllingFieldValue>
+            <controllingFieldValue>Feature Update</controllingFieldValue>
+            <valueName>Popular Pages</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Other</controllingFieldValue>
+            <controllingFieldValue>Strategic Partnership</controllingFieldValue>
+            <controllingFieldValue>Partnership - Accessibility</controllingFieldValue>
+            <controllingFieldValue>Referral</controllingFieldValue>
+            <controllingFieldValue>Partnership</controllingFieldValue>
+            <controllingFieldValue>Reseller</controllingFieldValue>
+            <controllingFieldValue>Marketplace</controllingFieldValue>
+            <controllingFieldValue>VAR</controllingFieldValue>
+            <controllingFieldValue>Upsell</controllingFieldValue>
+            <controllingFieldValue>New Sale</controllingFieldValue>
+            <controllingFieldValue>Renewal</controllingFieldValue>
+            <controllingFieldValue>Monthly Cancellation</controllingFieldValue>
+            <controllingFieldValue>Feature Update</controllingFieldValue>
+            <controllingFieldValue>M&amp;A</controllingFieldValue>
+            <valueName>Sales Solution - Lead Enrichment</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Other</controllingFieldValue>
+            <controllingFieldValue>Strategic Partnership</controllingFieldValue>
+            <controllingFieldValue>Partnership - Accessibility</controllingFieldValue>
+            <controllingFieldValue>Referral</controllingFieldValue>
+            <controllingFieldValue>Partnership</controllingFieldValue>
+            <controllingFieldValue>Reseller</controllingFieldValue>
+            <controllingFieldValue>Marketplace</controllingFieldValue>
+            <controllingFieldValue>VAR</controllingFieldValue>
+            <controllingFieldValue>Upsell</controllingFieldValue>
+            <controllingFieldValue>New Sale</controllingFieldValue>
+            <controllingFieldValue>Renewal</controllingFieldValue>
+            <controllingFieldValue>Monthly Cancellation</controllingFieldValue>
+            <controllingFieldValue>Feature Update</controllingFieldValue>
+            <controllingFieldValue>M&amp;A</controllingFieldValue>
+            <valueName>Service Package</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Other</controllingFieldValue>
+            <controllingFieldValue>Strategic Partnership</controllingFieldValue>
+            <controllingFieldValue>Partnership - Accessibility</controllingFieldValue>
+            <controllingFieldValue>Referral</controllingFieldValue>
+            <controllingFieldValue>Partnership</controllingFieldValue>
+            <controllingFieldValue>Reseller</controllingFieldValue>
+            <controllingFieldValue>Marketplace</controllingFieldValue>
+            <controllingFieldValue>VAR</controllingFieldValue>
+            <controllingFieldValue>Upsell</controllingFieldValue>
+            <controllingFieldValue>New Sale</controllingFieldValue>
+            <controllingFieldValue>Renewal</controllingFieldValue>
+            <controllingFieldValue>Monthly Cancellation</controllingFieldValue>
+            <controllingFieldValue>Feature Update</controllingFieldValue>
+            <controllingFieldValue>M&amp;A</controllingFieldValue>
+            <valueName>Stock Intelligence Platform</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Other</controllingFieldValue>
+            <controllingFieldValue>Strategic Partnership</controllingFieldValue>
+            <controllingFieldValue>Partnership - Accessibility</controllingFieldValue>
+            <controllingFieldValue>Referral</controllingFieldValue>
+            <controllingFieldValue>Partnership</controllingFieldValue>
+            <controllingFieldValue>Reseller</controllingFieldValue>
+            <controllingFieldValue>Marketplace</controllingFieldValue>
+            <controllingFieldValue>VAR</controllingFieldValue>
+            <controllingFieldValue>Upsell</controllingFieldValue>
+            <controllingFieldValue>New Sale</controllingFieldValue>
+            <controllingFieldValue>Renewal</controllingFieldValue>
+            <controllingFieldValue>Monthly Cancellation</controllingFieldValue>
+            <controllingFieldValue>Feature Update</controllingFieldValue>
+            <controllingFieldValue>M&amp;A</controllingFieldValue>
+            <valueName>Technology Partner</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Renewal - Acquired Company</controllingFieldValue>
+            <controllingFieldValue>Upsell - Acquired Company</controllingFieldValue>
+            <controllingFieldValue>Upsell</controllingFieldValue>
+            <controllingFieldValue>New Sale</controllingFieldValue>
+            <controllingFieldValue>Renewal</controllingFieldValue>
+            <controllingFieldValue>Existing Customer - Acquired Company</controllingFieldValue>
+            <controllingFieldValue>New Sale - Acquired Company</controllingFieldValue>
+            <valueName>Newslever</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Renewal - Acquired Company</controllingFieldValue>
+            <controllingFieldValue>Upsell - Acquired Company</controllingFieldValue>
+            <controllingFieldValue>Existing Customer - Acquired Company</controllingFieldValue>
+            <controllingFieldValue>New Sale - Acquired Company</controllingFieldValue>
+            <valueName>Newslever - Tier I</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Renewal - Acquired Company</controllingFieldValue>
+            <controllingFieldValue>Upsell - Acquired Company</controllingFieldValue>
+            <controllingFieldValue>Existing Customer - Acquired Company</controllingFieldValue>
+            <controllingFieldValue>New Sale - Acquired Company</controllingFieldValue>
+            <valueName>Newslever - Tier II</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Renewal - Acquired Company</controllingFieldValue>
+            <controllingFieldValue>Upsell - Acquired Company</controllingFieldValue>
+            <controllingFieldValue>Existing Customer - Acquired Company</controllingFieldValue>
+            <controllingFieldValue>New Sale - Acquired Company</controllingFieldValue>
+            <valueName>Newslever - Tier III</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Upsell</controllingFieldValue>
+            <controllingFieldValue>New Sale</controllingFieldValue>
+            <controllingFieldValue>Renewal</controllingFieldValue>
+            <controllingFieldValue>Monthly Cancellation</controllingFieldValue>
+            <controllingFieldValue>Feature Update</controllingFieldValue>
+            <valueName>42matters</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Upsell</controllingFieldValue>
+            <controllingFieldValue>New Sale</controllingFieldValue>
+            <valueName>Additional One Time Data Credits</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Upsell</controllingFieldValue>
+            <controllingFieldValue>New Sale</controllingFieldValue>
+            <valueName>Advanced Sharing</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Upsell</controllingFieldValue>
+            <controllingFieldValue>New Sale</controllingFieldValue>
+            <controllingFieldValue>Renewal</controllingFieldValue>
+            <controllingFieldValue>Monthly Cancellation</controllingFieldValue>
+            <controllingFieldValue>Feature Update</controllingFieldValue>
+            <valueName>Advisory Services</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Upsell</controllingFieldValue>
+            <controllingFieldValue>Feature Update</controllingFieldValue>
+            <valueName>Annual Price Increase</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Upsell</controllingFieldValue>
+            <controllingFieldValue>New Sale</controllingFieldValue>
+            <controllingFieldValue>Renewal</controllingFieldValue>
+            <controllingFieldValue>Feature Update</controllingFieldValue>
+            <valueName>API</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Upsell</controllingFieldValue>
+            <controllingFieldValue>New Sale</controllingFieldValue>
+            <controllingFieldValue>Renewal</controllingFieldValue>
+            <controllingFieldValue>Feature Update</controllingFieldValue>
+            <valueName>Batch API</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Upsell</controllingFieldValue>
+            <controllingFieldValue>Feature Update</controllingFieldValue>
+            <valueName>Conversion Analysis</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Upsell</controllingFieldValue>
+            <controllingFieldValue>Feature Update</controllingFieldValue>
+            <valueName>Country Filters</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Upsell</controllingFieldValue>
+            <controllingFieldValue>New Sale</controllingFieldValue>
+            <valueName>Custom Industries</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Upsell</controllingFieldValue>
+            <controllingFieldValue>New Sale</controllingFieldValue>
+            <valueName>DaaS/API Standalone Package</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Upsell</controllingFieldValue>
+            <controllingFieldValue>New Sale</controllingFieldValue>
+            <controllingFieldValue>Renewal</controllingFieldValue>
+            <controllingFieldValue>Feature Update</controllingFieldValue>
+            <valueName>Data Feeds</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Upsell</controllingFieldValue>
+            <controllingFieldValue>New Sale</controllingFieldValue>
+            <valueName>Faster API</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Upsell</controllingFieldValue>
+            <controllingFieldValue>New Sale</controllingFieldValue>
+            <valueName>Global User Pass</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Upsell</controllingFieldValue>
+            <controllingFieldValue>Feature Update</controllingFieldValue>
+            <valueName>Historical data</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Upsell</controllingFieldValue>
+            <controllingFieldValue>New Sale</controllingFieldValue>
+            <valueName>Market Research</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Upsell</controllingFieldValue>
+            <controllingFieldValue>New Sale</controllingFieldValue>
+            <controllingFieldValue>Renewal</controllingFieldValue>
+            <controllingFieldValue>Feature Update</controllingFieldValue>
+            <valueName>Sales Intelligence - Business</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Upsell</controllingFieldValue>
+            <controllingFieldValue>New Sale</controllingFieldValue>
+            <controllingFieldValue>Renewal</controllingFieldValue>
+            <controllingFieldValue>Feature Update</controllingFieldValue>
+            <valueName>Sales Intelligence - Business for Investors</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Upsell</controllingFieldValue>
+            <controllingFieldValue>New Sale</controllingFieldValue>
+            <controllingFieldValue>Renewal</controllingFieldValue>
+            <controllingFieldValue>Feature Update</controllingFieldValue>
+            <valueName>Sales Intelligence - Enterprise</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Upsell</controllingFieldValue>
+            <controllingFieldValue>New Sale</controllingFieldValue>
+            <controllingFieldValue>Renewal</controllingFieldValue>
+            <controllingFieldValue>Feature Update</controllingFieldValue>
+            <valueName>Sales Intelligence Pro</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Upsell</controllingFieldValue>
+            <controllingFieldValue>New Sale</controllingFieldValue>
+            <valueName>Sales Intelligence Starter</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Upsell</controllingFieldValue>
+            <controllingFieldValue>New Sale</controllingFieldValue>
+            <controllingFieldValue>Feature Update</controllingFieldValue>
+            <valueName>Search Tracker</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Upsell</controllingFieldValue>
+            <controllingFieldValue>New Sale</controllingFieldValue>
+            <valueName>Shopper Additional Historical Data</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Upsell</controllingFieldValue>
+            <controllingFieldValue>New Sale</controllingFieldValue>
+            <controllingFieldValue>Renewal</controllingFieldValue>
+            <controllingFieldValue>Monthly Cancellation</controllingFieldValue>
+            <controllingFieldValue>Feature Update</controllingFieldValue>
+            <valueName>Shopper Intelligence - Advanced</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Upsell</controllingFieldValue>
+            <controllingFieldValue>New Sale</controllingFieldValue>
+            <controllingFieldValue>Renewal</controllingFieldValue>
+            <controllingFieldValue>Monthly Cancellation</controllingFieldValue>
+            <controllingFieldValue>Feature Update</controllingFieldValue>
+            <valueName>Shopper Intelligence - Essential</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Upsell</controllingFieldValue>
+            <controllingFieldValue>New Sale</controllingFieldValue>
+            <controllingFieldValue>Renewal</controllingFieldValue>
+            <controllingFieldValue>Monthly Cancellation</controllingFieldValue>
+            <controllingFieldValue>Feature Update</controllingFieldValue>
+            <valueName>Shopper Intelligence - Ultimate</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Upsell</controllingFieldValue>
+            <controllingFieldValue>New Sale</controllingFieldValue>
+            <controllingFieldValue>Renewal</controllingFieldValue>
+            <controllingFieldValue>Feature Update</controllingFieldValue>
+            <valueName>Site Audit</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Upsell</controllingFieldValue>
+            <controllingFieldValue>Feature Update</controllingFieldValue>
+            <valueName>Technographics</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Upsell</controllingFieldValue>
+            <controllingFieldValue>New Sale</controllingFieldValue>
+            <valueName>Unlock 1 New Region (EMEA/America/APAC)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Upsell</controllingFieldValue>
+            <controllingFieldValue>New Sale</controllingFieldValue>
+            <valueName>Unlock Global Market (All Regions)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Upsell</controllingFieldValue>
+            <controllingFieldValue>Feature Update</controllingFieldValue>
+            <valueName>User</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Upsell</controllingFieldValue>
+            <controllingFieldValue>Feature Update</controllingFieldValue>
+            <valueName>Website Segment Analysis</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Upsell</controllingFieldValue>
+            <controllingFieldValue>New Sale</controllingFieldValue>
+            <controllingFieldValue>Renewal</controllingFieldValue>
+            <valueName>CI Business 4.0</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Upsell</controllingFieldValue>
+            <controllingFieldValue>New Sale</controllingFieldValue>
+            <controllingFieldValue>Renewal</controllingFieldValue>
+            <valueName>Advanced CI 4.0</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Upsell</controllingFieldValue>
+            <controllingFieldValue>New Sale</controllingFieldValue>
+            <controllingFieldValue>Renewal</controllingFieldValue>
+            <valueName>Advanced SEO 4.0</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Upsell</controllingFieldValue>
+            <controllingFieldValue>New Sale</controllingFieldValue>
+            <controllingFieldValue>Renewal</controllingFieldValue>
+            <valueName>Advanced Ads Intell 4.0</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Upsell</controllingFieldValue>
+            <controllingFieldValue>New Sale</controllingFieldValue>
+            <controllingFieldValue>Renewal</controllingFieldValue>
+            <valueName>AI Chatbot Traffic &amp; Brand 4.0</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Other_use_case_more_detail</fullName>
+    <active>false</active>
+    <description>&amp;&amp; $Profile.Name !=&quot;System Administrator&quot;</description>
+    <errorConditionFormula>AND( 
+(INCLUDES(Specific_Use_Cases__c, &quot;Other&quot;)), 
+(ISBLANK(Use_Cases__c))) &amp;&amp; 
+NOT($Profile.Id=&apos;00eb0000000oBvcAAE&apos;)</errorConditionFormula>
+    <errorDisplayField>Use_Cases__c</errorDisplayField>
+    <errorMessage>Please provide details on other Use Case.</errorMessage>
+</ValidationRule>

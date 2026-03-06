@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Alex</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>LEAD.TITLE</columns>
+    <columns>LEAD.LAST_ACTIVITY</columns>
+    <columns>LEAD.COMPANY</columns>
+    <columns>LEAD.EMAIL</columns>
+    <columns>SW_Industry__c</columns>
+    <columns>Lead_Owner_formula__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>LEAD.STATUS</field>
+        <operation>notEqual</operation>
+        <value>Qualified,Replied,Unqualified,SDR Prospecting,Contacted</value>
+    </filters>
+    <filters>
+        <field>LEAD.LAST_ACTIVITY</field>
+        <operation>equals</operation>
+    </filters>
+    <filters>
+        <field>Lead_Created_Date_Time__c</field>
+        <operation>greaterThan</operation>
+        <value>1/4/2023 12:00 AM</value>
+    </filters>
+    <filters>
+        <field>Lead_Owner_formula__c</field>
+        <operation>contains</operation>
+        <value>Grychyk</value>
+    </filters>
+    <filters>
+        <field>Email_address_domain_type__c</field>
+        <operation>contains</operation>
+        <value>Company</value>
+    </filters>
+    <filters>
+        <field>SW_Fit_Score__c</field>
+        <operation>equals</operation>
+        <value>A,B,C</value>
+    </filters>
+    <filters>
+        <field>LEAD.LEAD_SOURCE</field>
+        <operation>equals</operation>
+        <value>ContactForm,LinkedIn - Paid,LinkedIn - Paid - Convo Ads,Pro</value>
+    </filters>
+    <filters>
+        <field>MIR_Status__c</field>
+        <operation>notEqual</operation>
+        <value>Deprioritized,Unqualified</value>
+    </filters>
+    <filters>
+        <field>LEAD.EMAIL_OPT_OUT</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>LEAD.CONVERTED</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <label>Alex</label>
+</ListView>

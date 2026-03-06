@@ -1,0 +1,186 @@
+<template>
+    <lightning-card title="Enrichment Confidence" icon-name="standard:contact">
+        <template if:true={showDisclaimer}>
+            <div class="slds-text-color_error slds-p-bottom_small">
+                *data manually verified
+            </div>
+        </template>
+        <div class="slds-text-color_error slds-p-bottom_small">
+            *Hover over the fields for enrichment sources comparison
+        </div>
+        <div class="slds-m-around_medium">
+            <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_col-bordered custom-table">
+                <tbody>
+                <tr class="slds-hint-parent">
+                    <td class="slds-size_1-of-3">
+                        <div class="slds-truncate" title="Account Name">Lead Name: {leadName}</div>
+                    </td>
+                    <td class="slds-size_1-of-3">
+                        SFDC field values
+                    </td>
+                    <td class="slds-size_1-of-3 {confidenceScoreClass}">
+                        <div class=averageScoreDiv title="Average account enrichment confidence score">Average Lead enrichment confidence score:<span class={totalConfidenceScoreClass}> {confidenceScore}</span> </div>
+                    </td>
+
+                </tr>
+                <!-- SW Industry Tooltip -->
+                <tr class="slds-hint-parent">
+                    <td class="my-left-column">
+                        <div class="slds-truncate" title="SW Industry">SW Industry</div>
+                        <div class="slds-popover slds-popover_tooltip slds-nubbin_left custom-tooltip-2rows" role="tooltip" id="swIndustry-tooltip">
+                            <div class="slds-popover__body">
+                                <table class="slds-table slds-table_cell-buffer slds-no-row-hover">
+                                    <tbody>
+                                    <tr>
+                                        <td class="slds-text-title">sw connector industry:</td>
+                                        <td class="slds-text-title">{swConnectorWebsiteCategory}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="slds-text-title">SFDC industry:</td>
+                                        <td class="slds-text-title">{swIndustry}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="slds-truncate" title="sf industry">{swIndustry}</div>
+                    </td>
+                    <td>
+                        <div  title={swIndustryValue}>{swIndustryValue}</div>
+                    </td>
+                </tr>
+                <!-- Company Size Tooltip -->
+                <tr class="slds-hint-parent">
+                    <td class="my-left-column">
+                        <div class="slds-truncate" title="Company Size">Company Size</div>
+                        <div class="slds-popover slds-popover_tooltip slds-nubbin_left custom-tooltip-4rows" role="tooltip" id="companySize-tooltip">
+                            <div class="slds-popover__body">
+                                <table class="slds-table slds-table_cell-buffer slds-no-row-hover">
+                                    <tbody>
+                                    <tr>
+                                        <td class="slds-text-title">Polygraph employee estimated:</td>
+                                        <td class="slds-text-title">{polygraphCompanyEmployeesEstimated}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="slds-text-title">sw connector number of employeees:</td>
+                                        <td class="slds-text-title">{swConnectorNumberOfEmployees}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="slds-text-title">SFDC employee min:</td>
+                                        <td class="slds-text-title">{employeesMin}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="slds-text-title">SFDC employee max:</td>
+                                        <td class="slds-text-title">{employeesMax}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="slds-truncate"> {employeesMin} - {employeesMax}</div>
+                    </td>
+                    <td>
+                        <div  title={Company_size}>{Company_size}</div>
+                    </td>
+                </tr>
+                <!-- Website Domain Tooltip -->
+                <tr class="slds-hint-parent">
+                    <td class="my-left-column">
+                        <div class="slds-truncate" title="Website Domain">Website Domain</div>
+                        <div class="slds-popover slds-popover_tooltip slds-nubbin_left custom-tooltip-3rows" role="tooltip" id="websiteDomain-tooltip">
+                            <div class="slds-popover__body">
+                                <table class="slds-table slds-table_cell-buffer slds-no-row-hover">
+                                    <tbody>
+                                    <tr>
+                                        <td class="slds-text-title">Clearbit Website:</td>
+                                        <td class="slds-text-title">{websiteClearbit}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="slds-text-title">SW connector  website name:</td>
+                                        <td class="slds-text-title">{swConnectorSwIdName}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="slds-text-title">SFDC website :</td>
+                                        <td class="slds-text-title">{websiteValue}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="slds-truncate"> {websiteValue} </div>
+                    </td>
+                    <td>
+                        <div title={Website_Domain}>{Website_Domain}</div>
+                    </td>
+                </tr>
+                <!-- Country Tooltip (Already in your code) -->
+                <tr class="slds-hint-parent">
+                    <td class="my-left-column">
+                        <div class="slds-truncate" title="Country">Country</div>
+                        <div class="slds-popover slds-popover_tooltip slds-nubbin_left custom-tooltip-3rows" role="tooltip" id="country-tooltip">
+                            <div class="slds-popover__body">
+                                <table class="slds-table slds-table_cell-buffer slds-no-row-hover">
+                                    <tbody>
+                                    <tr>
+                                        <td class="slds-text-title">Polygraph country :</td>
+                                        <td class="slds-text-title">{polygraphCountry}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="slds-text-title">sw connector country :</td>
+                                        <td class="slds-text-title">{swTrafficCountry}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="slds-text-title">SFDC country:</td>
+                                        <td class="slds-text-title">{billingCountryValue}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="slds-truncate"> {billingCountryValue}</div>
+                    </td>
+                    <td>
+                        <div  title={CountryValue}>{CountryValue} </div>
+                    </td>
+                </tr>
+                <!-- Parent Company HQ Tooltip -->
+<!--                <tr class="slds-hint-parent">-->
+<!--                    <td class="my-left-column">-->
+<!--                        <div class="slds-truncate" title="Parent Company HQ">Parent Company HQ</div>-->
+<!--                        <div class="slds-popover slds-popover_tooltip slds-nubbin_left custom-tooltip-2rows" role="tooltip" id="parentCompanyHQ-tooltip">-->
+<!--                            <div class="slds-popover__body">-->
+<!--                                <table class="slds-table slds-table_cell-buffer slds-no-row-hover">-->
+<!--                                    <tbody>-->
+<!--                                    <tr>-->
+<!--                                        <td class="slds-text-title">sw connector HQ:</td>-->
+<!--                                        <td class="slds-text-title">{swConnectorHeadquartersLocation}</td>-->
+<!--                                    </tr>-->
+<!--                                    <tr>-->
+<!--                                        <td class="slds-text-title">SFDC HQ:</td>-->
+<!--                                        <td class="slds-text-title">{parentCompanyHQCountry}</td>-->
+<!--                                    </tr>-->
+<!--                                    </tbody>-->
+<!--                                </table>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </td>-->
+<!--                    <td>-->
+<!--                        <div class="slds-truncate"> {parentCompanyHQCountry}</div>-->
+<!--                    </td>-->
+<!--                    <td>-->
+<!--                        <div  title={Parent_company_HQ}>{Parent_company_HQ} </div>-->
+<!--                    </td>-->
+<!--                </tr>-->
+                </tbody>
+            </table>
+        </div>
+    </lightning-card>
+</template>

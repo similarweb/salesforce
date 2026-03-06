@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Interested_in__c</fullName>
+    <description>MIS-5493</description>
+    <externalId>false</externalId>
+    <label>Interested in</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>true</sorted>
+            <value>
+                <fullName>42matters</fullName>
+                <default>false</default>
+                <label>42matters</label>
+            </value>
+            <value>
+                <fullName>Admetricks</fullName>
+                <default>false</default>
+                <label>Admetricks</label>
+            </value>
+            <value>
+                <fullName>Newslever</fullName>
+                <default>false</default>
+                <label>Newslever</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

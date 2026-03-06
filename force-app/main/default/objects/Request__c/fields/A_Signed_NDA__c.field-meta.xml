@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>A_Signed_NDA__c</fullName>
+    <externalId>false</externalId>
+    <label>Do We Have A Signed NDA?</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>No</fullName>
+                <default>false</default>
+                <label>No</label>
+            </value>
+            <value>
+                <fullName>No, but there is a customer contract in place with a confidentiality provision</fullName>
+                <default>false</default>
+                <label>No, but there is a customer contract in place with a confidentiality provision</label>
+            </value>
+            <value>
+                <fullName>Yes</fullName>
+                <default>false</default>
+                <label>Yes, and it was uploaded to the notes and attachments of this request</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

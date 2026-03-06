@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>First_Owner_Assigned__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Stating the first owner assigned only if profile = SW MIR, SW Sales Internal, SW Sales External, SW CSM, SW SDR, SW SDR Extended
+
+MIS-2381</description>
+    <externalId>false</externalId>
+    <label>First Owner Assigned</label>
+    <referenceTo>User</referenceTo>
+    <relationshipName>Leads_First_Owner_Assigned</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Lookup</type>
+</CustomField>

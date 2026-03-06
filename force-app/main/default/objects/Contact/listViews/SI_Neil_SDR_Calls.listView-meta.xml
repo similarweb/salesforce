@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SI_Neil_SDR_Calls</fullName>
+    <booleanFilter>(1 OR 2) AND 3 AND 4 and 5 and 6 and 7</booleanFilter>
+    <columns>FULL_NAME</columns>
+    <columns>CONTACT.TITLE</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.PHONE3</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>LID__No_longer_at_Company__c</columns>
+    <columns>fr_Pro_User_Type__c</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CONTACT.PHONE1</field>
+        <operation>notEqual</operation>
+    </filters>
+    <filters>
+        <field>CONTACT.PHONE3</field>
+        <operation>notEqual</operation>
+    </filters>
+    <filters>
+        <field>CONTACT.LAST_ACTIVITY</field>
+        <operation>notEqual</operation>
+        <value>LAST_N_DAYS:30</value>
+    </filters>
+    <filters>
+        <field>CONTACT.TITLE</field>
+        <operation>contains</operation>
+        <value>sales,account executive,account manager,sale,business development</value>
+    </filters>
+    <filters>
+        <field>Account.Strategic_Pod__c</field>
+        <operation>equals</operation>
+        <value>North America-Travel &amp; Google</value>
+    </filters>
+    <filters>
+        <field>ACCOUNT.NAME</field>
+        <operation>contains</operation>
+        <value>oracle,salesforce,adobe</value>
+    </filters>
+    <filters>
+        <field>Account.Country_Region_new__c</field>
+        <operation>equals</operation>
+        <value>NorthAmerica</value>
+    </filters>
+    <label>SI - Neil SDR Calls - AMERICAS</label>
+</ListView>

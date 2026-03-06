@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>M_A_AntiVirus_Project_21_5_18</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>LEAD.COMPANY</columns>
+    <columns>Projects_Wolves__c</columns>
+    <columns>LEAD.STATUS</columns>
+    <columns>Wolves_App_Name__c</columns>
+    <columns>Wolves_Link_to_App__c</columns>
+    <columns>Wolves_Rating_Count__c</columns>
+    <columns>Minimum_Installs__c</columns>
+    <columns>Wolves_App_Category__c</columns>
+    <columns>LEAD.CREATED_DATE</columns>
+    <columns>Wolves_Quality_Score__c</columns>
+    <columns>Wolves_Tracking_Method__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Projects_Wolves__c</field>
+        <operation>equals</operation>
+        <value>M&amp;A Q1 2018,M&amp;A AntiVirus,&quot;Security, Utility, Browsers M&amp;A&quot;</value>
+    </filters>
+    <filters>
+        <field>LEAD.STATUS</field>
+        <operation>equals</operation>
+        <value>Open,Contacted</value>
+    </filters>
+    <filters>
+        <field>Wolves_App_Category__c</field>
+        <operation>notContain</operation>
+        <value>GAME</value>
+    </filters>
+    <filters>
+        <field>LEAD.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Lead.Wolves</value>
+    </filters>
+    <filters>
+        <field>Minimum_Installs__c</field>
+        <operation>lessOrEqual</operation>
+        <value>12000000</value>
+    </filters>
+    <label>M&amp;A AntiVirus Project 21.5.18</label>
+</ListView>

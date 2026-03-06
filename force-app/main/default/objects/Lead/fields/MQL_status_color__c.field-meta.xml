@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MQL_status_color__c</fullName>
+    <description>MQL status color</description>
+    <externalId>false</externalId>
+    <formula>IF( mql_status__c= &apos;Hard MQL&apos;,
+IMAGE(&quot;https://similarweb--c.vf.force.com/resource/1728982545000/MQL_color_hard?&quot;, &quot;green&quot;, 16, 50 )&amp;&quot;Hard MQL&quot;,
+IF( mql_status__c= &quot;Soft MQL&quot;,
+IMAGE(&quot;https://similarweb--c.vf.force.com/resource/1728982643000/MQL_color_soft?&quot;, &quot;turquoise&quot;, 16, 50 )&amp;&quot;Soft MQL&quot;,
+IF( mql_status__c= &quot;Nurture&quot;,
+IMAGE(&quot;https://similarweb--c.vf.force.com/resource/1728982736000/MQL_color_nurture?&quot;, &quot;grey&quot;, 16, 50 )&amp;&quot;Nurture&quot;,
+IF( mql_status__c= &quot;Reserve&quot;,
+IMAGE(&quot;https://similarweb--c.vf.force.com/resource/1728982670000/MQL_color_reserve?&quot;, &quot;yellow&quot;, 16, 50 )&amp;&quot;Reserve&quot;,
+IF( mql_status__c= &quot;Unverified MQL&quot;,
+IMAGE(&quot;https://similarweb--c.vf.force.com/resource/1728982717000/MQL_color_unverified?&quot;, &quot;Lila&quot; , 16, 50)&amp;&quot;Unverified MQL&quot;,
+&quot;&quot;)))))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>MQL_status_color</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

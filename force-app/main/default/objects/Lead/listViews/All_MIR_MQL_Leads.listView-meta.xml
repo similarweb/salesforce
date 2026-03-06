@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All_MIR_MQL_Leads</fullName>
+    <booleanFilter>1 AND 2 AND 3 AND 4 AND 5</booleanFilter>
+    <columns>LEAD.EMAIL</columns>
+    <columns>LEAD.FIRST_NAME</columns>
+    <columns>LEAD.LAST_NAME</columns>
+    <columns>Clean_Domain__c</columns>
+    <columns>LEAD.PHONE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Owner_Role__c</field>
+        <operation>equals</operation>
+        <value>MIR</value>
+    </filters>
+    <filters>
+        <field>LEAD.STATUS</field>
+        <operation>notEqual</operation>
+        <value>Qualified,SDR Prospecting</value>
+    </filters>
+    <filters>
+        <field>ROE_Division__c</field>
+        <operation>equals</operation>
+        <value>SMB Sales - US</value>
+    </filters>
+    <filters>
+        <field>MQL_Prediction__c</field>
+        <operation>notContain</operation>
+        <value>D1,D2,D3,D4</value>
+    </filters>
+    <filters>
+        <field>LEAD.PHONE</field>
+        <operation>equals</operation>
+    </filters>
+    <label>All MIR MQL Leads</label>
+</ListView>

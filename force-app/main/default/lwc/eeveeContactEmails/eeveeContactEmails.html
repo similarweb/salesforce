@@ -1,0 +1,14 @@
+<template>
+    <lightning-card if:true={iframeUrl}>
+        <iframe
+                src={iframeUrl}
+                width="100%"
+                height="1200px"
+                style="border:none;"
+        ></iframe>
+    </lightning-card>
+
+    <template if:false={iframeUrl}>
+        <lightning-spinner alternative-text="Loading..."></lightning-spinner>
+    </template>
+</template>

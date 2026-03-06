@@ -1,0 +1,52 @@
+.funky-button {
+    background: linear-gradient(135deg, #ffc107, #28a745, #2ecc71, #00b894, #27ae60);
+    background-size: 300% 300%;
+    color: white;
+    font-size: 0.85rem; /* Smaller font size */
+    font-weight: bold;
+    border: none;
+    border-radius: 15px; /* Smaller border radius */
+    padding: 4px 10px; /* Smaller padding */
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Reduced shadow */
+    transition: all 0.3s ease;
+    animation: gradientShift 5s ease infinite;
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.funky-button:hover {
+    transform: scale(1.1); /* Increase size slightly */
+    background-position: 100% 50%; /* Shift the gradient on hover */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4); /* Darker and larger shadow */
+    color: #f8f9fa; /* Slightly lighter text color on hover */
+}
+
+.funky-button:active {
+    transform: scale(1) rotate(0deg);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+.funky-button-container {
+    text-align: center;
+    margin-top: 10px; /* Optional: Adds some space above the button */
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .funky-button {
+        font-size: 0.75rem; /* Even smaller on small screens */
+        padding: 3px 8px;
+    }
+}

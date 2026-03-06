@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All_Slack_Channels</fullName>
+    <columns>MasterLabel</columns>
+    <columns>DeveloperName</columns>
+    <columns>Send_Alert__c</columns>
+    <columns>Channel_ID__c</columns>
+    <filterScope>Everything</filterScope>
+    <label>All Slack Channels</label>
+    <language>en_US</language>
+</ListView>

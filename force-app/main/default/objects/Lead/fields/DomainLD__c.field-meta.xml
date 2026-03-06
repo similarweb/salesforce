@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DomainLD__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(Email_DomainClean__c=Null &amp;&amp;  WebsiteDomain__c=Null,Null, 
+IF( Email_DomainClean__c=Null,WebsiteDomain__c,
+IF( WebsiteDomain__c=Null,Email_DomainClean__c,
+IF(Email_DomainClean__c&lt;&gt;Null &amp;&amp; WebsiteDomain__c&lt;&gt;Null &amp;&amp; ISPICKVAL(Email_address_domain_type__c,&quot;Company&quot;), Email_DomainClean__c,
+WebsiteDomain__c))))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Domain LD</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lead_SalesOps</fullName>
+    <fields>Name</fields>
+    <fields>OwnerId</fields>
+    <fields>Business_Unit__c</fields>
+    <fields>Company</fields>
+    <fields>Email</fields>
+    <fields>Website</fields>
+    <fields>Secondary_email__c</fields>
+    <label>Lead SalesOps</label>
+</CompactLayout>

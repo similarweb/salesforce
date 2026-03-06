@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>User_Restriction</fullName>
+    <active>true</active>
+    <errorConditionFormula>Not(Contains($Profile.Name, &quot;Ops&quot;)) &amp;&amp; Not(Contains($Profile.Name, &quot;Admin&quot;))&amp;&amp;
+(
+ ISCHANGED(Title) ||
+ ISCHANGED(Division) ||
+ ISCHANGED(Department) ||
+ ISCHANGED(CompanyName) ||
+ ISCHANGED(Admin_Console__c) ||
+ ISCHANGED(Financial_Invoice_Management__c)
+)</errorConditionFormula>
+    <errorMessage>You do not have permission to edit user detail. Please contact SalesOps for further assistance</errorMessage>
+</ValidationRule>

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>56.0</apiVersion>
+    <description>MIS-2825, MIS-3452, MIS-3678
+
+PRD: https://docs.google.com/document/d/1U343DCDyWTGi8Yb9VYJwea1XTYGFuARCKqUDxVqy6MI/edit?usp=sharing</description>
+    <environments>Default</environments>
+    <formulas>
+        <description>New Inbound Lead Call - TODAY</description>
+        <name>Task_Subject_Formula</name>
+        <dataType>String</dataType>
+        <expression>&apos;New Inbound Lead Call - &apos; + TEXT({!$Flow.CurrentDate})</expression>
+    </formulas>
+    <interviewLabel>Lead - Create a Call Task when owner is changed to MIR {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Lead - Create a Call Task when owner is changed to MIR</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordCreates>
+        <name>Create_a_Call_Task</name>
+        <label>Create a Call Task</label>
+        <locationX>176</locationX>
+        <locationY>335</locationY>
+        <inputAssignments>
+            <field>ActivityDate</field>
+            <value>
+                <elementReference>$Flow.CurrentDate</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>OwnerId</field>
+            <value>
+                <elementReference>$Record.OwnerId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Priority</field>
+            <value>
+                <stringValue>High</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Status</field>
+            <value>
+                <stringValue>Not Started</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Subject</field>
+            <value>
+                <stringValue>New Inbound Lead Call - Today: 1</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Type</field>
+            <value>
+                <stringValue>Internal</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>WhoId</field>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Task</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Create_a_Call_Task</targetReference>
+        </connector>
+        <filterFormula>(
+ISCHANGED({!$Record.First_Owner_Assigned__c})
+||
+ISCHANGED({!$Record.SW_Fit_Score__c}) || ISCHANGED({!$Record.Fit_Score_Test__c})
+)
+&amp;&amp;
+{!$Record.Owner:User.Profile.Name} = &apos;SW MIR&apos;
+&amp;&amp;
+(TEXT({!$Record.SW_Fit_Score__c}) = &apos;A&apos; || TEXT({!$Record.SW_Fit_Score__c}) = &apos;B&apos; || TEXT({!$Record.SW_Fit_Score__c}) = &apos;C&apos; || {!$Record.Fit_Score_Test__c} = &apos;A&apos; || {!$Record.Fit_Score_Test__c} = &apos;B&apos; || {!$Record.Fit_Score_Test__c} = &apos;C&apos;)
+&amp;&amp;
+CONTAINS(TEXT({!$Record.Email_address_domain_type__c}), &apos;Company&apos;)
+&amp;&amp;
+(TEXT ({!$Record.LeadSource}) = &apos;LinkedIn - Paid&apos; || TEXT ({!$Record.LeadSource}) = &apos;White Paper&apos; || TEXT ({!$Record.LeadSource}) = &apos;Pro&apos; || TEXT ({!$Record.LeadSource}) = &apos;ContactForm&apos;)
+&amp;&amp;
+NOT (ISBLANK ({!$Record.Phone}))
+&amp;&amp;
+NOT({!$Record.HasOptedOutOfEmail})</filterFormula>
+        <object>Lead</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Obsolete</status>
+</Flow>

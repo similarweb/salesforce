@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cross_Sell__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Indicates if there is already an Account with the same Company Domain that the ARR is &gt;0. Meaning this Opp is considered a Cross-Sell. MIS-1273</description>
+    <externalId>false</externalId>
+    <label>Cross-Sell</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

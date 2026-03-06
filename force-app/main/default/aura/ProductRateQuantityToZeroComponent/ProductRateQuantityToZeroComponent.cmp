@@ -1,0 +1,11 @@
+<aura:component implements="force:lightningQuickAction,flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes,force:appHostable" access="global" controller="ProductRatePlanChargeController">
+    <aura:attribute name="loading" type="Boolean" default="false"/>
+    <aura:handler name="init" value="{!this}" action="{!c.handleClick}"/>
+    
+    
+                <aura:if isTrue="{! v.loading}">
+                    <lightning:spinner alternativeText=" " size="small"/>
+                </aura:if>
+          
+	<!--<lightning:button variant="brand" label="Update Product Rate Plan Charge" title="Update Product Rate Plan Charge" onclick="{! c.handleClick }" />-->
+</aura:component>

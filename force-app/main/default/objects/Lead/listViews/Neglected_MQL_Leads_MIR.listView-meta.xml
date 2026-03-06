@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Neglected_MQL_Leads_MIR</fullName>
+    <booleanFilter>1 AND 2 AND 3 AND 4 AND 5 AND 6 AND 7 AND 8 AND 9</booleanFilter>
+    <columns>FULL_NAME</columns>
+    <columns>MQL_date__c</columns>
+    <columns>Business_Unit__c</columns>
+    <columns>CORE.USERS.FIRST_NAME</columns>
+    <columns>LEAD.EMAIL</columns>
+    <columns>LEAD.TITLE</columns>
+    <columns>LEAD.COMPANY</columns>
+    <columns>LEAD.LEAD_SOURCE</columns>
+    <columns>LEAD.LAST_ACTIVITY</columns>
+    <columns>SW_Industry__c</columns>
+    <columns>LEAD.COUNTRY</columns>
+    <columns>Most_Recent_Cadence_Cadence_ID__c</columns>
+    <columns>Most_Recent_Cadence_Entry_Date__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>LEAD.CONVERTED</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>SYS_Owner_Role__c</field>
+        <operation>notContain</operation>
+        <value>CSM,reseller,Japan,Gaprise</value>
+    </filters>
+    <filters>
+        <field>SYS_Owner_Role__c</field>
+        <operation>contains</operation>
+        <value>MIR</value>
+    </filters>
+    <filters>
+        <field>LEAD.STATUS</field>
+        <operation>notEqual</operation>
+        <value>Unqualified,MIR Prospecting</value>
+    </filters>
+    <filters>
+        <field>Neglected_MQL__c</field>
+        <operation>equals</operation>
+        <value>Neglected</value>
+    </filters>
+    <filters>
+        <field>Business_Unit__c</field>
+        <operation>equals</operation>
+        <value>Inside Sales</value>
+    </filters>
+    <filters>
+        <field>LEAD.COUNTRY</field>
+        <operation>notContain</operation>
+        <value>united states,usa,canada,mexico,russia,ukraine</value>
+    </filters>
+    <filters>
+        <field>Employees_Min__c</field>
+        <operation>lessOrEqual</operation>
+        <value>199</value>
+    </filters>
+    <filters>
+        <field>CORE.USERS.FIRST_NAME</field>
+        <operation>notContain</operation>
+        <value>Doris</value>
+    </filters>
+    <label>Neglected MQL Leads - MIR</label>
+</ListView>

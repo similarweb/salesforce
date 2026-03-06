@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SYS_Onboarding_Week__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(ISPICKVAL( Onboarding_Account__c , &quot;In Process&quot;), 
+CEILING((NOW()-SYS_Onboarding_Start_Date__c)/7),Null)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>SYS Onboarding Week</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

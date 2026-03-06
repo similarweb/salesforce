@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Total_Time__c</fullName>
+    <description>MIS-7706</description>
+    <externalId>false</externalId>
+    <formula>IF(RecordType.DeveloperName =&apos;Solution_Engineering&apos; , Product_Demo__c*2 + Insight_Email__c + Discovery_Call__c + Client_Meeting__c +
+Trial_Group_Training_Sessions__c*1.5 + Trial_1_1_training_session__c + Trial_Insight_Email__c + Trial_Product_Configuration__c + Trial_Trial_Summary_Presentation__c*2 +
+DAAS_Scoping__c*2 + Advisory_Services_Scoping__c*2 + DaaS_Data_Sample__c*2 + Insight_Deck__c*4.5 + Pitch_Deck__c*2 + Aligned_Room_Custom__c*3 + Aligned_Room_Template__c + RFP__c*8 +
+Internal_Meeting__c + Data_Validation__c*3 + Ongoing_Client_Communication__c*5 + Workshop__c*4 ,0 )</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Total Time</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>1</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

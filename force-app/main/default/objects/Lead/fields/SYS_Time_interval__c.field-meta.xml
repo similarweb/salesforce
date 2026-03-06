@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SYS_Time_interval__c</fullName>
+    <externalId>false</externalId>
+    <formula>NOW()- CreatedDate &lt; (240/1440)</formula>
+    <label>SYS Time interval</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

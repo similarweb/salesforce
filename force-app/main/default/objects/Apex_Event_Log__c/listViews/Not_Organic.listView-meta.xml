@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Not_Organic</fullName>
+    <columns>NAME</columns>
+    <columns>CREATED_DATE</columns>
+    <columns>Record_Ids__c</columns>
+    <columns>Log_Type__c</columns>
+    <columns>Apex_class__c</columns>
+    <columns>Apex_Method__c</columns>
+    <columns>HTTP_Endpoint__c</columns>
+    <columns>Detailed_Information__c</columns>
+    <columns>Detailed_Error_Message__c</columns>
+    <filterScope>Everything</filterScope>
+    <label>Not Organic</label>
+</ListView>

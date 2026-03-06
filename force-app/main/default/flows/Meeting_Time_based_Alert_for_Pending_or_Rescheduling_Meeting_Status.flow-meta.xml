@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Meeting_Pending_or_Rescheduling_2_days_week_overdue</name>
+        <label>Meeting Pending or Rescheduling - 2 days/week overdue</label>
+        <locationX>536</locationX>
+        <locationY>401</locationY>
+        <actionName>Meeting__c.Meeting_Pending_or_Rescheduling_1_day_week_overdue</actionName>
+        <actionType>emailAlert</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>Meeting__c.Meeting_Pending_or_Rescheduling_1_day_week_overdue</nameSegment>
+    </actionCalls>
+    <actionCalls>
+        <name>Meeting_Pending_or_Rescheduling_2_days_week_overdue1</name>
+        <label>Meeting Pending or Rescheduling - 2 days/week overdue</label>
+        <locationX>800</locationX>
+        <locationY>336</locationY>
+        <actionName>Meeting__c.Meeting_Pending_or_Rescheduling_1_day_week_overdue</actionName>
+        <actionType>emailAlert</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>Meeting__c.Meeting_Pending_or_Rescheduling_1_day_week_overdue</nameSegment>
+    </actionCalls>
+    <apiVersion>54.0</apiVersion>
+    <environments>Default</environments>
+    <interviewLabel>Meeting - Time-based - Trial - End date Notification {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Meeting - Time-based - Alert for Pending or Rescheduling Meeting Status</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>410</locationX>
+        <locationY>48</locationY>
+        <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+        <filterFormula>AND(
+OR(
+ISPICKVAL({!$Record.Status__c}, &apos;Pending&apos;),
+ISPICKVAL({!$Record.Status__c}, &apos;Rescheduling&apos;)
+),
+OR(
+{!$Record.CreatedBy.Manager.IsActive} = true,
+{!$Record.CreatedBy.IsActive} = true,
+NOT(ISBLANK({!$Record.Managers_Email__c}))
+)
+)</filterFormula>
+        <object>Meeting__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <scheduledPaths>
+            <name>ScheduledPath1</name>
+            <connector>
+                <targetReference>Meeting_Pending_or_Rescheduling_2_days_week_overdue</targetReference>
+            </connector>
+            <label>ScheduledPath1</label>
+            <offsetNumber>2</offsetNumber>
+            <offsetUnit>Days</offsetUnit>
+            <recordField>Date__c</recordField>
+            <timeSource>RecordField</timeSource>
+        </scheduledPaths>
+        <scheduledPaths>
+            <name>ScheduledPath2</name>
+            <connector>
+                <targetReference>Meeting_Pending_or_Rescheduling_2_days_week_overdue1</targetReference>
+            </connector>
+            <label>ScheduledPath2</label>
+            <offsetNumber>7</offsetNumber>
+            <offsetUnit>Days</offsetUnit>
+            <recordField>Date__c</recordField>
+            <timeSource>RecordField</timeSource>
+        </scheduledPaths>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

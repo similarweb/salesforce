@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>GM_VP__c</fullName>
+    <description>MIS-7108</description>
+    <externalId>false</externalId>
+    <formula>Manager.Manager.FirstName  +&quot; &quot;+ Manager.Manager.LastName +BR() +
+ Manager.Manager.Title</formula>
+    <label>GM/VP</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

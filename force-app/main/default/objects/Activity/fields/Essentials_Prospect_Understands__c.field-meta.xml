@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Essentials_Prospect_Understands__c</fullName>
+    <externalId>false</externalId>
+    <label>Essentials Prospect Understands</label>
+    <required>false</required>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>What is Market Intelligence</fullName>
+                <default>false</default>
+                <label>What is Market Intelligence</label>
+            </value>
+            <value>
+                <fullName>How we are different from Direct Analytics</fullName>
+                <default>false</default>
+                <label>How we are different from Direct Analytics</label>
+            </value>
+            <value>
+                <fullName>Our easy-to-use SaaS/API Data Delivery</fullName>
+                <default>false</default>
+                <label>Our easy-to-use SaaS/API Data Delivery</label>
+            </value>
+            <value>
+                <fullName>Clear Value for his Use-case</fullName>
+                <default>false</default>
+                <label>Clear Value for his Use-case</label>
+            </value>
+            <value>
+                <fullName>We are a Credible company</fullName>
+                <default>false</default>
+                <label>We are a Credible company</label>
+            </value>
+            <value>
+                <fullName>We have a Paid annual solution</fullName>
+                <default>false</default>
+                <label>We have a Paid annual solution</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>6</visibleLines>
+</CustomField>

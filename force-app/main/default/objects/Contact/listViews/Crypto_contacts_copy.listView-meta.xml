@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Crypto_contacts_copy</fullName>
+    <columns>CORE.USERS.FIRST_NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>FULL_NAME</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>CONTACT.TITLE</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>Business_Unit__c</columns>
+    <columns>CONTACT.ADDRESS2_COUNTRY</columns>
+    <columns>CAMPAIGN_MEMBER.STATUS</columns>
+    <columns>CONTACT.CREATED_DATE</columns>
+    <columns>Status__c</columns>
+    <columns>CONTACT.LAST_ACTIVITY</columns>
+    <columns>CONTACT.EMAIL_OPT_OUT</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>SYS_Owner_Role__c</field>
+        <operation>contains</operation>
+        <value>MIR</value>
+    </filters>
+    <filters>
+        <field>Status__c</field>
+        <operation>notContain</operation>
+        <value>MIR prospecting,unqualified</value>
+    </filters>
+    <filters>
+        <field>CAMPAIGN_MEMBER.STATUS</field>
+        <operation>notContain</operation>
+        <value>Responded</value>
+    </filters>
+    <filters>
+        <field>CONTACT.RECORDTYPE</field>
+        <operation>equals</operation>
+    </filters>
+    <label>Crypto contacts copy</label>
+</ListView>

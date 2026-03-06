@@ -1,0 +1,155 @@
+.slds-text-color_error {
+    color: red;
+    font-size: medium;
+    position: center;
+    padding-left: 15px;
+}
+
+.custom-table {
+    border-left: 1px solid #d9dbdd;  /* Change the color and thickness as per your requirement */
+    border-right: 1px solid #d9dbdd;
+    table-layout: fixed;
+}
+
+.arrow-cell {
+    position: relative;
+    padding-right: 50px;  /* Space for the arrow */
+}
+
+.arrow-cell::before {
+    content: '';
+    position: absolute;
+    right: 10px;  /* Adjust for arrow position */
+    top: 50%;
+    transform: translateY(-50%);
+    width: 10px;
+    height: 1px;
+    background: black;
+    /* Arrow tail */
+}
+
+.arrow-cell::after {
+    content: '';
+    position: absolute;
+    right: 0; /* Adjust based on arrow tail width */
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+    width: 7px; /* This determines the arrow head size */
+    height: 7px;
+    border-top: 1px solid black;
+    border-right: 1px solid black;
+}
+
+.my-left-column:hover {
+    background-color: #f3f2f2;  /* Adjust this color to your preference */
+}
+
+.custom-tooltip-2rows {
+    visibility: hidden;
+    position: absolute;
+    z-index: 10;  /* ensure it stays on top */
+    top: -31px;  /* position above the element */
+    left: 120%;
+    transform: translateX(-50%); /* center the tooltip */
+    width: auto; /* adjust width if needed */
+    max-width: 300px; /* adjust max-width if needed */
+}
+.custom-tooltip-4rows{
+    visibility: hidden;
+    position: absolute;
+    z-index: 10;  /* ensure it stays on top */
+    top: -108px;  /* position above the element */
+    left: 120%;
+    transform: translateX(-50%); /* center the tooltip */
+    width: auto; /* adjust width if needed */
+    max-width: 300px; /* adjust max-width if needed */
+
+}
+.custom-tooltip-3rows{
+    visibility: hidden;
+    position: absolute;
+    z-index: 10;  /* ensure it stays on top */
+    top: -68px;  /* position above the element */
+    left: 120%;
+    transform: translateX(-50%); /* center the tooltip */
+    width: auto; /* adjust width if needed */
+    max-width: 300px; /* adjust max-width if needed */
+
+}
+.my-left-column:hover .custom-tooltip-3rows,.my-left-column:hover .custom-tooltip-4rows,.my-left-column:hover .custom-tooltip-2rows {
+    visibility: visible;
+    display: block;
+}
+
+.slds-truncate .customScore {
+    background-color: yellow; /* Example: A light grey background */
+    font-weight: bold;
+    padding: 0px 8px;
+    border-radius: 4px; /* Rounded corners */
+}
+.slds-truncate{
+    text-overflow: initial;
+    white-space: break-spaces;
+}
+.averageScoreDiv {
+    white-space: initial;
+}
+
+.slds-truncate.score-low {
+    background-color: red;
+    font-weight: bold;
+    display: block;
+    padding: 4px 8px;
+    /* additional styling for low scores */
+}
+
+.slds-truncate.score-Basic {
+    text-overflow: initial;
+    white-space: break-spaces;
+    display: block;
+    background-color: grey;
+    font-weight: bold;
+    padding: 4px 8px;
+    /* additional styling for medium scores */
+}
+.slds-truncate.score-missingData{
+    text-overflow: initial;
+    white-space: break-spaces;
+    display: block;
+    background-color: red;
+    font-weight: bold;
+    padding: 4px 8px;
+    /* additional styling for medium scores */
+
+}
+
+.slds-truncate.score-High {
+    text-overflow: initial;
+    display: block;
+    white-space: break-spaces;
+    background-color: greenyellow;
+    font-weight: bold;
+    padding: 4px 8px;
+    /* additional styling for high scores */
+}
+.slds-truncate.score-Very-High {
+    text-overflow: initial;
+    display: block;
+    white-space: break-spaces;
+    background-color: greenyellow;
+    font-weight: bold;
+    padding: 4px 8px;
+    /* additional styling for high scores */
+}
+.slds-truncate.score-Good{
+    text-overflow: initial;
+    display: block;
+    white-space: break-spaces;
+    background-color: dodgerblue;
+    font-weight: bold;
+    padding: 4px 8px;
+}
+.slds-text-title{
+    text-overflow: initial;
+    white-space: break-spaces;
+}

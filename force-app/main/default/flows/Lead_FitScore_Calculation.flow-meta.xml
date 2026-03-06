@@ -1,0 +1,615 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>58.0</apiVersion>
+    <assignments>
+        <name>Save_Original_Variables_Before_FitScore_Calc</name>
+        <label>Save Original Variables Before FitScore Calc</label>
+        <locationX>176</locationX>
+        <locationY>323</locationY>
+        <assignmentItems>
+            <assignToReference>Var_Save_Department</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Department__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Var_Save_SW_Industry</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.SW_Industry__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Var_Save_Seniority</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Seniority__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Get_FitScore</targetReference>
+        </connector>
+    </assignments>
+    <description>newest version - 
+22-01-26 - MIS-8341 (sending fake data boolean)
+05-08-25: MIS-7637
+02-07-25: MIS-7245
+07-05-25: MIS-7094
+26-03-25: MIS-6931
+06-03-25: MIS-6878
+06-03-25: MIS-6879
+02-03-25: MIS-6804
+05-02-25: MIS-6372
+31-10-24: MIS-6186 MIR Status
+4-9-24: MIS-5811 FitScore_Test field
+2-9-24: MIS-5711
+28-7-24: MIS-5558</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>fr_body_for_log</name>
+        <dataType>String</dataType>
+        <expression>&quot; Business_Unit__c   = &quot; +  text({!$Record.Business_Unit__c})+&quot;, &quot;+
+&quot; Clean_Domain__c  = &quot; +  ({!$Record.Clean_Domain__c})+&quot;, &quot;+
+&quot; Country  = &quot; + ({!$Record.Country})+&quot;, &quot;+
+&quot; CountryCode  = &quot; +  text({!$Record.CountryCode})+&quot;, &quot;+
+&quot; Department__c  = &quot;+  {!Var_Save_Department}+&quot;, &quot;+
+&quot; Calculated_Department  = &quot;+  {!Get_FitScore.Var_Department}+&quot;, &quot;+
+&quot; Department_Other_Description__c  = &quot; +  ({!$Record.Department_Other_Description__c})+&quot;, &quot;+
+&quot; Email_Address_Domain_Type__c   = &quot; + text({!$Record.Email_address_domain_type__c})+&quot;, &quot;+
+&quot; Email_Address_Domain_Type_Details__c   = &quot; +  ({!$Record.Email_Address_Domain_Type_Details__c})+&quot;, &quot;+
+&quot; Employees_Min__c   = &quot; +  text({!$Record.employees_min__c})+&quot;, &quot;+
+&quot; Lead Source = &quot; + text({!$Record.LeadSource})+&quot;, &quot;+
+&quot; Quiz Data Incomplete = &quot; + {!$Record.Quiz_Data_Incomplete__c}+&quot;, &quot;+
+&quot; ROE_Division__c  = &quot; +  ({!$Record.ROE_Division__c})+&quot;, &quot;+
+&quot; Secondary_email__c   = &quot; +  ({!$Record.Secondary_email__c})+&quot;, &quot;+
+&quot; Seniority__c   = &quot; +  {!Var_Save_Seniority}+&quot;, &quot;+
+&quot; Calculated_Seniority   = &quot; +  {!Get_FitScore.Var_Seniority}+&quot;, &quot;+
+&quot; SW_Industry__c   = &quot; +  {!Var_Save_SW_Industry}+&quot;, &quot;+
+&quot; Calculated_SW_Industry   = &quot; +  {!Get_FitScore.Var_SW_Industry}+&quot;, &quot;+
+&quot; Title  = &quot; +  ({!$Record.Title})+&quot;, &quot;+
+&quot; Use_of_Similarweb__c   = &quot; +  text({!$Record.Use_of_Similarweb__c})+&quot;, &quot;+
+&quot; Website  = &quot; +  ({!$Record.website})+&quot;, &quot;+
+&quot; LinkedIn Profile  = &quot; +  ({!$Record.LinkedIn_Profile__c})+&quot;, &quot;+
+&quot; LinkedIn  = &quot; +  ({!$Record.LinkedIn__c})+&quot;, &quot;+
+&quot; SI_Enrichment_Visits__c  = &quot; +  text({!$Record.SI_Enrichment_Visits__c})+&quot;, &quot;+
+&quot; sw_connector_Total Monthly Visits  = &quot; +  text({!$Record.sw_connector__swId__r.sw_connector__Visits__c})+&quot;, &quot;+
+&quot; Inferred_Solution_From_Web__c = &quot; + TEXT({!$Record.Inferred_Solution_From_Web__c}) +&quot;, &quot;+
+&quot; Original_Lead_Source__c = &quot; +  TEXT({!$Record.Original_Lead_Source__c}) +&quot;, &quot;+
+&quot; Phone = &quot; + {!$Record.Phone}</expression>
+    </formulas>
+    <formulas>
+        <name>fr_cause_for_log</name>
+        <dataType>String</dataType>
+        <expression>IF(
+  ISNEW(),
+  &apos;Record is new first time getting Fit Score&apos;,
+  IF(
+    ischanged({!$Record.Country }),
+    &apos;Country changed from &apos; + {!$Record__Prior.Country} + &quot; to &quot; + {!$Record.Country},
+    IF(
+      ischanged({!$Record.CountryCode }),
+      &apos;CountryCode changed from &apos; + text({!$Record__Prior.CountryCode}) + &quot; to &quot; + text({!$Record.CountryCode}),
+      IF(
+        ischanged({!$Record.department__c }),
+        &apos;department__c changed from &apos; + text({!$Record__Prior.department__c}) + &quot; to &quot; + {!Get_FitScore.Var_Department},
+        IF(
+          ischanged({!$Record.Department_Other_Description__c }),
+          &apos;Department_Other_Description__c changed from &apos; + {!$Record__Prior.Department_Other_Description__c} + &quot; to &quot; + {!$Record.Department_Other_Description__c},
+          IF(
+            ischanged({!$Record.employees_min__c }),
+            &apos;employees_min__c changed from &apos; + text({!$Record__Prior.employees_min__c}) + &quot; to &quot; + text({!$Record.employees_min__c}),
+            IF(
+              ischanged({!$Record.Email_address_domain_type__c }),
+              &apos;Email_address_domain_type__c changed from &apos; + text({!$Record__Prior.Email_address_domain_type__c}) + &quot; to &quot; + text({!$Record.Email_address_domain_type__c}),
+              IF(
+                ischanged({!$Record.Email_Address_Domain_Type_Details__c }),
+                &apos;Email_Address_Domain_Type_Details__c changed from &apos; + {!$Record__Prior.Email_Address_Domain_Type_Details__c} + &quot; to &quot; + {!$Record.Email_Address_Domain_Type_Details__c},
+                IF(
+                  ischanged({!$Record.Clean_Domain__c }),
+                  &apos;Clean_Domain__c changed from &apos; + {!$Record__Prior.Clean_Domain__c} + &quot; to &quot; + {!$Record.Clean_Domain__c},
+                  IF(
+                    ischanged({!$Record.sw_industry__c }),
+                    &apos;sw_industry__c changed from &apos; + text({!$Record__Prior.sw_industry__c}) + &quot; to &quot; + {!Get_FitScore.Var_SW_Industry},
+                    IF(
+                      ischanged({!$Record.Business_Unit__c }),
+                      &apos;Business_Unit__c changed from &apos; + text({!$Record__Prior.Business_Unit__c}) + &quot; to &quot; + text({!$Record.Business_Unit__c}),
+                      IF(
+                        ischanged({!$Record.Secondary_email__c }),
+                        &apos;Secondary_email__c changed from &apos; + {!$Record__Prior.Secondary_email__c} + &quot; to &quot; + {!$Record.Secondary_email__c},
+                        IF(
+                          ischanged({!$Record.website }),
+                          &apos;website changed from &apos; + {!$Record__Prior.website} + &quot; to &quot; + {!$Record.website},
+                          IF(
+                            ischanged({!$Record.Title }),
+                            &apos;Title changed from &apos; + {!$Record__Prior.Title} + &quot; to &quot; + {!$Record.Title},
+                            IF(
+                              ischanged({!$Record.Use_of_Similarweb__c }),
+                              &apos;Use_of_Similarweb__c changed from &apos; + text({!$Record__Prior.Use_of_Similarweb__c}) + &quot; to &quot; + text({!$Record.Use_of_Similarweb__c}),
+                              IF(
+                                ischanged({!$Record.Seniority__c }),
+                                &apos;Seniority__c changed from &apos; + text({!$Record__Prior.Seniority__c}) + &quot; to &quot; + {!Get_FitScore.Var_Seniority},
+                                IF(
+                                  ischanged({!$Record.Quiz_Data_Incomplete__c}),
+                                  &apos;Quiz_Data_Incomplete__c changed to &apos; + {!$Record.Quiz_Data_Incomplete__c},
+                                  Null
+                                )
+                              )
+                            )
+                          )
+                        )
+                      )
+                    )
+                  )
+                )
+              )
+            )
+          )
+        )
+      )
+    )
+  )
+)</expression>
+    </formulas>
+    <formulas>
+        <name>fr_fitscore_log_name</name>
+        <dataType>String</dataType>
+        <expression>{!Get_FitScore.Response_FitScore}+&quot; - &quot;+{!Get_FitScore.Response_Reason}+&quot; - &quot;+SUBSTITUTE(TEXT(NOW()), &quot;Z&quot;, NULL)</expression>
+    </formulas>
+    <interviewLabel>Lead - FitScore Calculation {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Lead - FitScore Calculation</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordCreates>
+        <name>Create_new_FitScore_Log_Failed</name>
+        <label>Create new FitScore Log - Failed</label>
+        <locationX>440</locationX>
+        <locationY>647</locationY>
+        <inputAssignments>
+            <field>Entity_Id__c</field>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Error_log__c</field>
+            <value>
+                <elementReference>$Flow.FaultMessage</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>JSONString_for_testing__c</field>
+            <value>
+                <elementReference>Get_FitScore.Response_JSONString_for_test</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Name</field>
+            <value>
+                <elementReference>fr_fitscore_log_name</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Type__c</field>
+            <value>
+                <stringValue>Failed</stringValue>
+            </value>
+        </inputAssignments>
+        <object>Fit_Score_Call_Log__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordCreates>
+        <name>Create_new_FitScore_Log_Success</name>
+        <label>Create new FitScore Log - Success</label>
+        <locationX>176</locationX>
+        <locationY>647</locationY>
+        <inputAssignments>
+            <field>Call_Body__c</field>
+            <value>
+                <elementReference>fr_body_for_log</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Cause__c</field>
+            <value>
+                <elementReference>fr_cause_for_log</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Entity_Id__c</field>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>JSONString_for_testing__c</field>
+            <value>
+                <elementReference>Get_FitScore.Response_JSONString_for_test</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Name</field>
+            <value>
+                <elementReference>fr_fitscore_log_name</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Response__c</field>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Type__c</field>
+            <value>
+                <stringValue>Successful</stringValue>
+            </value>
+        </inputAssignments>
+        <object>Fit_Score_Call_Log__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordUpdates>
+        <name>Update_Final_Fitscore</name>
+        <label>Update Final Fitscore</label>
+        <locationX>176</locationX>
+        <locationY>539</locationY>
+        <connector>
+            <targetReference>Create_new_FitScore_Log_Success</targetReference>
+        </connector>
+        <faultConnector>
+            <targetReference>Create_new_FitScore_Log_Failed</targetReference>
+        </faultConnector>
+        <inputAssignments>
+            <field>Department__c</field>
+            <value>
+                <elementReference>Get_FitScore.Var_Department</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Fit_Score_Country_Tier__c</field>
+            <value>
+                <elementReference>Get_FitScore.Response_Fit_Score_Country_Tier</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Fit_Score_Industry_Department_Tier__c</field>
+            <value>
+                <elementReference>Get_FitScore.Response_Fit_Score_Industry_Department_Tier</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Fit_Score_Seniority_Tier__c</field>
+            <value>
+                <elementReference>Get_FitScore.Response_Fit_Score_Seniority_Tier</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Fit_Score_Test__c</field>
+            <value>
+                <elementReference>Get_FitScore.Response_FitScore_Test</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Force_FitScore_Calc__c</field>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>SW_Fit_Score_Reason__c</field>
+            <value>
+                <elementReference>Get_FitScore.Response_Reason</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>SW_Fit_Score_Timestamp__c</field>
+            <value>
+                <elementReference>$Flow.CurrentDateTime</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>SW_Fit_Score__c</field>
+            <value>
+                <elementReference>Get_FitScore.Response_FitScore</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>SW_Industry__c</field>
+            <value>
+                <elementReference>Get_FitScore.Var_SW_Industry</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Seniority__c</field>
+            <value>
+                <elementReference>Get_FitScore.Var_Seniority</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Save_Original_Variables_Before_FitScore_Calc</targetReference>
+        </connector>
+        <filterFormula>OR(
+  ischanged({!$Record.Country}),
+  ischanged({!$Record.Fake_Data__c}),
+  ischanged({!$Record.CountryCode}),
+  ischanged({!$Record.Department__c}),
+  ischanged({!$Record.Department_Other_Description__c}),
+  ischanged({!$Record.Employees_Min__c}),
+  ischanged({!$Record.Email_address_domain_type__c}),
+  ischanged({!$Record.Email_Address_Domain_Type_Details__c}),
+  ischanged({!$Record.SW_Industry__c}),
+  ischanged({!$Record.Business_Unit__c}),
+  ischanged({!$Record.Secondary_email__c}),
+  ischanged({!$Record.Website}),
+  ischanged({!$Record.Title}),
+  ischanged({!$Record.Use_of_Similarweb__c}),
+  ischanged({!$Record.Seniority__c}),
+  ischanged({!$Record.Quiz_Data_Incomplete__c}),
+  ischanged({!$Record.LeadSource}),
+  ischanged({!$Record.LinkedIn_Profile__c}),
+  ischanged({!$Record.LinkedIn__c}),
+  ischanged({!$Record.SI_Enrichment_Visits__c}),
+  ischanged({!$Record.sw_connector__swId__r.sw_connector__Visits__c}),
+ ischanged({!$Record.MIR_Status__c}),
+ischanged({!$Record.Lugia_Fit_Score__c}),
+ischanged({!$Record.Strategic_Pod__c}),
+ischanged({!$Record.Inferred_Solution_From_Web__c}),
+ischanged({!$Record.Original_Lead_Source__c}),
+ischanged({!$Record.Phone}),
+  AND(
+    ISCHANGED({!$Record.Force_FitScore_Calc__c}),
+    {!$Record.Force_FitScore_Calc__c} = TRUE
+  )
+)</filterFormula>
+        <object>Lead</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <subflows>
+        <name>Get_FitScore</name>
+        <label>Get FitScore</label>
+        <locationX>176</locationX>
+        <locationY>431</locationY>
+        <connector>
+            <targetReference>Update_Final_Fitscore</targetReference>
+        </connector>
+        <flowName>FitScore_Calculation</flowName>
+        <inputAssignments>
+            <name>Var_Business_Unit</name>
+            <value>
+                <elementReference>$Record.Business_Unit__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>Var_Clean_Domain</name>
+            <value>
+                <elementReference>$Record.Clean_Domain__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>Var_CountryCode</name>
+            <value>
+                <elementReference>$Record.CountryCode</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>Var_CountryName</name>
+            <value>
+                <elementReference>$Record.Country</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>Var_Department</name>
+            <value>
+                <elementReference>$Record.Department__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>Var_Department_Other_Description</name>
+            <value>
+                <elementReference>$Record.Department_Other_Description__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>Var_Email</name>
+            <value>
+                <elementReference>$Record.Email</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>Var_Email_Address_Domain_Type</name>
+            <value>
+                <elementReference>$Record.Email_address_domain_type__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>Var_Employees_Min</name>
+            <value>
+                <elementReference>$Record.Employees_Min__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>Var_Fake_Data</name>
+            <value>
+                <elementReference>$Record.Fake_Data__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>Var_Indication_Lugia_Fit_Score</name>
+            <value>
+                <elementReference>$Record.Lugia_Fit_Score__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>Var_Industry_Other_Description</name>
+            <value>
+                <elementReference>$Record.Industry_Other_Description__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>Var_Inferred_Solution_From_Web</name>
+            <value>
+                <elementReference>$Record.Inferred_Solution_From_Web__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>Var_LinkedIn_Flag</name>
+            <value>
+                <elementReference>$Record.LinkedIn_leadsource__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>Var_LinkedIn_Profile</name>
+            <value>
+                <elementReference>$Record.LinkedIn_Profile__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>Var_MIR_Status</name>
+            <value>
+                <elementReference>$Record.MIR_Status__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>Var_Original_Lead_Source</name>
+            <value>
+                <elementReference>$Record.Original_Lead_Source__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>Var_Phone</name>
+            <value>
+                <elementReference>$Record.Phone</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>Var_Pre_Mapped_Industry</name>
+            <value>
+                <elementReference>$Record.Pre_mapped_industry__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>Var_Pre_Mapped_Title</name>
+            <value>
+                <elementReference>$Record.Pre_Mapped_Title__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>Var_Quiz_Data_Incomplete</name>
+            <value>
+                <elementReference>$Record.Quiz_Data_Incomplete__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>Var_Request_Source</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>Var_ROE_Division</name>
+            <value>
+                <elementReference>$Record.ROE_Division__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>Var_Secondary_Email</name>
+            <value>
+                <elementReference>$Record.Secondary_email__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>Var_Seniority</name>
+            <value>
+                <elementReference>$Record.Seniority__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>Var_SI_Enrichment_Visits</name>
+            <value>
+                <elementReference>$Record.SI_Enrichment_Visits__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>Var_Strategic_Pod</name>
+            <value>
+                <elementReference>$Record.Strategic_Pod__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>Var_SW_Connector_Visits</name>
+            <value>
+                <elementReference>$Record.sw_connector__swId__r.sw_connector__Visits__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>Var_SW_Industry</name>
+            <value>
+                <elementReference>$Record.SW_Industry__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>Var_Title</name>
+            <value>
+                <elementReference>$Record.Title</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>Var_Use_of_Similarweb</name>
+            <value>
+                <elementReference>$Record.Use_of_Similarweb__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>Var_Website</name>
+            <value>
+                <elementReference>$Record.Website</elementReference>
+            </value>
+        </inputAssignments>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </subflows>
+    <variables>
+        <description>MIS-6878</description>
+        <name>Var_Save_Department</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>MIS-6878</description>
+        <name>Var_Save_Seniority</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>MIS-6878</description>
+        <name>Var_Save_SW_Industry</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

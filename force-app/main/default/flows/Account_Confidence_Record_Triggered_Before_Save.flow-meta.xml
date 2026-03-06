@@ -1,0 +1,1421 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>58.0</apiVersion>
+    <assignments>
+        <description>MIS-4422</description>
+        <name>Assign_4_to_Average_Confidence</name>
+        <label>Assign 4 to Average Confidence</label>
+        <locationX>314</locationX>
+        <locationY>2861</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Average_Confidence_Score__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <numberValue>4.0</numberValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <description>MIS-4422</description>
+        <name>Assign_Average_Confidence</name>
+        <label>Assign Average Confidence</label>
+        <locationX>578</locationX>
+        <locationY>2861</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Average_Confidence_Score__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>AverageConfidenceScore</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <description>MIS-4422</description>
+        <name>Company_Size_Score_0</name>
+        <label>Company Size Score 0</label>
+        <locationX>578</locationX>
+        <locationY>1661</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Company_Size_Confidence__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <numberValue>0.0</numberValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Rule_WDL_Website_Domain_Logic</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>MIS-4422</description>
+        <name>Company_Size_Score_1</name>
+        <label>Company Size Score 1</label>
+        <locationX>842</locationX>
+        <locationY>1661</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Company_Size_Confidence__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <numberValue>1.0</numberValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Rule_WDL_Website_Domain_Logic</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>MIS-4422</description>
+        <name>Company_Size_Score_2</name>
+        <label>Company Size Score 2</label>
+        <locationX>314</locationX>
+        <locationY>1661</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Company_Size_Confidence__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <numberValue>2.0</numberValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Rule_WDL_Website_Domain_Logic</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>MIS-4422</description>
+        <name>Company_Size_Score_3</name>
+        <label>Company Size Score 3</label>
+        <locationX>50</locationX>
+        <locationY>1661</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Company_Size_Confidence__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <numberValue>3.0</numberValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Rule_WDL_Website_Domain_Logic</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>MIS-4422</description>
+        <name>Country_Score_0</name>
+        <label>Country Score 0</label>
+        <locationX>578</locationX>
+        <locationY>2261</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Country_Confidence__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <numberValue>0.0</numberValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Rule_PCHQL_Parent_Company_HQ_Logic</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>MIS-4422</description>
+        <name>Country_Score_1</name>
+        <label>Country Score 1</label>
+        <locationX>842</locationX>
+        <locationY>2261</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Country_Confidence__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <numberValue>1.0</numberValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Rule_PCHQL_Parent_Company_HQ_Logic</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>MIS-4422</description>
+        <name>Country_Score_2</name>
+        <label>Country Score 2</label>
+        <locationX>314</locationX>
+        <locationY>2261</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Country_Confidence__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <numberValue>2.0</numberValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Rule_PCHQL_Parent_Company_HQ_Logic</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>MIS-4422</description>
+        <name>Country_Score_3</name>
+        <label>Country Score 3</label>
+        <locationX>50</locationX>
+        <locationY>2261</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Country_Confidence__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <numberValue>3.0</numberValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Rule_PCHQL_Parent_Company_HQ_Logic</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>MIS-4422</description>
+        <name>Domain_Score_0</name>
+        <label>Domain Score 0</label>
+        <locationX>578</locationX>
+        <locationY>1961</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Website_Domain_Confidence__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <numberValue>0.0</numberValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Rule_CL_Country_Logic</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>MIS-4422</description>
+        <name>Domain_Score_1</name>
+        <label>Domain Score 1</label>
+        <locationX>842</locationX>
+        <locationY>1961</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Website_Domain_Confidence__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <numberValue>1.0</numberValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Rule_CL_Country_Logic</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>MIS-4422</description>
+        <name>Domain_Score_2</name>
+        <label>Domain Score 2</label>
+        <locationX>314</locationX>
+        <locationY>1961</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Website_Domain_Confidence__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <numberValue>2.0</numberValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Rule_CL_Country_Logic</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>MIS-4422</description>
+        <name>Domain_Score_3</name>
+        <label>Domain Score 3</label>
+        <locationX>50</locationX>
+        <locationY>1961</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Website_Domain_Confidence__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <numberValue>3.0</numberValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Rule_CL_Country_Logic</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>MIS-4422</description>
+        <name>Parent_Company_HQ_Score_0</name>
+        <label>Parent Company HQ Score 0</label>
+        <locationX>446</locationX>
+        <locationY>2561</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Parent_Company_HQ_Confidence__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <numberValue>0.0</numberValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Rule_AE_Account_is_Enriched</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>MIS-4422</description>
+        <name>Parent_Company_HQ_Score_1</name>
+        <label>Parent Company HQ Score 1</label>
+        <locationX>710</locationX>
+        <locationY>2561</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Parent_Company_HQ_Confidence__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <numberValue>1.0</numberValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Rule_AE_Account_is_Enriched</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>MIS-4422</description>
+        <name>Parent_Company_HQ_Score_2</name>
+        <label>Parent Company HQ Score 2</label>
+        <locationX>182</locationX>
+        <locationY>2561</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Parent_Company_HQ_Confidence__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <numberValue>2.0</numberValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Rule_AE_Account_is_Enriched</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>MIS-4422</description>
+        <name>SW_Industry_Score_0</name>
+        <label>SW Industry Score 0</label>
+        <locationX>556</locationX>
+        <locationY>695</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.SW_Industry_Confidence__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <numberValue>0.0</numberValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Rule_CSL_Company_Size_Logic</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>MIS-4422</description>
+        <name>SW_Industry_Score_1</name>
+        <label>SW Industry Score 1</label>
+        <locationX>820</locationX>
+        <locationY>695</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.SW_Industry_Confidence__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <numberValue>1.0</numberValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Rule_CSL_Company_Size_Logic</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>MIS-4422</description>
+        <name>SW_Industry_Score_2</name>
+        <label>SW Industry Score 2</label>
+        <locationX>72</locationX>
+        <locationY>1361</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.SW_Industry_Confidence__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <numberValue>2.0</numberValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Rule_CSL_Company_Size_Logic</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <description>MIS-4422</description>
+        <name>Rule_AE_Account_is_Enriched</name>
+        <label>*Rule (AE)* - Account is Enriched?</label>
+        <locationX>446</locationX>
+        <locationY>2753</locationY>
+        <defaultConnector>
+            <targetReference>Assign_Average_Confidence</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Not Enriched</defaultConnectorLabel>
+        <rules>
+            <name>Enriched_Account</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Enrichment_Source__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Enrichment Team</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Enrichment_Source__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Enrichment Team (Automated)</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_4_to_Average_Confidence</targetReference>
+            </connector>
+            <label>Enriched Account</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-4422</description>
+        <name>Rule_CL_Country_Logic</name>
+        <label>*Rule (CL)* - Country Logic</label>
+        <locationX>446</locationX>
+        <locationY>2153</locationY>
+        <defaultConnector>
+            <targetReference>Country_Score_1</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No Country Match</defaultConnectorLabel>
+        <rules>
+            <name>X3_Countries_Match</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Lowercase_BillingCountry</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Lowercase_BillingCountry</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>Lowercase_SI_Country</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Lowercase_BillingCountry</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record.Polygraph_Company_Country_Name__c</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Country_Score_3</targetReference>
+            </connector>
+            <label>3 Countries Match</label>
+        </rules>
+        <rules>
+            <name>X2_Countries_Match</name>
+            <conditionLogic>(1 AND ((2 AND 3) OR (4 AND 5))) OR (5 AND 6 AND 7)</conditionLogic>
+            <conditions>
+                <leftValueReference>Lowercase_BillingCountry</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Lowercase_BillingCountry</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>Lowercase_SI_Country</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Lowercase_BillingCountry</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record.Polygraph_Company_Country_Name__c</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Lowercase_BillingCountry</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record.Polygraph_Company_Country_Name__c</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Lowercase_BillingCountry</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>Lowercase_SI_Country</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Lowercase_SI_Country</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record.Polygraph_Company_Country_Name__c</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Lowercase_SI_Country</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Country_Score_2</targetReference>
+            </connector>
+            <label>2 Countries Match</label>
+        </rules>
+        <rules>
+            <name>Null_Countries</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Lowercase_BillingCountry</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Lowercase_SI_Country</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Polygraph_Company_Country_Name__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Country_Score_0</targetReference>
+            </connector>
+            <label>Null Countries</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-4422
+Compare calculated company size levels (1-8)</description>
+        <name>Rule_CSL_Company_Size_Logic</name>
+        <label>*Rule (CSL)* - Company Size Logic</label>
+        <locationX>446</locationX>
+        <locationY>1553</locationY>
+        <defaultConnector>
+            <targetReference>Company_Size_Score_1</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>1 Company Size Match</defaultConnectorLabel>
+        <rules>
+            <name>X3_Company_Size_Match</name>
+            <conditionLogic>(1 AND 2 AND 3) OR (4 AND 5 AND 6)</conditionLogic>
+            <conditions>
+                <leftValueReference>SFDC_Employee_Number_Level</leftValueReference>
+                <operator>GreaterThan</operator>
+                <rightValue>
+                    <numberValue>0.0</numberValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>SFDC_Employee_Number_Level</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>SI_Employee_Number_Level</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>SI_Employee_Number_Level</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>Clearbit_Employee_Number_Level</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>SFDC_Employee_Number_Level</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <numberValue>7.0</numberValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>SI_Employee_Number_Level</leftValueReference>
+                <operator>GreaterThanOrEqualTo</operator>
+                <rightValue>
+                    <numberValue>7.0</numberValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Clearbit_Employee_Number_Level</leftValueReference>
+                <operator>GreaterThanOrEqualTo</operator>
+                <rightValue>
+                    <numberValue>7.0</numberValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Company_Size_Score_3</targetReference>
+            </connector>
+            <label>3 Company Size Match</label>
+        </rules>
+        <rules>
+            <name>X2_Company_Size_Match</name>
+            <conditionLogic>(1 AND 2 AND 3 AND 4) OR (1 AND 2 AND 5 AND 6) OR (7 AND 8 AND 9 AND 10) OR (NOT(2) AND 11 AND 12) OR (NOT(2) AND NOT(11) AND 13) OR (11 AND 13 AND 14)</conditionLogic>
+            <conditions>
+                <leftValueReference>SFDC_Employee_Number_Level</leftValueReference>
+                <operator>GreaterThan</operator>
+                <rightValue>
+                    <numberValue>0.0</numberValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>SFDC_Employee_Number_Level</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <numberValue>7.0</numberValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>SFDC_Employee_Number_Level</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>SI_Employee_Number_Level</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>SFDC_Employee_Number_Level</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>Clearbit_Employee_Number_Level</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>SFDC_Employee_Number_Level</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>Clearbit_Employee_Number_Level</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>SFDC_Employee_Number_Level</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>SI_Employee_Number_Level</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Clearbit_Employee_Number_Level</leftValueReference>
+                <operator>GreaterThan</operator>
+                <rightValue>
+                    <numberValue>0.0</numberValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Clearbit_Employee_Number_Level</leftValueReference>
+                <operator>LessThan</operator>
+                <rightValue>
+                    <numberValue>7.0</numberValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Clearbit_Employee_Number_Level</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>SI_Employee_Number_Level</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Clearbit_Employee_Number_Level</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>SFDC_Employee_Number_Level</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>SI_Employee_Number_Level</leftValueReference>
+                <operator>GreaterThanOrEqualTo</operator>
+                <rightValue>
+                    <numberValue>7.0</numberValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Clearbit_Employee_Number_Level</leftValueReference>
+                <operator>LessThan</operator>
+                <rightValue>
+                    <numberValue>7.0</numberValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Clearbit_Employee_Number_Level</leftValueReference>
+                <operator>GreaterThanOrEqualTo</operator>
+                <rightValue>
+                    <numberValue>7.0</numberValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>SFDC_Employee_Number_Level</leftValueReference>
+                <operator>LessThan</operator>
+                <rightValue>
+                    <numberValue>7.0</numberValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Company_Size_Score_2</targetReference>
+            </connector>
+            <label>2 Company Size Match</label>
+        </rules>
+        <rules>
+            <name>Null_Company_Size</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>SFDC_Employee_Number_Level</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <numberValue>-1.0</numberValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>SI_Employee_Number_Level</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <numberValue>-1.0</numberValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Clearbit_Employee_Number_Level</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <numberValue>-1.0</numberValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Company_Size_Score_0</targetReference>
+            </connector>
+            <label>Null Company Size</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-4422</description>
+        <name>Rule_FWCWC_Found_Website_Category_by_Website_Category</name>
+        <label>*Rule (FWCWC)* - Found Website Category by Website Category?</label>
+        <locationX>72</locationX>
+        <locationY>803</locationY>
+        <defaultConnector>
+            <targetReference>Get_MDT_by_Website_Category_New</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Didn&apos;t Find MDT</defaultConnectorLabel>
+        <rules>
+            <name>Found_Website_Category_MDT</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_MDT_by_Website_Category</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>SW_Industry_Score_2</targetReference>
+            </connector>
+            <label>Found Website Category MDT</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-4422</description>
+        <name>Rule_FWCWCN_Found_Website_Category_by_Website_Category_New</name>
+        <label>*Rule (FWCWCN)* - Found Website Category by Website Category New?</label>
+        <locationX>204</locationX>
+        <locationY>1019</locationY>
+        <defaultConnector>
+            <isGoTo>true</isGoTo>
+            <targetReference>SW_Industry_Score_1</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Didn&apos;t Find MDT</defaultConnectorLabel>
+        <rules>
+            <name>Found_Website_Category_New_MDT</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_MDT_by_Website_Category_New</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>SW_Industry_Score_2</targetReference>
+            </connector>
+            <label>Found Website Category New MDT</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-4422</description>
+        <name>Rule_IL_Industry_Logic_Which_Industries_are_Populated</name>
+        <label>*Rule (IL)* - Industry Logic / Which Industries are Populated?</label>
+        <locationX>446</locationX>
+        <locationY>587</locationY>
+        <defaultConnector>
+            <targetReference>SW_Industry_Score_1</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>1 Industry Populated</defaultConnectorLabel>
+        <rules>
+            <name>X2_Industries_Populated</name>
+            <conditionLogic>1 AND (2 OR 3)</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.SW_Industry__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>SI_Website_Category</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>SI_Website_Category_New</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_MDT_by_Website_Category</targetReference>
+            </connector>
+            <label>2 Industries Populated</label>
+        </rules>
+        <rules>
+            <name>Null_Industries</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.SW_Industry__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>SI_Website_Category</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>SI_Website_Category_New</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>SW_Industry_Score_0</targetReference>
+            </connector>
+            <label>Null Industries</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-4422</description>
+        <name>Rule_IWDP_Is_Website_Data_Populated</name>
+        <label>*Rule (IWDP)* - Is Website Data Populated?</label>
+        <locationX>446</locationX>
+        <locationY>287</locationY>
+        <defaultConnector>
+            <targetReference>Rule_IL_Industry_Logic_Which_Industries_are_Populated</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Website_Data_Populated</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.sw_connector__swId__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Similarweb_Website_Data</targetReference>
+            </connector>
+            <label>Website Data Populated</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-4422</description>
+        <name>Rule_PCHQL_Parent_Company_HQ_Logic</name>
+        <label>*Rule (PCHQL)* - Parent Company HQ Logic</label>
+        <locationX>446</locationX>
+        <locationY>2453</locationY>
+        <defaultConnector>
+            <targetReference>Parent_Company_HQ_Score_1</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>1 Parent Company HQ Match</defaultConnectorLabel>
+        <rules>
+            <name>X2_Parent_Company_HQ_Match</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Parent_Company_HQ_Country__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Parent_Company_HQ_Country__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>Clean_SI_Parent_Company_HQ</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Parent_Company_HQ_Score_2</targetReference>
+            </connector>
+            <label>2 Parent Company HQ Match</label>
+        </rules>
+        <rules>
+            <name>Null_Parent_Company_HQ</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Parent_Company_HQ_Country__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Clean_SI_Parent_Company_HQ</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Parent_Company_HQ_Score_0</targetReference>
+            </connector>
+            <label>Null Parent Company HQ</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-4422</description>
+        <name>Rule_WDL_Website_Domain_Logic</name>
+        <label>*Rule (WDL)* - Website Domain Logic</label>
+        <locationX>446</locationX>
+        <locationY>1853</locationY>
+        <defaultConnector>
+            <targetReference>Domain_Score_1</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No Domain Match</defaultConnectorLabel>
+        <rules>
+            <name>X3_Domains_Match</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>SFDC_Clean_Domain</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>SFDC_Clean_Domain</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>Clearbit_Clean_Domain</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>SFDC_Clean_Domain</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>SI_Clean_Domain</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Domain_Score_3</targetReference>
+            </connector>
+            <label>3 Domains Match</label>
+        </rules>
+        <rules>
+            <name>X2_Domains_Match</name>
+            <conditionLogic>(1 AND ((2 AND 3) OR (4 AND 5))) OR (5 AND 6 AND 7)</conditionLogic>
+            <conditions>
+                <leftValueReference>SFDC_Clean_Domain</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>SFDC_Clean_Domain</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>Clearbit_Clean_Domain</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>SFDC_Clean_Domain</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>SI_Clean_Domain</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>SFDC_Clean_Domain</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>SI_Clean_Domain</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>SFDC_Clean_Domain</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>Clearbit_Clean_Domain</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Clearbit_Clean_Domain</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>SI_Clean_Domain</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Clearbit_Clean_Domain</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Domain_Score_2</targetReference>
+            </connector>
+            <label>2 Domains Match</label>
+        </rules>
+        <rules>
+            <name>Null_Domains</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>SFDC_Clean_Domain</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Clearbit_Clean_Domain</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>SI_Clean_Domain</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Domain_Score_0</targetReference>
+            </connector>
+            <label>Null Domains</label>
+        </rules>
+    </decisions>
+    <description>MIS-4422</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>AverageConfidenceScore</name>
+        <dataType>Number</dataType>
+        <expression>({!$Record.SW_Industry_Confidence__c} + {!$Record.Company_Size_Confidence__c} + {!$Record.Website_Domain_Confidence__c} + {!$Record.Country_Confidence__c} + {!$Record.Parent_Company_HQ_Confidence__c})/5</expression>
+        <scale>1</scale>
+    </formulas>
+    <formulas>
+        <description>MIS-4422</description>
+        <name>Clean_Parent_Company_Domain</name>
+        <dataType>String</dataType>
+        <expression>If(BEGINS({!SI_Parent_Company_HQ}, &quot;www.&quot;),
+IF(FIND(&apos;/&apos;, MID({!SI_Parent_Company_HQ}, 5, LEN({!SI_Parent_Company_HQ}) - 4)) != 0, MID({!SI_Parent_Company_HQ}, 5, FIND(&apos;/&apos;, MID({!SI_Parent_Company_HQ}, 5, LEN({!SI_Parent_Company_HQ}) - 4)) -1), MID({!SI_Parent_Company_HQ}, 5, LEN({!SI_Parent_Company_HQ}) - 4)),
+
+If(BEGINS({!SI_Parent_Company_HQ}, &quot;http://www.&quot;),
+IF(FIND(&apos;/&apos;, MID({!SI_Parent_Company_HQ}, 12, LEN({!SI_Parent_Company_HQ}) - 11)) != 0,MID({!SI_Parent_Company_HQ}, 12, FIND(&apos;/&apos;, MID({!SI_Parent_Company_HQ},12,LEN({!SI_Parent_Company_HQ}) - 11)) -1), MID({!SI_Parent_Company_HQ},12,LEN({!SI_Parent_Company_HQ})-11)),
+
+If(BEGINS({!SI_Parent_Company_HQ}, &quot;https://www.&quot;),
+IF(FIND(&apos;/&apos;, MID({!SI_Parent_Company_HQ}, 13, LEN({!SI_Parent_Company_HQ}) - 12)) != 0,MID({!SI_Parent_Company_HQ}, 13, FIND(&apos;/&apos;, MID({!SI_Parent_Company_HQ},13,LEN({!SI_Parent_Company_HQ}) - 12)) -1), MID({!SI_Parent_Company_HQ},13,LEN({!SI_Parent_Company_HQ})-12)),
+
+If(BEGINS({!SI_Parent_Company_HQ}, &quot;http://&quot;),
+IF(FIND(&apos;/&apos;, MID({!SI_Parent_Company_HQ}, 8, LEN({!SI_Parent_Company_HQ}) - 7)) != 0,MID({!SI_Parent_Company_HQ}, 8, FIND(&apos;/&apos;, MID({!SI_Parent_Company_HQ},8,LEN({!SI_Parent_Company_HQ}) - 7)) -1), MID({!SI_Parent_Company_HQ},8,LEN({!SI_Parent_Company_HQ})-7)),
+
+If(BEGINS({!SI_Parent_Company_HQ}, &quot;https://&quot;),
+IF(FIND(&apos;/&apos;, MID({!SI_Parent_Company_HQ}, 9, LEN({!SI_Parent_Company_HQ}) - 8)) != 0,MID({!SI_Parent_Company_HQ}, 9, FIND(&apos;/&apos;, MID({!SI_Parent_Company_HQ},9,LEN({!SI_Parent_Company_HQ}) - 8)) -1), MID({!SI_Parent_Company_HQ},9,LEN({!SI_Parent_Company_HQ})-8)),
+
+IF(FIND(&apos;/&apos;,MID({!SI_Parent_Company_HQ}, 1, LEN({!SI_Parent_Company_HQ}))) !=0,MID({!SI_Parent_Company_HQ},1,FIND(&apos;/&apos;, {!SI_Parent_Company_HQ}) - 1), {!SI_Parent_Company_HQ} ))))))</expression>
+    </formulas>
+    <formulas>
+        <description>MIS-4422</description>
+        <name>Clean_SI_Parent_Company_HQ</name>
+        <dataType>String</dataType>
+        <expression>IF({!SI_Parent_Company_HQ}=&quot;Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina&quot;, &quot;Argentina&quot;,
+IF(CONTAINS({!SI_Parent_Company_HQ},&quot;,&quot;),
+TRIM(
+    RIGHT(
+        SUBSTITUTE(
+            {!SI_Parent_Company_HQ}, 
+            LEFT({!SI_Parent_Company_HQ}, FIND(&quot;,&quot;, {!SI_Parent_Company_HQ})), 
+            &quot;&quot;
+        ), 
+        LEN(
+            SUBSTITUTE(
+                {!SI_Parent_Company_HQ}, 
+                LEFT({!SI_Parent_Company_HQ}, FIND(&quot;,&quot;, {!SI_Parent_Company_HQ})), 
+                &quot;&quot;
+            )
+        ) - FIND(&quot;,&quot;, SUBSTITUTE({!SI_Parent_Company_HQ}, LEFT({!SI_Parent_Company_HQ}, FIND(&quot;,&quot;, {!SI_Parent_Company_HQ})), &quot;&quot;))
+    )
+)
+,{!SI_Parent_Company_HQ}))</expression>
+    </formulas>
+    <formulas>
+        <name>Clearbit_Clean_Domain</name>
+        <dataType>String</dataType>
+        <expression>If(BEGINS({!$Record.Website_Clearbit__c}, &quot;www.&quot;),
+IF(FIND(&apos;/&apos;, MID({!$Record.Website_Clearbit__c}, 5, LEN({!$Record.Website_Clearbit__c}) - 4)) != 0, MID({!$Record.Website_Clearbit__c}, 5, FIND(&apos;/&apos;, MID({!$Record.Website_Clearbit__c}, 5, LEN({!$Record.Website_Clearbit__c}) - 4)) -1), MID({!$Record.Website_Clearbit__c}, 5, LEN({!$Record.Website_Clearbit__c}) - 4)),
+
+If(BEGINS({!$Record.Website_Clearbit__c}, &quot;http://www.&quot;),
+IF(FIND(&apos;/&apos;, MID({!$Record.Website_Clearbit__c}, 12, LEN({!$Record.Website_Clearbit__c}) - 11)) != 0,MID({!$Record.Website_Clearbit__c}, 12, FIND(&apos;/&apos;, MID({!$Record.Website_Clearbit__c},12,LEN({!$Record.Website_Clearbit__c}) - 11)) -1), MID({!$Record.Website_Clearbit__c},12,LEN({!$Record.Website_Clearbit__c})-11)),
+
+If(BEGINS({!$Record.Website_Clearbit__c}, &quot;https://www.&quot;),
+IF(FIND(&apos;/&apos;, MID({!$Record.Website_Clearbit__c}, 13, LEN({!$Record.Website_Clearbit__c}) - 12)) != 0,MID({!$Record.Website_Clearbit__c}, 13, FIND(&apos;/&apos;, MID({!$Record.Website_Clearbit__c},13,LEN({!$Record.Website_Clearbit__c}) - 12)) -1), MID({!$Record.Website_Clearbit__c},13,LEN({!$Record.Website_Clearbit__c})-12)),
+
+If(BEGINS({!$Record.Website_Clearbit__c}, &quot;http://&quot;),
+IF(FIND(&apos;/&apos;, MID({!$Record.Website_Clearbit__c}, 8, LEN({!$Record.Website_Clearbit__c}) - 7)) != 0,MID({!$Record.Website_Clearbit__c}, 8, FIND(&apos;/&apos;, MID({!$Record.Website_Clearbit__c},8,LEN({!$Record.Website_Clearbit__c}) - 7)) -1), MID({!$Record.Website_Clearbit__c},8,LEN({!$Record.Website_Clearbit__c})-7)),
+
+If(BEGINS({!$Record.Website_Clearbit__c}, &quot;https://&quot;),
+IF(FIND(&apos;/&apos;, MID({!$Record.Website_Clearbit__c}, 9, LEN({!$Record.Website_Clearbit__c}) - 8)) != 0,MID({!$Record.Website_Clearbit__c}, 9, FIND(&apos;/&apos;, MID({!$Record.Website_Clearbit__c},9,LEN({!$Record.Website_Clearbit__c}) - 8)) -1), MID({!$Record.Website_Clearbit__c},9,LEN({!$Record.Website_Clearbit__c})-8)),
+
+IF(FIND(&apos;/&apos;,MID({!$Record.Website_Clearbit__c}, 1, LEN({!$Record.Website_Clearbit__c}))) !=0,MID({!$Record.Website_Clearbit__c},1,FIND(&apos;/&apos;, {!$Record.Website_Clearbit__c}) - 1), {!$Record.Website_Clearbit__c} ))))))</expression>
+    </formulas>
+    <formulas>
+        <description>MIS-4422 - employee number into level</description>
+        <name>Clearbit_Employee_Number_Level</name>
+        <dataType>Number</dataType>
+        <expression>IF(ISBLANK({!$Record.Polygraph_Company_Employees_Estimated__c}),-1,
+IF(AND(VALUE({!$Record.Polygraph_Company_Employees_Estimated__c})&gt;=1,VALUE({!$Record.Polygraph_Company_Employees_Estimated__c})&lt;=10) ,1 ,
+IF(AND(VALUE({!$Record.Polygraph_Company_Employees_Estimated__c})&gt;=11,VALUE({!$Record.Polygraph_Company_Employees_Estimated__c})&lt;=50) ,2 ,
+IF (AND(VALUE({!$Record.Polygraph_Company_Employees_Estimated__c})&gt;=51,VALUE({!$Record.Polygraph_Company_Employees_Estimated__c})&lt;=250) ,3 ,
+ IF (AND(VALUE({!$Record.Polygraph_Company_Employees_Estimated__c})&gt;=251,VALUE({!$Record.Polygraph_Company_Employees_Estimated__c})&lt;=1000) ,4 ,
+ IF (AND(VALUE({!$Record.Polygraph_Company_Employees_Estimated__c})&gt;=1001,VALUE({!$Record.Polygraph_Company_Employees_Estimated__c})&lt;=5000) ,5 ,
+ IF (AND(VALUE({!$Record.Polygraph_Company_Employees_Estimated__c})&gt;=5001,VALUE({!$Record.Polygraph_Company_Employees_Estimated__c})&lt;=10000) ,6 ,
+ IF (AND(VALUE({!$Record.Polygraph_Company_Employees_Estimated__c})&gt;=10001,VALUE({!$Record.Polygraph_Company_Employees_Estimated__c})&lt;=50000) ,7 ,
+IF (VALUE({!$Record.Polygraph_Company_Employees_Estimated__c})&gt;=50000 ,8 ,0)))))))))</expression>
+        <scale>0</scale>
+    </formulas>
+    <formulas>
+        <name>Enrichment_Source_Bonus</name>
+        <dataType>Number</dataType>
+        <expression>IF(OR(ISPICKVAL({!$Record.Enrichment_Source__c},&quot;Enrichment Team&quot;),ISPICKVAL({!$Record.Enrichment_Source__c},&quot;Enrichment Team (Automated)&quot;)),2 ,0 )</expression>
+        <scale>0</scale>
+    </formulas>
+    <formulas>
+        <name>Lowercase_BillingCountry</name>
+        <dataType>String</dataType>
+        <expression>LOWER({!$Record.BillingCountry})</expression>
+    </formulas>
+    <formulas>
+        <name>Lowercase_SI_Country</name>
+        <dataType>String</dataType>
+        <expression>LOWER({!SI_Country})</expression>
+    </formulas>
+    <formulas>
+        <description>MIS-4422</description>
+        <name>SFDC_Clean_Domain</name>
+        <dataType>String</dataType>
+        <expression>If(BEGINS({!$Record.Website}, &quot;www.&quot;),
+IF(FIND(&apos;/&apos;, MID({!$Record.Website}, 5, LEN({!$Record.Website}) - 4)) != 0, MID({!$Record.Website}, 5, FIND(&apos;/&apos;, MID({!$Record.Website}, 5, LEN({!$Record.Website}) - 4)) -1), MID({!$Record.Website}, 5, LEN({!$Record.Website}) - 4)),
+
+If(BEGINS({!$Record.Website}, &quot;http://www.&quot;),
+IF(FIND(&apos;/&apos;, MID({!$Record.Website}, 12, LEN({!$Record.Website}) - 11)) != 0,MID({!$Record.Website}, 12, FIND(&apos;/&apos;, MID({!$Record.Website},12,LEN({!$Record.Website}) - 11)) -1), MID({!$Record.Website},12,LEN({!$Record.Website})-11)),
+
+If(BEGINS({!$Record.Website}, &quot;https://www.&quot;),
+IF(FIND(&apos;/&apos;, MID({!$Record.Website}, 13, LEN({!$Record.Website}) - 12)) != 0,MID({!$Record.Website}, 13, FIND(&apos;/&apos;, MID({!$Record.Website},13,LEN({!$Record.Website}) - 12)) -1), MID({!$Record.Website},13,LEN({!$Record.Website})-12)),
+
+If(BEGINS({!$Record.Website}, &quot;http://&quot;),
+IF(FIND(&apos;/&apos;, MID({!$Record.Website}, 8, LEN({!$Record.Website}) - 7)) != 0,MID({!$Record.Website}, 8, FIND(&apos;/&apos;, MID({!$Record.Website},8,LEN({!$Record.Website}) - 7)) -1), MID({!$Record.Website},8,LEN({!$Record.Website})-7)),
+
+If(BEGINS({!$Record.Website}, &quot;https://&quot;),
+IF(FIND(&apos;/&apos;, MID({!$Record.Website}, 9, LEN({!$Record.Website}) - 8)) != 0,MID({!$Record.Website}, 9, FIND(&apos;/&apos;, MID({!$Record.Website},9,LEN({!$Record.Website}) - 8)) -1), MID({!$Record.Website},9,LEN({!$Record.Website})-8)),
+
+IF(FIND(&apos;/&apos;,MID({!$Record.Website}, 1, LEN({!$Record.Website}))) !=0,MID({!$Record.Website},1,FIND(&apos;/&apos;, {!$Record.Website}) - 1), {!$Record.Website} ))))))</expression>
+    </formulas>
+    <formulas>
+        <description>MIS-4422 - employee range into level</description>
+        <name>SFDC_Employee_Number_Level</name>
+        <dataType>Number</dataType>
+        <expression>IF(OR(AND(ISBLANK({!$Record.Employees_Min__c}),ISBLANK({!$Record.Employees_Max__c})),AND({!$Record.Employees_Min__c}=0,{!$Record.Employees_Max__c}=0)) ,-1 ,
+IF(OR(ISBLANK({!$Record.Employees_Min__c}),ISBLANK({!$Record.Employees_Max__c})),0,
+IF(AND({!$Record.Employees_Min__c}&gt;=1,{!$Record.Employees_Min__c}&lt;=10,{!$Record.Employees_Max__c}&lt;=10,{!$Record.Employees_Max__c}&gt;=1) ,1 ,
+IF(AND({!$Record.Employees_Min__c}&gt;=11,{!$Record.Employees_Min__c}&lt;=50,{!$Record.Employees_Max__c}&lt;=50,{!$Record.Employees_Max__c}&gt;=11) ,2 ,
+IF (AND({!$Record.Employees_Min__c}&gt;=51,{!$Record.Employees_Min__c}&lt;=200,{!$Record.Employees_Max__c}&lt;=200,{!$Record.Employees_Max__c}&gt;=51) ,3 ,
+ IF (AND({!$Record.Employees_Min__c}&gt;=201,{!$Record.Employees_Min__c}&lt;=500,{!$Record.Employees_Max__c}&lt;=500,{!$Record.Employees_Max__c}&gt;=201) ,4 ,
+ IF (AND({!$Record.Employees_Min__c}&gt;=501,{!$Record.Employees_Min__c}&lt;=1000,{!$Record.Employees_Max__c}&lt;=1000,{!$Record.Employees_Max__c}&gt;=501) ,5 ,
+ IF (AND({!$Record.Employees_Min__c}&gt;=1001,{!$Record.Employees_Min__c}&lt;=5000,{!$Record.Employees_Max__c}&lt;=5000,{!$Record.Employees_Max__c}&gt;=1001) ,6 ,
+ IF (AND({!$Record.Employees_Min__c}&gt;=5001,{!$Record.Employees_Max__c}&gt;=5001) ,7 ,0)))))))))</expression>
+        <scale>0</scale>
+    </formulas>
+    <formulas>
+        <description>MIS-4422</description>
+        <name>SI_Clean_Domain</name>
+        <dataType>String</dataType>
+        <expression>If(BEGINS({!SI_Website_Domain}, &quot;www.&quot;),
+IF(FIND(&apos;/&apos;, MID({!SI_Website_Domain}, 5, LEN({!SI_Website_Domain}) - 4)) != 0, MID({!SI_Website_Domain}, 5, FIND(&apos;/&apos;, MID({!SI_Website_Domain}, 5, LEN({!SI_Website_Domain}) - 4)) -1), MID({!SI_Website_Domain}, 5, LEN({!SI_Website_Domain}) - 4)),
+
+If(BEGINS({!SI_Website_Domain}, &quot;http://www.&quot;),
+IF(FIND(&apos;/&apos;, MID({!SI_Website_Domain}, 12, LEN({!SI_Website_Domain}) - 11)) != 0,MID({!SI_Website_Domain}, 12, FIND(&apos;/&apos;, MID({!SI_Website_Domain},12,LEN({!SI_Website_Domain}) - 11)) -1), MID({!SI_Website_Domain},12,LEN({!SI_Website_Domain})-11)),
+
+If(BEGINS({!SI_Website_Domain}, &quot;https://www.&quot;),
+IF(FIND(&apos;/&apos;, MID({!SI_Website_Domain}, 13, LEN({!SI_Website_Domain}) - 12)) != 0,MID({!SI_Website_Domain}, 13, FIND(&apos;/&apos;, MID({!SI_Website_Domain},13,LEN({!SI_Website_Domain}) - 12)) -1), MID({!SI_Website_Domain},13,LEN({!SI_Website_Domain})-12)),
+
+If(BEGINS({!SI_Website_Domain}, &quot;http://&quot;),
+IF(FIND(&apos;/&apos;, MID({!SI_Website_Domain}, 8, LEN({!SI_Website_Domain}) - 7)) != 0,MID({!SI_Website_Domain}, 8, FIND(&apos;/&apos;, MID({!SI_Website_Domain},8,LEN({!SI_Website_Domain}) - 7)) -1), MID({!SI_Website_Domain},8,LEN({!SI_Website_Domain})-7)),
+
+If(BEGINS({!SI_Website_Domain}, &quot;https://&quot;),
+IF(FIND(&apos;/&apos;, MID({!SI_Website_Domain}, 9, LEN({!SI_Website_Domain}) - 8)) != 0,MID({!SI_Website_Domain}, 9, FIND(&apos;/&apos;, MID({!SI_Website_Domain},9,LEN({!SI_Website_Domain}) - 8)) -1), MID({!SI_Website_Domain},9,LEN({!SI_Website_Domain})-8)),
+
+IF(FIND(&apos;/&apos;,MID({!SI_Website_Domain}, 1, LEN({!SI_Website_Domain}))) !=0,MID({!SI_Website_Domain},1,FIND(&apos;/&apos;, {!SI_Website_Domain}) - 1), {!SI_Website_Domain} ))))))</expression>
+    </formulas>
+    <formulas>
+        <name>SI_Employee_Max</name>
+        <dataType>Number</dataType>
+        <expression>IF(ISBLANK({!SI_Number_of_Employees}), -1,
+VALUE(SUBSTITUTE(RIGHT({!SI_Number_of_Employees}, LEN({!SI_Number_of_Employees}) - FIND(&quot; - &quot;, {!SI_Number_of_Employees}) - 2), &quot;,&quot;, &quot;&quot;)))</expression>
+        <scale>0</scale>
+    </formulas>
+    <formulas>
+        <description>MIS-4422 - employee range into minimum</description>
+        <name>SI_Employee_Min</name>
+        <dataType>Number</dataType>
+        <expression>IF(ISBLANK({!SI_Number_of_Employees}), -1,
+VALUE(SUBSTITUTE(LEFT({!SI_Number_of_Employees}, FIND(&quot; - &quot;, {!SI_Number_of_Employees}) - 1), &quot;,&quot;, &quot;&quot;)))</expression>
+        <scale>0</scale>
+    </formulas>
+    <formulas>
+        <name>SI_Employee_Number_Level</name>
+        <dataType>Number</dataType>
+        <expression>IF(AND({!SI_Employee_Min}=-1,{!SI_Employee_Max}=-1) ,-1 ,
+IF(OR(AND(NOT(CONTAINS({!SI_Number_of_Employees},&quot;&gt;&quot;)) ,{!SI_Employee_Min}=-1),{!SI_Employee_Max}=-1),0,
+IF(AND({!SI_Employee_Min}=0,{!SI_Employee_Max}=10) ,1 ,
+IF(AND({!SI_Employee_Min}=10,{!SI_Employee_Max}=50) ,2 ,
+IF (AND({!SI_Employee_Min}=50,{!SI_Employee_Max}=200) ,3 ,
+ IF (AND({!SI_Employee_Min}=200,{!SI_Employee_Max}=500) ,4 ,
+ IF (AND({!SI_Employee_Min}=500,{!SI_Employee_Max}=1000) ,5 ,
+ IF (AND({!SI_Employee_Min}=1000,{!SI_Employee_Max}=5000) ,6 ,
+ IF (AND({!SI_Employee_Min}=5000,{!SI_Employee_Max}=10000) ,7 ,
+ IF ({!SI_Employee_Max}=10000, 8 , 0 ))))))))))</expression>
+        <scale>0</scale>
+    </formulas>
+    <interviewLabel>Account Confidence - Record-Triggered - Before Save {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Account Confidence - Record-Triggered - Before Save</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <description>MIS-4422</description>
+        <name>Get_MDT_by_Website_Category</name>
+        <label>Get MDT by Website Category</label>
+        <locationX>72</locationX>
+        <locationY>695</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Rule_FWCWC_Found_Website_Category_by_Website_Category</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>SW_Industry__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.SW_Industry__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Website_Category__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>SI_Website_Category</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Website_Category__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Account_Confidence__mdt</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <description>MIS-4422</description>
+        <name>Get_MDT_by_Website_Category_New</name>
+        <label>Get MDT by Website Category New</label>
+        <locationX>204</locationX>
+        <locationY>911</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Rule_FWCWCN_Found_Website_Category_by_Website_Category_New</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>SW_Industry__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.SW_Industry__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Website_Category_New__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>SI_Website_Category_New</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Website_Category_New__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Account_Confidence__mdt</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <description>MIS-4422</description>
+        <name>Get_Similarweb_Website_Data</name>
+        <label>Get Similarweb Website Data</label>
+        <locationX>314</locationX>
+        <locationY>395</locationY>
+        <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Rule_IL_Industry_Logic_Which_Industries_are_Populated</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.sw_connector__swId__c</elementReference>
+            </value>
+        </filters>
+        <object>sw_connector__SimilarWeb_Website_Data__c</object>
+        <outputAssignments>
+            <assignToReference>SI_Website_Domain</assignToReference>
+            <field>Name</field>
+        </outputAssignments>
+        <outputAssignments>
+            <assignToReference>SI_Number_of_Employees</assignToReference>
+            <field>sw_connector__Employee_Range__c</field>
+        </outputAssignments>
+        <outputAssignments>
+            <assignToReference>SI_Parent_Company_HQ</assignToReference>
+            <field>sw_connector__Headquarters__c</field>
+        </outputAssignments>
+        <outputAssignments>
+            <assignToReference>SI_Country</assignToReference>
+            <field>sw_connector__Top_Traffic_Country__c</field>
+        </outputAssignments>
+        <outputAssignments>
+            <assignToReference>SI_Website_Category_New</assignToReference>
+            <field>sw_connector__Website_Category_New__c</field>
+        </outputAssignments>
+        <outputAssignments>
+            <assignToReference>SI_Website_Category</assignToReference>
+            <field>sw_connector__Website_Category__c</field>
+        </outputAssignments>
+    </recordLookups>
+    <start>
+        <locationX>320</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Rule_IWDP_Is_Website_Data_Populated</targetReference>
+        </connector>
+        <filterFormula>{!$Record.CreatedById} &lt;&gt; &apos;0056700000Auy6OAAR&apos; &amp;&amp;
+(
+ISNEW() ||
+(
+ISCHANGED({!$Record.sw_connector__swId__c}) ||
+ISCHANGED({!$Record.SW_Industry__c}) ||
+ISCHANGED({!$Record.Polygraph_Company_Employees_Estimated__c}) ||
+ISCHANGED({!$Record.Employees_Min__c}) ||
+ISCHANGED({!$Record.Employees_Max__c}) ||
+ISCHANGED({!$Record.Website_Clearbit__c}) ||
+ISCHANGED({!$Record.Website}) ||
+ISCHANGED({!$Record.Polygraph_Company_Country_Name__c}) ||
+ISCHANGED({!$Record.BillingCountry}) ||
+ISCHANGED({!$Record.Parent_Company_HQ_Country__c})
+)
+)</filterFormula>
+        <object>Account</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Active</status>
+    <triggerOrder>1500</triggerOrder>
+    <variables>
+        <name>SI_Country</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>SI_Number_of_Employees</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>SI_Parent_Company_HQ</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>SI_Website_Category</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>SI_Website_Category_New</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>SI_Website_Domain</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

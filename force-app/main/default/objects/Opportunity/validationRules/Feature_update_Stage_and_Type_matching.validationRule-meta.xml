@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Feature_update_Stage_and_Type_matching</fullName>
+    <active>true</active>
+    <description>Stage &apos;Feature Update&apos; must correlate with Opp Type &apos;Feature Update&apos;</description>
+    <errorConditionFormula>OR(
+				AND(
+								ISPICKVAL(Type, &apos;Feature Update&apos;),
+								not(ISPICKVAL(StageName,&apos;Feature Update&apos;))
+								),
+				AND(
+								not(ISPICKVAL(Type, &apos;Feature Update&apos;)),
+								ISPICKVAL(StageName,&apos;Feature Update&apos;)
+								)
+				)</errorConditionFormula>
+    <errorDisplayField>Type</errorDisplayField>
+    <errorMessage>Stage &apos;Feature Update&apos; must correlate with Opp Type &apos;Feature Update&apos;</errorMessage>
+</ValidationRule>

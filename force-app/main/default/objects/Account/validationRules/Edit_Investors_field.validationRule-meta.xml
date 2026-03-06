@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Edit_Investors_field</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+ISCHANGED(Investors_Tickers_and_Sectors__c),
+$User.Id &lt;&gt; OwnerId,
+$Profile.Name &lt;&gt; &apos;SW SDR&apos;,
+$Profile.Name &lt;&gt; &apos;SalesOps&apos;,
+$Profile.Name &lt;&gt; &apos;SalesOps Extended&apos;
+)</errorConditionFormula>
+    <errorDisplayField>Investors_Tickers_and_Sectors__c</errorDisplayField>
+    <errorMessage>You don&apos;t have permission to edit this field</errorMessage>
+</ValidationRule>

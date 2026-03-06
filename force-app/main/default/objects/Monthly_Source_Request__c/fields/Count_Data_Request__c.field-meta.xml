@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Count_Data_Request__c</fullName>
+    <description>Count the total records of &quot;Monthly Data Request&quot; under the Monthly Source Request</description>
+    <externalId>false</externalId>
+    <label>Count Data Request</label>
+    <summaryForeignKey>Monthly_Data_Request__c.Monthly_Source_Request__c</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

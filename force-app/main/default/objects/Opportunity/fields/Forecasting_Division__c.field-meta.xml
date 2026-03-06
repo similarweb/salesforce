@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Forecasting_Division__c</fullName>
+    <description>MIS-8271  Fix to Reporting Division (opp) Logic
+MIS-1519 New division fields in SFDC</description>
+    <externalId>false</externalId>
+    <formula>IF(
+CloseDate &lt; DATE(2022,01,01),
+IF(
+CONTAINS(TEXT(Opportunity_Division__c),&apos;France&apos;), &apos;France&apos;,
+IF(
+AND(
+CONTAINS(TEXT(Opportunity_Division__c),&apos;Reseller&apos;),
+NOT(ISPICKVAL(Opportunity_Division__c,&apos;Reseller - Japan&apos;)),
+NOT(ISPICKVAL(Opportunity_Division__c,&apos;Reseller - ANZ - Direct&apos;)),
+NOT(ISPICKVAL(Opportunity_Division__c,&apos;Reseller - Japan-Gaprise&apos;))),
+&apos;All other resellers&apos;,
+IF(
+CONTAINS(TEXT(Opportunity_Division__c),&apos;ROW&apos;), &apos;ROW&apos;,
+IF(
+CONTAINS(TEXT(Opportunity_Division__c),&apos;Agencies&apos;), &apos;Agency (Big 6 + Independent)&apos;,
+CASE(Opportunity_Division__c,
+&apos;Reseller - ANZ - Direct&apos;, &apos;ANZ Direct&apos;,
+&apos;Reseller - Japan&apos;,&apos;Japan Direct&apos;,
+&apos;Reseller - Japan-Gaprise&apos;,&apos;Japan Reseller&apos;,
+&apos;Channel Sales&apos;,&apos;All other resellers&apos;,
+&apos;SDR - Inside Sales&apos;,&apos;ROW&apos;,
+&apos;ENT Sales - IM&apos;,&apos;ROW&apos;,
+&apos;Raw Data&apos;,&apos;Raw Data&apos;,
+&apos;Global Sales - Investors&apos;, &apos;Investors&apos;,
+&apos;Global CSM - Investors&apos;, &apos;Investors&apos;,
+&apos;Global Sales - Europe&apos;,&apos;EU Strategic&apos;,
+&apos;Global CSM - Europe&apos;,&apos;EU Strategic&apos;,
+&apos;Global Sales - UK&apos;,&apos;EU Strategic&apos;,
+&apos;ENT Sales - Europe&apos;,&apos;EU Enterprise&apos;,
+&apos;SDR EU&apos;,&apos;EU Enterprise&apos;,
+&apos;ENT CSM - Europe&apos;,&apos;EU Enterprise&apos;,
+&apos;Global Sales - US&apos;,&apos;NA Strategic&apos;,
+&apos;Global CSM - US&apos;,&apos;NA Strategic&apos;,
+&apos;SMB Sales - US&apos;,&apos;NA Inside Sales&apos;,
+&apos;Inside CSM - US&apos;,&apos;NA Inside Sales&apos;,
+&apos;ENT Sales - US&apos;,&apos;NA Enterprise&apos;,
+&apos;ENT CSM - US&apos;,&apos;NA Enterprise&apos;,
+&apos;SMB Sales&apos;,&apos;ROW&apos;,
+null)
+)
+)
+)
+),
+
+
+CASE(Opportunity_Division__c,
+&apos;Raw Data&apos;,&apos;Raw Data&apos;,
+&apos;Reseller - ANZ-Trellian&apos;,&apos;Resellers APAC&apos;,
+&apos;Reseller - SEA-Maestros&apos;,&apos;Resellers APAC&apos;,
+&apos;Reseller - India - Altudo&apos;,&apos;Resellers APAC&apos;,
+&apos;Reseller - India - Onnivation&apos;,&apos;Resellers APAC&apos;,
+&apos;Reseller - Vietnam - AMS JSC&apos;, &apos;Resellers APAC&apos;,
+&apos;Reseller - China - TrueMetrics&apos;, &apos;Resellers APAC&apos;,
+&apos;Reseller - Australia and Pacific Islands - Bring Performance&apos;,&apos;Resellers APAC&apos;,
+&apos;Resellers APAC&apos;,&apos;Resellers APAC&apos;,
+
+&apos;Reseller - Brazil - 108&apos;,&apos;Resellers Americas&apos;,
+&apos;Reseller - Mexico - Hexagon Data&apos;,&apos;Resellers Americas&apos;,
+&apos;Reseller - Brazil - Alpha&apos;,&apos;Resellers Americas&apos;,
+&apos;Reseller - Colombia - Indices&apos;, &apos;Resellers Americas&apos;,
+&apos;Resellers Americas&apos;,&apos;Resellers Americas&apos;,
+
+&apos;Reseller - Turkey-CloudyFlex&apos;,&apos;Resellers EMEA&apos;,
+&apos;Reseller - Italy - Nubo&apos;,&apos;Resellers EMEA&apos;,
+&apos;Reseller - Finland - Luxid&apos;,&apos;Resellers EMEA&apos;,
+&apos;Reseller - UAE - BrentFord Technical Services&apos;, &apos;Resellers EMEA&apos;,
+&apos;Reseller - Spain - Cartagon&apos;, &apos;Resellers EMEA&apos;,
+&apos;Reseller - Israel - BDO (VAR)&apos;,&apos;Resellers EMEA&apos;,
+&apos;Resellers EMEA&apos;,&apos;Resellers EMEA&apos;,
+
+
+&apos;Rank Ranger&apos;, &apos;Rank Ranger&apos;,
+&apos;Channel Sales&apos;,&apos;Channel Sales&apos;,
+
+
+IF(
+AND(CONTAINS(text(Opportunity_Division__c), &apos;-&apos;),CloseDate &lt; DATE(2026,01,01)),
+LEFT(text(Opportunity_Division__c), FIND(&apos;-&apos;, text(Opportunity_Division__c))-2),
+TEXT(Opportunity_Division__c)
+)
+)
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Reporting Division</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

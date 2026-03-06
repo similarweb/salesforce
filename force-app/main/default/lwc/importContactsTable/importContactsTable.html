@@ -1,0 +1,71 @@
+<template>
+    <lightning-card>
+        <div class="table_header" style="position: sticky;z-index:19;background-color:#e5f1fa;">
+            <div class="table_header__cell slds-var-m-horizontal_xx-small slds-var-m-vertical_x-small slds-align_absolute-center" style="font-size: small;width: 20px; padding: 0">
+                №
+            </div>
+            <div class="slds-grid" style="width: 100%">
+                <div class="table_header__cell slds-var-m-horizontal_xx-small slds-align_absolute-center" title="This field is required">
+                    <h5>Account Id</h5><p style="color: red">*</p>
+                </div>
+                <div class="table_header__cell slds-var-m-horizontal_xx-small slds-align_absolute-center" title="This field is required">
+                    <h5>Email</h5><p style="color: red">*</p>
+                </div>
+                <div class="table_header__cell slds-var-m-horizontal_xx-small slds-align_absolute-center" title="This field is required">
+                    <h5>First Name</h5><p style="color: red">*</p>
+                </div>
+                <div class="table_header__cell slds-var-m-horizontal_xx-small slds-align_absolute-center" title="This field is required">
+                    <h5>Last Name</h5><p style="color: red">*</p>
+                </div>
+                <div class="table_header__cell slds-var-m-horizontal_xx-small slds-align_absolute-center" title="This field is required">
+                    <h5>Title</h5><p style="color: red">*</p>
+                </div>
+                <div class="table_header__cell slds-var-m-horizontal_xx-small slds-align_absolute-center" title="This field is required">
+                    <h5>Department</h5><p style="color: red">*</p>
+                </div>
+                <div class="table_header__cell slds-var-m-horizontal_xx-small slds-align_absolute-center" title="This field is required">
+                    <h5>Original Lead Source</h5><p style="color: red">*</p>
+                </div>
+                <div class="table_header__cell slds-var-m-horizontal_xx-small slds-align_absolute-center">
+                    <h5>Phone</h5>
+                </div>
+                <div class="table_header__cell slds-var-m-horizontal_xx-small slds-align_absolute-center">
+                    <h5>Mobile</h5>
+                </div>
+                <div class="table_header__cell slds-var-m-horizontal_xx-small slds-align_absolute-center">
+                    <h5>Other Phone</h5>
+                </div>
+                <div class="table_header__cell slds-var-m-horizontal_xx-small slds-align_absolute-center" title="This field is required">
+                    <h5>Country</h5><p style="color: red">*</p>
+                </div>
+                <div class="table_header__cell slds-var-m-horizontal_xx-small slds-align_absolute-center" title="This field is required">
+                    <h5>State</h5>
+                </div>
+                <div class="table_header__cell slds-var-m-horizontal_xx-small slds-align_absolute-center" >
+                    <h5>City</h5>
+                </div>
+                <div class="table_header__cell slds-var-m-horizontal_xx-small slds-align_absolute-center">
+                    <h5>LinkedIn Profile</h5>
+                </div>
+                <div class="table_header__cell slds-var-m-horizontal_xx-small slds-align_absolute-center">
+                    <h5>Contact Id</h5>
+                </div>
+                <div class="table_header_us__cell slds-var-m-horizontal_xx-small slds-align_absolute-center">
+                    <h5>Upload Status</h5>
+                </div>
+                <div class="table_header_us__cell slds-var-m-horizontal_xx-small slds-align_absolute-center">
+                </div>
+            </div>
+        </div>
+        <template if:true={isApexCodeCompleted}>
+            <template for:each={currentPageItems} for:item="tableItem" for:index="index">
+                <div key={tableItem.draftId} style="display: flex;align-items: center;">
+                    <div class="slds-var-m-horizontal_xx-small slds-var-m-vertical_x-small slds-align_absolute-center" style="display: flex;font-size: small;align-items: flex-end;width:20px;">
+                        {index}
+                    </div>
+                    <c-import-contacts-table-row data-id={tableItem.draftId} key={tableItem.draftId} index={index} table-item={tableItem} picklist-options={picklistOptions}  char-limits={_charLimits} onsavedraft={saveDraft} onsavedraftonrefresh={saveDraftOnRefresh} onloading={loading} ondeleterow={deleteRowHandler} current-page-items-length={currentPageItems.length} onrowsloaded={stopTimerLoad} onrowsloading={startTimerLoad}></c-import-contacts-table-row>
+                </div>
+            </template>
+        </template>
+    </lightning-card>
+</template>

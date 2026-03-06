@@ -1,0 +1,24 @@
+.THIS .slds-file-selector_files .slds-file-selector__body,
+.THIS .slds-file-selector--files .slds-file-selector__body{
+    display: block !important;
+}
+.THIS .slds-file-selector_images,
+.THIS .slds-file-selector--images {
+    display: block!important;
+}
+.THIS .slds-file-selector_images .slds-file-selector__dropzone, 
+.THIS .slds-file-selector--images .slds-file-selector__dropzone {
+    display: flex!important;
+    justify-content: center!important;
+    align-content: center!important;
+    align-items: center!important;
+    margin: auto!important;
+    padding: var(--lwc-spacingMedium,1rem)!important;
+}
+.THIS .slds-file-selector{
+    display: block!important;
+}
+
+.THIS slot{
+    width: 100%;
+}

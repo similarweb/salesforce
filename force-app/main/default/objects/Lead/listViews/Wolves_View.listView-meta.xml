@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Wolves_View</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>LEAD.COMPANY</columns>
+    <columns>Wolves_Platform__c</columns>
+    <columns>Minimum_Installs__c</columns>
+    <columns>Wolves_Link_to_App__c</columns>
+    <columns>Wolves_Tracking_Method__c</columns>
+    <columns>Wolves_App_Name__c</columns>
+    <columns>LEAD.STATUS</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>LEAD.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Lead.Wolves</value>
+    </filters>
+    <label>Wolves View</label>
+    <sharedTo>
+        <group>Bus_Dev_Team</group>
+        <role>Panel_Acquisition</role>
+    </sharedTo>
+</ListView>

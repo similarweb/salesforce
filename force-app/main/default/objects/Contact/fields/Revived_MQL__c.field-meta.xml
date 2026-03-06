@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Revived_MQL__c</fullName>
+    <externalId>false</externalId>
+    <formula>(DATEVALUE(First_MQL_Date__c) &lt;&gt; DATEVALUE(MQL_date__c)) &amp;&amp;  MQL__c = TRUE</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Revived MQL?</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

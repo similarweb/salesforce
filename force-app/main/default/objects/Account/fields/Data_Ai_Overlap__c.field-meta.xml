@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Data_Ai_Overlap__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Indicates that this Account is a &quot;Data.Ai&quot; customer and we should not offer them App Annie or other Data.Ai Products.</description>
+    <externalId>false</externalId>
+    <label>App Intelligence Overlap</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

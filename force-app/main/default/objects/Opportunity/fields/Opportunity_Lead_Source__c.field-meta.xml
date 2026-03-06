@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Opportunity_Lead_Source__c</fullName>
+    <externalId>false</externalId>
+    <label>Opportunity Lead Source</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Type</controllingField>
+        <valueSetDefinition>
+            <sorted>true</sorted>
+            <value>
+                <fullName>Admetricks</fullName>
+                <default>false</default>
+                <label>Admetricks</label>
+            </value>
+            <value>
+                <fullName>Auto Email Reply</fullName>
+                <default>false</default>
+                <label>Auto Email Reply</label>
+            </value>
+            <value>
+                <fullName>Based on feedback from account handover</fullName>
+                <default>false</default>
+                <label>Based on feedback from account handover</label>
+            </value>
+            <value>
+                <fullName>Based on Marketing/Solutions campaign</fullName>
+                <default>false</default>
+                <label>Based on Marketing/Solutions campaign</label>
+            </value>
+            <value>
+                <fullName>Calendly</fullName>
+                <default>false</default>
+                <label>Calendly</label>
+            </value>
+            <value>
+                <fullName>Chat</fullName>
+                <default>false</default>
+                <label>Chat</label>
+            </value>
+            <value>
+                <fullName>Customer request</fullName>
+                <default>false</default>
+                <label>Customer request</label>
+            </value>
+            <value>
+                <fullName>DemandGen Direct to Sales</fullName>
+                <default>false</default>
+                <label>DemandGen Direct to Sales</label>
+            </value>
+            <value>
+                <fullName>Embee Migration</fullName>
+                <default>false</default>
+                <label>Embee Migration</label>
+            </value>
+            <value>
+                <fullName>Hitwise Referral</fullName>
+                <default>false</default>
+                <label>Hitwise Referral</label>
+            </value>
+            <value>
+                <fullName>Identified need based on customer use case/industry/team fit</fullName>
+                <default>false</default>
+                <label>Identified need based on customer use case/industry/team fit</label>
+            </value>
+            <value>
+                <fullName>Identified need based on user behavior (e.g. CSM Tool/WeBI/Upsell Reco/etc.)</fullName>
+                <default>false</default>
+                <label>Identified need based on user behavior (e.g. CSM Tool/WeBI/Upsell Reco/etc.)</label>
+            </value>
+            <value>
+                <fullName>Inbound Conversation</fullName>
+                <default>false</default>
+                <label>Inbound Conversation</label>
+            </value>
+            <value>
+                <fullName>LinkedIn Message</fullName>
+                <default>false</default>
+                <label>LinkedIn Message</label>
+            </value>
+            <value>
+                <fullName>MIR Engaged</fullName>
+                <default>false</default>
+                <label>MIR Engaged</label>
+            </value>
+            <value>
+                <fullName>Outbound Call</fullName>
+                <default>false</default>
+                <label>Outbound Call</label>
+            </value>
+            <value>
+                <fullName>Outbound Email</fullName>
+                <default>false</default>
+                <label>Outbound Email</label>
+            </value>
+            <value>
+                <fullName>Referral Conversation</fullName>
+                <default>false</default>
+                <label>Referral Conversation</label>
+            </value>
+            <value>
+                <fullName>Tradeshow</fullName>
+                <default>false</default>
+                <label>Tradeshow</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Strategic Partnership</controllingFieldValue>
+            <controllingFieldValue>Partnership - Accessibility</controllingFieldValue>
+            <controllingFieldValue>Partnership</controllingFieldValue>
+            <controllingFieldValue>New Sale</controllingFieldValue>
+            <controllingFieldValue>Renewal</controllingFieldValue>
+            <controllingFieldValue>Monthly Cancellation</controllingFieldValue>
+            <controllingFieldValue>Feature Update</controllingFieldValue>
+            <controllingFieldValue>M&amp;A</controllingFieldValue>
+            <valueName>Auto Email Reply</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Strategic Partnership</controllingFieldValue>
+            <controllingFieldValue>Partnership - Accessibility</controllingFieldValue>
+            <controllingFieldValue>Partnership</controllingFieldValue>
+            <controllingFieldValue>New Sale</controllingFieldValue>
+            <controllingFieldValue>Renewal</controllingFieldValue>
+            <controllingFieldValue>Monthly Cancellation</controllingFieldValue>
+            <controllingFieldValue>Feature Update</controllingFieldValue>
+            <controllingFieldValue>M&amp;A</controllingFieldValue>
+            <valueName>Calendly</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Strategic Partnership</controllingFieldValue>
+            <controllingFieldValue>Partnership - Accessibility</controllingFieldValue>
+            <controllingFieldValue>Partnership</controllingFieldValue>
+            <controllingFieldValue>New Sale</controllingFieldValue>
+            <controllingFieldValue>Renewal</controllingFieldValue>
+            <controllingFieldValue>Monthly Cancellation</controllingFieldValue>
+            <controllingFieldValue>Feature Update</controllingFieldValue>
+            <controllingFieldValue>M&amp;A</controllingFieldValue>
+            <valueName>Chat</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Strategic Partnership</controllingFieldValue>
+            <controllingFieldValue>Partnership - Accessibility</controllingFieldValue>
+            <controllingFieldValue>Partnership</controllingFieldValue>
+            <controllingFieldValue>New Sale</controllingFieldValue>
+            <controllingFieldValue>Renewal</controllingFieldValue>
+            <controllingFieldValue>Monthly Cancellation</controllingFieldValue>
+            <controllingFieldValue>Feature Update</controllingFieldValue>
+            <controllingFieldValue>M&amp;A</controllingFieldValue>
+            <valueName>DemandGen Direct to Sales</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Strategic Partnership</controllingFieldValue>
+            <controllingFieldValue>Partnership - Accessibility</controllingFieldValue>
+            <controllingFieldValue>Partnership</controllingFieldValue>
+            <controllingFieldValue>New Sale</controllingFieldValue>
+            <controllingFieldValue>Renewal</controllingFieldValue>
+            <controllingFieldValue>Monthly Cancellation</controllingFieldValue>
+            <controllingFieldValue>Feature Update</controllingFieldValue>
+            <controllingFieldValue>M&amp;A</controllingFieldValue>
+            <valueName>Hitwise Referral</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Strategic Partnership</controllingFieldValue>
+            <controllingFieldValue>Partnership - Accessibility</controllingFieldValue>
+            <controllingFieldValue>Partnership</controllingFieldValue>
+            <controllingFieldValue>New Sale</controllingFieldValue>
+            <controllingFieldValue>Renewal</controllingFieldValue>
+            <controllingFieldValue>Monthly Cancellation</controllingFieldValue>
+            <controllingFieldValue>Feature Update</controllingFieldValue>
+            <controllingFieldValue>M&amp;A</controllingFieldValue>
+            <valueName>Inbound Conversation</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Strategic Partnership</controllingFieldValue>
+            <controllingFieldValue>Partnership - Accessibility</controllingFieldValue>
+            <controllingFieldValue>Partnership</controllingFieldValue>
+            <controllingFieldValue>New Sale</controllingFieldValue>
+            <controllingFieldValue>Renewal</controllingFieldValue>
+            <controllingFieldValue>Monthly Cancellation</controllingFieldValue>
+            <controllingFieldValue>Feature Update</controllingFieldValue>
+            <controllingFieldValue>M&amp;A</controllingFieldValue>
+            <valueName>LinkedIn Message</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Strategic Partnership</controllingFieldValue>
+            <controllingFieldValue>Partnership - Accessibility</controllingFieldValue>
+            <controllingFieldValue>Partnership</controllingFieldValue>
+            <controllingFieldValue>New Sale</controllingFieldValue>
+            <controllingFieldValue>Renewal</controllingFieldValue>
+            <controllingFieldValue>Monthly Cancellation</controllingFieldValue>
+            <controllingFieldValue>Feature Update</controllingFieldValue>
+            <controllingFieldValue>M&amp;A</controllingFieldValue>
+            <valueName>MIR Engaged</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Strategic Partnership</controllingFieldValue>
+            <controllingFieldValue>Partnership - Accessibility</controllingFieldValue>
+            <controllingFieldValue>Partnership</controllingFieldValue>
+            <controllingFieldValue>New Sale</controllingFieldValue>
+            <controllingFieldValue>Renewal</controllingFieldValue>
+            <controllingFieldValue>Monthly Cancellation</controllingFieldValue>
+            <controllingFieldValue>Feature Update</controllingFieldValue>
+            <controllingFieldValue>M&amp;A</controllingFieldValue>
+            <valueName>Outbound Call</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Strategic Partnership</controllingFieldValue>
+            <controllingFieldValue>Partnership - Accessibility</controllingFieldValue>
+            <controllingFieldValue>Partnership</controllingFieldValue>
+            <controllingFieldValue>New Sale</controllingFieldValue>
+            <controllingFieldValue>Renewal</controllingFieldValue>
+            <controllingFieldValue>Monthly Cancellation</controllingFieldValue>
+            <controllingFieldValue>Feature Update</controllingFieldValue>
+            <controllingFieldValue>M&amp;A</controllingFieldValue>
+            <valueName>Outbound Email</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Strategic Partnership</controllingFieldValue>
+            <controllingFieldValue>Partnership - Accessibility</controllingFieldValue>
+            <controllingFieldValue>Partnership</controllingFieldValue>
+            <controllingFieldValue>New Sale</controllingFieldValue>
+            <controllingFieldValue>Renewal</controllingFieldValue>
+            <controllingFieldValue>Monthly Cancellation</controllingFieldValue>
+            <controllingFieldValue>Feature Update</controllingFieldValue>
+            <controllingFieldValue>M&amp;A</controllingFieldValue>
+            <valueName>Referral Conversation</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Strategic Partnership</controllingFieldValue>
+            <controllingFieldValue>Partnership - Accessibility</controllingFieldValue>
+            <controllingFieldValue>Partnership</controllingFieldValue>
+            <controllingFieldValue>New Sale</controllingFieldValue>
+            <controllingFieldValue>Renewal</controllingFieldValue>
+            <controllingFieldValue>Monthly Cancellation</controllingFieldValue>
+            <controllingFieldValue>Feature Update</controllingFieldValue>
+            <controllingFieldValue>M&amp;A</controllingFieldValue>
+            <valueName>Tradeshow</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Upsell</controllingFieldValue>
+            <valueName>Based on feedback from account handover</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Upsell</controllingFieldValue>
+            <valueName>Based on Marketing/Solutions campaign</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Upsell</controllingFieldValue>
+            <valueName>Customer request</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Upsell</controllingFieldValue>
+            <controllingFieldValue>New Sale</controllingFieldValue>
+            <controllingFieldValue>Renewal</controllingFieldValue>
+            <controllingFieldValue>Monthly Cancellation</controllingFieldValue>
+            <controllingFieldValue>Feature Update</controllingFieldValue>
+            <valueName>Embee Migration</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Upsell</controllingFieldValue>
+            <valueName>Identified need based on customer use case/industry/team fit</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Upsell</controllingFieldValue>
+            <valueName>Identified need based on user behavior (e.g. CSM Tool/WeBI/Upsell Reco/etc.)</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

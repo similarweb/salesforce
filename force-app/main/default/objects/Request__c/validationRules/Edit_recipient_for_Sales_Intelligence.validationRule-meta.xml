@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Edit_recipient_for_Sales_Intelligence</fullName>
+    <active>true</active>
+    <description>Only SalesOps and SW Solutions can change the recipient field
+MIS-3015</description>
+    <errorConditionFormula>AND(
+RecordType.DeveloperName = &apos;SI_Product_Expert&apos;,
+ISCHANGED( Recipient_Picklist__c ),
+$Profile.Name &lt;&gt; &apos;SW SalesOps&apos;,
+$Profile.Name &lt;&gt; &apos;SW SalesOps Extended&apos;,
+$Profile.Name &lt;&gt; &apos;SW Solutions&apos;
+)</errorConditionFormula>
+    <errorDisplayField>Recipient_Picklist__c</errorDisplayField>
+    <errorMessage>Only SalesOps or SW Solutions can edit Recipient for Sales Intelligence Deal Support</errorMessage>
+</ValidationRule>

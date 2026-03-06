@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Conga_Composer_Proforma_Invoice_Upsell</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <hasMenubar>false</hasMenubar>
+    <hasScrollbars>true</hasScrollbars>
+    <hasToolbar>false</hasToolbar>
+    <height>600</height>
+    <isResizable>true</isResizable>
+    <linkType>url</linkType>
+    <masterLabel>Proforma Invoice PDF</masterLabel>
+    <openType>newWindow</openType>
+    <position>none</position>
+    <protected>false</protected>
+    <showsLocation>false</showsLocation>
+    <showsStatus>false</showsStatus>
+    <url>https://composer.congamerge.com?SolMgr=1 
+&amp;sessionId={!API.Session_ID} 
+&amp;serverUrl={!API.Partner_Server_URL_290} 
+&amp;Id={!Proforma_Invoice__c.Id} 
+
+&amp;ReportId=[InvoiceProforma]00Ob0000003wEVO
+
+&amp;TemplateId={!CASE( Proforma_Invoice__c.Subsidiary__c , &quot;Parent Company : SimilarWeb UK&quot;, &quot;a1Db0000004nLC8&quot;, &quot;Parent Company : SimilarWeb IL&quot;, &quot;a1Db0000004nLCD&quot;,&quot;Parent Company : SimilarWeb Inc&quot;,&quot;a1Db0000004nLCI&quot;,&quot;&quot;)} 
+&amp;DefaultPDF=1 
+&amp;SC0=1 
+&amp;SC1=Attachments 
+
+&amp;AttachmentParentId= {!IF(ISPICKVAL(Proforma_Invoice__c.Approval_Status__c , &quot;Approved&quot;),Proforma_Invoice__c.OpportunityId__c,Proforma_Invoice__c.Id)} 
+
+&amp;OFN= {!IF(ISPICKVAL(Proforma_Invoice__c.Approval_Status__c , &quot;Approved&quot;), 
+Proforma_Invoice__c.Name, 
+&quot;Not Approved&quot;+Proforma_Invoice__c.Name)} 
+
+
+&amp;DC={!IF(OR(ISPICKVAL( Proforma_Invoice__c.Approval_Status__c , &quot;Approved&quot;), 
+ISPICKVAL( Proforma_Invoice__c.Approval_Status__c , &quot;Not Approved&quot;), 
+ISPICKVAL( Proforma_Invoice__c.Approval_Status__c , &quot;Rejected&quot;) 
+), &quot;0&quot;, &quot;1&quot;)} 
+&amp;DS6=1 
+&amp;DS4=1 
+&amp;DS5=1 
+&amp;DS2=1 
+&amp;DS0=1</url>
+</WebLink>

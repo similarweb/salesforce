@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MIR_All_MQL_Contacts</fullName>
+    <booleanFilter>1 AND 2 AND 3 AND 4 AND 5 and 6</booleanFilter>
+    <columns>Department__c</columns>
+    <columns>MQL_date__c</columns>
+    <columns>Pro_User_Type__c</columns>
+    <columns>FULL_NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>SW_Industry__c</columns>
+    <columns>CONTACT.ADDRESS2_COUNTRY</columns>
+    <columns>CONTACT.TITLE</columns>
+    <columns>Status__c</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.LAST_ACTIVITY</columns>
+    <columns>Business_Unit__c</columns>
+    <columns>Employees_Min__c</columns>
+    <columns>CONTACT.EMAIL_OPT_OUT</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CORE.USERS.LAST_NAME</field>
+        <operation>contains</operation>
+        <value>Didio,Muller,Koplen,Felsen,Glueckstern,Fox,Eviston,Ashur,Richter</value>
+    </filters>
+    <filters>
+        <field>Status__c</field>
+        <operation>notEqual</operation>
+        <value>Unqualified</value>
+    </filters>
+    <filters>
+        <field>Neglected_MQL__c</field>
+        <operation>equals</operation>
+        <value>neglected</value>
+    </filters>
+    <filters>
+        <field>MQL__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <filters>
+        <field>Most_Recent_Cadence_Cadence_ID__c</field>
+        <operation>equals</operation>
+    </filters>
+    <filters>
+        <field>CONTACT.LEAD_SOURCE</field>
+        <operation>notEqual</operation>
+        <value>ContactForm,Facebook,Tradeshow,Webinar,LinkedIn - Paid,Facebook - Paid,Investors - Paid</value>
+    </filters>
+    <label>MIR All MQL Contacts</label>
+</ListView>

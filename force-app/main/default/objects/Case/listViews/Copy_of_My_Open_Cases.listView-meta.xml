@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Copy_of_My_Open_Cases</fullName>
+    <columns>CASES.CASE_NUMBER</columns>
+    <columns>CASES.SUBJECT</columns>
+    <columns>CASES.STATUS</columns>
+    <columns>CASES.TYPE</columns>
+    <columns>OWNER_NAME</columns>
+    <columns>CASES.RECORDTYPE</columns>
+    <columns>Age_in_Hours__c</columns>
+    <columns>CASES.CREATED_DATE</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>Opportunity__c</columns>
+    <columns>Quote__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CASES.STATUS</field>
+        <operation>notEqual</operation>
+        <value>Solved</value>
+    </filters>
+    <filters>
+        <field>Current_User__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <label>My team&apos;s Open Cases</label>
+    <sharedTo>
+        <group>SimilarWeb_Managers</group>
+    </sharedTo>
+</ListView>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>High_User_Engagement__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Pull from &quot;behavior_share&quot; field in BI</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Above average # of contacts, MQL&apos;s, and CU&apos;s</inlineHelpText>
+    <label>High User Engagement Old field</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

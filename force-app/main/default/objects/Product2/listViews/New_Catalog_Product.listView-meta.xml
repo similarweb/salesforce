@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>New_Catalog_Product</fullName>
+    <columns>PRODUCT2.NAME</columns>
+    <columns>PRODUCT2.CUSTOMER_PRODUCT_ID</columns>
+    <columns>PRODUCT2.LAST_UPDATE</columns>
+    <columns>ProductCompatibility__c</columns>
+    <columns>PRODUCT2.DESCRIPTION</columns>
+    <columns>PRODUCT2.FAMILY</columns>
+    <columns>Contract_Wording_Action__c</columns>
+    <columns>Contract_Wording__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Product_Tracking__c</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <label>New Catalog Product</label>
+</ListView>

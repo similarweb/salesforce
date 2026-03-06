@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Feedback_available_after_sent_to_custome</fullName>
+    <active>false</active>
+    <errorConditionFormula>NOT( ISPICKVAL( Status__c , &quot;Sent to customer&quot;) )&amp;&amp; 
+(NOT(ISBLANK(TEXT( General_Feedback_Rate__c )))|| 
+NOT(ISBLANK( Additional_Feedback_Notes__c ))) &amp;&amp; 
+NOT($Profile.Id=&apos;00eb0000000oBvcAAE&apos;)</errorConditionFormula>
+    <errorMessage>Feedback is available only after status changed to &quot;Sent to customer&quot;.</errorMessage>
+</ValidationRule>

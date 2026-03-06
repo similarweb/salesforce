@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Decision_Process_required_from_60</fullName>
+    <active>true</active>
+    <errorConditionFormula>and ( ISBLANK( Decision_Process__c ),  Probability &gt;= 0.6,
+ISCHANGED( StageName ),
+RecordType18ID__c =&apos;012b0000000M3zQAAS&apos;,
+or( ISPICKVAL(Type, &apos;New Sale&apos;),ISPICKVAL(Type, &apos;Upsell&apos;)),
+
+NOT(CONTAINS($Profile.Name, &apos;Integration&apos;)) ,
+$Profile.Name &lt;&gt; &apos;SW SalesOps Extended&apos;,
+$Profile.Name &lt;&gt; &apos;SW SalesOps&apos;,
+$Profile.Name &lt;&gt; &apos;System Administrator&apos;,
+RecordType.DeveloperName &lt;&gt; &apos;Wolves&apos;,
+RecordType.DeveloperName &lt;&gt; &apos;Partnership&apos;,
+RecordType.DeveloperName &lt;&gt; &apos;Rank_Ranger&apos;,
+RecordType.DeveloperName &lt;&gt; &apos;Acquired_Company&apos;,
+				MEDPIC_Next_Stage__c = false
+				)</errorConditionFormula>
+    <errorDisplayField>Decision_Process__c</errorDisplayField>
+    <errorMessage>Please populate the Decision Process field</errorMessage>
+</ValidationRule>

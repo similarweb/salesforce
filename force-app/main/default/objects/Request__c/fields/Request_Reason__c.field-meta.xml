@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Request_Reason__c</fullName>
+    <description>MIS-7726</description>
+    <externalId>false</externalId>
+    <label>Request Reason</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Client request</fullName>
+                <default>false</default>
+                <label>Client request</label>
+            </value>
+            <value>
+                <fullName>Showcase new data to a client</fullName>
+                <default>false</default>
+                <label>Showcase new data to a client</label>
+            </value>
+            <value>
+                <fullName>Custom report/webinar session</fullName>
+                <default>false</default>
+                <label>Custom report/webinar session</label>
+            </value>
+            <value>
+                <fullName>Use case walkthrough</fullName>
+                <default>false</default>
+                <label>Use case walkthrough</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

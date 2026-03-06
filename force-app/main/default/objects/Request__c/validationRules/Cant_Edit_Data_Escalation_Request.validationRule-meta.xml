@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cant_Edit_Data_Escalation_Request</fullName>
+    <active>true</active>
+    <description>MIS-5318</description>
+    <errorConditionFormula>AND
+    (
+								NOT(ISNEW()),
+								RecordType.DeveloperName =&apos;Data_Escalation&apos;, /* Data Escalation */
+        $Profile.Name &lt;&gt;&apos;SW CSM Internal&apos;,
+        $Profile.Name &lt;&gt;&apos;SW SalesOps&apos;,
+        $Profile.Name &lt;&gt;&apos;SW SalesOps Extended&apos;,
+								$Profile.Name &lt;&gt;&apos;SW Sales Internal&apos;,
+
+$Profile.Name &lt;&gt;&apos;SW Support&apos;,								$Profile.Name &lt;&gt;&apos;SW Sales Internal - STRAT&apos;,
+								$Profile.Name &lt;&gt;&apos;SW Sales External&apos;,
+								$Profile.Name &lt;&gt;&apos;SW Management&apos;,
+								$Profile.Name &lt;&gt;&apos;SW Product&apos;,
+								$Profile.Name &lt;&gt;&apos;SW Client Services&apos;,
+        $Profile.Name &lt;&gt;&apos;System Administrator&apos;,
+								$Profile.Name &lt;&gt;&apos;Integration User&apos;,
+								$Profile.Name &lt;&gt;&apos;Integration User - API Only&apos;,
+								$Profile.Name &lt;&gt;&apos;Integration User No DF&apos;,
+        $User.Id &lt;&gt; &apos;005b0000000lqbnAAA&apos;, /*Automated Process*/ 
+        $User.Id &lt;&gt; &apos;005b0000000lqbn&apos; /*Automated Process*/
+				)</errorConditionFormula>
+    <errorMessage>You don&apos;t have the permissions to edit this record type. Please contact SalesOps</errorMessage>
+</ValidationRule>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Purchase_Motion__c</fullName>
+    <externalId>false</externalId>
+    <label>Purchase Motion</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>New Product</fullName>
+                <default>false</default>
+                <label>New Product</label>
+            </value>
+            <value>
+                <fullName>Expansion</fullName>
+                <default>false</default>
+                <label>Expansion</label>
+            </value>
+            <value>
+                <fullName>Renewal</fullName>
+                <default>false</default>
+                <label>Renewal</label>
+            </value>
+            <value>
+                <fullName>Package Upgrade</fullName>
+                <default>false</default>
+                <label>Package Upgrade</label>
+            </value>
+            <value>
+                <fullName>Price Increase</fullName>
+                <default>false</default>
+                <label>Price Increase</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

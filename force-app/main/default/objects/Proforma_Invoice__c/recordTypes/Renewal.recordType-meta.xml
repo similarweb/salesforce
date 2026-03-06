@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Renewal</fullName>
+    <active>true</active>
+    <label>Renewal</label>
+    <picklistValues>
+        <picklist>Approval_Status__c</picklist>
+        <values>
+            <fullName>Approved</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Not Approved</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Rejected</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Waiting for Approval</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Currency__c</picklist>
+        <values>
+            <fullName>EUR</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>GBP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>USD</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Remove_Proforma_Description__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Status__c</picklist>
+        <values>
+            <fullName>Posted</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sent to customer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>cancelled</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Subsidiary__c</picklist>
+        <values>
+            <fullName>Parent Company %3A SimilarWeb IL</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Parent Company %3A SimilarWeb Inc</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Parent Company %3A SimilarWeb UK</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

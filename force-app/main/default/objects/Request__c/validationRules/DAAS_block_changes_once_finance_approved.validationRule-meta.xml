@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DAAS_block_changes_once_finance_approved</fullName>
+    <active>true</active>
+    <description>MIS-3203</description>
+    <errorConditionFormula>or( and(
+$User.Department = &apos;DAAS (DAAS)&apos;,
+RecordType.DeveloperName = &apos;Technical_Solutions&apos;,
+not( ISNULL( Approved_by_Finance__c )),
+Not(ischanged( Status__c ))),
+
+
+and (
+$User.Department &lt;&gt; &apos;DAAS (DAAS)&apos;,
+$Profile.Name &lt;&gt; &apos;SW Billing&apos;,
+$Profile.Name &lt;&gt; &apos;SW SalesOps&apos;,
+$Profile.Name &lt;&gt; &apos;SW SalesOps Extended&apos;,
+$Profile.Name &lt;&gt; &quot;SW CSM Internal&quot;,
+RecordType.DeveloperName = &apos;Technical_Solutions&apos;,
+not( ISNULL( Approved_by_Finance__c ))
+)
+
+)</errorConditionFormula>
+    <errorMessage>You can’t change the values of the request after the request was approved by finance.
+
+If you need to do any changes please reach out to the Finance rep (Alan) or SalesOps</errorMessage>
+</ValidationRule>

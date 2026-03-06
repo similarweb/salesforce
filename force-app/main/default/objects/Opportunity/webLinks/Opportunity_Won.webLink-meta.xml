@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Opportunity_Won</fullName>
+    <availability>online</availability>
+    <description>/flow/Close_opportunity?VarCompetition={!Opportunity.Competition__c}&amp;VarOpportunityID={!Opportunity.ID__c}&amp;VarPlanDetails={!Opportunity.Plan_Details__c}&amp;VarCompProduct={!Opportunity.Competitor_Product__c}&amp;VarCurrentUser={!$User.Id}&amp;VarClose=Win 
+&amp;retURL=/{!Opportunity.Id}</description>
+    <displayType>button</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>Opportunity Won</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <url>var oppstage = &quot;{!Opportunity.StageName}&quot;;
+if( oppstage == &quot;Closed Won&quot; || oppstage == &quot;Closed Lost&quot;)
+{alert (&quot;You cannot update a closed opportunity, please contact SalesOps for assistance.&quot;);
+}
+else
+{
+
+var OpportunityID = &quot;{!Opportunity.ID__c}&quot; ;
+var CurrentUser = &quot;{!$User.Id}&quot; ;
+var Close = &quot;Win&quot; ;
+
+var url = &quot;/flow/Close_opportunity?&amp;VarOpportunityID=&quot;+OpportunityID;
+url= url + &quot;&amp;VarCurrentUser=&quot;+CurrentUser;
+url= url + &quot;&amp;VarClose=&quot;+Close +&quot;&amp;retURL=/&quot;+OpportunityID;
+
+
+window.parent.location= url;
+}</url>
+</WebLink>

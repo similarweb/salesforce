@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Copy_of_NT2T_Aviad</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>ACCOUNT.ADDRESS1_COUNTRY_CODE</columns>
+    <columns>ACCOUNT.LAST_ACTIVITY</columns>
+    <columns>SW_Industry__c</columns>
+    <columns>ACCOUNT.PHONE1</columns>
+    <columns>Employees_Max__c</columns>
+    <columns>Employees_Min__c</columns>
+    <columns>First_No_Touch_Pro_Purchase_Date__c</columns>
+    <columns>fr_First_Pro_Purchase_Date__c</columns>
+    <columns>Number_of_Contacts__c</columns>
+    <columns>ACCOUNT.URL</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>No_Touch_Account__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <filters>
+        <field>Number_of_Open_Opps__c</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>Number_Of_Open_Meetings__c</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>Account_Owner_formula__c</field>
+        <operation>contains</operation>
+        <value>Yakira</value>
+    </filters>
+    <filters>
+        <field>ACCOUNT.LAST_ACTIVITY</field>
+        <operation>lessOrEqual</operation>
+        <value>3/1/2025</value>
+    </filters>
+    <label>NT2T Yakira</label>
+</ListView>

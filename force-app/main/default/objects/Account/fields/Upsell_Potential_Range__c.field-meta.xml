@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Upsell_Potential_Range__c</fullName>
+    <description>MIS-4810</description>
+    <externalId>false</externalId>
+    <label>Upsell Potential Range</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>$100K+</fullName>
+                <default>false</default>
+                <label>$100K+</label>
+            </value>
+            <value>
+                <fullName>$50-100K</fullName>
+                <default>false</default>
+                <label>$50-100K</label>
+            </value>
+            <value>
+                <fullName>$20-50K</fullName>
+                <default>false</default>
+                <label>$20-50K</label>
+            </value>
+            <value>
+                <fullName>$5-20K</fullName>
+                <default>false</default>
+                <label>$5-20K</label>
+            </value>
+            <value>
+                <fullName>$0-5K</fullName>
+                <default>false</default>
+                <label>$0-5K</label>
+            </value>
+            <value>
+                <fullName>$0</fullName>
+                <default>false</default>
+                <label>$0</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

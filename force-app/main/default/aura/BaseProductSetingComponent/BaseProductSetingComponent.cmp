@@ -1,0 +1,41 @@
+<aura:component controller="BaseProductSettingController" 
+                implements="force:appHostable" 
+                access="global">
+
+    <aura:attribute name="baseProductPicklistValues" type="Object[]"/>
+    <aura:attribute name="isLoading" type="Boolean" default="false"/>
+    <aura:attribute name="shownBaseProductContractModal" type="Boolean" default="false"/>
+
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}" />
+
+    <aura:if isTrue="{!v.shownBaseProductContractModal}">
+        <c:BaseProductContractModal isShown="{!v.shownBaseProductContractModal}"/>
+    </aura:if>
+      
+    <div class="slds-page-header">
+        <p class="slds-page-header__title slds-truncate" title="">Base Product Setting</p>
+        <div class="slds-grid slds-p-top_medium">                
+            <div class="slds-col_bump-right slds-align-bottom">
+                <div class="slds-grid">
+                    <lightning:button onclick="{!c.onEditBaseProductClick}" variant="brand" label="Wording list" title="Wording list" />
+                </div>
+            </div>
+        </div>
+        
+    </div> 
+
+    <aura:if isTrue="{!v.isLoading}">
+        <lightning:spinner alternativeText="" size="large" />
+    </aura:if>
+    
+    <lightning:layout class="slds-p-top_small">
+        <lightning:layoutItem size="4" class="rounded-borders slds-box_border">
+            <c:BaseProductValuesList baseProductPicklistValues="{!v.baseProductPicklistValues}"/>
+        </lightning:layoutItem>
+
+        <lightning:layoutItem size="8" class="slds-p-left--small">
+            <c:BaseProductValueInfo isLoading="{!v.isLoading}"/>
+        </lightning:layoutItem>
+    </lightning:layout>
+    
+</aura:component>

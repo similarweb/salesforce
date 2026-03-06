@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Omega_Description__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>List of Sources
+List of Domains
+List of Countries</inlineHelpText>
+    <label>Data Subscription Detains</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>TextArea</type>
+</CustomField>

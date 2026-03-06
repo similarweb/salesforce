@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MIR_Handover_Old</fullName>
+    <availability>online</availability>
+    <description>/flow/MIR_Handover?VarAccountID={!Account.Id}
+&amp;retURL=/{!Account.Id}</description>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <linkType>url</linkType>
+    <masterLabel>MIR Handover</masterLabel>
+    <openType>replace</openType>
+    <protected>false</protected>
+    <url>/flow/MIR_Handover?VarAccountID={!Account.Id}
+&amp;retURL=/{!Account.Id}</url>
+</WebLink>

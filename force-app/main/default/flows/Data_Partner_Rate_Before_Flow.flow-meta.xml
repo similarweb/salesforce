@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>54.0</apiVersion>
+    <assignments>
+        <name>Update_Rate_Name</name>
+        <label>Update Rate Name</label>
+        <locationX>380</locationX>
+        <locationY>311</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Name</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>For_Rate_Name</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>End_Date_updated</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <name>End_Date_Equal_to_Less_than_Today</name>
+        <label>End Date Equal to Less than Today?</label>
+        <locationX>182</locationX>
+        <locationY>551</locationY>
+        <defaultConnector>
+            <targetReference>Activate_Rate</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>False - Activate</defaultConnectorLabel>
+        <rules>
+            <name>True_Deactivate</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.End_Date__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.End_Date__c</leftValueReference>
+                <operator>LessThanOrEqualTo</operator>
+                <rightValue>
+                    <elementReference>For_Today</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Deactivate_Rate</targetReference>
+            </connector>
+            <label>True - Deactivate</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>When the User updated the &quot;End Date&quot; the Flow checks if we need to Active or Deactivate the Rate.</description>
+        <name>End_Date_updated</name>
+        <label>End Date updated?</label>
+        <locationX>380</locationX>
+        <locationY>431</locationY>
+        <defaultConnectorLabel>No Update</defaultConnectorLabel>
+        <rules>
+            <name>True_End_Date_Updated</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.End_Date__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>End_Date_Equal_to_Less_than_Today</targetReference>
+            </connector>
+            <label>True - End Date Updated</label>
+        </rules>
+    </decisions>
+    <description>Before Save Flow for &quot;Rate&quot; custom object. Part of the Data Partner project</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>For_Country_Tier</name>
+        <dataType>String</dataType>
+        <expression>IF(ISBLANK({!$Record.Country__c}),TEXT({!$Record.Country_Tier__c}),{!$Record.Country__c}
+)</expression>
+    </formulas>
+    <formulas>
+        <name>For_Rate_Name</name>
+        <dataType>String</dataType>
+        <expression>{!$Record.Source__r.Name}+&quot;/&quot;+TEXT({!$Record.Source__r.Source_Number__c})+&quot;/&quot;+TEXT({!$Record.Request_Type__c})+&quot;/&quot;+{!For_Country_Tier}</expression>
+    </formulas>
+    <formulas>
+        <name>For_Today</name>
+        <dataType>Date</dataType>
+        <expression>TODAY()</expression>
+    </formulas>
+    <interviewLabel>Data Partner {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Data Partner - Rate Before Flow</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Activate_Rate</name>
+        <label>Activate Rate</label>
+        <locationX>314</locationX>
+        <locationY>671</locationY>
+        <inputAssignments>
+            <field>Active__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Deactivate_Rate</name>
+        <label>Deactivate Rate</label>
+        <locationX>50</locationX>
+        <locationY>671</locationY>
+        <inputAssignments>
+            <field>Active__c</field>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>254</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Update_Rate_Name</targetReference>
+        </connector>
+        <object>Rate__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

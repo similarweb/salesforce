@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>49.0</apiVersion>
+    <assignments>
+        <name>Assign_Activity_Type_from_Type</name>
+        <label>Assign Activity Type from Type</label>
+        <locationX>314</locationX>
+        <locationY>373</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Type</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Type__c</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <name>Assign_Type_from_Activity_Type</name>
+        <label>Assign Type from Activity Type</label>
+        <locationX>50</locationX>
+        <locationY>373</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Type__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Type</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <decisions>
+        <name>Check_Type_c_and_Activity_type</name>
+        <label>Check Type__c and Activity type</label>
+        <locationX>314</locationX>
+        <locationY>253</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Type_c_is_Null</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Type__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Type_from_Activity_Type</targetReference>
+            </connector>
+            <label>Type__c is Null</label>
+        </rules>
+        <rules>
+            <name>Activity_Type_is_Null_or_Type_c_is_not_Null</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Type</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Type__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Activity_Type_from_Type</targetReference>
+            </connector>
+            <label>Activity Type is Null or Type__c is not Null</label>
+        </rules>
+    </decisions>
+    <description>Update Task Type__c and Activity Type
+if one is empty the other is copied
+if Type__c changes it updates Activity Type</description>
+    <formulas>
+        <name>ForActivityType</name>
+        <dataType>String</dataType>
+        <expression>text({!$Record.Type})</expression>
+    </formulas>
+    <formulas>
+        <name>ForType</name>
+        <dataType>String</dataType>
+        <expression>text({!$Record.Type__c})</expression>
+    </formulas>
+    <interviewLabel>Update Type and Activity Type {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Update Type and Activity Type</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>188</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Check_Type_c_and_Activity_type</targetReference>
+        </connector>
+        <object>Task</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>VarActivityType</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <value>
+            <elementReference>$Record.Type</elementReference>
+        </value>
+    </variables>
+    <variables>
+        <name>VarType</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <value>
+            <elementReference>$Record.Type__c</elementReference>
+        </value>
+    </variables>
+</Flow>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LDR_Priority_4_Queue</fullName>
+    <booleanFilter>1 AND 5 AND 2 AND 3 AND 4 AND 6 AND 7</booleanFilter>
+    <columns>Verified__c</columns>
+    <columns>Unverified_Reason__c</columns>
+    <columns>Enrichment_Source__c</columns>
+    <columns>LEAD.CREATED_DATE</columns>
+    <columns>LEAD.EMAIL</columns>
+    <columns>FULL_NAME</columns>
+    <columns>LEAD.COMPANY</columns>
+    <columns>Polygraph_Company_Domain__c</columns>
+    <columns>LEAD.COUNTRY</columns>
+    <columns>Employees_Min__c</columns>
+    <columns>Employees_Max__c</columns>
+    <columns>LEAD.URL</columns>
+    <columns>Business_Unit__c</columns>
+    <columns>SW_Industry__c</columns>
+    <columns>Secondary_email__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>LEAD.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Lead.Default</value>
+    </filters>
+    <filters>
+        <field>Last_Contact_Us_Form_Subject__c</field>
+        <operation>equals</operation>
+    </filters>
+    <filters>
+        <field>LEAD.COUNTRY</field>
+        <operation>notContain</operation>
+        <value>United States,Canada,Germany,United Kingdom,France,Switzerland,brazil,austria,belgium</value>
+    </filters>
+    <filters>
+        <field>Business_Unit__c</field>
+        <operation>notEqual</operation>
+        <value>Enterprise,Strategic</value>
+    </filters>
+    <filters>
+        <field>CORE.USERS.LAST_NAME</field>
+        <operation>equals</operation>
+        <value>kaiser</value>
+    </filters>
+    <filters>
+        <field>LEAD.LEAD_SOURCE</field>
+        <operation>notContain</operation>
+        <value>calendly</value>
+    </filters>
+    <filters>
+        <field>Orchestration_Journey__c</field>
+        <operation>equals</operation>
+        <value>LDR</value>
+    </filters>
+    <label>LDR Priority 4 - Queue</label>
+</ListView>

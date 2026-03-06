@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Copy_of_Test_MIR_Contact_Us_Leads_Contacts</fullName>
+    <columns>Phone__c</columns>
+    <columns>CREATED_DATE</columns>
+    <columns>DUE_DATE</columns>
+    <columns>STATUS</columns>
+    <columns>Fit_Score__c</columns>
+    <columns>SUBJECT</columns>
+    <columns>WHO_NAME</columns>
+    <columns>LAST_UPDATE</columns>
+    <columns>CORE.USERS.FULL_NAME</columns>
+    <columns>Related_to_Object__c</columns>
+    <columns>CU_Type_formula__c</columns>
+    <columns>contiens_reply__c</columns>
+    <columns>Customer_feedback_and_summary__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>TYPE</field>
+        <operation>equals</operation>
+        <value>Contact Us</value>
+    </filters>
+    <filters>
+        <field>CREATED_DATE</field>
+        <operation>equals</operation>
+        <value>LAST_90_DAYS</value>
+    </filters>
+    <filters>
+        <field>Fit_Score__c</field>
+        <operation>equals</operation>
+        <value>F</value>
+    </filters>
+    <filters>
+        <field>CU_Type_formula__c</field>
+        <operation>contains</operation>
+        <value>Contact</value>
+    </filters>
+    <filters>
+        <field>Phone__c</field>
+        <operation>startsWith</operation>
+        <value>+7</value>
+    </filters>
+    <label>Contact Us from F score (Leads+Contacts)</label>
+</ListView>

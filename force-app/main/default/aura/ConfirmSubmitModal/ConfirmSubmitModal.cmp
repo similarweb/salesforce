@@ -1,0 +1,46 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes" controller="ConfirmSubmitModalController" >
+    <aura:attribute name="recordId" type="String" />
+    <aura:attribute name="isOpenModal" type="boolean" default="false"/>
+    <aura:attribute name="actionType" type="String"/>
+    <aura:attribute name="subscriptionName" type="String" />
+    <aura:attribute name="quoteList" type="Object[]"/>
+
+    <aura:handler name="init" value="{!this}" action = "{!c.doInit}"/>
+    <aura:registerEvent name="confirmEvent" type="c:ConfirmSubmitEvent"/>
+    <div>
+        <aura:if isTrue="{!v.isOpenModal}">
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                <div class="modal-container slds-modal__container">
+                    <header class="slds-modal__header">
+                        <lightning:buttonIcon iconName="utility:close"
+                                                onclick="{! c.closeModal }"
+                                                alternativeText="close"
+                                                variant="bare-inverse"
+                                                class="slds-modal__close"/>
+                        <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">There are other unprocessed amendment quotes</h2>
+                    </header>
+                    <div class="modal-body scrollable slds-modal__content slds-p-around--medium">
+                        <p>Hi, you are trying to submit an <b>amendment quote</b> while there are other unprocessed amendment quotes for the same subscription.</p>
+                        <p>By doing so, those quotes will automatically be voided, and you will have to recreate them.</p>
+                        <p>These are the quotes that will be voided:</p>
+                        <div class="slds-theme_default slds-p-around_small slds-text-heading_medium rounded-borders">
+                            <aura:iteration items="{!v.quoteList}" var="quoteVal">
+                                <a href="{!quoteVal.Link_Raw__c}" target="_blank">{!quoteVal.Name}</a><br/>
+                            </aura:iteration>
+                        </div>
+                        <p>Please confirm that you wish to proceed.</p>
+                        <footer class="slds-modal__footer slds-modal__footer_directional">
+                            <lightning:button label="Cancel"
+                                              onclick="{! c.closeModal}"/>
+                             <lightning:button variant="brand"
+                                               label="Next"
+                                               title="Submit Quote to Zuora"
+                                               onclick="{!c.onNextButtonClick}"/>
+                        </footer>
+                    </div>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </aura:if>
+    </div>
+</aura:component>

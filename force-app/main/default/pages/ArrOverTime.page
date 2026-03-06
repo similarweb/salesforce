@@ -1,0 +1,8 @@
+<apex:page showHeader="false" standardStylesheets="false" standardController="Account">
+
+ <!-- apex:iframe -->
+ <apex:iframe id="SF_Arrovertime_Iframe" src="https://webi.similarweb.io/SFARROvertime/SFARROverTime&sf_account_id={!Account.Id}&embed=yes&:toolbar=no&:size=1000,1000/tableau_in_sf"
+              scrolling="false" width="85%" height="180" frameborder="0"/>
+
+ 
+</apex:page>

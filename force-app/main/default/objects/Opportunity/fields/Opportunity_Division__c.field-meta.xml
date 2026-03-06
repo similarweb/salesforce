@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Opportunity_Division__c</fullName>
+    <description>This field indicates the division attributed to the opportunity for BI purposes. It enables manual overrides in cases where the division that should be attributed to the opportunity is different from the opp owner division, for example in cases of employees transitioning between roles</description>
+    <externalId>false</externalId>
+    <label>Opportunity Division</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>true</sorted>
+            <value>
+                <fullName>Agencies &amp; Consultancies</fullName>
+                <default>false</default>
+                <label>Agencies &amp; Consultancies</label>
+            </value>
+            <value>
+                <fullName>ANZ</fullName>
+                <default>false</default>
+                <label>ANZ</label>
+            </value>
+            <value>
+                <fullName>APAC Strategic</fullName>
+                <default>false</default>
+                <label>APAC Strategic</label>
+            </value>
+            <value>
+                <fullName>EMEA Enterprise</fullName>
+                <default>false</default>
+                <label>EMEA Enterprise</label>
+            </value>
+            <value>
+                <fullName>EMEA Inside Sales</fullName>
+                <default>false</default>
+                <label>EMEA Inside Sales</label>
+            </value>
+            <value>
+                <fullName>GCR</fullName>
+                <default>false</default>
+                <label>GCR</label>
+            </value>
+            <value>
+                <fullName>Go To Market</fullName>
+                <default>false</default>
+                <label>Go To Market</label>
+            </value>
+            <value>
+                <fullName>INSEA</fullName>
+                <default>false</default>
+                <label>INSEA</label>
+            </value>
+            <value>
+                <fullName>Investors</fullName>
+                <default>false</default>
+                <label>Investors</label>
+            </value>
+            <value>
+                <fullName>JPKR</fullName>
+                <default>false</default>
+                <label>JPKR</label>
+            </value>
+            <value>
+                <fullName>LATAM Inside Sales</fullName>
+                <default>false</default>
+                <label>LATAM Inside Sales</label>
+            </value>
+            <value>
+                <fullName>LLM &amp; AI</fullName>
+                <default>false</default>
+                <label>LLM &amp; AI</label>
+            </value>
+            <value>
+                <fullName>NA Enterprise</fullName>
+                <default>false</default>
+                <label>NA Enterprise</label>
+            </value>
+            <value>
+                <fullName>NA Inside Sales</fullName>
+                <default>false</default>
+                <label>NA Inside Sales</label>
+            </value>
+            <value>
+                <fullName>OEM</fullName>
+                <default>false</default>
+                <label>OEM</label>
+            </value>
+            <value>
+                <fullName>Resellers Americas</fullName>
+                <default>false</default>
+                <label>Resellers Americas</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

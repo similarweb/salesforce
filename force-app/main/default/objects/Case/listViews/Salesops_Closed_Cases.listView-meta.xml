@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Salesops_Closed_Cases</fullName>
+    <columns>CASES.CASE_NUMBER</columns>
+    <columns>CASES.SUBJECT</columns>
+    <columns>CASES.TYPE</columns>
+    <columns>Case_Sub_Type__c</columns>
+    <columns>Requester__c</columns>
+    <columns>OWNER_NAME</columns>
+    <columns>CASES.STATUS</columns>
+    <columns>Due_Date__c</columns>
+    <columns>Legal_Prioritization__c</columns>
+    <columns>CASES.CREATED_DATE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CASES.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Case.SalesOps</value>
+    </filters>
+    <filters>
+        <field>CASES.CLOSED</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <label>Salesops - Closed Cases</label>
+    <sharedTo>
+        <group>Service_SalesOps</group>
+    </sharedTo>
+</ListView>

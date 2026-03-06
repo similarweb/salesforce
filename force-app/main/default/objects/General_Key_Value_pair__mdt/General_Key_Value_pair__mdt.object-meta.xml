@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Hold a key-value pair for specific process</description>
+    <label>General Key-Value pair</label>
+    <pluralLabel>General Key-Value pairs</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

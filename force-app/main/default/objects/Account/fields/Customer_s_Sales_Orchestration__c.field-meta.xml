@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Customer_s_Sales_Orchestration__c</fullName>
+    <externalId>false</externalId>
+    <label>Customer&apos;s Sales Orchestration</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Salesloft</fullName>
+                <default>false</default>
+                <label>Salesloft</label>
+            </value>
+            <value>
+                <fullName>Outreach</fullName>
+                <default>false</default>
+                <label>Outreach</label>
+            </value>
+            <value>
+                <fullName>Yesware</fullName>
+                <default>false</default>
+                <label>Yesware</label>
+            </value>
+            <value>
+                <fullName>MixMax</fullName>
+                <default>false</default>
+                <label>MixMax</label>
+            </value>
+            <value>
+                <fullName>sales navigator</fullName>
+                <default>false</default>
+                <label>sales navigator</label>
+            </value>
+            <value>
+                <fullName>HubSpot</fullName>
+                <default>false</default>
+                <label>HubSpot</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

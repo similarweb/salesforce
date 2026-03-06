@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Complete_in_the_future</fullName>
+    <active>true</active>
+    <description>Prevent meetings from being marked as completed with a future date</description>
+    <errorConditionFormula>AND( 
+$Profile.Name &lt;&gt; &apos;System Administrator&apos;, 
+Date__c &gt; Today(), 
+OR( 
+ISPICKVAL(Status__c ,&apos;Completed&apos;), 
+ISPICKVAL(Status__c ,&apos;Unqualified&apos;) 
+) 
+)</errorConditionFormula>
+    <errorMessage>Meeting date cannot be in the future, please adjust the date before completing</errorMessage>
+</ValidationRule>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>KT_Id_Change</fullName>
+    <active>true</active>
+    <description>You can&apos;t change the KT Id once it is populated</description>
+    <errorConditionFormula>NOT(ISBLANK(PRIORVALUE(KT_Id__c)))&amp;&amp;
+ISCHANGED(KT_Id__c) &amp;&amp; 
+NOT($Profile.Id=&apos;00eb0000000oBvcAAE&apos;)</errorConditionFormula>
+    <errorDisplayField>KT_Id__c</errorDisplayField>
+    <errorMessage>You Can&apos;t Change the KT Id once it&apos;s Filled. please contact System Administrator</errorMessage>
+</ValidationRule>

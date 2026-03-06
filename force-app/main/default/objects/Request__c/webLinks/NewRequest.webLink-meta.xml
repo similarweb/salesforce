@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NewRequest</fullName>
+    <availability>online</availability>
+    <description>MQ - 1175 Use mainly to create Legal services request, populate fields: Quote, Opp, Account, and Applicable Quote</description>
+    <displayType>massActionButton</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <height>600</height>
+    <linkType>url</linkType>
+    <masterLabel>New Request</masterLabel>
+    <openType>sidebar</openType>
+    <protected>false</protected>
+    <requireRowSelection>true</requireRowSelection>
+    <url>/lightning/o/Request__c/new?recordTypeId=012b0000000cfDOAAY&amp;defaultFieldValues=Applicable_Quote__c=Yes,Quote__c={!zqu__Quote__c.Id},Opportunity__c={!zqu__Quote__c.zqu__OpportunityId__c},Account__c={!zqu__Quote__c.zqu__AccountId__c}</url>
+</WebLink>

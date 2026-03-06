@@ -1,0 +1,574 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>55.0</apiVersion>
+    <assignments>
+        <description>MIS-6245
+MIS-5235</description>
+        <name>Assign_MIR_Status_In_Progress</name>
+        <label>Assign MIR Status = In Progress</label>
+        <locationX>50</locationX>
+        <locationY>2111</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.MIR_Status__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>In Progress / Touched</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Status</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>SDR Prospecting</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>last_cu_status_Accepted_by_CU_Agent</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Incomplete_lead_assignment</name>
+        <label>Incomplete lead assignment</label>
+        <locationX>204</locationX>
+        <locationY>695</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Lead_Funnel_Status__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Incomplete Lead</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Unrouted_lead</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Lead_in_SFDC</name>
+        <label>Lead in SFDC</label>
+        <locationX>204</locationX>
+        <locationY>395</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Lead_Funnel_Status__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Lead in SFDC</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Incomplete_lead</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>lead_was_assgned</name>
+        <label>lead was assgned</label>
+        <locationX>204</locationX>
+        <locationY>1595</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Lead_Funnel_Status__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>AssignedRep</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Touched_lead</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Lead_was_touched_by_rep</name>
+        <label>Lead was touched by rep</label>
+        <locationX>182</locationX>
+        <locationY>1895</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Lead_Funnel_Status__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Touched</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Check_MIR_Status</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>MIS-8199</description>
+        <name>MIR_Status_Agent_Replied_Follow_Up</name>
+        <label>MIR Status = Agent Replied - Follow Up</label>
+        <locationX>204</locationX>
+        <locationY>2495</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.MIR_Status__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Agent Replied - Follow Up</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Check_Turn_Off_Funnel_Status_Flag</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Ready_for_routing</name>
+        <label>Ready for routing</label>
+        <locationX>204</locationX>
+        <locationY>1295</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Lead_Funnel_Status__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Routing</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Assigned_Rep</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Turn_Off_Funnel_Status_Flag</name>
+        <label>Turn Off Funnel Status Flag</label>
+        <locationX>204</locationX>
+        <locationY>2795</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Lead_Funnel_Status_Flag__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <name>Unrouted_LDR1</name>
+        <label>Unrouted LDR</label>
+        <locationX>72</locationX>
+        <locationY>995</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Lead_Funnel_Status__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Unrouted  LDR</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Routing</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Unrouted_LDR1_0</name>
+        <label>Unrouted Markops</label>
+        <locationX>336</locationX>
+        <locationY>995</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Lead_Funnel_Status__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Unrouted MarkOps</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Routing</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <name>Assigned_Rep</name>
+        <label>Assigned Rep</label>
+        <locationX>336</locationX>
+        <locationY>1487</locationY>
+        <defaultConnector>
+            <targetReference>Touched_lead</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Lead_is_ready_for_routing_0</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.OwnerId</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Ownerprofile</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.OwnerId</leftValueReference>
+                <operator>StartsWith</operator>
+                <rightValue>
+                    <stringValue>005</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>lead_was_assgned</targetReference>
+            </connector>
+            <label>Rep was assigned</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-6316
+MIS-5235</description>
+        <name>Check_MIR_Status</name>
+        <label>Check MIR Status</label>
+        <locationX>182</locationX>
+        <locationY>2003</locationY>
+        <defaultConnector>
+            <targetReference>last_cu_status_Accepted_by_CU_Agent</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>MIR_Status_New_or_Blank</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.MIR_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>New</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.MIR_Status__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.MIR_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Touched - Abandoned</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.MIR_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Prioritized</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_MIR_Status_In_Progress</targetReference>
+            </connector>
+            <label>MIR Status = New or Blank</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-5548</description>
+        <name>Check_Turn_Off_Funnel_Status_Flag</name>
+        <label>Check Turn Off Funnel Status Flag</label>
+        <locationX>336</locationX>
+        <locationY>2687</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Flag_on_turn_Off</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Lead_Funnel_Status_Flag__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Turn_Off_Funnel_Status_Flag</targetReference>
+            </connector>
+            <label>Flag on -&gt; turn Off</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Incomplete_lead</name>
+        <label>Incomplete lead</label>
+        <locationX>336</locationX>
+        <locationY>587</locationY>
+        <defaultConnector>
+            <targetReference>Unrouted_lead</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Incomplete_lead_website</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.OwnerId</leftValueReference>
+                <operator>StartsWith</operator>
+                <rightValue>
+                    <stringValue>00G</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Incomplete_lead_assignment</targetReference>
+            </connector>
+            <label>Incomplete lead website</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-8199</description>
+        <name>last_cu_status_Accepted_by_CU_Agent</name>
+        <label>Last CU Status = Accepted by CU Agent</label>
+        <locationX>336</locationX>
+        <locationY>2387</locationY>
+        <defaultConnector>
+            <targetReference>Check_Turn_Off_Funnel_Status_Flag</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Accepted_by_CU_Agent</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Last_CU_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Accepted by CU agent</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>MIR_Status_Agent_Replied_Follow_Up</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>Accepted by CU Agent</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>New_lead</name>
+        <label>New lead?</label>
+        <locationX>336</locationX>
+        <locationY>287</locationY>
+        <defaultConnector>
+            <targetReference>Incomplete_lead</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Lead_was_created</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record__Prior.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Lead_in_SFDC</targetReference>
+            </connector>
+            <label>Lead was created</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Routing</name>
+        <label>Routing</label>
+        <locationX>336</locationX>
+        <locationY>1187</locationY>
+        <defaultConnector>
+            <targetReference>Assigned_Rep</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Lead_is_ready_for_routing</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Owner:User.CommunityNickname</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>sfadmin</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Ready_For_Routing__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Ready_for_routing</targetReference>
+            </connector>
+            <label>Lead is ready for routing</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>MIS-6245</description>
+        <name>Touched_lead</name>
+        <label>Touched lead</label>
+        <locationX>336</locationX>
+        <locationY>1787</locationY>
+        <defaultConnector>
+            <targetReference>last_cu_status_Accepted_by_CU_Agent</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Lead_was_touched</name>
+            <conditionLogic>1 AND (2 OR 3) AND 4 AND (5 OR 6) AND 7</conditionLogic>
+            <conditions>
+                <leftValueReference>Ownerprofile</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Last_Activity_Date_by_GTM__c</leftValueReference>
+                <operator>GreaterThanOrEqualTo</operator>
+                <rightValue>
+                    <elementReference>Firsttimeownerdateconversion</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Last_Activity_Date_by_MIR__c</leftValueReference>
+                <operator>GreaterThanOrEqualTo</operator>
+                <rightValue>
+                    <elementReference>Firsttimeownerdateconversion</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.OwnerId</leftValueReference>
+                <operator>StartsWith</operator>
+                <rightValue>
+                    <stringValue>005</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Last_Activity_Date_by_MIR__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Last_Activity_Date_by_GTM__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.First_Owner_Assigned_Timestamp__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Lead_was_touched_by_rep</targetReference>
+            </connector>
+            <label>Lead was touched</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Unrouted_lead</name>
+        <label>Unrouted lead</label>
+        <locationX>336</locationX>
+        <locationY>887</locationY>
+        <defaultConnector>
+            <targetReference>Routing</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Unrouted_LDR</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Owner:User.CommunityNickname</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>lola.stolper</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Owner:User.Division</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>LDR</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Unrouted_LDR1</targetReference>
+            </connector>
+            <label>Unrouted LDR</label>
+        </rules>
+        <rules>
+            <name>Unrouted_SW_marketing</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Owner:User.CommunityNickname</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>swmarketing</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Unrouted_LDR1_0</targetReference>
+            </connector>
+            <label>Unrouted SW marketing</label>
+        </rules>
+    </decisions>
+    <description>MIS-8199 - accepted by cu agent
+MIS-6245 - updated to last activity by GTM/MIR
+MIS-5548
+MIS-5235
+MIS-5030 - changed lotem to lola
+MIS-5083
+MIS-2002</description>
+    <environments>Default</environments>
+    <formulas>
+        <description>convert date-time field to date field</description>
+        <name>Firsttimeownerdateconversion</name>
+        <dataType>Date</dataType>
+        <expression>DATEVALUE({!$Record.First_Owner_Assigned_Timestamp__c})</expression>
+    </formulas>
+    <formulas>
+        <name>fr_User_is_Rep</name>
+        <dataType>Boolean</dataType>
+        <expression>OR(
+  CASESAFEID({!$User.ProfileId}) = &apos;00eb00000015tcAAAQ&apos; /* SW Client Services / Support*/,
+  CASESAFEID({!$User.ProfileId}) = &apos;00eb0000000hqVGAAY&apos; /* SW CSM Internal*/,
+  CASESAFEID({!$User.ProfileId}) = &apos;00eb0000000ZODsAAO&apos; /* SW Management*/,
+  CASESAFEID({!$User.ProfileId}) = &apos;00e67000000iJB2AAM&apos; /* SW MIR*/,
+  CASESAFEID({!$User.ProfileId}) = &apos;00eb0000000ZOE2AAO&apos; /* SW Sales External*/,
+  CASESAFEID({!$User.ProfileId}) = &apos;00eb0000000dZwnAAE&apos; /* SW Sales Internal*/,
+  CASESAFEID({!$User.ProfileId}) = &apos;00e67000000iJAxAAM&apos; /* SW Sales Internal - STRAT*/,
+  CASESAFEID({!$User.ProfileId}) = &apos;00eb00000015tL7AAI&apos; /* SW SDR*/,
+  CASESAFEID({!$User.ProfileId}) = &apos;00e67000000du9BAAQ&apos; /* SW SDR Extended*/,
+  CASESAFEID({!$User.ProfileId}) = &apos;00e67000000InlZAAS&apos; /* SW Support*/
+ )</expression>
+    </formulas>
+    <formulas>
+        <description>Check if the owner profile is integration, admin. sales ops or marketing ops and if yes then true</description>
+        <name>Ownerprofile</name>
+        <dataType>Boolean</dataType>
+        <expression>IF( OR(
+CONTAINS( {!$Record.Owner:User.Profile.Name} , &quot;SalesOps&quot;),CONTAINS( {!$Record.Owner:User.Profile.Name}, &quot;Marketing&quot;),CONTAINS( {!$Record.Owner:User.Profile.Name}, &quot;Integration&quot;)),true,false)</expression>
+    </formulas>
+    <interviewLabel>Lead - Lead funnel status - Before save {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Lead - Lead funnel status - Before save</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>210</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>New_lead</targetReference>
+        </connector>
+        <object>Lead</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentAsset xmlns="http://soap.sforce.com/2006/04/metadata">
+    <isVisibleByExternalUsers>false</isVisibleByExternalUsers>
+    <language>en_US</language>
+    <masterLabel>DALLE_20240223_173230_Design_a_vib</masterLabel>
+    <versions>
+        <version>
+            <number>1</number>
+            <pathOnClient>DALL·E 2024-02-23 17.32.30 - Design a vibrant and engaging rectangular banner that prominently features the word &apos;ACTIVITIES&apos;. The banner should evoke a sense of fun, energy, and .jpeg</pathOnClient>
+        </version>
+    </versions>
+</ContentAsset>

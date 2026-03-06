@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SMB_Target_Account_List_Joseph</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>TAM__c</columns>
+    <columns>Sub_Division__c</columns>
+    <columns>Account_Owner_formula__c</columns>
+    <columns>SW_Industry__c</columns>
+    <columns>ACCOUNT.ADDRESS1_COUNTRY_CODE</columns>
+    <columns>Employees_Min__c</columns>
+    <columns>sw_connector_Total_Monthly_Visits__c</columns>
+    <columns>Stage__c</columns>
+    <columns>Days_Since_Last_Activity__c</columns>
+    <columns>Number_Of_Open_Meetings__c</columns>
+    <columns>Number_of_Open_Opps__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>TAM__c</field>
+        <operation>equals</operation>
+        <value>NNB CL,Churend,No Touch,Past Meeting</value>
+    </filters>
+    <filters>
+        <field>Account_Owner_formula__c</field>
+        <operation>equals</operation>
+        <value>Dan O&apos;Connor</value>
+    </filters>
+    <label>SMB Target Account List Joseph</label>
+</ListView>

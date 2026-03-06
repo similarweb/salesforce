@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Account_KYC_Indicator__c</fullName>
+    <description>MIS-1310 (used in KYC templates: KYC_final_blue, KYC_final_green, KYC_Final_Red, KYC_First_RED (flow: Screening Case - Record Triggered Flow - After Save))</description>
+    <externalId>false</externalId>
+    <formula>Account.KYC_indicator__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Account KYC Indicator</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

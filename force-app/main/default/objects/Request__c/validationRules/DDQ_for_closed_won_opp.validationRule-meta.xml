@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DDQ_for_closed_won_opp</fullName>
+    <active>true</active>
+    <description>MIS-1821
+check if the opp is closed won and if the ddq is still needed</description>
+    <errorConditionFormula>And( RecordType.DeveloperName = &apos;Supplier_Questionnaires&apos;,
+
+ISPICKVAL( Opportunity__r.StageName , &quot;Closed won&quot;) ,   ISBLANK( Additional_Comments__c) , And ( Not(ISPICKVAL( Status__c , &quot;Cancelled&quot;)), Not(ISPICKVAL( Status__c , &quot;Completed&quot;))))</errorConditionFormula>
+    <errorDisplayField>Additional_Comments__c</errorDisplayField>
+    <errorMessage>Is the DDQ is still needed after the opp stage is marked as closed-won?
+&apos;if yes please specify why the request is still needed in the additional comments or cancel the request please</errorMessage>
+</ValidationRule>

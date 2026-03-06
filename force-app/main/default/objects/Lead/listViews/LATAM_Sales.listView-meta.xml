@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LATAM_Sales</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>LEAD.EMAIL</columns>
+    <columns>LEAD.COMPANY</columns>
+    <columns>LEAD.STATUS</columns>
+    <columns>LEAD.CREATED_DATE</columns>
+    <columns>LEAD.COUNTRY</columns>
+    <columns>Role_registration__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>LEAD.STATUS</field>
+        <operation>notEqual</operation>
+        <value>Qualified,Replied,Nurture,Unqualified,SDR Prospecting,MIR Prospecting</value>
+    </filters>
+    <filters>
+        <field>SW_Fit_Score__c</field>
+        <operation>equals</operation>
+        <value>A,B,C,D</value>
+    </filters>
+    <filters>
+        <field>LEAD.CREATED_DATE</field>
+        <operation>greaterThan</operation>
+        <value>5/1/2023 12:00 AM</value>
+    </filters>
+    <filters>
+        <field>Owner_Email__c</field>
+        <operation>contains</operation>
+        <value>cristina</value>
+    </filters>
+    <filters>
+        <field>LEAD.COUNTRY</field>
+        <operation>notContain</operation>
+        <value>united states,canada,usa</value>
+    </filters>
+    <filters>
+        <field>Current_Registration_Type__c</field>
+        <operation>contains</operation>
+        <value>sales</value>
+    </filters>
+    <filters>
+        <field>Email_address_domain_type__c</field>
+        <operation>notEqual</operation>
+        <value>Private</value>
+    </filters>
+    <filters>
+        <field>Use_of_Similarweb__c</field>
+        <operation>notEqual</operation>
+        <value>Student,school</value>
+    </filters>
+    <filters>
+        <field>LEAD.COUNTRY_CODE</field>
+        <operation>notEqual</operation>
+        <value>CA,US</value>
+    </filters>
+    <label>LATAM - Sales</label>
+</ListView>

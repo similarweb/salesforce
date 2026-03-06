@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Industry__c</fullName>
+    <externalId>false</externalId>
+    <label>Industry</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Agency</fullName>
+                <default>false</default>
+                <label>Agency</label>
+            </value>
+            <value>
+                <fullName>Automotive &amp; Transportation</fullName>
+                <default>false</default>
+                <label>Automotive &amp; Transportation</label>
+            </value>
+            <value>
+                <fullName>Banking &amp; insurance</fullName>
+                <default>false</default>
+                <label>Banking &amp; insurance</label>
+            </value>
+            <value>
+                <fullName>Consulting &amp; Market Research</fullName>
+                <default>false</default>
+                <label>Consulting &amp; Market Research</label>
+            </value>
+            <value>
+                <fullName>CPG, Food &amp; Beverages</fullName>
+                <default>false</default>
+                <label>CPG, Food &amp; Beverages</label>
+            </value>
+            <value>
+                <fullName>Education</fullName>
+                <default>false</default>
+                <label>Education</label>
+            </value>
+            <value>
+                <fullName>Financial services</fullName>
+                <default>false</default>
+                <label>Financial services</label>
+            </value>
+            <value>
+                <fullName>Gambling / Gaming</fullName>
+                <default>false</default>
+                <label>Gambling / Gaming</label>
+            </value>
+            <value>
+                <fullName>Investors</fullName>
+                <default>false</default>
+                <label>Investors</label>
+            </value>
+            <value>
+                <fullName>Media &amp; Entertainment</fullName>
+                <default>false</default>
+                <label>Media &amp; Entertainment</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Pharma &amp; Healthcare</fullName>
+                <default>false</default>
+                <label>Pharma &amp; Healthcare</label>
+            </value>
+            <value>
+                <fullName>Real Estate</fullName>
+                <default>false</default>
+                <label>Real Estate</label>
+            </value>
+            <value>
+                <fullName>Recruitment &amp; Jobs</fullName>
+                <default>false</default>
+                <label>Recruitment &amp; Jobs</label>
+            </value>
+            <value>
+                <fullName>Retail / eCommerce</fullName>
+                <default>false</default>
+                <label>Retail / eCommerce</label>
+            </value>
+            <value>
+                <fullName>Software &amp; Internet</fullName>
+                <default>false</default>
+                <label>Software &amp; Internet</label>
+            </value>
+            <value>
+                <fullName>Telecom &amp; Hardware</fullName>
+                <default>false</default>
+                <label>Telecom &amp; Hardware</label>
+            </value>
+            <value>
+                <fullName>Travel &amp; Hospitality</fullName>
+                <default>false</default>
+                <label>Travel &amp; Hospitality</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

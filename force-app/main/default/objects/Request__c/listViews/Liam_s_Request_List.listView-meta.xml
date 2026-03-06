@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Liam_s_Request_List</fullName>
+    <columns>NAME</columns>
+    <columns>Account__c</columns>
+    <columns>Request_Type__c</columns>
+    <columns>Status__c</columns>
+    <columns>CREATED_DATE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Account_Owner__c</field>
+        <operation>equals</operation>
+        <value>Liam Shaughnessy</value>
+    </filters>
+    <filters>
+        <field>RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Request__c.Advisory_Services_Request,Request__c.Vendor_Form,Request__c.Churn_Protection,Request__c.Solution_Implementation,Request__c.Supplier_Questionnaires,Request__c.Technical_Solutions,Request__c.Strategic_Consultant,Request__c.Investor_Solution,Request__c.Legal_Services,Request__c.Onboarding_Request,Request__c.Quote_Request,Request__c.SI_Product_Expert,Request__c.Solution_Engineering,Request__c.Client_Success_Strategist,Request__c.Trial_Request</value>
+    </filters>
+    <label>Liam&apos;s Request List</label>
+</ListView>
