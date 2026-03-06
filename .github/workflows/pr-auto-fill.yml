@@ -1,0 +1,77 @@
+name: PR Auto-Fill
+
+on:
+  pull_request:
+    types: [opened]
+
+jobs:
+  auto-fill-pr:
+    name: Auto-fill PR with JIRA info
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+    steps:
+      - name: Extract JIRA ticket and update PR
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const pr = context.payload.pull_request;
+            const branchName = pr.head.ref;
+            const currentTitle = pr.title;
+            const currentBody = pr.body || '';
+            
+            // Extract JIRA ticket from branch name (e.g., feature/MIS-8567 or MIS-8567-description)
+            const ticketMatch = branchName.match(/MIS-\d+/i);
+            
+            if (!ticketMatch) {
+              console.log('No JIRA ticket found in branch name:', branchName);
+              return;
+            }
+            
+            const ticket = ticketMatch[0].toUpperCase();
+            const jiraUrl = `https://similarweb-rnd.atlassian.net/browse/${ticket}`;
+            
+            console.log(`Found JIRA ticket: ${ticket}`);
+            console.log(`JIRA URL: ${jiraUrl}`);
+            
+            // Prepare updated title
+            let newTitle = currentTitle;
+            if (!currentTitle.includes(ticket)) {
+              // If title doesn't have ticket, prepend it
+              newTitle = `${ticket}: ${currentTitle}`;
+            }
+            
+            // Prepare updated body with JIRA link
+            let newBody = currentBody;
+            
+            // Check if JIRA link section already exists
+            if (!currentBody.includes('## JIRA Ticket')) {
+              const jiraSection = `## JIRA Ticket\n\n**[${ticket}](${jiraUrl})**\n\n---\n\n`;
+              newBody = jiraSection + currentBody;
+            }
+            
+            // Update the PR if changes needed
+            if (newTitle !== currentTitle || newBody !== currentBody) {
+              await github.rest.pulls.update({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                pull_number: pr.number,
+                title: newTitle,
+                body: newBody
+              });
+              
+              console.log('PR updated successfully!');
+              console.log(`New title: ${newTitle}`);
+            } else {
+              console.log('No updates needed');
+            }
+
+      - name: Add summary
+        run: |
+          echo "## PR Auto-Fill Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "✅ Checked PR for JIRA ticket in branch name" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "If a ticket was found (e.g., MIS-1234), the PR was updated with:" >> $GITHUB_STEP_SUMMARY
+          echo "- Title prefixed with ticket number" >> $GITHUB_STEP_SUMMARY
+          echo "- JIRA link added to description" >> $GITHUB_STEP_SUMMARY
