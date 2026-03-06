@@ -1,11 +1,13 @@
 public class CampaignSchedulable implements Schedulable {
-	public void execute(SchedulableContext param1) {
-		Map<String, Campaign> campaigns = new Map<String, Campaign>([
-				SELECT Id, Update_Campaign_Members__c
-				FROM Campaign
-				WHERE Update_Campaign_Members__c = true
-		]);
+  public void execute(SchedulableContext param1) {
+    Map<String, Campaign> campaigns = new Map<String, Campaign>(
+      [
+        SELECT Id, Update_Campaign_Members__c
+        FROM Campaign
+        WHERE Update_Campaign_Members__c = TRUE
+      ]
+    );
 
-		Database.executeBatch(new CampaignBatchable(campaigns.keyset()), 500);
-	}
+    Database.executeBatch(new CampaignBatchable(campaigns.keyset()), 500);
+  }
 }

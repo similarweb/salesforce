@@ -1,5 +1,5 @@
 ({
-    doInit : function(component, event, helper) {
-        helper.sendQuoteToZuoraAction(component, helper);
-    }
-})
+  doInit: function (component, event, helper) {
+    helper.sendQuoteToZuoraAction(component, helper);
+  }
+});

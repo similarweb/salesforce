@@ -3,7 +3,10 @@
  */
 
 public with sharing class ZuoraUpdateChargeCARRSchedulable implements Schedulable {
-    public void execute(SchedulableContext sc){
-        Id batchInstanceId = Database.executeBatch(new ZuoraUpdateChargeCARRBatch(), 1);
-    }
+  public void execute(SchedulableContext sc) {
+    Id batchInstanceId = Database.executeBatch(
+      new ZuoraUpdateChargeCARRBatch(),
+      1
+    );
+  }
 }

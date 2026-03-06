@@ -4,8 +4,8 @@
 
 @isTest
 public with sharing class ZRemoveOriginalBaseProdsActionPluginTest {
-    @isTest
-    static void test(){
-        new ZuoraRemoveOriginalBaseProdsActionPlugin().perform(null,null,null);
-    }
+  @isTest
+  static void test() {
+    new ZuoraRemoveOriginalBaseProdsActionPlugin().perform(null, null, null);
+  }
 }

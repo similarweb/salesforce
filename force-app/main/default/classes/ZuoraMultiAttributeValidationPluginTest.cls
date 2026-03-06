@@ -3,8 +3,8 @@
  */
 @isTest
 public with sharing class ZuoraMultiAttributeValidationPluginTest {
-    @isTest
-    static void test(){
-        new ZuoraMultiAttributeValidationPlugin().perform(null,null,null);
-    }
+  @isTest
+  static void test() {
+    new ZuoraMultiAttributeValidationPlugin().perform(null, null, null);
+  }
 }

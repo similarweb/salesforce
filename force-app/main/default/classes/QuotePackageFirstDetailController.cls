@@ -6,16 +6,23 @@
     Created by: Developer Synebo
 */
 public with sharing class QuotePackageFirstDetailController {
-    public String calculationInProgress {get;set;}
+  public String calculationInProgress { get; set; }
 
-    public QuotePackageFirstDetailController(ApexPages.StandardController standardController) {
-        Id currentQuoteId = (Id)standardController.getRecord().get('Id');
+  public QuotePackageFirstDetailController(
+    ApexPages.StandardController standardController
+  ) {
+    Id currentQuoteId = (Id) standardController.getRecord().get('Id');
 
-        zqu__Quote__c currentQuote = [SELECT Id,Recalculate_Charge__c FROM zqu__Quote__c WHERE Id =:currentQuoteId LIMIT 1];
-        if(currentQuote.Recalculate_Charge__c){
-            calculationInProgress = 'true';
-        } else {
-            calculationInProgress = 'false';
-        }
+    zqu__Quote__c currentQuote = [
+      SELECT Id, Recalculate_Charge__c
+      FROM zqu__Quote__c
+      WHERE Id = :currentQuoteId
+      LIMIT 1
+    ];
+    if (currentQuote.Recalculate_Charge__c) {
+      calculationInProgress = 'true';
+    } else {
+      calculationInProgress = 'false';
     }
+  }
 }

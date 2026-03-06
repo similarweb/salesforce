@@ -1,6 +1,6 @@
 /*obsolete, need to be removed after jobs are tested well*/
 public without sharing class Zuora_AsyncCallout {
-/* David Rennert Commented out becuase it is no longer in use
+  /* David Rennert Commented out becuase it is no longer in use
     @future(callout=true)
     public static void sendQuote(list <id> QuoteIDs, boolean FireMapping, boolean FireInvoice) {
 

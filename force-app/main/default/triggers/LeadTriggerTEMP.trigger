@@ -1,7 +1,13 @@
-trigger LeadTriggerTEMP on Lead (after delete, after insert, after undelete, 
-after update, before delete, before insert, before update) {
-    
-        /*
+trigger LeadTriggerTEMP on Lead(
+  after delete,
+  after insert,
+  after undelete,
+  after update,
+  before delete,
+  before insert,
+  before update
+) {
+  /*
     map <string,CSTriggerControl__c> cstrigControl = CSTriggerControl__c.getall();
     if (!cstrigControl.ContainsKey ('Lead') || (cstrigControl.ContainsKey('Lead') && cstrigControl.get('Lead').on__c))
         {

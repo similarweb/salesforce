@@ -1,6 +1,13 @@
-trigger ZQuoteTrigger on zqu__Quote__c (after delete, after insert, after undelete, 
-after update, before delete, before insert, before update) {
-    /* 
+trigger ZQuoteTrigger on zqu__Quote__c(
+  after delete,
+  after insert,
+  after undelete,
+  after update,
+  before delete,
+  before insert,
+  before update
+) {
+  /* 
     map <string,CSTriggerControl__c> cstrigControl = CSTriggerControl__c.getall();
     List<Schema.SObjectType> objects = new List<Schema.SObjectType>{ zqu__Quote__c.SObjectType};
     List<String> ch = new List<String>();

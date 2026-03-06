@@ -12,43 +12,41 @@
  * coverage, and prevent regressions. All Apex classes are
  * required to have at least 75% code coverage in order to be deployed
  * to a production organization. In addition, all triggers must have some code coverage.
- * 
+ *
  * The @isTest class annotation indicates this class only contains test
  * methods. Classes defined with the @isTest annotation do not count against
  * the organization size limit for all Apex scripts.
  *
  * See the Apex Language Reference for more information about Testing and Code Coverage.
  */
-@isTest (SeeAllData = true)
+@isTest(SeeAllData=true)
 private class testMakePaymentACH {
+  static testMethod void MakePaymentACHTest() {
+    Test.startTest();
 
-    static testMethod void MakePaymentACHTest() {
-        Test.startTest();
-        
-        MakePaymentACH mp = new MakePaymentACH();
-        
-        mp.confirmError();
-        mp.makePaymentNow();
-        mp.paymentType='electronic';
-        mp.makePaymentNow();
-        mp.cancel();
-        mp.getPaymentMethodOptions();
-        mp.getExternalPaymentMethodOptions();
-        mp.updateValues();
-        mp.updateInvoiceTotal();
-        mp.updateTotal();
-        mp.updateDate();
-        mp.getPageRef();
-        mp.getExtraParameters();
-        mp.getBackURL();
-        mp.navigateBack();
-        mp.getNextUrl();
-        mp.getPaymentTypeOptions();
-        mp.toCC();
-        mp.updateRemaining();
-        mp.successActions();
-        
-                
-        Test.stopTest();
-    }
+    MakePaymentACH mp = new MakePaymentACH();
+
+    mp.confirmError();
+    mp.makePaymentNow();
+    mp.paymentType = 'electronic';
+    mp.makePaymentNow();
+    mp.cancel();
+    mp.getPaymentMethodOptions();
+    mp.getExternalPaymentMethodOptions();
+    mp.updateValues();
+    mp.updateInvoiceTotal();
+    mp.updateTotal();
+    mp.updateDate();
+    mp.getPageRef();
+    mp.getExtraParameters();
+    mp.getBackURL();
+    mp.navigateBack();
+    mp.getNextUrl();
+    mp.getPaymentTypeOptions();
+    mp.toCC();
+    mp.updateRemaining();
+    mp.successActions();
+
+    Test.stopTest();
+  }
 }

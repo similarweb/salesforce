@@ -1,8 +1,8 @@
 /*   Copyright (c) 2013 Zuora, Inc.
  *
- *   Permission is hereby granted, free of charge, to any person obtaining a copy of 
- *   this software and associated documentation files (the "Software"), to use copy, 
- *   modify, merge, publish the Software and to distribute, and sublicense copies of 
+ *   Permission is hereby granted, free of charge, to any person obtaining a copy of
+ *   this software and associated documentation files (the "Software"), to use copy,
+ *   modify, merge, publish the Software and to distribute, and sublicense copies of
  *   the Software, provided no fee is charged for the Software.  In addition the
  *   rights specified above are conditioned upon the following:
  *
@@ -21,7 +21,7 @@
  *   LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
  *   ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
  *   (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *   SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.  
+ *   SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  *
  *   IN THE EVENT YOU ARE AN EXISTING ZUORA CUSTOMER, USE OF THIS SOFTWARE IS GOVERNED
@@ -30,17 +30,15 @@
 
 @isTest
 public class Z_TestFactory {
-    /**
-     * Insert a test account in the db
-     */
-    public static Account makeAccount() {
+  /**
+   * Insert a test account in the db
+   */
+  public static Account makeAccount() {
+    Account testAcc = new Account();
 
-        Account testAcc = new Account();
+    testAcc.Name = 'my test account';
 
-        testAcc.Name = 'my test account';
-
-        insert testAcc;
-        return testAcc;
-    }
-
+    insert testAcc;
+    return testAcc;
+  }
 }

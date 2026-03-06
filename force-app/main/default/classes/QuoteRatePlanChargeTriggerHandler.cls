@@ -1,42 +1,56 @@
 public without sharing class QuoteRatePlanChargeTriggerHandler {
-    
-    public static Boolean isFirstTime = true;
-    public static map <id,zqu__QuoteRatePlanCharge__c> OldMap = new map <id,zqu__QuoteRatePlanCharge__c>();
-    public static string event=null;
-    
-    public static map <id,zqu__QuoteRatePlan__c> QRPMap = new map <id,zqu__QuoteRatePlan__c>();
-    public static map <id,ApprovedTermsFrequecy__c> ATFMap = new map <id,ApprovedTermsFrequecy__c>();
-    public static map <id,zqu__Quote__c> QuoteMap = new map <id,zqu__Quote__c>();
-    public static map <id,list <zqu__QuoteRatePlanCharge__c>> Q2QRPCMap = new map <id,list <zqu__QuoteRatePlanCharge__c>>();
-    
-    public static map <id,zqu__Quote__c> Quote4Update = new map <id,zqu__Quote__c>();
-    
-    public static void GenData (list <zqu__QuoteRatePlanCharge__c> QRPCList)
-    {
-        list <id> idlist = new list <id>();
-        for (zqu__QuoteRatePlanCharge__c qrpc : QRPClist)
-        {
-            if (qrpc.zqu__QuoteRatePlan__c!=null) idlist.add (qrpc.zqu__QuoteRatePlan__c);
-        }
-        
-        list <zqu__QuoteRatePlan__c> QRPList = [select id,zqu__Quote__c,
-                                                zqu__ProductRatePlan__r.zqu__ZProduct__r.ProductCompatibility__c ,
-                                                zqu__ProductRatePlan__r.zqu__EffectiveStartDate__c
-                                                from zqu__QuoteRatePlan__c where id=:idlist];
-                                                
-                                                
-             
-        if(QRPList.size()>0)
-        {
-             QRPMap.putall (QRPList);
-             for (zqu__QuoteRatePlan__c qrp : QRPList) if (qrp.zqu__Quote__c!=null) idlist.add (qrp.zqu__Quote__c);
-             
-             list <zqu__Quote__c> Qlist = [select id,Discount_Percentage__c,Payment_Frequency__c,zqu__InitialTerm__c,
-                                           zqu__RenewalTerm__c,Installments__c,Total_Price__c ,Total_List_Price__c,Total_Discount__c
-                                           from zqu__Quote__c where id=: idlist];
-                                           
-             if (Qlist.size()>0) QuoteMap.putall (Qlist);
-             /*{
+  public static Boolean isFirstTime = true;
+  public static map<id, zqu__QuoteRatePlanCharge__c> OldMap = new Map<id, zqu__QuoteRatePlanCharge__c>();
+  public static string event = null;
+
+  public static map<id, zqu__QuoteRatePlan__c> QRPMap = new Map<id, zqu__QuoteRatePlan__c>();
+  public static map<id, ApprovedTermsFrequecy__c> ATFMap = new Map<id, ApprovedTermsFrequecy__c>();
+  public static map<id, zqu__Quote__c> QuoteMap = new Map<id, zqu__Quote__c>();
+  public static map<id, list<zqu__QuoteRatePlanCharge__c>> Q2QRPCMap = new Map<id, list<zqu__QuoteRatePlanCharge__c>>();
+
+  public static map<id, zqu__Quote__c> Quote4Update = new Map<id, zqu__Quote__c>();
+
+  public static void GenData(list<zqu__QuoteRatePlanCharge__c> QRPCList) {
+    list<id> idlist = new List<id>();
+    for (zqu__QuoteRatePlanCharge__c qrpc : QRPClist) {
+      if (qrpc.zqu__QuoteRatePlan__c != null)
+        idlist.add(qrpc.zqu__QuoteRatePlan__c);
+    }
+
+    list<zqu__QuoteRatePlan__c> QRPList = [
+      SELECT
+        id,
+        zqu__Quote__c,
+        zqu__ProductRatePlan__r.zqu__ZProduct__r.ProductCompatibility__c,
+        zqu__ProductRatePlan__r.zqu__EffectiveStartDate__c
+      FROM zqu__QuoteRatePlan__c
+      WHERE id = :idlist
+    ];
+
+    if (QRPList.size() > 0) {
+      QRPMap.putall(QRPList);
+      for (zqu__QuoteRatePlan__c qrp : QRPList)
+        if (qrp.zqu__Quote__c != null)
+          idlist.add(qrp.zqu__Quote__c);
+
+      list<zqu__Quote__c> Qlist = [
+        SELECT
+          id,
+          Discount_Percentage__c,
+          Payment_Frequency__c,
+          zqu__InitialTerm__c,
+          zqu__RenewalTerm__c,
+          Installments__c,
+          Total_Price__c,
+          Total_List_Price__c,
+          Total_Discount__c
+        FROM zqu__Quote__c
+        WHERE id = :idlist
+      ];
+
+      if (Qlist.size() > 0)
+        QuoteMap.putall(Qlist);
+      /*{
              	for (zqu__Quote__c zq : Qlist)
              	{
              		if (zq.Installments__c==null || zq.Installments__c==0) zq.Installments__c=1;
@@ -44,13 +58,22 @@ public without sharing class QuoteRatePlanChargeTriggerHandler {
              	 	
              	}
              }*/
-        }
-        
-        list <ApprovedTermsFrequecy__c> ATFList = [select id,name,Billing_Remarks__c,Default__c,Frequency__c,Initial_Term__c from ApprovedTermsFrequecy__c];
-        if (ATFList.size()>0) ATFMap.putall (ATFList);
-        
     }
-    /*
+
+    list<ApprovedTermsFrequecy__c> ATFList = [
+      SELECT
+        id,
+        name,
+        Billing_Remarks__c,
+        Default__c,
+        Frequency__c,
+        Initial_Term__c
+      FROM ApprovedTermsFrequecy__c
+    ];
+    if (ATFList.size() > 0)
+      ATFMap.putall(ATFList);
+  }
+  /*
     public static void GenData_After (list <zqu__QuoteRatePlanCharge__c> QRPCList)
     {
         list <id> idlist = new list <id>();
@@ -79,94 +102,158 @@ public without sharing class QuoteRatePlanChargeTriggerHandler {
         //Q2QRPCMap BUILD - END
     }
     */
-    public static void UpdateQRPCFields (list <zqu__QuoteRatePlanCharge__c> QRPCList)
-    {
-        if (event=='Insert')
-        {
-            for (zqu__QuoteRatePlanCharge__c qrpc : QRPCList)
-            {
-            	system.debug('TESTING UpdateQRPCFields fired');
-                zqu__Quote__c zq = QuoteMap.get (QRPMap.get (qrpc.zqu__QuoteRatePlan__c).zqu__Quote__c);
-                boolean ATFFound = false;
-                ApprovedTermsFrequecy__c ATFRec = null;
-                
-                if (ATFMap.size()>0) for (ApprovedTermsFrequecy__c atf : ATFMap.values())
-                {
-                    if (atf.Frequency__c == zq.Payment_Frequency__c && atf.initial_term__c  == zq.zqu__InitialTerm__c
-                        && atf.initial_term__c == zq.zqu__RenewalTerm__c){ ATFFound=true; ATFRec = atf;}
-                }
-                
-                if (zq!=null)
-                {
-                    decimal discount = 0;
-                    if (zq.Discount_Percentage__c!=null) discount = zq.Discount_Percentage__c;
-                    //qrpc.zqu__Total__c = qrpc.zqu__ListPrice__c * (1-discount/100) * qrpc.zqu__Quantity__c;
-                    if (qrpc.zqu__Period__c!=null && qrpc.zqu__Period__c.EqualsIgnoreCase('Specific Months'))
-                    {
-	                    qrpc.zqu__SpecificBillingPeriod__c  = zq.Payment_Frequency__c;
-	                    
-	                    string descr = '';
-	                    if (qrpc.zqu__Description__c!=null) descr = qrpc.zqu__Description__c;
-	                    if (ATFRec!=null && ATFRec.Billing_Remarks__c!=null && qrpc.zqu__Period__c!=null 
-	                        &&  qrpc.zqu__Period__c.EqualsIgnoreCase('specific months')) 
-	                           qrpc.zqu__Description__c  = qrpc.name + ' '+ATFRec.Billing_Remarks__c;
-                    }
-                }
+  public static void UpdateQRPCFields(
+    list<zqu__QuoteRatePlanCharge__c> QRPCList
+  ) {
+    if (event == 'Insert') {
+      for (zqu__QuoteRatePlanCharge__c qrpc : QRPCList) {
+        system.debug('TESTING UpdateQRPCFields fired');
+        zqu__Quote__c zq = QuoteMap.get(
+          QRPMap.get(qrpc.zqu__QuoteRatePlan__c).zqu__Quote__c
+        );
+        boolean ATFFound = false;
+        ApprovedTermsFrequecy__c ATFRec = null;
+
+        if (ATFMap.size() > 0)
+          for (ApprovedTermsFrequecy__c atf : ATFMap.values()) {
+            if (
+              atf.Frequency__c == zq.Payment_Frequency__c &&
+              atf.initial_term__c == zq.zqu__InitialTerm__c &&
+              atf.initial_term__c == zq.zqu__RenewalTerm__c
+            ) {
+              ATFFound = true;
+              ATFRec = atf;
             }
-        }   
+          }
+
+        if (zq != null) {
+          decimal discount = 0;
+          if (zq.Discount_Percentage__c != null)
+            discount = zq.Discount_Percentage__c;
+          //qrpc.zqu__Total__c = qrpc.zqu__ListPrice__c * (1-discount/100) * qrpc.zqu__Quantity__c;
+          if (
+            qrpc.zqu__Period__c != null &&
+            qrpc.zqu__Period__c.EqualsIgnoreCase('Specific Months')
+          ) {
+            qrpc.zqu__SpecificBillingPeriod__c = zq.Payment_Frequency__c;
+
+            string descr = '';
+            if (qrpc.zqu__Description__c != null)
+              descr = qrpc.zqu__Description__c;
+            if (
+              ATFRec != null &&
+              ATFRec.Billing_Remarks__c != null &&
+              qrpc.zqu__Period__c != null &&
+              qrpc.zqu__Period__c.EqualsIgnoreCase('specific months')
+            )
+              qrpc.zqu__Description__c =
+                qrpc.name +
+                ' ' +
+                ATFRec.Billing_Remarks__c;
+          }
+        }
+      }
     }
-    
-    public static void UpdateQRTotalFields (list <zqu__QuoteRatePlanCharge__c> QRPCList)
-    {
-        if ((event=='Insert' || event=='Update'|| event=='Delete') && isFirstTime)
-        {
-            Set<zqu__Quote__c> zqList = new Set<zqu__Quote__c>();
-            Map<id,zqu__Quote__c> fullQuoteMap = new Map<id,zqu__Quote__c>();
-            for (zqu__QuoteRatePlanCharge__c qrpc : QRPCList)
-            {
-                if(event!='Update' || OldMap.get(qrpc.Id).zqu__ListTotal__c != qrpc.zqu__ListTotal__c 
-                   || OldMap.get(qrpc.Id).zqu__Total__c != qrpc.zqu__Total__c
-                  || OldMap.get(qrpc.Id).zqu__Discount__c != qrpc.zqu__Discount__c){
-                    zqu__Quote__c zq = QuoteMap.get (QRPMap.get (qrpc.zqu__QuoteRatePlan__c).zqu__Quote__c);
-                      zq.Total_Price__c = 0;
-                      zq.Total_List_Price__c = 0;
-                      zq.Total_Discount__c = 0;
-                      fullQuoteMap.put(zq.Id, zq);
-                }
-            }
-            Map<Id,zqu__QuoteRatePlanCharge__c> sss = new Map<Id,zqu__QuoteRatePlanCharge__c>([SELECT Id,zqu__QuoteRatePlan__c FROM zqu__QuoteRatePlanCharge__c WHERE zqu__QuoteRatePlan__r.zqu__Quote__r.Id IN:fullQuoteMap.keySet()]);
-            Set<String> qRatePlanIds = new Set<String>();
-            for(zqu__QuoteRatePlanCharge__c qrpc : sss.values()){
-                qRatePlanIds.add(qrpc.zqu__QuoteRatePlan__c);
-            }
-            Map<id,zqu__QuoteRatePlan__c> fullQRPMap = new Map<id,zqu__QuoteRatePlan__c>([SELECT Id,zqu__Quote__c FROM zqu__QuoteRatePlan__c WHERE ID IN:qRatePlanIds]);
-            AggregateResult[] groupedResults = [SELECT zqu__QuoteRatePlan__c,SUM(zqu__ListTotal__c)listPrice,SUM(zqu__Total__c)listTotal,AVG(zqu__Discount__c)totalDiscount FROM zqu__QuoteRatePlanCharge__c WHERE Id IN:sss.keySet() 
-                                                AND zqu__ListTotal__c!=null AND zqu__Total__c !=null AND zqu__Discount__c !=null GROUP BY zqu__QuoteRatePlan__c];
-            Map<String,Double> ratePlaneToTotalSum = new Map<String,Double>();
-            Map<String,Double> ratePlaneToPriceSum = new Map<String,Double>();
-            Map<String,Double> ratePlaneToDiscount = new Map<String,Double>();
-            for (AggregateResult ar : groupedResults)  {
-                if(ar.get('zqu__QuoteRatePlan__c')!=null){
-                    ratePlaneToTotalSum.put((String)ar.get('zqu__QuoteRatePlan__c'),(Decimal)ar.get('listTotal'));
-                    ratePlaneToPriceSum.put((String)ar.get('zqu__QuoteRatePlan__c'),(Decimal)ar.get('listPrice'));
-                    ratePlaneToDiscount.put((String)ar.get('zqu__QuoteRatePlan__c'),(Decimal)ar.get('totalDiscount'));
-                }
-            }                     
-            for(String qRatePlaneId : qRatePlanIds){     
-                if(ratePlaneToTotalSum.containsKey(qRatePlaneId))
-                    fullQuoteMap.get(fullQRPMap.get(qRatePlaneId).zqu__Quote__c).Total_Price__c+= ratePlaneToTotalSum.get(qRatePlaneId);
-                if(ratePlaneToPriceSum.containsKey(qRatePlaneId))
-                    fullQuoteMap.get(fullQRPMap.get(qRatePlaneId).zqu__Quote__c).Total_List_Price__c+= ratePlaneToPriceSum.get(qRatePlaneId);                
-            }
-            for(zqu__Quote__c quote_i : fullQuoteMap.values()){
-				if(quote_i.Total_Price__c != null && quote_i.Total_List_Price__c != null && quote_i.Total_List_Price__c != 0)                
-                    quote_i.Total_Discount__c = (1 - (quote_i.Total_Price__c/quote_i.Total_List_Price__c))*100;
-            }
-            isFirstTime=false;
-            update fullQuoteMap.values();
-        }   
+  }
+
+  public static void UpdateQRTotalFields(
+    list<zqu__QuoteRatePlanCharge__c> QRPCList
+  ) {
+    if (
+      (event == 'Insert' || event == 'Update' || event == 'Delete') &&
+      isFirstTime
+    ) {
+      Set<zqu__Quote__c> zqList = new Set<zqu__Quote__c>();
+      Map<id, zqu__Quote__c> fullQuoteMap = new Map<id, zqu__Quote__c>();
+      for (zqu__QuoteRatePlanCharge__c qrpc : QRPCList) {
+        if (
+          event != 'Update' ||
+          OldMap.get(qrpc.Id).zqu__ListTotal__c != qrpc.zqu__ListTotal__c ||
+          OldMap.get(qrpc.Id).zqu__Total__c != qrpc.zqu__Total__c ||
+          OldMap.get(qrpc.Id).zqu__Discount__c != qrpc.zqu__Discount__c
+        ) {
+          zqu__Quote__c zq = QuoteMap.get(
+            QRPMap.get(qrpc.zqu__QuoteRatePlan__c).zqu__Quote__c
+          );
+          zq.Total_Price__c = 0;
+          zq.Total_List_Price__c = 0;
+          zq.Total_Discount__c = 0;
+          fullQuoteMap.put(zq.Id, zq);
+        }
+      }
+      Map<Id, zqu__QuoteRatePlanCharge__c> sss = new Map<Id, zqu__QuoteRatePlanCharge__c>(
+        [
+          SELECT Id, zqu__QuoteRatePlan__c
+          FROM zqu__QuoteRatePlanCharge__c
+          WHERE zqu__QuoteRatePlan__r.zqu__Quote__r.Id IN :fullQuoteMap.keySet()
+        ]
+      );
+      Set<String> qRatePlanIds = new Set<String>();
+      for (zqu__QuoteRatePlanCharge__c qrpc : sss.values()) {
+        qRatePlanIds.add(qrpc.zqu__QuoteRatePlan__c);
+      }
+      Map<id, zqu__QuoteRatePlan__c> fullQRPMap = new Map<id, zqu__QuoteRatePlan__c>(
+        [
+          SELECT Id, zqu__Quote__c
+          FROM zqu__QuoteRatePlan__c
+          WHERE ID IN :qRatePlanIds
+        ]
+      );
+      AggregateResult[] groupedResults = [
+        SELECT
+          zqu__QuoteRatePlan__c,
+          SUM(zqu__ListTotal__c) listPrice,
+          SUM(zqu__Total__c) listTotal,
+          AVG(zqu__Discount__c) totalDiscount
+        FROM zqu__QuoteRatePlanCharge__c
+        WHERE
+          Id IN :sss.keySet()
+          AND zqu__ListTotal__c != NULL
+          AND zqu__Total__c != NULL
+          AND zqu__Discount__c != NULL
+        GROUP BY zqu__QuoteRatePlan__c
+      ];
+      Map<String, Double> ratePlaneToTotalSum = new Map<String, Double>();
+      Map<String, Double> ratePlaneToPriceSum = new Map<String, Double>();
+      Map<String, Double> ratePlaneToDiscount = new Map<String, Double>();
+      for (AggregateResult ar : groupedResults) {
+        if (ar.get('zqu__QuoteRatePlan__c') != null) {
+          ratePlaneToTotalSum.put(
+            (String) ar.get('zqu__QuoteRatePlan__c'),
+            (Decimal) ar.get('listTotal')
+          );
+          ratePlaneToPriceSum.put(
+            (String) ar.get('zqu__QuoteRatePlan__c'),
+            (Decimal) ar.get('listPrice')
+          );
+          ratePlaneToDiscount.put(
+            (String) ar.get('zqu__QuoteRatePlan__c'),
+            (Decimal) ar.get('totalDiscount')
+          );
+        }
+      }
+      for (String qRatePlaneId : qRatePlanIds) {
+        if (ratePlaneToTotalSum.containsKey(qRatePlaneId))
+          fullQuoteMap.get(fullQRPMap.get(qRatePlaneId).zqu__Quote__c)
+            .Total_Price__c += ratePlaneToTotalSum.get(qRatePlaneId);
+        if (ratePlaneToPriceSum.containsKey(qRatePlaneId))
+          fullQuoteMap.get(fullQRPMap.get(qRatePlaneId).zqu__Quote__c)
+            .Total_List_Price__c += ratePlaneToPriceSum.get(qRatePlaneId);
+      }
+      for (zqu__Quote__c quote_i : fullQuoteMap.values()) {
+        if (
+          quote_i.Total_Price__c != null &&
+          quote_i.Total_List_Price__c != null &&
+          quote_i.Total_List_Price__c != 0
+        )
+          quote_i.Total_Discount__c =
+            (1 - (quote_i.Total_Price__c / quote_i.Total_List_Price__c)) * 100;
+      }
+      isFirstTime = false;
+      update fullQuoteMap.values();
     }
-    /*  
+  }
+  /*  
     public static void UpdateQuotes (list <zqu__QuoteRatePlanCharge__c> QPRCList)
     {
         list <zqu__Quote__c> Qlist = new list <zqu__Quote__c>();
@@ -269,28 +356,37 @@ public without sharing class QuoteRatePlanChargeTriggerHandler {
         }
     }
     */
-    public static void HandleBefore (list <zqu__QuoteRatePlanCharge__c> QRPCList, map <id,zqu__QuoteRatePlanCharge__c> OldTriggerMap,string evnt)
-    {
-        if (evnt!=null) event=evnt;
-        if (OldTriggerMap!=null) OldMap = OldTriggerMap;
-        
-        GenData (QRPCList);
-        if (event=='Insert'){
-            UpdateQRPCFields (QRPCList);           
-        }        
-    }
-    
-    public static void HandleAfter (list <zqu__QuoteRatePlanCharge__c> QRPCList, map <id,zqu__QuoteRatePlanCharge__c> OldTriggerMap,string evnt)
-    {
-        if (evnt!=null) event=evnt;
-        if (OldTriggerMap!=null) OldMap = OldTriggerMap;
-        //GenData_After (QRPCList);
-        //UpdateQuotes (QRPCList);
-        GenData (QRPCList);
-        UpdateQRTotalFields (QRPCList);
-        utils.CodeOff = true;
-        //if (Quote4Update.size()>0) update Quote4Update.values();
-        utils.Codeoff = false;
-    }
+  public static void HandleBefore(
+    list<zqu__QuoteRatePlanCharge__c> QRPCList,
+    map<id, zqu__QuoteRatePlanCharge__c> OldTriggerMap,
+    string evnt
+  ) {
+    if (evnt != null)
+      event = evnt;
+    if (OldTriggerMap != null)
+      OldMap = OldTriggerMap;
 
+    GenData(QRPCList);
+    if (event == 'Insert') {
+      UpdateQRPCFields(QRPCList);
+    }
+  }
+
+  public static void HandleAfter(
+    list<zqu__QuoteRatePlanCharge__c> QRPCList,
+    map<id, zqu__QuoteRatePlanCharge__c> OldTriggerMap,
+    string evnt
+  ) {
+    if (evnt != null)
+      event = evnt;
+    if (OldTriggerMap != null)
+      OldMap = OldTriggerMap;
+    //GenData_After (QRPCList);
+    //UpdateQuotes (QRPCList);
+    GenData(QRPCList);
+    UpdateQRTotalFields(QRPCList);
+    utils.CodeOff = true;
+    //if (Quote4Update.size()>0) update Quote4Update.values();
+    utils.Codeoff = false;
+  }
 }

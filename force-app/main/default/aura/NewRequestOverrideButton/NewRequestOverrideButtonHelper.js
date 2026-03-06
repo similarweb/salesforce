@@ -1,5 +1,5 @@
 ({
-	setError : function(component,message){
-        component.set('v.errorMessage',message);
-    },
-})
+  setError: function (component, message) {
+    component.set("v.errorMessage", message);
+  }
+});

@@ -7,9 +7,16 @@ Created/Modified by   Created/Modified Date     Requested by          Related Ta
 ----------------------------------------------------------------------------------------
 1. Nevo                     27.03.2018               Nevo					[SW-28689]
 ****************************************************************************************/
-trigger Account_Trigger on Account (after delete, after insert, after undelete, after update, before delete, before insert, before update) {
-
-    /**
+trigger Account_Trigger on Account(
+  after delete,
+  after insert,
+  after undelete,
+  after update,
+  before delete,
+  before insert,
+  before update
+) {
+  /**
 
   AccountTriggerHandler Handler = new AccountTriggerHandler();
   
@@ -41,10 +48,10 @@ trigger Account_Trigger on Account (after delete, after insert, after undelete, 
     else if (Trigger.isBefore && Trigger.isDelete) // Before Delete
     {
     }*/
-    // ------------------------------------------------------------------------
-    //  ---------------------------- AFTER EVENTS -----------------------------
-    // ------------------------------------------------------------------------
-    /**
+  // ------------------------------------------------------------------------
+  //  ---------------------------- AFTER EVENTS -----------------------------
+  // ------------------------------------------------------------------------
+  /**
    else if (Trigger.isAfter && Trigger.isInsert) // After Insert
    {
    }
@@ -58,5 +65,4 @@ trigger Account_Trigger on Account (after delete, after insert, after undelete, 
    else if (Trigger.isAfter && Trigger.isUnDelete) // After UnDelete
    {
    }*/
-
 }

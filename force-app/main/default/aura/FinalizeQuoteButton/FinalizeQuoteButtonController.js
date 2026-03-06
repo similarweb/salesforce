@@ -1,5 +1,5 @@
 ({
-    onButtonClick : function(component, event, helper) {
-        helper.finalizeQuote(component,helper);
-    }
-})
+  onButtonClick: function (component, event, helper) {
+    helper.finalizeQuote(component, helper);
+  }
+});

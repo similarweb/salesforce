@@ -1,40 +1,46 @@
-trigger ZuoraSubscription on Zuora__Subscription__c (before delete, before insert, 
-before update, after insert, after delete, after update, after undelete) {
-	if (Utils.CodeOff) {
-		return;
-	}
-	
-	
-	if (trigger.isBefore)
-	{
-		if (trigger.isInsert)
-		{
-			ZuoraSubscriptionHandler.HandleBefore (trigger.new,null,'Insert');
-		}
-		if (trigger.IsUpdate)
-		{
-			ZuoraSubscriptionHandler.HandleBefore (trigger.new,trigger.oldmap,'Update');
-		}
-		if (trigger.isDelete)
-		{
-			ZuoraSubscriptionHandler.HandleBefore (trigger.old,null,'Delete');
-		}
-	}
-	
-	if (trigger.isAfter)
-	{
-		if (trigger.isInsert)
-		{
-			ZuoraSubscriptionHandler.HandleAfter (trigger.new,null,'Insert');
-		}
-		if (trigger.IsUpdate)
-		{
-			ZuoraSubscriptionHandler.HandleAfter (trigger.new,trigger.oldmap,'Update');
-		}
-		if (trigger.isDelete)
-		{
-			ZuoraSubscriptionHandler.HandleAfter (trigger.old,null,'Delete');
-		}
-	}
+trigger ZuoraSubscription on Zuora__Subscription__c(
+  before delete,
+  before insert,
+  before update,
+  after insert,
+  after delete,
+  after update,
+  after undelete
+) {
+  if (Utils.CodeOff) {
+    return;
+  }
+
+  if (Trigger.isBefore) {
+    if (Trigger.isInsert) {
+      ZuoraSubscriptionHandler.HandleBefore(Trigger.new, null, 'Insert');
+    }
+    if (Trigger.IsUpdate) {
+      ZuoraSubscriptionHandler.HandleBefore(
+        Trigger.new,
+        Trigger.oldmap,
+        'Update'
+      );
+    }
+    if (Trigger.isDelete) {
+      ZuoraSubscriptionHandler.HandleBefore(Trigger.old, null, 'Delete');
+    }
+  }
+
+  if (Trigger.isAfter) {
+    if (Trigger.isInsert) {
+      ZuoraSubscriptionHandler.HandleAfter(Trigger.new, null, 'Insert');
+    }
+    if (Trigger.IsUpdate) {
+      ZuoraSubscriptionHandler.HandleAfter(
+        Trigger.new,
+        Trigger.oldmap,
+        'Update'
+      );
+    }
+    if (Trigger.isDelete) {
+      ZuoraSubscriptionHandler.HandleAfter(Trigger.old, null, 'Delete');
+    }
+  }
 
 }

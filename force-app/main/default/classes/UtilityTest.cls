@@ -1,65 +1,68 @@
 @isTest
 public class UtilityTest {
+  @TestSetup
+  static void setup() {
+    TestDataFactory.createSimilarWeb_CS();
+  }
 
-    @TestSetup
-    static void setup(){
-        TestDataFactory.createSimilarWeb_CS();
-    }
+  @isTest
+  public static void hashCodeTest() {
+    Utility.hashCode('name');
+  }
 
-    @isTest
-    public static void hashCodeTest() {
-        Utility.hashCode('name');
-    }
+  @isTest
+  public static void convertDateToDatetimeTest() {
+    Utility.convertDateToDatetime(Date.today());
+  }
 
-    @isTest
-    public static void convertDateToDatetimeTest() {
-        Utility.convertDateToDatetime(Date.today());
-    }
+  @isTest
+  public static void getRecordTypeIdForObjectTest() {
+    RecordType recType = [
+      SELECT DeveloperName
+      FROM RecordType
+      WHERE SobjectType = 'Account'
+      LIMIT 1
+    ];
+    Account acc = TestDataFactory.createAccount();
+    insert acc;
+    Utility.getRecordTypeIdForObject(
+      acc.getSObjectType(),
+      recType.DeveloperName
+    );
+    Utility.getRecordTypeIdForObject('Account', recType.DeveloperName);
+  }
 
-    @isTest
-    public static void getRecordTypeIdForObjectTest() {
-        RecordType recType = [SELECT DeveloperName 
-                                FROM RecordType
-                               WHERE SobjectType = 'Account' 
-                               LIMIT 1
-        ];
-        Account acc = TestDataFactory.createAccount();
-        insert acc;
-        Utility.getRecordTypeIdForObject(acc.getSObjectType(),recType.DeveloperName);
-        Utility.getRecordTypeIdForObject('Account',recType.DeveloperName);
-    }
-    
-    @isTest
-    public static void getDevNameForRecordTypeIDTest() {
-        Account acc = TestDataFactory.createAccount();
-        insert acc;
-        acc = [SELECT Id,RecordTypeId FROM Account];
-        Utility.getDevNameForRecordTypeID(acc.getSObjectType(),acc.RecordTypeId);
-        Utility.getDevNameForRecordTypeID('Account',acc.RecordTypeId);
-    }
+  @isTest
+  public static void getDevNameForRecordTypeIDTest() {
+    Account acc = TestDataFactory.createAccount();
+    insert acc;
+    acc = [SELECT Id, RecordTypeId FROM Account];
+    Utility.getDevNameForRecordTypeID(acc.getSObjectType(), acc.RecordTypeId);
+    Utility.getDevNameForRecordTypeID('Account', acc.RecordTypeId);
+  }
 
-    @isTest
-    public static void replaceTest() {
-        List<String> testList = new List<String>{'test1','test2'};
-        Utility.replace(testList,'test2','test3');
-    }
+  @isTest
+  public static void replaceTest() {
+    List<String> testList = new List<String>{ 'test1', 'test2' };
+    Utility.replace(testList, 'test2', 'test3');
+  }
 
-    @isTest
-    public static void isProductionOrgTest() {
-        Utility.isProductionOrg();
-    }
+  @isTest
+  public static void isProductionOrgTest() {
+    Utility.isProductionOrg();
+  }
 
-    @isTest
-    public static void getDaysInYearTest() {
-        Utility.getDaysInYear(Date.today());
-    }
+  @isTest
+  public static void getDaysInYearTest() {
+    Utility.getDaysInYear(Date.today());
+  }
 
-    @isTest
-    public static void getDaysBetween() {
-        Utility.getDaysBetween(Date.today(),Date.today().addDays(1));
-    }
-    
-    /* @isTest
+  @isTest
+  public static void getDaysBetween() {
+    Utility.getDaysBetween(Date.today(), Date.today().addDays(1));
+  }
+
+  /* @isTest
     public static void test() {
         Utility.hashCode('name');
     }

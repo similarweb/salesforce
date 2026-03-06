@@ -1,5 +1,3 @@
 ({
-    onWorldListValueSelection : function(component) {
-
-    }
-})
+  onWorldListValueSelection: function (component) {}
+});

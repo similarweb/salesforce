@@ -4,5 +4,4 @@
  * @descrpiption Wrapper class for Quote and ZuoraProductDataWrapper
  */
 public class QuoteDataWrapperTemp {
-
 }

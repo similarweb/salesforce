@@ -1,8 +1,6 @@
 @isTest
 private class CloudiusTests {
-	
-	
-	/**
+  /**
 	 @isTest// (seealldata=false)      
     static void TestOne(){     	
     	LeadTriggerHelperTEMP.isTest = true;
@@ -82,5 +80,5 @@ private class CloudiusTests {
 	  
 	 //   AccountTriggerHelperTEMP.RecurlyAccountAllocation (lAccs);
    }    
-     */   
+     */
 }

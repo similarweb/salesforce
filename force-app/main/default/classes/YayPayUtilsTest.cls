@@ -65,10 +65,17 @@ global class YayPayUtilsTest {
   @isTest
   public static void setARSpecialistBillingTest() {
     Test.setMock(HttpCalloutMock.class, new YayPayUtilsTest.YayPayHttpMock());
-    HttpRequest yayPaySetARSpecialistRequest = YayPayUtils.setARSpecialistInYayPay('token', 'test', 'email@test.com');
+    HttpRequest yayPaySetARSpecialistRequest = YayPayUtils.setARSpecialistInYayPay(
+      'token',
+      'test',
+      'email@test.com'
+    );
     Http http = new Http();
     HTTPResponse res = http.send(yayPaySetARSpecialistRequest);
-    System.assert(res.getStatusCode()<300, 'Error: setARSpecialistBilligTest did not response 200 family!');
+    System.assert(
+      res.getStatusCode() < 300,
+      'Error: setARSpecialistBilligTest did not response 200 family!'
+    );
   }
 
   /**
@@ -149,7 +156,7 @@ global class YayPayUtilsTest {
       HttpResponse res = new HttpResponse();
       res.setHeader('Content-Type', 'application/json');
       res.setBody('{}');
-      res.setStatusCode(req.getEndpoint()?.contains('error')  ? 400 : 201);
+      res.setStatusCode(req.getEndpoint()?.contains('error') ? 400 : 201);
       return res;
     }
   } //end YayPayHttpMock class

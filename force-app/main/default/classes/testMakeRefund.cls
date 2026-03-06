@@ -12,38 +12,39 @@
  * coverage, and prevent regressions. All Apex classes are
  * required to have at least 75% code coverage in order to be deployed
  * to a production organization. In addition, all triggers must have some code coverage.
- * 
+ *
  * The @isTest class annotation indicates this class only contains test
  * methods. Classes defined with the @isTest annotation do not count against
  * the organization size limit for all Apex scripts.
  *
  * See the Apex Language Reference for more information about Testing and Code Coverage.
  */
-@isTest (SeeAllData=true)
+@isTest(SeeAllData=true)
 private class testMakeRefund {
+  static testMethod void MakeRefundTest() {
+    Test.startTest();
 
-    static testMethod void MakeRefundTest() {
-        Test.startTest();
-        
-        ApexPages.Standardcontroller controller = new ApexPages.Standardcontroller(new Zuora__CustomerAccount__c());
-        MakeRefund mr = new MakeRefund(controller);
-        
-        mr.cancel();
-        mr.getRefundTypeOptions();
-        mr.confirmError();
-        mr.getMethodTypeOptions();
-        mr.updateDate();
-        mr.updateRefundTotal();
-        mr.updateValues();
-        mr.convertDate('1/1/2014');
-        mr.submit();
-        mr.refundType = 'external';
-        mr.submit();
-        mr.refundType = 'CreditCard';
-        mr.submit();
-        mr.refundType = 'ACH';
-        mr.submit();
-                
-        Test.stopTest();
-    }
+    ApexPages.Standardcontroller controller = new ApexPages.Standardcontroller(
+      new Zuora__CustomerAccount__c()
+    );
+    MakeRefund mr = new MakeRefund(controller);
+
+    mr.cancel();
+    mr.getRefundTypeOptions();
+    mr.confirmError();
+    mr.getMethodTypeOptions();
+    mr.updateDate();
+    mr.updateRefundTotal();
+    mr.updateValues();
+    mr.convertDate('1/1/2014');
+    mr.submit();
+    mr.refundType = 'external';
+    mr.submit();
+    mr.refundType = 'CreditCard';
+    mr.submit();
+    mr.refundType = 'ACH';
+    mr.submit();
+
+    Test.stopTest();
+  }
 }

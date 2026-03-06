@@ -9,15 +9,25 @@ Created/Modified by               Created/Modified Date           Requested by  
 ****************************************************************************************************************/
 @isTest
 public class ProductRatePlanChargeControllerTest {
+  @testSetup
+  static void setup() {
+    zqu__ProductRatePlanCharge__c prpc = new zqu__ProductRatePlanCharge__c(
+      zqu__DefaultQuantity__c = 3
+    );
+    insert prpc;
+  }
 
-    @testSetup
-    static void setup(){
-        zqu__ProductRatePlanCharge__c prpc = new zqu__ProductRatePlanCharge__c(zqu__DefaultQuantity__c=3);
-        insert prpc;
-    }
-    
-    @isTest static void productRatePlanChargeControllerTest() {
-        String s = ProductRatePlanChargeController.defaultQuantityToZero();
-        System.assertEquals(0, [SELECT Id,zqu__DefaultQuantity__c FROM zqu__ProductRatePlanCharge__c where zqu__DefaultQuantity__c=3].size());
-    }
+  @isTest
+  static void productRatePlanChargeControllerTest() {
+    String s = ProductRatePlanChargeController.defaultQuantityToZero();
+    System.assertEquals(
+      0,
+      [
+          SELECT Id, zqu__DefaultQuantity__c
+          FROM zqu__ProductRatePlanCharge__c
+          WHERE zqu__DefaultQuantity__c = 3
+        ]
+        .size()
+    );
+  }
 }

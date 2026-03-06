@@ -1,5 +1,10 @@
-trigger TaskTriggerCounter on Task (after insert, after update, after delete, after undelete) {
- 	/*
+trigger TaskTriggerCounter on Task(
+  after insert,
+  after update,
+  after delete,
+  after undelete
+) {
+  /*
     if(trigger.isInsert){
         System.debug('task counter insert');
     }

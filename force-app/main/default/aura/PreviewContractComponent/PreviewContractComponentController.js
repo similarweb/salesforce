@@ -1,6 +1,5 @@
 ({
-    doInit : function(component, event, helper) {
-       helper.generatePreviewContract(component,helper);
-              
-    }
-})
+  doInit: function (component, event, helper) {
+    helper.generatePreviewContract(component, helper);
+  }
+});

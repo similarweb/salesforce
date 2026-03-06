@@ -52,3 +52,6 @@ $RECYCLE.BIN/
 
 # Test configuration
 jest.config.js
+
+# Package lock file
+package-lock.json

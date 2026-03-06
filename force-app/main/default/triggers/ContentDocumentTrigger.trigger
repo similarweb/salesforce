@@ -4,6 +4,6 @@
  * @description ContentDocumentTrigger
  */
 
-trigger ContentDocumentTrigger on ContentDocument (before delete) {
-    TriggerProcessingManager.handle('ContentDocument');
+trigger ContentDocumentTrigger on ContentDocument(before delete) {
+  TriggerProcessingManager.handle('ContentDocument');
 }

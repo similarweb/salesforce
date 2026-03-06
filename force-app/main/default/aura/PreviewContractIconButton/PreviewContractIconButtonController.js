@@ -1,6 +1,5 @@
 ({
-    onButtonClick : function(component, event, helper) {
-       helper.generatePreviewContract(component,helper);
-              
-    }
-})
+  onButtonClick: function (component, event, helper) {
+    helper.generatePreviewContract(component, helper);
+  }
+});

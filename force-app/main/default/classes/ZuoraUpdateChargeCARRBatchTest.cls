@@ -3,11 +3,11 @@
  */
 @isTest
 public with sharing class ZuoraUpdateChargeCARRBatchTest {
-    @isTest
-    static void testsBatchBIDataPopulateRecords(){
-        Test.startTest();
-        ZuoraUpdateChargeCARRBatch zucb = new ZuoraUpdateChargeCARRBatch();
-        database.executeBatch(zucb, 1);
-        Test.stopTest();
-    }
+  @isTest
+  static void testsBatchBIDataPopulateRecords() {
+    Test.startTest();
+    ZuoraUpdateChargeCARRBatch zucb = new ZuoraUpdateChargeCARRBatch();
+    database.executeBatch(zucb, 1);
+    Test.stopTest();
+  }
 }

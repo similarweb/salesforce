@@ -12,24 +12,25 @@
  * coverage, and prevent regressions. All Apex classes are
  * required to have at least 75% code coverage in order to be deployed
  * to a production organization. In addition, all triggers must have some code coverage.
- * 
+ *
  * The @isTest class annotation indicates this class only contains test
  * methods. Classes defined with the @isTest annotation do not count against
  * the organization size limit for all Apex scripts.
  *
  * See the Apex Language Reference for more information about Testing and Code Coverage.
  */
-@isTest (SeeAllData=true)
+@isTest(SeeAllData=true)
 private class testEditCard {
+  static testMethod void EditCardTest() {
+    Test.startTest();
 
-    static testMethod void EditCardTest() {
-        Test.startTest();
-        
-        ApexPages.Standardcontroller controller = new ApexPages.Standardcontroller(new Account());
-        EditCard ec = new EditCard(controller);
-        ec.updateCard();
-        ec.cancel();
-        
-        Test.stopTest();
-    }
+    ApexPages.Standardcontroller controller = new ApexPages.Standardcontroller(
+      new Account()
+    );
+    EditCard ec = new EditCard(controller);
+    ec.updateCard();
+    ec.cancel();
+
+    Test.stopTest();
+  }
 }

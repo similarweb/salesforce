@@ -6,23 +6,32 @@
  */
 @isTest
 public with sharing class TriggerProcessingManagerTest {
-    private static FINAL String PROCESS_NAME = 'TestTrigger';
+  private static final String PROCESS_NAME = 'TestTrigger';
 
-    @IsTest
-    public static void testHandle(){
-        TriggerProcessingManager.handle(PROCESS_NAME);
-    }
+  @IsTest
+  public static void testHandle() {
+    TriggerProcessingManager.handle(PROCESS_NAME);
+  }
 
-    @IsTest
-    public static void testDetermineContext(){
-        TriggerProcessingManager.determineContext(PROCESS_NAME);
-    }
+  @IsTest
+  public static void testDetermineContext() {
+    TriggerProcessingManager.determineContext(PROCESS_NAME);
+  }
 
-    @IsTest
-    public static void testGetProcessesAndExecute(){
-        list<Trigger_Configuration__mdt> processes = TriggerProcessingManager.getProcesses(PROCESS_NAME, 'before', 'insert');
-        TriggerProcessingManager.executeProcess(processes[0].Implementing_Class__c, null, null);
-        TriggerProcessingManager.preventMultipleRuns(processes[0].Implementing_Class__c);
-    }
-
+  @IsTest
+  public static void testGetProcessesAndExecute() {
+    list<Trigger_Configuration__mdt> processes = TriggerProcessingManager.getProcesses(
+      PROCESS_NAME,
+      'before',
+      'insert'
+    );
+    TriggerProcessingManager.executeProcess(
+      processes[0].Implementing_Class__c,
+      null,
+      null
+    );
+    TriggerProcessingManager.preventMultipleRuns(
+      processes[0].Implementing_Class__c
+    );
+  }
 }

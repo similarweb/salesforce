@@ -1,13 +1,15 @@
 /**
- * Description 		:	Autopopulates Quote Is_US_customer__c field based on zqu__SoldToContact__c 						
+ * Description 		:	Autopopulates Quote Is_US_customer__c field based on zqu__SoldToContact__c
  * Usage			:	Set as custom Populate Value Plugin for Zuora's CreateQuote component.
  * Created By 		:	Victoria Khanchevskaya from Synebo Nov'18
- * 
+ *
  */
 global class QuoteAutoPopulateValues extends zqu.CreateQuoteController.PopulateDefaultFieldValuePlugin {
-    
-    global override void populateDefaultFieldValue (SObject record, zqu.PropertyComponentController.ParentController pcc){   
-        /* Id contactId; 
+  global override void populateDefaultFieldValue(
+    SObject record,
+    zqu.PropertyComponentController.ParentController pcc
+  ) {
+    /* Id contactId; 
         if(!Test.isRunningTest()){
             super.populateDefaultFieldValue(record, pcc);
         }
@@ -27,5 +29,5 @@ global class QuoteAutoPopulateValues extends zqu.CreateQuoteController.PopulateD
                 record.put('Is_US_customer__c', 'ROW');
             }
         } */
-    }
+  }
 }

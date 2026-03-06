@@ -4,9 +4,8 @@
 
 @isTest
 private class ZAddBasePackageCustomActionPluginTest {
-
-    @isTest
-    static void test(){
-        new ZuoraAddBasePackageCustomActionPlugin().perform(null,null,null);
-    }
+  @isTest
+  static void test() {
+    new ZuoraAddBasePackageCustomActionPlugin().perform(null, null, null);
+  }
 }
