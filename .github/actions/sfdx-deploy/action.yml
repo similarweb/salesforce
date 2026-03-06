@@ -38,9 +38,8 @@ runs:
   using: "composite"
   steps:
     - name: Setup Salesforce CLI
-      uses: salesforce/salesforce-cli-action@v1
-      with:
-        version: "2.x"
+      shell: bash
+      run: npm install -g @salesforce/cli
 
     - name: Authenticate with Salesforce
       shell: bash
