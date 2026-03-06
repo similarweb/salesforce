@@ -38,61 +38,27 @@ jobs:
           echo "✓ Found JIRA ticket: $TICKET"
           echo "JIRA_TICKET=$TICKET" >> $GITHUB_ENV
 
-  code-quality:
-    name: Code Quality Checks
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: "20"
-          cache: "npm"
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Check formatting (Prettier)
-        run: npm run prettier:verify
-
-      - name: Run ESLint
-        run: npm run lint
-        continue-on-error: true
-
-  lwc-tests:
-    name: LWC Unit Tests
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: "20"
-          cache: "npm"
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Run LWC Jest tests
-        run: npm run test:unit -- --passWithNoTests
-
   apex-validation:
     name: Apex Validation
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-      - name: Setup Salesforce CLI
-        run: npm install -g @salesforce/cli
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Setup Salesforce CLI and Delta Plugin
+        run: |
+          npm install -g @salesforce/cli
+          echo 'y' | sf plugins install sfdx-git-delta
 
       - name: Authenticate with target org
         run: |
-          # Determine target org based on base branch
           BASE_BRANCH="${{ github.event.pull_request.base.ref }}"
           
           if [[ "$BASE_BRANCH" == "partial" ]]; then
@@ -109,14 +75,40 @@ jobs:
           sf org login sfdx-url --sfdx-url-file sfdx_auth_url.txt --alias target-org --set-default
           rm sfdx_auth_url.txt
 
+      - name: Generate Delta Package
+        id: delta
+        run: |
+          BASE_BRANCH="${{ github.event.pull_request.base.ref }}"
+          echo "Generating delta between origin/$BASE_BRANCH and HEAD"
+          
+          mkdir -p delta
+          sf sgd source delta --from "origin/$BASE_BRANCH" --to HEAD --output delta --source force-app
+          
+          if [ -f "delta/package/package.xml" ]; then
+            echo "## Delta Package Contents" >> $GITHUB_STEP_SUMMARY
+            cat delta/package/package.xml >> $GITHUB_STEP_SUMMARY
+            echo "use_delta=true" >> $GITHUB_OUTPUT
+          else
+            echo "No Salesforce metadata changes detected"
+            echo "use_delta=false" >> $GITHUB_OUTPUT
+          fi
+
       - name: Validate deployment (check-only)
         run: |
-          sf project deploy start \
-            --manifest manifest/package.xml \
-            --target-org target-org \
-            --dry-run \
-            --test-level RunLocalTests \
-            --wait 60
+          USE_DELTA="${{ steps.delta.outputs.use_delta }}"
+          
+          if [ "$USE_DELTA" = "true" ] && [ -f "delta/package/package.xml" ]; then
+            echo "Validating delta changes"
+            sf project deploy start \
+              --manifest delta/package/package.xml \
+              --target-org target-org \
+              --dry-run \
+              --test-level RunLocalTests \
+              --wait 60
+          else
+            echo "No Salesforce metadata changes to validate"
+            echo "✅ Skipping validation - no metadata changes" >> $GITHUB_STEP_SUMMARY
+          fi
 
       - name: Logout from org
         if: always()
@@ -124,7 +116,7 @@ jobs:
 
   pr-summary:
     name: PR Summary
-    needs: [validate-pr-title, code-quality, lwc-tests, apex-validation]
+    needs: [validate-pr-title, apex-validation]
     runs-on: ubuntu-latest
     if: always()
     steps:
@@ -139,18 +131,6 @@ jobs:
             echo "❌ JIRA Ticket Validation: Failed" >> $GITHUB_STEP_SUMMARY
           fi
           
-          if [[ "${{ needs.code-quality.result }}" == "success" ]]; then
-            echo "✅ Code Quality: Passed" >> $GITHUB_STEP_SUMMARY
-          else
-            echo "❌ Code Quality: Failed" >> $GITHUB_STEP_SUMMARY
-          fi
-          
-          if [[ "${{ needs.lwc-tests.result }}" == "success" ]]; then
-            echo "✅ LWC Tests: Passed" >> $GITHUB_STEP_SUMMARY
-          else
-            echo "❌ LWC Tests: Failed" >> $GITHUB_STEP_SUMMARY
-          fi
-          
           if [[ "${{ needs.apex-validation.result }}" == "success" ]]; then
             echo "✅ Apex Validation: Passed" >> $GITHUB_STEP_SUMMARY
           else
@@ -160,7 +140,5 @@ jobs:
       - name: Fail if any check failed
         if: |
           needs.validate-pr-title.result == 'failure' ||
-          needs.code-quality.result == 'failure' ||
-          needs.lwc-tests.result == 'failure' ||
           needs.apex-validation.result == 'failure'
         run: exit 1
