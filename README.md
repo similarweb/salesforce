@@ -1,6 +1,6 @@
-# SimilarWeb Salesforce Core
+# <img src="https://www.similarweb.com/corp/wp-content/uploads/2022/03/Group.svg" alt="similarweb" height="28"> similarweb Salesforce Core
 
-Salesforce DX project containing the core Salesforce customizations for SimilarWeb.
+Salesforce DX project containing the core Salesforce customizations for similarweb.
 
 ## Environments
 
@@ -51,7 +51,7 @@ force-app/
 
 - [Salesforce CLI](https://developer.salesforce.com/tools/sfdxcli)
 - [Node.js](https://nodejs.org/) (LTS version recommended)
-- Access to SimilarWeb Salesforce org
+- Access to similarweb Salesforce org
 
 ## Development Environment Setup
 
