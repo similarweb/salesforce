@@ -99,11 +99,12 @@ jobs:
           
           if [ "$USE_DELTA" = "true" ] && [ -f "delta/package/package.xml" ]; then
             echo "Validating delta changes"
+            # Use NoTestRun for PR validation - actual deployment will run tests
             sf project deploy start \
               --manifest delta/package/package.xml \
               --target-org target-org \
               --dry-run \
-              --test-level RunLocalTests \
+              --test-level NoTestRun \
               --wait 60
           else
             echo "No Salesforce metadata changes to validate"
